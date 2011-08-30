@@ -1,0 +1,93 @@
+/*****************************************************************************
+ * ATG database initialization tasks.
+ */
+
+import groovy.xml.StreamingMarkupBuilder
+
+task generateAtgBootstrapChangelog << {
+  def db = "mysql" // "mssql" "mysql" "oracle"
+  def h2compatibilityMode = "MySQL" //Oracle
+  def useH2compatibilityMode = false
+  // Note: h2 can not handle "charset" definitions so they must be removed.
+  
+  def encoding = 'UTF-8'
+  StreamingMarkupBuilder builder = new groovy.xml.StreamingMarkupBuilder()
+  builder.encoding = encoding
+  
+  def FILE_HEAD = """\
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog                  
+xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   
+xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd
+ http://www.liquibase.org/xml/ns/dbchangelog-ext
+ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd\">
+"""
+  def FILE_TAIL = """\
+</databaseChangeLog>
+"""
+  
+  module("mybrand").fullBuildOrder.eachWithIndex { module, index -> 
+    println "------------ ${module.name}"
+    def sqlDir = new File((File)( module.dir ), "sql/install/$db")
+    if (!sqlDir.exists()) {
+      println "$sqlDir doesn't exist!"
+      return
+    }
+    
+    String createSql
+    String dropSql
+    sqlDir.eachFile { sqlFile -> 
+      println "Adding $sqlFile"
+      if (sqlFile.name.startsWith("drop_")) {
+        dropSql = sqlFile.text
+      } else {
+        createSql = sqlFile.text
+      }    
+    }
+
+    def changeSetName = "changeSet_${index.toString().padLeft(4, '0')}_${module.name}"
+    new File("${changeSetName}.xml").withPrintWriter(encoding) { writer ->
+      writer.print FILE_HEAD
+
+      writer.print builder.bind {
+        changeSet(id: changeSetName, author: 'iteego', context: 'prod') {
+          mkp.yieldUnescaped("\n  ")
+          preConditions {
+            mkp.yieldUnescaped("\n    ")
+            not {
+              mkp.yieldUnescaped("\n      ")
+              tableExists(schemaName: 'dbo', tableName: 'bogus_precondition_table')
+              mkp.yieldUnescaped("\n    ")
+            }
+            mkp.yieldUnescaped("\n  ")
+          }
+          mkp.yieldUnescaped("\n")
+          
+          mkp.yieldUnescaped("\n  ")
+          sql {
+            mkp.yieldUnescaped("<![CDATA[$createSql]]>")
+            mkp.yieldUnescaped("\n  ")
+          }
+          mkp.yieldUnescaped("\n")
+
+          mkp.yieldUnescaped("\n  ")
+          rollback {
+            mkp.yieldUnescaped("<![CDATA[$dropSql]]>")
+            mkp.yieldUnescaped("\n  ")
+          }
+          mkp.yieldUnescaped("\n")        
+        }
+        mkp.yieldUnescaped("\n")
+      }
+      
+     
+      writer.print FILE_TAIL
+    }
+  }
+}
+
+
+

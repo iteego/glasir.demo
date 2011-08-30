@@ -1,0 +1,62 @@
+import com.iteego.glasir.build.tasks.*
+
+/*****************************************************************************
+ * We define some global directories which will be used throughout the build
+ * script. Relevant implicit properties from gradle:
+ *
+ * projectDir - the directory where the build.gradle file lives
+ * buildDir   - the directory where this project will store all build artifacts
+ *
+ */
+
+/*****************************************************************************
+ * Set maven/ivy group and version if we would ever want to publish things into
+ * a repo. This is the root project and the root project group is used as a
+ * prefix for all subprojects
+ *
+ */
+group = 'com.mybrand'
+version = '1.0'
+
+//globalDir is the root of the scm structure 
+globalDir = file(projectDir, "..")
+
+company = "mycompany"
+brand = "mybrand"
+consumerEar = file(buildDir, "${brand}.ear")
+staticConsumerDocRoot = "$globalDir/$company/$brand/Webapp/docroot"
+
+promptDir (message: "Please provide a valid ATG installation directory (with subdirectories home, DAS): ",
+           propertyName: "atgRoot",
+           blockUntilSubItemsExist: "home/localconfig,home/bin, DAS",
+           propertyFile: "$globalDir/.local.build.properties",
+           loadQuietly: true)
+promptDir (message: "Please provide a valid JBoss installation directory (with subdirectories bin, lib and server): ",
+           propertyName: "jbossRoot",
+           blockUntilSubItemsExist: "bin,lib,server",
+           propertyFile: "$globalDir/.local.build.properties")
+
+//On hudson or other environments we can set the environment either by 
+//a system property -Dorg.gradle.project.env=production or by 
+//an environment variable ORG_GRADLE_PROJECT_env=production
+environment = (hasProperty('env') && getProperty('env')) ? getProperty('env') : 'development'
+println ">"
+println "> Company is \"$company\", Brand is \"$brand\"."
+println "> Environment is set to: $environment"
+println ">"
+
+
+task configureEnvironment << {
+  if (['development','sandbox'].contains(environment)) {
+    println "> Configuring ear assembler tasks to run in DEVELOPMENT mode"
+    tasks.findAll { it instanceof AtgAssemblerTask }.each { earTask ->
+      earTask.pack = false
+      earTask.standalone = true
+      earTask.overwrite = false
+      //earTask.runInPlace = true
+    }
+  } else {
+    getTasksByName(':clean', false).each { it.execute() }
+  }
+}
+

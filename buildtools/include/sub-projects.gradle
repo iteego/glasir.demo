@@ -1,0 +1,87 @@
+
+/******************************************************************************
+ * Gradle project and sub-project setup calls
+ *****************************************************************************/
+
+/*
+ * Gradle built in method which will enable us to do things like "gradle build"
+ * on the root project and trigger a build on every child project
+ */
+dependsOnChildren()
+
+// Add some behavior to all projects including the root one.
+allprojects {
+  apply plugin: 'groovy'
+  
+  repositories {
+    mavenCentral()
+  }
+
+  dependencies {
+    def groovyVersion = "org.codehaus.groovy:groovy:1.7.10"
+
+    // The below enables us to write atg classes in mixed java/groovy. Groovy
+    // jar will be downloaded and cached from a maven repo on demand.
+    groovy groovyVersion
+
+    testCompile "junit:junit:4.8.2", 
+                "org.mockito:mockito-all:1.8.5",
+		groovyVersion
+
+    compile  "junit:junit:4.8.2", 
+              "org.mockito:mockito-all:1.8.5"
+  }
+
+  sourceCompatibility = "1.6"
+  targetCompatibility = "1.6"
+  
+  compileJava {
+    options.compilerArgs = ['-Xlint:deprecation'] //, '-Xlint:unchecked']
+  }
+}
+
+
+// Add behavior to all sub-projects (that is: not to the root project).
+subprojects {
+  // set the maven 'group' for the sub project,
+  group = getProjectGroup(project, true)
+
+  test {
+    testResultsDir = rootProject.testResultsDir 
+    testReportDir = rootProject.testReportDir 
+    //maxParallelForks = 10
+  }
+
+  setupAtgDependencies(project, ['compile', 'testCompile'])
+
+  // Adds a 'print' task which you can run from the subprojects. I.e. you can cd into a project dir and
+  // run 'gradle print' to get a dependency tree for that project.
+  task print << {
+    printTree(project)
+  }
+
+  
+  // Add a module tree printout as a first step of any 'build' calls on the subprojects
+  // build.dependsOn(print)
+  jar  {
+    //only create a jar file if we have some classes to jar up, 
+    //to to this we check if the 'compileJava' task did any work (if so, we have something
+    //to jar up). TODO: if we need to create resources-only jars, this needs changing
+    onlyIf {
+      compileJava.didWork
+    }
+
+    // Change where the resulting jar will end up
+    destinationDir = file("lib")
+    baseName = 'classes'
+  }
+
+  clean << {
+    ant.delete file: 'lib/classes.jar'
+    if (!file('lib').listFiles()) {
+      ant.delete dir: 'lib'
+    }
+  }
+}
+
+

@@ -1,0 +1,91 @@
+
+/******************************************************************************
+* Tasks for starting/stopping local dev instances of jboss
+*/
+task launchDevStore << {
+  startJBossInstance("development", "store", true, 8787)
+}
+task shutdownDevStore << {
+  stopJBossInstance("development", "store")
+}
+task launchDevAdmin << {
+  startJBossInstance("development", "admin", true, 9797)
+}
+task shutdownDevAdmin << {
+  stopJBossInstance("development", "admin")
+}
+
+
+/******************************************************************************
+* Utility methods for dealing with local jboss start/stop
+* 
+* environment is one of: 'sandbox', 'development', etc
+* serverType is one of: 'store', 'admin', 'fulfillment', etc
+*/
+def startJBossInstance(environment, serverType, debug=false, debugPort=8787) {
+  def serverName = mybrand // "mybrand-$environment-$serverType" //mybrand-development-store
+  def serverDir = file("$jbossRoot/server/$serverName")
+  if (!serverDir.exists()) {
+    println "ERROR: Can start jboss for non-existent server: $serverDir"
+  }
+
+  javaexec {
+    main = "org.jboss.Main"
+    classpath = files("$jbossRoot/bin/run.jar") 
+    workingDir = "$serverDir"
+    args "-b"
+    args "0.0.0.0"
+    args "-c"
+    args serverName
+
+    systemProperty "atg.dynamo.server.name", serverName
+    systemProperty "atg.dynamo.data-dir",    "$serverDir/ATG-Data"
+    systemProperty "java.endorsed.dirs",     "$jbossRoot/lib/endorsed"
+    //systemProperty "atg.applauncher.versioner.Versionator.debug", "true"
+    //jvmArgs "-Dhttp.proxyHost=${proxy}"
+    //jvmArgs "-Dhttp.proxyPort=${proxyport}"
+    //jvmArgs "-Dhttps.proxyHost=${proxy}"
+    //jvmArgs "-Dhttps.proxyPort=${proxyport}"
+    jvmArgs "-Xms256m"
+    jvmArgs "-Xmx1024m"
+    jvmArgs "-XX:MaxPermSize=128m"
+    jvmArgs "-Xdebug"
+    jvmArgs "-Xrunjdwp:transport=dt_socket,address=$debugPort,server=y,suspend=n"
+
+  }
+}
+
+/******************************************************************************
+* environment is one of: 'sandbox', 'development', etc
+* serverType is one of: 'store', 'admin', 'fulfillment', etc
+*/
+def stopJBossInstance(environment, serverType) {
+  def serverName = brand // "mybrand-$environment-$serverType" //mybrand-development-store
+  def jnpPort = getJnpPortForJbossServer(environment, serverName)
+  
+  javaexec {
+    main = "org.jboss.Shutdown"
+    classpath = files("$jbossRoot/bin/shutdown.jar", "$jbossRoot/client/jbossall-client.jar") 
+    args "-s"
+    args "jnp://localhost:$jnpPort"
+    args "-u"
+    args "admin"
+    args "-p"
+    args "admin"
+  }
+}
+
+/******************************************************************************
+* Looks at the jboss-service.xml for the server in question to figure out which 
+* port we should use when asking the server to shut itself down
+*/
+int getJnpPortForJbossServer(environment, serverName) {
+  def jbossServiceFile = file("$globalDir/servers/jboss/$serverName/conf/jboss-service.xml") //file("$globalDir/servers/jboss/$environment/$serverName/conf/jboss-service.xml")
+  def mbeans = new XmlParser().parse(jbossServiceFile)
+  def portNode = mbeans.find { it.'@code' == 'org.jboss.naming.NamingService' }.attribute.find {
+    it.'@name' == "Port"
+  }
+  
+  portNode.text().toInteger()
+}
+

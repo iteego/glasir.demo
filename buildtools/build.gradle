@@ -1,0 +1,119 @@
+/*
+ * Copyright (C) 2011 Iteego Inc and Matias Bjarland <mbjarland@gmail.com>
+ *
+ * This file is part of Glasir, a Gradle build framework for ATG E-Commerce
+ * projects created by Iteego Inc and Matias Bjarland.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+
+/*
+ * ****************************************************************************
+ *
+ * The first line below applies the glasir build plugin for ATG projects to this
+ * gradle build file. This injects a number of conventional methods and properties
+ * into this build file.
+ *
+ * Applying this plugin also automatically adds project dependencies to 
+ * the sub-projects of this project. These dependecies are based on the ATG 
+ * module dependencies defined in MANIFEST.MF files in the scm directory 
+ * structure for this project. In essence this translates the ATG module 
+ * structure into a gradle project structure (viewable via running
+ * 'gradle projects' in the 'buildtools' dir). In practice this means that if
+ * an ATG module 'A' says:
+ *
+ * ATG-Required: B
+ *
+ * in its MANIFEST.MF file and you run "gradle :A:build" to execute the 
+ * 'build' task on the project 'A' then gradle will first build the gradle 
+ * project for module 'B' as 'B' is marked as required by A. It will then 
+ * build project 'A' and include the jar created by B and all the jars
+ * B needs in its compile classpath. This is transitive so build chains of
+ * arbitrary depth can be created.
+ *
+ */
+apply plugin: 'glasir'
+
+/*****************************************************************************
+ * Include a gradle file which defines brand name, ear file names, and 
+ * other propeties specific to this build 
+ */
+apply from: "include/environment.gradle"
+
+/*****************************************************************************
+ * project description - displayed in 'gradle tasks', 'gradle projects' etc
+ * output
+ */
+task help << { 
+ println """\
+
+Welcome to Gradle ${gradle.gradleVersion}
+To run a build, run gradle <task> ...
+To see a list of available tasks, run gradle tasks
+To see a list of command-line options, run gradle --help
+ 
+******************************* Project Help **********************************
+This is gradle project for building, testing, and assembling the ${rootProject.name} 
+ecommerce project 
+
+Example usages: 
+  gradle tasks                - Show common tasks.
+  gradle projects             - Show the global project structure.
+  gradle test                 - Compile main and test sources, execute unit 
+                                tests in all modules, and generate reports.
+  gradle build                - Compile main sources.
+  gradle :MyBrand:Store:build - Run the build task on a specific atg module 
+                                (MyBrand.Store) and all its dependencies.
+  gradle printMyBrand.Store   - print a dependency tree for a specific atg 
+                                module (MyBrand.Store in this example).
+
+Project version: ${version}
+"""
+}
+
+/*****************************************************************************
+ * Include an external file with configurations for all the sub projects / atg 
+ * modules. This file applies the 'java' plugin to all projects which make 
+ * conventional tasks such as 'build', 'test', and 'jar' availaible 
+ * (http://www.gradle.org/java_plugin.html)
+ */
+apply from: "include/sub-projects.gradle" 
+
+/*****************************************************************************
+ * Include an external file which defines the main ear assembly and deployment
+ * tasks for this build.
+ */
+apply from: "include/assembly-tasks.gradle"
+
+/*****************************************************************************
+ * Include an external file which defines tasks for stopping and starting 
+ * the local dev jboss instance (and potentially local ones on the ci server
+ * etc).
+ */
+apply from: "include/jboss-tasks.gradle"
+
+
+/*****************************************************************************
+ * Include an external file which defines some useful rules for analysing 
+ * the given ATG module structure etc.
+ */
+apply from: "include/rules.gradle"
+
+
+/*****************************************************************************
+ * Include an external file with tasks for atg data.
+ */
+apply from: "include/atg-db-tasks.gradle" 
+

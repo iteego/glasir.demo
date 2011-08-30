@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+ATG-Required: DAS
+ATG-Config-Path: config
+

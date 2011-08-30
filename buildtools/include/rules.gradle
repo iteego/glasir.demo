@@ -1,0 +1,55 @@
+/*****************************************************************************
+* Add a rule for printing the dependency tree of an
+* arbitrary ATG module. Example ATG has a module called
+* 'DCS', the below will let you execute "gradle printDCS"
+*/
+tasks.addRule("""\
+Pattern: print<AtgModuleName>: Prints a module dependency tree for an atg module
+         Example: 'gradle printDCS.Search.Order.Index' will print out dependency tree for
+                  module 'DCS.Search.Order.Index'""") { String taskName ->
+  if (taskName.startsWith("print")) {
+    task(taskName) << {
+      printTree(taskName - "print")
+    }
+  }
+}
+
+tasks.addRule("""\
+Pattern: checkManifest<AtgModuleName>: Checks the module MANIFEST.MF against the contents of 
+         the <module root>/lib directory to see if the ATG-Class-Path contains all the jars 
+         in the lib directory and vice versa""") { String taskName ->
+  if (taskName.startsWith("checkManifest")) {
+    task(taskName) << {
+      def moduleName = (taskName - "checkManifest")
+      def m = module(moduleName)
+      Set<File> cpFiles = m.fullClasspath
+      Set<File> libFiles = []      
+      new File(m.dir, "lib").eachFileRecurse { f -> 
+        libFiles << f
+      }
+    
+      def inCpNotInLib = (cpFiles - libFiles).findAll { it.canonicalPath.contains(m.dir.canonicalPath) } 
+      if (inCpNotInLib) {
+        println "Files referred to in MANIFEST.MF ATG-Class-Path that do not exist on disk:"
+        (inCpNotInLib).sort { a, b -> a.name.compareTo(b.name) }.each {
+          if (!it.canonicalPath.contains(m.dir.canonicalPath)) return
+          println "  $it"
+        }
+      } else {
+        println "All the files in the MANIFEST.MF ATG-Class-Path attribute exist - OK" 
+      }
+      
+      println ""
+      def inLibNotInCp = (libFiles - cpFiles)
+      if (inLibNotInCp) {
+        println "Files in <moduleDir>/lib which are not referred to in MANIFEST.MF ATG-Class-Path:"
+        inLibNotInCp.sort { a, b -> a.name.compareTo(b.name) }.each {
+          println "  $it"
+        }      
+      } else {
+        println "All the files <moduleDir>/lib are referred to in MANIFEST.MF ATG-Class-Path - OK" 
+      }
+    }
+  }
+}
+

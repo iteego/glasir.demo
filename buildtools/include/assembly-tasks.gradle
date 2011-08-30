@@ -1,0 +1,111 @@
+import com.iteego.glasir.build.tasks.*
+
+/*****************************************************************************
+ * Ear assembling tasks.
+ *
+ * NOTE: The default behavior for a ear task is 'release'
+ * or 'production' behavior. We've made the development setup a special case
+ * and there is a special task 'enableDevSettings' which you need to add
+ * first in your dependsOn chain if you want to call the ear tasks and have
+ * them generate dev enabled EAR files
+ *
+ *
+ * Available attributes and their defaults:
+ *
+ *   File    outputFile - the ear file to be created
+ *           default: none
+ *   String  modules - names of the atg modules to assemble
+ *           default: none
+ *   boolean standalone - whether or not to include atg in the ear
+ *           default: false
+ *   boolean overwrite - whether to overwrite if exploded ear is present
+ *           default: true
+ *   boolean pack - whether to pack the resulting exploded dir into an archive
+ *           default: true
+ *   ConfigurableFileCollection searchRootDirs - where to search for modules
+ *           when assembling the ear. You can create a custom one using something
+ *           like "searchRootDirs = files('pathOne', 'pathTwo')"
+ *           default: uses the configured atgRoot and the root of the source
+ *                    control dir tree as search roots
+ *   boolean loggingDebug - enable debug logging on the atg assembler
+ *           default: false
+ *
+ *
+ */
+
+
+task createBigEar(type: AtgAssemblerTask) {
+  dependsOn = ["configureEnvironment", ":build"] 
+  description = "Builds ${brand} and creates the big ear"
+
+  modules = moduleMap.keySet().findAll( { it.startsWith('env.') || it.equals('env') } ).join( " " )
+
+  outputFile = consumerEar
+  standalone = true
+  liveconfig = true
+  pack = true
+  extraClasspath = files("${globalDir}/buildtools/gradle-lib/dtds.jar")
+  loggingDebug = false
+
+  doAfterAssembly {
+    def earPath = consumerEar.absolutePath + (pack ? ".exploded" : "")
+    copy {
+      file("${globalDir}/servers/atg").eachDir { from it }
+      into "${earPath}/atg_bootstrap.war/WEB-INF/ATG-INF/home/servers"
+    }
+  }
+}
+
+
+task release(dependsOn: ['createBigEar']) << {
+  description = "Creates release-ready ear files"
+}
+
+
+task setupDevServer << {
+  copy {
+    from "$jbossRoot/server/default"
+    from "$globalDir/servers/jboss/storefront/development"
+    into "$jbossRoot/server/${brand}" //x
+  }
+}
+
+task setupServers(dependsOn: ['setupDevServer']) { }
+
+
+// ToDo: this needs to be rewritten using a new task.
+// Quick task to refresh jsp only
+task jsp(type: Sync) {
+  from "$globalDir/MyBrand/Consumer/Webapp/j2ee-apps/Storefront/store.war"
+  into "$jbossRoot/server/MyBrand-$environment-store/deploy/MyBrand-Consumer.ear/storefront.war"
+}
+
+
+
+task deployDev(dependsOn: ['createBigEar', 'setupDevServer']) << {
+  def jbossServerDir = "$jbossRoot/server/${brand}"
+  //println "jbossServerDir=$jbossServerDir"
+
+  ant.sync(todir: "$jbossServerDir/deploy/${brand}.ear") {
+    if (consumerEar.isDirectory()) {
+      fileset dir: "${consumerEar}"
+    } else {
+      fileset file: "${consumerEar}"
+    }
+  }
+
+  ant.sync(todir: "$jbossServerDir/deploy/jboss-web.deployer/ROOT.war/") {
+    fileset dir: "${staticConsumerDocRoot}"
+  }
+
+}
+
+
+task devDeploy(dependsOn: [':clean', 'deployDev']) << {
+  description = "Compiles, tests, assembles ears, and deploys ear file to jboss"
+}
+
+task cleanAll(dependsOn: [':clean']) << {
+  description = "Cleans out all the 'build' directories in the source tree _AND_ the jboss server dirs"
+  delete("$jbossRoot/server/${brand}")
+}

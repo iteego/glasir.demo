@@ -1,0 +1,17 @@
+bThis directory contains data files for storing passivated session EJB
+instances.  These files are maintained automatically by Dynamo, and
+should not require administrative intervention.  However, if
+necessary, files may be removed from this directory, with the effect
+that the passivated EJB's stored in those files will be destroyed.
+Under no circumstances should files be added, removed, or modified in
+this directory while Dynamo is running.
+
+Each running Dynamo instance should have its own directory for storing
+passivated EJB instances.  If multiple servers are being run from the
+same Dynamo installation (using the "servername" form of the
+startDynamo command), then the
+{DYNAMO_HOME}/home/servers/{servername}/sessionswap directory should
+be used.  Otherwise, the {DYNAMO_HOME}/home/sessionswap directory
+should be used.
+
+
