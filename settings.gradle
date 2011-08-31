@@ -71,7 +71,7 @@ new GlasirSettingsConvention().with {
   // all relevant ATG modules and analyze the ATG module dependencies of the
   // project. settingsDir is a gradle injected property representing the directory
   // where the settings.gradle file lives
-  moduleSearchRoot dir: file(atgRoot), isAtgCore: true, includes: "."
+  moduleSearchRoot dir: file(atgRoot), isAtgCore: true
   moduleSearchRoot dir: settingsDir, isAtgCore: false, includes: "mycompany"
 
   //the below configures the gradle subprojects using the given module

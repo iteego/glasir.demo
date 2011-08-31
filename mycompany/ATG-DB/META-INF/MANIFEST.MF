@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-ATG-Required: DafEar.Admin DSS
+ATG-Required: DAS DSS
 ATG-Config-Path: config
 ATG-Class-Path: lib/classes.jar lib/liquibase-2.0.1.jar lib/groovy-all-1.7.10.jar
 ATG-Client-Class-Path: lib/classes.jar lib/liquibase-2.0.1.jar lib/groovy-all-1.7.10.jar
