@@ -7,7 +7,7 @@ import groovy.xml.StreamingMarkupBuilder
 task generateAtgBootstrapChangelog << {
   def db = "mysql" // "mssql" "mysql" "oracle"
   def h2compatibilityMode = "MySQL" //Oracle
-  def useH2compatibilityMode = false
+  def useH2compatibilityMode = true
   // Note: h2 can not handle "charset" definitions so they must be removed.
   
   def encoding = 'UTF-8'
@@ -29,7 +29,8 @@ xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
 </databaseChangeLog>
 """
   
-  module("mybrand").fullBuildOrder.eachWithIndex { module, index -> 
+  //module("mybrand").fullBuildOrder.eachWithIndex { module, index ->
+  moduleMap.eachWithIndex { moduleName, module, index ->
     println "------------ ${module.name}"
     def sqlDir = new File((File)( module.dir ), "sql/install/$db")
     if (!sqlDir.exists()) {
