@@ -1,0 +1,17 @@
+#!/bin/bash
+
+PIDS=`ps -eaf | grep org.jboss.Main | grep -vE "grep|killjboss" | awk '{print $2}'`
+
+if [ -n "$PIDS" ]  
+then
+  SIGNAL=""
+  if [ ! -z $1 ]
+  then 
+    SIGNAL=" $1"
+  fi 
+  echo "Sending kill$SIGNAL signal to JBoss instance(s):"
+  echo $PIDS
+  echo $PIDS | xargs kill $1    
+else 
+  echo "No running jboss instances detected"
+fi

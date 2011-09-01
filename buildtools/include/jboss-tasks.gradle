@@ -1,9 +1,10 @@
-
+println "brand:: $brand"
 /******************************************************************************
 * Tasks for starting/stopping local dev instances of jboss
 */
 task launchDevStore << {
-  startJBossInstance("development", "store", true, 8787)
+  //dependsOn << "configureEnvironment"
+  startJBossInstance( "development", "store", true, 8787)
 }
 task shutdownDevStore << {
   stopJBossInstance("development", "store")
@@ -22,8 +23,8 @@ task shutdownDevAdmin << {
 * environment is one of: 'sandbox', 'development', etc
 * serverType is one of: 'store', 'admin', 'fulfillment', etc
 */
-def startJBossInstance(environment, serverType, debug=false, debugPort=8787) {
-  def serverName = mybrand // "mybrand-$environment-$serverType" //mybrand-development-store
+def startJBossInstance( environment, serverType, debug=false, debugPort=8787) {
+  def serverName = brand // "mybrand-$environment-$serverType" //mybrand-development-store
   def serverDir = file("$jbossRoot/server/$serverName")
   if (!serverDir.exists()) {
     println "ERROR: Can start jboss for non-existent server: $serverDir"
@@ -60,7 +61,7 @@ def startJBossInstance(environment, serverType, debug=false, debugPort=8787) {
 * serverType is one of: 'store', 'admin', 'fulfillment', etc
 */
 def stopJBossInstance(environment, serverType) {
-  def serverName = brand // "mybrand-$environment-$serverType" //mybrand-development-store
+  def serverName = "storefront/development" // "mybrand-$environment-$serverType" //mybrand-development-store
   def jnpPort = getJnpPortForJbossServer(environment, serverName)
   
   javaexec {
