@@ -82,7 +82,8 @@ task jsp(type: Sync) {
 
 
 
-task deployDev(dependsOn: ['createBigEar', 'setupDevServer']) << {
+task devDeploy(dependsOn: [':clean', 'createBigEar', 'setupDevServer']) << {
+  description = "Compiles, tests, assembles ears, and deploys ear file to jboss"
   def jbossServerDir = "$jbossRoot/server/${brand}"
   //println "jbossServerDir=$jbossServerDir"
 
@@ -97,13 +98,8 @@ task deployDev(dependsOn: ['createBigEar', 'setupDevServer']) << {
   ant.sync(todir: "$jbossServerDir/deploy/jboss-web.deployer/ROOT.war/") {
     fileset dir: "${staticConsumerDocRoot}"
   }
-
 }
 
-
-task devDeploy(dependsOn: [':clean', 'deployDev']) << {
-  description = "Compiles, tests, assembles ears, and deploys ear file to jboss"
-}
 
 task cleanAll(dependsOn: [':clean']) << {
   description = "Cleans out all the 'build' directories in the source tree _AND_ the jboss server dirs"
