@@ -46,6 +46,7 @@ buildscript {
   // for details
   dependencies {
     classpath('com.iteego.glasir:glasir.build:1.0.8-SNAPSHOT') { changing=true }
+    //classpath files("$settingsDir/buildtools/buildlib/glasir.build-1.0.8-SNAPSHOT.jar")
   }
 
   //we need a bit of magic here so that we don't have to do the module scan twice,
