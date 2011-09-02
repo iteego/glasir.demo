@@ -49,7 +49,7 @@ xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
       }    
     }
 
-    def changeSetName = "changeSet_${index.toString().padLeft(4, '0')}_${module.name}"
+    def changeSetName = "${db}-changeSet_${index.toString().padLeft(4, '0')}_${module.name}"
     new File("${changeSetName}.xml").withPrintWriter(encoding) { writer ->
       writer.print FILE_HEAD
 

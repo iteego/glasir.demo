@@ -1,4 +1,4 @@
 ATG-Install-Unit: mycompany
-ATG-Install-Version: mycompany@10.0.1
+ATG-Install-Version: mycompany@10.0.2
 ATG-Install-Requires: ATGPlatform@10.0
 
