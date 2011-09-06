@@ -43,6 +43,7 @@ task createBigEar(type: AtgAssemblerTask) {
   description = "Builds ${brand} and creates the big ear"
 
   modules = moduleMap.keySet().findAll( { it.startsWith('env.') || it.equals('env') } ).join( " " )
+  //println "++++++++++++++" + modules
 
   outputFile = consumerEar
   standalone = true
