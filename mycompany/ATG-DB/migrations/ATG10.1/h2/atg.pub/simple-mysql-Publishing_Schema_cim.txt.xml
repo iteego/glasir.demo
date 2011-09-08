@@ -9,6 +9,15 @@ xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
  http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
 
+<changeSet id='changeSet_0000_pub' author='iteego' context='prod'>
+  <preConditions>
+    <not>
+      <tableExists schemaName='dbo' tableName='bogus_precondition_table'/>
+    </not>
+  </preConditions>
+
+  <sql><![CDATA[
+
 -- Collected from DAS/sql/db_components/mysql/id_generator.sql
 
 
@@ -1003,7 +1012,7 @@ commit;
 -- This file contains SQL statements which will initialize theDPS logging/reporting tables.
 -- Set names of the default user event types, and initialize the log entry id counters
 
-	START TRANSACTION;
+--	START TRANSACTION;
 	INSERT INTO dps_event_type (id, name) VALUES (0, 'newsession');
 	INSERT INTO dps_event_type (id, name) VALUES (1, 'sessionexpiration');
 	INSERT INTO dps_event_type (id, name) VALUES (2, 'login');
@@ -6574,6 +6583,11 @@ create table vmap_pvattrdef (
 commit;
 
 
+]]>
+  </sql>
 
+<rollback/>
+
+</changeSet>
 
 </databaseChangeLog>

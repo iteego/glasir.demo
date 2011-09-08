@@ -8,6 +8,14 @@ xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
  http://www.liquibase.org/xml/ns/dbchangelog-ext
  http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
+<changeSet id='changeSet_0000_core' author='iteego' context='prod'>
+  <preConditions>
+    <not>
+      <tableExists schemaName='dbo' tableName='bogus_precondition_table'/>
+    </not>
+  </preConditions>
+
+  <sql><![CDATA[
 
 -- Collected from DAS/sql/db_components/mysql/id_generator.sql
 
@@ -3781,7 +3789,11 @@ create table dcs_site (
 
 commit;
 
+]]>
+  </sql>
 
+<rollback/>
 
+</changeSet>
 
 </databaseChangeLog>
