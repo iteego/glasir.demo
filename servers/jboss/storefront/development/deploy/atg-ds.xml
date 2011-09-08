@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <datasources>
-    <!-- H2 -->
+    <xa-datasource>
+    	<!-- pub hsqldb -->
+        <jndi-name>ATGProductionDS</jndi-name>
+        <track-connection-by-tx/>
+        <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
+        <xa-datasource-class>org.hsqldb.jdbc.pool.JDBCXADataSource</xa-datasource-class>
+        <xa-datasource-property name="Url">jdbc:hsqldb:mem:atg_core</xa-datasource-property>
+        <xa-datasource-property name="User">sa</xa-datasource-property>
+        <xa-datasource-property name="Password"></xa-datasource-property>
+        <min-pool-size>5</min-pool-size>
+        <max-pool-size>20</max-pool-size>
+        <idle-timeout-minutes>10</idle-timeout-minutes>
+        <prepared-statement-cache-size>32</prepared-statement-cache-size>
+    </xa-datasource>
 
     <xa-datasource>
     	<!-- core -->
+	<!-- H2 -->
         <jndi-name>ATGProductionDS-h2mem</jndi-name>
         <track-connection-by-tx/>
         <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
@@ -19,7 +33,7 @@
 
     <xa-datasource>
     	<!-- core -->
-        <jndi-name>ATGProductionDS</jndi-name>
+        <jndi-name>ATGProductionDS-h2file</jndi-name>
         <track-connection-by-tx/>
         <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
         <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
@@ -48,6 +62,24 @@
         <prepared-statement-cache-size>32</prepared-statement-cache-size>
     </xa-datasource>
 
+
+
+
+    <xa-datasource>
+    	<!-- pub hsqldb -->
+        <jndi-name>ATGPublishingDS</jndi-name>
+        <track-connection-by-tx/>
+        <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
+        <xa-datasource-class>org.hsqldb.jdbc.pool.JDBCXADataSource</xa-datasource-class>
+        <xa-datasource-property name="Url">jdbc:hsqldb:mem:atg_pub</xa-datasource-property>
+        <xa-datasource-property name="User">sa</xa-datasource-property>
+        <xa-datasource-property name="Password"></xa-datasource-property>
+        <min-pool-size>5</min-pool-size>
+        <max-pool-size>20</max-pool-size>
+        <idle-timeout-minutes>10</idle-timeout-minutes>
+        <prepared-statement-cache-size>32</prepared-statement-cache-size>
+    </xa-datasource>
+
     <xa-datasource>
     	<!-- pub -->
         <jndi-name>ATGPublishingDS-h2-mem</jndi-name>
@@ -63,10 +95,9 @@
         <prepared-statement-cache-size>32</prepared-statement-cache-size>
     </xa-datasource>
 
-
     <xa-datasource>
     	<!-- pub -->
-        <jndi-name>ATGPublishingDS</jndi-name>
+        <jndi-name>ATGPublishingDS-h2-file</jndi-name>
         <track-connection-by-tx/>
         <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
         <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
