@@ -69,6 +69,10 @@ import liquibase.parser.ChangeLogParserFactory
 import liquibase.change.CheckSum
 import liquibase.exception.ChangeLogParseException
 
+import atg.adapter.gsa.*
+import atg.nucleus.ServiceMap
+
+
 public class LiquibaseService extends GenericService {
   static public final String ROLLBACK_COLUMN_NAME = "ROLLBACKTAG"
   static public final String FILEHASH_COLUMN_NAME = "FILEHASH"
@@ -135,6 +139,35 @@ public class LiquibaseService extends GenericService {
     log = atgLogHelper
   }
 
+  void addH2DatabaseTableInfos() {
+	DatabaseTableInfo dti = new DatabaseTableInfo()
+/*varcharType=VARCHAR2
+longVarcharType=CLOB
+decimalType=DECIMAL
+dateType=DATE
+timestampType=TIMESTAMP
+binaryType=BLOB
+intType=INT
+*/
+
+
+dti.setVarcharType("VARCHAR2");
+dti.setLongVarcharType("CLOB");
+dti.setDecimalType("DECIMAL");
+dti.setDateType("DATE");
+dti.setTimestampType("TIMESTAMP");
+dti.setBinaryType("BLOB");
+dti.setIntType("INT");
+
+ServiceMap serviceMap = new ServiceMap()
+serviceMap.put( "H2", dti )
+	
+	GSARepository rep = new GSARepository()
+	rep.setDatabaseTableInfos( serviceMap )
+
+	rep.databaseTableInfos.each { k, v -> println "databasetableinfo: $k  ->   $v" }
+  }
+
 
   @Override
   public void doStartService() {
@@ -143,6 +176,8 @@ public class LiquibaseService extends GenericService {
       log?.info(" Property \"enabled\" is false, this service will do nothing." )
       return
     }
+
+    addH2DatabaseTableInfos()
 
     log?.debug(" Property \"atg.dynamo.root\" has value: " + atg.nucleus.DynamoEnv.getProperty("atg.dynamo.root") )
     log?.debug( " Property \"migrationRootDir\" has value: $migrationRootDir" )

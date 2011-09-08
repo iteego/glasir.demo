@@ -117,7 +117,7 @@ apply from: "include/rules.gradle"
  */
 apply from: "include/atg-db-tasks.gradle" 
 
-task parseAtgXml() {
+task parseAtgXml << {
 	moduleMap.findAll{it.value.isAtgCore}.each { moduleName, module ->
 		File prodDefFile = new File( module.dir, "cim/product.xml" )
 		if( prodDefFile.exists() ) { 		

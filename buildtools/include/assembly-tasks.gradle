@@ -33,7 +33,7 @@ import com.iteego.glasir.build.tasks.*
  *
  */
 
- task atgCoreSqlInstallationOrder() {
+ task atgCoreSqlInstallationOrder << {
  	 description = "Displays build/install/sql ordering for ATG core modules."
  	 printAtgCoreSqlInstallationOrder()
  }
