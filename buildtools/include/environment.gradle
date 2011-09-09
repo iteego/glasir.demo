@@ -43,6 +43,7 @@ environment = (hasProperty('env') && getProperty('env')) ? getProperty('env') : 
 println ">"
 println "> Company is \"$company\", Brand is \"$brand\"."
 println "> Environment is set to: $environment"
+println "> BuildDir is: $buildDir"
 println ">"
 
 
