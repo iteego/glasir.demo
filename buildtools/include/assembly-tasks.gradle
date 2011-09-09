@@ -58,7 +58,12 @@ task createBigEar(type: AtgAssemblerTask) {
       file("${globalDir}/servers/atg").eachDir { from it }
       into "${earPath}/atg_bootstrap.war/WEB-INF/ATG-INF/home/servers"
     }
-  }
+    
+    new File("${globalDir}/servers/atg").eachDir { dir1 ->
+    	dir1.eachDir {
+    		println "Copying from '${it.canonicalPath}' into '${earPath}/atg_bootstrap.war/WEB-INF/ATG-INF/home/servers'" }
+        }
+    }
 }
 
 
@@ -68,6 +73,7 @@ task release(dependsOn: ['createBigEar']) << {
 
 
 task setupDevServer << {
+  println "Copy from ''
   copy {
     from "$jbossRoot/server/default"
     from "$globalDir/servers/jboss/storefront/development"
