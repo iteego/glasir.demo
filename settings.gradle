@@ -82,3 +82,4 @@ new GlasirSettingsConvention().with {
   //modules
   initializeProjectStructure (settings as Settings, "mycompany")
 }
+
