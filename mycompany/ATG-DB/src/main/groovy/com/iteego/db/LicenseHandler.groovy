@@ -177,7 +177,7 @@ final class LicenseHandler {
     }
 
     if( development ) {
-      log?.info( "ATG_DB license is for Development use only.")
+      log?.info( "This glasir.database license is for Development use only.")
     }
   }
 

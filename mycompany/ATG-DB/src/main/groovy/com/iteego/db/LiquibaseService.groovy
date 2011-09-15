@@ -73,7 +73,15 @@ import atg.adapter.gsa.*
 import atg.nucleus.ServiceMap
 
 
+
 public class LiquibaseService extends GenericService {
+
+  public class ABCDEF implements atg.nucleus.PostStartupAction {
+    void performAction() {
+      System.out.println("ABCDEF")
+    }
+  }
+
   static public final String ROLLBACK_COLUMN_NAME = "ROLLBACKTAG"
   static public final String FILEHASH_COLUMN_NAME = "FILEHASH"
   private static AtgLogHelper log
@@ -100,7 +108,7 @@ public class LiquibaseService extends GenericService {
   long lockRecheckTimeMilliseconds = 5000
   String replacementXmlHeaderFileName = null
 
-  ProgressListener progressListener = null
+  com.iteego.db.ProgressListener progressListener = null
 
   @Delegate
   LicenseHandler licenseHandler = new LicenseHandler( log )
@@ -139,50 +147,25 @@ public class LiquibaseService extends GenericService {
     log = atgLogHelper
   }
 
-  void addH2DatabaseTableInfos() {
-	DatabaseTableInfo dti = new DatabaseTableInfo()
-/*varcharType=VARCHAR2
-longVarcharType=CLOB
-decimalType=DECIMAL
-dateType=DATE
-timestampType=TIMESTAMP
-binaryType=BLOB
-intType=INT
-*/
-
-
-dti.setVarcharType("VARCHAR2");
-dti.setLongVarcharType("CLOB");
-dti.setDecimalType("DECIMAL");
-dti.setDateType("DATE");
-dti.setTimestampType("TIMESTAMP");
-dti.setBinaryType("BLOB");
-dti.setIntType("INT");
-
-ServiceMap serviceMap = new ServiceMap()
-serviceMap.put( "H2", dti )
-	
-	GSARepository rep = new GSARepository()
-	rep.setDatabaseTableInfos( serviceMap )
-
-	rep.databaseTableInfos.each { k, v -> println "databasetableinfo: $k  ->   $v" }
-  }
-
 
   @Override
   public void doStartService() {
-    log?.info("Starting Iteego ATG_DB Database Migrations")
+    log?.info("Starting Iteego glasir.database Database Migrations")
     if( !enabled ) {
       log?.info(" Property \"enabled\" is false, this service will do nothing." )
       return
     }
 
-    addH2DatabaseTableInfos()
-
     log?.debug(" Property \"atg.dynamo.root\" has value: " + atg.nucleus.DynamoEnv.getProperty("atg.dynamo.root") )
     log?.debug( " Property \"migrationRootDir\" has value: $migrationRootDir" )
     log?.debug( " Property \"directoryToJndiMap\" has value: $directoryToJndiMap" )
     log?.debug( " Property \"directoryToJndiMap\" has keys: ${directoryToJndiMap.keySet()}" )
+
+    addH2DatabaseTableInfos()
+
+    log?.error( "Adding PostStartupAction for data import." )
+    atg.nucleus.PostStartupAction psa = new ABCDEF()
+    Nucleus.globalNucleus.addPostStartupAction( psa )
 
     if (!migrationRootDir?.canRead() || !migrationRootDir?.isDirectory()) {
       log.error(" Liquibase patch root \"${migrationRootDir}\" is invalid. CanRead=${migrationRootDir?.canRead()}, isDirectory=${migrationRootDir?.isDirectory()}")
@@ -257,7 +240,7 @@ serviceMap.put( "H2", dti )
       }
     }
 
-    log?.info("Iteego ATG_DB Database Migrations Completed")
+    log?.info("Iteego glasir.database Migrations Completed")
   }
 
   /**
@@ -1097,6 +1080,30 @@ serviceMap.put( "H2", dti )
       System.exit(2)
     //}
   }
+
+
+
+  void addH2DatabaseTableInfos() {
+    // Add the H2 data type names to all ATG repositories.
+    log?.debug( "addH2DatabaseTableInfos" )
+    DatabaseTableInfo dti = new DatabaseTableInfo()
+    dti.setVarcharType("VARCHAR2");
+    dti.setLongVarcharType("CLOB");
+    dti.setDecimalType("DECIMAL");
+    dti.setDateType("DATE");
+    dti.setTimestampType("TIMESTAMP");
+    dti.setBinaryType("BLOB");
+    dti.setIntType("INT");
+
+    ServiceMap serviceMap = new ServiceMap()
+    serviceMap.put("H2", dti)
+
+    GSARepository rep = new GSARepository()
+    rep.setDatabaseTableInfos( serviceMap ) // (this will not destroy existing definitions)
+
+    rep.databaseTableInfos.each { k, v -> log?.debug( "DatabaseTableInfo: $k  ->   $v" ) }
+  }
+
 
 
   public void setDirectoryToJndiMap(Map<String, String> map) {

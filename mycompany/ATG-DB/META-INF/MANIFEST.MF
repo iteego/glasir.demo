@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-ATG-Required: DAS DSS
+ATG-Required: DAS
 ATG-Config-Path: config
 ATG-Class-Path: lib/classes.jar lib/liquibase-2.0.1.jar lib/groovy-all-1.7.10.jar
 ATG-Client-Class-Path: lib/classes.jar lib/liquibase-2.0.1.jar lib/groovy-all-1.7.10.jar

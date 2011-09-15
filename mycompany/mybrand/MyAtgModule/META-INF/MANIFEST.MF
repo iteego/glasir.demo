@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
-ATG-Required: DAS
+ATG-Required: DAS ATGDBSetup
 ATG-Config-Path: config
 
