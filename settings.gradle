@@ -45,7 +45,7 @@ buildscript {
   // see http://docs.codehaus.org/display/MAVEN/Dependency+Mediation+and+Conflict+Resolution#DependencyMediationandConflictResolution-DependencyVersionRanges
   // for details
   dependencies {
-    classpath('com.iteego.glasir:glasir.build:1.0.8-SNAPSHOT') { changing=true }
+    classpath('com.iteego.glasir:glasir.build:1.0.9-SNAPSHOT') { changing=true }
     //classpath files("$settingsDir/buildtools/buildlib/glasir.build-1.0.8-SNAPSHOT.jar")
   }
 
