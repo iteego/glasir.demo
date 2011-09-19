@@ -2,7 +2,7 @@
 <datasources>
     <xa-datasource>
     	<!-- core hsqldb -->
-        <jndi-name>ATGProductionDS-file</jndi-name>
+        <jndi-name>ATGProductionDS</jndi-name>
         <track-connection-by-tx/>
         <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
         <xa-datasource-class>org.hsqldb.jdbc.pool.JDBCXADataSource</xa-datasource-class>
@@ -17,7 +17,7 @@
 
     <xa-datasource>
     	<!-- core hsqldb mem -->
-        <jndi-name>ATGProductionDS</jndi-name>
+        <jndi-name>ATGProductionDS-mem</jndi-name>
         <track-connection-by-tx/>
         <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
         <xa-datasource-class>org.hsqldb.jdbc.pool.JDBCXADataSource</xa-datasource-class>

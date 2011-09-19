@@ -78,6 +78,11 @@ task setupDevServer << {
     from "$globalDir/servers/jboss/storefront/development"
     into "$jbossRoot/server/${brand}" //x
   }
+
+  copy {
+    from "$jbossRoot/server/default"
+    into "jboss-web.deployer"
+  }
 }
 
 task setupServers(dependsOn: ['setupDevServer']) { }
@@ -105,10 +110,13 @@ task devDeploy(dependsOn: [':clean', 'createBigEar', 'setupDevServer']) << {
     }
   }
 
-  ant.sync(todir: "$jbossServerDir/deploy/jboss-web.deployer/ROOT.war/") {
-    fileset dir: "${staticConsumerDocRoot}"
+  ant.sync(
+    //todir: "$jbossServerDir/deploy/jboss-web.deployer/ROOT.war/") {
+    todir: "$jbossServerDir/deploy/ROOT.war/") {
+      fileset dir: "${staticConsumerDocRoot}"
+    }
+    println "staticConsumerDocRoot: " + staticConsumerDocRoot 
   }
-}
 
 
 task cleanAll(dependsOn: [':clean']) << {

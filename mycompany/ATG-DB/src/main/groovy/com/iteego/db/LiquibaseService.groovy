@@ -2,6 +2,10 @@
  * Copyright (c) 2011. Iteego.
  */
 
+/*
+ * Copyright (c) 2011. Iteego.
+ */
+
 
 /*
  * -----------------------------------
@@ -71,6 +75,8 @@ import liquibase.exception.ChangeLogParseException
 
 import atg.adapter.gsa.*
 import atg.nucleus.ServiceMap
+import atg.service.modules.ModuleManager
+import atg.applauncher.MultiInstallLocalAppModuleManager
 
 
 
@@ -78,11 +84,116 @@ public class LiquibaseService extends GenericService {
 
   public class ABCDEF implements atg.nucleus.PostStartupAction {
     void performAction() {
-      System.out.println("ABCDEF")
+      /* Taken from CIM/log/cim.log during simple setup with only b2c chosen.
+        We would like to do this here with the TemplateParser class as
+        used from DatabaseOperationsManager.
+
+      atg.cim.database.ImportDataTask	1 Data Import: Repository:/atg/userprofiling/InternalProfileRepository Path:/Publishing/base/install/epub-role-data.xml Module:DSS.InternalUsers
+      atg.cim.database.ImportDataTask	2 Data Import: Repository:/atg/epub/file/PublishingFileRepository Path:/Publishing/base/install/epub-file-repository-data.xml Module:Publishing.base
+      atg.cim.database.ImportDataTask	3 Repository Loader: Files: DSS/atg/registry/data/scenarios/DSS/*.sdl & DSS/atg/registry/data/scenarios/recorders/*.sdl
+      atg.cim.database.ImportDataTask	4 Data Import: Repository:/atg/userprofiling/PersonalizationRepository Path:/DCS/install/data/initial-segment-lists.xml Module:DPS.Versioned
+      atg.cim.database.ImportDataTask	5 Data Import: Repository:/atg/web/viewmapping/ViewMappingRepository Path:/BCC/install/data/viewmapping.xml Module:BCC
+      atg.cim.database.ImportDataTask	6 Data Import: Repository:/atg/portal/framework/PortalRepository Path:/BIZUI/install/data/portal.xml Module:BIZUI
+      atg.cim.database.ImportDataTask	7 Data Import: Repository:/atg/userprofiling/InternalProfileRepository Path:/BIZUI/install/data/profile.xml Module:BIZUI
+      atg.cim.database.ImportDataTask	8 Data Import: Repository:/atg/web/viewmapping/ViewMappingRepository Path:/BIZUI/install/data/viewmapping.xml Module:BIZUI
+      atg.cim.database.ImportDataTask	9 Data Import: Repository:/atg/web/viewmapping/ViewMappingRepository Path:/AssetUI/install/data/viewmapping.xml Module:AssetUI
+      atg.cim.database.ImportDataTask	10 Data Import: Repository:/atg/web/viewmapping/ViewMappingRepository Path:/AssetUI/install/data/assetManagerViews.xml Module:AssetUI
+      atg.cim.database.ImportDataTask	11 Data Import: Repository:/atg/web/viewmapping/ViewMappingRepository Path:/DPS-UI/install/data/viewmapping.xml Module:DPS-UI
+      atg.cim.database.ImportDataTask	12 Data Import: Repository:/atg/web/viewmapping/ViewMappingRepository Path:/DPS-UI/install/data/examples.xml Module:DPS-UI
+
+
+    (properties taken from ATGDBSetup/config.jar/atg/dynamo/dbsetup/database/DatabaseOperationsManager.properties)
+    XMLToolsFactory=/atg/dynamo/service/xml/XMLToolsFactory
+    idGenerator=/atg/dynamo/service/IdGenerator
+    transactionManager=/atg/dynamo/transaction/TransactionManager
+    versionedLoaderEventListenerName=/atg/epub/file/VersionedLoaderEventListener
+
+      */
+      System.out.println("-------------------------------------")
+      System.out.println(" glasir.database testing data import ")
+      System.out.println("-------------------------------------")
+      Nucleus nucleus = Nucleus.globalNucleus
+      atg.xml.tools.XMLToolsFactory xmlToolsFactory = nucleus.resolveName("/atg/dynamo/service/xml/XMLToolsFactory") as atg.xml.tools.XMLToolsFactory
+      def parser = xmlToolsFactory.createXMLToDOMParser()
+      String jBossRoot = "/work/jboss/jboss-eap-5.1/jboss-as/"
+      String atgRoot = "/work/atg/atg1002/"
+
+
+      println "Test module manager.."
+
+      //atg.service.modules.ModuleManager moduleManager = nucleus.resolveName("/atg/dynamo/dbsetup/module/ModuleManager") as atg.service.modules.ModuleManager
+      //atg.dbsetup.module.ModuleManager mm
+      def moduleManager = nucleus.resolveName("/atg/dynamo/dbsetup/module/ModuleManager")
+      println " moduleManager: $moduleManager"
+      //(moduleManager as GenericService)?.setLoggingDebug( true ) // causes NPE in call to modulePath if it is null
+
+      String modulePath = moduleManager?.modulePath
+      println " module Path: $modulePath"
+
+      def appManager = moduleManager.getAppModuleManager()
+      println " app Manager: $appManager"
+
+      File dasDir = appManager?.getResourceFile('DAS', '')
+      File rootDir =  dasDir?.parentFile
+      println " das Dir : $dasDir"
+      println " root Dir: $rootDir"
+
+      def nam = new MultiInstallLocalAppModuleManager( rootDir.absolutePath, rootDir, "mybrand.MyAtgModule" )
+      println " nam: $nam"
+
+      println " SETTING AppModuleManager"
+      moduleManager.appModuleManager = nam
+
+      modulePath = moduleManager?.modulePath
+      println " module Path 2: $modulePath"
+
+      def inames = moduleManager?.installedModuleNames
+      println " installed modules: ${inames?.join("; ")}"
+
+      def rnames = moduleManager?.runningModuleNames
+      println " running modules: ${rnames?.join("; ")}"
+
+      def dnames = moduleManager?.getDependentModuleNames("DSS")
+      println " dependents: ${dnames?.join("; ")}"
+
+      def alldnames = moduleManager?.getDependentModuleNames( rnames )
+      println " all dependents: ${alldnames?.join("; ")}"
+
+      String dbname = "mysql"
+      def dtaskinfos = moduleManager?.getModuleTaskInfo( rnames, dbname )
+      println " task infos: ${dtaskinfos?.join("; ")}"
+
+
+
+      String pFileName = atgRoot + "/Publishing/base/install/epub-role-data.xml"
+        def closureResult = new File(pFileName).withInputStream { pResourceStream -> //.newInputStream()
+
+        GSARepository repoClone = nucleus.resolveName("/atg/userprofiling/InternalProfileRepository") as GSARepository
+
+        boolean doWithoutTransaction = true
+
+        def nullWriter = new PrintWriter(new StringWriter())
+
+        String logText = "FILE NAME: $pFileName, PARSER: $parser, REPO: $repoClone"
+        log?.debug( logText )
+        System.out.println logText
+
+        atg.adapter.gsa.xml.TemplateParser.addToTemplate(
+            pResourceStream,
+            pFileName,
+            parser,
+            repoClone,
+            0,
+            doWithoutTransaction,
+            nullWriter,
+            null);
+      }
+      System.out.println("-------------------------------------")
     }
   }
 
-  static public final String ROLLBACK_COLUMN_NAME = "ROLLBACKTAG"
+
+static public final String ROLLBACK_COLUMN_NAME = "ROLLBACKTAG"
   static public final String FILEHASH_COLUMN_NAME = "FILEHASH"
   private static AtgLogHelper log
 
@@ -163,9 +274,10 @@ public class LiquibaseService extends GenericService {
 
     addH2DatabaseTableInfos()
 
-    log?.error( "Adding PostStartupAction for data import." )
+    log?.info( "Adding PostStartupAction for data import." )
     atg.nucleus.PostStartupAction psa = new ABCDEF()
     Nucleus.globalNucleus.addPostStartupAction( psa )
+
 
     if (!migrationRootDir?.canRead() || !migrationRootDir?.isDirectory()) {
       log.error(" Liquibase patch root \"${migrationRootDir}\" is invalid. CanRead=${migrationRootDir?.canRead()}, isDirectory=${migrationRootDir?.isDirectory()}")
