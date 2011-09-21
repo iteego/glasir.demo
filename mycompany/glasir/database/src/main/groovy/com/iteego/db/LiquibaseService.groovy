@@ -300,7 +300,7 @@ static public final String ROLLBACK_COLUMN_NAME = "ROLLBACKTAG"
 
     try {
       licenseHandler.log = LiquibaseService.getAtgLogHelper( this )
-      validateLicense( "ATG_DB" )
+      validateLicense( "glasir.database" )
     }
     catch( Throwable throwable ) {
       log.error( "License validation failed. LiquibaseService will not run. Error message: \"${throwable.message}\"." )
