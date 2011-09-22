@@ -1,4 +1,4 @@
-  dependencies {
-    testCompile files('lib/h2-1.3.158.jar')
-  }
+clean {
+    // Do not delete "lib/classes.jar" and "config/config.jar"
+}
 
