@@ -1,0 +1,4 @@
+clean {
+    // Do not delete "lib/classes.jar" and "config/config.jar"
+}
+
