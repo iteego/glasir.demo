@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
-ATG-Required: mybrand DAS ATGDBSetup DSS.InternalUsers
+ATG-Required: mybrand DAS ATGDBSetup
 ATG-Config-Path: config
 

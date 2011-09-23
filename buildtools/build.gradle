@@ -124,3 +124,10 @@ task parseAtgXml << {
 		}
 	}
 }
+
+task testDAS << { 
+  def m = moduleMap['DAS']
+  println m.fullBuildOrder
+  println m.fullClasspath
+  println m.manifest.atgConfigPath
+}

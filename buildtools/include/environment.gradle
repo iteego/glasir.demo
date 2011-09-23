@@ -23,15 +23,23 @@ globalDir = file(projectDir, "..")
 
 company = "mycompany"
 brand = "mybrand"
-consumerEar = file(buildDir, "${brand}.ear")
-staticConsumerDocRoot = "$globalDir/$company/$brand/Webapp/docroot"
 
-promptDir (message: "Please provide a valid ATG installation directory (with subdirectories home, DAS): ",
+store = "${brand}-store"
+storeEarName = "${store}.ear}"
+storeEar = file(buildDir, "${storeEarName}")
+
+admin = "${brand}-admin"
+adminEarName = "${admin}.ear" 
+adminEar = file(buildDir, "${adminEarName}")
+
+docRoot = "$globalDir/$company/$brand/Webapp/docroot"
+
+promptDir (message: "Please provide a valid ATG installation directory (with subdirectories home, DAS, ...): ",
            propertyName: "atgRoot",
            blockUntilSubItemsExist: "home/localconfig,home/bin, DAS",
            propertyFile: "$globalDir/.local.build.properties",
            loadQuietly: true)
-promptDir (message: "Please provide a valid JBoss installation directory (with subdirectories bin, lib and server): ",
+promptDir (message: "Please provide a valid JBoss installation directory (with subdirectories bin, lib, server, ...): ",
            propertyName: "jbossRoot",
            blockUntilSubItemsExist: "bin,lib,server",
            propertyFile: "$globalDir/.local.build.properties")
@@ -39,25 +47,10 @@ promptDir (message: "Please provide a valid JBoss installation directory (with s
 //On hudson or other environments we can set the environment either by 
 //a system property -Dorg.gradle.project.env=production or by 
 //an environment variable ORG_GRADLE_PROJECT_env=production
-environment = (hasProperty('env') && getProperty('env')) ? getProperty('env') : 'development'
+//environment = (hasProperty('env') && getProperty('env')) ? getProperty('env') : 'development'
+
 println ">"
-println "> Company is \"$company\", Brand is \"$brand\"."
-println "> Environment is set to: $environment"
-println "> BuildDir is: $buildDir"
+println "> Company:    $company"
+println "> Brand:      $brand"
+println "> Target dir: $buildDir"
 println ">"
-
-
-task configureEnvironment << {
-  if (['development','sandbox'].contains(environment)) {
-    println "> Configuring ear assembler tasks to run in DEVELOPMENT mode"
-    tasks.findAll { it instanceof AtgAssemblerTask }.each { earTask ->
-      earTask.pack = false
-      earTask.standalone = true
-      earTask.overwrite = false
-      //earTask.runInPlace = true
-    }
-  } else {
-    getTasksByName(':clean', false).each { it.execute() }
-  }
-}
-
