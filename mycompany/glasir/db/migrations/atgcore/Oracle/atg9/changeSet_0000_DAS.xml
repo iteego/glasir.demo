@@ -1,0 +1,804 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog                  
+xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   
+xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd
+ http://www.liquibase.org/xml/ns/dbchangelog-ext
+ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+<changeSet id='changeSet_0000_DAS' author='iteego' context='prod'>
+  <preConditions>
+    <not>
+      <tableExists schemaName='dbo' tableName='bogus_precondition_table'/>
+    </not>
+  </preConditions>
+
+  <sql><![CDATA[
+-- the source for this section is 
+-- id_generator.sql
+
+
+
+
+
+create table das_id_generator (
+	id_space_name	varchar2(60)	not null,
+	seed	number(19,0)	not null,
+	batch_size	integer	not null,
+	prefix	varchar2(10)	null,
+	suffix	varchar2(10)	null
+,constraint das_id_generator_p primary key (id_space_name));
+
+
+create table das_secure_id_gen (
+	id_space_name	varchar2(60)	not null,
+	seed	number(19,0)	not null,
+	batch_size	integer	not null,
+	ids_per_batch	integer	null,
+	prefix	varchar2(10)	null,
+	suffix	varchar2(10)	null
+,constraint das_secure_id_ge_p primary key (id_space_name));
+
+
+
+
+
+-- the source for this section is 
+-- cluster_name_ddl.sql
+
+
+
+
+
+create table das_cluster_name (
+	cluster_name	varchar2(255)	not null,
+	saved_date	number(19)	not null);
+
+
+
+
+
+-- the source for this section is 
+-- dms_limbo_ddl.sql
+
+
+
+
+-- This table is where limbo instance/clients identify themselves. --There should only be one entry in this table for each Dynamo running PatchBay with message delays enabled.
+
+create table dms_limbo (
+	limbo_name	varchar2(250)	not null,
+	limbo_id	number(19,0)	not null
+,constraint limbo_pk primary key (limbo_name));
+
+-- The following four tables comprise the parts of the stored messages.
+
+create table dms_limbo_msg (
+	msg_id	number(19,0)	not null,
+	limbo_id	number(19,0)	not null,
+	delivery_date	number(19,0)	not null,
+	delivery_count	number(2,0)	not null,
+	msg_src_name	varchar2(250)	not null,
+	port_name	varchar2(250)	not null,
+	msg_class	varchar2(250)	not null,
+	msg_class_type	number(1,0)	not null,
+	jms_type	varchar2(250)	null,
+	jms_expiration	number(19,0)	null,
+	jms_correlationid	varchar2(250)	null
+,constraint limbo_msg_pk primary key (msg_id));
+
+create index dms_limbo_read_idx on dms_limbo_msg (limbo_id,delivery_date);
+-- If serialized reply-to destinations are known to be small enough, this binary column's size can be reduced for efficiency.  The size here has been chosen to work with local dms and SQL-JMS.
+
+create table dms_limbo_replyto (
+	msg_id	number(19,0)	not null,
+	jms_replyto	blob	null
+,constraint limbo_replyto_pk primary key (msg_id));
+
+-- If serialized message bodies are known to be small enough, this binary column's size can be reduced for efficiency.  The size here has been chosen to work with almost all types of messages but may be larger than necessary.  Actual usage analysis is recommended for finding the optimal binary column size.
+
+create table dms_limbo_body (
+	msg_id	number(19,0)	not null,
+	msg_body	blob	null
+,constraint limbo_body_pk primary key (msg_id));
+
+-- This table represents a map of properties for messages stored above, i.e.  there can be multiple rows in this table for a single row in the preceeding tables.
+
+create table dms_limbo_props (
+	msg_id	number(19,0)	not null,
+	prop_name	varchar2(250)	not null,
+	prop_value	varchar2(250)	not null
+,constraint limbo_props_pk primary key (msg_id,prop_name));
+
+
+create table dms_limbo_ptypes (
+	msg_id	number(19,0)	not null,
+	prop_name	varchar2(250)	not null,
+	prop_type	number(1,0)	not null
+,constraint dms_limbo_ptypes_p primary key (msg_id,prop_name));
+
+
+create table dms_limbo_delay (
+	msg_id	number(19,0)	not null,
+	delay	number(19,0)	not null,
+	max_attempts	number(2,0)	not null,
+	failure_port	varchar2(250)	not null,
+	jms_timestamp	number(19,0)	null,
+	jms_deliverymode	number(10,0)	null,
+	jms_priority	number(10,0)	null,
+	jms_messageid	varchar2(250)	null,
+	jms_redelivered	number(1,0)	null,
+	jms_destination	blob	null
+,constraint limbo_delay_pk primary key (msg_id));
+
+
+
+
+
+-- the source for this section is 
+-- create_sql_jms_ddl.sql
+
+
+
+
+
+create table dms_client (
+	client_name	varchar2(250)	not null,
+	client_id	number(19,0)	null
+,constraint dms_client_p primary key (client_name));
+
+
+create table dms_queue (
+	queue_name	varchar2(250)	null,
+	queue_id	number(19,0)	not null,
+	temp_id	number(19,0)	null
+,constraint dms_queue_p primary key (queue_id));
+
+
+create table dms_queue_recv (
+	client_id	number(19,0)	null,
+	receiver_id	number(19,0)	not null,
+	queue_id	number(19,0)	null
+,constraint dms_queue_recv_p primary key (receiver_id));
+
+
+create table dms_queue_entry (
+	queue_id	number(19,0)	not null,
+	msg_id	number(19,0)	not null,
+	delivery_date	number(19,0)	null,
+	handling_client_id	number(19,0)	null,
+	read_state	number(19,0)	null
+,constraint dms_queue_entry_p primary key (queue_id,msg_id));
+
+
+create table dms_topic (
+	topic_name	varchar2(250)	null,
+	topic_id	number(19,0)	not null,
+	temp_id	number(19,0)	null
+,constraint dms_topic_p primary key (topic_id));
+
+
+create table dms_topic_sub (
+	client_id	number(19,0)	null,
+	subscriber_name	varchar2(250)	null,
+	subscriber_id	number(19,0)	not null,
+	topic_id	number(19,0)	null,
+	durable	number(1,0)	null,
+	active	number(1,0)	null
+,constraint dms_topic_sub_p primary key (subscriber_id));
+
+
+create table dms_topic_entry (
+	subscriber_id	number(19,0)	not null,
+	msg_id	number(19,0)	not null,
+	delivery_date	number(19,0)	null,
+	read_state	number(19,0)	null
+,constraint dms_topic_entry_p primary key (subscriber_id,msg_id));
+
+create index dms_topic_msg_idx on dms_topic_entry (msg_id,subscriber_id);
+create index dms_topic_read_idx on dms_topic_entry (read_state,delivery_date);
+
+create table dms_msg (
+	msg_class	varchar2(250)	null,
+	has_properties	number(1,0)	null,
+	reference_count	number(10,0)	null,
+	msg_id	number(19,0)	not null,
+	timestamp	number(19,0)	null,
+	correlation_id	varchar2(250)	null,
+	reply_to	number(19,0)	null,
+	destination	number(19,0)	null,
+	delivery_mode	number(1,0)	null,
+	redelivered	number(1,0)	null,
+	type	varchar2(250)	null,
+	expiration	number(19,0)	null,
+	priority	number(1,0)	null,
+	small_body	blob	null,
+	large_body	blob	null
+,constraint dms_msg_p primary key (msg_id));
+
+
+create table dms_msg_properties (
+	msg_id	number(19,0)	not null,
+	data_type	number(1,0)	null,
+	name	varchar2(250)	not null,
+	value	varchar2(250)	null
+,constraint dms_msg_properti_p primary key (msg_id,name));
+
+
+
+
+-- the source for this section is 
+-- create_staff_ddl.sql
+
+
+
+
+-- SQL for creating the Dynamo Staff Repository for the GSA
+-- Primary account table.
+--  Type=1 is a login account.  The first_name, last_name, and password         fields are valid for this type of account.
+-- Type=2 is a group account.  The description field is valid for        this type of account.
+-- Type=4 is a privilege account.  The description field is valid for        this type of account.
+
+create table das_account (
+	account_name	varchar2(254)	not null,
+	type	integer	not null,
+	first_name	varchar2(254)	null,
+	last_name	varchar2(254)	null,
+	password	varchar2(254)	null,
+	description	varchar2(254)	null,
+	lastpwdupdate	date	null
+,constraint das_account_p primary key (account_name));
+
+
+create table das_group_assoc (
+	account_name	varchar2(254)	not null,
+	sequence_num	integer	not null,
+	group_name	varchar2(254)	not null
+,constraint das_grp_asc_p primary key (account_name,sequence_num));
+
+-- Adding the previous password information
+
+create table das_acct_prevpwd (
+	account_name	varchar2(254)	not null,
+	seq_num	number(10)	not null,
+	prevpwd	varchar2(35)	null
+,constraint das_prevpwd_p primary key (account_name,seq_num)
+,constraint das_prvpwd_d_f foreign key (account_name) references das_account (account_name));
+
+
+
+
+
+-- the source for this section is 
+-- create_gsa_subscribers_ddl.sql
+
+
+
+
+
+create table das_gsa_subscriber (
+	id	integer	not null,
+	address	varchar2(50)	not null,
+	port	integer	not null,
+	repository	varchar2(256)	not null,
+	itemdescriptor	varchar2(256)	not null
+,constraint das_gsa_subscrib_p primary key (id));
+
+
+
+
+
+-- the source for this section is 
+-- create_sds.sql
+
+
+
+
+
+create table das_sds (
+	sds_name	varchar2(50)	not null,
+	curr_ds_name	varchar2(50)	null,
+	dynamo_server	varchar2(80)	null,
+	last_modified	date	null
+,constraint das_sds_p primary key (sds_name));
+
+
+
+
+
+-- the source for this section is 
+-- integration_data_ddl.sql
+
+
+
+
+
+create table if_integ_data (
+	item_id	varchar2(40)	not null,
+	descriptor	varchar2(64)	not null,
+	repository	varchar2(255)	not null,
+	state	number(10)	not null,
+	last_import	date	null,
+	version	number(10)	not null
+,constraint if_int_data_p primary key (item_id,descriptor,repository));
+
+
+
+
+
+-- the source for this section is 
+-- nucleus_security_ddl.sql
+
+
+
+
+
+create table das_nucl_sec (
+	func_name	varchar2(254)	not null,
+	policy	varchar2(254)	not null
+,constraint func_name_pk primary key (func_name));
+
+
+create table das_ns_acls (
+	id	varchar2(254)	not null,
+	index_num	number(10)	not null,
+	acl	varchar2(254)	not null
+,constraint id_index_pk primary key (id,index_num));
+
+
+
+
+
+-- the source for this section is 
+-- media_ddl.sql
+
+
+
+
+--     media content repository tables.  
+
+create table media_folder (
+	folder_id	varchar2(40)	not null,
+	version	integer	not null,
+	creation_date	date	null,
+	description	varchar2(254)	null,
+	name	varchar2(254)	not null,
+	path	varchar2(254)	not null,
+	parent_folder_id	varchar2(40)	null
+,constraint md_folder_p primary key (folder_id)
+,constraint md_foldparnt_fl_f foreign key (parent_folder_id) references media_folder (folder_id));
+
+create index fldr_mfldrid_idx on media_folder (parent_folder_id);
+create index md_fldr_path_idx on media_folder (path);
+
+create table media_base (
+	media_id	varchar2(40)	not null,
+	version	integer	not null,
+	creation_date	date	null,
+	description	varchar2(254)	null,
+	name	varchar2(254)	not null,
+	path	varchar2(254)	not null,
+	parent_folder_id	varchar2(40)	not null,
+	media_type	integer	null
+,constraint media_p primary key (media_id)
+,constraint medparnt_fl_f foreign key (parent_folder_id) references media_folder (folder_id));
+
+create index med_mfldrid_idx on media_base (parent_folder_id);
+create index media_path_idx on media_base (path);
+create index media_type_idx on media_base (media_type);
+
+create table media_ext (
+	media_id	varchar2(40)	not null,
+	url	varchar2(254)	not null
+,constraint media_ext_p primary key (media_id)
+,constraint medxtmed_d_f foreign key (media_id) references media_base (media_id));
+
+
+create table media_bin (
+	media_id	varchar2(40)	not null,
+	length	integer	not null,
+	last_modified	date	not null,
+	data	blob	not null
+,constraint media_bin_p primary key (media_id)
+,constraint medbnmed_d_f foreign key (media_id) references media_base (media_id));
+
+
+create table media_txt (
+	media_id	varchar2(40)	not null,
+	length	integer	not null,
+	last_modified	date	not null,
+	data	clob	not null
+,constraint media_txt_p primary key (media_id)
+,constraint medtxtmed_d_f foreign key (media_id) references media_base (media_id));
+
+
+
+
+
+-- the source for this section is 
+-- deployment_ddl.sql
+
+
+
+
+--     These tables are for the daf deployment system  
+
+create table das_deployment (
+	deployment_id	varchar2(40)	not null,
+	version	number(10)	not null,
+	start_time	date	null,
+	end_time	date	null,
+	failure_time	date	null,
+	status	number(10)	null,
+	prev_status	number(10)	null,
+	status_detail	varchar2(255)	null,
+	current_phase	number(10)	null,
+	rep_high_mark	number(10)	null,
+	rep_marks_avail	number(10)	null,
+	file_high_mark	number(10)	null,
+	file_marks_avail	number(10)	null,
+	thread_batch_size	number(10)	null,
+	failure_count	number(10)	null,
+	purge_deploy_data	number(1)	null
+,constraint daf_depl_pk primary key (deployment_id));
+
+create index das_dpl_start_idx on das_deployment (start_time);
+
+create table das_depl_progress (
+	deployment_id	varchar2(40)	not null,
+	version	number(10)	not null,
+	work_completed	number(10)	null,
+	total_work	number(10)	null);
+
+
+create table das_thread_batch (
+	thread_batch_id	varchar2(40)	not null,
+	version	number(10)	not null,
+	deployment	varchar2(40)	null,
+	type	number(10)	null,
+	owner	varchar2(255)	null,
+	thread_name	varchar2(255)	null,
+	lower_bound	number(10)	null,
+	upper_bound	number(10)	null,
+	last_update_time	timestamp	null,
+	running	number(1,0)	not null
+,constraint das_dpl_tb_pk primary key (thread_batch_id));
+
+create index das_tb_deployment on das_thread_batch (deployment);
+create index das_tb_owner on das_thread_batch (owner);
+create index das_tb_thread_nam on das_thread_batch (thread_name);
+
+create table das_deploy_data (
+	deploy_data_id	varchar2(40)	not null,
+	version	number(10)	not null,
+	type	number(10)	null,
+	source	varchar2(255)	null,
+	destination	varchar2(255)	null,
+	dest_server	varchar2(255)	null,
+	deployment	varchar2(40)	null
+,constraint deploy_data_pk primary key (deploy_data_id)
+,constraint dd_deployment_fk foreign key (deployment) references das_deployment (deployment_id));
+
+create index dd_deployment_idx on das_deploy_data (deployment);
+
+create table das_deploy_mark (
+	marker_id	varchar2(40)	not null,
+	version	number(10)	not null,
+	type	number(10)	null,
+	status	number(10)	null,
+	index_number	number(10)	null,
+	marker_action	number(10)	null,
+	f_src_devline_id	varchar2(40)	null,
+	r_src_devline_id	varchar2(40)	null,
+	deployment_id	varchar2(40)	null,
+	deployment_data	varchar2(40)	null
+,constraint marker_pk primary key (marker_id));
+
+create index marker_index_idx on das_deploy_mark (index_number);
+
+create table das_rep_mark (
+	rep_marker_id	varchar2(40)	not null,
+	item_desc_name	varchar2(255)	null,
+	item_id	varchar2(255)	null
+,constraint rep_marker_pk primary key (rep_marker_id));
+
+
+create table das_file_mark (
+	file_marker_id	varchar2(40)	not null,
+	file_path	varchar2(1000)	null
+,constraint file_marker_pk primary key (file_marker_id));
+
+
+create table das_depl_depldat (
+	deployment_id	varchar2(40)	not null,
+	sequence_num	number(10)	not null,
+	deployment_data	varchar2(40)	null
+,constraint das_dpl_depdat_pk primary key (deployment_id,sequence_num));
+
+
+create table das_depl_options (
+	deployment_id	varchar2(40)	not null,
+	tag	varchar2(255)	not null,
+	optionValue	varchar2(255)	null
+,constraint das_dpl_depopt_pk primary key (deployment_id,tag));
+
+
+create table das_depl_repmaps (
+	deployment_id	varchar2(40)	not null,
+	source	varchar2(255)	not null,
+	destination	varchar2(255)	null
+,constraint das_dpl_repmap_pk primary key (deployment_id,source));
+
+
+create table das_depl_item_ref (
+	item_ref_id	varchar2(40)	not null,
+	version	number(10)	not null,
+	deployment_id	varchar2(40)	null,
+	repository	varchar2(255)	null,
+	item_desc_name	varchar2(255)	null,
+	item_id	varchar2(255)	null,
+	item_index	number(10)	null
+,constraint das_dpl_itmref_pk primary key (item_ref_id));
+
+create index das_dpl_itmx_idx on das_depl_item_ref (item_index);
+create index das_dpl_dplid_idx on das_depl_item_ref (deployment_id);
+
+create table das_dd_markers (
+	deploy_data_id	varchar2(40)	not null,
+	sequence_num	number(10)	not null,
+	marker	varchar2(40)	null
+,constraint das_dpl_dd_mrk_pk primary key (deploy_data_id,sequence_num)
+,constraint marker_fk foreign key (marker) references das_deploy_mark (marker_id));
+
+create index marker_idx on das_dd_markers (marker);
+
+create table das_dep_fail_info (
+	id	varchar2(40)	not null,
+	deployment_id	varchar2(40)	not null,
+	marker_id	varchar2(40)	null,
+	severity	varchar2(40)	null,
+	failure_message	varchar2(255)	null,
+	failure_time	timestamp	null,
+	error_code	varchar2(40)	null,
+	cause	clob	null);
+
+
+
+
+
+-- the source for this section is 
+-- sitemap_ddl.sql
+
+
+
+
+-- Table for siteindex repository item
+
+create table das_siteindex (
+	siteindex_id	varchar2(40)	not null,
+	lastmod	date	null,
+	filename	varchar2(100)	null,
+	xml	clob	null
+,constraint siteindex_pk primary key (siteindex_id));
+
+-- Table for sitemap repository item
+
+create table das_sitemap (
+	sitemap_id	varchar2(40)	not null,
+	lastmod	date	null,
+	filename	varchar2(100)	null,
+	xml	clob	null
+,constraint sitemap_pk primary key (sitemap_id));
+
+
+
+
+
+-- the source for this section is 
+-- seo_ddl.sql
+
+
+
+
+-- Table for seo-tag repository item
+
+create table das_seo_tag (
+	seo_tag_id	varchar2(40)	not null,
+	display_name	varchar2(100)	null,
+	title	varchar2(254)	null,
+	description	varchar2(254)	null,
+	keywords	varchar2(254)	null,
+	content_key	varchar2(100)	null
+,constraint das_seo_tag_pk primary key (seo_tag_id));
+
+
+
+
+]]>
+  </sql>
+
+  <rollback><![CDATA[
+-- the source for this section is 
+-- drop_seo_ddl.sql
+
+
+
+drop table das_seo_tag;
+
+
+
+
+
+-- the source for this section is 
+-- drop_sitemap_ddl.sql
+
+
+
+drop table das_sitemap;
+drop table das_siteindex;
+
+
+
+
+
+-- the source for this section is 
+-- drop_deployment_ddl.sql
+
+
+
+drop table das_dep_fail_info;
+drop table das_dd_markers;
+drop table das_depl_item_ref;
+drop table das_depl_repmaps;
+drop table das_depl_options;
+drop table das_depl_depldat;
+drop table das_file_mark;
+drop table das_rep_mark;
+drop table das_deploy_mark;
+drop table das_deploy_data;
+drop table das_thread_batch;
+drop table das_depl_progress;
+drop table das_deployment;
+
+
+
+
+
+-- the source for this section is 
+-- drop_media.sql
+
+
+
+drop table media_txt;
+drop table media_bin;
+drop table media_ext;
+drop table media_base;
+drop table media_folder;
+
+
+
+
+
+-- the source for this section is 
+-- drop_nucleus_security_ddl.sql
+
+
+
+drop table das_ns_acls;
+drop table das_nucl_sec;
+
+
+
+
+
+-- the source for this section is 
+-- drop_integration_data_ddl.sql
+
+
+
+drop table if_integ_data;
+
+
+
+
+
+-- the source for this section is 
+-- drop_sds.sql
+
+
+
+drop table das_sds;
+
+
+
+
+
+-- the source for this section is 
+-- drop_gsa_subscribers_ddl.sql
+
+
+
+drop table das_gsa_subscriber;
+
+
+
+
+
+-- the source for this section is 
+-- drop_staff_ddl.sql
+
+
+
+drop table das_acct_prevpwd;
+drop table das_group_assoc;
+drop table das_account;
+
+
+
+
+
+-- the source for this section is 
+-- drop_sql_jms_ddl.sql
+
+
+
+drop procedure dms_topic_flag;
+drop procedure dms_queue_flag;
+drop table dms_msg_properties;
+drop table dms_msg;
+drop table dms_topic_entry;
+drop table dms_topic_sub;
+drop table dms_topic;
+drop table dms_queue_entry;
+drop table dms_queue_recv;
+drop table dms_queue;
+drop table dms_client;
+
+
+
+
+
+-- the source for this section is 
+-- drop_dms_limbo_ddl.sql
+
+
+
+drop table dms_limbo_delay;
+drop table dms_limbo_ptypes;
+drop table dms_limbo_props;
+drop table dms_limbo_body;
+drop table dms_limbo_replyto;
+drop table dms_limbo_msg;
+drop table dms_limbo;
+
+
+
+
+
+-- the source for this section is 
+-- drop_cluster_name_ddl.sql
+
+
+
+drop table das_cluster_name;
+
+
+
+
+
+-- the source for this section is 
+-- drop_id_generator.sql
+
+
+
+drop table das_secure_id_gen;
+drop table das_id_generator;
+
+
+
+
+]]>
+  </rollback>
+</changeSet>
+</databaseChangeLog>
