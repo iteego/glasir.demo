@@ -9,6 +9,8 @@ xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
  http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
 <changeSet id='changeSet_0003_core' author='iteego' context='prod'>
+  <!-- atgmodules='DAS, DPS, DPS.InternalUsers, DSS, DSS.InternalUsers, BIZUI' -->
+
   <preConditions>
     <not>
       <tableExists tableName='bogus_precondition_table'/>
