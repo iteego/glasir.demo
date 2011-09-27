@@ -1,5 +1,5 @@
 
-You must changes some things to customize glasir.bootstrap 
+You must change some things to customize glasir.bootstrap 
 if it is in the "mycompany/mybrand/h2" mode.
 
 1. 
