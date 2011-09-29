@@ -24,8 +24,9 @@ globalDir = file(projectDir, "..")
 company = "mycompany"
 brand = "mybrand"
 
-store = "${brand}-store"
-storeEarName = "${store}.ear}"
+//store = "${brand}-store"
+store = brand
+storeEarName = "${store}.ear"
 storeEar = file(buildDir, "${storeEarName}")
 
 admin = "${brand}-admin"
