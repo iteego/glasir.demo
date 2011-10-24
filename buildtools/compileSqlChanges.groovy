@@ -1,10 +1,32 @@
 
+//------------------------------------------------------------------
 // These sql files are valid for product selection: 
 //  "atg b2c commerce", no commerce addons, switching datasource
+//------------------------------------------------------------------
+
 File abd = new File("/work/atg/atg1002")
 pub( abd )
 core( abd )
 cat( abd )
+
+
+/*
+//------------------------------------------------------------------
+For pub, also do the following data imports:
+//------------------------------------------------------------------
+1 Data Import: Repository:/atg/userprofiling/InternalProfileRepository Path:/Publishing/base/install/epub-role-data.xml Module:DSS.InternalUsers 
+2 Data Import: Repository:/atg/epub/file/PublishingFileRepository Path:/Publishing/base/install/epub-file-repository-data.xml Module:Publishing.base 
+3 Repository Loader: Files: DSS/atg/registry/data/scenarios/DSS/*.sdl & DSS/atg/registry/data/scenarios/recorders/*.sdl
+4 Data Import: Repository:/atg/userprofiling/PersonalizationRepository Path:/DCS/install/data/initial-segment-lists.xml Module:DPS.Versioned 
+5 Data Import: Repository:/atg/web/viewmapping/ViewMappingRepository Path:/BCC/install/data/viewmapping.xml Module:BCC 
+6 Data Import: Repository:/atg/portal/framework/PortalRepository Path:/BIZUI/install/data/portal.xml Module:BIZUI 
+7 Data Import: Repository:/atg/userprofiling/InternalProfileRepository Path:/BIZUI/install/data/profile.xml Module:BIZUI 
+8 Data Import: Repository:/atg/web/viewmapping/ViewMappingRepository Path:/BIZUI/install/data/viewmapping.xml Module:BIZUI 
+9 Data Import: Repository:/atg/web/viewmapping/ViewMappingRepository Path:/AssetUI/install/data/viewmapping.xml Module:AssetUI 
+10 Data Import: Repository:/atg/web/viewmapping/ViewMappingRepository Path:/AssetUI/install/data/assetManagerViews.xml Module:AssetUI 
+11 Data Import: Repository:/atg/web/viewmapping/ViewMappingRepository Path:/DPS-UI/install/data/viewmapping.xml Module:DPS-UI 
+12 Data Import: Repository:/atg/web/viewmapping/ViewMappingRepository Path:/DPS-UI/install/data/examples.xml Module:DPS-UI 
+*/
 
 public appendFiles( java.util.List<String> requiredSqlFiles, File atgBaseDir, String outputFileName ) {
 	StringBuilder data = new StringBuilder()
