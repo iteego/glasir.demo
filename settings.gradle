@@ -37,16 +37,22 @@ import com.iteego.glasir.build.GlasirSettingsConvention
 
 buildscript {
   repositories {
-    mavenRepo name: 'iteego-libs-snapshots', 
-              urls: uri('http://repository.iteego.com/artifactory/libs-snapshot-local')
+    mavenRepo urls: [	"http://iteego.artifactoryonline.com/iteego", 
+			"http://iteego.artifactoryonline.com/iteego/libs-snapshots-local"]
   }
+
+// url of jar file from artifactory (long line is broken):
+//   http://iteego.artifactoryonline.com/iteego/libs-snapshots-local/
+//       com/iteego/glasir/glasir.build/1.0.9-SNAPSHOT/glasir.build-1.0.9-20111011.140817-1.jar
+
 
   // the weird version syntax at the end of the classpath definition just means glasir version >= 1.0,
   // see http://docs.codehaus.org/display/MAVEN/Dependency+Mediation+and+Conflict+Resolution#DependencyMediationandConflictResolution-DependencyVersionRanges
   // for details
   dependencies {
-    classpath('com.iteego.glasir:glasir.build:1.0.9-SNAPSHOT') { changing=true }
-    //classpath files("$settingsDir/buildtools/buildlib/glasir.build-1.0.8-SNAPSHOT.jar")
+// can not get this to work!
+//    classpath('com.iteego.glasir:glasir.build:1.0.9-SNAPSHOT') { changing=true }
+    classpath files("$settingsDir/buildtools/buildlib/glasir.build-1.0.8-SNAPSHOT.jar")
   }
 
   //we need a bit of magic here so that we don't have to do the module scan twice,
