@@ -1,0 +1,2 @@
+Manifest-Version: 1.0
+ATG-Required: env BIZUI PubPortlet DafEar.Admin B2CCommerce.Versioned DCS.Versioned Portal.paf
