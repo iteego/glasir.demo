@@ -1,0 +1,15 @@
+# Datasource name: Publishing
+# Top level module list: [BIZUI, PubPortlet, DafEar.Admin, B2CCommerce.Versioned, DCS.Versioned, Portal.paf]
+DataImport:repo="/atg/userprofiling/InternalProfileRepository":path="/Publishing/base/install/epub-role-data.xml":module="DSS.InternalUsers"
+DataImport:repo="/atg/epub/file/PublishingFileRepository":path="/Publishing/base/install/epub-file-repository-data.xml":module="Publishing.base"
+RepoLoader:files="DSS/atg/registry/data/scenarios/DSS/*.sdl & DSS/atg/registry/data/scenarios/recorders/*.sdl"
+DataImport:repo="/atg/userprofiling/PersonalizationRepository":path="/DCS/install/data/initial-segment-lists.xml":module="DPS.Versioned"
+DataImport:repo="/atg/web/viewmapping/ViewMappingRepository":path="/BCC/install/data/viewmapping.xml":module="BCC"
+DataImport:repo="/atg/portal/framework/PortalRepository":path="/BIZUI/install/data/portal.xml":module="BIZUI"
+DataImport:repo="/atg/userprofiling/InternalProfileRepository":path="/BIZUI/install/data/profile.xml":module="BIZUI"
+DataImport:repo="/atg/web/viewmapping/ViewMappingRepository":path="/BIZUI/install/data/viewmapping.xml":module="BIZUI"
+DataImport:repo="/atg/web/viewmapping/ViewMappingRepository":path="/AssetUI/install/data/viewmapping.xml":module="AssetUI"
+DataImport:repo="/atg/web/viewmapping/ViewMappingRepository":path="/AssetUI/install/data/assetManagerViews.xml":module="AssetUI"
+DataImport:repo="/atg/web/viewmapping/ViewMappingRepository":path="/DPS-UI/install/data/viewmapping.xml":module="DPS-UI"
+DataImport:repo="/atg/web/viewmapping/ViewMappingRepository":path="/DPS-UI/install/data/examples.xml":module="DPS-UI"
+
