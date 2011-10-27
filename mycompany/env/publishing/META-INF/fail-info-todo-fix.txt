@@ -1,0 +1,2 @@
+Having These in env/publishing/meta inf/manifest.mf Fails Startup By Blocking GlasirDbService From InitialServices Somehow: 
+ BIZUI PubPortlet DafEar.Admin B2CCommerce.Versioned DCS.Versioned Portal.paf
