@@ -1,5 +1,5 @@
-# Datasource name: Publishing
-# Top level module list: [BIZUI, PubPortlet, DafEar.Admin, B2CCommerce.Versioned, DCS.Versioned, Portal.paf]
+Datasource name: Publishing
+Top level module list: BIZUI, PubPortlet, DafEar.Admin, B2CCommerce.Versioned, DCS.Versioned, Portal.paf
 DataImport:repo="/atg/userprofiling/InternalProfileRepository":path="/Publishing/base/install/epub-role-data.xml":module="DSS.InternalUsers"
 DataImport:repo="/atg/epub/file/PublishingFileRepository":path="/Publishing/base/install/epub-file-repository-data.xml":module="Publishing.base"
 RepoLoader:files="DSS/atg/registry/data/scenarios/DSS/*.sdl & DSS/atg/registry/data/scenarios/recorders/*.sdl"
