@@ -1,3 +1,2 @@
 Manifest-Version: 1.0
-ATG-Required: env 
-
+ATG-Required: env mybrand.MyAtgModule
