@@ -3,11 +3,21 @@
  * Gradle project and sub-project setup calls
  *****************************************************************************/
 
+//TODO: We need to figure this out! Seems like if you _don't_ create dependencies 
+//on subprojects, then it is non-trivial to depend on all child projects with a 
+//specific task defined. If you _do_ add them, it becomes impossible to configure 
+//the projects individually via specific project build.gradle files. 
+gradle.projectsEvaluated { g ->
+  build.dependsOn(getTasksByName('build', true) - build)
+  clean.dependsOn(getTasksByName('clean', true) - clean)
+}
+
 /*
- * Gradle built in method which will enable us to do things like "gradle build"
- * on the root project and trigger a build on every child project
- */
-//dependsOnChildren()
+subprojects.each { p ->
+  if (p.path.startsWith(":glasir")) return
+  evaluationDependsOn(p.path)
+}
+*/
 
 // Add some behavior to all projects including the root one.
 allprojects {
@@ -18,7 +28,7 @@ allprojects {
   }
 
   dependencies {
-    def groovyVersion = "org.codehaus.groovy:groovy:1.7.10"
+    def groovyVersion = "org.codehaus.groovy:groovy:1.8.3"
 
     // The below enables us to write atg classes in mixed java/groovy. Groovy
     // jar will be downloaded and cached from a maven repo on demand.
@@ -60,15 +70,12 @@ subprojects {
     printTree(project)
   }
 
-  
-  // Add a module tree printout as a first step of any 'build' calls on the subprojects
-  // build.dependsOn(print)
   jar  {
     //only create a jar file if we have some classes to jar up, 
     //to to this we check if the 'compileJava' task did any work (if so, we have something
     //to jar up). TODO: if we need to create resources-only jars, this needs changing
     onlyIf {
-      compileJava.didWork
+      compileJava.didWork || processResources.didWork || compileGroovy.didWork
     }
 
     // Change where the resulting jar will end up
@@ -92,5 +99,3 @@ subprojects {
     }
   }
 }
-
-
