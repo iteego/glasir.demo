@@ -33,10 +33,10 @@ import com.iteego.glasir.build.tasks.*
  *
  */
 
- task atgCoreSqlInstallationOrder << {
- 	 description = "Displays build/install/sql ordering for ATG core modules."
- 	 printAtgCoreSqlInstallationOrder()
- }
+task atgCoreSqlInstallationOrder << {
+  description = "Displays build/install/sql ordering for ATG core modules."
+  printAtgCoreSqlInstallationOrder()
+}
 
 task assembleStoreEar(type: AtgAssemblerTask, description: "Runs a build and assembles a release storefront ear") {
   dependsOn = [":clean", ":build"]
@@ -53,7 +53,7 @@ task assembleStoreEar(type: AtgAssemblerTask, description: "Runs a build and ass
   //but before the ear is packed
   doAfterAssembly {
     copy {
-      file("${globalDir}/servers/atg").eachDir { from it }
+      file("${globalDir}/config/atg").eachDir { from it }
       into "${storeEar.canonicalPath}.exploded/atg_bootstrap.war/WEB-INF/ATG-INF/home/servers"
     }
   }
@@ -74,16 +74,19 @@ task assembleAdminEar(type: AtgAssemblerTask, description: "Runs a build and ass
   //but before the ear is packed
   doAfterAssembly {
     copy {
-      file("${globalDir}/servers/atg").eachDir { from it }
+      file("${globalDir}/config/atg").eachDir { from it }
       into "${storeEar.canonicalPath}.exploded/atg_bootstrap.war/WEB-INF/ATG-INF/home/servers"
     }
   }
 }
 
+subprojects.each { subproject ->
+  dependsOn(subproject.path)
+}
 
 task assembleDevStoreEar(type: AtgAssemblerTask) {
-  dependsOn = [":build"]
-
+  dependsOn "build"
+  
   modules = allEnvironmentModules
   outputFile = storeEar
   standalone = true
@@ -96,7 +99,7 @@ task assembleDevStoreEar(type: AtgAssemblerTask) {
   //but before the ear is packed
   doAfterAssembly {
     copy {
-      file("${globalDir}/servers/atg").eachDir { from it }
+      file("${globalDir}/config/atg").eachDir { from it }
       into "${storeEar.canonicalPath}/atg_bootstrap.war/WEB-INF/ATG-INF/home/servers"
     }
   }
@@ -117,7 +120,7 @@ task assembleDevAdminEar(type: AtgAssemblerTask) {
   //but before the ear is packed
   doAfterAssembly {
     copy {
-      file("${globalDir}/servers/atg").eachDir { from it }
+      file("${globalDir}/config/atg").eachDir { from it }
       into "${storeEar.canonicalPath}/atg_bootstrap.war/WEB-INF/ATG-INF/home/servers"
     }
   }
@@ -125,7 +128,7 @@ task assembleDevAdminEar(type: AtgAssemblerTask) {
 
 task setupDevServer(type: Sync, description: "Creates a dev server setup in your jboss installation") {
   from "$jbossRoot/server/default"
-  from "$globalDir/servers/jboss/storefront/development"
+  from "$globalDir/config/jboss/storefront/development"
   into "$jbossRoot/server/${store}"
 }
 

@@ -79,13 +79,13 @@ new GlasirSettingsConvention().with {
   // project. settingsDir is a gradle injected property representing the directory
   // where the settings.gradle file lives
   moduleSearchRoot dir: file(atgRoot), isAtgCore: true
-  moduleSearchRoot dir: settingsDir, isAtgCore: false, includes: "mycompany"
+  moduleSearchRoot dir: settingsDir, isAtgCore: false, includes: "glasir-app"
 
   //the below configures the gradle subprojects using the given module
   //search roots and the resulting atg modules. First parameter settings
   //is gradle injected settings instance, second param is a name for
   //the root project (and also the sub dir where we should look for
   //modules
-  initializeProjectStructure (settings as Settings, "mycompany")
+  initializeProjectStructure (settings as Settings, "glasir-app")
 }
 

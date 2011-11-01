@@ -21,7 +21,6 @@ version = '1.0'
 //globalDir is the root of the scm structure 
 globalDir = file(projectDir, "..")
 
-company = "mycompany"
 brand = "mybrand"
 
 //store = "${brand}-store"
@@ -33,7 +32,7 @@ admin = "${brand}-admin"
 adminEarName = "${admin}.ear" 
 adminEar = file(buildDir, "${adminEarName}")
 
-docRoot = "$globalDir/$company/$brand/Webapp/docroot"
+docRoot = "$globalDir/app/$brand/Webapp/docroot"
 
 promptDir (message: "Please provide a valid ATG installation directory (with subdirectories home, DAS, ...): ",
            propertyName: "atgRoot",
@@ -50,8 +49,4 @@ promptDir (message: "Please provide a valid JBoss installation directory (with s
 //an environment variable ORG_GRADLE_PROJECT_env=production
 //environment = (hasProperty('env') && getProperty('env')) ? getProperty('env') : 'development'
 
-println ">"
-println "> Company:    $company"
-println "> Brand:      $brand"
-println "> Target dir: $buildDir"
-println ">"
+println ""

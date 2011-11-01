@@ -1,4 +1,3 @@
-println "brand:: $brand"
 /******************************************************************************
 * Tasks for starting/stopping local dev instances of jboss
 */
@@ -78,7 +77,7 @@ def stopJBossInstance(serverName) {
 * port we should use when asking the server to shut itself down
 */
 int getJnpPortForJbossServer(environment, serverName) {
-  def jbossServiceFile = file("$globalDir/servers/jboss/$serverName/conf/jboss-service.xml") //file("$globalDir/servers/jboss/$environment/$serverName/conf/jboss-service.xml")
+  def jbossServiceFile = file("$globalDir/config/jboss/$serverName/conf/jboss-service.xml") //file("$globalDir/config/jboss/$environment/$serverName/conf/jboss-service.xml")
   def mbeans = new XmlParser().parse(jbossServiceFile)
   def portNode = mbeans.find { it.'@code' == 'org.jboss.naming.NamingService' }.attribute.find {
     it.'@name' == "Port"

@@ -1,6 +1,6 @@
 
 You must change some things to customize glasir.bootstrap 
-if it is in the "mycompany/mybrand/h2" mode.
+if it is in the "app/mybrand/h2" mode.
 
 1. 
 Edit the database connection settings in the file 
@@ -13,7 +13,8 @@ to use a set of database changes that matches your database by editing the value
 table property "directoryToJndiMap".
 
 3.
-To change the name of the install unit "mycompany" you must change
+//NOTE: no longer applies...we now hard code the root directory to 'app'
+To change the name of the install unit "" you must change
 the directory name and the value of the "company" property in the 
 file "buildtools/include/environment.glasir".
 
