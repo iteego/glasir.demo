@@ -1,0 +1,4 @@
+Datasource name: Core
+Top level module list: env
+DataImport: Repository:/atg/multisite/SiteRepository Path:/core/test/test.xml Module:DSS.InternalUsers
+
