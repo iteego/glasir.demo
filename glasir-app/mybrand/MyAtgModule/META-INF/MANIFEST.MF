@@ -1,6 +1,7 @@
 Manifest-Version: 1.0
 ATG-Required: mybrand
 ATG-Config-Path: config
+ATG-Class-Path: lib/classes.jar
 ATG-Product: MyApplication
 ATG-Web-Module: j2ee-apps/MyApplication/app.war
 ATG-Class-Path: lib/classes.jar
