@@ -1,0 +1,17 @@
+#!/bin/bash
+
+PIDS=`ps -eaf | grep org.gradle.launcher.GradleDaemon | grep -vE "grep|killgradle" | awk '{print $2}'`
+
+if [ -n "$PIDS" ]  
+then
+  SIGNAL=""
+  if [ ! -z $1 ]
+  then 
+    SIGNAL=" $1"
+  fi 
+  echo "Sending kill$SIGNAL signal to Gradle daemon:"
+  echo $PIDS
+  echo $PIDS | xargs kill $1    
+else 
+  echo "No running gradle daemon detected"
+fi

@@ -81,6 +81,7 @@ task assembleAdminEar(type: AtgAssemblerTask, description: "Runs a build and ass
 }
 
 subprojects.each { subproject ->
+  if (subproject.path.startsWith(":glasir")) return
   dependsOn(subproject.path)
 }
 

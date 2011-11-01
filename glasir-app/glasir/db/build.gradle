@@ -1,7 +1,5 @@
 /* This file is renamed to build.gradle and added to the
    released zip package during the build process for glasir.db. */
 
-// Ensure that the file "lib/classes.jar" is not deleted because we
-// can not rebuild it (it comes with the installation of this module).
-clean.enabled = false
-
+// Make sure the enclosing build does not touch this project
+tasks.each { it.enabled = false }
