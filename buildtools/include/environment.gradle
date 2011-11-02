@@ -21,16 +21,15 @@ version = '1.0'
 //globalDir is the root of the scm structure 
 globalDir = file(projectDir, "..")
 
-brand = "mybrand"
+brand = "glasir"
 
-//store = "${brand}-store"
-store = brand
-storeEarName = "${store}.ear"
-storeEar = file(buildDir, "${storeEarName}")
+//we use the below server names both for the jboss server and for the contained 
+//atg server dir
+storeServerName = "dev-store"
+adminServerName = "dev-admin"
 
-admin = "${brand}-admin"
-adminEarName = "${admin}.ear" 
-adminEar = file(buildDir, "${adminEarName}")
+bigEarName = "${brand}.ear"
+bigEar = file(buildDir, "${bigEarName}")
 
 docRoot = "$globalDir/app/$brand/Webapp/docroot"
 
