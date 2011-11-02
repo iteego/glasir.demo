@@ -2,7 +2,7 @@
 * Tasks for starting/stopping local dev instances of jboss
 */
 task launchDevStore << {
-  startJBossInstance( store, true, 8787)
+  startJBossInstance(storeServerName, true, 8787)
 }
 task shutdownDevStore << {
   stopJBossInstance(store)
@@ -38,6 +38,7 @@ def startJBossInstance( serverName, debug=false, debugPort=8787) {
 
     systemProperty "atg.dynamo.server.name", serverName
     systemProperty "atg.dynamo.data-dir",    "$serverDir/ATG-Data"
+    systemProperty "jboss.server.log.dir",   "$serverDir/log"    
     systemProperty "java.endorsed.dirs",     "$jbossRoot/lib/endorsed"
     //systemProperty "atg.applauncher.versioner.Versionator.debug", "true"
     //jvmArgs "-Dhttp.proxyHost=${proxy}"
@@ -52,6 +53,19 @@ def startJBossInstance( serverName, debug=false, debugPort=8787) {
 
   }
 }
+
+/*
+  JBOSS_START="$JBOSS_HOME/bin/run.sh -c $server_name -Datg.dynamo.liveconfig=on -Dsun.rmi.dgc.server.gcInterval=3600000 -Datg.dynamo.server.name=$ATG_CONF -Datg.dynamo.data-dir=$ATG_DATA_DIR -Djboss.server.log.dir=$JBOSS_LOG -b $JBOSS_BIND_IP $JBOSS_ADDITIONAL_PROPS"
+
+  -c $server_name 
+  -Datg.dynamo.liveconfig=on 
+  -Dsun.rmi.dgc.server.gcInterval=3600000 
+  -Datg.dynamo.server.name=$ATG_CONF 
+  -Datg.dynamo.data-dir=$ATG_DATA_DIR 
+  -Djboss.server.log.dir=$JBOSS_LOG 
+  -b $JBOSS_BIND_IP $JBOSS_ADDITIONAL_PROPS"
+
+*/
 
 /******************************************************************************
 * environment is one of: 'sandbox', 'development', etc

@@ -38,11 +38,11 @@ task atgCoreSqlInstallationOrder << {
   printAtgCoreSqlInstallationOrder()
 }
 
-task assembleStoreEar(type: AtgAssemblerTask, description: "Runs a build and assembles a release storefront ear") {
-  dependsOn = [":clean", ":build"]
+task assembleReleaseEar(type: AtgAssemblerTask, description: "Runs a build and assembles a release storefront ear") {
+  dependsOn = ["clean", "build"]
 
   modules = allEnvironmentModules
-  outputFile = storeEar
+  outputFile = bigEar
   standalone = true
   liveconfig = true
   pack = true
@@ -53,45 +53,20 @@ task assembleStoreEar(type: AtgAssemblerTask, description: "Runs a build and ass
   //but before the ear is packed
   doAfterAssembly {
     copy {
+      //TODO: Fix the config/atg dir structure for release ears
       file("${globalDir}/config/atg").eachDir { from it }
-      into "${storeEar.canonicalPath}.exploded/atg_bootstrap.war/WEB-INF/ATG-INF/home/servers"
+      into "${bigEar.canonicalPath}.exploded/atg_bootstrap.war/WEB-INF/ATG-INF/home/servers"
     }
   }
 }
 
-task assembleAdminEar(type: AtgAssemblerTask, description: "Runs a build and assembles a release admin ear") {
-  dependsOn = [":clean", ":build"]
-
-  modules = allEnvironmentModules
-  outputFile = adminEar
-  standalone = true
-  liveconfig = true
-  pack = true
-  extraClasspath = files("${globalDir}/buildtools/gradle-lib/dtds.jar")
-  loggingDebug = false
-
-  //doAfterAssembly is called after the ear is assembled (into an exploded stage dir)
-  //but before the ear is packed
-  doAfterAssembly {
-    copy {
-      file("${globalDir}/config/atg").eachDir { from it }
-      into "${storeEar.canonicalPath}.exploded/atg_bootstrap.war/WEB-INF/ATG-INF/home/servers"
-    }
-  }
-}
-
-subprojects.each { subproject ->
-  if (subproject.path.startsWith(":glasir")) return
-  dependsOn(subproject.path)
-}
-
-task assembleDevStoreEar(type: AtgAssemblerTask) {
+task assembleDevEar(type: AtgAssemblerTask) {
   dependsOn "build"
   
   modules = allEnvironmentModules
-  outputFile = storeEar
+  outputFile = bigEar
   standalone = true
-  liveconfig = true
+  liveconfig = false
   pack = false
   extraClasspath = files("${globalDir}/buildtools/gradle-lib/dtds.jar")
   loggingDebug = false
@@ -100,81 +75,70 @@ task assembleDevStoreEar(type: AtgAssemblerTask) {
   //but before the ear is packed
   doAfterAssembly {
     copy {
-      file("${globalDir}/config/atg").eachDir { from it }
-      into "${storeEar.canonicalPath}/atg_bootstrap.war/WEB-INF/ATG-INF/home/servers"
+      //file("${globalDir}/config/atg").eachDir { from it }
+      from "${globalDir}/config/atg"
+      into "${bigEar.canonicalPath}/atg_bootstrap.war/WEB-INF/ATG-INF/home/servers"
     }
   }
 }
 
-task assembleDevAdminEar(type: AtgAssemblerTask) {
-  dependsOn = [":build"]
-
-  modules = ['DAS'] //TODO: work out the admin node structure
-  outputFile = adminEar
-  standalone = true
-  liveconfig = true
-  pack = false
-  extraClasspath = files("${globalDir}/buildtools/gradle-lib/dtds.jar")
-  loggingDebug = false
-
-  //doAfterAssembly is called after the ear is assembled (into an exploded stage dir)
-  //but before the ear is packed
-  doAfterAssembly {
-    copy {
-      file("${globalDir}/config/atg").eachDir { from it }
-      into "${storeEar.canonicalPath}/atg_bootstrap.war/WEB-INF/ATG-INF/home/servers"
-    }
-  }
+task syncStoreEar(type: Copy) {
+  dependsOn = [assembleDevEar]
+  from bigEar
+  into "$jbossRoot/server/$storeServerName/deploy/${bigEarName}"
 }
 
-task setupDevServer(type: Sync, description: "Creates a dev server setup in your jboss installation") {
-  from "$jbossRoot/server/default"
+task syncAdminEar(type: Copy) {
+  dependsOn = [assembleDevEar]
+  println "ADMIN JBOSS SERVER NOT SET UP YET - GLASIR-50"
+  //from storeEar
+  //into "$jbossRoot/server/${store}/deploy/${storeEarName}"
+}
+
+task syncStoreServer(type: Copy, description: "Creates a dev server setup in your jboss installation") {
+  from("$jbossRoot/server/default")
   from "$globalDir/config/jboss/storefront/development"
-  into "$jbossRoot/server/${store}"
+  into "$jbossRoot/server/$storeServerName"
 }
 
-task jsp(type: Sync, description: "A fast sync of jsp files only into a (running) jboss node") {
-  from "$globalDir/MyBrand/Consumer/Webapp/j2ee-apps/Storefront/store.war"
-  into "$jbossRoot/server/${store}/deploy/${storeEarName}/storefront.war"
+task syncAdminServer(type: Copy, description: "Creates a dev server setup in your jboss installation") {
+  println "ADMIN JBOSS SERVER NOT SET UP YET - GLASIR-50"
+  //from "$jbossRoot/server/default"
+  //from "$globalDir/config/jboss/storefront/development"
+  //into "$jbossRoot/server/${store}"
 }
 
-
-task syncStoreEar(type: Sync) {
-  from storeEar
-  into "$jbossRoot/server/${store}/deploy/${storeEarName}"
-}
-
-task syncAdminEar(type: Sync) {
-  from adminEar
-  into "$jbossRoot/server/${admin}/deploy/${adminEarName}"
-}
-
-task syncDocRoot(type: Sync) {
+task syncDocRoot(type: Copy) {
   from docRoot
-  into "$jbossRoot/server/${store}/deploy/ROOT.war"
+  into "$jbossRoot/server/${storeServerName}/deploy/ROOT.war"
 }
 
-task devDeployStore {
-  description = "Compiles, tests, assemble, and deploys the dev store ear file to jboss"  
-  dependsOn = [assembleDevStoreEar, setupDevServer, syncStoreEar, syncDocRoot]
+
+//TODO: Fix the jsp task
+task jsp(type: Sync, description: "A fast sync of jsp files only into a (running or not) jboss node") {
+  from "$globalDir/MyBrand/Consumer/Webapp/j2ee-apps/Storefront/store.war"
+  into "$jbossRoot/server/${storeServerName}/deploy/${bigEarName}/storefront.war"
+}
+ 
+task perkele(dependsOn: syncStoreEar) {
+  println "PERKELE!"
 }
 
-task devDeployAdmin { 
-  description = "Compiles, tests, assemble, and deploys the dev store ear file to jboss"  
-  dependsOn = [assembleDevAdminEar, setupDevServer, syncAdminEar]
-}
+task syncStore(dependsOn: [syncStoreEar, syncStoreServer, syncDocRoot])
+
+task syncAdmin(dependsOn: [syncAdminEar, syncAdminServer])
 
 task devDeploy {
-  description = "Compiles, tests, assembles, and deploys dev store and admin ears to jboss"  
-  dependsOn = [devDeployStore] //, devDeployAdmin]
+  description = "Compile, test, assemble, and deploys the dev ear to jboss"  
+  dependsOn = [assembleDevEar, syncStore, syncAdmin]
 }
 
-task cleanAll(dependsOn: [':clean']) << {
+task cleanAll(dependsOn: ['clean']) << {
   description = "Cleans out all the 'build' directories in the source tree _AND_ the jboss server dirs"
-  delete("$jbossRoot/server/${store}")
-  delete("$jbossRoot/server/${admin}")
+  delete("$jbossRoot/server/${storeServerName}")
+  delete("$jbossRoot/server/${adminServerName}")
 }
 
 String getAllEnvironmentModules() {
-  moduleMap.keySet().findAll( { it.startsWith('env.') || it.equals('env') } ).join( " " )
+  moduleMap.keySet().findAll( { it.startsWith('env.') || it == 'env' } ).sort().join( " " )
 }
