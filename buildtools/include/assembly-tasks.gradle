@@ -120,10 +120,6 @@ task jsp(type: Sync, description: "A fast sync of jsp files only into a (running
   into "$jbossRoot/server/${storeServerName}/deploy/${bigEarName}/storefront.war"
 }
  
-task perkele(dependsOn: syncStoreEar) {
-  println "PERKELE!"
-}
-
 task syncStore(dependsOn: [syncStoreEar, syncStoreServer, syncDocRoot])
 
 task syncAdmin(dependsOn: [syncAdminEar, syncAdminServer])
