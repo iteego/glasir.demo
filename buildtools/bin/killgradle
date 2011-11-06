@@ -1,10 +1,10 @@
 #!/bin/bash
 
-PIDS=`ps -eaf | grep org.gradle.launcher.GradleDaemon | grep -vE "grep|killgradle" | awk '{print $2}'`
+PIDS=`ps -eaf | grep GradleDaemon | grep -vE "grep|killgradle" | awk '{print $2}'`
 
 if [ -n "$PIDS" ]  
 then
-  SIGNAL=""
+  SIGNAL=" -9"
   if [ ! -z $1 ]
   then 
     SIGNAL=" $1"

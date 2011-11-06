@@ -43,7 +43,7 @@
  * arbitrary depth can be created.
  *
  */
-apply plugin: 'glasir'
+apply plugin: 'glasir.build'
 
 /*****************************************************************************
  * Include a gradle file which defines brand name, ear file names, and 

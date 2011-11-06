@@ -1,15 +1,38 @@
+import com.iteego.glasir.build.tasks.*
+
 /******************************************************************************
 * Tasks for starting/stopping local dev instances of jboss
 */
-task launchDevStore << {
-  startJBossInstance(storeServerName, true, 8787)
+
+task startJBossStore << {
+  startJBossInstance(storeServerName, "env.storefront.dev", true, 8787)
 }
+
+task launchDevStore(type: Tail, dependsOn: [startJBossStore]) {
+  file      "$jbossRoot/server/$storeServerName/log/server.log"
+  file      "$jbossRoot/server/$storeServerName/log/boot.log"  
+  //failOn    "ERROR[ ]*\\["
+  //succeedOn "Nucleus running"
+  //postFailureTailSeconds = 2
+}
+
 task shutdownDevStore << {
   stopJBossInstance(store)
 }
-task launchDevAdmin << {
-  startJBossInstance(admin, true, 9797)
+
+task startJBossAdmin << {
+  startJBossInstance(admin, "env.admin.dev", true, 9797)
 }
+
+task launchDevAdmin(type: Tail, dependsOn: [startJBossAdmin]) {
+  file      "$jbossRoot/server/$adminServerName/log/server.log"
+  file      "$jbossRoot/server/$adminServerName/log/boot.log"  
+  //failOn    "ERROR[ ]*\\["
+  //succeedOn "Nucleus running"
+  //postFailureTailSeconds = 2
+}
+
+
 task shutdownDevAdmin << {
   stopJBossInstance(admin)
 }
@@ -21,13 +44,13 @@ task shutdownDevAdmin << {
 * environment is one of: 'sandbox', 'development', etc
 * serverType is one of: 'store', 'admin', 'fulfillment', etc
 */
-def startJBossInstance( serverName, debug=false, debugPort=8787) {
+def startJBossInstance(serverName, modules, debug=false, debugPort=8787) {
   def serverDir = file("$jbossRoot/server/$serverName")
   if (!serverDir.exists()) {
     println "ERROR: Can start jboss for non-existent server: $serverDir"
   }
-
-  javaexec {
+  
+  javaspawn {
     main = "org.jboss.Main"
     classpath = files("$jbossRoot/bin/run.jar") 
     workingDir = "$serverDir"
@@ -37,6 +60,7 @@ def startJBossInstance( serverName, debug=false, debugPort=8787) {
     args serverName
 
     systemProperty "atg.dynamo.server.name", serverName
+    //systemProperty "atg.dynamo.modules",     modules 
     systemProperty "atg.dynamo.data-dir",    "$serverDir/ATG-Data"
     systemProperty "jboss.server.log.dir",   "$serverDir/log"    
     systemProperty "java.endorsed.dirs",     "$jbossRoot/lib/endorsed"

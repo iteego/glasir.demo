@@ -85,12 +85,12 @@ subprojects {
     
   //this works around the issue described at the following url on the gradle forums: 
   //http://forums.gradle.org/gradle/topics/jar_task_creates_build_dir_even_when_not_executed
-  assemble.doLast {
-    if (!fileTree(dir: buildDir).find { it.isFile() } ) {
-      //println "No work in ${project.path} deleting $buildDir"
-      delete(buildDir)
-    }
-  }
+//  assemble.doLast {
+//    if (!fileTree(dir: buildDir).find { it.isFile() } ) {
+//      //println "No work in ${project.path} deleting $buildDir"
+//      delete(buildDir)
+//    }
+//  }
   
   clean << {
     ant.delete file: 'lib/classes.jar'

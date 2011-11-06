@@ -115,7 +115,7 @@ task syncDocRoot(type: Copy) {
 
 
 //TODO: Fix the jsp task
-task jsp(type: Sync, description: "A fast sync of jsp files only into a (running or not) jboss node") {
+task jsp(type: Copy, description: "A fast sync of jsp files only into a (running or not) jboss node") {
   from "$globalDir/MyBrand/Consumer/Webapp/j2ee-apps/Storefront/store.war"
   into "$jbossRoot/server/${storeServerName}/deploy/${bigEarName}/storefront.war"
 }
