@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE gsa-template SYSTEM "dynamosystemresource:/atg/dtds/gsa/gsa_1.0.dtd">
+<gsa-template>
+<import-items>
+
+<!-- THIS IS A TEST -->
+<!-- items of type siteConfiguration -->
+
+<add-item item-descriptor="siteConfiguration" id="abc">
+ <set-property name="name" value="martin"/>
+ <set-property name="description" value="han kodade det"/>
+</add-item>
+
