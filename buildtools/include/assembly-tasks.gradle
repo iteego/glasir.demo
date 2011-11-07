@@ -129,6 +129,11 @@ task devDeploy {
   dependsOn = [assembleDevEar, syncStore, syncAdmin]
 }
 
+task ciDeploy {
+  description = "Compile, test, assemble, and deploys the dev ear to jboss"  
+  dependsOn = [syncStore, syncAdmin]
+}
+
 task cleanAll(dependsOn: ['clean']) << {
   description = "Cleans out all the 'build' directories in the source tree _AND_ the jboss server dirs"
   delete("$jbossRoot/server/${storeServerName}")
