@@ -11,6 +11,14 @@ task startJBossStore << {
 task launchDevStore(type: Tail, dependsOn: [startJBossStore]) {
   file      "$jbossRoot/server/$storeServerName/log/server.log"
   file      "$jbossRoot/server/$storeServerName/log/boot.log"  
+  //failOn    "ERROR[ ]*\\["
+  //succeedOn "INFO[ ]*\\[org\\.jboss\\.bootstrap\\.microcontainer\\.ServerImpl\\] \\(main\\) JBoss \\(Microcontainer\\) \\[.*] Started in"
+  //postFailureTailSeconds = 2
+}
+
+task launchCiStore(type: Tail, dependsOn: [startJBossStore]) {
+  file      "$jbossRoot/server/$storeServerName/log/server.log"
+  file      "$jbossRoot/server/$storeServerName/log/boot.log"  
   failOn    "ERROR[ ]*\\["
   succeedOn "INFO[ ]*\\[org\\.jboss\\.bootstrap\\.microcontainer\\.ServerImpl\\] \\(main\\) JBoss \\(Microcontainer\\) \\[.*] Started in"
   //postFailureTailSeconds = 2
