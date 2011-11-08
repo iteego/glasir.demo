@@ -8,13 +8,19 @@ task startJBossStore << {
   startJBossInstance(storeServerName, "env.storefront.dev", true, 8787)
 }
 
+task launchDevStore << {
+    startJBossInstance(storeServerName, "env.storefront.dev", true, 8787).execHandle.waitForFinish()
+}
+
+
+/*
 task launchDevStore(type: Tail, dependsOn: [startJBossStore]) {
   file      "$jbossRoot/server/$storeServerName/log/server.log"
   file      "$jbossRoot/server/$storeServerName/log/boot.log"  
   //failOn    "ERROR[ ]*\\["
   //succeedOn "INFO[ ]*\\[org\\.jboss\\.bootstrap\\.microcontainer\\.ServerImpl\\] \\(main\\) JBoss \\(Microcontainer\\) \\[.*] Started in"
   //postFailureTailSeconds = 2
-}
+}*/
 
 task launchCiStore(type: Tail, dependsOn: [startJBossStore]) {
   file      "$jbossRoot/server/$storeServerName/log/server.log"
