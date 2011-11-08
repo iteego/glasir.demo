@@ -83,13 +83,11 @@ task assembleDevEar(type: AtgAssemblerTask) {
 }
 
 task syncStoreEar(type: Copy) {
-  dependsOn = [assembleDevEar]
   from bigEar
   into "$jbossRoot/server/$storeServerName/deploy/${bigEarName}"
 }
 
 task syncAdminEar(type: Copy) {
-  dependsOn = [assembleDevEar]
   println "ADMIN JBOSS SERVER NOT SET UP YET - GLASIR-50"
   //from storeEar
   //into "$jbossRoot/server/${store}/deploy/${storeEarName}"
@@ -130,8 +128,8 @@ task devDeploy {
 }
 
 task ciDeploy {
-  description = "Compile, test, assemble, and deploys the dev ear to jboss"  
-  dependsOn = [syncStore, syncAdmin]
+  description = "Deploys the ear to jboss"  
+  dependsOn = [syncStoreServer, syncAdminServer, syncStoreEar, syncAdminEar]
 }
 
 task cleanAll(dependsOn: ['clean']) << {
