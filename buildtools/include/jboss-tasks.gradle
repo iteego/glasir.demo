@@ -28,6 +28,7 @@ task launchCiStore(type: Tail, dependsOn: [startJBossStore]) {
   failOn    "ERROR[ ]*\\["
   succeedOn "INFO[ ]*\\[org\\.jboss\\.bootstrap\\.microcontainer\\.ServerImpl\\] \\(main\\) JBoss \\(Microcontainer\\) \\[.*] Started in"
   //postFailureTailSeconds = 2
+  timeOutSeconds = 300
 }
 
 task shutdownDevStore << {
