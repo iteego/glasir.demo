@@ -3,21 +3,6 @@
  * Gradle project and sub-project setup calls
  *****************************************************************************/
 
-//TODO: We need to figure this out! Seems like if you _don't_ create dependencies 
-//on subprojects, then it is non-trivial to depend on all child projects with a 
-//specific task defined. If you _do_ add them, it becomes impossible to configure 
-//the projects individually via specific project build.gradle files. 
-gradle.projectsEvaluated { g ->
-  build.dependsOn(getTasksByName('build', true) - build)
-  clean.dependsOn(getTasksByName('clean', true) - clean)
-}
-
-/*
-subprojects.each { p ->
-  if (p.path.startsWith(":glasir")) return
-  evaluationDependsOn(p.path)
-}
-*/
 
 // Add some behavior to all projects including the root one.
 allprojects {
@@ -56,12 +41,6 @@ subprojects {
   // set the maven 'group' for the sub project,
   group = getProjectGroup(project, true)
 
-  test {
-    testResultsDir = rootProject.testResultsDir 
-    testReportDir = rootProject.testReportDir 
-    //maxParallelForks = 10
-  }
-
   setupAtgDependencies(project, ['compile', 'testCompile'])
 
   // Adds a 'print' task which you can run from the subprojects. I.e. you can cd into a project dir and
@@ -98,4 +77,49 @@ subprojects {
       ant.delete dir: 'lib'
     }
   }
+}
+
+
+task aggregateTestReports(type: TestReportAggregator, dependsOn: test) {
+    testReportDir = file("${reportsDir}/tests")
+    testResultsDir = file("${buildDir}/test-results")
+    projects = subprojects
+}
+build.dependsOn(aggregateTestReports)
+
+//TODO: We need to figure this out! Seems like if you _don't_ create dependencies 
+//on subprojects, then it is non-trivial to depend on all child projects with a 
+//specific task defined. If you _do_ add them, it becomes impossible to configure 
+//the projects individually via specific project build.gradle files. 
+gradle.projectsEvaluated { g ->
+  build.dependsOn(getTasksByName('build', true) - build)
+  clean.dependsOn(getTasksByName('clean', true) - clean)
+}
+
+class TestReportAggregator extends Copy {
+    def projects
+    File testResultsDir
+    
+    @OutputDirectory
+    File testReportDir
+    
+    def TestReportAggregator() {
+        dependsOn { testTasks }
+        from { inputTestResultDirs }
+        into { testResultsDir }
+    }
+
+    @TaskAction
+    def aggregate() {
+        def report = new org.gradle.api.internal.tasks.testing.junit.report.DefaultTestReport(testReportDir: testReportDir, testResultsDir: testResultsDir)
+        report.generateReport()
+    }
+
+    def getTestTasks() {
+        projects.collect { it.tasks.withType(Test) }.flatten()
+    }
+
+    def getInputTestResultDirs() {
+        testTasks*.testResultsDir
+    }
 }
