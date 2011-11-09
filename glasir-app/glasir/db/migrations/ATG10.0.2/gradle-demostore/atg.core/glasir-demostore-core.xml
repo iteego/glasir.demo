@@ -1,0 +1,3052 @@
+<?xml version="1.0" encoding="UTF-8"?>
+            <databaseChangeLog                  
+            xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   
+            xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+            xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+             http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd
+             http://www.liquibase.org/xml/ns/dbchangelog-ext
+             http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+            <changeSet id='changeSet_0000_core' author='atg' context='prod'>
+              <preConditions>
+                <not>
+                  <tableExists tableName='bogus_precondition_table'/>
+                </not>
+              </preConditions>
+
+              <sql><![CDATA[
+--------------------------------------------------------------------------
+-- Source file for next block: DAS/sql/db_components/mysql/id_generator.sql
+
+
+
+--  @version $Id: //product/DAS/version/10.0.2/templates/DAS/sql/id_generator.xml#2 $$Change: 635969 $
+
+create table das_id_generator (
+	id_space_name	varchar(60)	not null,
+	seed	bigint	not null,
+	batch_size	integer	not null,
+	prefix	varchar(10)	null,
+	suffix	varchar(10)	null
+,constraint das_id_generator_p primary key (id_space_name));
+
+
+create table das_secure_id_gen (
+	id_space_name	varchar(60)	not null,
+	seed	bigint	not null,
+	batch_size	integer	not null,
+	ids_per_batch	integer	null,
+	prefix	varchar(10)	null,
+	suffix	varchar(10)	null
+,constraint das_secure_id_ge_p primary key (id_space_name));
+
+commit;
+
+
+
+--------------------------------------------------------------------------
+-- Source file for next block: DAS/sql/db_components/mysql/dms_limbo_ddl.sql
+
+
+
+--  @version $Id: //product/DAS/version/10.0.2/templates/DAS/sql/dms_limbo_ddl.xml#2 $$Change: 635969 $
+-- This table is where limbo instance/clients identify themselves. --There should only be one entry in this table for each Dynamo running PatchBay with message delays enabled.
+
+create table dms_limbo (
+	limbo_name	varchar(250)	not null,
+	limbo_id	bigint	not null
+,constraint limbo_pk primary key (limbo_name));
+
+-- The following four tables comprise the parts of the stored messages.
+
+create table dms_limbo_msg (
+	msg_id	bigint	not null,
+	limbo_id	bigint	not null,
+	delivery_date	bigint	not null,
+	delivery_count	tinyint	not null,
+	msg_src_name	varchar(250)	not null,
+	port_name	varchar(250)	not null,
+	msg_class	varchar(250)	not null,
+	msg_class_type	tinyint	not null,
+	jms_type	varchar(250)	null,
+	jms_expiration	bigint	null,
+	jms_correlationid	varchar(250)	null
+,constraint limbo_msg_pk primary key (msg_id));
+
+create index dms_limbo_read_idx on dms_limbo_msg (limbo_id,delivery_date);
+-- If serialized reply-to destinations are known to be small enough, this binary column's size can be reduced for efficiency.  The size here has been chosen to work with local dms and SQL-JMS.
+
+create table dms_limbo_replyto (
+	msg_id	bigint	not null,
+	jms_replyto	varbinary(500)	null
+,constraint limbo_replyto_pk primary key (msg_id));
+
+-- If serialized message bodies are known to be small enough, this binary column's size can be reduced for efficiency.  The size here has been chosen to work with almost all types of messages but may be larger than necessary.  Actual usage analysis is recommended for finding the optimal binary column size.
+
+create table dms_limbo_body (
+	msg_id	bigint	not null,
+	msg_body	longvarbinary	null
+,constraint limbo_body_pk primary key (msg_id));
+
+-- This table represents a map of properties for messages stored above, i.e.  there can be multiple rows in this table for a single row in the preceeding tables.
+
+create table dms_limbo_props (
+	msg_id	bigint	not null,
+	prop_name	varchar(250)	not null,
+	prop_value	varchar(250)	not null
+,constraint limbo_props_pk primary key (msg_id,prop_name));
+
+
+create table dms_limbo_ptypes (
+	msg_id	bigint	not null,
+	prop_name	varchar(250)	not null,
+	prop_type	tinyint	not null
+,constraint dms_limbo_ptypes_p primary key (msg_id,prop_name));
+
+
+create table dms_limbo_delay (
+	msg_id	bigint	not null,
+	delay	bigint	not null,
+	max_attempts	tinyint	not null,
+	failure_port	varchar(250)	not null,
+	jms_timestamp	bigint	null,
+	jms_deliverymode	integer	null,
+	jms_priority	integer	null,
+	jms_messageid	varchar(250)	null,
+	jms_redelivered	tinyint	null,
+	jms_destination	varbinary(500)	null
+,constraint limbo_delay_pk primary key (msg_id));
+
+commit;
+
+
+
+--------------------------------------------------------------------------
+-- Source file for next block: DAS/sql/db_components/mysql/cluster_name_ddl.sql
+
+
+
+--  @version $Id: //product/DAS/version/10.0.2/templates/DAS/sql/cluster_name_ddl.xml#2 $$Change: 635969 $
+
+create table das_cluster_name (
+	cluster_name	varchar(255)	not null,
+	saved_date	bigint	not null);
+
+commit;
+
+
+
+--------------------------------------------------------------------------
+-- Source file for next block: DAS/sql/db_components/mysql/create_sql_jms_ddl.sql
+
+
+
+--  @version $Id: //product/DAS/version/10.0.2/templates/DAS/sql/create_sql_jms_ddl.xml#2 $$Change: 635969 $
+
+create table dms_client (
+	client_name	varchar(250)	not null,
+	client_id	bigint	null
+,constraint dms_client_p primary key (client_name));
+
+
+create table dms_queue (
+	queue_name	varchar(250)	null,
+	queue_id	bigint	not null,
+	temp_id	bigint	null
+,constraint dms_queue_p primary key (queue_id));
+
+
+create table dms_queue_recv (
+	client_id	bigint	null,
+	receiver_id	bigint	not null,
+	queue_id	bigint	null
+,constraint dms_queue_recv_p primary key (receiver_id));
+
+
+create table dms_queue_entry (
+	queue_id	bigint	not null,
+	msg_id	bigint	not null,
+	delivery_date	bigint	null,
+	handling_client_id	bigint	null,
+	read_state	bigint	null
+,constraint dms_queue_entry_p primary key (queue_id,msg_id));
+
+
+create table dms_topic (
+	topic_name	varchar(250)	null,
+	topic_id	bigint	not null,
+	temp_id	bigint	null
+,constraint dms_topic_p primary key (topic_id));
+
+
+create table dms_topic_sub (
+	client_id	bigint	null,
+	subscriber_name	varchar(250)	null,
+	subscriber_id	bigint	not null,
+	topic_id	bigint	null,
+	durable	tinyint	null,
+	active	tinyint	null
+,constraint dms_topic_sub_p primary key (subscriber_id));
+
+
+create table dms_topic_entry (
+	subscriber_id	bigint	not null,
+	msg_id	bigint	not null,
+	delivery_date	bigint	null,
+	read_state	bigint	null
+,constraint dms_topic_entry_p primary key (subscriber_id,msg_id));
+
+create index dms_topic_msg_idx on dms_topic_entry (msg_id,subscriber_id);
+create index dms_topic_read_idx on dms_topic_entry (read_state,delivery_date);
+
+create table dms_msg (
+	msg_class	varchar(250)	null,
+	has_properties	tinyint	null,
+	reference_count	integer	null,
+	msg_id	bigint	not null,
+	timestamp	bigint	null,
+	correlation_id	varchar(250)	null,
+	reply_to	bigint	null,
+	destination	bigint	null,
+	delivery_mode	tinyint	null,
+	redelivered	tinyint	null,
+	type	varchar(250)	null,
+	expiration	bigint	null,
+	priority	tinyint	null,
+	small_body	varbinary(250)	null,
+	large_body	longvarbinary	null
+,constraint dms_msg_p primary key (msg_id));
+
+
+create table dms_msg_properties (
+	msg_id	bigint	not null,
+	data_type	tinyint	null,
+	name	varchar(250)	not null,
+	value	varchar(250)	null
+,constraint dms_msg_properti_p primary key (msg_id,name));
+
+commit;
+
+--------------------------------------------------------------------------
+-- Source file for next block: DAS/sql/db_components/mysql/create_staff_ddl.sql
+
+
+
+--  @version $Id: //product/DAS/version/10.0.2/templates/DAS/sql/create_staff_ddl.xml#2 $$Change: 635969 $
+-- SQL for creating the Dynamo Staff Repository for the GSA
+-- Primary account table.
+--  Type=1 is a login account.  The first_name, last_name, and password         fields are valid for this type of account.
+-- Type=2 is a group account.  The description field is valid for        this type of account.
+-- Type=4 is a privilege account.  The description field is valid for        this type of account.
+
+create table das_account (
+	account_name	nvarchar(254)	not null,
+	type	integer	not null,
+	first_name	nvarchar(254)	null,
+	last_name	nvarchar(254)	null,
+	password	varchar(254)	null,
+	description	nvarchar(254)	null,
+	lastpwdupdate	datetime	null
+,constraint das_account_p primary key (account_name));
+
+
+create table das_group_assoc (
+	account_name	nvarchar(254)	not null,
+	sequence_num	integer	not null,
+	group_name	nvarchar(254)	not null
+,constraint das_grp_asc_p primary key (account_name,sequence_num));
+
+-- Adding the previous password information
+
+create table das_acct_prevpwd (
+	account_name	nvarchar(254)	not null,
+	seq_num	integer	not null,
+	prevpwd	varchar(35)	null
+,constraint das_prevpwd_p primary key (account_name,seq_num)
+,constraint das_prvpwd_d_f foreign key (account_name) references das_account (account_name));
+
+commit;
+
+
+
+--------------------------------------------------------------------------
+-- Source file for next block: DAS/sql/db_components/mysql/create_gsa_subscribers_ddl.sql
+
+
+
+--  @version $Id: //product/DAS/version/10.0.2/templates/DAS/sql/create_gsa_subscribers_ddl.xml#2 $$Change: 635969 $
+
+create table das_gsa_subscriber (
+	id	integer	not null,
+	address	varchar(50)	not null,
+	port	integer	not null,
+	repository	varchar(256)	not null,
+	itemdescriptor	varchar(256)	not null
+,constraint das_gsa_subscrib_p primary key (id));
+
+commit;
+
+
+
+--------------------------------------------------------------------------
+-- Source file for next block: DAS/sql/db_components/mysql/create_sds.sql
+
+
+
+--  @version $Id: //product/DAS/version/10.0.2/templates/DAS/sql/create_sds.xml#2 $$Change: 635969 $
+
+create table das_sds (
+	sds_name	varchar(50)	not null,
+	curr_ds_name	varchar(50)	null,
+	dynamo_server	varchar(80)	null,
+	last_modified	datetime	null
+,constraint das_sds_p primary key (sds_name));
+
+commit;
+
+
+
+--------------------------------------------------------------------------
+-- Source file for next block: DAS/sql/db_components/mysql/integration_data_ddl.sql
+
+
+
+
+create table if_integ_data (
+	item_id	varchar(40)	not null,
+	descriptor	nvarchar(64)	not null,
+	repository	nvarchar(255)	not null,
+	state	integer	not null,
+	last_import	datetime	null,
+	version	integer	not null
+,constraint if_int_data_p primary key (item_id,descriptor,repository));
+
+commit;
+
+
+
+--------------------------------------------------------------------------
+-- Source file for next block: DAS/sql/db_components/mysql/nucleus_security_ddl.sql
+
+
+
+--  @version $Id: //product/DAS/version/10.0.2/templates/DAS/sql/nucleus_security_ddl.xml#2 $$Change: 635969 $
+
+create table das_nucl_sec (
+	func_name	nvarchar(254)	not null,
+	policy	nvarchar(254)	not null
+,constraint func_name_pk primary key (func_name));
+
+
+create table das_ns_acls (
+	id	nvarchar(254)	not null,
+	index_num	integer	not null,
+	acl	nvarchar(254)	not null
+,constraint id_index_pk primary key (id,index_num));
+
+commit;
+
+
+
+--------------------------------------------------------------------------
+-- Source file for next block: DAS/sql/db_components/mysql/media_ddl.sql
+
+
+
+--     @version $Id: //product/DAS/version/10.0.2/templates/DAS/sql/media_ddl.xml#2 $$Change: 635969 $  
+--     media content repository tables.  
+
+create table media_folder (
+	folder_id	varchar(40)	not null,
+	version	integer	not null,
+	creation_date	datetime	null,
+	description	nvarchar(254)	null,
+	name	nvarchar(254)	not null,
+	path	nvarchar(254)	not null,
+	parent_folder_id	varchar(40)	null
+,constraint md_folder_p primary key (folder_id)
+,constraint md_foldparnt_fl_f foreign key (parent_folder_id) references media_folder (folder_id));
+
+create index fldr_mfldrid_idx on media_folder (parent_folder_id);
+create index md_fldr_path_idx on media_folder (path);
+
+create table media_base (
+	media_id	varchar(40)	not null,
+	version	integer	not null,
+	creation_date	datetime	null,
+	description	nvarchar(254)	null,
+	name	nvarchar(254)	not null,
+	path	nvarchar(254)	not null,
+	parent_folder_id	varchar(40)	not null,
+	media_type	integer	null
+,constraint media_p primary key (media_id)
+,constraint medparnt_fl_f foreign key (parent_folder_id) references media_folder (folder_id));
+
+create index med_mfldrid_idx on media_base (parent_folder_id);
+create index media_path_idx on media_base (path);
+create index media_type_idx on media_base (media_type);
+
+create table media_ext (
+	media_id	varchar(40)	not null,
+	url	varchar(254)	not null
+,constraint media_ext_p primary key (media_id)
+,constraint medxtmed_d_f foreign key (media_id) references media_base (media_id));
+
+
+create table media_bin (
+	media_id	varchar(40)	not null,
+	length	integer	not null,
+	last_modified	datetime	not null,
+	data	longvarbinary	not null
+,constraint media_bin_p primary key (media_id)
+,constraint medbnmed_d_f foreign key (media_id) references media_base (media_id));
+
+
+create table media_txt (
+	media_id	varchar(40)	not null,
+	length	integer	not null,
+	last_modified	datetime	not null,
+	data	longvarchar 	not null
+,constraint media_txt_p primary key (media_id)
+,constraint medtxtmed_d_f foreign key (media_id) references media_base (media_id));
+
+commit;
+
+
+
+--------------------------------------------------------------------------
+-- Source file for next block: DAS/sql/db_components/mysql/deployment_ddl.sql
+
+
+
+--  @version $Id: //product/DAS/version/10.0.2/templates/DAS/sql/deployment_ddl.xml#2 $
+--     These tables are for the daf deployment system  
+
+create table das_deployment (
+	deployment_id	varchar(40)	not null,
+	version	integer	not null,
+	start_time	datetime	null,
+	end_time	datetime	null,
+	failure_time	datetime	null,
+	status	integer	null,
+	prev_status	integer	null,
+	status_detail	varchar(255)	null,
+	current_phase	integer	null,
+	rep_high_mark	integer	null,
+	rep_marks_avail	integer	null,
+	file_high_mark	integer	null,
+	file_marks_avail	integer	null,
+	thread_batch_size	integer	null,
+	failure_count	integer	null,
+	purge_deploy_data	tinyint	null
+,constraint daf_depl_pk primary key (deployment_id));
+
+create index das_dpl_start_idx on das_deployment (start_time);
+
+create table das_depl_progress (
+	deployment_id	varchar(40)	not null,
+	version	integer	not null,
+	work_completed	integer	null,
+	total_work	integer	null
+,constraint daf_depl_prg_pk primary key (deployment_id));
+
+
+create table das_thread_batch (
+	thread_batch_id	varchar(40)	not null,
+	version	integer	not null,
+	deployment	varchar(40)	null,
+	type	integer	null,
+	owner	varchar(255)	null,
+	thread_name	varchar(255)	null,
+	lower_bound	integer	null,
+	upper_bound	integer	null,
+	last_update_time	datetime	null,
+	running	tinyint	not null
+,constraint das_dpl_tb_pk primary key (thread_batch_id));
+
+create index das_tb_deployment on das_thread_batch (deployment);
+create index das_tb_owner on das_thread_batch (owner);
+create index das_tb_thread_nam on das_thread_batch (thread_name);
+
+create table das_deploy_data (
+	deploy_data_id	varchar(40)	not null,
+	version	integer	not null,
+	type	integer	null,
+	source	varchar(255)	null,
+	destination	varchar(255)	null,
+	dest_server	varchar(255)	null,
+	deployment	varchar(40)	null
+,constraint deploy_data_pk primary key (deploy_data_id)
+,constraint dd_deployment_fk foreign key (deployment) references das_deployment (deployment_id));
+
+create index dd_deployment_idx on das_deploy_data (deployment);
+
+create table das_deploy_mark (
+	marker_id	varchar(40)	not null,
+	version	integer	not null,
+	type	integer	null,
+	status	integer	null,
+	index_number	integer	null,
+	marker_action	integer	null,
+	f_src_devline_id	varchar(40)	null,
+	r_src_devline_id	varchar(40)	null,
+	deployment_id	varchar(40)	null,
+	deployment_data	varchar(40)	null
+,constraint marker_pk primary key (marker_id));
+
+create index marker_index_idx on das_deploy_mark (index_number);
+
+create table das_rep_mark (
+	rep_marker_id	varchar(40)	not null,
+	item_desc_name	varchar(255)	null,
+	item_id	varchar(255)	null
+,constraint rep_marker_pk primary key (rep_marker_id));
+
+
+create table das_file_mark (
+	file_marker_id	varchar(40)	not null,
+	file_path	varchar(1000)	null
+,constraint file_marker_pk primary key (file_marker_id));
+
+
+create table das_depl_depldat (
+	deployment_id	varchar(40)	not null,
+	sequence_num	integer	not null,
+	deployment_data	varchar(40)	null
+,constraint das_dpl_depdat_pk primary key (deployment_id,sequence_num));
+
+
+create table das_depl_options (
+	deployment_id	varchar(40)	not null,
+	tag	varchar(255)	not null,
+	optionValue	varchar(255)	null
+,constraint das_dpl_depopt_pk primary key (deployment_id,tag));
+
+
+create table das_depl_repmaps (
+	deployment_id	varchar(40)	not null,
+	source	varchar(255)	not null,
+	destination	varchar(255)	null
+,constraint das_dpl_repmap_pk primary key (deployment_id,source));
+
+
+create table das_depl_item_ref (
+	item_ref_id	varchar(40)	not null,
+	version	integer	not null,
+	deployment_id	varchar(40)	null,
+	repository	varchar(255)	null,
+	item_desc_name	varchar(255)	null,
+	item_id	varchar(255)	null,
+	item_index	integer	null
+,constraint das_dpl_itmref_pk primary key (item_ref_id));
+
+create index das_dpl_itmx_idx on das_depl_item_ref (item_index);
+create index das_dpl_dplid_idx on das_depl_item_ref (deployment_id);
+
+create table das_dd_markers (
+	deploy_data_id	varchar(40)	not null,
+	sequence_num	integer	not null,
+	marker	varchar(40)	null
+,constraint das_dpl_dd_mrk_pk primary key (deploy_data_id,sequence_num)
+,constraint marker_fk foreign key (marker) references das_deploy_mark (marker_id));
+
+create index marker_idx on das_dd_markers (marker);
+
+create table das_dep_fail_info (
+	id	varchar(40)	not null,
+	deployment_id	varchar(40)	not null,
+	marker_id	varchar(40)	null,
+	severity	varchar(40)	null,
+	failure_message	varchar(255)	null,
+	failure_time	datetime	null,
+	error_code	varchar(40)	null,
+	cause	longvarchar	null);
+
+commit;
+
+
+
+--------------------------------------------------------------------------
+-- Source file for next block: DAS/sql/db_components/mysql/sitemap_ddl.sql
+
+
+
+--     @version $Id:    //product/DAF/Sitemap/main/templates/DAS/sql/deployment_ddl.xml#26 $  
+-- Table for siteindex repository item
+
+create table das_siteindex (
+	siteindex_id	varchar(40)	not null,
+	lastmod	datetime	null,
+	filename	varchar(100)	null,
+	xml	longvarchar 	null
+,constraint siteindex_pk primary key (siteindex_id));
+
+-- Table for sitemap repository item
+
+create table das_sitemap (
+	sitemap_id	varchar(40)	not null,
+	lastmod	datetime	null,
+	filename	varchar(100)	null,
+	xml	longvarchar 	null
+,constraint sitemap_pk primary key (sitemap_id));
+
+commit;
+
+
+
+--------------------------------------------------------------------------
+-- Source file for next block: DPS/sql/db_components/mysql/user_ddl.sql
+
+
+
+--  @version $Id: //product/DPS/version/10.0.2/templates/DPS/sql/user_ddl.xml#2 $$Change: 635969 $
+-- This file contains create table statements, which will configure your database for use with the new DPS schema.
+-- Add the organization definition.  It's out of place, but since dps_user references it, it's got to be defined up here
+
+create table dps_organization (
+	org_id	varchar(40)	not null,
+	name	nvarchar(254)	not null,
+	description	nvarchar(254)	null,
+	parent_org	varchar(40)	null
+,constraint dps_organization_p primary key (org_id)
+,constraint dps_orgnparnt_rg_f foreign key (parent_org) references dps_organization (org_id));
+
+create index dps_orgparent_org on dps_organization (parent_org);
+-- Default Profile User Template
+-- Basic user info.  note: the password field size must be at a minimum 35 characters       if DPS stores a hash of the password and not the actual value.
+
+create table dps_user (
+	id	varchar(40)	not null,
+	login	nvarchar(40)	not null,
+	auto_login	tinyint	null,
+	password	varchar(35)	null,
+	member	tinyint	null,
+	first_name	nvarchar(40)	null,
+	middle_name	nvarchar(40)	null,
+	last_name	nvarchar(40)	null,
+	user_type	integer	null,
+	locale	integer	null,
+	lastactivity_date	datetime	null,
+	lastpwdupdate	datetime	null,
+	generatedpwd	tinyint	null,
+	registration_date	datetime	null,
+	email	nvarchar(255)	null,
+	email_status	integer	null,
+	receive_email	integer	null,
+	last_emailed	datetime	null,
+	gender	integer	null,
+	date_of_birth	date	null,
+	securityStatus	integer	null,
+	description	nvarchar(254)	null
+,constraint dps_user_p primary key (id)
+,constraint dps_user_u unique (login)
+,constraint dps_user1_c check (auto_login in (0,1))
+,constraint dps_user2_c check (member in (0,1)));
+
+
+create table dps_contact_info (
+	id	varchar(40)	not null,
+	user_id	varchar(40)	null,
+	prefix	nvarchar(40)	null,
+	first_name	nvarchar(40)	null,
+	middle_name	nvarchar(40)	null,
+	last_name	nvarchar(40)	null,
+	suffix	nvarchar(40)	null,
+	job_title	nvarchar(100)	null,
+	company_name	nvarchar(40)	null,
+	address1	nvarchar(50)	null,
+	address2	nvarchar(50)	null,
+	address3	nvarchar(50)	null,
+	city	nvarchar(30)	null,
+	state	nvarchar(20)	null,
+	postal_code	nvarchar(10)	null,
+	county	nvarchar(40)	null,
+	country	nvarchar(40)	null,
+	phone_number	nvarchar(30)	null,
+	fax_number	nvarchar(30)	null
+,constraint dps_contact_info_p primary key (id));
+
+
+create table dps_user_address (
+	id	varchar(40)	not null,
+	home_addr_id	varchar(40)	null,
+	billing_addr_id	varchar(40)	null,
+	shipping_addr_id	varchar(40)	null
+,constraint dps_user_address_p primary key (id)
+,constraint dps_usrddrssid_f foreign key (id) references dps_user (id));
+
+create index dps_usr_adr_shp_id on dps_user_address (shipping_addr_id);
+create index dps_usr_blng_ad_id on dps_user_address (billing_addr_id);
+create index dps_usr_home_ad_id on dps_user_address (home_addr_id);
+
+create table dps_other_addr (
+	user_id	varchar(40)	not null,
+	tag	nvarchar(42)	not null,
+	address_id	varchar(40)	not null
+,constraint dps_other_addr_p primary key (user_id,tag)
+,constraint dps_othrddrusr_d_f foreign key (user_id) references dps_user (id));
+
+
+create table dps_mailing (
+	id	varchar(40)	not null,
+	name	nvarchar(255)	null,
+	subject	nvarchar(80)	null,
+	uniq_server_id	varchar(255)	null,
+	from_address	nvarchar(255)	null,
+	replyto	nvarchar(255)	null,
+	template_URL	varchar(255)	null,
+	alt_template_URL	varchar(255)	null,
+	batch_exec_id	varchar(40)	null,
+	cc	longvarchar	null,
+	bcc	longvarchar	null,
+	send_as_html	integer	null,
+	send_as_text	integer	null,
+	params	longvarbinary	null,
+	start_time	datetime	null,
+	end_time	datetime	null,
+	status	integer	null,
+	num_profiles	integer	null,
+	num_sent	integer	null,
+	num_bounces	integer	null,
+	num_soft_bounces	integer	null,
+	num_errors	integer	null,
+	num_skipped	integer	null,
+	fill_from_templ	tinyint	null,
+	is_batched	tinyint	null,
+	ignore_fatigue	tinyint	null,
+	batch_size	integer	null
+,constraint dps_mailing_p primary key (id));
+
+
+create table dps_mail_trackdata (
+	mailing_id	varchar(40)	not null,
+	map_key	varchar(254)	not null,
+	map_value	varchar(254)	null
+,constraint dps_mail_trackd_p primary key (mailing_id,map_key)
+,constraint dps_mail_trackd_f foreign key (mailing_id) references dps_mailing (id));
+
+
+create table dps_mail_batch (
+	mailing_id	varchar(40)	not null,
+	start_idx	integer	not null,
+	uniq_server_id	varchar(254)	null,
+	start_time	datetime	null,
+	end_time	datetime	null,
+	status	integer	null,
+	num_profiles	integer	null,
+	num_sent	integer	null,
+	num_bounces	integer	null,
+	num_errors	integer	null,
+	num_skipped	integer	null,
+	is_summarized	tinyint	null
+,constraint dps_mail_batch_p primary key (mailing_id,start_idx)
+,constraint dps_mailbatch_d_f foreign key (mailing_id) references dps_mailing (id));
+
+
+create table dps_mail_server (
+	uniq_server_id	varchar(254)	not null,
+	last_updated	datetime	null
+,constraint dps_mail_server_p primary key (uniq_server_id));
+
+
+create table dps_user_mailing (
+	mailing_id	varchar(40)	not null,
+	user_id	varchar(40)	not null,
+	idx	integer	not null
+,constraint dps_user_mailing_p primary key (mailing_id,user_id)
+,constraint dps_usrmmalng_d_f foreign key (mailing_id) references dps_mailing (id)
+,constraint dps_usrmlngusr_d_f foreign key (user_id) references dps_user (id));
+
+create index dps_u_mail_uid on dps_user_mailing (user_id);
+
+create table dps_email_address (
+	mailing_id	varchar(40)	not null,
+	email_address	varchar(255)	not null,
+	idx	integer	not null
+,constraint dps_email_addres_p primary key (mailing_id,idx)
+,constraint dps_emldmalng_d_f foreign key (mailing_id) references dps_mailing (id));
+
+-- Organizations/roles
+
+create table dps_role (
+	role_id	varchar(40)	not null,
+	type	integer	not null,
+	version	integer	not null,
+	name	nvarchar(254)	not null,
+	description	nvarchar(254)	null
+,constraint dps_role_p primary key (role_id));
+
+-- Extending the user profile to include references to the roles that are assigned to this user
+
+create table dps_user_roles (
+	user_id	varchar(40)	not null,
+	atg_role	varchar(40)	not null
+,constraint dps_user_roles_p primary key (user_id,atg_role)
+,constraint dps_usrrlsatg_rl_f foreign key (atg_role) references dps_role (role_id)
+,constraint dps_usrrlsusr_d_f foreign key (user_id) references dps_user (id));
+
+create index dps_usr_roles_id on dps_user_roles (atg_role);
+
+create table dps_org_role (
+	org_id	varchar(40)	not null,
+	atg_role	varchar(40)	not null
+,constraint dps_org_role_p primary key (org_id,atg_role)
+,constraint dps_orgrlorg_d_f foreign key (org_id) references dps_organization (org_id)
+,constraint dps_orgrlatg_rl_f foreign key (atg_role) references dps_role (role_id));
+
+create index dps_org_rolerole on dps_org_role (atg_role);
+
+create table dps_role_rel_org (
+	organization	varchar(40)	not null,
+	sequence_num	integer	not null,
+	role_id	varchar(40)	not null
+,constraint dps_role_rel_org_p primary key (organization,sequence_num)
+,constraint dps_rolrorgnztn_f foreign key (organization) references dps_organization (org_id)
+,constraint dps_rolrlrgrol_d_f foreign key (role_id) references dps_role (role_id));
+
+create index dps_role_rel_org on dps_role_rel_org (role_id);
+
+create table dps_relativerole (
+	role_id	varchar(40)	not null,
+	dps_function	nvarchar(40)	not null,
+	relative_to	varchar(40)	not null
+,constraint dps_relativerole_p primary key (role_id)
+,constraint dps_reltreltv_t_f foreign key (relative_to) references dps_organization (org_id)
+,constraint dps_reltvrlrol_d_f foreign key (role_id) references dps_role (role_id));
+
+create index dps_relativerole on dps_relativerole (relative_to);
+
+create table dps_user_org (
+	organization	varchar(40)	not null,
+	user_id	varchar(40)	not null
+,constraint dps_user_org_p primary key (organization,user_id)
+,constraint dps_usrrgorgnztn_f foreign key (organization) references dps_organization (org_id)
+,constraint dps_usrrgusr_d_f foreign key (user_id) references dps_user (id));
+
+create index dps_usr_orgusr_id on dps_user_org (user_id);
+
+create table dps_user_org_anc (
+	user_id	varchar(40)	not null,
+	sequence_num	integer	not null,
+	anc_org	varchar(40)	not null
+,constraint dps_user_org_anc_p primary key (user_id,sequence_num)
+,constraint dps_usrranc_rg_f foreign key (anc_org) references dps_organization (org_id)
+,constraint dps_usrrgncusr_d_f foreign key (user_id) references dps_user (id));
+
+create index dps_usr_org_ancanc on dps_user_org_anc (anc_org);
+
+create table dps_org_chldorg (
+	org_id	varchar(40)	not null,
+	child_org_id	varchar(40)	not null
+,constraint dps_org_chldorg_p primary key (org_id,child_org_id)
+,constraint dps_orgcchild_rg_f foreign key (child_org_id) references dps_organization (org_id)
+,constraint dps_orgcorg_d_f foreign key (org_id) references dps_organization (org_id));
+
+create index dps_org_chldorg_id on dps_org_chldorg (child_org_id);
+
+create table dps_org_ancestors (
+	org_id	varchar(40)	not null,
+	sequence_num	integer	not null,
+	anc_org	varchar(40)	not null
+,constraint dps_org_ancestor_p primary key (org_id,sequence_num)
+,constraint dps_orgnanc_rg_f foreign key (anc_org) references dps_organization (org_id)
+,constraint dps_orgnorg_d_f foreign key (org_id) references dps_organization (org_id));
+
+create index dps_org_ancanc_org on dps_org_ancestors (anc_org);
+-- Adding the folder information
+
+create table dps_folder (
+	folder_id	varchar(40)	not null,
+	type	integer	not null,
+	name	nvarchar(254)	not null,
+	parent	varchar(40)	null,
+	description	nvarchar(254)	null
+,constraint dps_folder_p primary key (folder_id)
+,constraint dps_foldrparnt_f foreign key (parent) references dps_folder (folder_id));
+
+create index dps_folderparent on dps_folder (parent);
+
+create table dps_child_folder (
+	folder_id	varchar(40)	not null,
+	child_folder_id	varchar(40)	not null
+,constraint dps_child_folder_p primary key (folder_id,child_folder_id)
+,constraint dps_chilchild_fl_f foreign key (child_folder_id) references dps_folder (folder_id)
+,constraint dps_chilfoldr_d_f foreign key (folder_id) references dps_folder (folder_id));
+
+create index dps_chld_fldr_fld on dps_child_folder (child_folder_id);
+
+create table dps_rolefold_chld (
+	rolefold_id	varchar(40)	not null,
+	role_id	varchar(40)	not null
+,constraint dps_rolefold_chl_p primary key (rolefold_id,role_id)
+,constraint dps_rolfrolfld_d_f foreign key (rolefold_id) references dps_folder (folder_id)
+,constraint dps_rolfrol_d_f foreign key (role_id) references dps_role (role_id));
+
+create index dps_rolfldchldrole on dps_rolefold_chld (role_id);
+-- Adding the previous password information
+
+create table dps_user_prevpwd (
+	id	varchar(40)	not null,
+	seq_num	integer	not null,
+	prevpwd	varchar(35)	null
+,constraint dps_prevpwd_p primary key (id,seq_num)
+,constraint dps_prvpwd_d_f foreign key (id) references dps_user (id));
+
+commit;
+
+
+
+--------------------------------------------------------------------------
+-- Source file for next block: DPS/sql/db_components/mysql/logging_ddl.sql
+
+
+
+--  @version $Id: //product/DPS/version/10.0.2/templates/DPS/sql/logging_ddl.xml#2 $$Change: 635969 $
+-- This file contains create table statements needed to configure your database for use with the DPS logging/reporting subsystem.This script will create tables and indexes associated with the newlogging and reporting subsystem. To initialize these tables run thelogging_init.sql script.
+-- Tables for storing logging data for reports
+
+create table dps_event_type (
+	id	integer	not null,
+	name	varchar(32)	not null
+,constraint dps_event_type_p primary key (id)
+,constraint dps_event_type_u unique (name));
+
+
+create table dps_user_event (
+	id	bigint	not null,
+	timestamp	datetime	not null,
+	sessionid	varchar(100)	null,
+	parentsessionid	varchar(100)	null,
+	eventtype	integer	not null,
+	profileid	varchar(25)	null,
+	member	tinyint	default 0 not null
+,constraint dps_user_event_p primary key (id)
+,constraint dps_usrvevnttyp_f foreign key (eventtype) references dps_event_type (id)
+,constraint dps_user_event_c check (member in (0,1)));
+
+create index dps_user_event_ix on dps_user_event (eventtype);
+create index dps_ue_ts on dps_user_event (timestamp);
+
+create table dps_user_event_sum (
+	eventtype	integer	not null,
+	summarycount	integer	not null,
+	fromtime	datetime	not null,
+	totime	datetime	not null
+,constraint dps_usrsuevnttyp_f foreign key (eventtype) references dps_event_type (id));
+
+create index dps_user_ev_sum_ix on dps_user_event_sum (eventtype);
+create index dps_ues_ft on dps_user_event_sum (fromtime,totime,eventtype);
+
+create table dps_request (
+	id	bigint	not null,
+	timestamp	datetime	not null,
+	sessionid	varchar(100)	null,
+	parentsessionid	varchar(100)	null,
+	name	varchar(255)	not null,
+	member	tinyint	default 0 not null
+,constraint dps_request_p primary key (id)
+,constraint dps_request_c check (member in (0,1)));
+
+create index dps_r_ts on dps_request (timestamp);
+
+create table dps_reqname_sum (
+	name	varchar(255)	not null,
+	member	tinyint	default 0 not null,
+	summarycount	integer	not null,
+	fromtime	datetime	not null,
+	totime	datetime	not null
+,constraint dps_reqname_sum_c check (member in (0,1)));
+
+create index dps_rns_ft on dps_reqname_sum (fromtime,totime);
+
+create table dps_session_sum (
+	sessionid	varchar(100)	null,
+	parentsessionid	varchar(100)	null,
+	member	tinyint	default 0 not null,
+	summarycount	integer	not null,
+	fromtime	datetime	not null,
+	totime	datetime	not null
+,constraint dps_session_sum_c check (member in (0,1)));
+
+create index dps_rss_ft on dps_session_sum (fromtime,totime,sessionid);
+
+create table dps_con_req (
+	id	bigint	not null,
+	timestamp	datetime	not null,
+	requestid	bigint	null,
+	contentid	varchar(255)	not null
+,constraint dps_con_req_p primary key (id));
+
+create index dps_cr_ts on dps_con_req (timestamp);
+
+create table dps_con_req_sum (
+	contentid	varchar(255)	not null,
+	member	tinyint	default 0 not null,
+	summarycount	integer	not null,
+	fromtime	datetime	not null,
+	totime	datetime	not null
+,constraint dps_con_req_sum_c check (member in (0,1)));
+
+create index dps_crs_ft on dps_con_req_sum (fromtime,totime);
+
+create table dps_pgrp_req_sum (
+	groupname	nvarchar(64)	not null,
+	contentname	nvarchar(255)	not null,
+	summarycount	integer	not null,
+	fromtime	datetime	not null,
+	totime	datetime	not null);
+
+create index dps_prs_ft on dps_pgrp_req_sum (fromtime,totime);
+
+create table dps_pgrp_con_sum (
+	groupname	nvarchar(64)	not null,
+	contentname	nvarchar(64)	not null,
+	summarycount	integer	not null,
+	fromtime	datetime	not null,
+	totime	datetime	not null);
+
+create index dps_pcs_ft on dps_pgrp_con_sum (fromtime,totime);
+
+create table dps_log_id (
+	tablename	varchar(30)	not null,
+	nextid	bigint	not null
+,constraint dps_log_id_p primary key (tablename));
+
+commit;
+
+
+
+--------------------------------------------------------------------------
+-- Source file for next block: DPS/sql/db_components/mysql/logging_init.sql
+
+
+
+--  @version $Id: //product/DPS/version/10.0.2/templates/DPS/sql/logging_init.xml#2 $$Change: 635969 $
+-- This file contains SQL statements which will initialize theDPS logging/reporting tables.
+-- Set names of the default user event types, and initialize the log entry id counters
+
+	START TRANSACTION;
+	INSERT INTO dps_event_type (id, name) VALUES (0, 'newsession');
+	INSERT INTO dps_event_type (id, name) VALUES (1, 'sessionexpiration');
+	INSERT INTO dps_event_type (id, name) VALUES (2, 'login');
+	INSERT INTO dps_event_type (id, name) VALUES (3, 'registration');
+	INSERT INTO dps_event_type (id, name) VALUES (4, 'logout');
+	INSERT INTO dps_log_id (tablename, nextid) VALUES ('dps_user_event', 0);
+	INSERT INTO dps_log_id (tablename, nextid) VALUES ('dps_request', 0);
+	INSERT INTO dps_log_id (tablename, nextid) VALUES ('dps_con_req', 0);
+	COMMIT;
+        
+commit;
+
+
+
+--------------------------------------------------------------------------
+-- Source file for next block: DPS/sql/db_components/mysql/personalization_ddl.sql
+
+
+
+--  @version $Id: //product/DPS/version/10.0.2/templates/DPS/sql/personalization_ddl.xml#2 $$Change: 635969 $
+-- This file contains create table statements needed to configure your database for personzalization assets.This script will create tables and indexes associated with the user segment list manager.
+
+create table dps_seg_list (
+	segment_list_id	varchar(40)	not null,
+	display_name	varchar(256)	null,
+	description	varchar(1024)	null,
+	folder_id	varchar(40)	null
+,constraint dps_seg_list_p primary key (segment_list_id));
+
+
+create table dps_seg_list_name (
+	segment_list_id	varchar(40)	not null,
+	seq	integer	not null,
+	group_name	varchar(256)	not null
+,constraint dps_s_l_n_p primary key (segment_list_id,seq)
+,constraint dps_s_l_n_f1 foreign key (segment_list_id) references dps_seg_list (segment_list_id));
+
+
+create table dps_seg_list_folder (
+	folder_id	varchar(40)	not null,
+	display_name	varchar(256)	null,
+	description	varchar(1024)	null,
+	parent_folder_id	varchar(40)	null
+,constraint dps_s_l_f_p primary key (folder_id)
+,constraint dps_s_l_f_f1 foreign key (parent_folder_id) references dps_seg_list_folder (folder_id));
+
+create index dps_sgmlstfldr1_x on dps_seg_list_folder (parent_folder_id);
+commit;
+
+
+
+--------------------------------------------------------------------------
+-- Source file for next block: DSS/sql/db_components/mysql/business_process_rpt_ddl.sql
+
+
+
+--  @version $Id: //product/DSS/version/10.0.2/templates/DSS/sql/business_process_rpt_ddl.xml#2 $$Change: 635969 $
+
+create table drpt_stage_reached (
+	id	varchar(40)	not null,
+	owner_id	varchar(40)	not null,
+	process_start_time	datetime	not null,
+	event_time	datetime	not null,
+	bp_name	varchar(255)	not null,
+	bp_stage	varchar(255)	null,
+	is_transient	tinyint	not null,
+	bp_stage_sequence	integer	not null
+,constraint drpt_bpstage_c check (is_transient in (0,1)));
+
+commit;
+
+
+
+--------------------------------------------------------------------------
+-- Source file for next block: DSS/sql/db_components/mysql/das_mappers.sql
+
+
+
+--  @version $Id: //product/DSS/version/10.0.2/templates/DSS/sql/das_mappers.xml#2 $$Change: 635969 $
+
+create table dss_das_event (
+	id	varchar(32)	not null,
+	timestamp	datetime	null,
+	sessionid	varchar(100)	null,
+	parentsessionid	varchar(100)	null);
+
+
+create table dss_das_form (
+	id	varchar(32)	not null,
+	clocktime	datetime	null,
+	sessionid	varchar(100)	null,
+	parentsessionid	varchar(100)	null,
+	formname	varchar(254)	null);
+
+commit;
+
+
+
+--------------------------------------------------------------------------
+-- Source file for next block: DSS/sql/db_components/mysql/dps_mappers.sql
+
+
+
+--  @version $Id: //product/DSS/version/10.0.2/templates/DSS/sql/dps_mappers.xml#2 $$Change: 635969 $
+
+create table dss_dps_event (
+	id	varchar(32)	not null,
+	timestamp	datetime	null,
+	sessionid	varchar(100)	null,
+	parentsessionid	varchar(100)	null,
+	profileid	varchar(25)	null,
+	scenarioPathInfo	varchar(254)	null);
+
+
+create table dss_dps_page_visit (
+	id	varchar(32)	not null,
+	timestamp	datetime	null,
+	sessionid	varchar(100)	null,
+	parentsessionid	varchar(100)	null,
+	path	varchar(255)	null,
+	profileid	varchar(25)	null);
+
+
+create table dss_dps_view_item (
+	id	varchar(32)	not null,
+	timestamp	datetime	null,
+	sessionid	varchar(100)	null,
+	parentsessionid	varchar(100)	null,
+	repositoryname	nvarchar(255)	null,
+	folder	varchar(255)	null,
+	itemtype	varchar(255)	null,
+	repositoryid	varchar(255)	null,
+	itemdescriptor	varchar(255)	null,
+	page	varchar(255)	null,
+	profileid	varchar(25)	null);
+
+
+create table dss_dps_click (
+	id	varchar(32)	not null,
+	timestamp	datetime	null,
+	sessionid	varchar(100)	null,
+	parentsessionid	varchar(100)	null,
+	destinationpath	varchar(255)	null,
+	sourcenames	varchar(255)	null,
+	sourcepath	varchar(255)	null,
+	profileid	varchar(25)	null);
+
+
+create table dss_dps_referrer (
+	id	varchar(32)	not null,
+	timestamp	datetime	null,
+	sessionid	varchar(100)	null,
+	parentsessionid	varchar(100)	null,
+	referrerpath	varchar(255)	null,
+	referrersite	varchar(255)	null,
+	referrerpage	varchar(255)	null,
+	profileid	varchar(25)	null);
+
+
+create table dss_dps_inbound (
+	id	varchar(32)	not null,
+	timestamp	datetime	null,
+	messagesubject	varchar(255)	null,
+	originalsubject	varchar(255)	null,
+	messagefrom	varchar(64)	null,
+	messageto	varchar(255)	null,
+	messagecc	varchar(255)	null,
+	messagereplyto	varchar(64)	null,
+	receiveddate	bigint	null,
+	bounced	varchar(6)	null,
+	bounceemailaddr	varchar(255)	null,
+	bouncereplycode	varchar(10)	null,
+	bounceerrormess	varchar(255)	null,
+	bouncestatuscode	varchar(10)	null);
+
+
+create table dss_dps_admin_reg (
+	id	varchar(32)	not null,
+	clocktime	datetime	null,
+	sessionid	varchar(100)	null,
+	parentsessionid	varchar(100)	null,
+	adminprofileid	varchar(25)	null,
+	profileid	varchar(25)	null);
+
+
+create table dss_dps_property (
+	id	varchar(32)	not null,
+	clocktime	datetime	null,
+	sessionid	varchar(100)	null,
+	parentsessionid	varchar(100)	null,
+	propertypath	varchar(254)	null,
+	oldvalue	varchar(254)	null,
+	newvalue	varchar(254)	null,
+	changesign	varchar(16)	null,
+	changeamount	numeric(19,7)	null,
+	changepercentage	numeric(19,7)	null,
+	elementsadded	varchar(254)	null,
+	elementsremoved	varchar(254)	null,
+	profileid	varchar(25)	null);
+
+
+create table dss_dps_admin_prop (
+	id	varchar(32)	not null,
+	clocktime	datetime	null,
+	sessionid	varchar(100)	null,
+	parentsessionid	varchar(100)	null,
+	propertypath	varchar(254)	null,
+	oldvalue	varchar(254)	null,
+	newvalue	varchar(254)	null,
+	changesign	varchar(16)	null,
+	changeamount	numeric(19,7)	null,
+	changepercentage	numeric(19,7)	null,
+	elementsadded	varchar(254)	null,
+	elementsremoved	varchar(254)	null,
+	adminprofileid	varchar(25)	null,
+	profileid	varchar(25)	null);
+
+
+create table dss_dps_update (
+	id	varchar(32)	not null,
+	clocktime	datetime	null,
+	sessionid	varchar(100)	null,
+	parentsessionid	varchar(100)	null,
+	changedproperties	longvarchar	null,
+	oldvalues	longvarchar	null,
+	newvalues	longvarchar	null,
+	profileid	varchar(25)	null);
+
+
+create table dss_dps_admin_up (
+	id	varchar(32)	not null,
+	clocktime	datetime	null,
+	sessionid	varchar(100)	null,
+	parentsessionid	varchar(100)	null,
+	changedproperties	longvarchar	null,
+	oldvalues	longvarchar	null,
+	newvalues	longvarchar	null,
+	adminprofileid	varchar(25)	null,
+	profileid	varchar(25)	null);
+
+
+create table dps_scenario_value (
+	id	varchar(40)	not null,
+	tag	varchar(42)	not null,
+	scenario_value	varchar(100)	null
+,constraint dps_scenario_val_p primary key (id,tag)
+,constraint dps_scenrvlid_f foreign key (id) references dps_user (id));
+
+create index dps_scenval_id on dps_scenario_value (id);
+commit;
+
+
+
+--------------------------------------------------------------------------
+-- Source file for next block: DSS/sql/db_components/mysql/dss_mappers.sql
+
+
+
+--  @version $Id: //product/DSS/version/10.0.2/templates/DSS/sql/dss_mappers.xml#2 $$Change: 635969 $
+
+create table dss_audit_trail (
+	id	varchar(32)	not null,
+	timestamp	datetime	null,
+	label	nvarchar(255)	null,
+	profileid	varchar(25)	null,
+	segmentName	nvarchar(254)	null,
+	processName	nvarchar(254)	null,
+	sessionid	varchar(100)	null,
+	parentsessionid	varchar(100)	null);
+
+commit;
+
+
+
+--------------------------------------------------------------------------
+-- Source file for next block: DSS/sql/db_components/mysql/markers_ddl.sql
+
+
+
+--  @version $ $
+
+create table dps_markers (
+	marker_id	varchar(40)	not null,
+	marker_key	varchar(100)	not null,
+	marker_value	varchar(100)	null,
+	marker_data	varchar(100)	null,
+	creation_date	datetime	null,
+	version	integer	not null,
+	marker_type	integer	null
+,constraint dps_markers_p primary key (marker_id));
+
+
+create table dps_usr_markers (
+	profile_id	varchar(40)	not null,
+	marker_id	varchar(40)	not null,
+	sequence_num	integer	not null
+,constraint dps_usr_markers_p primary key (profile_id,sequence_num)
+,constraint dpsusrmarkers_u_f foreign key (profile_id) references dps_user (id)
+,constraint dpsusrmarkers_m_f foreign key (marker_id) references dps_markers (marker_id));
+
+create index dpsusrmarkers1_ix on dps_usr_markers (marker_id);
+commit;
+
+
+
+--------------------------------------------------------------------------
+-- Source file for next block: DSS/sql/db_components/mysql/profile_bp_markers_ddl.sql
+
+
+
+--  @version $ $
+
+create table dss_user_bpmarkers (
+	marker_id	varchar(40)	not null,
+	profile_id	varchar(40)	not null,
+	marker_key	varchar(100)	not null,
+	marker_value	varchar(100)	null,
+	marker_data	varchar(100)	null,
+	creation_date	datetime	null,
+	version	integer	not null,
+	marker_type	integer	null
+,constraint dssprofilebp_p primary key (marker_id,profile_id));
+
+commit;
+
+
+
+--------------------------------------------------------------------------
+-- Source file for next block: DSS/sql/db_components/mysql/scenario_ddl.sql
+
+
+
+--  @version $Id: //product/DSS/version/10.0.2/templates/DSS/sql/scenario_ddl.xml#2 $$Change: 635969 $
+
+create table dss_coll_scenario (
+	id	varchar(25)	not null,
+	scenario_name	nvarchar(255)	null,
+	modification_time	bigint	null,
+	segment_name	nvarchar(255)	null,
+	creator_id	varchar(25)	null,
+	state	varchar(16)	null
+,constraint dss_coll_scenari_p primary key (id));
+
+-- user_id references the user table but because it is a backwards referencewe cannot have a REFERENCES(dps_user) here.
+
+create table dss_ind_scenario (
+	id	varchar(25)	not null,
+	scenario_name	nvarchar(255)	null,
+	modification_time	bigint	null,
+	segment_name	nvarchar(255)	null,
+	creator_id	varchar(25)	null,
+	state	varchar(16)	null,
+	user_id	varchar(25)	not null
+,constraint dss_ind_scenario_p primary key (id));
+
+create index dss_indscenario1_x on dss_ind_scenario (modification_time);
+
+create table dss_scenario_strs (
+	id	varchar(25)	not null,
+	tag	nvarchar(25)	not null,
+	context_str	varchar(255)	null
+,constraint dss_scenario_str_p primary key (id,tag)
+,constraint dss_scenrstrsid_f foreign key (id) references dss_ind_scenario (id));
+
+create index dss_scn_st_idx on dss_scenario_strs (id);
+
+create table dss_scenario_bools (
+	id	varchar(25)	not null,
+	tag	nvarchar(25)	not null,
+	context_bool	tinyint	null
+,constraint dss_scenario_boo_p primary key (id,tag)
+,constraint dss_scenrblsid_f foreign key (id) references dss_ind_scenario (id));
+
+create index dss_scn_bo_idx on dss_scenario_bools (id);
+
+create table dss_scenario_longs (
+	id	varchar(25)	not null,
+	tag	nvarchar(25)	not null,
+	context_long	bigint	null
+,constraint dss_scenario_lon_p primary key (id,tag)
+,constraint dss_scenrlngsid_f foreign key (id) references dss_ind_scenario (id));
+
+create index dss_scn_lg_idx on dss_scenario_longs (id);
+
+create table dss_scenario_dbls (
+	id	varchar(25)	not null,
+	tag	nvarchar(25)	not null,
+	context_dbl	numeric(15,4)	null
+,constraint dss_scenario_dbl_p primary key (id,tag)
+,constraint dss_scenrdblsid_f foreign key (id) references dss_ind_scenario (id));
+
+create index dss_scn_db_idx on dss_scenario_dbls (id);
+
+create table dss_scenario_dates (
+	id	varchar(25)	not null,
+	tag	nvarchar(25)	not null,
+	context_date	datetime	null
+,constraint dss_scenario_dat_p primary key (id,tag)
+,constraint dss_scenrdtsid_f foreign key (id) references dss_ind_scenario (id));
+
+create index dss_scn_dt_idx on dss_scenario_dates (id);
+
+create table dps_user_scenario (
+	id	varchar(40)	not null,
+	ind_scenario_id	varchar(25)	not null
+,constraint dps_user_scenari_p primary key (ind_scenario_id)
+,constraint dps_usrscnrid_f foreign key (id) references dps_user (id)
+,constraint dps_usrsind_scnr_f foreign key (ind_scenario_id) references dss_ind_scenario (id));
+
+create index dps_uscn_u_idx on dps_user_scenario (id);
+
+create table dss_scenario_info (
+	id	varchar(25)	not null,
+	scenario_name	nvarchar(255)	null,
+	scenario_status	integer	null,
+	modification_time	bigint	null,
+	creation_time	bigint	null,
+	author	varchar(254)	null,
+	last_modified_by	varchar(254)	null,
+	sdl	longvarbinary	null,
+	psm_version	integer	null
+,constraint dss_scenario_inf_p primary key (id));
+
+
+create table dss_scen_mig_info (
+	id	varchar(25)	not null,
+	scenario_info_id	varchar(25)	not null,
+	scenario_name	nvarchar(255)	null,
+	modification_time	bigint	null,
+	psm_version	integer	null,
+	sdl	longvarbinary	null,
+	migration_status	integer	null
+,constraint dss_scenmiginfo_pk primary key (id)
+,constraint dss_scenmiginfo_fk foreign key (scenario_info_id) references dss_scenario_info (id));
+
+create index dss_scenmiginfo_id on dss_scen_mig_info (scenario_info_id);
+
+create table dss_mig_info_seg (
+	id	varchar(25)	not null,
+	idx	integer	not null,
+	segment_name	varchar(255)	null
+,constraint dss_mig_infoseg_pk primary key (id,idx)
+,constraint dss_mig_infoseg_fk foreign key (id) references dss_scen_mig_info (id));
+
+
+create table dss_template_info (
+	id	varchar(25)	not null,
+	template_name	nvarchar(255)	null,
+	modification_time	bigint	null,
+	creation_time	bigint	null,
+	author	varchar(254)	null,
+	last_modified_by	varchar(254)	null,
+	sdl	longvarbinary	null
+,constraint dss_template_inf_p primary key (id));
+
+
+create table dss_coll_trans (
+	id	varchar(25)	not null,
+	scenario_name	nvarchar(255)	null,
+	modification_time	bigint	null,
+	server_id	varchar(40)	null,
+	message_bean	longvarbinary	null,
+	event_type	varchar(255)	null,
+	segment_name	nvarchar(255)	null,
+	state	varchar(16)	null,
+	coll_scenario_id	varchar(25)	null,
+	step	integer	null,
+	current_count	integer	null,
+	last_query_id	varchar(25)	null
+,constraint dss_coll_trans_p primary key (id)
+,constraint dss_collcoll_scn_f foreign key (coll_scenario_id) references dss_coll_scenario (id));
+
+create index dss_ctrcid_idx on dss_coll_trans (coll_scenario_id);
+
+create table dss_ind_trans (
+	id	varchar(25)	not null,
+	scenario_name	nvarchar(255)	null,
+	modification_time	bigint	null,
+	server_id	varchar(40)	null,
+	message_bean	longvarbinary	null,
+	event_type	varchar(255)	null,
+	segment_name	nvarchar(255)	null,
+	state	varchar(16)	null,
+	last_query_id	varchar(25)	null
+,constraint dss_ind_trans_p primary key (id));
+
+
+create table dss_deletion (
+	id	varchar(25)	not null,
+	scenario_name	nvarchar(255)	null,
+	modification_time	bigint	null
+,constraint dss_deletion_p primary key (id));
+
+
+create table dss_server_id (
+	server_id	varchar(40)	not null,
+	server_type	integer	not null
+,constraint dss_server_id_p primary key (server_id));
+
+
+create table dss_del_seg_name (
+	id	varchar(25)	not null,
+	idx	integer	not null,
+	segment_name	varchar(255)	null
+,constraint dss_del_seg_name_p primary key (id,idx));
+
+-- migration_info_id references the migration info table, but we don't have aREFERENCES dss_scen_mig_info(id) here, because we want to be ableto delete the migration info without deleting this row
+
+create table dss_migration (
+	id	varchar(25)	not null,
+	scenario_name	nvarchar(255)	null,
+	old_mod_time	bigint	null,
+	new_mod_time	bigint	null,
+	migration_info_id	varchar(25)	null
+,constraint dss_migration_pk primary key (id));
+
+
+create table dss_mig_seg_name (
+	id	varchar(25)	not null,
+	idx	integer	not null,
+	segment_name	varchar(255)	null
+,constraint dss_mig_segname_pk primary key (id,idx)
+,constraint dss_mig_segname_fk foreign key (id) references dss_migration (id));
+
+
+create table dss_xref (
+	id	varchar(25)	not null,
+	scenario_name	varchar(255)	null,
+	reference_type	varchar(30)	null,
+	reference_target	varchar(255)	null
+,constraint dss_xref_p primary key (id));
+
+-- user_id references the user table but because it is a backwards referencewe cannot have a REFERENCES(dps_user) here.
+
+create table dss_profile_slot (
+	id	varchar(25)	not null,
+	slot_name	varchar(255)	null,
+	item_offset	bigint	null,
+	user_id	varchar(25)	not null
+,constraint dss_profile_slot_p primary key (id));
+
+
+create table dps_user_slot (
+	id	varchar(40)	not null,
+	profile_slot_id	varchar(25)	not null
+,constraint dps_user_slot_p primary key (id,profile_slot_id)
+,constraint dps_usrsltid_f foreign key (id) references dps_user (id)
+,constraint dps_usrsprofl_sl_f foreign key (profile_slot_id) references dss_profile_slot (id));
+
+create index dps_usr_sltprfl_id on dps_user_slot (profile_slot_id);
+
+create table dss_slot_items (
+	slot_id	varchar(25)	not null,
+	item_id	varchar(255)	null,
+	idx	integer	not null
+,constraint dss_slot_items_p primary key (slot_id,idx)
+,constraint dss_slotslot_d_f foreign key (slot_id) references dss_profile_slot (id));
+
+
+create table dss_slot_priority (
+	slot_id	varchar(25)	not null,
+	idx	integer	not null,
+	priority	bigint	not null
+,constraint dss_slot_priorit_p primary key (slot_id,idx)
+,constraint dss_slotpslot_d_f foreign key (slot_id) references dss_profile_slot (id));
+
+commit;
+
+
+
+--------------------------------------------------------------------------
+-- Source file for next block: WebUI/sql/db_components/mysql/viewmapping_ddl.sql
+
+
+
+--     @version $Id: //product/WebUI/version/10.0.2/src/sql/viewmapping_ddl.xml#2 $$Change: 635969 $  
+--     ItemMapping    Mapps a component path + item name to that item's views.  
+
+create table vmap_im (
+	id	varchar(40)	not null,
+	name	varchar(64)	null,
+	description	varchar(1024)	null,
+	item_path	varchar(255)	not null,
+	item_name	varchar(64)	not null,
+	is_readonly	tinyint	null,
+	form_handler	varchar(40)	null,
+	mode_id	varchar(40)	not null
+,constraint vmap_im_pk primary key (id));
+
+create index vmap_im_item on vmap_im (item_path,item_name,name);
+--     FormHandler  
+
+create table vmap_fh (
+	id	varchar(40)	not null,
+	name	varchar(64)	null,
+	description	varchar(2048)	null,
+	component_path	varchar(1024)	null
+,constraint vmap_fh_pk primary key (id));
+
+--     MapMode  
+
+create table vmap_mode (
+	id	varchar(40)	not null,
+	name	varchar(64)	not null,
+	description	varchar(1024)	null,
+	fallback_id	varchar(40)	null);
+
+--     ItemViewMapping  
+
+create table vmap_ivm (
+	id	varchar(40)	not null,
+	name	varchar(64)	not null,
+	display_name	nvarchar(64)	not null,
+	description	varchar(1024)	null,
+	view_id	varchar(40)	null
+,constraint vmap_ivm_pk primary key (id));
+
+--     ItemMapping -> view ItemViewMapping relation  
+
+create table vmap_im2ivm_rel (
+	item_id	varchar(40)	not null,
+	sequence_num	integer	not null,
+	view_id	varchar(40)	not null
+,constraint vmap_im2ivm_pk primary key (item_id,sequence_num));
+
+--     ItemView  
+
+create table vmap_iv (
+	id	varchar(40)	not null,
+	name	nvarchar(64)	not null,
+	description	nvarchar(1024)	not null,
+	uri	varchar(255)	null,
+	view_component	varchar(255)	null,
+	app_name	varchar(255)	null,
+	mode_id	varchar(40)	not null
+,constraint vmap_iv_pk primary key (id));
+
+--     PropertyView  
+
+create table vmap_pv (
+	id	varchar(40)	not null,
+	name	nvarchar(64)	not null,
+	type	varchar(128)	not null,
+	component_type	varchar(128)	null,
+	description	nvarchar(1024)	not null,
+	uri	varchar(255)	null,
+	view_component	varchar(255)	null,
+	app_name	varchar(255)	null,
+	mode_id	varchar(40)	not null,
+	container_family	varchar(128)	null,
+	is_default	tinyint	null,
+	is_readonly	tinyint	null,
+	is_component	tinyint	null
+,constraint vmap_pv_pk primary key (id));
+
+create index vmap_pv_unique on vmap_pv (type,name,mode_id,is_component);
+--     The relationship between an ItemViewMapping and its    PropertyViewMapping items  
+
+create table vmap_ivm2pvm_rel (
+	ivm_id	varchar(40)	not null,
+	pvm_id	varchar(40)	not null,
+	name	varchar(64)	not null);
+
+--     PropertyViewMapping  
+
+create table vmap_pvm (
+	id	varchar(40)	not null,
+	description	varchar(1024)	null,
+	pview_id	varchar(40)	null,
+	cpview_id	varchar(40)	null
+,constraint vmap_pvm_pk primary key (id));
+
+--     AttributeValue  
+
+create table vmap_attrval (
+	id	varchar(40)	not null,
+	attr_value	varchar(2048)	null
+,constraint vmap_attrval_pk primary key (id));
+
+--     A table that provides the mapping between mapping items    and AttributeValue items  
+
+create table vmap_attrval_rel (
+	mapper_id	varchar(40)	not null,
+	attribute_id	varchar(40)	not null,
+	name	varchar(64)	not null
+,constraint vmap_attvl_rel_pk primary key (mapper_id,attribute_id));
+
+--     A table that provides the mapping between mapping items    and component AttributeValue items  
+
+create table vmap_cattrval_rel (
+	mapper_id	varchar(40)	not null,
+	attribute_id	varchar(40)	not null,
+	name	varchar(64)	not null
+,constraint vmap_ctvl_rel_pk primary key (mapper_id,attribute_id));
+
+--     ItemView -> ItemViewAttributeDefinition relation  
+
+create table vmap_iv2ivad_rel (
+	view_id	varchar(40)	not null,
+	attr_id	varchar(40)	not null,
+	name	varchar(64)	not null
+,constraint vmap_iv2iva_pk primary key (view_id,name));
+
+--     ItemViewAttributeDefinition  
+
+create table vmap_ivattrdef (
+	id	varchar(40)	not null,
+	description	varchar(1024)	null,
+	default_value	varchar(1024)	null
+,constraint vmap_ivatdef_pk primary key (id));
+
+--     PropertyView -> PropertyViewAttributeDefinition relation  
+
+create table vmap_pv2pvad_rel (
+	view_id	varchar(40)	not null,
+	attr_id	varchar(40)	not null,
+	name	varchar(64)	not null);
+
+--     PropertyViewAttributeDefinition  
+
+create table vmap_pvattrdef (
+	id	varchar(40)	not null,
+	description	varchar(1024)	null,
+	default_value	varchar(1024)	null
+,constraint vmap_pvatdef_pk primary key (id));
+
+commit;
+
+
+
+--------------------------------------------------------------------------
+-- Source file for next block: DCS/sql/db_components/mysql/claimable_ddl.sql
+
+
+
+--  @version $Id: //product/DCS/version/10.0.2/templates/DCS/sql/claimable_ddl.xml#2 $$Change: 635969 $
+
+create table dcspp_claimable (
+	claimable_id	varchar(40)	not null,
+	version	integer	not null,
+	type	integer	not null,
+	status	integer	null,
+	expiration_date	datetime	null,
+	last_modified	datetime	null
+,constraint dcspp_claimable_p primary key (claimable_id));
+
+
+create table dcspp_giftcert (
+	giftcertificate_id	varchar(40)	not null,
+	amount	numeric(19,7)	not null,
+	amount_authorized	numeric(19,7)	not null,
+	amount_remaining	numeric(19,7)	not null,
+	purchaser_id	varchar(40)	null,
+	purchase_date	datetime	null,
+	last_used	datetime	null
+,constraint dcspp_giftcert_p primary key (giftcertificate_id)
+,constraint dcspp_gigiftcrtf_f foreign key (giftcertificate_id) references dcspp_claimable (claimable_id));
+
+create index claimable_user_idx on dcspp_giftcert (purchaser_id);
+
+create table dcs_storecred_clm (
+	store_credit_id	varchar(40)	not null,
+	amount	numeric(19,7)	not null,
+	amount_authorized	numeric(19,7)	not null,
+	amount_remaining	numeric(19,7)	not null,
+	owner_id	varchar(40)	null,
+	issue_date	datetime	null,
+	expiration_date	datetime	null,
+	last_used	datetime	null
+,constraint dcs_storecred_cl_p primary key (store_credit_id)
+,constraint dcs_storstor_crd_f foreign key (store_credit_id) references dcspp_claimable (claimable_id));
+
+create index storecr_issue_idx on dcs_storecred_clm (issue_date);
+create index storecr_owner_idx on dcs_storecred_clm (owner_id);
+
+create table dcspp_cp_folder (
+	folder_id	varchar(40)	not null,
+	name	varchar(254)	not null,
+	parent_folder	varchar(40)	null
+,constraint dcspp_cp_folder_p primary key (folder_id)
+,constraint dcspp_cp_prntfol_f foreign key (parent_folder) references dcspp_cp_folder (folder_id));
+
+create index dcspp_prntfol_idx on dcspp_cp_folder (parent_folder);
+
+create table dcspp_coupon (
+	coupon_id	varchar(40)	not null,
+	promotion_id	varchar(40)	not null
+,constraint dcspp_coupon_p primary key (coupon_id,promotion_id)
+,constraint dcspp_coupon_df foreign key (coupon_id) references dcspp_claimable (claimable_id));
+
+
+create table dcspp_coupon_info (
+	coupon_id	varchar(40)	not null,
+	display_name	varchar(254)	null,
+	use_promo_site	integer	null,
+	parent_folder	varchar(40)	null
+,constraint dcspp_copninfo_p primary key (coupon_id)
+,constraint dcspp_copninfo_d_f foreign key (coupon_id) references dcspp_claimable (claimable_id)
+,constraint dcspp_cpnifol_f foreign key (parent_folder) references dcspp_cp_folder (folder_id));
+
+create index dcspp_folder_idx on dcspp_coupon_info (parent_folder);
+commit;
+
+
+
+--------------------------------------------------------------------------
+-- Source file for next block: DCS/sql/db_components/mysql/commerce_user.sql
+
+
+
+--  @version $Id: //product/DCS/version/10.0.2/templates/DCS/sql/commerce_user.xml#2 $$Change: 635969 $
+
+create table dps_credit_card (
+	id	varchar(40)	not null,
+	credit_card_number	varchar(40)	null,
+	credit_card_type	varchar(40)	null,
+	expiration_month	varchar(20)	null,
+	exp_day_of_month	varchar(20)	null,
+	expiration_year	varchar(20)	null,
+	billing_addr	varchar(40)	null
+,constraint dps_credit_card_p primary key (id));
+
+create index dps_crcdba_idx on dps_credit_card (billing_addr);
+
+create table dcs_user (
+	user_id	varchar(40)	not null,
+	allow_partial_ship	tinyint	null,
+	default_creditcard	varchar(40)	null,
+	daytime_phone_num	varchar(30)	null,
+	express_checkout	tinyint	null,
+	default_carrier	nvarchar(256)	null,
+	price_list	varchar(40)	null,
+	sale_price_list	varchar(40)	null
+,constraint dcs_user_p primary key (user_id)
+,constraint dcs_usrdeflt_cr_f foreign key (default_creditcard) references dps_credit_card (id)
+,constraint dcs_user1_c check (allow_partial_ship in (0,1))
+,constraint dcs_user2_c check (express_checkout in (0,1)));
+
+create index dcs_usrdcc_idx on dcs_user (default_creditcard);
+
+create table dps_usr_creditcard (
+	user_id	varchar(40)	not null,
+	tag	nvarchar(42)	not null,
+	credit_card_id	varchar(40)	not null
+,constraint dps_usr_creditca_p primary key (user_id,tag)
+,constraint dps_usrccredt_cr_f foreign key (credit_card_id) references dps_credit_card (id)
+,constraint dps_usrcusr_d_f foreign key (user_id) references dps_user (id));
+
+create index dps_ucccid_idx on dps_usr_creditcard (credit_card_id);
+create index dps_uccuid_idx on dps_usr_creditcard (user_id);
+commit;
+
+
+
+--------------------------------------------------------------------------
+-- Source file for next block: DCS/sql/db_components/mysql/custom_catalog_user_ddl.sql
+
+
+
+--  @version $Id: //product/DCS/version/10.0.2/templates/DCS/sql/custom_catalog_user_ddl.xml#2 $$Change: 635969 $
+
+create table dcs_user_catalog (
+	user_id	varchar(40)	not null,
+	user_catalog	varchar(40)	null
+,constraint dcs_usr_catalog_pk primary key (user_id));
+
+commit;
+
+
+
+--------------------------------------------------------------------------
+-- Source file for next block: DCS/sql/db_components/mysql/dcs_mappers.sql
+
+
+
+--  @version $Id: //product/DCS/version/10.0.2/templates/DCS/sql/dcs_mappers.xml#2 $$Change: 635969 $
+
+create table dcs_cart_event (
+	id	varchar(40)	not null,
+	timestamp	datetime	null,
+	orderid	varchar(40)	null,
+	itemid	varchar(40)	null,
+	sessionid	varchar(100)	null,
+	parentsessionid	varchar(100)	null,
+	quantity	integer	null,
+	amount	numeric(19,7)	null,
+	profileid	varchar(40)	null);
+
+
+create table dcs_submt_ord_evt (
+	id	varchar(40)	not null,
+	clocktime	datetime	null,
+	orderid	varchar(40)	null,
+	profileid	varchar(40)	null,
+	sessionid	varchar(100)	null,
+	parentsessionid	varchar(100)	null);
+
+
+create table dcs_prom_used_evt (
+	id	varchar(40)	not null,
+	clocktime	datetime	null,
+	orderid	varchar(40)	null,
+	profileid	varchar(40)	null,
+	sessionid	varchar(100)	null,
+	parentsessionid	varchar(100)	null,
+	promotionid	varchar(40)	null,
+	order_amount	numeric(26,7)	null,
+	discount	numeric(26,7)	null);
+
+
+create table dcs_ord_merge_evt (
+	id	varchar(40)	not null,
+	clocktime	datetime	null,
+	sourceorderid	varchar(40)	null,
+	destorderid	varchar(40)	null,
+	profileid	varchar(40)	null,
+	sessionid	varchar(100)	null,
+	parentsessionid	varchar(100)	null,
+	sourceremoved	tinyint	null
+,constraint dcs_ordmergeevt_ck check (sourceremoved in (0,1)));
+
+
+create table dcs_promo_rvkd (
+	id	varchar(40)	not null,
+	time_stamp	datetime	null,
+	promotionid	varchar(254)	not null,
+	profileid	varchar(254)	not null,
+	sessionid	varchar(100)	null,
+	parentsessionid	varchar(100)	null);
+
+
+create table dcs_promo_grntd (
+	id	varchar(40)	not null,
+	time_stamp	datetime	null,
+	promotionid	varchar(254)	not null,
+	profileid	varchar(254)	not null,
+	sessionid	varchar(100)	null,
+	parentsessionid	varchar(100)	null);
+
+commit;
+
+
+
+--------------------------------------------------------------------------
+-- Source file for next block: DCS/sql/db_components/mysql/inventory_ddl.sql
+
+
+
+--  @version $Id: //product/DCS/version/10.0.2/templates/DCS/sql/inventory_ddl.xml#2 $$Change: 635969 $
+
+create table dcs_inventory (
+	inventory_id	varchar(40)	not null,
+	version	integer	not null,
+	inventory_lock	varchar(20)	null,
+	creation_date	datetime	null,
+	start_date	datetime	null,
+	end_date	datetime	null,
+	display_name	varchar(254)	null,
+	description	varchar(254)	null,
+	catalog_ref_id	varchar(40)	not null,
+	avail_status	integer	not null,
+	availability_date	datetime	null,
+	stock_level	integer	null,
+	backorder_level	integer	null,
+	preorder_level	integer	null,
+	stock_thresh	integer	null,
+	backorder_thresh	integer	null,
+	preorder_thresh	integer	null
+,constraint dcs_inventory_p primary key (inventory_id)
+,constraint inv_catrefid_idx unique (catalog_ref_id));
+
+create index inv_end_dte_idx on dcs_inventory (end_date);
+create index inv_strt_dte_idx on dcs_inventory (start_date);
+commit;
+
+
+
+--------------------------------------------------------------------------
+-- Source file for next block: DCS/sql/db_components/mysql/order_ddl.sql
+
+
+
+--  @version $Id: //product/DCS/version/10.0.2/templates/DCS/sql/order_ddl.xml#2 $$Change: 635969 $
+
+create table dcspp_order (
+	order_id	varchar(40)	not null,
+	type	integer	not null,
+	version	integer	not null,
+	order_class_type	varchar(40)	null,
+	profile_id	varchar(40)	null,
+	description	varchar(64)	null,
+	state	varchar(40)	null,
+	state_detail	nvarchar(254)	null,
+	created_by_order	varchar(40)	null,
+	origin_of_order	integer	null,
+	creation_date	datetime	null,
+	submitted_date	datetime	null,
+	last_modified_date	datetime	null,
+	completed_date	datetime	null,
+	price_info	varchar(40)	null,
+	tax_price_info	varchar(40)	null,
+	explicitly_saved	tinyint	null,
+	agent_id	varchar(40)	null,
+	sales_channel	integer	null,
+	creation_site_id	varchar(40)	null,
+	site_id	varchar(40)	null
+,constraint dcspp_order_p primary key (order_id)
+,constraint dcspp_order_c check (explicitly_saved IN (0,1)));
+
+create index order_lastmod_idx on dcspp_order (last_modified_date);
+create index order_profile_idx on dcspp_order (profile_id);
+create index order_submit_idx on dcspp_order (submitted_date);
+create index ord_creat_site_idx on dcspp_order (creation_site_id);
+create index ord_site_idx on dcspp_order (site_id);
+
+create table dcspp_ship_group (
+	shipping_group_id	varchar(40)	not null,
+	type	integer	not null,
+	version	integer	not null,
+	shipgrp_class_type	varchar(40)	null,
+	shipping_method	varchar(40)	null,
+	description	varchar(64)	null,
+	ship_on_date	datetime	null,
+	actual_ship_date	datetime	null,
+	state	varchar(40)	null,
+	state_detail	nvarchar(254)	null,
+	submitted_date	datetime	null,
+	price_info	varchar(40)	null,
+	order_ref	varchar(40)	null
+,constraint dcspp_ship_group_p primary key (shipping_group_id));
+
+
+create table dcspp_pay_group (
+	payment_group_id	varchar(40)	not null,
+	type	integer	not null,
+	version	integer	not null,
+	paygrp_class_type	varchar(40)	null,
+	payment_method	varchar(40)	null,
+	amount	numeric(19,7)	null,
+	amount_authorized	numeric(19,7)	null,
+	amount_debited	numeric(19,7)	null,
+	amount_credited	numeric(19,7)	null,
+	currency_code	varchar(10)	null,
+	state	varchar(40)	null,
+	state_detail	nvarchar(254)	null,
+	submitted_date	datetime	null,
+	order_ref	varchar(40)	null
+,constraint dcspp_pay_group_p primary key (payment_group_id));
+
+
+create table dcspp_item (
+	commerce_item_id	varchar(40)	not null,
+	type	integer	not null,
+	version	integer	not null,
+	item_class_type	varchar(40)	null,
+	catalog_id	varchar(40)	null,
+	catalog_ref_id	varchar(40)	null,
+	catalog_key	varchar(40)	null,
+	product_id	varchar(40)	null,
+	site_id	varchar(40)	null,
+	quantity	integer	null,
+	state	varchar(40)	null,
+	state_detail	nvarchar(254)	null,
+	price_info	varchar(40)	null,
+	order_ref	varchar(40)	null
+,constraint dcspp_item_p primary key (commerce_item_id));
+
+create index item_catref_idx on dcspp_item (catalog_ref_id);
+create index item_prodref_idx on dcspp_item (product_id);
+create index item_site_idx on dcspp_item (site_id);
+
+create table dcspp_relationship (
+	relationship_id	varchar(40)	not null,
+	type	integer	not null,
+	version	integer	not null,
+	rel_class_type	varchar(40)	null,
+	relationship_type	varchar(40)	null,
+	order_ref	varchar(40)	null
+,constraint dcspp_relationsh_p primary key (relationship_id));
+
+
+create table dcspp_rel_orders (
+	order_id	varchar(40)	not null,
+	related_orders	varchar(40)	not null,
+	sequence_num	integer	not null
+,constraint dcspp_rel_orders_p primary key (order_id,sequence_num)
+,constraint dcspp_reordr_d_f foreign key (order_id) references dcspp_order (order_id));
+
+
+create table dcspp_order_inst (
+	order_id	varchar(40)	not null,
+	tag	varchar(42)	not null,
+	special_inst	nvarchar(254)	null
+,constraint dcspp_order_inst_p primary key (order_id,tag)
+,constraint dcspp_orordr_d_f foreign key (order_id) references dcspp_order (order_id));
+
+create index order_inst_oid_idx on dcspp_order_inst (order_id);
+
+create table dcspp_order_sg (
+	order_id	varchar(40)	not null,
+	shipping_groups	varchar(40)	not null,
+	sequence_num	integer	not null
+,constraint dcspp_order_sg_p primary key (order_id,sequence_num)
+,constraint dcspp_sgordr_d_f foreign key (order_id) references dcspp_order (order_id));
+
+create index order_sg_ordid_idx on dcspp_order_sg (order_id);
+
+create table dcspp_order_pg (
+	order_id	varchar(40)	not null,
+	payment_groups	varchar(40)	not null,
+	sequence_num	integer	not null
+,constraint dcspp_order_pg_p primary key (order_id,sequence_num)
+,constraint dcspp_orpgordr_f foreign key (order_id) references dcspp_order (order_id));
+
+create index order_pg_ordid_idx on dcspp_order_pg (order_id);
+
+create table dcspp_order_item (
+	order_id	varchar(40)	not null,
+	commerce_items	varchar(40)	not null,
+	sequence_num	integer	not null
+,constraint dcspp_order_item_p primary key (order_id,sequence_num)
+,constraint dcspp_oritordr_d_f foreign key (order_id) references dcspp_order (order_id));
+
+create index order_item_oid_idx on dcspp_order_item (order_id);
+create index order_item_cit_idx on dcspp_order_item (commerce_items);
+
+create table dcspp_order_rel (
+	order_id	varchar(40)	not null,
+	relationships	varchar(40)	not null,
+	sequence_num	integer	not null
+,constraint dcspp_order_rel_p primary key (order_id,sequence_num)
+,constraint dcspp_orlordr_d_f foreign key (order_id) references dcspp_order (order_id));
+
+create index order_rel_orid_idx on dcspp_order_rel (order_id);
+
+create table dcspp_ship_inst (
+	shipping_group_id	varchar(40)	not null,
+	tag	varchar(42)	not null,
+	special_inst	nvarchar(254)	null
+,constraint dcspp_ship_inst_p primary key (shipping_group_id,tag)
+,constraint dcspp_shshippng__f foreign key (shipping_group_id) references dcspp_ship_group (shipping_group_id));
+
+create index ship_inst_sgid_idx on dcspp_ship_inst (shipping_group_id);
+
+create table dcspp_hrd_ship_grp (
+	shipping_group_id	varchar(40)	not null,
+	tracking_number	varchar(40)	null
+,constraint dcspp_hrd_ship_g_p primary key (shipping_group_id)
+,constraint dcspp_hrshippng__f foreign key (shipping_group_id) references dcspp_ship_group (shipping_group_id));
+
+
+create table dcspp_ele_ship_grp (
+	shipping_group_id	varchar(40)	not null,
+	email_address	varchar(255)	null
+,constraint dcspp_ele_ship_g_p primary key (shipping_group_id)
+,constraint dcspp_elshippng__f foreign key (shipping_group_id) references dcspp_ship_group (shipping_group_id));
+
+
+create table dcspp_ship_addr (
+	shipping_group_id	varchar(40)	not null,
+	prefix	nvarchar(40)	null,
+	first_name	nvarchar(40)	null,
+	middle_name	nvarchar(40)	null,
+	last_name	nvarchar(40)	null,
+	suffix	nvarchar(40)	null,
+	job_title	nvarchar(40)	null,
+	company_name	nvarchar(40)	null,
+	address_1	nvarchar(50)	null,
+	address_2	nvarchar(50)	null,
+	address_3	nvarchar(50)	null,
+	city	nvarchar(40)	null,
+	county	nvarchar(40)	null,
+	state	nvarchar(40)	null,
+	postal_code	nvarchar(10)	null,
+	country	nvarchar(40)	null,
+	phone_number	nvarchar(40)	null,
+	fax_number	nvarchar(40)	null,
+	email	nvarchar(255)	null
+,constraint dcspp_ship_addr_p primary key (shipping_group_id)
+,constraint dcspp_shdshippng_f foreign key (shipping_group_id) references dcspp_ship_group (shipping_group_id));
+
+
+create table dcspp_hand_inst (
+	handling_inst_id	varchar(40)	not null,
+	type	integer	not null,
+	version	integer	not null,
+	hndinst_class_type	varchar(40)	null,
+	handling_method	varchar(40)	null,
+	shipping_group_id	varchar(40)	null,
+	commerce_item_id	varchar(40)	null,
+	quantity	integer	null
+,constraint dcspp_hand_inst_p primary key (handling_inst_id));
+
+create index hi_item_idx on dcspp_hand_inst (commerce_item_id);
+create index hi_ship_group_idx on dcspp_hand_inst (shipping_group_id);
+
+create table dcspp_gift_inst (
+	handling_inst_id	varchar(40)	not null,
+	giftlist_id	varchar(40)	null,
+	giftlist_item_id	varchar(40)	null
+,constraint dcspp_gift_inst_p primary key (handling_inst_id)
+,constraint dcspp_gihandlng__f foreign key (handling_inst_id) references dcspp_hand_inst (handling_inst_id));
+
+
+create table dcspp_sg_hand_inst (
+	shipping_group_id	varchar(40)	not null,
+	handling_instrs	varchar(40)	not null,
+	sequence_num	integer	not null
+,constraint dcspp_sg_hand_in_p primary key (shipping_group_id,sequence_num)
+,constraint dcspp_sgshippng__f foreign key (shipping_group_id) references dcspp_ship_group (shipping_group_id));
+
+create index sg_hnd_ins_sgi_idx on dcspp_sg_hand_inst (shipping_group_id);
+
+create table dcspp_pay_inst (
+	payment_group_id	varchar(40)	not null,
+	tag	varchar(42)	not null,
+	special_inst	nvarchar(254)	null
+,constraint dcspp_pay_inst_p primary key (payment_group_id,tag)
+,constraint dcspp_papaymnt_g_f foreign key (payment_group_id) references dcspp_pay_group (payment_group_id));
+
+create index pay_inst_pgrid_idx on dcspp_pay_inst (payment_group_id);
+
+create table dcspp_config_item (
+	config_item_id	varchar(40)	not null,
+	reconfig_data	varchar(255)	null,
+	notes	varchar(255)	null
+,constraint dcspp_config_ite_p primary key (config_item_id)
+,constraint dcspp_coconfg_tm_f foreign key (config_item_id) references dcspp_item (commerce_item_id));
+
+
+create table dcspp_subsku_item (
+	subsku_item_id	varchar(40)	not null,
+	ind_quantity	integer	null
+,constraint dcspp_subsku_ite_p primary key (subsku_item_id)
+,constraint dcspp_susubsk_tm_f foreign key (subsku_item_id) references dcspp_item (commerce_item_id));
+
+
+create table dcspp_item_ci (
+	commerce_item_id	varchar(40)	not null,
+	commerce_items	varchar(40)	not null,
+	sequence_num	integer	not null
+,constraint dcspp_item_ci_p primary key (commerce_item_id,sequence_num)
+,constraint dcspp_itcommrc_t_f foreign key (commerce_item_id) references dcspp_item (commerce_item_id));
+
+
+create table dcspp_gift_cert (
+	payment_group_id	varchar(40)	not null,
+	profile_id	varchar(40)	null,
+	gift_cert_number	varchar(50)	null
+,constraint dcspp_gift_cert_p primary key (payment_group_id)
+,constraint dcspp_gipaymnt_g_f foreign key (payment_group_id) references dcspp_pay_group (payment_group_id));
+
+create index gc_number_idx on dcspp_gift_cert (gift_cert_number);
+create index gc_profile_idx on dcspp_gift_cert (profile_id);
+
+create table dcspp_store_cred (
+	payment_group_id	varchar(40)	not null,
+	profile_id	varchar(40)	null,
+	store_cred_number	varchar(50)	null
+,constraint dcspp_store_cred_p primary key (payment_group_id)
+,constraint dcspp_stpaymnt_g_f foreign key (payment_group_id) references dcspp_pay_group (payment_group_id));
+
+create index sc_number_idx on dcspp_store_cred (store_cred_number);
+create index sc_profile_idx on dcspp_store_cred (profile_id);
+
+create table dcspp_credit_card (
+	payment_group_id	varchar(40)	not null,
+	credit_card_number	varchar(40)	null,
+	credit_card_type	varchar(40)	null,
+	expiration_month	varchar(20)	null,
+	exp_day_of_month	varchar(20)	null,
+	expiration_year	varchar(20)	null
+,constraint dcspp_credit_car_p primary key (payment_group_id)
+,constraint dcspp_crpaymnt_g_f foreign key (payment_group_id) references dcspp_pay_group (payment_group_id));
+
+
+create table dcspp_bill_addr (
+	payment_group_id	varchar(40)	not null,
+	prefix	nvarchar(40)	null,
+	first_name	nvarchar(40)	null,
+	middle_name	nvarchar(40)	null,
+	last_name	nvarchar(40)	null,
+	suffix	nvarchar(40)	null,
+	job_title	nvarchar(40)	null,
+	company_name	nvarchar(40)	null,
+	address_1	nvarchar(50)	null,
+	address_2	nvarchar(50)	null,
+	address_3	nvarchar(50)	null,
+	city	nvarchar(40)	null,
+	county	nvarchar(40)	null,
+	state	nvarchar(40)	null,
+	postal_code	nvarchar(10)	null,
+	country	nvarchar(40)	null,
+	phone_number	nvarchar(40)	null,
+	fax_number	nvarchar(40)	null,
+	email	nvarchar(255)	null
+,constraint dcspp_bill_addr_p primary key (payment_group_id)
+,constraint dcspp_bipaymnt_g_f foreign key (payment_group_id) references dcspp_pay_group (payment_group_id));
+
+
+create table dcspp_pay_status (
+	status_id	varchar(40)	not null,
+	type	integer	not null,
+	version	integer	not null,
+	trans_id	varchar(50)	null,
+	amount	numeric(19,7)	null,
+	trans_success	tinyint	null,
+	error_message	nvarchar(254)	null,
+	trans_timestamp	datetime	null
+,constraint dcspp_pay_status_p primary key (status_id)
+,constraint dcspp_pay_status_c check (trans_success IN (0,1)));
+
+
+create table dcspp_cc_status (
+	status_id	varchar(40)	not null,
+	auth_expiration	datetime	null,
+	avs_code	varchar(40)	null,
+	avs_desc_result	nvarchar(254)	null,
+	integration_data	varchar(256)	null
+,constraint dcspp_cc_status_p primary key (status_id)
+,constraint dcspp_ccstats_d_f foreign key (status_id) references dcspp_pay_status (status_id));
+
+
+create table dcspp_gc_status (
+	status_id	varchar(40)	not null,
+	auth_expiration	datetime	null
+,constraint dcspp_gc_status_p primary key (status_id)
+,constraint dcspp_gcstats_d_f foreign key (status_id) references dcspp_pay_status (status_id));
+
+
+create table dcspp_sc_status (
+	status_id	varchar(40)	not null,
+	auth_expiration	datetime	null
+,constraint dcspp_sc_status_p primary key (status_id)
+,constraint dcspp_scstats_d_f foreign key (status_id) references dcspp_pay_status (status_id));
+
+
+create table dcspp_auth_status (
+	payment_group_id	varchar(40)	not null,
+	auth_status	varchar(40)	not null,
+	sequence_num	integer	not null
+,constraint dcspp_auth_statu_p primary key (payment_group_id,sequence_num)
+,constraint dcspp_atpaymnt_g_f foreign key (payment_group_id) references dcspp_pay_group (payment_group_id));
+
+create index auth_stat_pgid_idx on dcspp_auth_status (payment_group_id);
+
+create table dcspp_debit_status (
+	payment_group_id	varchar(40)	not null,
+	debit_status	varchar(40)	not null,
+	sequence_num	integer	not null
+,constraint dcspp_debit_stat_p primary key (payment_group_id,sequence_num)
+,constraint dcspp_depaymnt_g_f foreign key (payment_group_id) references dcspp_pay_group (payment_group_id));
+
+create index debit_stat_pgi_idx on dcspp_debit_status (payment_group_id);
+
+create table dcspp_cred_status (
+	payment_group_id	varchar(40)	not null,
+	credit_status	varchar(40)	not null,
+	sequence_num	integer	not null
+,constraint dcspp_cred_statu_p primary key (payment_group_id,sequence_num)
+,constraint dcspp_crpaymntgr_f foreign key (payment_group_id) references dcspp_pay_group (payment_group_id));
+
+create index cred_stat_pgid_idx on dcspp_cred_status (payment_group_id);
+
+create table dcspp_shipitem_rel (
+	relationship_id	varchar(40)	not null,
+	shipping_group_id	varchar(40)	null,
+	commerce_item_id	varchar(40)	null,
+	quantity	integer	null,
+	returned_qty	integer	null,
+	amount	numeric(19,7)	null,
+	state	varchar(40)	null,
+	state_detail	nvarchar(254)	null
+,constraint dcspp_shipitem_r_p primary key (relationship_id)
+,constraint dcspp_shreltnshp_f foreign key (relationship_id) references dcspp_relationship (relationship_id));
+
+create index sirel_item_idx on dcspp_shipitem_rel (commerce_item_id);
+create index sirel_shipgrp_idx on dcspp_shipitem_rel (shipping_group_id);
+
+create table dcspp_rel_range (
+	relationship_id	varchar(40)	not null,
+	low_bound	integer	null,
+	high_bound	integer	null
+,constraint dcspp_rel_range_p primary key (relationship_id));
+
+
+create table dcspp_payitem_rel (
+	relationship_id	varchar(40)	not null,
+	payment_group_id	varchar(40)	null,
+	commerce_item_id	varchar(40)	null,
+	quantity	integer	null,
+	amount	numeric(19,7)	null
+,constraint dcspp_payitem_re_p primary key (relationship_id)
+,constraint dcspp_pareltnshp_f foreign key (relationship_id) references dcspp_relationship (relationship_id));
+
+create index pirel_item_idx on dcspp_payitem_rel (commerce_item_id);
+create index pirel_paygrp_idx on dcspp_payitem_rel (payment_group_id);
+
+create table dcspp_payship_rel (
+	relationship_id	varchar(40)	not null,
+	payment_group_id	varchar(40)	null,
+	shipping_group_id	varchar(40)	null,
+	amount	numeric(19,7)	null
+,constraint dcspp_payship_re_p primary key (relationship_id)
+,constraint dcspp_pshrltnshp_f foreign key (relationship_id) references dcspp_relationship (relationship_id));
+
+create index psrel_paygrp_idx on dcspp_payship_rel (payment_group_id);
+create index psrel_shipgrp_idx on dcspp_payship_rel (shipping_group_id);
+
+create table dcspp_payorder_rel (
+	relationship_id	varchar(40)	not null,
+	payment_group_id	varchar(40)	null,
+	order_id	varchar(40)	null,
+	amount	numeric(19,7)	null
+,constraint dcspp_payorder_r_p primary key (relationship_id)
+,constraint dcspp_odreltnshp_f foreign key (relationship_id) references dcspp_relationship (relationship_id));
+
+create index porel_order_idx on dcspp_payorder_rel (order_id);
+create index porel_paygrp_idx on dcspp_payorder_rel (payment_group_id);
+
+create table dcspp_amount_info (
+	amount_info_id	varchar(40)	not null,
+	type	integer	not null,
+	version	integer	not null,
+	currency_code	varchar(10)	null,
+	amount	numeric(19,7)	null,
+	discounted	tinyint	null,
+	amount_is_final	tinyint	null,
+	final_rc	integer	null
+,constraint dcspp_amount_inf_p primary key (amount_info_id)
+,constraint dcspp_amount_in1_c check (discounted IN (0,1))
+,constraint dcspp_amount_in2_c check (amount_is_final IN (0,1)));
+
+
+create table dcspp_order_price (
+	amount_info_id	varchar(40)	not null,
+	raw_subtotal	numeric(19,7)	null,
+	tax	numeric(19,7)	null,
+	shipping	numeric(19,7)	null,
+	manual_adj_total	numeric(19,7)	null
+,constraint dcspp_order_pric_p primary key (amount_info_id)
+,constraint dcspp_oramnt_nfd_f foreign key (amount_info_id) references dcspp_amount_info (amount_info_id));
+
+
+create table dcspp_item_price (
+	amount_info_id	varchar(40)	not null,
+	list_price	numeric(19,7)	null,
+	raw_total_price	numeric(19,7)	null,
+	sale_price	numeric(19,7)	null,
+	on_sale	tinyint	null,
+	order_discount	numeric(19,7)	null,
+	qty_discounted	integer	null,
+	qty_as_qualifier	integer	null,
+	price_list	varchar(40)	null
+,constraint dcspp_item_price_p primary key (amount_info_id)
+,constraint dcspp_itamnt_nfd_f foreign key (amount_info_id) references dcspp_amount_info (amount_info_id)
+,constraint dcspp_item_price_c check (on_sale IN (0,1)));
+
+
+create table dcspp_tax_price (
+	amount_info_id	varchar(40)	not null,
+	city_tax	numeric(19,7)	null,
+	county_tax	numeric(19,7)	null,
+	state_tax	numeric(19,7)	null,
+	country_tax	numeric(19,7)	null
+,constraint dcspp_tax_price_p primary key (amount_info_id)
+,constraint dcspp_taamnt_nfd_f foreign key (amount_info_id) references dcspp_amount_info (amount_info_id));
+
+
+create table dcspp_ship_price (
+	amount_info_id	varchar(40)	not null,
+	raw_shipping	numeric(19,7)	null
+,constraint dcspp_ship_price_p primary key (amount_info_id)
+,constraint dcspp_shamnt_nfd_f foreign key (amount_info_id) references dcspp_amount_info (amount_info_id));
+
+
+create table dcspp_amtinfo_adj (
+	amount_info_id	varchar(40)	not null,
+	adjustments	varchar(40)	not null,
+	sequence_num	integer	not null
+,constraint dcspp_amtinfo_ad_p primary key (amount_info_id,sequence_num)
+,constraint dcspp_amamnt_nfd_f foreign key (amount_info_id) references dcspp_amount_info (amount_info_id));
+
+create index amtinf_adj_aid_idx on dcspp_amtinfo_adj (amount_info_id);
+create index amtinf_adj_adj_idx on dcspp_amtinfo_adj (adjustments);
+
+create table dcspp_price_adjust (
+	adjustment_id	varchar(40)	not null,
+	version	integer	not null,
+	adj_description	varchar(254)	null,
+	pricing_model	varchar(40)	null,
+	manual_adjustment	varchar(40)	null,
+	adjustment	numeric(19,7)	null,
+	qty_adjusted	integer	null
+,constraint dcspp_price_adju_p primary key (adjustment_id));
+
+
+create table dcspp_shipitem_sub (
+	amount_info_id	varchar(40)	not null,
+	shipping_group_id	varchar(42)	not null,
+	ship_item_subtotal	varchar(40)	not null
+,constraint dcspp_shipitem_s_p primary key (amount_info_id,shipping_group_id)
+,constraint dcspp_sbamnt_nfd_f foreign key (amount_info_id) references dcspp_amount_info (amount_info_id));
+
+create index ship_item_sub_idx on dcspp_shipitem_sub (amount_info_id);
+
+create table dcspp_taxshipitem (
+	amount_info_id	varchar(40)	not null,
+	shipping_group_id	varchar(42)	not null,
+	tax_ship_item_sub	varchar(40)	not null
+,constraint dcspp_taxshipite_p primary key (amount_info_id,shipping_group_id)
+,constraint dcspp_shamntxnfd_f foreign key (amount_info_id) references dcspp_amount_info (amount_info_id));
+
+create index tax_ship_item_idx on dcspp_taxshipitem (amount_info_id);
+
+create table dcspp_ntaxshipitem (
+	amount_info_id	varchar(40)	not null,
+	shipping_group_id	varchar(42)	not null,
+	non_tax_item_sub	varchar(40)	not null
+,constraint dcspp_ntaxshipit_p primary key (amount_info_id,shipping_group_id)
+,constraint dcspp_ntamnt_nfd_f foreign key (amount_info_id) references dcspp_amount_info (amount_info_id));
+
+create index ntax_ship_item_idx on dcspp_ntaxshipitem (amount_info_id);
+
+create table dcspp_shipitem_tax (
+	amount_info_id	varchar(40)	not null,
+	shipping_group_id	varchar(42)	not null,
+	ship_item_tax	varchar(40)	not null
+,constraint dcspp_shipitem_t_p primary key (amount_info_id,shipping_group_id)
+,constraint dcspp_txamnt_nfd_f foreign key (amount_info_id) references dcspp_amount_info (amount_info_id));
+
+create index ship_item_tax_idx on dcspp_shipitem_tax (amount_info_id);
+
+create table dcspp_itmprice_det (
+	amount_info_id	varchar(40)	not null,
+	cur_price_details	varchar(40)	not null,
+	sequence_num	integer	not null
+,constraint dcspp_itmprice_d_p primary key (amount_info_id,sequence_num)
+,constraint dcspp_sbamntnfd_f foreign key (amount_info_id) references dcspp_amount_info (amount_info_id));
+
+create index itmprc_det_aii_idx on dcspp_itmprice_det (amount_info_id);
+
+create table dcspp_det_price (
+	amount_info_id	varchar(40)	not null,
+	tax	numeric(19,7)	null,
+	order_discount	numeric(19,7)	null,
+	order_manual_adj	numeric(19,7)	null,
+	quantity	integer	null,
+	qty_as_qualifier	integer	null
+,constraint dcspp_det_price_p primary key (amount_info_id));
+
+
+create table dcspp_det_range (
+	amount_info_id	varchar(40)	not null,
+	low_bound	integer	null,
+	high_bound	integer	null
+,constraint dcspp_det_range_p primary key (amount_info_id));
+
+
+create table dcspp_order_adj (
+	order_id	varchar(40)	not null,
+	adjustment_id	varchar(40)	not null,
+	sequence_num	integer	not null
+,constraint dcspp_order_adj_p primary key (order_id,sequence_num)
+,constraint dcspp_oradj_d_f foreign key (order_id) references dcspp_order (order_id));
+
+create index order_adj_orid_idx on dcspp_order_adj (order_id);
+
+create table dcspp_manual_adj (
+	manual_adjust_id	varchar(40)	not null,
+	type	integer	not null,
+	adjustment_type	integer	not null,
+	reason	integer	not null,
+	amount	numeric(19,7)	null,
+	notes	varchar(255)	null,
+	version	integer	not null
+,constraint dcspp_manual_adj_p primary key (manual_adjust_id));
+
+
+create table dbcpp_sched_order (
+	scheduled_order_id	varchar(40)	not null,
+	type	integer	not null,
+	version	integer	not null,
+	name	nvarchar(32)	null,
+	profile_id	varchar(40)	null,
+	create_date	datetime	null,
+	start_date	datetime	null,
+	end_date	datetime	null,
+	template_order	varchar(32)	null,
+	state	integer	null,
+	next_scheduled	datetime	null,
+	schedule	varchar(255)	null,
+	site_id	varchar(40)	null
+,constraint dbcpp_sched_orde_p primary key (scheduled_order_id));
+
+create index sched_tmplt_idx on dbcpp_sched_order (template_order);
+create index sched_profile_idx on dbcpp_sched_order (profile_id);
+create index sched_site_idx on dbcpp_sched_order (site_id);
+
+create table dbcpp_sched_clone (
+	scheduled_order_id	varchar(40)	not null,
+	cloned_order	varchar(40)	not null,
+	sequence_num	integer	not null
+,constraint dbcpp_sched_clon_p primary key (scheduled_order_id,sequence_num)
+,constraint dbcpp_scschedld__f foreign key (scheduled_order_id) references dbcpp_sched_order (scheduled_order_id));
+
+
+create table dcspp_scherr_aux (
+	scheduled_order_id	varchar(40)	not null,
+	sched_error_id	varchar(40)	not null
+,constraint dcspp_scherr_aux_p primary key (scheduled_order_id));
+
+create index sched_error_idx on dcspp_scherr_aux (sched_error_id);
+
+create table dcspp_sched_error (
+	sched_error_id	varchar(40)	not null,
+	error_date	datetime	not null
+,constraint dcspp_sched_err_p primary key (sched_error_id));
+
+
+create table dcspp_schd_errmsg (
+	sched_error_id	varchar(40)	not null,
+	error_txt	varchar(254)	not null,
+	sequence_num	integer	not null
+,constraint dcspp_schd_errs_p primary key (sched_error_id,sequence_num)
+,constraint dcspp_sch_errs_f foreign key (sched_error_id) references dcspp_sched_error (sched_error_id));
+
+commit;
+
+
+
+--------------------------------------------------------------------------
+-- Source file for next block: DCS/sql/db_components/mysql/order_markers_ddl.sql
+
+
+
+--  @version $ $
+
+create table dcs_order_markers (
+	marker_id	varchar(40)	not null,
+	order_id	varchar(40)	not null,
+	marker_key	varchar(100)	not null,
+	marker_value	varchar(100)	null,
+	marker_data	varchar(100)	null,
+	creation_date	datetime	null,
+	version	integer	not null,
+	marker_type	integer	null
+,constraint dcsordermarkers_p primary key (marker_id,order_id)
+,constraint dcsordermarkers_f foreign key (order_id) references dcspp_order (order_id));
+
+create index dcs_ordrmarkers1_x on dcs_order_markers (order_id);
+
+create table dcspp_commerce_item_markers (
+	marker_id	varchar(40)	not null,
+	commerce_item_id	varchar(40)	not null,
+	marker_key	varchar(100)	not null,
+	marker_value	varchar(100)	null,
+	marker_data	varchar(100)	null,
+	creation_date	datetime	null,
+	version	integer	not null,
+	marker_type	integer	null
+,constraint dcscitemmarkers_p primary key (marker_id,commerce_item_id)
+,constraint dcscitemmarkers_f foreign key (commerce_item_id) references dcspp_item (commerce_item_id));
+
+create index dcs_itemmarkers1_x on dcspp_commerce_item_markers (commerce_item_id);
+commit;
+
+
+
+--------------------------------------------------------------------------
+-- Source file for next block: DCS/sql/db_components/mysql/user_giftlist_ddl.sql
+
+
+
+--  @version $Id: //product/DCS/version/10.0.2/templates/DCS/sql/user_giftlist_ddl.xml#2 $$Change: 635969 $
+
+create table dcs_giftlist (
+	id	varchar(40)	not null,
+	owner_id	varchar(40)	null,
+	site_id	varchar(40)	null,
+	is_public	tinyint	not null,
+	is_published	tinyint	not null,
+	event_name	nvarchar(64)	null,
+	event_type	integer	null,
+	event_date	datetime	null,
+	comments	nvarchar(254)	null,
+	description	nvarchar(254)	null,
+	instructions	nvarchar(254)	null,
+	creation_date	datetime	null,
+	last_modified_date	datetime	null,
+	shipping_addr_id	varchar(40)	null
+,constraint dcs_giftlist_p primary key (id)
+,constraint dcs_giftlist1_c check (is_public in (0,1))
+,constraint dcs_giftlist2_c check (is_published in (0,1)));
+
+create index gftlst_shpadid_idx on dcs_giftlist (shipping_addr_id);
+create index gft_evnt_name_idx on dcs_giftlist (event_name);
+create index gft_evnt_type_idx on dcs_giftlist (event_type);
+create index gft_owner_id_idx on dcs_giftlist (owner_id);
+create index gft_site_id_idx on dcs_giftlist (site_id);
+
+create table dcs_giftinst (
+	giftlist_id	varchar(40)	not null,
+	tag	varchar(42)	not null,
+	special_inst	varchar(254)	null
+,constraint dcs_giftinst_p primary key (giftlist_id,tag)
+,constraint dcs_giftgiftlst__f foreign key (giftlist_id) references dcs_giftlist (id));
+
+create index giftinst_gflid_idx on dcs_giftinst (giftlist_id);
+
+create table dcs_giftitem (
+	id	varchar(40)	not null,
+	catalog_ref_id	varchar(40)	null,
+	product_id	varchar(40)	null,
+	site_id	varchar(40)	null,
+	display_name	nvarchar(254)	null,
+	description	nvarchar(254)	null,
+	quantity_desired	integer	null,
+	quantity_purchased	integer	null
+,constraint dcs_giftitem_p primary key (id));
+
+create index giftitem_cat_idx on dcs_giftitem (catalog_ref_id);
+create index giftitem_prod_idx on dcs_giftitem (product_id);
+create index giftitem_site_idx on dcs_giftitem (site_id);
+
+create table dcs_giftlist_item (
+	giftlist_id	varchar(40)	not null,
+	sequence_num	integer	not null,
+	giftitem_id	varchar(40)	null
+,constraint dcs_giftlist_ite_p primary key (giftlist_id,sequence_num)
+,constraint dcs_giftgifttm_d_f foreign key (giftitem_id) references dcs_giftitem (id)
+,constraint dcs_gftlstgftlst_f foreign key (giftlist_id) references dcs_giftlist (id));
+
+create index gftlst_itm_gii_idx on dcs_giftlist_item (giftitem_id);
+create index gftlst_itm_gli_idx on dcs_giftlist_item (giftlist_id);
+
+create table dcs_user_wishlist (
+	user_id	varchar(40)	not null,
+	giftlist_id	varchar(40)	null
+,constraint dcs_user_wishlis_p primary key (user_id)
+,constraint dcs_usrwgiftlst__f foreign key (giftlist_id) references dcs_giftlist (id));
+
+create index usr_wshlst_gli_idx on dcs_user_wishlist (giftlist_id);
+
+create table dcs_user_giftlist (
+	user_id	varchar(40)	not null,
+	sequence_num	integer	not null,
+	giftlist_id	varchar(40)	null
+,constraint dcs_user_giftlis_p primary key (user_id,sequence_num));
+
+create index usr_gftlst_uid_idx on dcs_user_giftlist (user_id);
+
+create table dcs_user_otherlist (
+	user_id	varchar(40)	not null,
+	sequence_num	integer	not null,
+	giftlist_id	varchar(40)	null
+,constraint dcs_user_otherli_p primary key (user_id,sequence_num)
+,constraint dcs_usrtgiftlst__f foreign key (giftlist_id) references dcs_giftlist (id));
+
+create index usr_otrlst_gli_idx on dcs_user_otherlist (giftlist_id);
+commit;
+
+
+
+--------------------------------------------------------------------------
+-- Source file for next block: DCS/sql/db_components/mysql/user_promotion_ddl.sql
+
+
+
+--  @version $Id: //product/DCS/version/10.0.2/templates/DCS/sql/user_promotion_ddl.xml#2 $$Change: 635969 $
+-- The promotion line was commented out to allow the profile and promotion tables to be delinked. The promotion tables are intended to be used as a "read-only" table on the production servers. The promotion (and product catalog) tables are promoted and made active on the production system through copy-switch. In doing so, the profile tables and the promotion tables cannot be in the same database, and therefore we must remove this referece. However if you are not going to use copy-switch for the promotions, then you can add this reference back in.     promotion			VARCHAR(40)		NOT NULL	REFERENCES dcs_promotion(promotion_id),
+
+create table dcs_usr_promostat (
+	status_id	varchar(40)	not null,
+	profile_id	varchar(40)	not null,
+	promotion	varchar(40)	not null,
+	num_uses	integer	null,
+	expirationDate	datetime	null,
+	granted_date	datetime	null
+,constraint dcs_usr_promosta_p primary key (status_id));
+
+create index promostat_prof_idx on dcs_usr_promostat (profile_id);
+create index usr_prmstat_pr_idx on dcs_usr_promostat (promotion);
+
+create table dcs_usr_actvpromo (
+	id	varchar(40)	not null,
+	sequence_num	integer	not null,
+	promo_status_id	varchar(40)	not null
+,constraint dcs_usr_actvprom_p primary key (id,sequence_num));
+
+create index usr_actvprm_id_idx on dcs_usr_actvpromo (id);
+-- The promotion_id column was commented out to allow the profile and promotion tables to be delinked. The promotion tables are intended to be used as a "read-only" table on the production servers. The promotion (and product catalog) tables are promoted and made active on the production system through copy-switch. In doing so, the profile tables and the promotion tables cannot be in the same database, and therefore we must remove this referece. However if you are not going to use copy-switch for the promotions, then you can add this reference back in.        promotion_id                    VARCHAR(40)             NOT NULL        REFERENCES dcs_promotion(promotion_id),
+
+create table dcs_usr_usedpromo (
+	id	varchar(40)	not null,
+	promotion_id	varchar(40)	not null
+,constraint dcs_usr_usedprom_p primary key (id,promotion_id));
+
+create index usr_usedprm_id_idx on dcs_usr_usedpromo (id);
+create index usr_usedprm_pi_idx on dcs_usr_usedpromo (promotion_id);
+commit;
+
+
+
+--------------------------------------------------------------------------
+-- Source file for next block: DCS/AbandonedOrderServices/sql/db_components/mysql/abandoned_order_ddl.sql
+
+
+
+-- $Id: //product/DCS/version/10.0.2/templates/DCS/AbandonedOrderServices/sql/abandoned_order_ddl.xml#1 $
+
+create table dcspp_ord_abandon (
+	abandonment_id	varchar(40)	not null,
+	version	integer	not null,
+	order_id	varchar(40)	not null,
+	ord_last_updated	datetime	null,
+	abandon_state	varchar(40)	null,
+	abandonment_count	integer	null,
+	abandonment_date	datetime	null,
+	reanimation_date	datetime	null,
+	convert_date	datetime	null,
+	lost_date	datetime	null
+,constraint dcspp_ord_abndn_p primary key (abandonment_id));
+
+create index dcspp_ordabandn1_x on dcspp_ord_abandon (order_id);
+
+create table dcs_user_abandoned (
+	id	varchar(40)	not null,
+	order_id	varchar(40)	not null,
+	profile_id	varchar(40)	not null
+,constraint dcs_usr_abndnd_p primary key (id));
+
+
+create table drpt_conv_order (
+	order_id	varchar(40)	not null,
+	converted_date	datetime	not null,
+	amount	numeric(19,7)	not null,
+	promo_count	integer	not null,
+	promo_value	numeric(19,7)	not null
+,constraint drpt_conv_order_p primary key (order_id));
+
+
+create table drpt_session_ord (
+	dataset_id	varchar(40)	not null,
+	order_id	varchar(40)	not null,
+	date_time	datetime	not null,
+	amount	numeric(19,7)	not null,
+	submitted	integer	not null,
+	order_persistent	tinyint	null,
+	session_id	varchar(40)	null,
+	parent_session_id	varchar(40)	null
+,constraint drpt_session_ord_p primary key (order_id));
+
+commit;
+
+
+
+--------------------------------------------------------------------------
+-- Source file for next block: DCS/AbandonedOrderServices/sql/db_components/mysql/abandoned_order_views.sql
+
+
+
+--  @version $Id: //product/DCS/version/10.0.2/templates/DCS/AbandonedOrderServices/sql/abandoned_order_views.xml#1 $$Change: 633540 $
+create view drpt_abandon_ord
+(abandonment_date,amount,converted)
+as
+      select oa.abandonment_date as abandonment_date, ai.amount as amount, case when oa.abandon_state = 'CONVERTED' then 100 else 0 end as converted from dcspp_order o, dcspp_ord_abandon oa, dcspp_amount_info ai where oa.order_id=o.order_id and o.price_info=ai.amount_info_id
+         ;
+
+
+create view drpt_tns_abndn_ord
+(abandonment_date,amount)
+as
+      select date_time as abandonment_date, amount as amount from drpt_session_ord where submitted=0
+         ;
+
+
+commit;
+
+--------------------------------------------------------------------------
+-- Source file for next block: CommerceReferenceStore/Store/EStore/sql/db_components/mysql/crs_order_ddl.sql
+
+
+
+-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.0.2/EStore/sql/ddlgen/crs_order_ddl.xml#2 $$Change: 635969 $
+
+create table crs_order (
+	order_id	varchar(40)	not null,
+	coupon_code	varchar(40)	null,
+	oms_order_id	varchar(40)	null,
+	status_change_date	datetime	null,
+	processing_date	datetime	null
+,constraint crs_order_p primary key (order_id)
+,constraint crs_order_f foreign key (order_id) references dcspp_order (order_id));
+
+
+create table crs_hrd_ship_group (
+	shipping_group_id	varchar(40)	not null,
+	carrier_code	varchar(40)	null,
+	weight	double precision	null
+,constraint crs_hrd_shp_grp_p primary key (shipping_group_id)
+,constraint crs_hrdshp_grp_f1 foreign key (shipping_group_id) references dcspp_ship_group (shipping_group_id));
+
+
+create table crs_order_sub_req (
+	order_sub_req_id	varchar(40)	not null,
+	order_ack_time_out	integer	null,
+	max_order_submits	integer	null,
+	client_id	varchar(40)	null
+,constraint crs_ord_sub_req_p primary key (order_sub_req_id));
+
+
+create table crs_oms_segments (
+	order_id	varchar(40)	not null,
+	sequence_num	integer	not null,
+	oms_segment	longvarchar	null
+,constraint crs_oms_segments_p primary key (order_id,sequence_num)
+,constraint crs_oms_segments_f foreign key (order_id) references dcspp_order (order_id));
+
+
+create table crs_item_price (
+	item_price_info_id	varchar(40)	not null,
+	tax_price_info_id	varchar(40)	null
+,constraint crs_item_price_p primary key (item_price_info_id)
+,constraint crs_item_price_f foreign key (item_price_info_id) references dcspp_amount_info (amount_info_id));
+
+
+create table crs_tax_price (
+	amount_info_id	varchar(40)	not null,
+	district_tax	double precision	null
+,constraint crs_tax_price_p primary key (amount_info_id)
+,constraint crs_tax_price_f foreign key (amount_info_id) references dcspp_amount_info (amount_info_id));
+
+
+create table crs_ship_price (
+	ship_price_info_id	varchar(40)	not null,
+	tax_price_info_id	varchar(40)	null
+,constraint crs_ship_price_p primary key (ship_price_info_id)
+,constraint crs_ship_price_f foreign key (ship_price_info_id) references dcspp_amount_info (amount_info_id));
+
+
+create table crs_tracking_info (
+	tracking_info_id	varchar(40)	not null,
+	shipping_method	varchar(40)	null,
+	carrier_code	varchar(40)	null,
+	tracking_number	varchar(40)	null,
+	url	longvarchar	null,
+	weight	double precision	null
+,constraint crs_tracking_p primary key (tracking_info_id));
+
+
+create table crs_ord_track_info (
+	order_id	varchar(40)	not null,
+	sequence_num	integer	not null,
+	tracking_info_id	varchar(40)	not null
+,constraint crs_ord_track_p primary key (order_id,sequence_num)
+,constraint crs_ordtrk_ordid_f foreign key (order_id) references dcspp_order (order_id)
+,constraint crs_ordtrk_trkid_f foreign key (tracking_info_id) references crs_tracking_info (tracking_info_id));
+
+create index crs_ordtrk_tkid1_x on crs_ord_track_info (tracking_info_id);
+commit;
+
+
+
+--------------------------------------------------------------------------
+-- Source file for next block: CommerceReferenceStore/Store/EStore/sql/db_components/mysql/crs_profile_ddl.sql
+
+
+
+-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.0.2/EStore/sql/ddlgen/crs_profile_ddl.xml#2 $$Change: 635969 $
+
+create table crs_user (
+	user_id	varchar(40)	not null,
+	external_id	varchar(40)	null,
+	number_of_orders	integer	null,
+	last_purchase_date	date	null,
+	referral_source	integer	null,
+	receive_promo_email	integer	null,
+	store_id	varchar(40)	null
+,constraint crs_user_p primary key (user_id)
+,constraint crs_user_fk foreign key (user_id) references dps_user (id));
+
+
+create table crs_items_bought (
+	user_id	varchar(40)	not null,
+	sequence_id	integer	not null,
+	item	varchar(40)	not null
+,constraint crs_item_bought_p primary key (user_id,sequence_id));
+
+
+create table crs_email_recpient (
+	email_recipient_id	varchar(40)	not null,
+	email	varchar(40)	not null,
+	user_id	varchar(40)	null,
+	source_code	varchar(40)	null
+,constraint crs_email_recpnt_p primary key (email_recipient_id));
+
+
+create table crs_user_shipping (
+	user_id	varchar(40)	not null,
+	tag	varchar(42)	not null,
+	addr_id	varchar(40)	not null
+,constraint crs_user_shpping_p primary key (user_id,tag)
+,constraint crs_user_shppng_fk foreign key (user_id) references dps_user (id));
+
+create index crs_u_shipaddr_idx on crs_user_shipping (addr_id);
+
+create table crs_back_in_stock (
+	id	varchar(40)	not null,
+	email	varchar(40)	null,
+	catalog_ref_id	varchar(40)	null,
+	product_id	varchar(40)	null,
+	site_id	varchar(40)	null,
+	locale	varchar(40)	null
+,constraint crs_back_in_ntfy_p primary key (id));
+
+commit;
+
+
+]]>
+                </sql>
+              <rollback/>
+            </changeSet>
+          </databaseChangeLog>
