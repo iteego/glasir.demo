@@ -41,7 +41,7 @@ buildscript {
   }
 
   dependencies {
-    classpath('com.iteego.glasir:glasir.build:1.0.12-SNAPSHOT') { changing=true }
+    classpath('com.iteego.glasir:glasir.build:1.0.14-SNAPSHOT') { changing=true }
   }
 
   //we need a bit of magic here so that we don't have to do the module scan twice,
