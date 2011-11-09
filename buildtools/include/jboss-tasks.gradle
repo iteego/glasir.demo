@@ -26,7 +26,9 @@ task launchCiStore(type: Tail, dependsOn: [startJBossStore]) {
   file      "$jbossRoot/server/$storeServerName/log/server.log"
   file      "$jbossRoot/server/$storeServerName/log/boot.log"  
   failOn    "ERROR[ ]*\\["
-  succeedOn "INFO[ ]*\\[org\\.jboss\\.bootstrap\\.microcontainer\\.ServerImpl\\] \\(main\\) JBoss \\(Microcontainer\\) \\[.*] Started in"
+  //sample log line: 
+  // 2011-11-09 04:42:19,264 INFO  [org.jboss.bootstrap.microcontainer.ServerImpl] JBoss (Microcontainer) [5.1.0 (build: SVNTag=JBPAPP_5_1_0 date=201009150028)] Started in 1m:6s:11ms
+  succeedOn "INFO[ ]*\\[org\\.jboss\\.bootstrap\\.microcontainer\\.ServerImpl\\].*JBoss \\(Microcontainer\\) \\[.*\\] Started in"
   //postFailureTailSeconds = 2
   timeOutSeconds = 300
 }
