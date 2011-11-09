@@ -1,2 +1,2 @@
 Manifest-Version: 1.0
-ATG-Required: env mybrand.MyAtgModule
+ATG-Required: env mybrand.MyAtgModule DafEar.Admin DPS DSS
