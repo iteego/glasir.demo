@@ -16,6 +16,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 *
 * =============================================================================
 *
@@ -34,18 +35,22 @@
 *
  */
 import com.iteego.glasir.build.GlasirSettingsConvention
+import static org.apache.ivy.util.url.CredentialsStore.INSTANCE as ivy
 
-buildscript {
+rootProject.name='glasir.bootstrap`'
+
+buildscript {    
   repositories {
-    mavenRepo url: "http://iteego.artifactoryonline.com/iteego/libs-snapshots-local"
+    ivy.addCredentials("Artifactory Realm", "iteego.artifactoryonline.com", artifactoryReader, artifactoryReaderPwd)    
+    mavenRepo url: 'http://iteego.artifactoryonline.com/iteego/glasir-repos'
   }
 
   dependencies {
     classpath('com.iteego.glasir:glasir.build:1.0.14-SNAPSHOT') { changing=true }
+    classpath('org.jfrog.buildinfo:build-info-extractor-gradle:2.0.x-SNAPSHOT:uber@jar')
   }
 
-  //we need a bit of magic here so that we don't have to do the module scan twice,
-  //once for settings.gradle and once for build.gradle
+  //add the above dependencies to the classpath of all sub project build scripts
   configurations.classpath.each { file -> settings.classLoader.addURL(file.toURI().toURL()) }
 }
 
