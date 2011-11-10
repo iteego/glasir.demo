@@ -60,6 +60,25 @@ task shutdownDevAdmin << {
 * 
 * environment is one of: 'sandbox', 'development', etc
 * serverType is one of: 'store', 'admin', 'fulfillment', etc
+
+task something(type: StartJBoss) {
+  
+  serverName 'something'
+  systemProperty "atg.dynamo.server.name", serverName
+  //systemProperty "atg.dynamo.modules",     modules 
+  systemProperty "atg.dynamo.data-dir",    "$serverDir/ATG-Data"
+  systemProperty "jboss.server.log.dir",   "$serverDir/log"    
+  systemProperty "java.endorsed.dirs",     "$jbossRoot/lib/endorsed"
+
+  jvmArgs "-Xms512m"
+  jvmArgs "-Xmx1536m"
+  jvmArgs "-XX:MaxPermSize=256m"
+  jvmArgs "-Xdebug"
+  jvmArgs "-Xrunjdwp:transport=dt_socket,address=$debugPort,server=y,suspend=n"
+  
+}
+
+
 */
 def startJBossInstance(serverName, modules, debug=false, debugPort=8787) {
   def serverDir = file("$jbossRoot/server/$serverName")
@@ -67,7 +86,7 @@ def startJBossInstance(serverName, modules, debug=false, debugPort=8787) {
     println "ERROR: Can start jboss for non-existent server: $serverDir"
   }
   
-  javaspawn {
+  javaExecAsync {
     main = "org.jboss.Main"
     classpath = files("$jbossRoot/bin/run.jar") 
     workingDir = "$serverDir"
