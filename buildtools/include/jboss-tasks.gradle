@@ -89,7 +89,7 @@ def startJBossInstance(serverName, modules, debug=false, debugPort=8787, redirec
     args "-c"
     args serverName
     
-    if (shouldRedirecOutput) {
+    if (redirectOutputToFile) {
       def stream = redirectOutputToFile.newOutputStream()
       errorOutput stream
       standardOutput stream
