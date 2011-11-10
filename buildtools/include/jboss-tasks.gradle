@@ -9,7 +9,6 @@ task startJBossCiStore << {
                      "env.storefront.dev", 
                      true, 
                      8787, 
-                     true, 
                      file("$jbossRoot/server/$storeServerName/log/console.log")
 }
 
