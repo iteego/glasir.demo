@@ -4,28 +4,23 @@ import com.iteego.glasir.build.tasks.*
 * Tasks for starting/stopping local dev instances of jboss
 */
 
-task startJBossStore << {
-  startJBossInstance(storeServerName, "env.storefront.dev", true, 8787)
+task startJBossCiStore << {
+  startJBossInstance storeServerName, 
+                     "env.storefront.dev", 
+                     true, 
+                     8787, 
+                     true, 
+                     file("$jbossRoot/server/$storeServerName/log/console.log")
 }
 
 task launchDevStore << {
     startJBossInstance(storeServerName, "env.storefront.dev", true, 8787).execHandle.waitForFinish()
 }
 
-
-/*
-task launchDevStore(type: Tail, dependsOn: [startJBossStore]) {
-  file      "$jbossRoot/server/$storeServerName/log/server.log"
-  file      "$jbossRoot/server/$storeServerName/log/boot.log"  
-  //failOn    "ERROR[ ]*\\["
-  //succeedOn "INFO[ ]*\\[org\\.jboss\\.bootstrap\\.microcontainer\\.ServerImpl\\] \\(main\\) JBoss \\(Microcontainer\\) \\[.*] Started in"
-  //postFailureTailSeconds = 2
-}*/
-
-task launchCiStore(type: Tail, dependsOn: [startJBossStore]) {
-  file      "$jbossRoot/server/$storeServerName/log/server.log"
-  file      "$jbossRoot/server/$storeServerName/log/boot.log"  
-  failOn    "ERROR[ ]*\\["
+task launchCiStore(type: Tail, dependsOn: [startJBossCiStore]) {
+  file        "$jbossRoot/server/$storeServerName/log/server.log"
+  file        "$jbossRoot/server/$storeServerName/log/boot.log"  
+  failOn      "ERROR[ ]*\\["
   //sample log line: 
   // 2011-11-09 04:42:19,264 INFO  [org.jboss.bootstrap.microcontainer.ServerImpl] JBoss (Microcontainer) [5.1.0 (build: SVNTag=JBPAPP_5_1_0 date=201009150028)] Started in 1m:6s:11ms
   succeedOn "INFO[ ]*\\[org\\.jboss\\.bootstrap\\.microcontainer\\.ServerImpl\\].*JBoss \\(Microcontainer\\) \\[.*\\] Started in"
@@ -80,7 +75,7 @@ task something(type: StartJBoss) {
 
 
 */
-def startJBossInstance(serverName, modules, debug=false, debugPort=8787) {
+def startJBossInstance(serverName, modules, debug=false, debugPort=8787, redirectOutputToFile=null) {
   def serverDir = file("$jbossRoot/server/$serverName")
   if (!serverDir.exists()) {
     println "ERROR: Can start jboss for non-existent server: $serverDir"
@@ -94,6 +89,12 @@ def startJBossInstance(serverName, modules, debug=false, debugPort=8787) {
     args "0.0.0.0"
     args "-c"
     args serverName
+    
+    if (shouldRedirecOutput) {
+      def stream = redirectOutputToFile.newOutputStream()
+      errorOutput stream
+      standardOutput stream
+    }
 
     systemProperty "atg.dynamo.server.name", serverName
     //systemProperty "atg.dynamo.modules",     modules 
