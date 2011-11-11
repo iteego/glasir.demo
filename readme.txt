@@ -23,4 +23,3 @@ To change the name of the root module "mybrand", change the directory
 name and the value of the "brand" property in the
 file "buildtools/include/environment.glasir".
 
-token change my Marcus - testing new certificate
