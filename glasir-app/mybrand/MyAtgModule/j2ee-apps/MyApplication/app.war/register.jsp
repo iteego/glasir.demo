@@ -1,47 +1,44 @@
 <dsp:page>
 
+<HTML>
+<HEAD>
+<TITLE>Registration</TITLE>
+</HEAD>
+
 <dsp:importbean bean="/atg/userprofiling/Profile"/>
 <dsp:importbean bean="/atg/userprofiling/ProfileFormHandler"/>
 <dsp:importbean bean="/atg/userprofiling/ProfileErrorMessageForEach"/>
 <dsp:importbean bean="/atg/dynamo/droplet/Switch"/>
-<dsp:importbean bean="/com/sample/MyAtgModule"/>
-
-<html>
-<head>
-<title>Iteego Test Page</title>
-</head>
-
+<dsp:importbean bean="/atg/dynamo/droplet/ForEach"/>
 
 <!-- This form should not show what the current profile attributes are so we will
      disable the ability to extract default values from the profile. -->
 <dsp:setvalue bean="ProfileFormHandler.extractDefaultValuesFromProfile" value="false"/>
 
-<body>
-<div>The value of the MyAtgModule.someValue is <dsp:valueof bean="MyAtgModule.someValue">not set</dsp:valueof></div>
-<div><a href="/dyn/admin">dynamo admin</div>
-
+<BODY>
 <dsp:droplet name="Switch">
   <dsp:param bean="Profile.transient" name="value"/>
   <dsp:oparam name="false">
     <dsp:a href="logout.jsp">Logout</dsp:a>
   </dsp:oparam>
   <dsp:oparam name="true">
-    Login or <dsp:a href="register.jsp">Register</dsp:a>
+    <dsp:a href="login.jsp">Login</dsp:a> or Register
   </dsp:oparam>
 </dsp:droplet>
+<BR>
 
-<h3>Member Login</h3>
+<h3>Member Registration</h3>
 
 <dsp:droplet name="Switch">
 <dsp:param bean="ProfileFormHandler.profile.transient" name="value"/>
 <dsp:oparam name="false">
-  You are currently logged in as <dsp:valueof bean="Profile.firstName"></dsp:valueof> <dsp:valueof bean="Profile.lastName"></dsp:valueof> (<dsp:valueof bean="Profile.login">just logged out</dsp:valueof>).
-  If you wish to login as a different user please logout first.
+  You are currently logged in. If you wish to register as a new user
+  please logout first.
 </dsp:oparam>
 
 <dsp:oparam name="default">
-<dsp:form action="." method="POST">
-<dsp:input bean="ProfileFormHandler.loginSuccessURL" type="HIDDEN" value="index.jsp"/>
+<dsp:form action="register.jsp" method="POST">
+<dsp:input bean="ProfileFormHandler.createSuccessURL" type="HIDDEN" value="index.jsp"/>
 
 <dsp:droplet name="Switch">
 <dsp:param bean="ProfileFormHandler.formError" name="value"/>
@@ -57,28 +54,51 @@
 </dsp:oparam>
 </dsp:droplet>
 
-<table width=456 border=0>
-  <tr>
-    <td valign=middle align=right>User Name:</td>
-    <td><dsp:input bean="ProfileFormHandler.value.login" maxsize="20" size="20" type="TEXT"/></td>
-  </tr>
+<dsp:input bean="ProfileFormHandler.value.member" type="hidden" value="true"/>
 
-  <tr>
-    <td valign=middle align=right>Password:</td>
-    <td><dsp:input bean="ProfileFormHandler.value.password" maxsize="20" size="20" type="PASSWORD"/></td>
-  </tr>
+<table>
+<tr>
 
-  <tr>
-    <td valign=middle align=right></td>
-    <td><dsp:input bean="ProfileFormHandler.login" type="SUBMIT" value="login"/> or <dsp:a href="register.jsp">register</dsp:a></td>
-  </tr>
+<td>
+<table>
+<tr>
+<td>User Name:</td>
+<td><dsp:input bean="ProfileFormHandler.value.login" maxsize="20" size="20" type="TEXT"/></td>
+</tr>
+<tr>
+<td>Password:</td>
+<td><dsp:input bean="ProfileFormHandler.value.password" maxsize="20" size="20" type="PASSWORD"/></td>
+</tr>
+<tr>
+<td>Email Address:</td>
+<td><dsp:input bean="ProfileFormHandler.value.email" maxsize="30" size="30" type="TEXT"/></td>
+</tr>
 </table>
+</td>
+
+<td>
+<table>
+<tr>
+<td>First Name:</td>
+<td><dsp:input bean="ProfileFormHandler.value.firstName" maxsize="30" size="30" type="TEXT"/></td>
+</tr>
+<tr>
+<td>Last Name:</td>
+<td><dsp:input bean="ProfileFormHandler.value.lastName" maxsize="30" size="30" type="TEXT"/></td>
+</tr>
+</table>
+</td>
+
+</tr>
+</table>
+
+<dsp:input bean="ProfileFormHandler.create" type="SUBMIT" value="register"/> or <dsp:a href="login.jsp">login</dsp:a>
 
 </dsp:form>
 </dsp:oparam>
 </dsp:droplet>
 
-</body>
-</html>
+</BODY>
+</HTML>
 
 </dsp:page>
