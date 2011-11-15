@@ -1,4 +1,4 @@
 ATG-Install-Unit: glasir-app
 ATG-Install-Version: glasir-app@10.0.2
-ATG-Install-Requires: ATGPlatform@10.0.2
+ATG-Install-Requires: ATGPlatform@10.0.2 CommerceReferenceStore@10.0.2
 
