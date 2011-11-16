@@ -1,0 +1,116 @@
+<dsp:droplet name="CategoryLookup">
+  <dsp:param name="id" param="categoryId"/>
+  <dsp:oparam name="error">
+    <dsp:valueof param="errorMsg"/>
+  </dsp:oparam>
+  <dsp:oparam name="output">
+
+    <%-- Set the categoryObject for individual gadgets to work on --%>
+    <dsp:getvalueof var="categoryObject" param="element" vartype="java.lang.Object" scope="request"/>
+    <%-- Check for trailSize parameter. If not found, init to 0. Parameter is used for faceted Navigation --%>
+    <c:choose>
+      <c:when test="${(! empty param.trailSize) && (fn:length(fn:trim(param.trailSize)) > 0) }">
+        <dsp:getvalueof var="trailSizeVar" param="trailSize"/>
+      </c:when>
+      <c:otherwise>
+        <dsp:getvalueof var="trailSizeVar" value="0"/>
+      </c:otherwise>
+    </c:choose>
+
+    <%-- Check if ATG Search is installed --%>
+    <dsp:getvalueof var="atgSearchInstalled" bean="/atg/store/StoreConfiguration.atgSearchInstalled"/>
+    <c:if test="${atgSearchInstalled  == 'true'}">
+      <dsp:getvalueof var="currentSiteId" vartype="java.lang.String" bean="/atg/multisite/Site.id"/>
+      <c:if test="${not empty currentSiteId}">
+        <%-- fn:split() converts String to String[], we use it here for this reason only --%>
+        <dsp:setvalue bean="/atg/store/profile/SessionBean.searchSiteIds" value="${fn:split(currentSiteId, '|')}"/>
+      </c:if>
+      
+    <dsp:getvalueof var="q_facetTrail" param="q_facetTrail" />
+
+    <c:if test="${not empty q_facetTrail}">
+      <dsp:setvalue bean="FacetSearchTools.facetTrail" value="${q_facetTrail}"/>
+    </c:if>
+
+      <%-- Extract refineConfig for category --%>
+      <dsp:setvalue param="catRC"  paramvalue="element.refineConfig"/>
+
+      <%-- categoryFacetQuery will not query if there is a current search --%>
+      <%-- dsp:setvalue bean="QueryFormHandler.searchResponse" value="${null}" / --%>
+
+      <dsp:getvalueof bean="QueryFormHandler.searchResponse" var="queryResponse" scope="request"/>
+      <dsp:getvalueof var="refinementVar" value="${queryResponse.refinements.refinementsList}"/>
+
+      <dsp:getvalueof id="categoryId" param="categoryId"/>
+
+      <dsp:getvalueof var="FSTfacetTrail" bean="FacetSearchTools.facetTrail" />
+      <c:if test="${FSTfacetTrail == null || FSTfacetTrail == ''}"> <%-- if facetTrail is blank, add current category to facet trail --%>
+        <dsp:droplet name="TargetingFirst">
+          <dsp:param name="howMany" value="1"/>
+          <dsp:param name="targeter" bean="/atg/registry/RepositoryTargeters/RefinementRepository/GlobalCategoryFacet"/>
+          <dsp:oparam name="output">
+            <dsp:getvalueof id="refElemRepId" idtype="String" param="element.repositoryId"/>
+          </dsp:oparam>
+        </dsp:droplet>
+        <dsp:setvalue param="addFacet" value="${refElemRepId}:${categoryId}"/>
+      </c:if>
+
+      <%-- Convert the trail parameter to a bean --%>
+      <dsp:droplet name="CommerceFacetTrailDroplet">
+        <dsp:param name="trail" bean="FacetSearchTools.facetTrail" />
+        <dsp:param name="refineConfig" param="catRC" />
+        <dsp:oparam name="error">
+          <fmt:message key="common.facetSrchErrorMessage"/>
+        </dsp:oparam>
+
+        <dsp:oparam name="output">
+          <dsp:getvalueof var="facetTrail" param="facetTrail" vartype="java.lang.Object"/>
+        </dsp:oparam>
+
+      </dsp:droplet>
+      
+      <dsp:getvalueof var="q_pageNum" param="q_pageNum" />
+      <dsp:getvalueof var="q_viewAll" param="viewAll" />
+      <dsp:getvalueof var="q_pageSize" param="q_pageSize" />
+
+      <%-- do searching now --%>
+      <%-- took this from CategoryFacetQuery.tag --%>
+      <dsp:setvalue bean="FacetSearchTools.facetTrail" value="${facetTrail.trailString}"/>
+      <dsp:setvalue bean="QueryFormHandler.searchRequest.documentSetConstraints" beanvalue="StoreBrowseConstraints" valueishtml="true"/>
+      <dsp:setvalue bean="QueryFormHandler.searchRequest.question" paramvalue="q_question"/>
+      <dsp:getvalueof var="sortingType" vartype="java.lang.String" param="q_docSort"/>
+      <c:choose>
+        <c:when test="${sortingType == 'title'}">
+          <dsp:setvalue bean="QueryFormHandler.searchRequest.docSort" value="strprop"/>
+          <dsp:setvalue bean="QueryFormHandler.searchRequest.docSortProp" value="displayName"/>
+        </c:when>
+        <c:otherwise>
+          <dsp:setvalue bean="QueryFormHandler.searchRequest.docSort" paramvalue="q_docSort"/>
+        </c:otherwise>
+      </c:choose>
+      <dsp:setvalue bean="QueryFormHandler.searchRequest.docSortOrder" paramvalue="q_docSortOrder"/>
+      <dsp:setvalue bean="QueryFormHandler.searchRequest.multiSearchSession" value="true"/>
+      <dsp:setvalue bean="QueryFormHandler.searchRequest.saveRequest" value="true"/>
+
+      <c:if test="${not empty q_pageSize}">
+        <dsp:setvalue bean="QueryFormHandler.searchRequest.pageSize" paramvalue="q_pageSize"/>
+      </c:if>    
+
+      <c:choose>
+        <c:when test="${q_viewAll == true}">
+          <dsp:setvalue bean="QueryFormHandler.searchRequest.pageSize" value="5000"/>
+          <dsp:setvalue bean="QueryFormHandler.search" value="submit"/>
+        </c:when>
+        <c:when test="${q_pageNum != null && q_pageNum != ''}">
+          <dsp:setvalue bean="QueryFormHandler.goToPage" paramvalue="q_pageNum"/>
+        </c:when>
+        <c:otherwise>
+          <dsp:setvalue bean="QueryFormHandler.search" value="submit"/>
+        </c:otherwise>
+      </c:choose>
+
+    </c:if><%-- End If to check if ATG Search is installed --%>
+  </dsp:oparam>
+    
+</dsp:droplet>
+<%-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.0.2/Storefront/j2ee/store.war/atgsearch/gadgets/categorySearch.jspf#2 $$Change: 633752 $--%>

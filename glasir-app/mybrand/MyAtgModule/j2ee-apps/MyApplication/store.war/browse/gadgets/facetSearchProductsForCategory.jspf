@@ -1,0 +1,40 @@
+<%-- High level gadget page for rendering products
+     used on categoryDisplay.jsp and subcategoryDisplay.jsp for cases when JS disabled and facet panel is used
+--%>
+
+<dsp:page>
+  <dsp:getvalueof bean="/atg/commerce/search/catalog/QueryFormHandler.searchResponse" var="queryResponse" scope="request"/>
+  <div id="atg_store_mainHeader">
+    <c:if test="${not empty queryResponse.question}">
+      <div class="atg_store_searchReultsCount">
+        <c:choose>
+          <c:when test="${queryResponse.groupCount == 1}">
+            <fmt:message var="resultsMessage" key="facet.facetGlossaryContainer.oneResultFor"/>
+          </c:when>
+          <c:otherwise>
+            <fmt:message var="resultsMessage" key="facet.facetGlossaryContainer.resultFor"/>
+          </c:otherwise>
+        </c:choose>
+        <%-- Escape XML specific characters in search term to prevent using it for XSS attacks. --%>
+        <c:out value="${queryResponse.groupCount}"/>&nbsp;<c:out value="${resultsMessage}"/>&nbsp;<span class="searchTerm"><dsp:valueof value="${fn:escapeXml(queryResponse.question)}" /></span>
+      </div>
+    </c:if>
+  </div>
+  <div id="atg_store_catSubProdList">
+    <dsp:getvalueof var="searchResults" value="${queryResponse.results}"/>
+    <dsp:getvalueof value="${queryResponse.groupCount}" var="numResults"/>    
+
+    <dsp:include page="/global/gadgets/productListFacet.jsp" flush="true">
+      <dsp:param name="searchResults" value="${searchResults}"/>
+      <dsp:param name="facetTrail" param="facetTrail"/>
+      <dsp:param name="facetSearchResponse" param="facetSearchResponse"/>
+      <dsp:param name="category" param="category"/>
+      <dsp:param name="trailSize" value="${trailSizeVar}"/>
+      <dsp:param name="question" param="question"/>
+      <dsp:param name="numResults" value="${numResults}"/>
+    </dsp:include>
+  </div>
+
+</dsp:page>
+
+<%-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.0.2/Storefront/j2ee/store.war/browse/gadgets/facetSearchProductsForCategory.jspf#2 $$Change: 635969 $--%>

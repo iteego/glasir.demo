@@ -1,0 +1,52 @@
+<%-- show a disabled form button if there isn't both a color and size selected(e.g. no selectedSku)--%>
+
+<dsp:getvalueof var="selectedSku" param="selectedSku"/>
+<dsp:getvalueof var="contextroot" bean="/OriginatingRequest.contextPath"/>
+<dsp:input type="hidden" bean="CartFormHandler.skuType" paramvalue="skuType"/>
+<c:choose>
+  <c:when test="${empty selectedSku}">
+    <fmt:message var="addToCartText" key="common.button.addToCartText" scope="request"/>
+    <span class="atg_store_basicButton add_to_cart_link">
+      <dsp:input bean="CartFormHandler.addItemToOrder" type="submit" iclass="atg_behavior_addItemToCart"
+              id="atg_behavior_addItemToCart" value="${addToCartText}" />
+    </span>
+  </c:when>
+  <c:otherwise>
+    <c:choose>
+      <c:when test="${availabilityType == 'unavailable'}">
+        <%-- show a link instead of a submit field --%>
+        <dsp:getvalueof var="sid" param="selectedSku.repositoryId"/>
+        <dsp:getvalueof var="pid" param="product.repositoryId"/>
+        <a href="${contextroot}/browse/notifyMeRequestPopup.jsp?skuId=${sid}&productId=${pid}" title="${addButtonTitle}" class="atg_store_basicButton atg_store_emailMe" target="popup">
+          <span>${addButtonText}</span>
+        </a>
+        <div class="atg_store_emailMeMessage">
+          <fmt:message key="common.whenAvailable"/>
+        </div> 
+      </c:when>
+      
+      <c:when test="${availabilityType == 'preorderable'}">
+       <span class="atg_store_basicButton add_to_cart_link_preorder">
+          <dsp:input bean="CartFormHandler.addItemToOrder" type="submit"
+                     value="${addButtonText}" title="${addButtonTitle}" iclass="atg_behavior_addItemToCart" id="atg_behavior_addItemToCart"/>
+        </span>
+       </c:when>
+      
+       <c:when test="${availabilityType == 'backorderable'}">
+        <span class="atg_store_basicButton add_to_cart_link_backorder">
+           <dsp:input bean="CartFormHandler.addItemToOrder" type="submit"
+                      value="${addButtonText}" title="${addButtonTitle}" iclass="atg_behavior_addItemToCart" id="atg_behavior_addItemToCart"/>
+         </span>
+        </c:when>
+      
+      
+      <c:otherwise>
+        <span class="atg_store_basicButton add_to_cart_link">
+          <dsp:input bean="CartFormHandler.addItemToOrder" type="submit"
+                     value="${addButtonText}" title="${addButtonTitle}" iclass="atg_behavior_addItemToCart" id="atg_behavior_addItemToCart"/>
+        </span>
+      </c:otherwise>
+    </c:choose>
+  </c:otherwise>
+</c:choose>
+<%-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.0.2/Storefront/j2ee/store.war/browse/gadgets/pickerAddToCart.jspf#2 $$Change: 635969 $--%>

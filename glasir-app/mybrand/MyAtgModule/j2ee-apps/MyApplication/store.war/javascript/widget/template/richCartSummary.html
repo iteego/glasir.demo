@@ -1,0 +1,33 @@
+<div id="${id}" class="${id}" dojoAttachPoint="csContainer" style="overflow:hidden;z-index:1;">
+  <div id="atg_store_richCartHeader">
+    <a href="javascript:void(0);" class="atg_store_csClose" dojoAttachPoint="csClose" dojoAttachEvent="onclick:hide">
+      <img width="12" height="11" src="/crsdocroot/images/storefront/btn_close.png" alt="Close"/>
+    </a>
+    <h3>${i18n.myCartSummary}</h3><span class="atg_store_richCartCount" dojoAttachPoint="csQuantity">??(10)??</span>
+  </div>
+  
+  
+  
+  <ul id="atg_store_csContent" dojoAttachPoint="csContent,containerNode">
+    <li dojoAttachPoint="csEmptyMessage" class="atg_store_emptyRichCart"><span>${i18n.cartIsEmpty}</span></li>
+  </ul>
+  
+  <div id="atg_store_csFooter">
+      <span class="summary"  dojoAttachPoint="csSubtotalContainer">
+        ${i18n.your} ${i18n.itemsSubtotal}${i18n.labelSeparator}
+      </span>
+      <span class="atg_store_csSubtotal atg_store_viewCartPrice" dojoAttachPoint="csSubtotal">
+      </span>
+  </div>
+  
+  <a class="atg_store_richCartCart" dojoAttachPoint="csFullCheckout" href="${url.checkout}">
+    ${i18n.viewCart}
+  </a>
+  
+  
+  <a href="${url.checkout}" class="atg_store_basicButton atg_store_chevron" dojoAttachPoint="csCheckout">
+    <span>${i18n.checkout}</span>
+  </a>
+  
+  
+</div>

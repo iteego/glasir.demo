@@ -1,0 +1,143 @@
+<%-- This page parse request params.
+     Final request will be used to navigate when JS is disabled.
+     - url - an original request
+
+     - facetTrailVar attribute for q_facetTrail param
+     - facetOrder attribute for facetOrder param
+     - pageSize attribute for q_pageSize param
+     - pageNum attribute for q_pageNum param
+     - question attribute for q_question param
+     - q_docSortOrder attribute for q_docSortOrder param
+     - q_docSort attribute for q_docSort param
+
+
+
+     ATG disabled navigation params  (some of the previous also used)
+     - searchFeatures attribute for features param
+     - sSearchInput attribute for searchInput param
+     - searchCategoryId attribute for categoryId param
+
+--%>
+<dsp:page>
+   
+  <c:set var="searchExecByFormSubmitVar" value="${param.searchExecByFormSubmit}"/>
+  <c:set var="separator" value="?"/>
+  <dsp:getvalueof var="pageSize" vartype="java.lang.Object" bean="/atg/multisite/SiteContext.site.defaultPageSize"/>
+
+  <c:url var="url" value="${url}" context="/">
+  <c:forEach var='paramItem' items='${paramValues}'>
+    <c:choose>
+      <c:when test="${paramItem.key eq 'q_facetTrail' && not empty facetTrailVar && !doNotIncludeFacetTrailParam}">
+          <c:param name="q_facetTrail" value="${facetTrailVar}"/>
+          <c:set var="facetTrailSet" value="true"/>
+      </c:when>
+      <c:when test="${paramItem.key eq 'facetOrder' && not empty facetOrder}">
+        <c:param name="facetOrder" value="${facetOrder}"/>
+        <c:set var="facetOrderSet" value="true"/>
+      </c:when>
+      <c:when test="${paramItem.key eq 'q_pageSize' && not empty pageSize}">
+        <c:param name="q_pageSize" value="${pageSize}"/>
+        <c:set var="pageSizeSet" value="true"/>
+      </c:when>
+      <c:when test="${paramItem.key eq 'q_pageNum'}">
+        <c:if test="${not empty pageNum && viewAll ne 'true'}">
+          <c:param name="q_pageNum" value="${pageNum}"/>
+          <c:set var="pageNumSet" value="true"/>
+        </c:if>
+      </c:when>
+      <c:when test="${paramItem.key eq 'q_question' && not empty question}">
+        <c:param name="q_question" value="${question}"/>
+        <c:set var="questionSet" value="true"/>
+      </c:when>
+
+      <c:when test="${paramItem.key eq 'q_docSortOrder' && not empty q_docSortOrder}">
+        <c:param name="q_docSortOrder" value="${q_docSortOrder}"/>
+        <c:set var="docSortOrderSet" value="true"/>
+      </c:when>
+
+      <%-- if q_docSort var is empty then do not set this param --%>
+      <c:when test="${paramItem.key eq 'q_docSort'}">
+        <c:if test="${not empty q_docSort}">
+          <c:param name="q_docSort" value="${q_docSort}"/>
+          <c:set var="docSortSet" value="true"/>
+        </c:if>
+      </c:when>
+
+
+      <%-- START params used by navigation when ATG search is not active --%>
+      <c:when test="${paramItem.key eq 'features' && not empty searchFeatures}">
+        <c:param name="features" value="${searchFeatures}"/>
+        <c:set var="searchFeaturesSet" value="true"/>
+      </c:when>
+
+      <c:when test="${paramItem.key eq 'searchInput' && not empty sSearchInput}">
+        <c:param name="searchInput" value="${sSearchInput}"/>
+        <c:set var="sSearchInputSet" value="true"/>
+      </c:when>
+
+      <c:when test="${paramItem.key eq 'categoryId' && not empty searchCategoryId}">
+        <c:param name="categoryId" value="${searchCategoryId}"/>
+        <c:set var="searchCategoryIdSet" value="true"/>
+      </c:when>
+      <%-- END params used by navigation when ATG search is not active --%>
+
+      <c:otherwise>
+        <c:if test="${paramItem.key ne 'viewAll' && empty searchExecByFormSubmitVar && paramItem.key ne 'addFacet' && !(doNotIncludeFacetTrailParam && paramItem.key eq 'q_facetTrail')}">
+          <c:param name="${paramItem.key}" value="${paramItem.value[0]}"/>
+        </c:if>
+      </c:otherwise>
+    </c:choose>
+  </c:forEach>
+
+  <c:if test="${empty facetTrailSet && not empty facetTrailVar && !doNotIncludeFacetTrailParam}">
+    <c:param name="q_facetTrail" value="${facetTrailVar}"/>
+  </c:if>
+
+  <c:if test="${empty facetOrderSet && not empty facetOrder}">
+    <c:param name="facetOrder" value="${facetOrder}"/>
+  </c:if>
+
+  <c:if test="${empty pageSizeSet && not empty pageSize}">
+    <c:param name="q_pageSize" value="${pageSize}"/>
+  </c:if>
+
+  <c:if test="${empty pageNumSet && not empty pageNum}">
+    <c:param name="q_pageNum" value="${pageNum}"/>
+  </c:if>
+
+
+  <c:if test="${empty docSortSet && not empty question}">
+    <c:param name="q_question" value="${question}"/>
+  </c:if>
+
+  <c:if test="${empty docSortOrderSet && not empty q_docSortOrder}">
+    <c:param name="q_docSortOrder" value="${q_docSortOrder}"/>
+  </c:if>
+  <c:if test="${empty docSortSet && not empty q_docSort}">
+    <c:param name="q_docSort" value="${q_docSort}"/>
+  </c:if>
+
+
+  <c:if test="${viewAllLink eq 'true'}">
+    <c:param name="viewAll" value="true"/>
+  </c:if>
+
+  <%-- START params used by navigation when ATG search is not active --%>
+  <c:if test="${empty searchFeaturesSet && not empty searchFeatures}">
+    <c:param name="features" value="${searchFeatures}"/>
+  </c:if>
+
+  <c:if test="${empty sSearchInputSet && not empty sSearchInput}">
+    <c:param name="searchInput" value="${sSearchInput}"/>
+  </c:if>
+
+  <c:if test="${empty searchCategoryIdSet && not empty searchCategoryId}">
+    <c:param name="categoryId" value="${searchCategoryId}"/>
+  </c:if>
+  <%-- END params used by navigation when ATG search is not active --%>
+  </c:url>
+</dsp:page>
+<%-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.0.2/Storefront/j2ee/store.war/facet/gadgets/navLinkHelper.jspf#2 $$Change: 635969 $--%>
+
+
+

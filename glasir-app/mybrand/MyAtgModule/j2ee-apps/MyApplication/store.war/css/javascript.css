@@ -1,0 +1,8 @@
+/* Display Javascript Size and Color Picker if Javascript is Enabeld */
+#picker_contents{
+  display:block;
+}
+/* Hide Non-Javascript Size and Color Picker if Javascript is Enabled */
+#no_js_picker_contents{
+  display:none;
+}

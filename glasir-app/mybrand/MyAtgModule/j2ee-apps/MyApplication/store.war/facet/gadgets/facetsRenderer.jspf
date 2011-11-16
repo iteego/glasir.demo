@@ -1,0 +1,78 @@
+<%--
+    This page renders already chosen facets (links to uncheck facet)
+--%>
+<dsp:page>
+<dsp:importbean bean="/atg/commerce/catalog/CategoryLookup"/>
+<dsp:importbean bean="/atg/commerce/search/refinement/RefinementValueDroplet"/>
+
+<div class="atg_store_facetsGroup" id="facet_${currentFacetHolder.facet.id}">
+  <h5>
+    <fmt:message key="${currentFacetHolder.facet.label}"/>
+  </h5>
+
+  <c:if test="${not empty currentFacetHolder.facetValueNodes}">
+    <div id="facetoptions_${currentFacetHolder.facet.id}">
+      <ul>
+        <c:forEach var="currentFacetValueNode" items="${currentFacetHolder.facetValueNodes}">
+
+
+          <dsp:droplet name="CategoryLookup">
+            <dsp:param name="id" param="categoryId"/>
+            <dsp:oparam name="error">
+              <dsp:valueof param="errorMsg"/>
+            </dsp:oparam>
+            <dsp:oparam name="output">
+              <dsp:setvalue param="catRC" paramvalue="element.refineConfig"/>
+              <dsp:getvalueof var="catRC" param="element.refineConfig"/>
+            </dsp:oparam>
+          </dsp:droplet>
+
+
+          <dsp:droplet name="CommerceFacetTrailDroplet">
+            <dsp:param name="trail" bean="FacetSearchTools.facetTrail"/>
+            <dsp:param name="addFacet" value="${currentFacetValueNode.facetValue}"/>
+            <dsp:param name="refineConfig" param="catRC"/>
+            <dsp:oparam name="output">
+              <dsp:getvalueof var="facetUrl" param="facetTrail.trailString"/>
+            </dsp:oparam>
+          </dsp:droplet>
+
+          <c:set var="qty" value="${currentFacetValueNode.facetValue.matchingDocsCount}"/>
+
+          <dsp:getvalueof var="trailsize" value="${fn:length(relatedCategories)}"/>
+          <dsp:getvalueof var="facetingProperty" vartype="java.lang.String"
+                          param="currentFacetValueNode.facetValue.facet.refinementElement.property"/>
+
+          <dsp:droplet name="RefinementValueDroplet">
+            <dsp:param name="refinementValue" value="${currentFacetValueNode.facetValue.value}"/>
+            <dsp:param name="refinementId" value="${currentFacetHolder.facet.id}"/>
+            <dsp:param name="locale" bean="/atg/userprofiling/Profile.PriceList.locale"/>
+            
+            <dsp:oparam name="output">
+              <dsp:getvalueof var="displayValue" param="displayValue"/>
+              
+              <li>
+                <c:set var="url" value="${pageContext.request.requestURL}"/>
+                <c:set var="facetTrailVar" value="${facetUrl}"/>
+                <%@include file="navLinkHelper.jspf" %>
+    
+                <fmt:message var="filterBy" key="facet_facetRenderer.title.filterBy"/>
+                <fmt:message var="facetLabel" key="${currentFacetHolder.facet.label}"/>
+                <a href="${url}" title="${filterBy}&nbsp;${facetLabel}">${displayValue} (${qty})</a>
+              </li>
+              
+            </dsp:oparam>
+          </dsp:droplet>
+          
+        </c:forEach>
+      </ul>
+
+    </div>
+  </c:if>
+
+
+</div>
+</dsp:page>
+<%-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.0.2/Storefront/j2ee/store.war/facet/gadgets/facetsRenderer.jspf#2 $$Change: 635969 $--%>
+
+

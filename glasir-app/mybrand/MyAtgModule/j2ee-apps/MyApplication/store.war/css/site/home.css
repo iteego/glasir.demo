@@ -1,0 +1,2402 @@
+body {
+background: #a0a9ab url(/crsdocroot/images/atghome/body_bg.png) repeat-x;
+}
+
+#atg_store_container{
+width: 1014px;
+}
+
+#atg_store_main{
+background: transparent;
+margin-top:10px;
+}
+
+#atg_store_logo{
+height: 50px;
+ width: 200px;
+float: left;
+}
+
+#atg_store_header{
+background: url(/crsdocroot/images/atghome/head_bg.png) no-repeat;
+padding: 15px 17px 0 17px;
+height: 86px;
+position:relative;
+}
+
+#atg_store_contentContainer{
+padding: 0px 17px 0px 17px;
+background: url(/crsdocroot/images/atghome/main_bg.png) repeat-y;
+}
+
+#atg_store_content{
+  background: #fff url(/crsdocroot/images/atghome/content_gradient_bg.gif) repeat-x bottom center;
+  min-height:595px;
+}
+
+#atg_store_footer{
+padding-top: 25px;
+background: url(/crsdocroot/images/atghome/footer_bg.png) no-repeat;
+}
+
+#atg_store_locale{
+margin-top: 30px;
+margin-right: 20px;
+}
+
+
+/* 2 Col Left Style Background */
+
+.atg_store_leftCol #atg_store_contentContainer{
+  background: url(/crsdocroot/images/atghome/main_bg_left_sidebar.png) repeat-y;
+}
+.atg_store_leftCol #atg_store_content{
+background: url(/crsdocroot/images/atghome/content_left_sidebar_gradient_bg.gif) no-repeat bottom left;
+padding-bottom:125px;
+}
+
+/* 2 Col Right Style 
+Note:  All pages use "atg_store_rightCol" on bodyClass if a right column is shown on the page.  
+The only exception to this is the Confirm Order Response page, which has a right column ONLY when accessed from an anonymous user.
+Because anonymous and registered confirmation response pages use the same JSP, we are using the page name bodyClass instead of
+"atg_store_rightCol" for this page ONLY.
+*/
+.atg_store_rightCol #atg_store_contentContainer,
+.atg_store_confirmResponseRegister #atg_store_contentContainer{
+  background: url(/crsdocroot/images/atghome/main_bg_right_sidebar.png) repeat-y;
+  padding-bottom:0;
+}
+.atg_store_rightCol #atg_store_content,
+.atg_store_confirmResponseRegister #atg_store_content{
+  background: url(/crsdocroot/images/atghome/content_right_sidebar_gradient_bg.gif) no-repeat bottom left;
+}
+.atg_store_rightCol #atg_store_content .aside,
+.atg_store_confirmResponseRegister #atg_store_content .aside{
+  width:214px;
+}
+.atg_store_rightCol #atg_store_content .atg_store_main,
+.atg_store_confirmResponseRegister #atg_store_content .atg_store_main{
+  width:766px;
+  padding-bottom:145px;
+}
+
+.atg_store_pageShipping #atg_store_content .atg_store_existingAddresses{
+  padding-top:25px;
+}
+
+/* 3 Col Style */
+
+
+.atg_store_orderDetails #atg_store_contentContainer{
+  background: url(/crsdocroot/images/atghome/order_details_bg.png) repeat-y;
+}
+.atg_store_orderDetails #atg_store_content{
+background: url(/crsdocroot/images/atghome/order_details_bottom_bg.png) no-repeat bottom left;
+padding-bottom:125px;
+}
+.atg_store_orderDetails .atg_store_orderSummary{
+  float:right !important;
+  width:213px !important;
+}
+
+.atg_store_orderDetails .atg_store_main{
+  float:left !important;
+  width:583px !important;
+}
+
+
+
+/* GRID BUILD STYLING */
+
+div{
+border: none;
+padding: 0;
+}
+
+
+
+/* Core Styles
+-----------------------------------------------------------------*/
+a:link,
+a:visited{
+  text-decoration:none;
+  color:#0066ff;
+}
+
+a:hover,
+a:active{
+  color:#ff9900;
+  text-decoration:none;
+}
+
+/* Basic Buttons */
+.atg_store_basicButton{
+  background:url(/crsdocroot/images/atghome/basicButton_right.png) no-repeat right 0;
+  color:#FFFFFF !important;
+  cursor:pointer !important;
+  display:inline-block;
+  font-family:Tahoma,Arial,Helvetica,sans-serif !important;
+  font-weight:bold;
+  margin-left:5px;
+  overflow:hidden;
+  padding-right:32px;
+  text-align:center;
+  text-decoration:none !important;
+}
+
+.atg_store_basicButton span{
+  display: inline-block;
+  background: url(/crsdocroot/images/atghome/basicButton_left.png) no-repeat left 0;
+  padding: 18px 0px 17px 30px;
+  white-space:nowrap;
+  text-shadow:0px -1px 1px #0F2DDF;
+  letter-spacing:.05em;
+  font-size:1.2em;
+}
+
+.atg_store_basicButton input{
+  background:url(/crsdocroot/images/atghome/basicButton_left.png) no-repeat left 0;
+  border:0 none;
+  color:#FFFFFF !important;
+  cursor:pointer !important;
+  font-weight:bold;
+  height:50px;
+  padding:0px 0px 0px 35px;
+  width:auto;
+  text-shadow:0px -1px 1px #0F2DDF;
+  font-size:1.2em;
+}
+
+/* Basic Button Hover */
+.atg_store_basicButton:hover{
+  background:url(/crsdocroot/images/atghome/basicButton_right.png) no-repeat right -56px;
+}
+.atg_store_basicButton:hover span{
+  background: url(/crsdocroot/images/atghome/basicButton_left.png) no-repeat left -56px;
+}
+.atg_store_basicButton:hover input{
+  background:url(/crsdocroot/images/atghome/basicButton_left.png) no-repeat left -56px;
+}
+
+/* Basic Button with Icons */
+
+.add_to_cart_link{
+  background:url(/crsdocroot/images/atghome/basicButton_right_cart.png) no-repeat right 0;
+  padding-right:40px;
+}
+.add_to_cart_link:hover{
+    background:url(/crsdocroot/images/atghome/basicButton_right_cart.png) no-repeat right -56px;
+}
+.add_to_cart_link input{
+  padding-left:30px;
+  padding-right:5px;
+}
+
+
+.atg_store_emailMe{
+  background:url(/crsdocroot/images/atghome/basicButton_right_email.png) no-repeat right 0;
+  padding-right:50px;
+}
+.atg_store_emailMe:hover{
+    background:url(/crsdocroot/images/atghome/basicButton_right_email.png) no-repeat right -56px;
+}
+
+.atg_store_emailMe span{
+  padding-right:5px;
+}
+
+
+
+.atg_store_chevron{
+  background:url(/crsdocroot/images/atghome/basicButton_right_chevron.png) no-repeat right 0;
+  padding-right:50px;
+}
+.atg_store_chevron:hover{
+    background:url(/crsdocroot/images/atghome/basicButton_right_chevron.png) no-repeat right -56px;
+}
+
+/* Secondary Buttons */
+.secondary{
+  background:url(/crsdocroot/images/atghome/basicButton_secondary_right.png) no-repeat right 0;
+  padding-right:29px;
+}
+.secondary span{
+  background: url(/crsdocroot/images/atghome/basicButton_secondary_left.png) no-repeat left 0;
+  padding:7px 0 13px 30px;
+}
+.secondary input{
+  background:url(/crsdocroot/images/atghome/basicButton_secondary_left.png) no-repeat left 0;
+  height:35px;
+  padding:0 0 9px 30px;
+}
+/* Basic Button Hover */
+.secondary:hover{
+  background:url(/crsdocroot/images/atghome/basicButton_secondary_right.png) no-repeat right -35px;
+}
+.secondary:hover span{
+  background: url(/crsdocroot/images/atghome/basicButton_secondary_left.png) no-repeat left -35px;
+}
+.secondary:hover input{
+  background:url(/crsdocroot/images/atghome/basicButton_secondary_left.png) no-repeat left -35px;
+}
+
+
+/* Tertiary Buttons*/
+.tertiary{
+  background:url(/crsdocroot/images/atghome/basicButton_tertiary_right.png) no-repeat right 0;
+  padding-right:29px;
+}
+.tertiary span{
+  background: url(/crsdocroot/images/atghome/basicButton_tertiary_left.png) no-repeat left 0;
+  padding:7px 0 13px 30px;
+}
+.tertiary input{
+  background:url(/crsdocroot/images/atghome/basicButton_tertiary_left.png) no-repeat left 0;
+  height:35px;
+  padding:0 0 9px 35px;
+}
+/* Tertiary Buttons Hover*/
+.tertiary:hover{
+  background:url(/crsdocroot/images/atghome/basicButton_tertiary_right.png) no-repeat right -35px;
+}
+.tertiary:hover span{
+  background: url(/crsdocroot/images/atghome/basicButton_tertiary_left.png) no-repeat left -35px;
+}
+.tertiary:hover input{
+  background:url(/crsdocroot/images/atghome/basicButton_tertiary_left.png) no-repeat left -35px;
+}
+
+/* Disabled Buttons */
+.disabled{
+  -moz-opacity:0.5;
+  opacity: 0.5;
+}
+/* Style Buttons like a Links */
+
+/* Button Displayed As a Link */
+
+input.atg_store_textButton{
+    background:none;
+    border:none;
+    cursor:pointer;
+    color:#0066FF;
+    font-size:1em;
+}
+
+input.atg_store_textButton:hover{
+  color:#ff9900;
+}
+
+.atg_store_help{
+  background:url(/crsdocroot/images/atghome/icon_help.png) no-repeat;
+  text-indent:-9999px;
+  height:18px !important;
+  width:18px !important;
+  display:inline-block;
+  position:relative;
+  margin-top:4px;
+  margin-left:4px;
+}  
+.atg_store_help:hover{
+    background:url(/crsdocroot/images/atghome/icon_help_hover.png) no-repeat;
+}
+
+.atg_store_dataTable tr:first-child td{
+  background: url(/crsdocroot/images/storefront/table_row_gradient.gif) repeat-x top center;
+}
+
+/* Site Indicator */
+span.siteIndicator{
+background:url(/crsdocroot/images/atghome/doublearrow.png) no-repeat center right;
+padding-right:25px;
+text-align:right;
+color:#333333;
+float:right;
+}
+
+span.siteIndicator span{
+  color:#999999;
+}
+
+/* Error Message */
+.promptSelectDIV,
+.errorMessage{
+  text-align:center;
+  font-weight:bold;
+  font-size:1.6em;
+  background-color:#ff9900;
+  color:#fff;
+}
+
+.promptSelectDIV,
+.errorMessage{
+  padding: 10px 12px;
+}
+
+/* Header
+-----------------------------------------------------------------*/
+#atg_store_locale{
+  margin-top: 30px;
+  margin-right: 20px;
+  height: 2em;
+}
+
+#atg_store_locale ul li{
+  border-right:1px solid #cccccc;
+}
+
+#atg_store_locale ul li a:link,
+#atg_store_locale ul li a:visited{
+  color:#0066ff;
+}
+
+#atg_store_locale ul li a:hover,
+#atg_store_locale  ul li a:active{
+  color:#ff9900;
+}
+
+#atg_store_locale h2{
+  color:#666666;
+}
+
+/* Store Logo */
+
+#atg_store_logo{
+  margin: 17px 0 0 22px;
+  width: 175px;
+  height: 58px;
+}
+#atg_store_logo a{
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-indent: -9999px;
+  background:url(/crsdocroot/images/atghome/logo.png) no-repeat scroll left top;
+}
+
+/* Search */
+
+#atg_store_search{
+  height: 65px;
+  margin-top: 10px;
+  margin-left: 0px;
+  width: 305px;
+  background: transparent;
+  float:left;
+}
+
+
+.atg_store_searchInput{
+  margin: 20px 0 0 20px;
+  padding: 5px;
+  width: 130px;
+  float:left;
+}
+
+#atg_store_search span.atg_store_smallButton input#atg_b2cstore_search{
+  padding: 0 0 0 5px;
+   margin:18px 10px 0 10px;
+  display: block;
+  width: 35px;
+  height: 35px;
+  background:  transparent url(/crsdocroot/images/atghome/search_button.png) no-repeat scroll right top;
+  text-indent: -9999px;
+  border:0 none;
+  cursor:pointer !important;
+  display:inline-block;
+  overflow:hidden;
+}
+
+#atg_store_search span.atg_store_smallButton input#atg_b2cstore_search:hover{
+  background:  transparent url(/crsdocroot/images/atghome/search_button.png) no-repeat scroll right bottom;
+}
+
+/* Header Links */
+
+#atg_store_logOut ul li{
+  border-right:1px solid #999;
+}
+#atg_store_logOut ul li:first-child,
+#atg_store_logOut ul li:last-child{
+  border:none;
+}
+#atg_store_logOut ul li:last-child{
+  margin-right:0;
+  padding-right:0;
+}
+#atg_store_logOut ul li.active a,
+#atg_store_personalNav ul li.active a{
+ color:#ff9900; 
+}
+#atg_store_logOut strong{
+  font-weight:bold;
+}
+
+#atg_store_personalNav ul li a,
+#atg_store_navCart li a{
+  border-right:1px solid #999;
+  padding-right:10px;
+}
+#atg_store_navCart li.last a{
+  border:none !important;
+  padding:0;
+}
+
+#atg_store_personalNav ul li.atg_store_giftListsNav:hover{
+  background-color:#0066ff;
+  border-top:1px solid #333333;
+  border-left:1px solid #333333;
+  border-right:1px solid #333333;
+  margin-left:0;
+  padding-left:9px;
+  left:-1px;
+  padding-top:3px;
+  padding-bottom:3px;
+  -webkit-box-shadow: 0px 5px 8px rgba(0, 0, 0, .5);
+  -moz-box-shadow: 0px 5px 8px rgba(0, 0, 0, .5);  
+}
+
+#atg_store_personalNav ul li.atg_store_giftListsNav:hover a{
+  color:#fff;
+  border-right:none;
+  
+}
+
+#atg_store_personalNav ul li.atg_store_giftListsNav div.atg_store_giftListMenuContainer ul li a{
+  color:#333333;
+  text-align:left;
+}
+#atg_store_personalNav ul li.atg_store_giftListsNav div.atg_store_giftListMenuContainer ul li{
+  padding:5px 10px;
+}
+#atg_store_personalNav ul li.atg_store_giftListsNav div.atg_store_giftListMenuContainer ul li:hover{
+  background:#B0D0FF;
+}
+
+.atg_store_richCartButton{
+  background:url(/crsdocroot/images/atghome/icon_cart.png) no-repeat 0 0;
+  padding-bottom:3px;
+  padding-left:24px;
+  padding-right:0 !important;
+  padding-top:5px;
+  padding-bottom:2px;
+  zoom:1;
+  border:none !important;
+}
+.atg_store_richCartButton:hover{
+  background:url(/crsdocroot/images/atghome/icon_cart.png) no-repeat 0 -24px;
+}
+.atg_store_richCartButton span{
+  border-right:1px solid #408CFF;
+  padding-right:10px;
+}
+
+ /* Rich Cart */
+ 
+ 
+ #atg_store_richCart #atg_store_richCartHeader{
+   background:#333333;
+   color: #FFF;
+ }
+ 
+ #atg_store_richCart #atg_store_richCartHeader h3{
+   padding-left:25px;
+   padding-top:2px;
+   padding-bottom:5px;
+   margin-left:5px;
+   height:24px;
+   background: url(/crsdocroot/images/storefront/icon_rich_cart.png) no-repeat left center;
+ }
+ 
+#atg_store_richCart li{
+  border-bottom: 1px solid rgb(51, 51, 51);
+  border-bottom: 1px solid rgba(51, 51, 51, .2);
+  background: url(/crsdocroot/images/storefront/richcart_itembg.gif) repeat-y;
+}
+#atg_store_richCart li:hover{
+  background: url(/crsdocroot/images/storefront/richcart_itembg_hover.gif) repeat-y;
+}
+#atg_store_richCart li ul{
+  padding-left:15px;
+}
+#atg_store_richCart li li,
+#atg_store_richCart li li:hover{
+  background:none;
+  border:none;
+}
+
+#atg_store_richCart li.atg_store_emptyRichCart{
+  width:100%;
+  background:none;
+
+}
+#atg_store_richCart li.atg_store_emptyRichCart span{
+    padding:5px 10px;
+    font-size:1.1em;
+    font-weight:bold;
+    display:block;
+}
+
+/* Rich Cart Side Indicator Variation */
+#atg_store_richCart span.siteIndicator{
+  font-size:1em;
+}
+
+/* Category Navigation */
+
+
+#atg_store_catNavArea{
+  background:url(/crsdocroot/images/atghome/cat_nav_bg.png) repeat-x top center;
+  width: 980px;
+  position: absolute;
+  bottom: -40px;
+  height: 40px;
+  z-index:100;
+}
+
+
+#atg_store_catNav li{
+  height: 39px;
+  padding: 0;
+  margin: 0;
+  background: url(/crsdocroot/images/atghome/main_nav_border.png) no-repeat left center;
+  position:relative;
+}
+#atg_store_catNav li:first-child{
+  background-image:none;
+}
+
+
+#atg_store_catNav a {
+  display: block;
+  line-height: 39px;
+  text-decoration: none;
+  text-align: center;
+  padding: 0 29.5px;
+  margin-left:10px;
+}
+
+#atg_store_catNav li:hover > a,
+#atg_store_catNav li > a:hover,
+#atg_store_catNav li.currentCat > a {
+  background-color: #0066ff;
+}
+
+#atg_store_catNav li:hover div a{
+  background: transparent;
+}
+
+#atg_store_catNav li:hover a,
+#atg_store_catNav li a:hover,
+#atg_store_catNav li a:active,
+#atg_store_catNav li.currentCat a {
+  color: #FFF;
+}
+#atg_store_catNav li a,
+#atg_store_catNav li:hover li a,
+#atg_store_catNav .atg_store_catSubNv li a {
+  color: #FFF;
+}
+#atg_store_catNav li li{
+  height:auto !important;
+}
+
+/* Sub Category Navigation */
+#atg_store_catNav .atg_store_catSubNv li a:hover,
+#atg_store_catNav .atg_store_catSubNv li a:active {
+  color: #000;
+  text-decoration: none;
+  background: #b0d0ff;
+}
+
+#atg_store_catNav div {
+  width: 340px;
+  margin-left: -5px;
+  position: absolute;
+  display:none;
+  z-index: 200;
+  border: 1px solid #333;
+  background: transparent url(/crsdocroot/images/atghome/menu_dropdown_bg.png) repeat-y top left;
+  left:9px;
+}
+
+#atg_store_catNav li:hover div {
+  -webkit-box-shadow: 0px 5px 8px rgba(0, 0, 0, .5);
+  -moz-box-shadow: 0px 5px 8px rgba(0, 0, 0, .5);
+  display: block;
+  margin: 0;
+}
+
+
+#atg_store_catNav div li{
+  background: transparent;
+  height: auto;
+}
+
+#atg_store_catNav div li:first-child{
+  width: auto;
+}
+
+#atg_store_catNav div li a:link,
+#atg_store_catNav div li a:visited,
+#atg_store_catNav div li a:hover,
+#atg_store_catNav div li a:active{
+  padding: 10px 10px 10px 10px;
+  margin:0 !important;
+}
+
+#atg_store_catNav div ul.sub_category{
+  float: left;
+  width: 174px;
+}
+
+#atg_store_catNav div ul li a:link,
+#atg_store_catNav div ul li a:visited{
+ color:#000; 
+}
+
+
+#atg_store_catNav div ul.atg_store_featureProducts {
+  float: left;
+  width: 166px;
+  background: transparent;
+}
+
+#atg_store_catNav ul.atg_store_featureProducts li.atg_store_featureProductsTitle{
+  color: #fff;
+  font-weight:bold;
+  margin:0 !important;
+  padding:5px 0 5px 10px;
+  background: rgb(106, 146, 176);
+  background: rgba(106, 146, 176, 0.5);
+  font-size:1.2em;
+}
+#atg_store_catNav ul.atg_store_featureProducts li a{
+  color: #333 !important;
+}
+#atg_store_catNav ul.atg_store_featureProducts li a:hover,
+#atg_store_catNav ul.atg_store_featureProducts li a:active {
+  text-decoration: none;
+  background: rgb(255, 255, 255);
+  background: rgba(255, 255, 255, 0.5);
+  
+}
+
+/* Page Content Title */
+
+#atg_store_content h2.title {
+  color:#7f99b2;
+  font-size:4.1em;
+  padding-left: 30px;
+}
+
+#atg_store_homePageHero a{
+  display: block;
+  height: 350px;
+}
+
+#atg_store_homePromotionalItems ul.atg_store_product li{
+  background:url(/crsdocroot/images/storefront/hero_promo_bg.png) repeat-y top center;
+}
+#atg_store_homePromotionalItems ul.atg_store_product li:hover{
+    background:url(/crsdocroot/images/storefront/hero_promo_bg_hover.png) repeat-y top center;
+}
+/* Breadcrumbs */
+
+#atg_store_breadcrumbs{
+  color:#fff;
+  font-weight:bold;
+}
+#atg_store_breadcrumbs a{
+  color:#fff;
+}
+#atg_store_breadcrumbs a:first-child{
+  margin-left:30px;
+}
+
+/* Homepage Featured Products */
+
+.atg_store_homepage_products ul.atg_store_product li a{
+  border-left:2px solid #fff;
+}
+.atg_store_homepage_products ul.atg_store_product li:first-child a{
+  border-left:none;
+}
+/* Login Pages
+-----------------------------------------------------------------*/
+#atg_store_loginOrRegister h2{
+  color:#999900;
+}
+#atg_store_returningCustomerLogin ul li label,
+#atg_store_newCustomerLogin ul li label{
+  font-weight:bold;
+}
+
+.atg_store_accountLogin{
+  background: url(/crsdocroot/images/storefront/login_container_bg.png) no-repeat center top;
+}
+.atg_store_checkoutLogin{
+  background: url(/crsdocroot/images/storefront/checkout_login_container_bg.png) no-repeat center top;
+
+}
+
+.atg_store_accountLogin .atg_store_basicForm li{
+  width:245px;
+  padding: 0 28px;
+  margin-bottom:5px;
+  clear:left;
+}
+
+.atg_store_accountLogin .atg_store_basicForm li p{
+  margin:0 35px
+}
+
+.atg_store_pageRegistration .atg_store_main{
+  float:left !important;
+  width:816px
+}
+
+.atg_store_pageRegistration .aside{
+  float:right !important;
+  width:214px !important;
+}
+
+.atg_store_registrationBenefits h2{
+  color:#333;
+  size:1.4em;
+  margin-left:25px;
+  margin-bottom:10px;
+}
+
+.atg_store_registrationBenefits ul{
+  background: url(/crsdocroot/images/atghome/right_sidebar_top_gradient.png) repeat-y left center;
+  padding: 10px 0 25px 0;
+}
+.atg_store_registrationBenefits ul li{
+  list-style-image:url(/crsdocroot/images/storefront/bullet.gif);
+  font-size:1.1em;
+  line-height:1.4em;
+  color:#333;
+  margin-top:10px;
+  margin-left:45px;
+}
+
+.atg_store_registrationBenefits a.atg_store_benefitsPopUp{
+  margin-left:30px;
+  margin-top:25px;
+  clear:left;
+  float:left;
+}
+
+/* Forgot password */
+.atg_store_forgotPassword .atg_store_generalMessage{
+  text-align:left;
+}
+.atg_store_forgotPassword ul.atg_store_basicForm{
+  width:auto;
+}
+.atg_store_forgotPassword ul.atg_store_basicForm li{
+  padding-left:25px;
+}
+.atg_store_forgotPassword ul.atg_store_basicForm li label{
+  width:auto;
+  margin-right:5px;
+}
+.atg_store_forgotPassword ul.atg_store_basicForm li input{
+  width:200px;
+}
+.atg_store_tempPasswordSent p{
+  text-align:left;
+  padding-bottom:10px;
+  font-size:1.1em;
+}
+
+
+/* Category Pages
+-----------------------------------------------------------------*/
+
+.atg_store_filter h3{
+  color:#666;
+}
+
+
+.category ul.atg_store_product li a,
+.atg_store_whatsNewProducts ul.atg_store_product li a
+{
+  margin:1px;
+  padding:0 15px 30px 15px;
+  
+}
+.atg_store_whatsNewProducts ul.atg_store_product li a{
+  height:205px;
+}
+.category ul.atg_store_product li a:hover,
+.atg_store_whatsNewProducts ul.atg_store_product li a:hover{
+  background:url(/crsdocroot/images/atghome/bg_cat_hover.png) repeat-x bottom center;
+  border:1px solid #ccccff;
+  margin:0;
+}
+.atg_store_index ul{
+  background:#fff;
+}
+.atg_store_index .active{
+  color:#ff6600;
+  font-size:1.2em;
+}
+
+.category .atg_store_promoCopy{
+  background:#999900;
+  color:#fff;
+  font-size:1.2em;
+  text-align:center;
+  padding:5px;
+  width:115px;
+  margin:0 auto;
+}
+
+.category .atg_store_promoCopy span.atg_store_sidePromoTitle{
+  display:block;
+  font-weight:bold;
+  font-size:1.16em;
+}
+
+.category .atg_store_promoCopy span{
+  font-weight:bold;
+}
+
+
+.category .atg_store_promoImage{
+  text-align:center;
+}
+
+#atg_store_homePageHero .atg_store_promotionItem {
+  margin-top: 0px;
+}
+.atg_store_promotionItem{
+  text-align:center;
+  margin-top:25px;
+}
+.atg_store_promotionItem a{
+  display:block;
+}
+
+.category .aside img.atg_store_promoImage{
+  width:125px;
+  margin:0 auto;
+}
+
+/* Product Detail Page
+-----------------------------------------------------------------*/
+
+#atg_store_productCore .atg_store_productID div.atg_store_availability,
+span.active span{
+  color:#333333;
+}
+
+.atg_store_pickerActions ul li.atg_store_giftListsActions a,
+.atg_store_pickerActions ul li.atg_store_wishListsActions a,
+.atg_store_pickerActions ul li.atg_store_wishListsActions input,
+.atg_store_pickerActions ul li.atg_store_compareActions input,
+.atg_store_pickerActions ul li.atg_store_compareActions a{
+  background:url(/crsdocroot/images/atghome/icon_add_to.png) no-repeat scroll left center;
+  color:#0066FF;
+}
+
+.atg_store_pickerActions ul li.atg_store_viewComparisons a,
+.atg_store_pickerActions ul li.atg_store_viewWishlist a{
+  background:url(/crsdocroot/images/atghome/icon_added.png) no-repeat scroll left center;
+  color:#0066FF;
+}
+
+.atg_store_pickerActions ul li.atg_store_emailActions a{
+  background:url(/crsdocroot/images/atghome/icon_email_item.gif) no-repeat scroll left center;
+  padding-left:18px;
+}
+
+.atg_store_pickerActions ul li.atg_store_giftListsActions:hover a,
+.atg_store_pickerActions ul li.atg_store_wishListsActions a:hover,
+.atg_store_pickerActions ul li.atg_store_wishListsActions input:hover,
+.atg_store_pickerActions ul li.atg_store_compareActions input:hover,
+.atg_store_pickerActions ul li.atg_store_compareActions a:hover{
+  background:url(/crsdocroot/images/atghome/icon_add_to_hover.png) no-repeat scroll left center;
+  color:#ff9900;
+}
+
+.atg_store_pickerActions ul li.atg_store_viewComparisons a:hover,
+.atg_store_pickerActions ul li.atg_store_viewWishlist a:hover{
+  background:url(/crsdocroot/images/atghome/icon_added_in_hover.png) no-repeat scroll left center;
+  color:#ff9900;
+}
+
+.atg_store_pickerActions ul li.atg_store_emailActions a:hover{
+  background:url(/crsdocroot/images/atghome/icon_email_item_hover.gif) no-repeat scroll left center;
+  padding-left:18px;
+  color:#ff9900;
+}
+.atg_store_pickerActions ul li.atg_store_giftListsActions:hover a{
+  color:#fff;
+  background:url(/crsdocroot/images/atghome/icon_add_to_hover.png) no-repeat scroll left center;
+}
+
+#atg_store_recommendedProductsDetail h3{
+  color:#003366;
+  padding-left:25px;
+  padding-top:20px;
+}
+#atg_store_recommendAddToCart ul.atg_store_product li a:hover{
+  background:#fff;
+}
+.atg_store_pageProductDetail #atg_store_recommendedProductsDetail h3{
+  background:url(/crsdocroot/images/storefront/recommended_products_gradient_bg.gif) repeat-x top center;
+  height:22px;
+  margin-top:20px;
+  border-top:1px solid #ccc;
+}
+.atg_store_pickerActions ul li{
+  padding:1px 1px 1px 0;
+}
+.atg_store_pickerActions ul li li{
+    padding:0px;
+
+}
+.atg_store_pickerActions ul li.atg_store_giftListsActions{
+  padding:1px 1px 0 1px;
+}
+.atg_store_pickerActions ul li.atg_store_giftListsActions:hover{
+  background-color:#0066ff;
+  border-top:1px solid #333333;
+  border-left:1px solid #333333;
+  border-right:1px solid #333333;
+  padding:0;
+  -webkit-box-shadow: 0px 5px 8px rgba(0, 0, 0, .5);
+  -moz-box-shadow: 0px 5px 8px rgba(0, 0, 0, .5);
+}
+.atg_store_pickerActions ul li.atg_store_giftListsActions:hover > a{
+  color: #fff;
+  display:block;
+}
+.atg_store_pickerActions ul li.atg_store_giftListsActions:hover > a{
+  color: #fff;
+}
+.atg_store_productSummaryContainer{
+  background:url(/crsdocroot/images/storefront/rounded_box_bottom.jpg) no-repeat bottom center;
+}
+.atg_store_productSummaryContainer,
+.atg_store_productMetadataDescription,
+#atg_store_productCore #atg_store_productAsSeenIn{
+  margin-right:25px;
+}
+
+.atg_store_productSummary{
+  background:url(/crsdocroot/images/storefront/rounded_box_top.jpg) no-repeat top center;
+}
+
+.atg_store_productSummary .atg_store_productPrice{
+color:#ff9900;
+}
+
+/* Facets and Categories */
+
+#atg_store_categories{
+  background:url(/crsdocroot/images/storefront/cat_firstcat.png) no-repeat top left;
+}
+
+#atg_store_categories h3.atg_store_categoryCurrentLeaf{
+  background:url(/crsdocroot/images/storefront/cat_currentcat.png) repeat-y top left;
+}
+
+#atg_store_categories .atg_store_categoryCurrent a,
+#atg_store_categories .atg_store_categoryCurrent a,
+#atg_store_categories .atg_store_categoryCurrentLeaf a,
+#atg_store_categories .atg_store_categoryCurrentLeaf a{
+  color: #000;
+}
+
+#atg_store_categories .atg_store_categoryCurrent a:hover,
+#atg_store_categories .atg_store_categoryCurrent a:active,
+#atg_store_categories .atg_store_categoryCurrentLeaf a:hover,
+#atg_store_categories .atg_store_categoryCurrentLeaf a:active{
+  background:url(/crsdocroot/images/storefront/facet_single_arrow_left.png) no-repeat center left;
+}
+
+#atg_store_categories .atg_store_categoryCurrent:hover,
+#atg_store_categories .atg_store_categoryCurrentLeaf:hover{
+   background:url(/crsdocroot/images/storefront/cat_hovercat.png) repeat-y top left;
+}
+
+#atg_store_categories .atg_store_categoryParent a:hover,
+#atg_store_categories .atg_store_categoryParent a:active{
+  background:url(/crsdocroot/images/storefront/facet_single_arrow_left.png) no-repeat center left;
+}
+
+
+.atg_store_facetsGroup_options_catsub li:hover{
+   background:url(/crsdocroot/images/storefront/cat_hovercat.png) repeat-y top left;
+}
+
+.atg_store_facetsGroup_options_catsub a:hover,
+.atg_store_facetsGroup_options_catsub a:active{
+  background:url(/crsdocroot/images/storefront/facet_single_arrow_right.png) no-repeat center right;
+  color: #000;
+}
+
+#atg_store_categories h3 a,
+#atg_store_categories h3.atg_store_categoryRoot,
+#atg_store_facets h5{
+  color:#425162;
+  padding-left:20px;
+  margin-left:10px;
+  padding-top:5px;
+}
+.atg_store_facetsGroup_options_catsub a{
+  padding-left:30px;
+  margin-right:3px;
+  padding-right:15px;
+}
+
+
+/* Promotions Page
+-----------------------------------------------------------------*/
+.atg_store_promo{
+  color:#333;
+  width:439px;
+  background:url(/crsdocroot/images/storefront/promo_bg.png) no-repeat left center;
+  margin:25px;
+  display:table;
+  vertical-align:middle;
+  height:auto;
+  height:152px;
+}
+.atg_store_promo img{
+  margin-left:5px;
+  margin-top:2px;
+  float:left;
+}
+.atg_store_promo a{
+  background:url(/crsdocroot/images/storefront/promo_button.png) no-repeat 400px 111px;
+  color:#666666;
+  font-size:1.1em;
+  line-height:1;
+  display:block;
+}
+
+.atg_store_promo span.atg_store_promoCopy{
+  padding:10px;
+  display:table-cell;
+  vertical-align:middle;
+  width:289px;
+  position:relative;
+}
+
+.atg_store_promo a span.atg_store_promoCopy{
+  height:145px;
+}
+/* To target a safari browser issue which includes padding in height of element */
+
+@media screen and (-webkit-min-device-pixel-ratio:0){
+  .atg_store_promo a span.atg_store_promoCopy{
+    height:125px;
+  }
+}
+
+.atg_store_promo strong{
+  font-size:2em;
+  font-weight:bold;
+  color:#ff9900;
+}
+#atg_store_promotions li.atg_store_promo .atg_store_promoCopy span{
+  font-size:2.2em;
+  color:#999900;
+  font-weight:bold;
+  line-height:1.1em;
+}
+#atg_store_promotions li.atg_store_promo .atg_store_promoCopy span.atg_store_promoTitle{
+  display:block;
+}
+
+
+/* Company Pages
+-----------------------------------------------------------------*/
+
+/* Side Navigation */
+.atg_store_companyNavigation ul li:first-child{
+  background:url(/crsdocroot/images/storefront/cat_firstcat.png) no-repeat top left;
+}
+
+.atg_store_companyNavigation ul li.current{
+  background:url(/crsdocroot/images/storefront/cat_currentcat.png) repeat-y top left;
+}
+.atg_store_companyNavigation ul li.current a{
+  color:#000;
+}
+.atg_store_companyNavigation ul a{
+  padding-right:20px;
+  padding-top:5px;
+  padding-bottom:5px;
+  padding-left:30px;
+  margin-right:10px;
+  display:block;
+  font-size:1.3em;
+}
+.atg_store_companyNavigation ul li:hover{
+  background:url(/crsdocroot/images/storefront/cat_hovercat.png) repeat-y top left;
+}
+.atg_store_companyNavigation ul li a:hover,
+.atg_store_companyNavigation ul li a:active{
+  background:url(/crsdocroot/images/storefront/facet_single_arrow_right.png) no-repeat center right;
+}
+
+
+.atg_store_company .atg_store_main h3{
+  color:#999900;
+  font-size:2.2em;
+  font-weight:normal;
+  margin-bottom: 5px;
+}  
+.atg_store_faq .atg_store_main h3{
+  margin-bottom:33px;
+}
+
+.atg_store_company .atg_store_main h4{
+  color:#ff9900;
+   font-size:1.2em;
+   margin:5px 0;
+   font-weight:bold;
+}
+
+.atg_store_company .atg_store_main p{
+  font-size:1.1em;
+  color:#333;
+}
+
+.atg_store_company .atg_store_main{
+  width:575px !important;
+  padding-right:190px !important;
+  padding-left:0 !important;
+  margin-top:33px;
+}
+.atg_store_asSeenIn .atg_store_main,
+.atg_store_stores .atg_store_main{
+  width:797px !important;
+  padding-right:0 !important;
+}
+/* My Account Pages
+-----------------------------------------------------------------*/
+
+
+
+.atg_store_myAccount{ 
+  width:795px !important;
+}
+
+.atg_store_myAccount h2{
+  color:#999900;
+  font-size:2.2em;
+}
+.atg_store_myAccount h3{
+    color:#FF9900;
+    font-size:1.6em;
+    width:416px;
+    margin:0 auto 15px auto;
+  }
+
+.atg_store_infoList dt{
+  color:#333333
+}
+
+
+.atg_store_myProfileInfo{
+  margin-left:120px;
+  margin-top:25px;
+}
+.atg_store_myInfoActions{
+  clear:both;
+  text-align:center;
+}
+
+.atg_store_formElementGroup{
+  text-align:center;
+  width:100%;
+}
+
+#atg_store_profileMyInfoEdit .option strong{
+  font-weight:bold;
+}
+
+
+/* Navigation */
+
+/* Side Navigation */
+#atg_store_myAccountNav ul li:first-child{
+  background:url(/crsdocroot/images/storefront/cat_firstcat.png) no-repeat top left;
+}
+#atg_store_myAccountNav ul li.current{
+  background:url(/crsdocroot/images/storefront/cat_currentcat.png) repeat-y top left;
+}
+#atg_store_myAccountNav ul li.current a{
+  color:#000;
+}
+#atg_store_myAccountNav ul li a{
+  padding-right:20px;
+  padding-top:5px;
+  padding-bottom:5px;
+  padding-left:30px;
+  margin-right:10px;
+  display:block;
+  font-size:1.3em;
+  position:relative;
+}
+#atg_store_myAccountNav ul li:hover{
+  background:url(/crsdocroot/images/storefront/cat_hovercat.png) repeat-y top left;
+}
+#atg_store_myAccountNav ul li a:hover,
+#atg_store_myAccountNav ul li a:active{
+  background:url(/crsdocroot/images/storefront/facet_single_arrow_right.png) no-repeat center right;
+}
+.atg_store_infoList dt{
+  color:#333333
+}
+
+.atg_store_myProfileInfo{
+  margin-left:75px;
+}
+
+/* WishList */
+.quantity_fav_actions{
+  max-width:230px;
+}
+.atg_store_wishListDelete input{
+  text-align:center;
+  padding-left:13px;
+  background:url(/crsdocroot/images/atghome/icon_remove.png) no-repeat left center !important;
+}
+
+.atg_store_myWishList th.price{
+  padding-right:25px !important;
+}
+.atg_store_myWishList th.quantity{
+  padding-left:15px;
+  text-align:left !important;
+}
+/* Change Password */
+
+.atg_store_changePassword {
+  background:url(/crsdocroot/images/storefront/changePassword_container_left.png) no-repeat left center;
+  margin-bottom:15px;
+  text-align:center;
+}
+.atg_store_changePassword .atg_store_formActions{
+    background:url(/crsdocroot/images/storefront/changePassword_container_right.png) no-repeat right center;
+     height:81px;
+}
+.atg_store_changePassword .atg_store_formActions .atg_store_basicButton{
+  margin-top:12px;
+}
+
+/* Checkout Defaults */
+.atg_store_checkoutPrefsContainer{
+  background:url(/crsdocroot/images/storefront/checkoutDefaults_container_bottom.png) no-repeat bottom center;
+}
+#atg_store_checkoutPrefs{
+  background:url(/crsdocroot/images/storefront/checkoutDefaults_container_top.png) no-repeat top center;
+  padding-bottom: 20px;
+}
+
+#atg_store_checkoutPrefs h2{
+  text-align:center;
+}
+#atg_store_checkoutPrefs ul{
+  padding:0 30px;
+}
+#atg_store_checkoutPrefs ul li{
+  margin-bottom:10px;
+}
+#atg_store_checkoutPrefs ul li span.atg_store_label{
+  font-weight:bold;
+  font-size:1.1em;
+  margin-right:5px;
+}
+
+.atg_store_chooseDefaults{
+  width:575px;
+}
+.atg_store_chooseDefaults label{
+  width:180px !important;
+}
+
+.atg_store_chooseDefaults label span{
+  display:inline !important;
+}
+
+
+#atg_store_checkoutPrefs ul li span.atg_store_myProfileText{
+  font-size:1.1em;
+  float:right;
+  text-align:left;
+  width:95px;
+}
+/* Add a New Credit Card - Select Address */
+
+.atg_store_existingAddresses dd.atg_store_creditCardProvider span{
+  font-weight:bold;
+}
+
+.atg_store_existingAddresses dd.atg_store_creditCardProvider span{
+  font-weight:bold;
+}
+
+.atg_store_existingAddresses .atg_store_addressGroup.selected{
+  background:#fae3bf;
+}
+
+.atg_store_existingAddresses .atg_store_savedAddresses dt{
+  font-size:1.2em;
+  font-weight:bold;
+  margin-bottom:0px;
+}
+.atg_store_existingAddresses .atg_store_savedAddresses dt input{
+  padding-left:10px;
+}
+.atg_store_existingAddresses .atg_store_savedAddresses dd .vcard{
+  padding-left:17px;
+  color:#333333;
+}
+
+/* Address Book  and Payment Info */
+
+
+/* No Existing Card or Address Message */
+
+.atg_store_generalMessageContainer{
+  width:340px; 
+  background: url(/crsdocroot/images/storefront/rounded_box_bottom.jpg) no-repeat bottom center;
+  margin:0 auto;
+  
+}
+
+.atg_store_generalMessage{
+  background: url(/crsdocroot/images/storefront/rounded_box_top.jpg) no-repeat top center;
+  padding:30px 15px;
+  text-align:center;
+ 
+}
+.atg_store_generalMessage p{
+   font-size:1.1em;
+}
+.atg_store_generalMessage h3{
+  font-size:1.6em;
+  color:#999900;
+  text-align:center !important;
+  width:auto;
+  margin-bottom:10px;
+  width:auto !important;
+}
+
+.atg_store_myAccount #atg_store_storedCreditCards,
+.atg_store_myAccount #atg_store_addressBookDefault{
+  padding-left:20px;
+  padding-right:20px;
+}
+
+#atg_store_storedCreditCards strong{
+  font-weight:bold;
+}
+
+.atg_store_savedAddresses .atg_store_addressGroup,
+#atg_store_storedCreditCards .atg_store_paymentInfoGroup{
+  color:#333333;
+}
+.atg_store_savedAddresses .atg_store_addressGroup dt.atg_store_defaultShippingAddress,
+#atg_store_storedCreditCards .atg_store_paymentInfoGroup dt.atg_store_defaultCreditCard {
+  color:#ff9900;
+  font-size:1.4em;
+  font-weight:normal;
+}
+.atg_store_savedAddresses .atg_store_addressGroup dt.atg_store_defaultShippingAddress span,
+#atg_store_storedCreditCards .atg_store_paymentInfoGroup dt.atg_store_defaultCreditCard span{
+  font-size:.78em !important;
+  color:#0066ff;
+}
+
+.atg_store_savedAddresses .atg_store_addressGroup dt,
+#atg_store_storedCreditCards .atg_store_paymentInfoGroup dt{
+  font-size:1.2em;
+  font-weight:bold;
+  margin-bottom:10px;
+}
+
+#atg_store_paymentInfoAddNewCard .atg_store_editCreditCard h3{
+  color:#FF9900;
+  font-size:1.6em;
+  margin-left:35px;
+}
+
+#atg_store_paymentInfoAddNewCard #atg_store_savedAddresses .atg_store_savedAddresses dt{
+  margin-bottom:0;
+  font-size:1.2em;
+  font-weight:bold;
+  color:#333333;
+}
+
+
+#atg_store_storedCreditCards .atg_store_paymentInfoGroup dd.atg_store_creditCardProvider span{
+  font-weight:bold;
+}
+
+#atg_store_selectAddress .atg_store_addressGroup dl.atg_store_savedAddresses dd{
+  color:#999999;
+}  
+#atg_store_selectAddress{
+    background:url(/crsdocroot/images/storefront/or_seperator.png) no-repeat top right;
+    padding-right:21px;
+}
+#atg_store_chooseCardAddress{
+    padding-top:10px;
+    margin-bottom:40px;
+  }
+
+
+#atg_store_selectAddress h3,
+#atg_store_enterNewBillingAddress h3,
+.atg_store_gift_message h3{
+  color:#ff9900;
+  font-size:2em;
+  margin-bottom:25px;
+}
+
+#atg_store_selectAddress h3{
+  margin-left:20px;
+}
+
+.atg_store_existingAddresses #atg_store_selectAddress h3, 
+.atg_store_existingAddresses #atg_store_enterNewBillingAddress h3,
+.atg_store_gift_message h3{
+  color:#999900;
+}
+.atg_store_existingAddresses #atg_store_enterNewBillingAddress h3{
+  width:100%;
+  text-align:center;
+}
+
+/* Select Address */
+.atg_store_existingAddresses #atg_store_selectAddress .atg_store_addressGroup{
+  padding:10px;
+}
+.atg_store_myAccountPage .atg_store_existingAddresses ul.atg_store_addNewCreditCard{
+  width:775px;
+}
+
+
+/* Gift Lists */
+
+a.atg_store_giftListRemove{
+  background: url(/crsdocroot/images/atghome/icon_remove.png) no-repeat left center;
+  padding-left:15px;
+}
+a.atg_store_giftListRemove:hover{
+  background: url(/crsdocroot/images/atghome/icon_remove_hover.png) no-repeat left center;
+}
+a.atg_store_giftListEdit{
+  background: url(/crsdocroot/images/atghome/icon_edit.png) no-repeat left center;
+  padding-left:15px;
+}
+a.atg_store_giftListEdit:hover{
+  background: url(/crsdocroot/images/atghome/icon_edit_hover.png) no-repeat left center;
+}
+
+.charCounter em{
+  font-weight:bold;
+  color:#333333;
+}
+
+
+#atg_store_giftListSearch .atg_store_giftListSearchContainer{
+  background:url(/crsdocroot/images/storefront/chevron_large.png) no-repeat left top;
+  padding-left:115px;
+  padding-top:10px;
+  padding-bottom:55px;
+  width:645px;
+  margin:50px auto 0;
+}
+
+.atg_store_giftListSearchContainer ul.atg_store_giftListSearch{
+  margin-top:35px;
+  width:545px;
+}
+
+/* Gift List Shop */
+#atg_store_giftListShop #atg_store_giftListShopHeader{
+background:#fbfcfe url(/crsdocroot/images/storefront/giftList_header_bg.gif) repeat-x bottom center;
+padding-bottom:15px;
+}
+#atg_store_giftListShop #atg_store_giftListShopHeader dl{
+  clear:both;
+}
+#atg_store_giftListShop #atg_store_giftListShopHeader dt{
+  color:#999900;
+  font-size:2.2em;
+  padding:10px 0px 10px 30px;
+}
+#atg_store_giftListShop #atg_store_giftListShopHeader dd{
+  color:#ff9900;
+  font-size:1.4em;
+  float:left;
+  padding-left:30px;
+}
+#atg_store_giftListShop p.atg_store_giftListDescription,
+#atg_store_giftListShop p.atg_store_giftListSpecialInstructions{
+  color:#333;
+  font-size:1.1em;
+  float:left;
+  padding-left:30px;
+  width:46%;
+  display:block;
+  margin:10px 0;
+  word-wrap: break-word;
+  overflow: hidden;
+}
+
+/* Order Detaisl */
+
+.atg_store_myOrderDetail{
+  padding-left:0 !important;
+  margin-top:0 !important;
+  padding-top:0 !important;
+}
+
+.atg_store_myOrderDetail #atg_store_cart th{
+  border-top:1px solid #ccc;
+}
+
+.atg_store_myOrderDetail #atg_store_cart th.quantity{
+  text-align:left !important;
+  padding-right:5px;
+  width:60px;
+}
+.atg_store_orderSummary{
+  background:url(/crsdocroot/images/atghome/confirm_summary_bg.gif) no-repeat top right;
+  padding-top:22px;
+}
+.atg_store_myOrderDetail #atg_store_cart td.item dd{
+  width:55px;
+  float:left;
+}
+
+
+/* Checkout
+-----------------------------------------------------------------*/
+div#atg_store_checkout{
+  padding-bottom:60px;
+}
+
+/* Order Summary */
+.atg_store_orderSummary{
+  padding-top:22px;
+}
+.atg_store_orderSummary h2{
+  font-size:1.6em !important;
+  margin-bottom:20px !important;
+  color:#333333 !important;
+  padding: 0 20px;
+}
+.atg_store_orderSummary ul li{
+  padding: 10px 20px;
+}
+
+/* Shopping Cart */
+
+.atg_store_pageCart #atg_store_content{
+  padding-bottom:0px;
+}
+
+.atg_store_pageEmptyCart #atg_store_sectionTitle{
+  background: url(/crsdocroot/images/storefront/empty_checkout_container.png) no-repeat;
+  height:240px;
+  width:395px;
+  margin:0 auto;
+}
+.atg_store_pageEmptyCart .atg_store_message{
+  max-height:190px;
+}
+.atg_store_pageEmptyCart .atg_store_message h2{
+  color:#999900;
+  font-size:2.2em;
+  text-align:center;
+  padding:25px 5px 20px 5px;
+}
+.atg_store_pageEmptyCart .atg_store_message p{
+  text-align:center;
+  padding: 5px;
+}
+#atg_store_cart th{
+  font-size:1.2em;
+  color:#003366;
+  border-bottom:1px solid #cccccc;
+  border-top:1px solid #cccccc;
+  padding-left:5px;
+}
+#atg_store_cart th.quantity{
+  text-align:center;
+}
+#atg_store_cart th.item{
+  padding-left:55px;
+  text-align:left;
+}
+
+#atg_store_cart th.site{
+  text-align:center;
+}
+
+#atg_store_cart th.price{
+  padding-left:5px;
+  padding-right:5px;
+}
+#atg_store_cart td{
+  padding:45px 0;
+  background: #fff url(/crsdocroot/images/storefront/table_row_gradient.gif) repeat-x top center;
+  border-bottom:1px solid #cccccc;
+  vertical-align:top;
+}
+#atg_store_cart td.site,
+.atg_store_dataTable td.site{
+  text-align:center;
+  width:60px;
+  max-width:60px;
+}
+
+#atg_store_cart td.image{
+  vertical-align:top;
+  padding:15px;
+  width:105px;
+}
+
+#atg_store_cart td.atg_store_actionItems{
+  padding-right:15px;
+  padding-top:60px;
+  width: 338px;
+}
+#atg_store_cart td.image img{
+  width:105px;
+  height:105px;
+
+}
+
+#atg_store_cart td p.name a{
+  color:#999900;
+}
+
+
+#atg_store_cart td.price{
+  font-size:1.2em;
+  padding:60px 0px !important;
+}
+
+
+#atg_store_cart td.price span.atg_store_oldPrice{
+  color:#999999;
+  display:block;
+}
+#atg_store_cart td.quantity,
+#atg_store_cart td.total{
+  padding:60px 0px;
+}
+#atg_store_cart td.atg_store_productPrice{
+  color:#FF9900;
+  font-size:2.2em;
+  padding-top:20px;
+}
+#atg_store_cart td.atg_store_productPrice .atg_store_oldPrice{
+color:#666666;
+font-size:0.54em !important;
+white-space:nowrap;
+}
+
+#atg_store_cart td.item table td{
+  background:none;
+  border:none;
+  padding:0;
+}
+
+#atg_store_cart td.item table td.itemPropertyLabel{
+  color:#999999;
+}
+.atg_store_pageCart #atg_store_cart td.atg_store_actionItems{
+  width:100px;
+}
+#atg_store_cart th.total{
+  text-align:right;
+  padding-right:10px;
+}
+#atg_store_cart td.total{
+  font-size:1.2em;
+  font-weight:bold;
+  
+}
+#atg_store_cart th.total{
+  text-align:left;
+}
+
+.atg_store_orderDetails #atg_store_cart th.total{
+  padding-left: 15px;
+}
+
+#atg_store_cart td.total p{
+  white-space:nowrap;
+  float:left;
+  padding-right: 10px;
+}
+.atg_store_actionItems ul li{
+  text-align:right;
+  margin-bottom:5px;
+}
+.atg_store_actionItems ul li a,
+.atg_store_actionItems ul li input{
+  padding-right:18px;
+}
+.atg_store_actionItems ul li input.atg_store_actionDelete{
+  padding-right:15px;
+}
+.atg_store_actionItems ul li a.atg_store_actionDelete,
+.atg_store_actionItems ul li input.atg_store_actionDelete{
+  background:url(/crsdocroot/images/atghome/icon_remove.png) no-repeat right bottom;
+}
+.atg_store_actionItems ul li a.atg_store_actionDelete:hover,
+.atg_store_actionItems ul li input.atg_store_actionDelete:hover{
+  background:url(/crsdocroot/images/atghome/icon_remove_hover.png) no-repeat right bottom;
+}
+
+.atg_store_actionItems ul li a.atg_store_actionAddToWishList,
+.atg_store_actionItems ul li a.atg_store_actionAddToComparisons{
+  background:url(/crsdocroot/images/atghome/icon_add_to_small.png) no-repeat right bottom;  
+}
+.atg_store_actionItems ul li a.atg_store_actionAddToWishList:hover,
+.atg_store_actionItems ul li a.atg_store_actionAddToComparisons:hover{
+  background:url(/crsdocroot/images/atghome/icon_add_to_small_hover.png) no-repeat right bottom;  
+}
+.atg_store_actionItems ul li a.atg_store_viewWishlist,
+.atg_store_actionItems ul li a.atg_store_viewComparisons{
+  background:url(/crsdocroot/images/atghome/icon_added.png) no-repeat right bottom;
+}
+.atg_store_actionItems ul li a.atg_store_viewWishlist:hover,
+.atg_store_actionItems ul li a.atg_store_viewComparisons:hover{
+  background:url(/crsdocroot/images/atghome/icon_added_in_small_hover.png) no-repeat right bottom;
+}
+
+.atg_store_giftWrap{
+  height:47px;
+  border-bottom:1px solid #CCCCCC;
+  line-height:47px;
+  background:url(/crsdocroot/images/storefront/cart_footer_bg.gif) repeat-x;  
+}
+.atg_store_giftWrap h4{
+  color:#999900;
+  font-size:1.2em;
+  float:left;
+  margin-right:15px;
+  margin-left:95px;
+}
+
+.atg_store_wrapOptions li{
+  float:left;
+  margin-right:20px;
+  font-size:1.1em;
+}
+
+.atg_store_wrapOptions strong{
+  font-weight:bold;
+}
+
+#atg_store_cart #atg_store_recommendedProductsDetail h3 {
+  margin-top:0;
+  border-top:none;
+}
+
+.atg_store_pageCart #atg_store_recommendAddToCart ul.atg_store_product li{
+  width:25%;
+  margin-bottom:0;
+}
+.atg_store_pageCart #atg_store_recommendAddToCart ul.atg_store_product li a{
+  padding-bottom:30px;
+}
+
+
+/* Checkout Login */
+
+.atg_store_accountLogin h2{
+  color:#999900;
+}
+
+
+/* Multi Ship */
+.atg_store_shippingMultiple #atg_store_cart td.image img{
+  border:none;
+}
+
+.atg_store_multiShipHeader{
+  padding-left:15px;
+  padding-right:15px;
+  padding-bottom:10px;
+}
+.atg_store_multiShipHeader h2{
+  color: #999900;
+  font-size:2.2em;
+}
+
+.atg_store_multiShipProducts td.atg_store_actionItems{
+  padding-right:15px !important;
+}
+
+/* Gift Wrap Message */
+.atg_store_gift_message
+{
+  width: 733px; float: left; margin-right: 30px;
+}
+
+.atg_store_giftMessage_AddMessage
+{
+  text-align: center;
+}
+
+/* Shipping */
+#atg_store_createNewShippingAddress{
+  margin-top:25px;
+}
+
+#atg_store_createNewShippingAddress h3{
+color:#999900;
+font-size:2.2em;
+width:416px;
+margin: 0 auto 25px auto;
+margin-bottom:30px;
+}
+.atg_store_existingAddresses #atg_store_createNewShippingAddress{
+  height:460px;
+  margin-top:0;
+}
+.atg_store_existingAddresses #atg_store_createNewShippingAddress h3{
+  width:355px;
+  margin-left:25px;
+}
+
+#atg_store_createNewShippingAddres .atg_store_addNewAddresss{
+  margin-bottom:45px;
+}
+
+.atg_store_orderSubTotals dl.subtotal{
+  font-weight:bold;
+}
+.atg_store_orderSubTotals dl.subtotal dd{
+  color:#ff9900;
+}
+
+#atg_store_pageShipping .atg_store_existingAddresses #atg_store_savedAddresses{
+  margin: 0 auto;
+}
+
+/* Shipping Method */
+
+.atg_store_checkoutOption .atg_store_main h2{
+  color:#999900;
+  font-size:2.2em;
+  margin-bottom:15px !important;
+  margin-top:15px !important;
+}
+.atg_store_checkoutOption h2.title{
+  margin:0 !important;
+}
+.atg_store_AvailableShippingMethods ul,
+.atg_store_checkoutOption h2{
+  width:270px;
+  margin: 0 auto;
+}
+
+#atg_store_shippingAddressEdit h2,
+.atg_store_checkoutOption #atg_store_shippingInformation h2 {
+color:#999900;
+font-size:2.2em;
+margin-bottom:15px !important;
+margin-top:15px !important;
+width: 420px;
+}
+
+.atg_store_existingAddresses h2,
+.atg_store_checkoutEditAddresses h3,
+.atg_store_pageBilling .atg_store_checkoutOption h2{
+  width:auto;
+  border-bottom:1px solid #ccc;
+  margin:0 !important;
+  padding:5px 20px;
+}
+
+.atg_store_pageBilling .atg_store_checkoutOption h2{
+  font-size:2.2em;
+  color:#999900;
+}
+
+.atg_store_checkoutEditAddresses .atg_store_generalMessage h3{
+  margin-bottom:25px;
+  font-size:2.2em;
+}
+
+.atg_store_checkoutEditAddresses .atg_store_formActions a{
+  margin-top:25px;
+}
+.atg_store_AvailableShippingMethods ul li{
+  font-size:1.2em;
+  color:#333333;
+  font-weight:bold;
+  margin-bottom:15px;
+}
+.atg_store_AvailableShippingMethods ul li label{
+  margin-right:5px;
+}
+
+/* Billing */
+fieldset.atg_store_savedCreditCard{
+  padding:0 20px;
+}
+
+#atg_store_checkoutOptionArea #atg_store_storedCreditCards{
+  width:495px;
+}
+
+.atg_store_buttonMessage,
+.atg_store_saveSelectAddress p,
+.atg_store_saveNewBillingAddress p{
+  font-size:1.1em;
+}
+.atg_store_buttonMessage span,
+.atg_store_saveSelectAddress p span,
+.atg_store_saveNewBillingAddress p span{
+  color:#FF9900;
+  font-size:1.5em;
+}
+
+.atg_store_existingAddresses ul.atg_store_addNewCreditCard,
+.atg_store_pageBilling ul.atg_store_addNewCreditCard{
+  padding:10px 10px 0 10px;
+}
+.atg_store_existingAddresses ul.atg_store_addNewCreditCard{
+  margin-top:0;
+  margin-left:0;
+  background: #fff url(/crsdocroot/images/storefront/table_row_gradient.gif) repeat-x top center;
+  padding-top:35px;
+  width:746px;
+}
+.atg_store_existingAddresses ul.atg_store_addNewCreditCard li:first-child{
+  padding-left:16px;
+}
+
+.atg_store_pageBilling .atg_store_zeroBalance h3{
+  color:#999900;
+}
+
+.atg_store_buttonMessage,
+.atg_store_saveSelectAddress p{
+  font-size:1.1em;
+}
+.atg_store_buttonMessage span,
+.atg_store_saveSelectAddress p span{
+  color:#FF9900;
+  font-size:1.5em;
+}
+
+.atg_store_appliedStoreCredit{
+  text-align:right;
+  font-size:1.3em;
+  color:#FF9900;
+}
+
+/* Confirmation */
+
+.atg_store_orderConfirmation #atg_store_cart th{
+  border-top:1px solid #cccccc;
+}
+.atg_store_orderConfirmation #atg_store_cart th.quantity{
+  text-align:left;
+  width:40px;
+}
+.atg_store_orderConfirmation #atg_store_cart td.item{
+  width:340px;
+} 
+.atg_store_orderConfirmation #atg_store_cart td.atg_store_quantityPrice{
+  width:140px;
+}
+.atg_store_orderConfirmation #atg_store_cart td.atg_store_quantityPrice span.quantity {
+  width:45px;
+}
+
+.atg_store_orderConfirmation #atg_store_cart td.atg_store_quantityPrice p.note, 
+.atg_store_orderConfirmation #atg_store_cart td.atg_store_quantityPrice .atg_store_oldPrice{
+  margin-left:45px;
+}
+.atg_store_orderConfirmation .atg_store_orderSummary{
+  background:url(/crsdocroot/images/atghome/confirm_summary_bg.gif) no-repeat top right;
+}
+
+#atg_store_shipmentInfoContainer{
+  background:#ebf0f7 url(/crsdocroot/images/atgstore/confirm_order_info_bg.gif) no-repeat right top;
+  width:782px;
+  max-height:170px;
+}
+
+.atg_store_orderDetails #atg_store_shipmentInfoContainer{
+  width:594px
+}
+  
+.atg_store_shipmentInfo{
+  background:url(/crsdocroot/images/atgstore/confirm_order_info_table_shadow.png) no-repeat right bottom;
+  padding-left:25px;
+}
+.atg_store_shipmentInfo dl.atg_store_groupShippingAddress{
+  margin-left:0;
+}
+.atg_store_multishipGroupInfo{
+  background-image:none;
+  background-color:#fff;
+}
+.atg_store_orderConfirmation .atg_store_multishipGroupInfo .vcard,
+.atg_store_orderDetails .atg_store_multishipGroupInfo .vcard{
+  color:#999999;
+}
+.atg_store_orderConfirmation .atg_store_multishipGroupInfo .vcard .fn,
+.atg_store_orderConfirmation .atg_store_multishipGroupInfo dl.atg_store_groupPaymentMethod dd span,
+.atg_store_orderDetails .atg_store_multishipGroupInfo .vcard .fn,
+.atg_store_orderDetails .atg_store_multishipGroupInfo dl.atg_store_groupPaymentMethod dd span{
+  font-size:1.6em;
+  color:#999900;
+  font-weight:normal;
+}
+.atg_store_orderConfirmation .atg_store_multishipGroupInfo dl{
+  padding:25px 25px 0;
+}
+.atg_store_orderConfirmation #atg_store_cart td p.name{
+  color:#999900;
+  font-size:1.2em;
+}
+.atg_store_orderDetails #atg_store_cart td.atg_store_quantityPrice span.quantity{
+  width:55px;
+}
+
+#atg_store_registration .option strong{
+  font-weight:bold;
+}
+
+#atg_store_confirmAndRegister #atg_store_registration h3,
+#atg_store_confirmResponse h3{
+  color:#999900;
+  font-size:2.2em; 
+  margin-bottom:15px;
+}
+#atg_store_confirmResponse p span{
+  font-weight:bold;
+}
+
+.atg_store_confirmResponseRegister h4{
+  color:#FF9900;
+  font-size:1.6em;
+  margin:0 auto 15px;
+  width:386px;
+}
+
+.atg_store_register h4{
+  color:#FF9900;
+  font-size:1.6em;
+  margin:0 auto 15px;
+  width:416px;
+}
+#atg_store_cart th.atg_store_orderExtraHeader{
+  height:80px;
+  background: #fff url(/crsdocroot/images/storefront/table_row_gradient.gif) repeat-x top center;
+  border-bottom:1px solid #cccccc;
+  border-top:0;
+  vertical-align:bottom;
+  text-align:left;
+  padding-bottom:15px;
+  padding-left:15px;
+  font-size:1.6em;
+  color:#FF9900;
+}
+/* Order Summary */
+
+.atg_store_orderSubTotals dl{
+  margin-bottom:10px;
+}
+.atg_store_orderSubTotals dl dd{
+  font-weight:bold;
+}
+.atg_store_orderSubTotals dl.subtotal dt{
+  font-weight:bold;
+}
+.atg_store_orderSubTotals dl.subtotal dd{
+  color:#ff9900;
+}
+
+.atg_store_appliedOrderDiscounts{
+  color:#999999;
+  padding-top:10px;
+}
+
+
+li.atg_store_orderTotal{
+  background:url(/crsdocroot/images/storefront/checkout_totals_gradient_bg.gif) repeat-y left center;
+  padding:0 !important; 
+  min-height:25px !important; 
+  margin-top:30px;
+}
+li.atg_store_orderTotal dl{
+    padding:10px 20px !important; 
+}
+
+
+.atg_store_orderTotal dl.total dt{
+  font-size:1.2em;
+  font-weight:bold;
+  margin-top:5px;
+}
+.atg_store_orderTotal dl.total dd{
+  font-size:2em;
+  color:#ff9900;
+
+}
+.atg_store_orderTotal div.actions{
+ text-align:center; 
+}
+.atg_store_orderTotal div.actions .atg_store_basicButton{
+  margin-bottom:10px;
+}
+
+.atg_store_checkoutFooterLink{
+text-align:center;
+float:left;
+clear:both;
+width:100%;
+}
+
+.atg_store_existingAddresses .atg_store_checkoutFooterLink{
+  background:url(/crsdocroot/images/storefront/checkout_footer_bg.gif) repeat-x;
+}
+.atg_store_existingAddresses .atg_store_checkoutFooterLink .atg_store_basicButton{
+  margin-top:15px;
+}
+
+
+
+/* Comparisons */
+
+.atg_store_generalMessageContainer{
+  margin-top:25px;
+}
+
+input.atg_store_compareRemove{
+  background:url(/crsdocroot/images/atghome/icon_remove.png) no-repeat left center;
+  padding-left:15px; 
+}
+input.atg_store_compareRemove:hover{
+  background:url(/crsdocroot/images/atghome/icon_remove_hover.png) no-repeat left center;
+  padding-left:15px; 
+}
+
+/* Footer
+-----------------------------------------------------------------*/
+
+#atg_store_tertiaryNavigation ul li{
+  color:#003399;
+  border-left: 1px solid #003399;
+  padding-left:15px;
+}
+
+#atg_store_tertiaryNavigation ul li:first-child{
+  border:none;
+  padding-left:0;
+  margin-left:0;
+}
+#atg_store_tertiaryNavigation ul li a:link,
+#atg_store_tertiaryNavigation ul li a:visited{
+  color:#003399;
+}
+#atg_store_tertiaryNavigation ul li a:hover,
+#atg_store_tertiaryNavigation ul li a:active{
+  color:#fff;
+}
+
+#atg_store_copyright{
+  color:#333333;
+}
+
+/* Checkout
+-----------------------------*/
+
+.atg_store_checkout #atg_store_content .atg_store_nonCatHero h2.title{
+  position:relative;
+  width:auto;
+  float:left;
+}
+
+.atg_store_checkout #atg_store_content .atg_store_nonCatHero #atg_store_checkoutProgress{
+  position:absolute;
+  bottom:0;
+  z-index:1;
+}
+.atg_store_checkout #atg_store_content .atg_store_nonCatHero #atg_store_checkoutProgress h2{
+  margin-bottom:0 !important;
+}
+
+.atg_store_checkout .atg_store_checkoutNav li.login span,
+.atg_store_checkout .atg_store_checkoutNav li.register span{
+  font-size:4.1em !important;
+  position:relative;
+  top:-10px;
+}
+
+.atg_store_checkout .atg_store_checkoutNav li span.atg_store_checkoutStageNumber{
+  background:url(/crsdocroot/images/storefront/checkout_progress_inactive.png) no-repeat center center;
+  font-size:1.77em;
+  line-height:35px;
+  height:35px;
+  width:35px;
+  display:block;
+  text-align:center;
+  color:#fff;
+  float:left;
+}
+
+.atg_store_checkout .atg_store_checkoutNav li.current span.atg_store_checkoutStageNumber{
+  background:url(/crsdocroot/images/storefront/checkout_progress_active.png) no-repeat center center;
+  color:#fff;
+}
+.atg_store_checkout .atg_store_checkoutNav li span.atg_store_checkoutStageName{
+  font-size:2.8em;
+  color:#b2c1d1;
+  
+}
+.atg_store_checkout .atg_store_checkoutNav li.current span.atg_store_checkoutStageName{
+  color:#003366;
+}
+.atg_store_orderNotPlaced  #atg_store_content .atg_store_nonCatHero h2.title{
+  width:auto;
+}
+
+
+/* Non Category Hero Images
+---------------------------------------------------------------------------*/
+
+
+.atg_store_nonCatHero,
+#atg_store_contentHeader{
+  background-position:bottom left;
+  background-color: #FFFFFF !important;
+  background-repeat:no-repeat;
+}
+
+
+/* Secondary Page Hero Images 
+-----------------------------*/
+/* My Account */
+.atg_store_myAccountPage #atg_store_content .atg_store_nonCatHero,
+.atg_store_pageLogin #atg_store_content .atg_store_nonCatHero,
+.atg_store_pageRegistration #atg_store_content .atg_store_nonCatHero,
+.atg_store_forgotPassword #atg_store_content .atg_store_nonCatHero,
+.atg_store_tempPasswordSent #atg_store_content .atg_store_nonCatHero{
+   background:url(/crsdocroot/images/hero_toplevel_myaccount.png) no-repeat;
+}
+
+/* Cart */
+.atg_store_pageCart #atg_store_content .atg_store_nonCatHero,
+.atg_store_checkout #atg_store_content .atg_store_nonCatHero,
+.atg_store_pageEmptyCart #atg_store_content .atg_store_nonCatHero,
+.atg_store_orderNotPlaced #atg_store_content .atg_store_nonCatHero{
+  background:url(/crsdocroot/images/hero_toplevel_checkout.png) no-repeat;
+}
+
+
+/* Comparisons */
+.atg_store_comparison #atg_store_content .atg_store_nonCatHero{
+   background:url(/crsdocroot/images/hero_toplevel_comparison.png) no-repeat;
+}
+/* Promotions */
+.atg_store_promotions #atg_store_content .atg_store_nonCatHero{
+   background:url(/crsdocroot/images/hero_toplevel_promotions.png) no-repeat;
+}
+
+/* Gift Lists */
+.atg_store_pageGiftList #atg_store_content .atg_store_nonCatHero{
+   background:url(/crsdocroot/images/hero_toplevel_giftlist.png) no-repeat;
+}
+
+/* Gift Lists Search Results */
+.atg_store_giftListSearchResults #atg_store_content .atg_store_nonCatHero{
+   background:url(/crsdocroot/images/hero_toplevel_giftlistsearchresults.png) no-repeat;
+}
+
+/* Search */
+.atg_store_searchResults #atg_store_content .atg_store_nonCatHero{
+   background:url(/crsdocroot/images/hero_toplevel_search.png) no-repeat;
+}
+
+/* product Does Not Exist, Page not found, Internal Server Error, Session Expired */
+
+.atg_store_productNotAvailable #atg_store_content .atg_store_nonCatHero,
+.atg_store_pageNotFound #atg_store_content .atg_store_nonCatHero,
+.atg_store_internalServerError #atg_store_content .atg_store_nonCatHero,
+.atg_store_sessionExpired #atg_store_content .atg_store_nonCatHero{
+   background:url(/crsdocroot/images/hero_toplevel_search.png) no-repeat;
+}
+
+/* What's New */
+.atg_store_newItem #atg_store_content .atg_store_nonCatHero{
+   background:url(/crsdocroot/images/hero_toplevel_newitems.png) no-repeat;
+}
+
+/* Tertiary Page Hero Images 
+-----------------------------*/
+
+/* About Us */
+.atg_store_aboutUs #atg_store_content .atg_store_nonCatHero{
+   background:url(/crsdocroot/images/hero_toplevel_aboutus.png) no-repeat;
+}
+/*Stores */
+.atg_store_stores #atg_store_content .atg_store_nonCatHero{
+   background:url(/crsdocroot/images/hero_toplevel_stores.png) no-repeat;
+}
+/* Corporate Site */
+.atg_store_corporate #atg_store_content .atg_store_nonCatHero{
+   background:url(/crsdocroot/images/hero_toplevel_corporatesite.png) no-repeat;
+}
+/* Careers */
+.atg_store_careers #atg_store_content .atg_store_nonCatHero{
+   background:url(/crsdocroot/images/hero_toplevel_employment.png) no-repeat;
+}
+/* News */
+.atg_store_news #atg_store_content .atg_store_nonCatHero{
+   background:url(/crsdocroot/images/hero_toplevel_news.png) no-repeat;
+}
+/* As Seen In */
+.atg_store_asSeenIn #atg_store_content .atg_store_nonCatHero{
+   background:url(/crsdocroot/images/hero_toplevel_asseenin.png) no-repeat;
+}
+/* FAQ/Help */
+.atg_store_faq #atg_store_content .atg_store_nonCatHero,
+.atg_store_pageHelp #atg_store_content .atg_store_nonCatHero{
+   background:url(/crsdocroot/images/hero_toplevel_faq.png) no-repeat;
+}
+/* Privacy */
+.atg_store_privacy #atg_store_content .atg_store_nonCatHero{
+   background:url(/crsdocroot/images/hero_toplevel_privacy.png) no-repeat;
+}
+/* Terms */
+.atg_store_terms #atg_store_content .atg_store_nonCatHero{
+   background:url(/crsdocroot/images/hero_toplevel_terms.png) no-repeat;
+}
+/* Shipping */
+.atg_store_shipping #atg_store_content .atg_store_nonCatHero{
+   background:url(/crsdocroot/images/hero_toplevel_shipping.png) no-repeat;
+}
+/* Returns */
+.atg_store_returns #atg_store_content .atg_store_nonCatHero{
+   background:url(/crsdocroot/images/hero_toplevel_returns.png) no-repeat;
+}
+/* Contact */
+.atg_store_contact #atg_store_content .atg_store_nonCatHero{
+   background:url(/crsdocroot/images/hero_toplevel_contact.png) no-repeat;
+}

@@ -14,10 +14,18 @@
   <module>
     <web>
       <web-uri>
-        app.war
+        store.war
       </web-uri>
       <context-root>
         app
+      </context-root>
+    </web>
+    <web>
+      <web-uri>
+        storedocroot.war
+      </web-uri>
+      <context-root>
+        crsdocroot
       </context-root>
     </web>
   </module>
