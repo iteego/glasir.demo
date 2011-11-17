@@ -52,6 +52,8 @@ allprojects {
     task "${driver}Test"(type: Test) {
       testReportDir = file("$reportsDir/$name/tests")
       testResultsDir = file("$buildDir/test-results/$name")
+      
+      isGebTask = true
   
       systemProperty "geb.build.reportsDir", "$reportsDir/$name/geb"
       systemProperty "geb.env", driver
@@ -61,6 +63,11 @@ allprojects {
     }
   }
   
+  //exclude the geb tests from the normal unit test run. unit tests should be run post
+  //compile but should not require a live node. We need to separate these two beasts.
+  test {
+    exclude '**/*GebSpec.class'
+  }
   //task test(overwrite: true, dependsOn: drivers.collect { tasks["${it}Test"] })
 
 
@@ -136,7 +143,14 @@ class TestReportAggregator extends Copy {
     }
 
     def getTestTasks() {
-        projects.collect { it.tasks.withType(Test) }.flatten()
+        //TODO: Clean this dependency up...
+        //Here we make sure that when we aggregate the normal unit tests, we don't pull in the 
+        //geb tests. This would force geb tests to be executed when you run normal unit tests 
+        //and break the build. 
+        projects.collect { it.tasks.withType(Test) }
+                .flatten()
+                .findAll { !it.hasProperty('isGebTask') }
+
     }
 
     def getInputTestResultDirs() {

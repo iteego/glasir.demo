@@ -2,7 +2,7 @@ import spock.lang.*
 import geb.*
 import geb.spock.*
 
-class BootstrapInvalidLoginSpec extends GebReportingSpec {
+class BootstrapLoginGebSpec extends GebReportingSpec {
 	def "logging in with a non existent user results in an error"() {
 		when:
 		to BootstrapHomePage
