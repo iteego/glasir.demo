@@ -46,7 +46,7 @@ buildscript {
   }
 
   dependencies {
-    classpath('com.iteego.glasir:glasir.build:1.0.14-SNAPSHOT') { changing=true }
+    classpath('com.iteego.glasir:glasir.build:1.0.15-SNAPSHOT') { changing=true }
     classpath('org.jfrog.buildinfo:build-info-extractor-gradle:2.0.x-SNAPSHOT:uber@jar')
   }
 

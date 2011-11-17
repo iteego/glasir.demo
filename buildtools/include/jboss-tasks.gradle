@@ -67,7 +67,7 @@ def startJBossInstance(serverName, modules, debug=false, debugPort=8787) {
     println "ERROR: Can start jboss for non-existent server: $serverDir"
   }
   
-  javaspawn {
+  javaexecasync {
     main = "org.jboss.Main"
     classpath = files("$jbossRoot/bin/run.jar") 
     workingDir = "$serverDir"

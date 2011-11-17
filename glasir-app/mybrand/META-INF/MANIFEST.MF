@@ -1,2 +1,2 @@
 Manifest-Version: 1.0
-ATG-Required: DAS ATGDBSetup
+ATG-Required: DSS ATGDBSetup
