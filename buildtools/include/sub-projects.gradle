@@ -14,8 +14,8 @@ allprojects {
     mavenRepo url: 'http://iteego.artifactoryonline.com/iteego/glasir-repos'
   }
   
-  dependencies {
-    def groovyVersion = "org.codehaus.groovy:groovy:1.8.3"
+  dependencies {  
+    def groovyVersion = "org.codehaus.groovy:groovy:1.7.9"
 
     // The below enables us to write atg classes in mixed java/groovy. Groovy
     // jar will be downloaded and cached from a maven repo on demand.
@@ -25,9 +25,44 @@ allprojects {
                 "org.mockito:mockito-all:1.8.5",
 		            groovyVersion
 
-    compile  "junit:junit:4.8.2", 
-              "org.mockito:mockito-all:1.8.5"
+    //settings for geb/spock/selenium      
+    def gebVersion = "0.6.1"
+    def seleniumVersion = "2.9.0"
+ 
+    //TODO: investigate if we can use spock 0.5-groovy-1.8 and move to groovy 1.8
+    // If using Spock, need to depend on geb-spock
+    testCompile "org.codehaus.geb:geb-spock:$gebVersion"
+    testCompile "org.spockframework:spock-core:0.5-groovy-1.7"
+ 
+    // If using JUnit, need to depend on geb-junit (3 or 4)
+    testCompile "org.codehaus.geb:geb-junit4:$gebVersion"
+    testCompile "junit:junit-dep:4.8.2"
+ 
+    // The drivers we want to use
+    drivers = ["htmlunit"] //, "firefox", "chrome"]
+
+    // Need a driver implementation
+    drivers.each { driver ->
+      testCompile "org.seleniumhq.selenium:selenium-${driver}-driver:$seleniumVersion"
+    }
+    testRuntime "org.seleniumhq.selenium:selenium-support:$seleniumVersion"              
   }
+
+  drivers.each { driver ->
+    task "${driver}Test"(type: Test) {
+      testReportDir = file("$reportsDir/$name/tests")
+      testResultsDir = file("$buildDir/test-results/$name")
+  
+      systemProperty "geb.build.reportsDir", "$reportsDir/$name/geb"
+      systemProperty "geb.env", driver
+  
+      // If you wanted to set the baseUrl in your build…
+      // systemProperty "geb.build.baseUrl", "http://myapp.com"
+    }
+  }
+  
+  //task test(overwrite: true, dependsOn: drivers.collect { tasks["${it}Test"] })
+
 
   sourceCompatibility = "1.6"
   targetCompatibility = "1.6"

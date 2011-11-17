@@ -46,11 +46,11 @@
 <dsp:droplet name="Switch">
 <dsp:param bean="ProfileFormHandler.formError" name="value"/>
 <dsp:oparam name="true">
-  <font color=cc0000><STRONG><UL>
+  <font color=cc0000><STRONG><UL name="formErrors">
     <dsp:droplet name="ProfileErrorMessageForEach">
       <dsp:param bean="ProfileFormHandler.formExceptions" name="exceptions"/>
       <dsp:oparam name="output">
-	<LI> <dsp:valueof param="message"/>
+	<LI> <dsp:valueof param="message"/> </LI>
       </dsp:oparam>
     </dsp:droplet>
     </UL></STRONG></font>
