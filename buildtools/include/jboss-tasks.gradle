@@ -12,6 +12,10 @@ task launchDevStore << {
     startJBossInstance(storeServerName, "env.storefront.dev", true, 8787).execHandle.waitForFinish()
 }
 
+task launchDevAdmin << {
+    startJBossInstance(adminServerName, "env.admin.dev", true, 9797).execHandle.waitForFinish()
+}
+
 
 /*
 task launchDevStore(type: Tail, dependsOn: [startJBossStore]) {
@@ -41,7 +45,7 @@ task startJBossAdmin << {
   startJBossInstance(admin, "env.admin.dev", true, 9797)
 }
 
-task launchDevAdmin(type: Tail, dependsOn: [startJBossAdmin]) {
+task oldlaunchDevAdmin(type: Tail, dependsOn: [startJBossAdmin]) {
   file      "$jbossRoot/server/$adminServerName/log/server.log"
   file      "$jbossRoot/server/$adminServerName/log/boot.log"  
   //failOn    "ERROR[ ]*\\["
@@ -62,6 +66,7 @@ task shutdownDevAdmin << {
 * serverType is one of: 'store', 'admin', 'fulfillment', etc
 */
 def startJBossInstance(serverName, modules, debug=false, debugPort=8787) {
+  println "** startJBossInstance: serverName=$serverName, modules=$modules"
   def serverDir = file("$jbossRoot/server/$serverName")
   if (!serverDir.exists()) {
     println "ERROR: Can start jboss for non-existent server: $serverDir"
@@ -77,7 +82,7 @@ def startJBossInstance(serverName, modules, debug=false, debugPort=8787) {
     args serverName
 
     systemProperty "atg.dynamo.server.name", serverName
-    //systemProperty "atg.dynamo.modules",     modules 
+    systemProperty "atg.dynamo.modules",     modules // denna var utkommenterad tidigare 
     systemProperty "atg.dynamo.data-dir",    "$serverDir/ATG-Data"
     systemProperty "jboss.server.log.dir",   "$serverDir/log"    
     systemProperty "java.endorsed.dirs",     "$jbossRoot/lib/endorsed"

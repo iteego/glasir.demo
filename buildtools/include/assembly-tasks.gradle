@@ -89,8 +89,8 @@ task syncStoreEar(type: Copy) {
 
 task syncAdminEar(type: Copy) {
   println "ADMIN JBOSS SERVER NOT SET UP YET - GLASIR-50"
-  //from storeEar
-  //into "$jbossRoot/server/${store}/deploy/${storeEarName}"
+  from bigEar
+  into "$jbossRoot/server/$adminServerName/deploy/${bigEarName}"
 }
 
 task syncStoreServer(type: Copy, description: "Creates a dev server setup in your jboss installation") {
@@ -101,9 +101,9 @@ task syncStoreServer(type: Copy, description: "Creates a dev server setup in you
 
 task syncAdminServer(type: Copy, description: "Creates a dev server setup in your jboss installation") {
   println "ADMIN JBOSS SERVER NOT SET UP YET - GLASIR-50"
-  //from "$jbossRoot/server/default"
-  //from "$globalDir/config/jboss/storefront/development"
-  //into "$jbossRoot/server/${store}"
+  from "$jbossRoot/server/default"
+  from "$globalDir/config/jboss/admin/development"
+  into "$jbossRoot/server/$adminServerName"
 }
 
 task syncDocRoot(type: Copy) {
