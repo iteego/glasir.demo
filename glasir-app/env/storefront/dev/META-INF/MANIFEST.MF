@@ -1,3 +1,4 @@
 Manifest-Version: 1.0
-ATG-Required: DafEar.Admin
+ATG-Required: env.storefront glasir.db RL
 ATG-Config-Path: config
+

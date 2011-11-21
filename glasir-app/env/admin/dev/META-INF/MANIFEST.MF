@@ -1,3 +1,3 @@
 Manifest-Version: 1.0
-ATG-Required: env.admin DCS-UI.Versioned BIZUI PubPortlet DafEar.Admin SiteAdmin.Versioned B2CCommerce.Versioned DCS.Versioned DCS-UI Store.EStore.Versioned Store.Storefront 
+ATG-Required: env.admin glasir.db RL
 ATG-Config-Path: config
