@@ -7,7 +7,7 @@
              http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd
              http://www.liquibase.org/xml/ns/dbchangelog-ext
              http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
-            <changeSet id='changeSet_0000_pub' author='atg' context='prod'>
+            <changeSet id='changeSet_0020_pub' author='atg' context='prod'>
               <preConditions>
                 <not>
                   <tableExists tableName='bogus_precondition_table'/>
@@ -15,13 +15,6 @@
               </preConditions>
 
               <sql><![CDATA[
---------------------------------------------------------------------------
--- Source file for next block: DAS/sql/db_components/mysql/id_generator.sql
-
-
-
---  @version $Id: //product/DAS/version/10.0.2/templates/DAS/sql/id_generator.xml#2 $$Change: 635969 $
-
 create table das_id_generator (
 	id_space_name	varchar(60)	not null,
 	seed	bigint	not null,
@@ -29,7 +22,6 @@ create table das_id_generator (
 	prefix	varchar(10)	null,
 	suffix	varchar(10)	null
 ,constraint das_id_generator_p primary key (id_space_name));
-
 
 create table das_secure_id_gen (
 	id_space_name	varchar(60)	not null,
@@ -43,21 +35,10 @@ create table das_secure_id_gen (
 commit;
 
 
-
---------------------------------------------------------------------------
--- Source file for next block: DAS/sql/db_components/mysql/dms_limbo_ddl.sql
-
-
-
---  @version $Id: //product/DAS/version/10.0.2/templates/DAS/sql/dms_limbo_ddl.xml#2 $$Change: 635969 $
--- This table is where limbo instance/clients identify themselves. --There should only be one entry in this table for each Dynamo running PatchBay with message delays enabled.
-
 create table dms_limbo (
 	limbo_name	varchar(250)	not null,
 	limbo_id	bigint	not null
 ,constraint limbo_pk primary key (limbo_name));
-
--- The following four tables comprise the parts of the stored messages.
 
 create table dms_limbo_msg (
 	msg_id	bigint	not null,
@@ -74,21 +55,18 @@ create table dms_limbo_msg (
 ,constraint limbo_msg_pk primary key (msg_id));
 
 create index dms_limbo_read_idx on dms_limbo_msg (limbo_id,delivery_date);
--- If serialized reply-to destinations are known to be small enough, this binary column's size can be reduced for efficiency.  The size here has been chosen to work with local dms and SQL-JMS.
 
 create table dms_limbo_replyto (
 	msg_id	bigint	not null,
 	jms_replyto	varbinary(500)	null
 ,constraint limbo_replyto_pk primary key (msg_id));
 
--- If serialized message bodies are known to be small enough, this binary column's size can be reduced for efficiency.  The size here has been chosen to work with almost all types of messages but may be larger than necessary.  Actual usage analysis is recommended for finding the optimal binary column size.
 
 create table dms_limbo_body (
 	msg_id	bigint	not null,
 	msg_body	longvarbinary	null
 ,constraint limbo_body_pk primary key (msg_id));
 
--- This table represents a map of properties for messages stored above, i.e.  there can be multiple rows in this table for a single row in the preceeding tables.
 
 create table dms_limbo_props (
 	msg_id	bigint	not null,
@@ -120,14 +98,6 @@ create table dms_limbo_delay (
 commit;
 
 
-
---------------------------------------------------------------------------
--- Source file for next block: DAS/sql/db_components/mysql/cluster_name_ddl.sql
-
-
-
---  @version $Id: //product/DAS/version/10.0.2/templates/DAS/sql/cluster_name_ddl.xml#2 $$Change: 635969 $
-
 create table das_cluster_name (
 	cluster_name	varchar(255)	not null,
 	saved_date	bigint	not null);
@@ -135,19 +105,10 @@ create table das_cluster_name (
 commit;
 
 
-
---------------------------------------------------------------------------
--- Source file for next block: DAS/sql/db_components/mysql/create_sql_jms_ddl.sql
-
-
-
---  @version $Id: //product/DAS/version/10.0.2/templates/DAS/sql/create_sql_jms_ddl.xml#2 $$Change: 635969 $
-
 create table dms_client (
 	client_name	varchar(250)	not null,
 	client_id	bigint	null
 ,constraint dms_client_p primary key (client_name));
-
 
 create table dms_queue (
 	queue_name	varchar(250)	null,
@@ -155,13 +116,11 @@ create table dms_queue (
 	temp_id	bigint	null
 ,constraint dms_queue_p primary key (queue_id));
 
-
 create table dms_queue_recv (
 	client_id	bigint	null,
 	receiver_id	bigint	not null,
 	queue_id	bigint	null
 ,constraint dms_queue_recv_p primary key (receiver_id));
-
 
 create table dms_queue_entry (
 	queue_id	bigint	not null,
@@ -171,13 +130,11 @@ create table dms_queue_entry (
 	read_state	bigint	null
 ,constraint dms_queue_entry_p primary key (queue_id,msg_id));
 
-
 create table dms_topic (
 	topic_name	varchar(250)	null,
 	topic_id	bigint	not null,
 	temp_id	bigint	null
 ,constraint dms_topic_p primary key (topic_id));
-
 
 create table dms_topic_sub (
 	client_id	bigint	null,
@@ -187,7 +144,6 @@ create table dms_topic_sub (
 	durable	tinyint	null,
 	active	tinyint	null
 ,constraint dms_topic_sub_p primary key (subscriber_id));
-
 
 create table dms_topic_entry (
 	subscriber_id	bigint	not null,
@@ -217,7 +173,6 @@ create table dms_msg (
 	large_body	longvarbinary	null
 ,constraint dms_msg_p primary key (msg_id));
 
-
 create table dms_msg_properties (
 	msg_id	bigint	not null,
 	data_type	tinyint	null,
@@ -227,17 +182,6 @@ create table dms_msg_properties (
 
 commit;
 
---------------------------------------------------------------------------
--- Source file for next block: DAS/sql/db_components/mysql/create_staff_ddl.sql
-
-
-
---  @version $Id: //product/DAS/version/10.0.2/templates/DAS/sql/create_staff_ddl.xml#2 $$Change: 635969 $
--- SQL for creating the Dynamo Staff Repository for the GSA
--- Primary account table.
---  Type=1 is a login account.  The first_name, last_name, and password         fields are valid for this type of account.
--- Type=2 is a group account.  The description field is valid for        this type of account.
--- Type=4 is a privilege account.  The description field is valid for        this type of account.
 
 create table das_account (
 	account_name	nvarchar(254)	not null,
@@ -249,14 +193,11 @@ create table das_account (
 	lastpwdupdate	datetime	null
 ,constraint das_account_p primary key (account_name));
 
-
 create table das_group_assoc (
 	account_name	nvarchar(254)	not null,
 	sequence_num	integer	not null,
 	group_name	nvarchar(254)	not null
 ,constraint das_grp_asc_p primary key (account_name,sequence_num));
-
--- Adding the previous password information
 
 create table das_acct_prevpwd (
 	account_name	nvarchar(254)	not null,
@@ -269,12 +210,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: DAS/sql/db_components/mysql/create_gsa_subscribers_ddl.sql
 
 
 
---  @version $Id: //product/DAS/version/10.0.2/templates/DAS/sql/create_gsa_subscribers_ddl.xml#2 $$Change: 635969 $
 
 create table das_gsa_subscriber (
 	id	integer	not null,
@@ -288,12 +226,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: DAS/sql/db_components/mysql/create_sds.sql
 
 
 
---  @version $Id: //product/DAS/version/10.0.2/templates/DAS/sql/create_sds.xml#2 $$Change: 635969 $
 
 create table das_sds (
 	sds_name	varchar(50)	not null,
@@ -306,8 +241,6 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: DAS/sql/db_components/mysql/integration_data_ddl.sql
 
 
 
@@ -325,12 +258,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: DAS/sql/db_components/mysql/nucleus_security_ddl.sql
 
 
 
---  @version $Id: //product/DAS/version/10.0.2/templates/DAS/sql/nucleus_security_ddl.xml#2 $$Change: 635969 $
 
 create table das_nucl_sec (
 	func_name	nvarchar(254)	not null,
@@ -348,13 +278,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: DAS/sql/db_components/mysql/media_ddl.sql
 
 
 
---     @version $Id: //product/DAS/version/10.0.2/templates/DAS/sql/media_ddl.xml#2 $$Change: 635969 $  
---     media content repository tables.  
 
 create table media_folder (
 	folder_id	varchar(40)	not null,
@@ -414,13 +340,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: DAS/sql/db_components/mysql/deployment_ddl.sql
 
 
 
---  @version $Id: //product/DAS/version/10.0.2/templates/DAS/sql/deployment_ddl.xml#2 $
---     These tables are for the daf deployment system  
 
 create table das_deployment (
 	deployment_id	varchar(40)	not null,
@@ -566,13 +488,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: DAS/sql/db_components/mysql/sitemap_ddl.sql
 
 
 
---     @version $Id:    //product/DAF/Sitemap/main/templates/DAS/sql/deployment_ddl.xml#26 $  
--- Table for siteindex repository item
 
 create table das_siteindex (
 	siteindex_id	varchar(40)	not null,
@@ -581,7 +499,6 @@ create table das_siteindex (
 	xml	longvarchar 	null
 ,constraint siteindex_pk primary key (siteindex_id));
 
--- Table for sitemap repository item
 
 create table das_sitemap (
 	sitemap_id	varchar(40)	not null,
@@ -594,14 +511,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: DPS/sql/db_components/mysql/user_ddl.sql
 
 
 
---  @version $Id: //product/DPS/version/10.0.2/templates/DPS/sql/user_ddl.xml#2 $$Change: 635969 $
--- This file contains create table statements, which will configure your database for use with the new DPS schema.
--- Add the organization definition.  It's out of place, but since dps_user references it, it's got to be defined up here
 
 create table dps_organization (
 	org_id	varchar(40)	not null,
@@ -612,8 +524,6 @@ create table dps_organization (
 ,constraint dps_orgnparnt_rg_f foreign key (parent_org) references dps_organization (org_id));
 
 create index dps_orgparent_org on dps_organization (parent_org);
--- Default Profile User Template
--- Basic user info.  note: the password field size must be at a minimum 35 characters       if DPS stores a hash of the password and not the actual value.
 
 create table dps_user (
 	id	varchar(40)	not null,
@@ -766,7 +676,6 @@ create table dps_email_address (
 ,constraint dps_email_addres_p primary key (mailing_id,idx)
 ,constraint dps_emldmalng_d_f foreign key (mailing_id) references dps_mailing (id));
 
--- Organizations/roles
 
 create table dps_role (
 	role_id	varchar(40)	not null,
@@ -776,7 +685,6 @@ create table dps_role (
 	description	nvarchar(254)	null
 ,constraint dps_role_p primary key (role_id));
 
--- Extending the user profile to include references to the roles that are assigned to this user
 
 create table dps_user_roles (
 	user_id	varchar(40)	not null,
@@ -853,7 +761,6 @@ create table dps_org_ancestors (
 ,constraint dps_orgnorg_d_f foreign key (org_id) references dps_organization (org_id));
 
 create index dps_org_ancanc_org on dps_org_ancestors (anc_org);
--- Adding the folder information
 
 create table dps_folder (
 	folder_id	varchar(40)	not null,
@@ -883,7 +790,6 @@ create table dps_rolefold_chld (
 ,constraint dps_rolfrol_d_f foreign key (role_id) references dps_role (role_id));
 
 create index dps_rolfldchldrole on dps_rolefold_chld (role_id);
--- Adding the previous password information
 
 create table dps_user_prevpwd (
 	id	varchar(40)	not null,
@@ -896,14 +802,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: DPS/sql/db_components/mysql/logging_ddl.sql
 
 
 
---  @version $Id: //product/DPS/version/10.0.2/templates/DPS/sql/logging_ddl.xml#2 $$Change: 635969 $
--- This file contains create table statements needed to configure your database for use with the DPS logging/reporting subsystem.This script will create tables and indexes associated with the newlogging and reporting subsystem. To initialize these tables run thelogging_init.sql script.
--- Tables for storing logging data for reports
 
 create table dps_event_type (
 	id	integer	not null,
@@ -1015,40 +916,6 @@ create table dps_log_id (
 commit;
 
 
-
---------------------------------------------------------------------------
--- Source file for next block: DPS/sql/db_components/mysql/logging_init.sql
-
-
-
---  @version $Id: //product/DPS/version/10.0.2/templates/DPS/sql/logging_init.xml#2 $$Change: 635969 $
--- This file contains SQL statements which will initialize theDPS logging/reporting tables.
--- Set names of the default user event types, and initialize the log entry id counters
-
-	START TRANSACTION;
-	INSERT INTO dps_event_type (id, name) VALUES (0, 'newsession');
-	INSERT INTO dps_event_type (id, name) VALUES (1, 'sessionexpiration');
-	INSERT INTO dps_event_type (id, name) VALUES (2, 'login');
-	INSERT INTO dps_event_type (id, name) VALUES (3, 'registration');
-	INSERT INTO dps_event_type (id, name) VALUES (4, 'logout');
-	INSERT INTO dps_log_id (tablename, nextid) VALUES ('dps_user_event', 0);
-	INSERT INTO dps_log_id (tablename, nextid) VALUES ('dps_request', 0);
-	INSERT INTO dps_log_id (tablename, nextid) VALUES ('dps_con_req', 0);
-	COMMIT;
-        
-commit;
-
-
-
---------------------------------------------------------------------------
--- Source file for next block: DPS/InternalUsers/sql/db_components/mysql/internal_user_ddl.sql
-
-
-
---  @version $Id: //product/DPS/version/10.0.2/templates/DPS/InternalUsers/sql/internal_user_ddl.xml#1 $$Change: 633540 $
--- This file contains create table statements, which will configure your database for use with the new DPS schema.
--- Add the organization definition.  It's out of place, but since dpi_user references it, it's got to be defined up here
-
 create table dpi_organization (
 	org_id	varchar(40)	not null,
 	name	nvarchar(254)	not null,
@@ -1058,8 +925,6 @@ create table dpi_organization (
 ,constraint dpi_orgnparnt_rg_f foreign key (parent_org) references dpi_organization (org_id));
 
 create index dpi_orgparent_org on dpi_organization (parent_org);
--- Default Profile User Template
--- Basic user info.  note: the password field size must be at a minimum 35 characters       if DPS stores a hash of the password and not the actual value.
 
 create table dpi_user (
 	id	varchar(40)	not null,
@@ -1212,7 +1077,6 @@ create table dpi_email_address (
 ,constraint dpi_email_addres_p primary key (mailing_id,idx)
 ,constraint dpi_emldmalng_d_f foreign key (mailing_id) references dpi_mailing (id));
 
--- Organizations/roles
 
 create table dpi_role (
 	role_id	varchar(40)	not null,
@@ -1250,7 +1114,6 @@ create table dpi_role_right (
 ,constraint dpi_rlrightrl_d_f foreign key (role_id) references dpi_role (role_id));
 
 create index dpi_access_rt_id on dpi_role_right (access_right_id);
--- Extending the user profile to include references to the roles that are assigned to this user
 
 create table dpi_user_roles (
 	user_id	varchar(40)	not null,
@@ -1336,7 +1199,6 @@ create table dpi_org_ancestors (
 ,constraint dpi_orgnorg_d_f foreign key (org_id) references dpi_organization (org_id));
 
 create index dpi_org_ancanc_org on dpi_org_ancestors (anc_org);
--- Adding the folder information
 
 create table dpi_folder (
 	folder_id	varchar(40)	not null,
@@ -1366,7 +1228,6 @@ create table dpi_rolefold_chld (
 ,constraint dpi_rolfrol_d_f foreign key (role_id) references dpi_role (role_id));
 
 create index dpi_rolfldchldrole on dpi_rolefold_chld (role_id);
--- Adding the previous password information
 
 create table dpi_user_prevpwd (
 	id	varchar(40)	not null,
@@ -1379,12 +1240,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: DSS/sql/db_components/mysql/business_process_rpt_ddl.sql
 
 
 
---  @version $Id: //product/DSS/version/10.0.2/templates/DSS/sql/business_process_rpt_ddl.xml#2 $$Change: 635969 $
 
 create table drpt_stage_reached (
 	id	varchar(40)	not null,
@@ -1401,12 +1259,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: DSS/sql/db_components/mysql/das_mappers.sql
 
 
 
---  @version $Id: //product/DSS/version/10.0.2/templates/DSS/sql/das_mappers.xml#2 $$Change: 635969 $
 
 create table dss_das_event (
 	id	varchar(32)	not null,
@@ -1426,12 +1281,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: DSS/sql/db_components/mysql/dps_mappers.sql
 
 
 
---  @version $Id: //product/DSS/version/10.0.2/templates/DSS/sql/dps_mappers.xml#2 $$Change: 635969 $
 
 create table dss_dps_event (
 	id	varchar(32)	not null,
@@ -1581,12 +1433,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: DSS/sql/db_components/mysql/dss_mappers.sql
 
 
 
---  @version $Id: //product/DSS/version/10.0.2/templates/DSS/sql/dss_mappers.xml#2 $$Change: 635969 $
 
 create table dss_audit_trail (
 	id	varchar(32)	not null,
@@ -1602,12 +1451,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: DSS/sql/db_components/mysql/markers_ddl.sql
 
 
 
---  @version $ $
 
 create table dps_markers (
 	marker_id	varchar(40)	not null,
@@ -1633,12 +1479,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: DSS/sql/db_components/mysql/profile_bp_markers_ddl.sql
 
 
 
---  @version $ $
 
 create table dss_user_bpmarkers (
 	marker_id	varchar(40)	not null,
@@ -1655,12 +1498,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: DSS/sql/db_components/mysql/scenario_ddl.sql
 
 
 
---  @version $Id: //product/DSS/version/10.0.2/templates/DSS/sql/scenario_ddl.xml#2 $$Change: 635969 $
 
 create table dss_coll_scenario (
 	id	varchar(25)	not null,
@@ -1671,7 +1511,6 @@ create table dss_coll_scenario (
 	state	varchar(16)	null
 ,constraint dss_coll_scenari_p primary key (id));
 
--- user_id references the user table but because it is a backwards referencewe cannot have a REFERENCES(dps_user) here.
 
 create table dss_ind_scenario (
 	id	varchar(25)	not null,
@@ -1834,7 +1673,6 @@ create table dss_del_seg_name (
 	segment_name	varchar(255)	null
 ,constraint dss_del_seg_name_p primary key (id,idx));
 
--- migration_info_id references the migration info table, but we don't have aREFERENCES dss_scen_mig_info(id) here, because we want to be ableto delete the migration info without deleting this row
 
 create table dss_migration (
 	id	varchar(25)	not null,
@@ -1860,7 +1698,6 @@ create table dss_xref (
 	reference_target	varchar(255)	null
 ,constraint dss_xref_p primary key (id));
 
--- user_id references the user table but because it is a backwards referencewe cannot have a REFERENCES(dps_user) here.
 
 create table dss_profile_slot (
 	id	varchar(25)	not null,
@@ -1898,12 +1735,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: Portal/paf/sql/install/mysql/alert_ddl.sql
 
 
 
---  @version $Id: //app/portal/version/10.0.2/paf/sql/alert_ddl.xml#2 $$Change: 635969 $
 
 create table alt_user (
 	id	nvarchar(40)	not null,
@@ -2016,12 +1850,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: Portal/paf/sql/install/mysql/membership_ddl.sql
 
 
 
---  @version $Id: //app/portal/version/10.0.2/paf/sql/membership_ddl.xml#2 $$Change: 635969 $
 
 create table mem_membership_req (
 	id	nvarchar(40)	not null,
@@ -2037,12 +1868,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: Portal/paf/sql/install/mysql/paf_mappers_ddl.sql
 
 
 
---  @version $Id: //app/portal/version/10.0.2/paf/sql/paf_mappers_ddl.xml#2 $$Change: 635969 $
 
 create table paf_page_visit (
 	id	nvarchar(40)	not null,
@@ -2112,12 +1940,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: Portal/paf/sql/install/mysql/portal_ddl.sql
 
 
 
---  @version $Id: //app/portal/version/10.0.2/paf/sql/portal_ddl.xml#2 $$Change: 635969 $
 
 create table paf_folder (
 	folder_id	nvarchar(40)	not null,
@@ -2414,7 +2239,6 @@ create table paf_region_def (
 ,constraint paf_regionhtbool check (height in (0,1))
 ,constraint paf_regionwithbool check (width in (0,1)));
 
--- Do not use REFERENCES paf_page(page_id) here because of circular references
 
 create table paf_region (
 	region_id	nvarchar(40)	not null,
@@ -2603,7 +2427,6 @@ create table paf_template (
 ,constraint paf_tmplate1_f foreign key (device_outputs) references paf_device_outputs (device_outputs_id));
 
 create index paf_tmpdodlix on paf_template (device_outputs);
--- Cannot have default_page REFERENCES paf_page(page_id) because this is circular
 
 create table paf_community (
 	community_id	nvarchar(40)	not null,
@@ -3010,12 +2833,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: DSS/InternalUsers/sql/db_components/mysql/internal_scenario_ddl.sql
 
 
 
---  @version $Id: //product/DSS/version/10.0.2/templates/DSS/InternalUsers/sql/internal_scenario_ddl.xml#2 $$Change: 635969 $
 
 create table dsi_coll_scenario (
 	id	varchar(25)	not null,
@@ -3026,7 +2846,6 @@ create table dsi_coll_scenario (
 	state	varchar(16)	null
 ,constraint dsi_coll_scenari_p primary key (id));
 
--- user_id references the user table but because it is a backwards referencewe cannot have a REFERENCES(dps_user) here.
 
 create table dsi_ind_scenario (
 	id	varchar(25)	not null,
@@ -3184,7 +3003,6 @@ create table dsi_del_seg_name (
 	segment_name	varchar(255)	null
 ,constraint dsi_del_seg_name_p primary key (id,idx));
 
--- migration_info_id references the migration info table, but we don't have aREFERENCES dsi_scen_mig_info(id) here, because we want to be ableto delete the migration info without deleting this row
 
 create table dsi_migration (
 	id	varchar(25)	not null,
@@ -3210,7 +3028,6 @@ create table dsi_xref (
 	reference_target	varchar(255)	null
 ,constraint dsi_xref_p primary key (id));
 
--- user_id references the user table but because it is a backwards referencewe cannot have a REFERENCES(dpi_user) here.
 
 create table dsi_profile_slot (
 	id	varchar(25)	not null,
@@ -3257,13 +3074,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: Publishing/base/sql/db_components/mysql/internal_user_profile_ddl.sql
 
 
 
---  @version $Id: //product/Publishing/version/10.0.2/pws/sql/xml/internal_user_profile_ddl.xml#2 $
---     The tables here are for the user profile extensions needed by EPublishing.  
 
 create table epub_int_user (
 	user_id	varchar(40)	not null,
@@ -3286,13 +3099,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: Publishing/base/sql/db_components/mysql/publishing_ddl.sql
 
 
 
---  @version $Id: //product/Publishing/version/10.0.2/pws/sql/xml/publishing_ddl.xml#2 $
---     The tables here are for the various parts of the epublishing system.  
 
 create table epub_history (
 	history_id	varchar(40)	not null,
@@ -3589,8 +3398,6 @@ create table epub_dep_err_parm (
 ,constraint epub_dep_er_pk primary key (deployment_id,sequence_num)
 ,constraint epub_dep_id_fk foreign key (deployment_id) references epub_deployment (deployment_id));
 
---     Log of deployments that have occured. See the epub repository  
---     definition file for more details  
 
 create table epub_dep_log (
 	log_id	varchar(40)	not null,
@@ -3613,13 +3420,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: Publishing/base/sql/db_components/mysql/versioned_file_repository_ddl.sql
 
 
 
---  @version $Id: //product/Publishing/version/10.0.2/pws/sql/xml/file_repository_ddl.xml#2 $
---     These tables are for the storing versioned files for Publishing  
 
 create table epub_file_folder (
 	asset_version	bigint	not null,
@@ -3683,13 +3486,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: Publishing/base/sql/db_components/mysql/versioned_process_data_ddl.sql
 
 
 
---  @version $Id: //product/Publishing/version/10.0.2/pws/sql/xml/process_data_ddl.xml#2 $
---     These tables are for the ProcessDataRepository  
 
 create table epub_process_data (
 	asset_version	bigint	not null,
@@ -3710,13 +3509,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: Publishing/base/sql/db_components/mysql/versionmanager_ddl.sql
 
 
 
---  @version $Id: //product/Publishing/version/10.0.2/pws/sql/xml/versionmanager_ddl.xml#2 $
---     These tables are for the version manager  
 
 create table avm_devline (
 	id	varchar(40)	not null,
@@ -3754,14 +3549,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: Publishing/base/sql/db_components/mysql/workflow_ddl.sql
 
 
 
---  @version $Id: //product/Publishing/version/10.0.2/pws/sql/xml/workflow_ddl.xml#2 $
---     Collective workflow process instances.  These instances represent  
---     all subjects (processes) going through the workflow process.  
 
 create table epub_coll_workflow (
 	id	varchar(40)	not null,
@@ -3773,9 +3563,6 @@ create table epub_coll_workflow (
 	num_retries	integer	null
 ,constraint epub_coll_wf_pkey primary key (id));
 
---     Individual workflow process instances.  Each of these instances  
---     represents a single subject (process) going through the workflow  
---     process.  
 
 create table epub_ind_workflow (
 	id	varchar(40)	not null,
@@ -3790,12 +3577,6 @@ create table epub_ind_workflow (
 ,constraint epub_ind_wf_fkey foreign key (process_id) references epub_process (process_id));
 
 create index epub_indworkflow_x on epub_ind_workflow (process_id);
---     Indices are needed on these tables to prevent table locks from being  
---     acquired.  The primary key indices do not prevent this since they  
---     are on multiple keys.  
--- 
---     String context variables associated with individual workflow  
---     process instances.  
 
 create table epub_workflow_strs (
 	id	varchar(40)	not null,
@@ -3804,8 +3585,6 @@ create table epub_workflow_strs (
 ,constraint epub_wf_str_pkey primary key (id,tag)
 ,constraint epub_wf_str_fkey foreign key (id) references epub_ind_workflow (id));
 
---     Boolean context variables associated with individual workflow  
---     process instances.  
 
 create table epub_workflow_bls (
 	id	varchar(40)	not null,
@@ -3814,8 +3593,6 @@ create table epub_workflow_bls (
 ,constraint epub_wf_bl_pkey primary key (id,tag)
 ,constraint epub_wf_bl_fkey foreign key (id) references epub_ind_workflow (id));
 
---     Long context variables associated with individual workflow process  
---     instances.  
 
 create table epub_workflow_lngs (
 	id	varchar(40)	not null,
@@ -3824,8 +3601,6 @@ create table epub_workflow_lngs (
 ,constraint epub_wf_lng_pkey primary key (id,tag)
 ,constraint epub_wf_lng_fkey foreign key (id) references epub_ind_workflow (id));
 
---     Double context variables associated with individual workflow  
---     process instances.  
 
 create table epub_workflow_dbls (
 	id	varchar(40)	not null,
@@ -3834,8 +3609,6 @@ create table epub_workflow_dbls (
 ,constraint epub_wf_dbl_pkey primary key (id,tag)
 ,constraint epub_wf_dbl_fkey foreign key (id) references epub_ind_workflow (id));
 
---     Date context variables associated with individual workflow process  
---     instances.  
 
 create table epub_workflow_dats (
 	id	varchar(40)	not null,
@@ -3844,8 +3617,6 @@ create table epub_workflow_dats (
 ,constraint epub_wf_dat_pkey primary key (id,tag)
 ,constraint epub_wf_dat_fkey foreign key (id) references epub_ind_workflow (id));
 
---     Repository item context variables associated with individual   
---     workflow process instances.  
 
 create table epub_workflow_ris (
 	id	varchar(40)	not null,
@@ -3854,8 +3625,6 @@ create table epub_workflow_ris (
 ,constraint epub_wf_ri_pkey primary key (id,tag)
 ,constraint epub_wf_ri_fkey foreign key (id) references epub_ind_workflow (id));
 
---     Virtual file context variables associated with individual   
---     workflow process instances.  
 
 create table epub_workflow_vfs (
 	id	varchar(40)	not null,
@@ -3864,8 +3633,6 @@ create table epub_workflow_vfs (
 ,constraint epub_wf_vf_pkey primary key (id,tag)
 ,constraint epub_wf_vf_fkey foreign key (id) references epub_ind_workflow (id));
 
---     Workflow infos.  Each of these infos corresponds to a workflow  
---     process definition created via the ACC UI.  
 
 create table epub_workflow_info (
 	id	varchar(40)	not null,
@@ -3900,8 +3667,6 @@ create table epub_wf_mg_inf_seg (
 ,constraint epub_wf_mginfs_pk primary key (id,idx)
 ,constraint epub_wf_mginfs_fk foreign key (id) references epub_wf_mig_info (id));
 
---     Workflow template infos.  Each of these infos corresponds to a  
---     workflow template process definition created via the ACC UI.  
 
 create table epub_wf_templ_info (
 	id	varchar(40)	not null,
@@ -3913,7 +3678,6 @@ create table epub_wf_templ_info (
 	wdl	longvarbinary	null
 ,constraint epub_tl_info_pkey primary key (id));
 
---     Pending collective transitions associated with workflow processes.  
 
 create table epub_wf_coll_trans (
 	id	varchar(40)	not null,
@@ -3932,7 +3696,6 @@ create table epub_wf_coll_trans (
 ,constraint epub_wf_ctran_fkey foreign key (coll_workflow_id) references epub_coll_workflow (id));
 
 create index epub_wfcolltrans_x on epub_wf_coll_trans (coll_workflow_id);
---     Pending individual transitions associated with workflow processes.  
 
 create table epub_wf_ind_trans (
 	id	varchar(40)	not null,
@@ -3946,7 +3709,6 @@ create table epub_wf_ind_trans (
 	message_bean	longvarbinary	null
 ,constraint epub_wf_itran_pkey primary key (id));
 
---     Pending deletions associated with workflow processes.  
 
 create table epub_wf_deletion (
 	id	varchar(40)	not null,
@@ -3962,7 +3724,6 @@ create table epub_wf_del_segs (
 ,constraint epub_wf_delsg_pkey primary key (id,idx)
 ,constraint epub_wf_delsg_fkey foreign key (id) references epub_wf_deletion (id));
 
---     Pending migrations associated with workflow processes.  
 
 create table epub_wf_migration (
 	id	varchar(40)	not null,
@@ -3980,8 +3741,6 @@ create table epub_wf_mig_segs (
 ,constraint epub_wf_migsg_pkey primary key (id,idx)
 ,constraint epub_wf_migsg_fkey foreign key (id) references epub_wf_migration (id));
 
---     Table that keeps track of how the various workflow process manager  
---     servers are classified.  
 
 create table epub_wf_server_id (
 	server_id	varchar(40)	not null,
@@ -3992,13 +3751,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: DAS/Versioned/sql/db_components/mysql/versioned_seo_ddl.sql
 
 
 
---     @version $Id: //product/DAS/version/10.0.2/templates/DAS/sql/seo_ddl.xml#2 $  
--- Table for seo-tag repository item
 
 create table das_seo_tag (
 	asset_version	bigint	not null,
@@ -4030,13 +3785,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: DAS/Versioned/sql/db_components/mysql/versioned_site_ddl.sql
 
 
 
---  @version $Id: //product/DAS/version/10.0.2/templates/DAS/sql/site_ddl.xml#2 $$Change: 635969 $
--- This file contains create table statements, which will configureyour database for use MultiSite
 
 create table site_template (
 	id	varchar(40)	not null,
@@ -4127,13 +3878,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: DPS/Versioned/sql/db_components/mysql/versioned_personalization_ddl.sql
 
 
 
---  @version $Id: //product/DPS/version/10.0.2/templates/DPS/sql/personalization_ddl.xml#2 $$Change: 635969 $
--- This file contains create table statements needed to configure your database for personzalization assets.This script will create tables and indexes associated with the user segment list manager.
 
 create table dps_seg_list (
 	asset_version	bigint	not null,
@@ -4182,12 +3929,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: DCS/sql/db_components/mysql/commerce_user.sql
 
 
 
---  @version $Id: //product/DCS/version/10.0.2/templates/DCS/sql/commerce_user.xml#2 $$Change: 635969 $
 
 create table dps_credit_card (
 	id	varchar(40)	not null,
@@ -4231,12 +3975,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: DCS/sql/db_components/mysql/custom_catalog_user_ddl.sql
 
 
 
---  @version $Id: //product/DCS/version/10.0.2/templates/DCS/sql/custom_catalog_user_ddl.xml#2 $$Change: 635969 $
 
 create table dcs_user_catalog (
 	user_id	varchar(40)	not null,
@@ -4247,12 +3988,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: DCS/sql/db_components/mysql/inventory_ddl.sql
 
 
 
---  @version $Id: //product/DCS/version/10.0.2/templates/DCS/sql/inventory_ddl.xml#2 $$Change: 635969 $
 
 create table dcs_inventory (
 	inventory_id	varchar(40)	not null,
@@ -4281,13 +4019,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: DCS/sql/db_components/mysql/user_promotion_ddl.sql
 
 
 
---  @version $Id: //product/DCS/version/10.0.2/templates/DCS/sql/user_promotion_ddl.xml#2 $$Change: 635969 $
--- The promotion line was commented out to allow the profile and promotion tables to be delinked. The promotion tables are intended to be used as a "read-only" table on the production servers. The promotion (and product catalog) tables are promoted and made active on the production system through copy-switch. In doing so, the profile tables and the promotion tables cannot be in the same database, and therefore we must remove this referece. However if you are not going to use copy-switch for the promotions, then you can add this reference back in.     promotion			VARCHAR(40)		NOT NULL	REFERENCES dcs_promotion(promotion_id),
 
 create table dcs_usr_promostat (
 	status_id	varchar(40)	not null,
@@ -4308,7 +4042,6 @@ create table dcs_usr_actvpromo (
 ,constraint dcs_usr_actvprom_p primary key (id,sequence_num));
 
 create index usr_actvprm_id_idx on dcs_usr_actvpromo (id);
--- The promotion_id column was commented out to allow the profile and promotion tables to be delinked. The promotion tables are intended to be used as a "read-only" table on the production servers. The promotion (and product catalog) tables are promoted and made active on the production system through copy-switch. In doing so, the profile tables and the promotion tables cannot be in the same database, and therefore we must remove this referece. However if you are not going to use copy-switch for the promotions, then you can add this reference back in.        promotion_id                    VARCHAR(40)             NOT NULL        REFERENCES dcs_promotion(promotion_id),
 
 create table dcs_usr_usedpromo (
 	id	varchar(40)	not null,
@@ -4321,12 +4054,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: DCS/sql/db_components/mysql/order_ddl.sql
 
 
 
---  @version $Id: //product/DCS/version/10.0.2/templates/DCS/sql/order_ddl.xml#2 $$Change: 635969 $
 
 create table dcspp_order (
 	order_id	varchar(40)	not null,
@@ -4975,12 +4705,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: DCS/sql/db_components/mysql/user_giftlist_ddl.sql
 
 
 
---  @version $Id: //product/DCS/version/10.0.2/templates/DCS/sql/user_giftlist_ddl.xml#2 $$Change: 635969 $
 
 create table dcs_giftlist (
 	id	varchar(40)	not null,
@@ -5070,12 +4797,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: DCS/sql/db_components/mysql/dcs_mappers.sql
 
 
 
---  @version $Id: //product/DCS/version/10.0.2/templates/DCS/sql/dcs_mappers.xml#2 $$Change: 635969 $
 
 create table dcs_cart_event (
 	id	varchar(40)	not null,
@@ -5143,12 +4867,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: DCS/sql/db_components/mysql/order_markers_ddl.sql
 
 
 
---  @version $ $
 
 create table dcs_order_markers (
 	marker_id	varchar(40)	not null,
@@ -5181,12 +4902,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: DCS/AbandonedOrderServices/sql/db_components/mysql/abandoned_order_ddl.sql
 
 
 
--- $Id: //product/DCS/version/10.0.2/templates/DCS/AbandonedOrderServices/sql/abandoned_order_ddl.xml#1 $
 
 create table dcspp_ord_abandon (
 	abandonment_id	varchar(40)	not null,
@@ -5234,12 +4952,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: DCS/AbandonedOrderServices/sql/db_components/mysql/abandoned_order_views.sql
 
 
 
---  @version $Id: //product/DCS/version/10.0.2/templates/DCS/AbandonedOrderServices/sql/abandoned_order_views.xml#1 $$Change: 633540 $
 create view drpt_abandon_ord
 (abandonment_date,amount,converted)
 as
@@ -5256,12 +4971,9 @@ as
 
 commit;
 
---------------------------------------------------------------------------
--- Source file for next block: DCS/Versioned/sql/db_components/mysql/versioned_claimable_ddl.sql
 
 
 
---  @version $Id: //product/DCS/version/10.0.2/templates/DCS/sql/claimable_ddl.xml#2 $$Change: 635969 $
 
 create table dcspp_claimable (
 	asset_version	bigint	not null,
@@ -5346,14 +5058,6 @@ create table dcspp_coupon_info (
 commit;
 
 
-
---------------------------------------------------------------------------
--- Source file for next block: DCS/Versioned/sql/db_components/mysql/versioned_commerce_site_ddl.sql
-
-
-
--- This file contains create table statements, which will configureyour database for use MultiSite
-
 create table dcs_site (
 	asset_version	bigint	not null,
 	id	varchar(40)	not null,
@@ -5364,14 +5068,6 @@ create table dcs_site (
 
 commit;
 
-
-
---------------------------------------------------------------------------
--- Source file for next block: DCS/Versioned/sql/db_components/mysql/versioned_priceLists_ddl.sql
-
-
-
---  @version $Id: //product/DCS/version/10.0.2/templates/DCS/sql/priceLists_ddl.xml#2 $$Change: 635969 $
 
 create table dcs_price_list (
 	asset_version	bigint	not null,
@@ -5506,12 +5202,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: DCS/Versioned/sql/db_components/mysql/versioned_product_catalog_ddl.sql
 
 
 
---  @version $Id: //product/DCS/version/10.0.2/templates/DCS/sql/product_catalog_ddl.xml#2 $$Change: 635969 $
 
 create table dcs_folder (
 	asset_version	bigint	not null,
@@ -6027,12 +5720,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: DCS/Versioned/sql/db_components/mysql/versioned_custom_catalog_ddl.sql
 
 
 
---  @version $Id: //product/DCS/version/10.0.2/templates/DCS/sql/custom_catalog_ddl.xml#1 $$Change: 633540 $
 
 create table dcs_catalog (
 	asset_version	bigint	not null,
@@ -6364,13 +6054,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: DCS/Versioned/sql/db_components/mysql/versioned_promotion_ddl.sql
 
 
 
---  @version $Id: //product/DCS/version/10.0.2/templates/DCS/sql/promotion_ddl.xml#2 $$Change: 635969 $
--- Add the DCS_PRM_FOLDER table, promotionFolder
 
 create table dcs_prm_folder (
 	asset_version	bigint	not null,
@@ -6549,13 +6235,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: WebUI/sql/db_components/mysql/viewmapping_ddl.sql
 
 
 
---     @version $Id: //product/WebUI/version/10.0.2/src/sql/viewmapping_ddl.xml#2 $$Change: 635969 $  
---     ItemMapping    Mapps a component path + item name to that item's views.  
 
 create table vmap_im (
 	id	varchar(40)	not null,
@@ -6569,7 +6251,6 @@ create table vmap_im (
 ,constraint vmap_im_pk primary key (id));
 
 create index vmap_im_item on vmap_im (item_path,item_name,name);
---     FormHandler  
 
 create table vmap_fh (
 	id	varchar(40)	not null,
@@ -6578,7 +6259,6 @@ create table vmap_fh (
 	component_path	varchar(1024)	null
 ,constraint vmap_fh_pk primary key (id));
 
---     MapMode  
 
 create table vmap_mode (
 	id	varchar(40)	not null,
@@ -6586,7 +6266,6 @@ create table vmap_mode (
 	description	varchar(1024)	null,
 	fallback_id	varchar(40)	null);
 
---     ItemViewMapping  
 
 create table vmap_ivm (
 	id	varchar(40)	not null,
@@ -6596,7 +6275,6 @@ create table vmap_ivm (
 	view_id	varchar(40)	null
 ,constraint vmap_ivm_pk primary key (id));
 
---     ItemMapping -> view ItemViewMapping relation  
 
 create table vmap_im2ivm_rel (
 	item_id	varchar(40)	not null,
@@ -6604,7 +6282,6 @@ create table vmap_im2ivm_rel (
 	view_id	varchar(40)	not null
 ,constraint vmap_im2ivm_pk primary key (item_id,sequence_num));
 
---     ItemView  
 
 create table vmap_iv (
 	id	varchar(40)	not null,
@@ -6616,11 +6293,10 @@ create table vmap_iv (
 	mode_id	varchar(40)	not null
 ,constraint vmap_iv_pk primary key (id));
 
---     PropertyView  
 
 create table vmap_pv (
 	id	varchar(40)	not null,
-	name	nvarchar(64)	not null,
+	name	nvarchar(128)	not null,
 	type	varchar(128)	not null,
 	component_type	varchar(128)	null,
 	description	nvarchar(1024)	not null,
@@ -6635,14 +6311,12 @@ create table vmap_pv (
 ,constraint vmap_pv_pk primary key (id));
 
 create index vmap_pv_unique on vmap_pv (type,name,mode_id,is_component);
---     The relationship between an ItemViewMapping and its    PropertyViewMapping items  
 
 create table vmap_ivm2pvm_rel (
 	ivm_id	varchar(40)	not null,
 	pvm_id	varchar(40)	not null,
 	name	varchar(64)	not null);
 
---     PropertyViewMapping  
 
 create table vmap_pvm (
 	id	varchar(40)	not null,
@@ -6651,14 +6325,12 @@ create table vmap_pvm (
 	cpview_id	varchar(40)	null
 ,constraint vmap_pvm_pk primary key (id));
 
---     AttributeValue  
 
 create table vmap_attrval (
 	id	varchar(40)	not null,
 	attr_value	varchar(2048)	null
 ,constraint vmap_attrval_pk primary key (id));
 
---     A table that provides the mapping between mapping items    and AttributeValue items  
 
 create table vmap_attrval_rel (
 	mapper_id	varchar(40)	not null,
@@ -6666,7 +6338,6 @@ create table vmap_attrval_rel (
 	name	varchar(64)	not null
 ,constraint vmap_attvl_rel_pk primary key (mapper_id,attribute_id));
 
---     A table that provides the mapping between mapping items    and component AttributeValue items  
 
 create table vmap_cattrval_rel (
 	mapper_id	varchar(40)	not null,
@@ -6674,7 +6345,6 @@ create table vmap_cattrval_rel (
 	name	varchar(64)	not null
 ,constraint vmap_ctvl_rel_pk primary key (mapper_id,attribute_id));
 
---     ItemView -> ItemViewAttributeDefinition relation  
 
 create table vmap_iv2ivad_rel (
 	view_id	varchar(40)	not null,
@@ -6682,7 +6352,6 @@ create table vmap_iv2ivad_rel (
 	name	varchar(64)	not null
 ,constraint vmap_iv2iva_pk primary key (view_id,name));
 
---     ItemViewAttributeDefinition  
 
 create table vmap_ivattrdef (
 	id	varchar(40)	not null,
@@ -6690,14 +6359,12 @@ create table vmap_ivattrdef (
 	default_value	varchar(1024)	null
 ,constraint vmap_ivatdef_pk primary key (id));
 
---     PropertyView -> PropertyViewAttributeDefinition relation  
 
 create table vmap_pv2pvad_rel (
 	view_id	varchar(40)	not null,
 	attr_id	varchar(40)	not null,
 	name	varchar(64)	not null);
 
---     PropertyViewAttributeDefinition  
 
 create table vmap_pvattrdef (
 	id	varchar(40)	not null,
@@ -6709,12 +6376,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: CommerceReferenceStore/Store/EStore/sql/db_components/mysql/crs_profile_ddl.sql
 
 
 
--- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.0.2/EStore/sql/ddlgen/crs_profile_ddl.xml#2 $$Change: 635969 $
 
 create table crs_user (
 	user_id	varchar(40)	not null,
@@ -6765,12 +6429,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: CommerceReferenceStore/Store/EStore/sql/db_components/mysql/crs_order_ddl.sql
 
 
 
--- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.0.2/EStore/sql/ddlgen/crs_order_ddl.xml#2 $$Change: 635969 $
 
 create table crs_order (
 	order_id	varchar(40)	not null,
@@ -6850,12 +6511,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: CommerceReferenceStore/Store/EStore/Versioned/sql/db_components/mysql/versioned_catalog_ddl.sql
 
 
 
--- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.0.2/EStore/sql/ddlgen/catalog_ddl.xml#2 $$Change: 635969 $
 
 create table crs_sku (
 	asset_version	numeric(19)	not null,
@@ -7050,12 +6708,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: CommerceReferenceStore/Store/EStore/Versioned/sql/db_components/mysql/versioned_store_ddl.sql
 
 
 
--- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.0.2/EStore/sql/ddlgen/store_ddl.xml#1 $$Change: 633540 $
 
 create table crs_store_location (
 	asset_version	numeric(19)	not null,
@@ -7088,12 +6743,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: CommerceReferenceStore/Store/EStore/Versioned/sql/db_components/mysql/versioned_multisite_ddl.sql
 
 
 
--- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.0.2/EStore/sql/ddlgen/multisite_ddl.xml#2 $$Change: 635969 $
 
 create table crs_site_attribute (
 	asset_version	numeric(19)	not null,
@@ -7156,12 +6808,9 @@ commit;
 
 
 
---------------------------------------------------------------------------
--- Source file for next block: CommerceReferenceStore/Store/EStore/Versioned/sql/db_components/mysql/versioned_storetext_ddl.sql
 
 
 
--- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.0.2/EStore/sql/ddlgen/storetext_ddl.xml#2 $$Change: 635969 $
 
 create table crs_store_text (
 	asset_version	numeric(19)	not null,
