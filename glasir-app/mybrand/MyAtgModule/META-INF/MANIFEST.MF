@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-ATG-Required: mybrand Store.EStore
+ATG-Required: mybrand Store.Storefront
 ATG-Config-Path: config
 ATG-Product: MyApplication
 ATG-Web-Module: j2ee-apps/MyApplication/store.war
