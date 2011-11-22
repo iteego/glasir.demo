@@ -1,0 +1,2 @@
+allowAllAccess=true
+acl=Admin$role$administrators-group:read,write,list,destroy,read_owner,write_owner,read_acl,write_acl;Admin$role$everyone-group:read,list
