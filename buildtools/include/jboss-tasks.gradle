@@ -86,7 +86,7 @@ def startJBossInstance(serverName, modules, debug=false, debugPort=8787, hsqlPor
     println "ERROR: Can not start jboss for non-existent server: $serverDir"
   }
   
-  javaexecasync {
+  javaExecAsync {
     main = "org.hsqldb.util.MainInvoker"
     classpath = files("$jbossRoot/server/$adminServerName/lib/hsqldb.jar","$jbossRoot/bin/run.jar") 
     workingDir = "$serverDir"
