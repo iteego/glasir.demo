@@ -9,11 +9,11 @@ task startJBossStore << {
 }
 
 task launchDevStore << {
-    startJBossInstance(storeServerName, "env.storefront.dev", true, 8787).execHandle.waitForFinish()
+    startJBossInstance(storeServerName, "env.storefront.dev", true, 8787, 9001).execHandle.waitForFinish()
 }
 
 task launchDevAdmin << {
-    startJBossInstance(adminServerName, "env.admin.dev", true, 9797).execHandle.waitForFinish()
+    startJBossInstance(adminServerName, "env.admin.dev", true, 9797, 9002).execHandle.waitForFinish()
 }
 
 
@@ -65,7 +65,7 @@ task shutdownDevAdmin << {
 * environment is one of: 'sandbox', 'development', etc
 * serverType is one of: 'store', 'admin', 'fulfillment', etc
 */
-def startJBossInstance(serverName, modules, debug=false, debugPort=8787) {
+def startJBossInstance(serverName, modules, debug=false, debugPort=8787, hsqlPort=9001) {
   println "** startJBossInstance: serverName=$serverName, modules=$modules"
   def serverDir = file("$jbossRoot/server/$serverName")
   if (!serverDir.exists()) {
@@ -73,13 +73,34 @@ def startJBossInstance(serverName, modules, debug=false, debugPort=8787) {
   }
   
   javaexecasync {
-    main = "org.jboss.Main"
-    classpath = files("$jbossRoot/bin/run.jar") 
+    main = "org.hsqldb.util.MainInvoker"
+    classpath = files("$jbossRoot/server/$adminServerName/lib/hsqldb.jar","$jbossRoot/bin/run.jar") 
     workingDir = "$serverDir"
+    args "org.jboss.Main"
     args "-b"
     args "0.0.0.0"
     args "-c"
     args serverName
+    args ""
+    args "org.hsqldb.server.Server"
+    args "--port"
+    args "$hsqlPort"
+    args "-database.0"
+    args "file:atg_core"
+    args "-dbname.0"
+    args "atg_core"
+    args "-database.1"
+    args "file:atg_cat_a"
+    args "-dbname.1"
+    args "atg_cat_a"
+    args "-database.2"
+    args "file:atg_cat_b"
+    args "-dbname.2"
+    args "atg_cat_b"
+    args "-database.3"
+    args "file:atg_pub"
+    args "-dbname.3"
+    args "atg_pub"
 
     systemProperty "atg.dynamo.server.name", serverName
     systemProperty "atg.dynamo.modules",     modules // denna var utkommenterad tidigare 
