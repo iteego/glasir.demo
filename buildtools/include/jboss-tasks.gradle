@@ -59,6 +59,20 @@ task shutdownDevAdmin << {
 }
 
 
+/*
+Starts a hsql instance in the gradle java process. It starts the instance 
+in a mode where the connecting url creates the database if it doesn't already 
+exists. Example connection URLS:
+ 
+jdbc:hsqldb:hsql://localhost/myalias;file:C:/files/mydatabase
+jdbc:hsqldb:hsql://localhost/myalias;mem:test;sql.enforce_types=true
+jdbc:hsqldb:hsql://localhost/myalias;filepath=file:C:/files/mydatabase
+*/
+task startInProcessDatabase(type: HsqlDb) {
+  port 9001
+  host "0.0.0.0"  
+}
+
 /******************************************************************************
 * Utility methods for dealing with local jboss start/stop
 * 
@@ -69,7 +83,7 @@ def startJBossInstance(serverName, modules, debug=false, debugPort=8787, hsqlPor
   println "** startJBossInstance: serverName=$serverName, modules=$modules"
   def serverDir = file("$jbossRoot/server/$serverName")
   if (!serverDir.exists()) {
-    println "ERROR: Can start jboss for non-existent server: $serverDir"
+    println "ERROR: Can not start jboss for non-existent server: $serverDir"
   }
   
   javaexecasync {
