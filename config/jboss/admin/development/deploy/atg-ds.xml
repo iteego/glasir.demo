@@ -6,24 +6,9 @@
         <jndi-name>ATGProductionDS</jndi-name>
         <track-connection-by-tx/>
         <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
-        <xa-datasource-class>org.hsqldb.jdbc.pool.JDBCXADataSource</xa-datasource-class>
-        <xa-datasource-property name="Url">jdbc:hsqldb:hsql://localhost:9001/atg_core;ifxeists=true;check_props=true</xa-datasource-property>
-        <xa-datasource-property name="User">sa</xa-datasource-property>
-        <xa-datasource-property name="Password"></xa-datasource-property>
-        <min-pool-size>5</min-pool-size>
-        <max-pool-size>20</max-pool-size>
-        <idle-timeout-minutes>10</idle-timeout-minutes>
-        <prepared-statement-cache-size>32</prepared-statement-cache-size>
-    </xa-datasource>
-
-    <xa-datasource>
-    	<!-- core hsqldb mem -->
-        <jndi-name>ATGProductionDS-mem</jndi-name>
-        <track-connection-by-tx/>
-        <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
-        <xa-datasource-class>org.hsqldb.jdbc.pool.JDBCXADataSource</xa-datasource-class>
-        <!--<xa-datasource-property name="Url">jdbc:hsqldb:mem:atg_core;sql.syntax_ora=true;check_props=true</xa-datasource-property>-->
-        <xa-datasource-property name="Url">jdbc:hsqldb:mem:atg_core;check_props=true</xa-datasource-property>
+        <xa-datasource-class>org.hsqldb.jdbc.pool.JDBCXADataSource</xa-datasource-class>        
+        <xa-datasource-property name="Url">jdbc:hsqldb:hsql://localhost/atg_core;mem:atg_core</xa-datasource-property>
+        <!--xa-datasource-property name="Url">jdbc:hsqldb:file:atg_core;check_props=true</xa-datasource-property-->
         <xa-datasource-property name="User">sa</xa-datasource-property>
         <xa-datasource-property name="Password"></xa-datasource-property>
         <min-pool-size>5</min-pool-size>
@@ -39,7 +24,8 @@
         <track-connection-by-tx/>
         <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
         <xa-datasource-class>org.hsqldb.jdbc.pool.JDBCXADataSource</xa-datasource-class>
-        <xa-datasource-property name="Url">jdbc:hsqldb:hsql://localhost:9001/atg_cat_a;ifxeists=true;check_props=true</xa-datasource-property>
+        <xa-datasource-property name="Url">jdbc:hsqldb:hsql://localhost/atg_cat_a;mem:atg_cat_a</xa-datasource-property>
+        <!--xa-datasource-property name="Url">jdbc:hsqldb:file:atg_cat_a;check_props=true</xa-datasource-property-->
         <xa-datasource-property name="User">sa</xa-datasource-property>
         <xa-datasource-property name="Password"></xa-datasource-property>
         <min-pool-size>5</min-pool-size>
@@ -47,36 +33,6 @@
         <idle-timeout-minutes>10</idle-timeout-minutes>
         <prepared-statement-cache-size>32</prepared-statement-cache-size>
     </xa-datasource>
-
-    <xa-datasource>
-    	<!-- cat a hsqldb  -->
-        <jndi-name>ATGCatalogDS_A-mem</jndi-name>
-        <track-connection-by-tx/>
-        <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
-        <xa-datasource-class>org.hsqldb.jdbc.pool.JDBCXADataSource</xa-datasource-class>
-        <xa-datasource-property name="Url">jdbc:hsqldb:mem:atg_cat_a;sql.syntax_ora=true;check_props=true</xa-datasource-property>
-        <xa-datasource-property name="User">sa</xa-datasource-property>
-        <xa-datasource-property name="Password"></xa-datasource-property>
-        <min-pool-size>5</min-pool-size>
-        <max-pool-size>20</max-pool-size>
-        <idle-timeout-minutes>10</idle-timeout-minutes>
-        <prepared-statement-cache-size>32</prepared-statement-cache-size>
-    </xa-datasource>
-
-    <xa-datasource>
-        <jndi-name>ATGCatalogDS_A-h2</jndi-name>
-        <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
-        <track-connection-by-tx/>
-        <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
-        <xa-datasource-property name="URL">jdbc:h2:mem:atg_cat_a;DB_CLOSE_ON_EXIT=FALSE;MODE=MYSQL</xa-datasource-property>
-        <xa-datasource-property name="User">sa</xa-datasource-property>
-        <xa-datasource-property name="Password"></xa-datasource-property>
-        <min-pool-size>5</min-pool-size>
-        <max-pool-size>20</max-pool-size>
-        <idle-timeout-minutes>0</idle-timeout-minutes>
-        <prepared-statement-cache-size>32</prepared-statement-cache-size>
-    </xa-datasource>
-
 
 
     <xa-datasource>
@@ -85,22 +41,8 @@
         <track-connection-by-tx/>
         <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
         <xa-datasource-class>org.hsqldb.jdbc.pool.JDBCXADataSource</xa-datasource-class>
-        <xa-datasource-property name="Url">jdbc:hsqldb:hsql://localhost:9001/atg_cat_b;ifxeists=true;check_props=true</xa-datasource-property>
-        <xa-datasource-property name="User">sa</xa-datasource-property>
-        <xa-datasource-property name="Password"></xa-datasource-property>
-        <min-pool-size>5</min-pool-size>
-        <max-pool-size>20</max-pool-size>
-        <idle-timeout-minutes>10</idle-timeout-minutes>
-        <prepared-statement-cache-size>32</prepared-statement-cache-size>
-    </xa-datasource>
-
-    <xa-datasource>
-    	<!-- cat a hsqldb file -->
-        <jndi-name>ATGCatalogDS_B-mem</jndi-name>
-        <track-connection-by-tx/>
-        <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
-        <xa-datasource-class>org.hsqldb.jdbc.pool.JDBCXADataSource</xa-datasource-class>
-        <xa-datasource-property name="Url">jdbc:hsqldb:mem:atg_cat_b;sql.syntax_ora=true;check_props=true</xa-datasource-property>
+        <xa-datasource-property name="Url">jdbc:hsqldb:hsql://localhost/atg_cat_b;mem:atg_cat_b</xa-datasource-property>
+        <!--xa-datasource-property name="Url">jdbc:hsqldb:file:atg_cat_b;check_props=true</xa-datasource-property-->
         <xa-datasource-property name="User">sa</xa-datasource-property>
         <xa-datasource-property name="Password"></xa-datasource-property>
         <min-pool-size>5</min-pool-size>
@@ -115,7 +57,8 @@
         <track-connection-by-tx/>
         <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
         <xa-datasource-class>org.hsqldb.jdbc.pool.JDBCXADataSource</xa-datasource-class>
-        <xa-datasource-property name="Url">jdbc:hsqldb:file:atg_pub;check_props=true</xa-datasource-property>
+        <xa-datasource-property name="Url">jdbc:hsqldb:hsql://localhost/atg_pub;mem:atg_pub</xa-datasource-property>
+        <!--xa-datasource-property name="Url">jdbc:hsqldb:file:atg_pub;check_props=true</xa-datasource-property-->
         <xa-datasource-property name="User">sa</xa-datasource-property>
         <xa-datasource-property name="Password"></xa-datasource-property>
         <min-pool-size>5</min-pool-size>
@@ -123,51 +66,5 @@
         <idle-timeout-minutes>10</idle-timeout-minutes>
         <prepared-statement-cache-size>32</prepared-statement-cache-size>
     </xa-datasource>
-
-    <xa-datasource>
-    	<!-- csc -->
-        <jndi-name>ATGAgentDS</jndi-name>
-        <track-connection-by-tx/>
-        <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
-        <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
-        <xa-datasource-property name="URL">jdbc:h2:mem:atg_agent;DB_CLOSE_ON_EXIT=FALSE;MODE=MySQL</xa-datasource-property>
-        <xa-datasource-property name="User">sa</xa-datasource-property>
-        <xa-datasource-property name="Password"></xa-datasource-property>
-        <min-pool-size>5</min-pool-size>
-        <max-pool-size>20</max-pool-size>
-        <idle-timeout-minutes>0</idle-timeout-minutes>
-        <prepared-statement-cache-size>32</prepared-statement-cache-size>
-    </xa-datasource>
-
-    <xa-datasource>
-    	<!-- reporting -->
-        <jndi-name>ATGDataWarehouseDS</jndi-name>
-        <track-connection-by-tx/>
-        <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
-        <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
-        <xa-datasource-property name="URL">jdbc:h2:mem:atg_dw;DB_CLOSE_ON_EXIT=FALSE;MODE=MySQL</xa-datasource-property>
-        <xa-datasource-property name="User">sa</xa-datasource-property>
-        <xa-datasource-property name="Password"></xa-datasource-property>
-        <min-pool-size>5</min-pool-size>
-        <max-pool-size>20</max-pool-size>
-        <idle-timeout-minutes>0</idle-timeout-minutes>
-        <prepared-statement-cache-size>32</prepared-statement-cache-size>
-    </xa-datasource>
-
-    <xa-datasource>
-    	<!-- loader, used with datawarehouse -->
-        <jndi-name>ATGLoaderDS</jndi-name>
-        <track-connection-by-tx/>
-        <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
-        <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
-        <xa-datasource-property name="URL">jdbc:h2:mem:atg_loader;DB_CLOSE_ON_EXIT=FALSE;MODE=MySQL</xa-datasource-property>
-        <xa-datasource-property name="User">sa</xa-datasource-property>
-        <xa-datasource-property name="Password"></xa-datasource-property>
-        <min-pool-size>5</min-pool-size>
-        <max-pool-size>20</max-pool-size>
-        <idle-timeout-minutes>0</idle-timeout-minutes>
-        <prepared-statement-cache-size>32</prepared-statement-cache-size>
-    </xa-datasource>
-
 
 </datasources>

@@ -17,15 +17,6 @@ task launchDevAdmin << {
 }
 
 
-/*
-task launchDevStore(type: Tail, dependsOn: [startJBossStore]) {
-  file      "$jbossRoot/server/$storeServerName/log/server.log"
-  file      "$jbossRoot/server/$storeServerName/log/boot.log"  
-  //failOn    "ERROR[ ]*\\["
-  //succeedOn "INFO[ ]*\\[org\\.jboss\\.bootstrap\\.microcontainer\\.ServerImpl\\] \\(main\\) JBoss \\(Microcontainer\\) \\[.*] Started in"
-  //postFailureTailSeconds = 2
-}*/
-
 task launchCiStore(type: Tail, dependsOn: [startJBossStore]) {
   file      "$jbossRoot/server/$storeServerName/log/server.log"
   file      "$jbossRoot/server/$storeServerName/log/boot.log"  
@@ -38,24 +29,15 @@ task launchCiStore(type: Tail, dependsOn: [startJBossStore]) {
 }
 
 task shutdownDevStore << {
-  stopJBossInstance(store)
+  stopJBossInstance(storeServerName)
 }
 
 task startJBossAdmin << {
   startJBossInstance(admin, "env.admin.dev", true, 9797)
 }
 
-task oldlaunchDevAdmin(type: Tail, dependsOn: [startJBossAdmin]) {
-  file      "$jbossRoot/server/$adminServerName/log/server.log"
-  file      "$jbossRoot/server/$adminServerName/log/boot.log"  
-  //failOn    "ERROR[ ]*\\["
-  //succeedOn "Nucleus running"
-  //postFailureTailSeconds = 2
-}
-
-
 task shutdownDevAdmin << {
-  stopJBossInstance(admin)
+  stopJBossInstance(adminServerName)
 }
 
 
@@ -68,10 +50,7 @@ jdbc:hsqldb:hsql://localhost/myalias;file:C:/files/mydatabase
 jdbc:hsqldb:hsql://localhost/myalias;mem:test;sql.enforce_types=true
 jdbc:hsqldb:hsql://localhost/myalias;filepath=file:C:/files/mydatabase
 */
-task startInProcessDatabase(type: HsqlDb) {
-  port 9001
-  host "0.0.0.0"  
-}
+task startDatabase(type: HsqlDb) {}
 
 
 /**
@@ -80,21 +59,21 @@ A new task for launching JBoss nodes with ATG settings...
 The below might potentially work...if we managed to publish to our artifactory repo 
 from ci.iteego.com...we have something weird going on there right now.
 */
-task newJBoss(type: RunAtgOnJBoss) {
+task newJBossStore(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
   jBossRoot     jbossRoot
   serverName    storeServerName
   modules       "env.storefront.dev"
 }
 
-task newJBossAsync(type: RunAtgOnJBoss) {
-  async         true
+task newJBossAdmin(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
+  //async         true
   jBossRoot     jbossRoot
-  serverName    storeServerName
-  modules       "env.storefront.dev"
+  serverName    adminServerName
+  modules       "env.admin.dev"
 }
 
-task testNewJBossAsync(type: Tail, dependsOn: [newJBossAsync]) {
-  file      "$jbossRoot/server/$storeServerName/log/console.log"
+task tail(type: Tail, dependsOn: [newJBossAdmin]) {
+  file "$jbossRoot/server/$adminServerName/log/console.log"
 }
 
 /******************************************************************************

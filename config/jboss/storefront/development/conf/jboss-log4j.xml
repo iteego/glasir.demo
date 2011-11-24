@@ -269,10 +269,8 @@
    <!-- ======================= -->
 
    <root>
-      <appender-ref ref="CONSOLE"/>
-      <appender-ref ref="FILE"/>
-      <!-- turn down the default log level as jboss otherwise pollutes the server startup log
-           with tons of DEBUG logging --> 
+      <appender-ref ref="CONSOLE" />
+      <appender-ref ref="FILE" />
       <priority value="INFO" />
    </root>
 
