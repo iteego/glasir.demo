@@ -73,6 +73,30 @@ task startInProcessDatabase(type: HsqlDb) {
   host "0.0.0.0"  
 }
 
+
+/**
+A new task for launching JBoss nodes with ATG settings...
+
+The below might potentially work...if we managed to publish to our artifactory repo 
+from ci.iteego.com...we have something weird going on there right now.
+*/
+task newJBoss(type: RunAtgOnJBoss) {
+  jBossRoot     jbossRoot
+  serverName    storeServerName
+  modules       "env.storefront.dev"
+}
+
+task newJBossAsync(type: RunAtgOnJBoss) {
+  async         true
+  jBossRoot     jbossRoot
+  serverName    storeServerName
+  modules       "env.storefront.dev"
+}
+
+task testNewJBossAsync(type: Tail, dependsOn: [newJBossAsync]) {
+  file      "$jbossRoot/server/$storeServerName/log/console.log"
+}
+
 /******************************************************************************
 * Utility methods for dealing with local jboss start/stop
 * 
