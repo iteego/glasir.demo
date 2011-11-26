@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
-ATG-Required: env.storefront
+ATG-Required: env.store glasir.db RL
 ATG-Config-Path: config
 

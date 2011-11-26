@@ -4,7 +4,7 @@ if it is in the "app/mybrand/h2" mode.
 
 1. 
 Edit the database connection settings in the file 
-"servers/jboss/storefront/development/deploy/atg-ds.xml"
+"servers/jboss/store/development/deploy/atg-ds.xml"
 
 2.
 Change the settings for glasir.db (ATG_DB) in the file

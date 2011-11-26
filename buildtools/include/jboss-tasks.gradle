@@ -1,46 +1,5 @@
 import com.iteego.glasir.build.tasks.*
 
-/******************************************************************************
-* Tasks for starting/stopping local dev instances of jboss
-*/
-
-task startJBossStore << {
-  startJBossInstance(storeServerName, "env.storefront.dev", true, 8787)
-}
-
-task launchDevStore << {
-    startJBossInstance(storeServerName, "env.storefront.dev", true, 8787, 9001).execHandle.waitForFinish()
-}
-
-task launchDevAdmin << {
-    startJBossInstance(adminServerName, "env.admin.dev", true, 9797, 9002).execHandle.waitForFinish()
-}
-
-
-task launchCiStore(type: Tail, dependsOn: [startJBossStore]) {
-  file      "$jbossRoot/server/$storeServerName/log/server.log"
-  file      "$jbossRoot/server/$storeServerName/log/boot.log"  
-  failOn    "ERROR[ ]*\\["
-  //sample log line: 
-  // 2011-11-09 04:42:19,264 INFO  [org.jboss.bootstrap.microcontainer.ServerImpl] JBoss (Microcontainer) [5.1.0 (build: SVNTag=JBPAPP_5_1_0 date=201009150028)] Started in 1m:6s:11ms
-  succeedOn "INFO[ ]*\\[org\\.jboss\\.bootstrap\\.microcontainer\\.ServerImpl\\].*JBoss \\(Microcontainer\\) \\[.*\\] Started in"
-  //postFailureTailSeconds = 2
-  timeOutSeconds = 300
-}
-
-task shutdownDevStore << {
-  stopJBossInstance(storeServerName)
-}
-
-task startJBossAdmin << {
-  startJBossInstance(admin, "env.admin.dev", true, 9797)
-}
-
-task shutdownDevAdmin << {
-  stopJBossInstance(adminServerName)
-}
-
-
 /*
 Starts a hsql instance in the gradle java process. It starts the instance 
 in a mode where the connecting url creates the database if it doesn't already 
@@ -52,135 +11,42 @@ jdbc:hsqldb:hsql://localhost/myalias;filepath=file:C:/files/mydatabase
 */
 task startDatabase(type: HsqlDb) {}
 
-
-/**
-A new task for launching JBoss nodes with ATG settings...
-
-The below might potentially work...if we managed to publish to our artifactory repo 
-from ci.iteego.com...we have something weird going on there right now.
-*/
-task newJBossStore(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
+task startDevStore(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
   jBossRoot     jbossRoot
   serverName    storeServerName
-  modules       "env.storefront.dev"
+  modules       "env.store.dev"
 }
 
-task newJBossAdmin(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
-  //async         true
+task startDevAdmin(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
   jBossRoot     jbossRoot
   serverName    adminServerName
   modules       "env.admin.dev"
 }
 
-task tail(type: Tail, dependsOn: [newJBossAdmin]) {
-  file "$jbossRoot/server/$adminServerName/log/console.log"
+task startCiStore(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
+  jBossRoot     jbossRoot
+  serverName    storeServerName
+  modules       "env.store.dev"
+  async         true
 }
 
-/******************************************************************************
-* Utility methods for dealing with local jboss start/stop
-* 
-* environment is one of: 'sandbox', 'development', etc
-* serverType is one of: 'store', 'admin', 'fulfillment', etc
-*/
-def startJBossInstance(serverName, modules, debug=false, debugPort=8787, hsqlPort=9001) {
-  println "** startJBossInstance: serverName=$serverName, modules=$modules"
-  def serverDir = file("$jbossRoot/server/$serverName")
-  if (!serverDir.exists()) {
-    println "ERROR: Can not start jboss for non-existent server: $serverDir"
-  }
-  
-  javaExecAsync {
-    main = "org.hsqldb.util.MainInvoker"
-    classpath = files("$jbossRoot/server/$adminServerName/lib/hsqldb.jar","$jbossRoot/bin/run.jar") 
-    workingDir = "$serverDir"
-    args "org.jboss.Main"
-    args "-b"
-    args "0.0.0.0"
-    args "-c"
-    args serverName
-    args ""
-    args "org.hsqldb.server.Server"
-    args "--port"
-    args "$hsqlPort"
-    args "-database.0"
-    args "file:atg_core"
-    args "-dbname.0"
-    args "atg_core"
-    args "-database.1"
-    args "file:atg_cat_a"
-    args "-dbname.1"
-    args "atg_cat_a"
-    args "-database.2"
-    args "file:atg_cat_b"
-    args "-dbname.2"
-    args "atg_cat_b"
-    args "-database.3"
-    args "file:atg_pub"
-    args "-dbname.3"
-    args "atg_pub"
-
-    systemProperty "atg.dynamo.server.name", serverName
-    systemProperty "atg.dynamo.modules",     modules // denna var utkommenterad tidigare 
-    systemProperty "atg.dynamo.data-dir",    "$serverDir/ATG-Data"
-    systemProperty "jboss.server.log.dir",   "$serverDir/log"    
-    systemProperty "java.endorsed.dirs",     "$jbossRoot/lib/endorsed"
-    //systemProperty "atg.applauncher.versioner.Versionator.debug", "true"
-    //jvmArgs "-Dhttp.proxyHost=${proxy}"
-    //jvmArgs "-Dhttp.proxyPort=${proxyport}"
-    //jvmArgs "-Dhttps.proxyHost=${proxy}"
-    //jvmArgs "-Dhttps.proxyPort=${proxyport}"
-    jvmArgs "-Xms512m"
-    jvmArgs "-Xmx1536m"
-    jvmArgs "-XX:MaxPermSize=256m"
-    jvmArgs "-Xdebug"
-    jvmArgs "-Xrunjdwp:transport=dt_socket,address=$debugPort,server=y,suspend=n"
-
-  }
+task verifyCiStore(type: Tail, dependsOn: [startCiStore]) {
+  file         "$jbossRoot/server/$storeServerName/log/console.log"
+  failOn       "ERROR[ ]*\\[" 
+  succeedOn    "INFO[ ]*\\[org\\.jboss\\.bootstrap\\.microcontainer\\.ServerImpl\\].*JBoss \\(Microcontainer\\) \\[.*\\] Started in"
+  timeoutAfter 300000 //ms
 }
 
-/*
-  JBOSS_START="$JBOSS_HOME/bin/run.sh -c $server_name -Datg.dynamo.liveconfig=on -Dsun.rmi.dgc.server.gcInterval=3600000 -Datg.dynamo.server.name=$ATG_CONF -Datg.dynamo.data-dir=$ATG_DATA_DIR -Djboss.server.log.dir=$JBOSS_LOG -b $JBOSS_BIND_IP $JBOSS_ADDITIONAL_PROPS"
-
-  -c $server_name 
-  -Datg.dynamo.liveconfig=on 
-  -Dsun.rmi.dgc.server.gcInterval=3600000 
-  -Datg.dynamo.server.name=$ATG_CONF 
-  -Datg.dynamo.data-dir=$ATG_DATA_DIR 
-  -Djboss.server.log.dir=$JBOSS_LOG 
-  -b $JBOSS_BIND_IP $JBOSS_ADDITIONAL_PROPS"
-
-*/
-
-/******************************************************************************
-* environment is one of: 'sandbox', 'development', etc
-* serverType is one of: 'store', 'admin', 'fulfillment', etc
-*/
-def stopJBossInstance(serverName) {
-  def jnpPort = getJnpPortForJbossServer(environment, serverName)
-  
-  javaexec {
-    main = "org.jboss.Shutdown"
-    classpath = files("$jbossRoot/bin/shutdown.jar", "$jbossRoot/client/jbossall-client.jar") 
-    args "-s"
-    args "jnp://localhost:$jnpPort"
-    args "-u"
-    args "admin"
-    args "-p"
-    args "admin"
-  }
+task startCiAdmin(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
+  jBossRoot     jbossRoot
+  serverName    adminServerName
+  modules       "env.admin.dev"
+  async         true
 }
 
-/******************************************************************************
-* Looks at the jboss-service.xml for the server in question to figure out which 
-* port we should use when asking the server to shut itself down
-*/
-int getJnpPortForJbossServer(environment, serverName) {
-  def jbossServiceFile = file("$globalDir/config/jboss/$serverName/conf/jboss-service.xml") //file("$globalDir/config/jboss/$environment/$serverName/conf/jboss-service.xml")
-  def mbeans = new XmlParser().parse(jbossServiceFile)
-  def portNode = mbeans.find { it.'@code' == 'org.jboss.naming.NamingService' }.attribute.find {
-    it.'@name' == "Port"
-  }
-  
-  portNode.text().toInteger()
+task verifyCiAdmin(type: Tail, dependsOn: [startCiAdmin]) {
+  file         "$jbossRoot/server/$adminServerName/log/console.log"
+  failOn       "ERROR[ ]*\\["
+  succeedOn    "INFO[ ]*\\[org\\.jboss\\.bootstrap\\.microcontainer\\.ServerImpl\\].*JBoss \\(Microcontainer\\) \\[.*\\] Started in"
+  timeoutAfter 300000 //ms
 }
-

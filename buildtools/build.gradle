@@ -63,6 +63,11 @@ To run a build, run gradle <task> ...
 To see a list of available tasks, run gradle tasks
 To see a list of command-line options, run gradle --help
  
+task olle << { 
+  println "${project.path}"
+  println "${project.dir}"
+}
+
 ******************************* Project Help **********************************
 This is gradle project for building, testing, and assembling the ${rootProject.name} 
 ecommerce project 
