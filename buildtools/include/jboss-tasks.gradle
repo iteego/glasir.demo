@@ -32,9 +32,9 @@ task startCiStore(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
 
 task verifyCiStore(type: Tail, dependsOn: [startCiStore]) {
   file         "$jbossRoot/server/$storeServerName/log/console.log"
-  failOn       "ERROR[ ]*\\[" 
+  failOn       regex: "ERROR[ ]*\\[", postFireTailPeriod: "5 seconds"
   succeedOn    "INFO[ ]*\\[org\\.jboss\\.bootstrap\\.microcontainer\\.ServerImpl\\].*JBoss \\(Microcontainer\\) \\[.*\\] Started in"
-  timeoutAfter 300000 //ms
+  timeoutAfter "5 minutes"
 }
 
 task startCiAdmin(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
@@ -46,7 +46,7 @@ task startCiAdmin(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
 
 task verifyCiAdmin(type: Tail, dependsOn: [startCiAdmin]) {
   file         "$jbossRoot/server/$adminServerName/log/console.log"
-  failOn       "ERROR[ ]*\\["
+  failOn       regex: "ERROR[ ]*\\[", postFireTailPeriod: "5 seconds"
   succeedOn    "INFO[ ]*\\[org\\.jboss\\.bootstrap\\.microcontainer\\.ServerImpl\\].*JBoss \\(Microcontainer\\) \\[.*\\] Started in"
-  timeoutAfter 300000 //ms
+  timeoutAfter "5 minutes"
 }
