@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
-ATG-Required: env mybrand.MyAtgModule Store.Storefront.NoPublishing DCS.PublishingAgent
+ATG-Required: env mybrand.MyAtgModule Store.Storefront DCS.PublishingAgent
 ATG-Config-Path: config
 
