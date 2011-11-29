@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+
+<!DOCTYPE scenario
+  SYSTEM
+  "dynamosystemresource:/atg/scenario/definition/sdl.dtd">
+
+<scenario author="admin" creation-time="1028261804509" enabled="true" last-modified-by="admin" modification-time="1277821818499">
+  <segment>
+    <segment-name>Item Added</segment-name>
+    <!--================================-->
+    <!--== Item added to order  -->
+    <!--================================-->
+    <event id="1">
+      <event-name>atg.commerce.order.ItemAddedToOrder</event-name>
+    </event>
+    <!--================================-->
+    <!--== Remove items from slot RelatedItemsOfCart  -->
+    <!--================================-->
+    <action id="2">
+      <action-name>emptySlot</action-name>
+      <action-param name="slot">
+        <nucleus-property>
+          <nucleus-path>/atg/registry/Slots/RelatedItemsOfCart</nucleus-path>
+        </nucleus-property>
+      </action-param>
+    </action>
+  </segment>
+  <segment>
+    <segment-name>Item Removed</segment-name>
+    <!--================================-->
+    <!--== Item removed from order  -->
+    <!--================================-->
+    <event id="1">
+      <event-name>atg.commerce.order.ItemRemovedFromOrder</event-name>
+    </event>
+    <!--================================-->
+    <!--== Remove items from slot RelatedItemsOfCart  -->
+    <!--================================-->
+    <action id="2">
+      <action-name>emptySlot</action-name>
+      <action-param name="slot">
+        <nucleus-property>
+          <nucleus-path>/atg/registry/Slots/RelatedItemsOfCart</nucleus-path>
+        </nucleus-property>
+      </action-param>
+    </action>
+  </segment>
+  <segment>
+    <segment-name>Items Requested by Slot</segment-name>
+    <!--================================-->
+    <!--== Items requested by slot RelatedItemsOfCart  -->
+    <!--================================-->
+    <event id="1">
+      <event-name>atg.dss.SlotItemRequest</event-name>
+      <filter operator="eq">
+        <event-property>
+          <property-name>slotName</property-name>
+        </event-property>
+        <constant>/atg/registry/Slots/RelatedItemsOfCart</constant>
+      </filter>
+    </event>
+    <!--================================-->
+    <!--== Fill Related items to slot RelatedItemsOfCart with property type relatedProducts  -->
+    <!--================================-->
+    <action id="2">
+      <action-name>fillRelatedItemsSlotAction</action-name>
+      <action-param name="slot">
+        <nucleus-property>
+          <nucleus-path>/atg/registry/Slots/RelatedItemsOfCart</nucleus-path>
+        </nucleus-property>
+      </action-param>
+      <action-param name="relatedItemPropertyName">
+        <constant>relatedProducts</constant>
+      </action-param>
+    </action>
+  </segment>
+  <segment>
+    <segment-name>Order Saved</segment-name>
+    <!--================================-->
+    <!--== Order Saved  -->
+    <!--================================-->
+    <event id="1">
+      <event-name>atg.commerce.order.OrderSaved</event-name>
+    </event>
+    <!--================================-->
+    <!--== Remove items from slot RelatedItemsOfCart  -->
+    <!--================================-->
+    <action id="2">
+      <action-name>emptySlot</action-name>
+      <action-param name="slot">
+        <nucleus-property>
+          <nucleus-path>/atg/registry/Slots/RelatedItemsOfCart</nucleus-path>
+        </nucleus-property>
+      </action-param>
+    </action>
+  </segment>
+  <segment>
+    <segment-name>Saved Order becomes current order</segment-name>
+    <!--================================-->
+    <!--== Saved order becomes the current order  -->
+    <!--================================-->
+    <event id="1">
+      <event-name>atg.commerce.order.SwitchOrder</event-name>
+    </event>
+    <!--================================-->
+    <!--== Remove items from slot RelatedItemsOfCart  -->
+    <!--================================-->
+    <action id="2">
+      <action-name>emptySlot</action-name>
+      <action-param name="slot">
+        <nucleus-property>
+          <nucleus-path>/atg/registry/Slots/RelatedItemsOfCart</nucleus-path>
+        </nucleus-property>
+      </action-param>
+    </action>
+  </segment>
+  <segment>
+    <segment-name>Site Changed</segment-name>
+    <!--================================-->
+    <!--== Switches site context  -->
+    <!--================================-->
+    <event id="1">
+      <event-name>atg.multisite.SiteChanged</event-name>
+    </event>
+    <!--================================-->
+    <!--== Remove items from slot named RelatedItemsOfCart  -->
+    <!--================================-->
+    <action id="2">
+      <action-name>emptySlot</action-name>
+      <action-param name="slot">
+        <nucleus-property>
+          <nucleus-path>/atg/registry/Slots/RelatedItemsOfCart</nucleus-path>
+        </nucleus-property>
+      </action-param>
+    </action>
+  </segment>
+</scenario>

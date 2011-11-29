@@ -1,14 +1,38 @@
 Datasource name: Publishing
-Top level module list: BIZUI, PubPortlet, DafEar.Admin, Portal.paf
+#Top level module list: BIZUI, PubPortlet, DafEar.Admin, Portal.paf
+Top level module list: DCS-UI.Versioned, BIZUI, PubPortlet, SiteAdmin.Versioned, B2CCommerce.Versioned, DCS.Versioned, DCS-UI, Store.EStore.Versioned, Store.Storefront, Portal.paf, Store.Storefront
 DataImport: Repository:/atg/userprofiling/InternalProfileRepository Path:/Publishing/base/install/epub-role-data.xml Module:DSS.InternalUsers
 DataImport: Repository:/atg/epub/file/PublishingFileRepository Path:/Publishing/base/install/epub-file-repository-data.xml Module:Publishing.base
-RepoLoader: files="DSS/atg/registry/data/scenarios/DSS/*.sdl & DSS/atg/registry/data/scenarios/recorders/*.sdl"
-DataImport: Repository:/atg/web/viewmapping/ViewMappingRepository Path:/BCC/install/data/viewmapping.xml Module:BCC
+RepoLoader:files="DSS/atg/registry/data/scenarios/DSS/*.sdl & DSS/atg/registry/data/scenarios/recorders/*.sdl"
+DataImport: Repository:/atg/userprofiling/PersonalizationRepository Path:/DCS/install/data/initial-segment-lists.xml Module:DPS.Versioned
+DataImport: Repository:/atg/commerce/catalog/ProductCatalog Path:/CommerceReferenceStore/Store/Storefront/data/out-versioned-no18n-catalog.xml Module:Store.EStore.Versioned
+DataImport: Repository:/atg/commerce/pricing/priceLists/PriceLists Path:/CommerceReferenceStore/Store/Storefront/data/out-pricelists.xml Module:Store.EStore.Versioned
+DataImport: Repository:/atg/store/stores/StoreRepository Path:/CommerceReferenceStore/Store/Storefront/data/stores.xml Module:Store.EStore.Versioned
+RepoLoader:files="Store.Storefront.NoPublishing/atg/registry/Slots/*.properties"
+RepoLoader:files="Store.Storefront.NoPublishing/atg/registry/RepositoryTargeters/ProductCatalog/*.properties"
+RepoLoader:files="Store.Storefront.NoPublishing/atg/registry/RepositoryGroups/*.properties"
+RepoLoader:files="Store.Storefront.NoPublishing/atg/registry/RepositoryGroups/UserProfiles/*.properties"
+RepoLoader:files="Store.Storefront.NoPublishing/atg/registry/data/scenarios/store/abandonedorders/*.sdl & Store.Storefront.NoPublishing/atg/registry/data/scenarios/store/global/*.sdl & Store.Storefront.NoPublishing/atg/registry/data/scenarios/store/homepage/*.sdl & Store.Storefront.NoPublishing/atg/registry/data/scenarios/store/category/*.sdl & Store.Storefront.NoPublishing/atg/registry/data/scenarios/store/orders/*.sdl & Store.Storefront.NoPublishing/atg/registry/data/scenarios/DCS/*.sdl"
+DataImport: Repository:/atg/multisite/SiteRepository Path:/CommerceReferenceStore/Store/Storefront/data/sites.xml Module:Store.EStore.Versioned
+DataImport: Repository:/atg/commerce/catalog/ProductCatalog Path:/CommerceReferenceStore/Store/Storefront/data/versioned-promos.xml Module:Store.EStore.Versioned
+DataImport: Repository:/atg/commerce/claimable/ClaimableRepository Path:/CommerceReferenceStore/Store/Storefront/data/claimable.xml Module:DCS.Versioned
+DataImport: Repository:/atg/store/stores/StoreRepository Path:/CommerceReferenceStore/Store/Storefront/data/storetext.xml Module:Store.EStore.Versioned
+DataImport: Repository:/atg/seo/SEORepository Path:/CommerceReferenceStore/Store/Storefront/data/seo-tags.xml Module:DAS.Versioned,Store.EStore.Versioned
 DataImport: Repository:/atg/portal/framework/PortalRepository Path:/BIZUI/install/data/portal.xml Module:BIZUI
 DataImport: Repository:/atg/userprofiling/InternalProfileRepository Path:/BIZUI/install/data/profile.xml Module:BIZUI
 DataImport: Repository:/atg/web/viewmapping/ViewMappingRepository Path:/BIZUI/install/data/viewmapping.xml Module:BIZUI
+DataImport: Repository:/atg/web/viewmapping/ViewMappingRepository Path:/BCC/install/data/viewmapping.xml Module:BCC
 DataImport: Repository:/atg/web/viewmapping/ViewMappingRepository Path:/AssetUI/install/data/viewmapping.xml Module:AssetUI
 DataImport: Repository:/atg/web/viewmapping/ViewMappingRepository Path:/AssetUI/install/data/assetManagerViews.xml Module:AssetUI
 DataImport: Repository:/atg/web/viewmapping/ViewMappingRepository Path:/DPS-UI/install/data/viewmapping.xml Module:DPS-UI
 DataImport: Repository:/atg/web/viewmapping/ViewMappingRepository Path:/DPS-UI/install/data/examples.xml Module:DPS-UI
-
+DataImport: Repository:/atg/userprofiling/InternalProfileRepository Path:/SiteAdmin/Versioned/install/data/siteadmin-role-data.xml Module:DSS.InternalUsers
+DataImport: Repository:/atg/userprofiling/InternalProfileRepository Path:/SiteAdmin/Versioned/install/data/users.xml Module:DSS.InternalUsers
+DataImport: Repository:/atg/web/viewmapping/ViewMappingRepository Path:/SiteAdmin/Versioned/install/data/viewmapping.xml Module:SiteAdmin.Versioned
+DataImport: Repository:/atg/multisite/SiteRepository Path:/SiteAdmin/Versioned/install/data/templates.xml Module:SiteAdmin.Versioned
+DataImport: Repository:/atg/web/viewmapping/ViewMappingRepository Path:/DCS-UI/install/data/viewmapping.xml Module:DCS-UI
+DataImport: Repository:/atg/multisite/SiteRepository Path:/CommerceReferenceStore/Store/EStore/Versioned/install/data/sites-templates.xml Module:Store.EStore.Versioned
+DataImport: Repository:/atg/web/viewmapping/ViewMappingRepository Path:/CommerceReferenceStore/Store/EStore/Versioned/install/data/viewmapping.xml Module:Store.EStore.Versioned,DCS-UI
+DataImport: Repository:/atg/web/viewmapping/ViewMappingRepository Path:/CommerceReferenceStore/Store/EStore/Versioned/install/data/site-template-viewmapping.xml Module:SiteAdmin.Versioned,Store.EStore.Versioned
+DataImport: Repository:/atg/userprofiling/InternalProfileRepository Path:/DCS-UI/Versioned/install/data/users.xml Module:DCS-UI.Versioned
+DataImport: Repository:/atg/web/viewmapping/ViewMappingRepository Path:/DCS-UI/Versioned/install/data/viewmapping.xml Module:DCS-UI.Versioned
