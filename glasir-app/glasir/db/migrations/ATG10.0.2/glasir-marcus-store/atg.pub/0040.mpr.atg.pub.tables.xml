@@ -20,7 +20,7 @@ create table das_id_generator (
 	seed	bigint	not null,
 	batch_size	integer	not null,
 	prefix	varchar(10)	null,
-	suffix	varchar(10)	null
+	suffix	varchar(100)	null
 ,constraint das_id_generator_p primary key (id_space_name));
 
 create table das_secure_id_gen (
@@ -1700,16 +1700,16 @@ create table dss_xref (
 
 
 create table dss_profile_slot (
-	id	varchar(25)	not null,
-	slot_name	varchar(255)	null,
+	id	varchar(1000)	not null,
+	slot_name	varchar(1000)	null,
 	item_offset	bigint	null,
-	user_id	varchar(25)	not null
+	user_id	varchar(1000)	not null
 ,constraint dss_profile_slot_p primary key (id));
 
 
 create table dps_user_slot (
-	id	varchar(40)	not null,
-	profile_slot_id	varchar(25)	not null
+	id	varchar(1000)	not null,
+	profile_slot_id	varchar(1000)	not null
 ,constraint dps_user_slot_p primary key (id,profile_slot_id)
 ,constraint dps_usrsltid_f foreign key (id) references dps_user (id)
 ,constraint dps_usrsprofl_sl_f foreign key (profile_slot_id) references dss_profile_slot (id));
@@ -1717,8 +1717,8 @@ create table dps_user_slot (
 create index dps_usr_sltprfl_id on dps_user_slot (profile_slot_id);
 
 create table dss_slot_items (
-	slot_id	varchar(25)	not null,
-	item_id	varchar(255)	null,
+	slot_id	varchar(1000)	not null,
+	item_id	varchar(1000)	null,
 	idx	integer	not null
 ,constraint dss_slot_items_p primary key (slot_id,idx)
 ,constraint dss_slotslot_d_f foreign key (slot_id) references dss_profile_slot (id));
