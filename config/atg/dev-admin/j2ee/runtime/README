@@ -1,0 +1,4 @@
+The runtime directory stores deployed J2EE resources that have been
+unjarred at runtime.
+
+

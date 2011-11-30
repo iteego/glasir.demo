@@ -6565,7 +6565,7 @@ create table crs_promo_content (
 	image_url	varchar(254)	null,
 	template_id	varchar(40)	null,
 	path	nvarchar(254)	null,
-	parent_folder_id	varchar(40)	null,
+	parent_folder_id	varchar(40)	not null,
 	category_id	varchar(40)	null,
 	product_id	varchar(40)	null,
 	site_id	varchar(40)	null,
