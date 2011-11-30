@@ -8,11 +8,11 @@ DataImport: Repository:/atg/userprofiling/PersonalizationRepository Path:/DCS/in
 DataImport: Repository:/atg/commerce/catalog/ProductCatalog Path:/CommerceReferenceStore/Store/Storefront/data/out-versioned-no18n-catalog.xml Module:Store.EStore.Versioned
 DataImport: Repository:/atg/commerce/pricing/priceLists/PriceLists Path:/CommerceReferenceStore/Store/Storefront/data/out-pricelists.xml Module:Store.EStore.Versioned
 DataImport: Repository:/atg/store/stores/StoreRepository Path:/CommerceReferenceStore/Store/Storefront/data/stores.xml Module:Store.EStore.Versioned
-RepoLoader:files="Store.Storefront.NoPublishing/atg/registry/Slots/*.properties"
-RepoLoader:files="Store.Storefront.NoPublishing/atg/registry/RepositoryTargeters/ProductCatalog/*.properties"
-RepoLoader:files="Store.Storefront.NoPublishing/atg/registry/RepositoryGroups/*.properties"
-RepoLoader:files="Store.Storefront.NoPublishing/atg/registry/RepositoryGroups/UserProfiles/*.properties"
-RepoLoader:files="Store.Storefront.NoPublishing/atg/registry/data/scenarios/store/abandonedorders/*.sdl & Store.Storefront.NoPublishing/atg/registry/data/scenarios/store/global/*.sdl & Store.Storefront.NoPublishing/atg/registry/data/scenarios/store/homepage/*.sdl & Store.Storefront.NoPublishing/atg/registry/data/scenarios/store/category/*.sdl & Store.Storefront.NoPublishing/atg/registry/data/scenarios/store/orders/*.sdl & Store.Storefront.NoPublishing/atg/registry/data/scenarios/DCS/*.sdl"
+RepoLoader:files="Store/Storefront/NoPublishing/atg/registry/Slots/*.properties"
+RepoLoader:files="Store/Storefront/NoPublishing/atg/registry/RepositoryTargeters/ProductCatalog/*.properties"
+RepoLoader:files="Store/Storefront/NoPublishing/atg/registry/RepositoryGroups/*.properties"
+RepoLoader:files="Store/Storefront/NoPublishing/atg/registry/RepositoryGroups/UserProfiles/*.properties"
+RepoLoader:files="Store/Storefront/NoPublishing/atg/registry/data/scenarios/store/abandonedorders/*.sdl & Store.Storefront.NoPublishing/atg/registry/data/scenarios/store/global/*.sdl & Store.Storefront.NoPublishing/atg/registry/data/scenarios/store/homepage/*.sdl & Store.Storefront.NoPublishing/atg/registry/data/scenarios/store/category/*.sdl & Store.Storefront.NoPublishing/atg/registry/data/scenarios/store/orders/*.sdl & Store.Storefront.NoPublishing/atg/registry/data/scenarios/DCS/*.sdl"
 DataImport: Repository:/atg/multisite/SiteRepository Path:/CommerceReferenceStore/Store/Storefront/data/sites.xml Module:Store.EStore.Versioned
 DataImport: Repository:/atg/commerce/catalog/ProductCatalog Path:/CommerceReferenceStore/Store/Storefront/data/versioned-promos.xml Module:Store.EStore.Versioned
 DataImport: Repository:/atg/commerce/claimable/ClaimableRepository Path:/CommerceReferenceStore/Store/Storefront/data/claimable.xml Module:DCS.Versioned
