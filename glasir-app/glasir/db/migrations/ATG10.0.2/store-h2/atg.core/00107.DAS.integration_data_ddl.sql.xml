@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+            <databaseChangeLog
+            xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+            xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+             http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd
+             http://www.liquibase.org/xml/ns/dbchangelog-ext
+             http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+            <changeSet id='changeset_atg_ootb' author='Marcus Pemer' context='all'>
+              <preConditions>
+                <not>
+                  <tableExists tableName='bogus_precondition_table'/>
+                </not>
+              </preConditions>
+
+              <sql><![CDATA[
+
+
+
+
+
+create table if_integ_data (
+	item_id	varchar2(40)	not null,
+	descriptor	varchar2(64)	not null,
+	repository	varchar2(255)	not null,
+	state	number(10)	not null,
+	last_import	date	null,
+	version	number(10)	not null
+,constraint if_int_data_p primary key (item_id,descriptor,repository));
+
+
+
+
+
+]]>
+                </sql>
+              <rollback/>
+            </changeSet>
+          </databaseChangeLog>

@@ -11,13 +11,15 @@ jdbc:hsqldb:hsql://localhost/myalias;filepath=file:C:/files/mydatabase
 */
 task startDatabase(type: HsqlDb) {}
 
-task startDevStore(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
+//task startDevStore(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
+task startDevStore(type: RunAtgOnJBoss) {
   jBossRoot     jbossRoot
   serverName    storeServerName
   modules       "env.store.dev"
 }
 
-task startDevAdmin(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
+//task startDevAdmin(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
+task startDevAdmin(type: RunAtgOnJBoss) {
   jBossRoot     jbossRoot
   serverName    adminServerName
   modules       "env.admin.dev"

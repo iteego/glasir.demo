@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+            <databaseChangeLog
+            xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+            xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+             http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd
+             http://www.liquibase.org/xml/ns/dbchangelog-ext
+             http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+            <changeSet id='changeset_atg_ootb' author='Marcus Pemer' context='all'>
+              <preConditions>
+                <not>
+                  <tableExists tableName='bogus_precondition_table'/>
+                </not>
+              </preConditions>
+
+              <createProcedure><![CDATA[
+create or replace procedure dms_queue_flag
+(Pbatch_size    IN NUMBER
+,Pread_lock     IN NUMBER
+,Pdelivery_date IN NUMBER
+,Pclient_id     IN NUMBER
+,Pqueue_id      IN NUMBER
+,Pupdate_count  OUT NUMBER)
+as
+  BEGIN
+    UPDATE dms_queue_entry qe
+    SET qe.handling_client_id = Pclient_id, 
+        qe.read_state = Pread_lock 
+    WHERE ROWNUM < Pbatch_size
+      AND qe.handling_client_id < 0 
+      AND qe.delivery_date < Pdelivery_date 
+      AND qe.queue_id = Pqueue_id;
+    Pupdate_count := SQL%ROWCOUNT;
+  END;
+]]>
+                </createProcedure>
+                <rollback>
+drop procedure dms_queue_flag;
+                </rollback>
+              <rollback/>
+            </changeSet>
+          </databaseChangeLog>
