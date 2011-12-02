@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE gsa-template SYSTEM "dynamosystemresource:/atg/dtds/gsa/gsa_1.0.dtd">
+<gsa-template>
+<import-items>
+
+<!-- items of type store -->
+
+<add-item item-descriptor="store" id="BiltmoreFashionPark">
+  <set-property name="siteId"><![CDATA[storeSiteUS]]></set-property>
+  <set-property name="storeName"><![CDATA[Biltmore Fashion Park]]></set-property>
+  <set-property name="address1"><![CDATA[2404 East Camelback Road]]></set-property>
+  <set-property name="address2"><![CDATA[#100E]]></set-property>
+  <set-property name="address3"><![CDATA[__NULL__]]></set-property>
+  <set-property name="city"><![CDATA[Phoenix]]></set-property>
+  <set-property name="stateAddress"><![CDATA[AZ]]></set-property>
+  <set-property name="postalCode"><![CDATA[85016]]></set-property>
+  <set-property name="country"><![CDATA[USA]]></set-property>
+  <set-property name="phoneNumber"><![CDATA[(602) 955-1963]]></set-property>
+  <set-property name="faxNumber"><![CDATA[__NULL__]]></set-property>
+  <set-property name="email"><![CDATA[Biltmore@westcor.com]]></set-property>
+</add-item>
+
+<add-item item-descriptor="store" id="FashionIsland">
+  <set-property name="siteId"><![CDATA[storeSiteUS]]></set-property>
+  <set-property name="storeName"><![CDATA[Fashion Island]]></set-property>
+  <set-property name="address1"><![CDATA[401 Newport Center Drive]]></set-property>
+  <set-property name="address2"><![CDATA[__NULL__]]></set-property>
+  <set-property name="address3"><![CDATA[__NULL__]]></set-property>
+  <set-property name="city"><![CDATA[Newport]]></set-property>
+  <set-property name="stateAddress"><![CDATA[CA]]></set-property>
+  <set-property name="postalCode"><![CDATA[92660]]></set-property>
+  <set-property name="country"><![CDATA[USA]]></set-property>
+  <set-property name="phoneNumber"><![CDATA[949-721-2000]]></set-property>
+  <set-property name="faxNumber"><![CDATA[__NULL__]]></set-property>
+  <set-property name="email"><![CDATA[service@shopfashionisland.com]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="store" id="SouthCoastPlaza">
+  <set-property name="siteId"><![CDATA[storeSiteUS]]></set-property>
+  <set-property name="storeName"><![CDATA[South Coast Plaza]]></set-property>
+  <set-property name="address1"><![CDATA[3333 Bristol Street]]></set-property>
+  <set-property name="address2"><![CDATA[__NULL__]]></set-property>
+  <set-property name="address3"><![CDATA[__NULL__]]></set-property>
+  <set-property name="city"><![CDATA[Costa Mesa]]></set-property>
+  <set-property name="stateAddress"><![CDATA[CA]]></set-property>
+  <set-property name="postalCode"><![CDATA[92626]]></set-property>
+  <set-property name="country"><![CDATA[USA]]></set-property>
+  <set-property name="phoneNumber"><![CDATA[800-782-8888]]></set-property>
+  <set-property name="faxNumber"><![CDATA[__NULL__]]></set-property>
+  <set-property name="email"><![CDATA[__NULL__]]></set-property>
+</add-item>
+
+<add-item item-descriptor="store" id="ArtUndWeisepark">
+  <set-property name="siteId"><![CDATA[storeSiteDE]]></set-property>
+  <set-property name="storeName"><![CDATA[Art- und Weisepark]]></set-property>
+  <set-property name="address1"><![CDATA[Reisingerstrasse 12]]></set-property>
+  <set-property name="address2"><![CDATA[__NULL__]]></set-property>
+  <set-property name="address3"><![CDATA[__NULL__]]></set-property>
+  <set-property name="city"><![CDATA[Muenster]]></set-property>
+  <set-property name="stateAddress"><![CDATA[]]></set-property>
+  <set-property name="postalCode"><![CDATA[48147]]></set-property>
+  <set-property name="country"><![CDATA[Deutschland]]></set-property>
+  <set-property name="phoneNumber"><![CDATA[089 343 80 14]]></set-property>
+  <set-property name="faxNumber"><![CDATA[__NULL__]]></set-property>
+  <set-property name="email"><![CDATA[Weisepark@example.de]]></set-property>
+</add-item>
+
+<add-item item-descriptor="store" id="SudkustePiazza">
+  <set-property name="siteId"><![CDATA[storeSiteDE]]></set-property>
+  <set-property name="storeName"><![CDATA[Südküste-Piazza]]></set-property>
+  <set-property name="address1"><![CDATA[Alfred-Brehm-Platz 16]]></set-property>
+  <set-property name="address2"><![CDATA[__NULL__]]></set-property>
+  <set-property name="address3"><![CDATA[__NULL__]]></set-property>
+  <set-property name="city"><![CDATA[Frankfurt]]></set-property>
+  <set-property name="stateAddress"><![CDATA[__NULL__]]></set-property>
+  <set-property name="postalCode"><![CDATA[60316]]></set-property>
+  <set-property name="country"><![CDATA[Deutschland]]></set-property>
+  <set-property name="phoneNumber"><![CDATA[089 592 80 12]]></set-property>
+  <set-property name="faxNumber"><![CDATA[__NULL__]]></set-property>
+  <set-property name="email"><![CDATA[Piazza@example.de]]></set-property>
+</add-item>
+
+<add-item item-descriptor="store" id="Bekleidungsgeschaft">
+  <set-property name="siteId"><![CDATA[storeSiteDE]]></set-property>
+  <set-property name="storeName"><![CDATA[Bekleidungsgeschäft]]></set-property>
+  <set-property name="address1"><![CDATA[Museumsinsel 1]]></set-property>
+  <set-property name="address2"><![CDATA[__NULL__]]></set-property>
+  <set-property name="address3"><![CDATA[__NULL__]]></set-property>
+  <set-property name="city"><![CDATA[Muenster]]></set-property>
+  <set-property name="stateAddress"><![CDATA[__NULL__]]></set-property>
+  <set-property name="postalCode"><![CDATA[80538]]></set-property>
+  <set-property name="country"><![CDATA[Deutschland]]></set-property>
+  <set-property name="phoneNumber"><![CDATA[431 914 43 31]]></set-property>
+  <set-property name="faxNumber"><![CDATA[__NULL__]]></set-property>
+  <set-property name="email"><![CDATA[Beklei@example.de]]></set-property>
+</add-item>
+
+<add-item item-descriptor="store" id="QueensCenter">
+  <set-property name="siteId"><![CDATA[homeSite]]></set-property>
+  <set-property name="storeName"><![CDATA[Queens Center]]></set-property>
+  <set-property name="address1"><![CDATA[90-15 Queens Boulevard]]></set-property>
+  <set-property name="address2"><![CDATA[__NULL__]]></set-property>
+  <set-property name="address3"><![CDATA[__NULL__]]></set-property>
+  <set-property name="city"><![CDATA[Elmhurst]]></set-property>
+  <set-property name="stateAddress"><![CDATA[NY]]></set-property>
+  <set-property name="postalCode"><![CDATA[11373]]></set-property>
+  <set-property name="country"><![CDATA[USA]]></set-property>
+  <set-property name="phoneNumber"><![CDATA[(718) 592-3901]]></set-property>
+  <set-property name="faxNumber"><![CDATA[(718) 592-4157]]></set-property>
+  <set-property name="email"><![CDATA[__NULL__]]></set-property>
+</add-item>
+
+<add-item item-descriptor="store" id="WestlakeCenter">
+  <set-property name="siteId"><![CDATA[homeSite]]></set-property>
+  <set-property name="storeName"><![CDATA[Westlake Center]]></set-property>
+  <set-property name="address1"><![CDATA[400 Pine Street]]></set-property>
+  <set-property name="address2"><![CDATA[__NULL__]]></set-property>
+  <set-property name="address3"><![CDATA[__NULL__]]></set-property>
+  <set-property name="city"><![CDATA[Seattle]]></set-property>
+  <set-property name="stateAddress"><![CDATA[WA]]></set-property>
+  <set-property name="postalCode"><![CDATA[98101]]></set-property>
+  <set-property name="country"><![CDATA[USA]]></set-property>
+  <set-property name="phoneNumber"><![CDATA[(206) 467-1600]]></set-property>
+  <set-property name="faxNumber"><![CDATA[__NULL__]]></set-property>
+  <set-property name="faxNumber"><![CDATA[__NULL__]]></set-property>
+  <set-property name="email"><![CDATA[westlakeadmin@generalgrowth.com]]></set-property>
+</add-item>
+
+<add-item item-descriptor="store" id="AventuraMall">
+  <set-property name="siteId"><![CDATA[homeSite]]></set-property>
+  <set-property name="storeName"><![CDATA[Aventura Mall]]></set-property>
+  <set-property name="address1"><![CDATA[19501 Biscayne Blvd]]></set-property>
+  <set-property name="address2"><![CDATA[__NULL__]]></set-property>
+  <set-property name="address3"><![CDATA[__NULL__]]></set-property>
+  <set-property name="city"><![CDATA[Aventura]]></set-property>
+  <set-property name="stateAddress"><![CDATA[FL]]></set-property>
+  <set-property name="postalCode"><![CDATA[33180]]></set-property>
+  <set-property name="country"><![CDATA[USA]]></set-property>
+  <set-property name="phoneNumber"><![CDATA[(305) 935-1110]]></set-property>
+  <set-property name="faxNumber"><![CDATA[(305) 935-9360]]></set-property>
+  <set-property name="email"><![CDATA[__NULL__]]></set-property>
+</add-item>
+
+</import-items>
+</gsa-template>
+<!-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.0.2/Storefront/data/stores.xml#1 $$Change: 633540 $-->

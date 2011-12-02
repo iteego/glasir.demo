@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE gsa-template SYSTEM "dynamosystemresource:/atg/dtds/gsa/gsa_1.0.dtd">
+<gsa-template>
+<import-items>
+<!-- 2 items of type searchContent -->
+
+<add-item item-descriptor="searchContent" id="crsHomeSC">
+  <set-property name="contentLabel"><![CDATA[Catalog]]></set-property>
+  <set-property name="contentId"><![CDATA[crsLogicalPartition]]></set-property>
+  <set-property name="siteConfiguration"><![CDATA[homeSite]]></set-property>
+</add-item>
+
+<add-item item-descriptor="searchContent" id="crsStoreUSCS">
+  <set-property name="contentLabel"><![CDATA[Catalog]]></set-property>
+  <set-property name="contentId"><![CDATA[crsLogicalPartition]]></set-property>
+  <set-property name="siteConfiguration"><![CDATA[storeSiteUS]]></set-property>
+</add-item>
+
+</import-items>
+
+</gsa-template>
+<!-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.0.2/Storefront/data/searchcontent-data.xml#2 $$Change: 635969 $-->

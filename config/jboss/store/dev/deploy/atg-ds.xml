@@ -5,12 +5,11 @@
 
     <!-- hsqldb-mem -->
     <xa-datasource>
-        <jndi-name>ATGProductionDS-hsqldb-mem</jndi-name>
+        <jndi-name>ATGProductionDS</jndi-name>
         <track-connection-by-tx/>
         <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
         <xa-datasource-class>org.hsqldb.jdbc.pool.JDBCXADataSource</xa-datasource-class>
-        <xa-datasource-property name="Url">jdbc:hsqldb:hsql://localhost/atg_core;mem:atg_core;autoCommit=false</xa-datasource-property>
-        <!--xa-datasource-property name="Url">jdbc:hsqldb:file:atg_core;check_props=true</xa-datasource-property-->
+        <xa-datasource-property name="Url">jdbc:hsqldb:hsql://localhost/atg_core;mem:atg_core;sql.syntax_ora=true;autoCommit=false</xa-datasource-property>
         <xa-datasource-property name="User">sa</xa-datasource-property>
         <xa-datasource-property name="Password"></xa-datasource-property>
         <min-pool-size>5</min-pool-size>
@@ -20,8 +19,9 @@
     </xa-datasource>
 
     <!-- hsqldb-file -->
+<!--
     <xa-datasource>
-        <jndi-name>ATGProductionDS-hsqldb-file</jndi-name>
+        <jndi-name>ATGProductionDS</jndi-name>
         <track-connection-by-tx/>
         <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
         <xa-datasource-class>org.hsqldb.jdbc.pool.JDBCXADataSource</xa-datasource-class>
@@ -33,10 +33,12 @@
         <idle-timeout-minutes>10</idle-timeout-minutes>
         <prepared-statement-cache-size>32</prepared-statement-cache-size>
     </xa-datasource>
+-->
 
     <!-- h2 -->
+<!--
     <xa-datasource>
-        <jndi-name>ATGProductionDS-h2</jndi-name>
+        <jndi-name>ATGProductionDS</jndi-name>
         <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
         <xa-datasource-property name="URL">jdbc:h2:/tmp/atg_core;AUTO_SERVER=TRUE;MODE=Oracle;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1;AUTOCOMMIT=OFF;LOCK_MODE=0;MVCC=TRUE;CACHE_SIZE=524288</xa-datasource-property>
         <min-pool-size>5</min-pool-size>
@@ -48,11 +50,12 @@
             <password>sa</password>
         </security>
     </xa-datasource>
+-->
 
     <!-- oracle  -->
+<!--
     <xa-datasource>
         <jndi-name>ATGProductionDS</jndi-name>
-        <track-connection-by-tx>false</track-connection-by-tx>
         <isSameRM-override-value>false</isSameRM-override-value>
         <min-pool-size>5</min-pool-size>
         <max-pool-size>100</max-pool-size>
@@ -61,13 +64,8 @@
         <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
         <xa-datasource-class>oracle.jdbc.xa.client.OracleXADataSource</xa-datasource-class>
         <xa-datasource-property name="URL">jdbc:oracle:thin:@db.local:1521:ORACLE</xa-datasource-property>
-        <!--<xa-datasource-property name="URL">jdbc:oracle:oci8:@tc</xa-datasource-property>-->
         <xa-datasource-property name="User">glasir_core</xa-datasource-property>
         <xa-datasource-property name="Password">password</xa-datasource-property>
-        <xa-pool>
-            <is-same-rm-override>false</is-same-rm-override>
-            <no-tx-separate-pools />
-        </xa-pool>
         <validation>
             <valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.oracle.OracleValidConnectionChecker"></valid-connection-checker>
             <stale-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.oracle.OracleStaleConnectionChecker"></stale-connection-checker>
@@ -77,18 +75,18 @@
             org.jboss.resource.adapter.jdbc.vendor.OracleExceptionSorter
         </exception-sorter-class-name>
     </xa-datasource>
-
+-->
 
 
     <!-- cat a  -->
 
     <!-- hsqldb-mem -->
     <xa-datasource>
-        <jndi-name>ATGCatalogDS_A-hsqldb-mem</jndi-name>
+        <jndi-name>ATGCatalogDS_A</jndi-name>
         <track-connection-by-tx/>
         <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
         <xa-datasource-class>org.hsqldb.jdbc.pool.JDBCXADataSource</xa-datasource-class>
-        <xa-datasource-property name="Url">jdbc:hsqldb:hsql://localhost/atg_cat_a;mem:atg_cat_a;autoCommit=false</xa-datasource-property>
+        <xa-datasource-property name="Url">jdbc:hsqldb:hsql://localhost/atg_cat_a;mem:atg_cat_a;sql.syntax_ora=true;autoCommit=false</xa-datasource-property>
         <xa-datasource-property name="User">sa</xa-datasource-property>
         <xa-datasource-property name="Password"></xa-datasource-property>
         <min-pool-size>5</min-pool-size>
@@ -98,8 +96,9 @@
     </xa-datasource>
 
     <!-- hsqldb-file -->
+<!--
     <xa-datasource>
-        <jndi-name>ATGCatalogDS_A-hsqldb-file</jndi-name>
+        <jndi-name>ATGCatalogDS_A</jndi-name>
         <track-connection-by-tx/>
         <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
         <xa-datasource-class>org.hsqldb.jdbc.pool.JDBCXADataSource</xa-datasource-class>
@@ -111,10 +110,12 @@
         <idle-timeout-minutes>10</idle-timeout-minutes>
         <prepared-statement-cache-size>32</prepared-statement-cache-size>
     </xa-datasource>
+-->
 
     <!-- h2 -->
+<!--
     <xa-datasource>
-        <jndi-name>ATGCatalogDS_A-h2</jndi-name>
+        <jndi-name>ATGCatalogDS_A</jndi-name>
         <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
         <xa-datasource-property name="URL">jdbc:h2:/tmp/atg_cat_a;AUTO_SERVER=TRUE;MODE=Oracle;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1;AUTOCOMMIT=OFF;LOCK_MODE=0;MVCC=TRUE;CACHE_SIZE=524288</xa-datasource-property>
         <min-pool-size>5</min-pool-size>
@@ -126,11 +127,12 @@
             <password>sa</password>
         </security>
     </xa-datasource>
+-->
 
     <!-- oracle  -->
+<!--
     <xa-datasource>
         <jndi-name>ATGCatalogDS_A</jndi-name>
-        <track-connection-by-tx>false</track-connection-by-tx>
         <isSameRM-override-value>false</isSameRM-override-value>
         <min-pool-size>5</min-pool-size>
         <max-pool-size>100</max-pool-size>
@@ -139,13 +141,8 @@
         <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
         <xa-datasource-class>oracle.jdbc.xa.client.OracleXADataSource</xa-datasource-class>
         <xa-datasource-property name="URL">jdbc:oracle:thin:@db.local:1521:ORACLE</xa-datasource-property>
-        <!--<xa-datasource-property name="URL">jdbc:oracle:oci8:@tc</xa-datasource-property>-->
         <xa-datasource-property name="User">glasir_cat_a</xa-datasource-property>
         <xa-datasource-property name="Password">password</xa-datasource-property>
-        <xa-pool>
-            <is-same-rm-override>false</is-same-rm-override>
-            <no-tx-separate-pools />
-        </xa-pool>
         <validation>
             <valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.oracle.OracleValidConnectionChecker"></valid-connection-checker>
             <stale-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.oracle.OracleStaleConnectionChecker"></stale-connection-checker>
@@ -155,18 +152,18 @@
             org.jboss.resource.adapter.jdbc.vendor.OracleExceptionSorter
         </exception-sorter-class-name>
     </xa-datasource>
-
+-->
 
 
     <!-- cat b  -->
 
     <!-- hsqldb-mem -->
     <xa-datasource>
-        <jndi-name>ATGCatalogDS_B-hsqldb-mem</jndi-name>
+        <jndi-name>ATGCatalogDS_B</jndi-name>
         <track-connection-by-tx/>
         <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
         <xa-datasource-class>org.hsqldb.jdbc.pool.JDBCXADataSource</xa-datasource-class>
-        <xa-datasource-property name="Url">jdbc:hsqldb:hsql://localhost/atg_cat_b;mem:atg_cat_b;autoCommit=false</xa-datasource-property>
+        <xa-datasource-property name="Url">jdbc:hsqldb:hsql://localhost/atg_cat_b;mem:atg_cat_b;sql.syntax_ora=true;autoCommit=false</xa-datasource-property>
         <xa-datasource-property name="User">sa</xa-datasource-property>
         <xa-datasource-property name="Password"></xa-datasource-property>
         <min-pool-size>5</min-pool-size>
@@ -176,8 +173,9 @@
     </xa-datasource>
 
     <!-- hsqldb-file -->
+<!--
     <xa-datasource>
-        <jndi-name>ATGCatalogDS_B-hsqldb-file</jndi-name>
+        <jndi-name>ATGCatalogDS_B</jndi-name>
         <track-connection-by-tx/>
         <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
         <xa-datasource-class>org.hsqldb.jdbc.pool.JDBCXADataSource</xa-datasource-class>
@@ -189,10 +187,12 @@
         <idle-timeout-minutes>10</idle-timeout-minutes>
         <prepared-statement-cache-size>32</prepared-statement-cache-size>
     </xa-datasource>
+-->
 
     <!-- h2 -->
+<!--
     <xa-datasource>
-        <jndi-name>ATGCatalogDS_B-h2</jndi-name>
+        <jndi-name>ATGCatalogDS_B</jndi-name>
         <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
         <xa-datasource-property name="URL">jdbc:h2:/tmp/atg_cat_b;AUTO_SERVER=TRUE;MODE=Oracle;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1;AUTOCOMMIT=OFF;LOCK_MODE=0;MVCC=TRUE;CACHE_SIZE=524288</xa-datasource-property>
         <min-pool-size>5</min-pool-size>
@@ -204,11 +204,12 @@
             <password>sa</password>
         </security>
     </xa-datasource>
+-->
 
     <!-- oracle  -->
+<!--
     <xa-datasource>
         <jndi-name>ATGCatalogDS_B</jndi-name>
-        <track-connection-by-tx>false</track-connection-by-tx>
         <isSameRM-override-value>false</isSameRM-override-value>
         <min-pool-size>5</min-pool-size>
         <max-pool-size>100</max-pool-size>
@@ -217,13 +218,8 @@
         <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
         <xa-datasource-class>oracle.jdbc.xa.client.OracleXADataSource</xa-datasource-class>
         <xa-datasource-property name="URL">jdbc:oracle:thin:@db.local:1521:ORACLE</xa-datasource-property>
-        <!--<xa-datasource-property name="URL">jdbc:oracle:oci8:@tc</xa-datasource-property>-->
         <xa-datasource-property name="User">glasir_cat_b</xa-datasource-property>
         <xa-datasource-property name="Password">password</xa-datasource-property>
-        <xa-pool>
-            <is-same-rm-override>false</is-same-rm-override>
-            <no-tx-separate-pools />
-        </xa-pool>
         <validation>
             <valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.oracle.OracleValidConnectionChecker"></valid-connection-checker>
             <stale-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.oracle.OracleStaleConnectionChecker"></stale-connection-checker>
@@ -233,18 +229,18 @@
             org.jboss.resource.adapter.jdbc.vendor.OracleExceptionSorter
         </exception-sorter-class-name>
     </xa-datasource>
-
+-->
 
 
     <!-- pub -->
 
     <!-- hsqldb-mem -->
     <xa-datasource>
-        <jndi-name>ATGPublishingDS-hsqldb-mem</jndi-name>
+        <jndi-name>ATGPublishingDS</jndi-name>
         <track-connection-by-tx/>
         <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
         <xa-datasource-class>org.hsqldb.jdbc.pool.JDBCXADataSource</xa-datasource-class>
-        <xa-datasource-property name="Url">jdbc:hsqldb:hsql://localhost/atg_pub;mem:atg_pub;autoCommit=false</xa-datasource-property>
+        <xa-datasource-property name="Url">jdbc:hsqldb:hsql://localhost/atg_pub;mem:atg_pub;sql.syntax_ora=true;autoCommit=false</xa-datasource-property>
         <xa-datasource-property name="User">sa</xa-datasource-property>
         <xa-datasource-property name="Password"></xa-datasource-property>
         <min-pool-size>5</min-pool-size>
@@ -254,8 +250,9 @@
     </xa-datasource>
 
     <!-- hsqldb-mem -->
+<!--
     <xa-datasource>
-        <jndi-name>ATGPublishingDS-hsqldb-file</jndi-name>
+        <jndi-name>ATGPublishingDS</jndi-name>
         <track-connection-by-tx/>
         <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
         <xa-datasource-class>org.hsqldb.jdbc.pool.JDBCXADataSource</xa-datasource-class>
@@ -267,10 +264,12 @@
         <idle-timeout-minutes>10</idle-timeout-minutes>
         <prepared-statement-cache-size>32</prepared-statement-cache-size>
     </xa-datasource>
+-->
 
     <!-- h2 -->
+<!--
     <xa-datasource>
-        <jndi-name>ATGPublishingDS-h2</jndi-name>
+        <jndi-name>ATGPublishingDS</jndi-name>
         <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
         <xa-datasource-property name="URL">jdbc:h2:/tmp/atg_pub;AUTO_SERVER=TRUE;MODE=Oracle;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1;AUTOCOMMIT=OFF;LOCK_MODE=0;MVCC=TRUE;CACHE_SIZE=524288</xa-datasource-property>
         <min-pool-size>10</min-pool-size>
@@ -282,26 +281,22 @@
             <password>sa</password>
         </security>
     </xa-datasource>
+-->
 
     <!-- oracle  -->
+<!--
     <xa-datasource>
         <jndi-name>ATGPublishingDS</jndi-name>
-        <track-connection-by-tx>false</track-connection-by-tx>
         <isSameRM-override-value>false</isSameRM-override-value>
-        <min-pool-size>5</min-pool-size>
-        <max-pool-size>100</max-pool-size>
-        <blocking-timeout-millis>5000</blocking-timeout-millis>
+        <min-pool-size>10</min-pool-size>
+        <max-pool-size>20</max-pool-size>
+        <blocking-timeout-millis>10000</blocking-timeout-millis>
         <idle-timeout-minutes>15</idle-timeout-minutes>
         <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
         <xa-datasource-class>oracle.jdbc.xa.client.OracleXADataSource</xa-datasource-class>
         <xa-datasource-property name="URL">jdbc:oracle:thin:@db.local:1521:ORACLE</xa-datasource-property>
-        <!--<xa-datasource-property name="URL">jdbc:oracle:oci8:@tc</xa-datasource-property>-->
         <xa-datasource-property name="User">glasir_pub</xa-datasource-property>
         <xa-datasource-property name="Password">password</xa-datasource-property>
-        <xa-pool>
-            <is-same-rm-override>false</is-same-rm-override>
-            <no-tx-separate-pools />
-        </xa-pool>
         <validation>
             <valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.oracle.OracleValidConnectionChecker"></valid-connection-checker>
             <stale-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.oracle.OracleStaleConnectionChecker"></stale-connection-checker>
@@ -311,5 +306,6 @@
             org.jboss.resource.adapter.jdbc.vendor.OracleExceptionSorter
         </exception-sorter-class-name>
     </xa-datasource>
+-->
 
 </datasources>
