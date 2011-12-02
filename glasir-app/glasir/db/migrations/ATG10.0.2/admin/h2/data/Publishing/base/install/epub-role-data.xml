@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE gsa-template SYSTEM "dynamosystemresource:/atg/dtds/gsa/gsa_1.0.dtd">
+<gsa-template>
+<import-items>
+
+<!-- items of type role -->
+
+<add-item item-descriptor="role" id="epubAdmin">
+  <set-property name="name"><![CDATA[EPub-Admin]]></set-property>
+  <set-property name="description"><![CDATA[This role allows access to Publishing administrative data]]></set-property>
+</add-item>
+
+<add-item item-descriptor="role" id="epubUser">
+  <set-property name="name"><![CDATA[EPub-User]]></set-property>
+  <set-property name="description"><![CDATA[This role designates a profile as an Publishing User]]></set-property>
+</add-item>
+
+<add-item item-descriptor="role" id="epubManager">
+  <set-property name="name"><![CDATA[EPub-Manager]]></set-property>
+  <set-property name="description"><![CDATA[This role designates a profile as a Publishing Manager]]></set-property>
+</add-item>
+
+<add-item item-descriptor="role" id="epubSuperAdmin">
+  <set-property name="name"><![CDATA[EPub-Super-Admin]]></set-property>
+  <set-property name="description"><![CDATA[This role designates a super admin with no security restrictions]]></set-property>
+</add-item>
+
+<!-- items of type roleFolder -->
+
+<add-item item-descriptor="roleFolder" id="root">
+  <set-property name="name"><![CDATA[root folder]]></set-property>
+  <set-property name="description"><![CDATA[folder : rootFolder]]></set-property>
+</add-item>
+
+<add-item item-descriptor="roleFolder" id="epubRoleFolder">
+  <set-property name="name"><![CDATA[EPublishing]]></set-property>
+  <set-property name="description"><![CDATA[The global roles for Publishing]]></set-property>
+  <set-property name="parent"><![CDATA[root]]></set-property>
+  <set-property name="childItems"><![CDATA[epubSuperAdmin,epubAdmin,epubUser,epubManager]]></set-property>
+</add-item>
+
+<!-- users -->
+
+<add-item item-descriptor="user" id="19004">
+  <set-property name="firstName"><![CDATA[Publishing]]></set-property>
+  <set-property name="lastName"><![CDATA[Administrator]]></set-property>
+  <set-property name="roles"><![CDATA[epubSuperAdmin]]></set-property>
+  <set-property name="locale"><![CDATA[en_US]]></set-property>
+  <set-property name="email"><![CDATA[pubAdmin@example.com]]></set-property>
+  <set-property name="password"><![CDATA[5793ad9f379fc633f7bbf462deae4809]]></set-property>
+  <set-property name="member"><![CDATA[true]]></set-property>
+  <set-property name="login"><![CDATA[publishing]]></set-property>
+</add-item>
+
+</import-items>
+
+<!-- all update-item tags must go outside of the import-items tag -->
+
+<!-- items of type roleFolder -->
+
+<update-item item-descriptor="roleFolder" id="root">
+  <set-property name="childFolders" add="true"><![CDATA[epubRoleFolder]]></set-property>
+</update-item>
+
+</gsa-template>
+<!-- @version $Id: //product/Publishing/version/10.0.2/pws/install/epub-role-data.xml#2 $$Change: 635969 $ -->

@@ -101,6 +101,7 @@ task cleanAll(dependsOn: ['clean']) << {
   description = "Cleans out all the 'build' directories in the source tree _AND_ the jboss server dirs"
   delete("$jbossRoot/server/${storeServerName}")
   delete("$jbossRoot/server/${adminServerName}")
+  delete("$jbossRoot/server/glasir.db")
 }
 
 String getAllEnvironmentModules() {

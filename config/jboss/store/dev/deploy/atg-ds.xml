@@ -4,6 +4,7 @@
     <!-- core -->
 
     <!-- hsqldb-mem -->
+<!--
     <xa-datasource>
         <jndi-name>ATGProductionDS</jndi-name>
         <track-connection-by-tx/>
@@ -17,6 +18,7 @@
         <idle-timeout-minutes>10</idle-timeout-minutes>
         <prepared-statement-cache-size>32</prepared-statement-cache-size>
     </xa-datasource>
+-->
 
     <!-- hsqldb-file -->
 <!--
@@ -36,13 +38,12 @@
 -->
 
     <!-- h2 -->
-<!--
     <xa-datasource>
         <jndi-name>ATGProductionDS</jndi-name>
         <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
-        <xa-datasource-property name="URL">jdbc:h2:/tmp/atg_core;AUTO_SERVER=TRUE;MODE=Oracle;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1;AUTOCOMMIT=OFF;LOCK_MODE=0;MVCC=TRUE;CACHE_SIZE=524288</xa-datasource-property>
+        <xa-datasource-property name="URL">jdbc:h2:../glasir.db/atg_core;AUTO_SERVER=TRUE;MODE=Oracle;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1;AUTOCOMMIT=OFF;LOCK_MODE=0;MVCC=TRUE;CACHE_SIZE=65536</xa-datasource-property>
         <min-pool-size>5</min-pool-size>
-        <max-pool-size>20</max-pool-size>
+        <max-pool-size>100</max-pool-size>
         <idle-timeout-minutes>10</idle-timeout-minutes>
         <prepared-statement-cache-size>32</prepared-statement-cache-size>
         <security>
@@ -81,6 +82,7 @@
     <!-- cat a  -->
 
     <!-- hsqldb-mem -->
+<!--
     <xa-datasource>
         <jndi-name>ATGCatalogDS_A</jndi-name>
         <track-connection-by-tx/>
@@ -94,6 +96,7 @@
         <idle-timeout-minutes>10</idle-timeout-minutes>
         <prepared-statement-cache-size>32</prepared-statement-cache-size>
     </xa-datasource>
+-->
 
     <!-- hsqldb-file -->
 <!--
@@ -113,13 +116,12 @@
 -->
 
     <!-- h2 -->
-<!--
     <xa-datasource>
         <jndi-name>ATGCatalogDS_A</jndi-name>
         <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
-        <xa-datasource-property name="URL">jdbc:h2:/tmp/atg_cat_a;AUTO_SERVER=TRUE;MODE=Oracle;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1;AUTOCOMMIT=OFF;LOCK_MODE=0;MVCC=TRUE;CACHE_SIZE=524288</xa-datasource-property>
+        <xa-datasource-property name="URL">jdbc:h2:../glasir.db/atg_cat_a;AUTO_SERVER=TRUE;MODE=Oracle;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1;AUTOCOMMIT=OFF;LOCK_MODE=0;MVCC=TRUE;CACHE_SIZE=65536</xa-datasource-property>
         <min-pool-size>5</min-pool-size>
-        <max-pool-size>20</max-pool-size>
+        <max-pool-size>100</max-pool-size>
         <idle-timeout-minutes>10</idle-timeout-minutes>
         <prepared-statement-cache-size>32</prepared-statement-cache-size>
         <security>
@@ -127,7 +129,6 @@
             <password>sa</password>
         </security>
     </xa-datasource>
--->
 
     <!-- oracle  -->
 <!--
@@ -158,6 +159,7 @@
     <!-- cat b  -->
 
     <!-- hsqldb-mem -->
+<!--
     <xa-datasource>
         <jndi-name>ATGCatalogDS_B</jndi-name>
         <track-connection-by-tx/>
@@ -171,6 +173,7 @@
         <idle-timeout-minutes>10</idle-timeout-minutes>
         <prepared-statement-cache-size>32</prepared-statement-cache-size>
     </xa-datasource>
+-->
 
     <!-- hsqldb-file -->
 <!--
@@ -190,13 +193,12 @@
 -->
 
     <!-- h2 -->
-<!--
     <xa-datasource>
         <jndi-name>ATGCatalogDS_B</jndi-name>
         <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
-        <xa-datasource-property name="URL">jdbc:h2:/tmp/atg_cat_b;AUTO_SERVER=TRUE;MODE=Oracle;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1;AUTOCOMMIT=OFF;LOCK_MODE=0;MVCC=TRUE;CACHE_SIZE=524288</xa-datasource-property>
+        <xa-datasource-property name="URL">jdbc:h2:../glasir.db/atg_cat_b;AUTO_SERVER=TRUE;MODE=Oracle;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1;AUTOCOMMIT=OFF;LOCK_MODE=0;MVCC=TRUE;CACHE_SIZE=65536</xa-datasource-property>
         <min-pool-size>5</min-pool-size>
-        <max-pool-size>20</max-pool-size>
+        <max-pool-size>100</max-pool-size>
         <idle-timeout-minutes>10</idle-timeout-minutes>
         <prepared-statement-cache-size>32</prepared-statement-cache-size>
         <security>
@@ -204,7 +206,6 @@
             <password>sa</password>
         </security>
     </xa-datasource>
--->
 
     <!-- oracle  -->
 <!--
@@ -235,6 +236,7 @@
     <!-- pub -->
 
     <!-- hsqldb-mem -->
+<!--
     <xa-datasource>
         <jndi-name>ATGPublishingDS</jndi-name>
         <track-connection-by-tx/>
@@ -248,6 +250,7 @@
         <idle-timeout-minutes>10</idle-timeout-minutes>
         <prepared-statement-cache-size>32</prepared-statement-cache-size>
     </xa-datasource>
+-->
 
     <!-- hsqldb-mem -->
 <!--
@@ -267,13 +270,12 @@
 -->
 
     <!-- h2 -->
-<!--
     <xa-datasource>
         <jndi-name>ATGPublishingDS</jndi-name>
         <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
-        <xa-datasource-property name="URL">jdbc:h2:/tmp/atg_pub;AUTO_SERVER=TRUE;MODE=Oracle;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1;AUTOCOMMIT=OFF;LOCK_MODE=0;MVCC=TRUE;CACHE_SIZE=524288</xa-datasource-property>
-        <min-pool-size>10</min-pool-size>
-        <max-pool-size>20</max-pool-size>
+        <xa-datasource-property name="URL">jdbc:h2:../glasir.db/atg_pub;AUTO_SERVER=TRUE;MODE=Oracle;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1;AUTOCOMMIT=OFF;LOCK_MODE=0;MVCC=TRUE;CACHE_SIZE=65536</xa-datasource-property>
+        <min-pool-size>5</min-pool-size>
+        <max-pool-size>100</max-pool-size>
         <idle-timeout-minutes>10</idle-timeout-minutes>
         <prepared-statement-cache-size>32</prepared-statement-cache-size>
         <security>
@@ -281,7 +283,6 @@
             <password>sa</password>
         </security>
     </xa-datasource>
--->
 
     <!-- oracle  -->
 <!--
