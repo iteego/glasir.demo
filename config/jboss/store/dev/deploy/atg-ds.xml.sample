@@ -2,7 +2,7 @@
 <datasources>
     <xa-datasource>
         <!-- Microsoft SQL Server Express MSSQL-->
-        <jndi-name>ATGProductionDSmssql</jndi-name>
+        <jndi-name>GlasirProductionDSmssql</jndi-name>
         <track-connection-by-tx/>
         <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
         <xa-datasource-class>com.microsoft.sqlserver.jdbc.SQLServerXADataSource</xa-datasource-class>
@@ -20,7 +20,7 @@
 
     <xa-datasource>
         <!-- H2 -->
-        <jndi-name>ATGProductionDS-h2</jndi-name>
+        <jndi-name>GlasirProductionDS-h2</jndi-name>
         <track-connection-by-tx/>
         <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
         <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
@@ -35,14 +35,14 @@
 
     <xa-datasource>
         <!-- Oracle XE -->
-        <jndi-name>ATGProductionDSOracle</jndi-name>
+        <jndi-name>GlasirProductionDSOracle</jndi-name>
         <track-connection-by-tx>true</track-connection-by-tx>
         <isSameRM-override-value>false</isSameRM-override-value>
         <xa-datasource-class>oracle.jdbc.xa.client.OracleXADataSource</xa-datasource-class>
         <xa-datasource-property name="URL">jdbc:oracle:thin:@localhost:1521:XE</xa-datasource-property>
         <driver-class>oracle.jdbc.driver.OracleDriver</driver-class>
-        <xa-datasource-property name="User">atgdb</xa-datasource-property>
-        <xa-datasource-property name="Password">atgdb</xa-datasource-property>
+        <xa-datasource-property name="User">Glasirdb</xa-datasource-property>
+        <xa-datasource-property name="Password">Glasirdb</xa-datasource-property>
         <min-pool-size>5</min-pool-size>
         <max-pool-size>20</max-pool-size>
         <idle-timeout-minutes>3</idle-timeout-minutes>
@@ -53,7 +53,7 @@
 
     <xa-datasource>
         <!-- Oracle XE in dev-vm -->
-        <jndi-name>ATGProductionDS-vmora</jndi-name>
+        <jndi-name>GlasirProductionDS-vmora</jndi-name>
         <track-connection-by-tx>false</track-connection-by-tx>
         <isSameRM-override-value>false</isSameRM-override-value>
         <min-pool-size>5</min-pool-size>
@@ -63,20 +63,20 @@
         <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
         <xa-datasource-class>oracle.jdbc.xa.client.OracleXADataSource</xa-datasource-class>
         <xa-datasource-property name="URL">jdbc:oracle:thin:@//localhost:1521/orcl</xa-datasource-property>
-        <xa-datasource-property name="User">atgdb</xa-datasource-property>
-        <xa-datasource-property name="Password">atgdb</xa-datasource-property>
+        <xa-datasource-property name="User">Glasirdb</xa-datasource-property>
+        <xa-datasource-property name="Password">Glasirdb</xa-datasource-property>
         <prepared-statement-cache-size>32</prepared-statement-cache-size>
     </xa-datasource>
 
 
     <xa-datasource>
         <!-- MySql 5 -->
-        <jndi-name>ATGProductionDS</jndi-name>
+        <jndi-name>GlasirProductionDS</jndi-name>
         <track-connection-by-tx/>
         <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
         <driver-class>com.mysql.jdbc.Driver</driver-class>
         <xa-datasource-class>com.mysql.jdbc.jdbc2.optional.MysqlXADataSource</xa-datasource-class>
-        <xa-datasource-property name="URL">jdbc:mysql://localhost:3306/atg_core</xa-datasource-property>
+        <xa-datasource-property name="URL">jdbc:mysql://localhost:3306/Glasir_core</xa-datasource-property>
         <xa-datasource-property name="User">sa</xa-datasource-property>
         <xa-datasource-property name="Password"></xa-datasource-property>
         <min-pool-size>5</min-pool-size>
@@ -86,7 +86,7 @@
     </xa-datasource>
 
     <xa-datasource>
-        <jndi-name>ATGCatalogDS-h2</jndi-name>
+        <jndi-name>GlasirCatalogDS-h2</jndi-name>
         <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
         <track-connection-by-tx/>
         <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
@@ -102,7 +102,7 @@
 
     <!-- Skype for Oracle/devvm >
     <xa-datasource>
-        <jndi-name>atgcore</jndi-name>
+        <jndi-name>Glasircore</jndi-name>
         <track-connection-by-tx>false</track-connection-by-tx>
         <isSameRM-override-value>false</isSameRM-override-value>
         <min-pool-size>5</min-pool-size>
@@ -117,7 +117,7 @@
         <prepared-statement-cache-size>32</prepared-statement-cache-size>
     </xa-datasource>
     <xa-datasource>
-        <jndi-name>atgpub</jndi-name>
+        <jndi-name>Glasirpub</jndi-name>
         <track-connection-by-tx>false</track-connection-by-tx>
         <isSameRM-override-value>false</isSameRM-override-value>
         <min-pool-size>5</min-pool-size>
@@ -132,7 +132,7 @@
         <prepared-statement-cache-size>32</prepared-statement-cache-size>
     </xa-datasource>
     <xa-datasource>
-        <jndi-name>atgcata</jndi-name>
+        <jndi-name>Glasircata</jndi-name>
         <track-connection-by-tx>false</track-connection-by-tx>
         <isSameRM-override-value>false</isSameRM-override-value>
         <min-pool-size>5</min-pool-size>
@@ -147,7 +147,7 @@
         <prepared-statement-cache-size>32</prepared-statement-cache-size>
     </xa-datasource>
     <xa-datasource>
-        <jndi-name>atgcatb</jndi-name>
+        <jndi-name>Glasircatb</jndi-name>
         <track-connection-by-tx>false</track-connection-by-tx>
         <isSameRM-override-value>false</isSameRM-override-value>
         <min-pool-size>5</min-pool-size>
@@ -166,7 +166,7 @@
 
 	<!-- Sephora for Oracle/devvm ->
     <xa-datasource>
-        <jndi-name>ATGProductionDS</jndi-name>
+        <jndi-name>GlasirProductionDS</jndi-name>
         <track-connection-by-tx>false</track-connection-by-tx>
         <isSameRM-override-value>false</isSameRM-override-value>
         <min-pool-size>5</min-pool-size>
@@ -181,7 +181,7 @@
         <prepared-statement-cache-size>32</prepared-statement-cache-size>
     </xa-datasource>
     <xa-datasource>
-        <jndi-name>ATGCatalogDS</jndi-name>
+        <jndi-name>GlasirCatalogDS</jndi-name>
         <track-connection-by-tx>false</track-connection-by-tx>
         <isSameRM-override-value>false</isSameRM-override-value>
         <min-pool-size>5</min-pool-size>
@@ -196,7 +196,7 @@
         <prepared-statement-cache-size>32</prepared-statement-cache-size>
     </xa-datasource>
     <xa-datasource>
-        <jndi-name>atgcatb</jndi-name>
+        <jndi-name>Glasircatb</jndi-name>
         <track-connection-by-tx>false</track-connection-by-tx>
         <isSameRM-override-value>false</isSameRM-override-value>
         <min-pool-size>5</min-pool-size>

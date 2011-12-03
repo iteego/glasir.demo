@@ -3,14 +3,13 @@
 
     <!-- core -->
 
-    <!-- hsqldb-mem -->
-<!--
+    <!-- hsql-mem -->
     <xa-datasource>
-        <jndi-name>ATGProductionDS</jndi-name>
+        <jndi-name>GlasirProductionDS-hsql-mem</jndi-name>
         <track-connection-by-tx/>
         <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
         <xa-datasource-class>org.hsqldb.jdbc.pool.JDBCXADataSource</xa-datasource-class>
-        <xa-datasource-property name="Url">jdbc:hsqldb:hsql://localhost/atg_core;mem:atg_core;sql.syntax_ora=true;autoCommit=false</xa-datasource-property>
+        <xa-datasource-property name="Url">jdbc:hsqldb:hsql://localhost/glasir_core;mem:glasir_core;encoding=UTF-8;check_props=true;sql.syntax_ora=true;autoCommit=false</xa-datasource-property>
         <xa-datasource-property name="User">sa</xa-datasource-property>
         <xa-datasource-property name="Password"></xa-datasource-property>
         <min-pool-size>5</min-pool-size>
@@ -18,16 +17,14 @@
         <idle-timeout-minutes>10</idle-timeout-minutes>
         <prepared-statement-cache-size>32</prepared-statement-cache-size>
     </xa-datasource>
--->
 
-    <!-- hsqldb-file -->
-<!--
+    <!-- hsql-file -->
     <xa-datasource>
-        <jndi-name>ATGProductionDS</jndi-name>
+        <jndi-name>GlasirProductionDS-hsql-file</jndi-name>
         <track-connection-by-tx/>
         <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
         <xa-datasource-class>org.hsqldb.jdbc.pool.JDBCXADataSource</xa-datasource-class>
-        <xa-datasource-property name="Url">jdbc:hsqldb:file:atg_core;check_props=true</xa-datasource-property>
+        <xa-datasource-property name="Url">jdbc:hsqldb:file:../glasir.db/glasir_core;encoding=UTF-8;check_props=true;sql.syntax_ora=true;autoCommit=false</xa-datasource-property>
         <xa-datasource-property name="User">sa</xa-datasource-property>
         <xa-datasource-property name="Password"></xa-datasource-property>
         <min-pool-size>5</min-pool-size>
@@ -35,13 +32,12 @@
         <idle-timeout-minutes>10</idle-timeout-minutes>
         <prepared-statement-cache-size>32</prepared-statement-cache-size>
     </xa-datasource>
--->
 
     <!-- h2 -->
     <xa-datasource>
-        <jndi-name>ATGProductionDS</jndi-name>
+        <jndi-name>GlasirProductionDS-h2</jndi-name>
         <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
-        <xa-datasource-property name="URL">jdbc:h2:../glasir.db/atg_core;AUTO_SERVER=TRUE;MODE=Oracle;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1;AUTOCOMMIT=OFF;LOCK_MODE=0;MVCC=TRUE;CACHE_SIZE=65536</xa-datasource-property>
+        <xa-datasource-property name="URL">jdbc:h2:../glasir.db/glasir_core;AUTO_SERVER=TRUE;MODE=Oracle;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1;AUTOCOMMIT=OFF;LOCK_MODE=0;MVCC=TRUE;CACHE_SIZE=65536</xa-datasource-property>
         <min-pool-size>5</min-pool-size>
         <max-pool-size>100</max-pool-size>
         <idle-timeout-minutes>10</idle-timeout-minutes>
@@ -51,12 +47,10 @@
             <password>sa</password>
         </security>
     </xa-datasource>
--->
 
     <!-- oracle  -->
-<!--
     <xa-datasource>
-        <jndi-name>ATGProductionDS</jndi-name>
+        <jndi-name>GlasirProductionDS-oracle</jndi-name>
         <isSameRM-override-value>false</isSameRM-override-value>
         <min-pool-size>5</min-pool-size>
         <max-pool-size>100</max-pool-size>
@@ -76,19 +70,17 @@
             org.jboss.resource.adapter.jdbc.vendor.OracleExceptionSorter
         </exception-sorter-class-name>
     </xa-datasource>
--->
 
 
     <!-- cat a  -->
 
-    <!-- hsqldb-mem -->
-<!--
+    <!-- hsql-mem -->
     <xa-datasource>
-        <jndi-name>ATGCatalogDS_A</jndi-name>
+        <jndi-name>GlasirSwitchingDS_A-hsql-mem</jndi-name>
         <track-connection-by-tx/>
         <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
         <xa-datasource-class>org.hsqldb.jdbc.pool.JDBCXADataSource</xa-datasource-class>
-        <xa-datasource-property name="Url">jdbc:hsqldb:hsql://localhost/atg_cat_a;mem:atg_cat_a;sql.syntax_ora=true;autoCommit=false</xa-datasource-property>
+        <xa-datasource-property name="Url">jdbc:hsqldb:hsql://localhost/glasir_a;mem:glasir_a;encoding=UTF-8;check_props=true;sql.syntax_ora=true;autoCommit=false</xa-datasource-property>
         <xa-datasource-property name="User">sa</xa-datasource-property>
         <xa-datasource-property name="Password"></xa-datasource-property>
         <min-pool-size>5</min-pool-size>
@@ -96,16 +88,14 @@
         <idle-timeout-minutes>10</idle-timeout-minutes>
         <prepared-statement-cache-size>32</prepared-statement-cache-size>
     </xa-datasource>
--->
 
-    <!-- hsqldb-file -->
-<!--
+    <!-- hsql-file -->
     <xa-datasource>
-        <jndi-name>ATGCatalogDS_A</jndi-name>
+        <jndi-name>GlasirSwitchingDS_A-hsql-file</jndi-name>
         <track-connection-by-tx/>
         <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
         <xa-datasource-class>org.hsqldb.jdbc.pool.JDBCXADataSource</xa-datasource-class>
-        <xa-datasource-property name="Url">jdbc:hsqldb:file:atg_cat_a;check_props=true</xa-datasource-property>
+        <xa-datasource-property name="Url">jdbc:hsqldb:file:../glasir.db/glasir_a;encoding=UTF-8;check_props=true;sql.syntax_ora=true;autoCommit=false</xa-datasource-property>
         <xa-datasource-property name="User">sa</xa-datasource-property>
         <xa-datasource-property name="Password"></xa-datasource-property>
         <min-pool-size>5</min-pool-size>
@@ -117,9 +107,9 @@
 
     <!-- h2 -->
     <xa-datasource>
-        <jndi-name>ATGCatalogDS_A</jndi-name>
+        <jndi-name>GlasirSwitchingDS_A-h2</jndi-name>
         <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
-        <xa-datasource-property name="URL">jdbc:h2:../glasir.db/atg_cat_a;AUTO_SERVER=TRUE;MODE=Oracle;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1;AUTOCOMMIT=OFF;LOCK_MODE=0;MVCC=TRUE;CACHE_SIZE=65536</xa-datasource-property>
+        <xa-datasource-property name="URL">jdbc:h2:../glasir.db/glasir_a;AUTO_SERVER=TRUE;MODE=Oracle;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1;AUTOCOMMIT=OFF;LOCK_MODE=0;MVCC=TRUE;CACHE_SIZE=65536</xa-datasource-property>
         <min-pool-size>5</min-pool-size>
         <max-pool-size>100</max-pool-size>
         <idle-timeout-minutes>10</idle-timeout-minutes>
@@ -131,9 +121,8 @@
     </xa-datasource>
 
     <!-- oracle  -->
-<!--
     <xa-datasource>
-        <jndi-name>ATGCatalogDS_A</jndi-name>
+        <jndi-name>GlasirSwitchingDS_A-oracle</jndi-name>
         <isSameRM-override-value>false</isSameRM-override-value>
         <min-pool-size>5</min-pool-size>
         <max-pool-size>100</max-pool-size>
@@ -142,7 +131,7 @@
         <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
         <xa-datasource-class>oracle.jdbc.xa.client.OracleXADataSource</xa-datasource-class>
         <xa-datasource-property name="URL">jdbc:oracle:thin:@db.local:1521:ORACLE</xa-datasource-property>
-        <xa-datasource-property name="User">glasir_cat_a</xa-datasource-property>
+        <xa-datasource-property name="User">glasir_a</xa-datasource-property>
         <xa-datasource-property name="Password">password</xa-datasource-property>
         <validation>
             <valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.oracle.OracleValidConnectionChecker"></valid-connection-checker>
@@ -153,19 +142,17 @@
             org.jboss.resource.adapter.jdbc.vendor.OracleExceptionSorter
         </exception-sorter-class-name>
     </xa-datasource>
--->
 
 
     <!-- cat b  -->
 
-    <!-- hsqldb-mem -->
-<!--
+    <!-- hsql-mem -->
     <xa-datasource>
-        <jndi-name>ATGCatalogDS_B</jndi-name>
+        <jndi-name>GlasirSwitchingDS_B-hsql-mem</jndi-name>
         <track-connection-by-tx/>
         <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
         <xa-datasource-class>org.hsqldb.jdbc.pool.JDBCXADataSource</xa-datasource-class>
-        <xa-datasource-property name="Url">jdbc:hsqldb:hsql://localhost/atg_cat_b;mem:atg_cat_b;sql.syntax_ora=true;autoCommit=false</xa-datasource-property>
+        <xa-datasource-property name="Url">jdbc:hsqldb:hsql://localhost/glasir_b;mem:glasir_b;encoding=UTF-8;check_props=true;sql.syntax_ora=true;autoCommit=false</xa-datasource-property>
         <xa-datasource-property name="User">sa</xa-datasource-property>
         <xa-datasource-property name="Password"></xa-datasource-property>
         <min-pool-size>5</min-pool-size>
@@ -175,14 +162,13 @@
     </xa-datasource>
 -->
 
-    <!-- hsqldb-file -->
-<!--
+    <!-- hsql-file -->
     <xa-datasource>
-        <jndi-name>ATGCatalogDS_B</jndi-name>
+        <jndi-name>GlasirSwitchingDS_B-hsql-file</jndi-name>
         <track-connection-by-tx/>
         <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
         <xa-datasource-class>org.hsqldb.jdbc.pool.JDBCXADataSource</xa-datasource-class>
-        <xa-datasource-property name="Url">jdbc:hsqldb:file:atg_cat_b;check_props=true</xa-datasource-property>
+        <xa-datasource-property name="Url">jdbc:hsqldb:file:../glasir.db/glasir_b;encoding=UTF-8;check_props=true;sql.syntax_ora=true;autoCommit=false</xa-datasource-property>
         <xa-datasource-property name="User">sa</xa-datasource-property>
         <xa-datasource-property name="Password"></xa-datasource-property>
         <min-pool-size>5</min-pool-size>
@@ -190,13 +176,12 @@
         <idle-timeout-minutes>10</idle-timeout-minutes>
         <prepared-statement-cache-size>32</prepared-statement-cache-size>
     </xa-datasource>
--->
 
     <!-- h2 -->
     <xa-datasource>
-        <jndi-name>ATGCatalogDS_B</jndi-name>
+        <jndi-name>GlasirSwitchingDS_B-h2</jndi-name>
         <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
-        <xa-datasource-property name="URL">jdbc:h2:../glasir.db/atg_cat_b;AUTO_SERVER=TRUE;MODE=Oracle;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1;AUTOCOMMIT=OFF;LOCK_MODE=0;MVCC=TRUE;CACHE_SIZE=65536</xa-datasource-property>
+        <xa-datasource-property name="URL">jdbc:h2:../glasir.db/glasir_b;AUTO_SERVER=TRUE;MODE=Oracle;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1;AUTOCOMMIT=OFF;LOCK_MODE=0;MVCC=TRUE;CACHE_SIZE=65536</xa-datasource-property>
         <min-pool-size>5</min-pool-size>
         <max-pool-size>100</max-pool-size>
         <idle-timeout-minutes>10</idle-timeout-minutes>
@@ -208,9 +193,8 @@
     </xa-datasource>
 
     <!-- oracle  -->
-<!--
     <xa-datasource>
-        <jndi-name>ATGCatalogDS_B</jndi-name>
+        <jndi-name>GlasirSwitchingDS_B-oracle</jndi-name>
         <isSameRM-override-value>false</isSameRM-override-value>
         <min-pool-size>5</min-pool-size>
         <max-pool-size>100</max-pool-size>
@@ -219,7 +203,7 @@
         <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
         <xa-datasource-class>oracle.jdbc.xa.client.OracleXADataSource</xa-datasource-class>
         <xa-datasource-property name="URL">jdbc:oracle:thin:@db.local:1521:ORACLE</xa-datasource-property>
-        <xa-datasource-property name="User">glasir_cat_b</xa-datasource-property>
+        <xa-datasource-property name="User">glasir_b</xa-datasource-property>
         <xa-datasource-property name="Password">password</xa-datasource-property>
         <validation>
             <valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.oracle.OracleValidConnectionChecker"></valid-connection-checker>
@@ -230,19 +214,17 @@
             org.jboss.resource.adapter.jdbc.vendor.OracleExceptionSorter
         </exception-sorter-class-name>
     </xa-datasource>
--->
 
 
     <!-- pub -->
 
-    <!-- hsqldb-mem -->
-<!--
+    <!-- hsql-mem -->
     <xa-datasource>
-        <jndi-name>ATGPublishingDS</jndi-name>
+        <jndi-name>GlasirPublishingDS-hsql-mem</jndi-name>
         <track-connection-by-tx/>
         <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
         <xa-datasource-class>org.hsqldb.jdbc.pool.JDBCXADataSource</xa-datasource-class>
-        <xa-datasource-property name="Url">jdbc:hsqldb:hsql://localhost/atg_pub;mem:atg_pub;sql.syntax_ora=true;autoCommit=false</xa-datasource-property>
+        <xa-datasource-property name="Url">jdbc:hsqldb:hsql://localhost/glasir_pub;mem:glasir_pub;encoding=UTF-8;check_props=true;sql.syntax_ora=true;autoCommit=false</xa-datasource-property>
         <xa-datasource-property name="User">sa</xa-datasource-property>
         <xa-datasource-property name="Password"></xa-datasource-property>
         <min-pool-size>5</min-pool-size>
@@ -250,16 +232,14 @@
         <idle-timeout-minutes>10</idle-timeout-minutes>
         <prepared-statement-cache-size>32</prepared-statement-cache-size>
     </xa-datasource>
--->
 
-    <!-- hsqldb-mem -->
-<!--
+    <!-- hsql-file -->
     <xa-datasource>
-        <jndi-name>ATGPublishingDS</jndi-name>
+        <jndi-name>GlasirPublishingDS-hsql-file</jndi-name>
         <track-connection-by-tx/>
         <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
         <xa-datasource-class>org.hsqldb.jdbc.pool.JDBCXADataSource</xa-datasource-class>
-        <xa-datasource-property name="Url">jdbc:hsqldb:file:atg_pub;check_props=true</xa-datasource-property>
+        <xa-datasource-property name="Url">jdbc:hsqldb:file:../glasir.db/glasir_pub;encoding=UTF-8;check_props=true;sql.syntax_ora=true;autoCommit=false</xa-datasource-property>
         <xa-datasource-property name="User">sa</xa-datasource-property>
         <xa-datasource-property name="Password"></xa-datasource-property>
         <min-pool-size>5</min-pool-size>
@@ -267,13 +247,12 @@
         <idle-timeout-minutes>10</idle-timeout-minutes>
         <prepared-statement-cache-size>32</prepared-statement-cache-size>
     </xa-datasource>
--->
 
     <!-- h2 -->
     <xa-datasource>
-        <jndi-name>ATGPublishingDS</jndi-name>
+        <jndi-name>GlasirPublishingDS-h2</jndi-name>
         <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
-        <xa-datasource-property name="URL">jdbc:h2:../glasir.db/atg_pub;AUTO_SERVER=TRUE;MODE=Oracle;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1;AUTOCOMMIT=OFF;LOCK_MODE=0;MVCC=TRUE;CACHE_SIZE=65536</xa-datasource-property>
+        <xa-datasource-property name="URL">jdbc:h2:../glasir.db/glasir_pub;AUTO_SERVER=TRUE;MODE=Oracle;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1;AUTOCOMMIT=OFF;LOCK_MODE=0;MVCC=TRUE;CACHE_SIZE=65536</xa-datasource-property>
         <min-pool-size>5</min-pool-size>
         <max-pool-size>100</max-pool-size>
         <idle-timeout-minutes>10</idle-timeout-minutes>
@@ -285,9 +264,8 @@
     </xa-datasource>
 
     <!-- oracle  -->
-<!--
     <xa-datasource>
-        <jndi-name>ATGPublishingDS</jndi-name>
+        <jndi-name>GlasirPublishingDS-oracle</jndi-name>
         <isSameRM-override-value>false</isSameRM-override-value>
         <min-pool-size>10</min-pool-size>
         <max-pool-size>20</max-pool-size>
@@ -307,6 +285,5 @@
             org.jboss.resource.adapter.jdbc.vendor.OracleExceptionSorter
         </exception-sorter-class-name>
     </xa-datasource>
--->
 
 </datasources>

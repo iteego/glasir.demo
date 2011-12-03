@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE process SYSTEM "dynamosystemresource:/atg/dtds/pdl/pdl_1.0.dtd">
+<process author="admin" creation-time="1142967176016" enabled="true" last-modified-by="admin" modification-time="1280395102464">
+  <segment migrate-from="1143065101487,1143216296100,1143218516275,1143218963566,1143219460966,1280390038602,1280390310993,1280391180602" migrate-subjects="true">
+    <segment-name>Segment 1</segment-name>
+    <!--================================-->
+    <!--== Order abandoned  -->
+    <!--================================-->
+    <event id="1">
+      <event-name>atg.commerce.order.abandoned.OrderAbandoned</event-name>
+    </event>
+    <!--================================-->
+    <!--== Give promotion promotions: Abandoned Order Promotion  -->
+    <!--================================-->
+    <action id="2">
+      <action-name>promotion</action-name>
+      <action-param name="promotions">
+        <array type="java.lang.String[]">
+          <constant>abandonedOrderDiscount</constant>
+        </array>
+      </action-param>
+    </action>
+  </segment>
+  <segment migrate-from="1143218963566,1143219460966,1280390038602,1280390310993,1280391180602" migrate-subjects="true">
+    <segment-name>Segment 2</segment-name>
+    <!--================================-->
+    <!--== Promotion offered Promotion id is abandonedOrderDiscount  -->
+    <!--================================-->
+    <event id="1">
+      <event-name>atg.commerce.promotion.PromotionGranted</event-name>
+      <filter construct="event-property-filter" operator="eq">
+        <event-property construct="event-property">
+          <property-name>promotionId</property-name>
+        </event-property>
+        <constant>abandonedOrderDiscount</constant>
+      </filter>
+    </event>
+    <!--================================-->
+    <!--== Receive promo email is yes  -->
+    <!--================================-->
+    <condition construct="people-element" id="2">
+      <filter construct="profile-property-filter" operator="eq">
+        <subject-property>
+          <property-name>receivePromoEmail</property-name>
+        </subject-property>
+        <constant>yes</constant>
+      </filter>
+    </condition>
+    <!--================================-->
+    <!--== Send email with path ATG Commerce Reference Store:/emailtemplates/abandonedOrderPromo.jsp with site Event's Site  -->
+    <!--================================-->
+    <action id="3">
+      <action-name>sendEmail</action-name>
+      <action-param name="scenarioPathInfo">
+        <constant>ATG Commerce Reference Store:/emailtemplates/abandonedOrderPromo.jsp</constant>
+      </action-param>
+      <action-param name="site">
+        <event-property construct="event-property">
+          <property-name>siteId</property-name>
+        </event-property>
+      </action-param>
+    </action>
+  </segment>
+</process>
