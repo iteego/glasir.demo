@@ -4,6 +4,7 @@
     <!-- core -->
 
     <!-- hsql-mem -->
+<!--
     <xa-datasource>
         <jndi-name>GlasirProductionDS-hsql-mem</jndi-name>
         <track-connection-by-tx/>
@@ -17,8 +18,10 @@
         <idle-timeout-minutes>10</idle-timeout-minutes>
         <prepared-statement-cache-size>32</prepared-statement-cache-size>
     </xa-datasource>
+-->
 
     <!-- hsql-file -->
+<!--
     <xa-datasource>
         <jndi-name>GlasirProductionDS-hsql-file</jndi-name>
         <track-connection-by-tx/>
@@ -32,6 +35,7 @@
         <idle-timeout-minutes>10</idle-timeout-minutes>
         <prepared-statement-cache-size>32</prepared-statement-cache-size>
     </xa-datasource>
+-->
 
     <!-- h2 -->
     <xa-datasource>
@@ -75,6 +79,7 @@
     <!-- cat a  -->
 
     <!-- hsql-mem -->
+<!--
     <xa-datasource>
         <jndi-name>GlasirSwitchingDS_A-hsql-mem</jndi-name>
         <track-connection-by-tx/>
@@ -88,8 +93,10 @@
         <idle-timeout-minutes>10</idle-timeout-minutes>
         <prepared-statement-cache-size>32</prepared-statement-cache-size>
     </xa-datasource>
+-->
 
     <!-- hsql-file -->
+<!--
     <xa-datasource>
         <jndi-name>GlasirSwitchingDS_A-hsql-file</jndi-name>
         <track-connection-by-tx/>
@@ -147,6 +154,7 @@
     <!-- cat b  -->
 
     <!-- hsql-mem -->
+<!--
     <xa-datasource>
         <jndi-name>GlasirSwitchingDS_B-hsql-mem</jndi-name>
         <track-connection-by-tx/>
@@ -163,6 +171,7 @@
 -->
 
     <!-- hsql-file -->
+<!--
     <xa-datasource>
         <jndi-name>GlasirSwitchingDS_B-hsql-file</jndi-name>
         <track-connection-by-tx/>
@@ -176,6 +185,7 @@
         <idle-timeout-minutes>10</idle-timeout-minutes>
         <prepared-statement-cache-size>32</prepared-statement-cache-size>
     </xa-datasource>
+-->
 
     <!-- h2 -->
     <xa-datasource>
@@ -219,6 +229,7 @@
     <!-- pub -->
 
     <!-- hsql-mem -->
+<!--
     <xa-datasource>
         <jndi-name>GlasirPublishingDS-hsql-mem</jndi-name>
         <track-connection-by-tx/>
@@ -232,8 +243,10 @@
         <idle-timeout-minutes>10</idle-timeout-minutes>
         <prepared-statement-cache-size>32</prepared-statement-cache-size>
     </xa-datasource>
+-->
 
     <!-- hsql-file -->
+<!--
     <xa-datasource>
         <jndi-name>GlasirPublishingDS-hsql-file</jndi-name>
         <track-connection-by-tx/>
@@ -247,6 +260,7 @@
         <idle-timeout-minutes>10</idle-timeout-minutes>
         <prepared-statement-cache-size>32</prepared-statement-cache-size>
     </xa-datasource>
+-->
 
     <!-- h2 -->
     <xa-datasource>
