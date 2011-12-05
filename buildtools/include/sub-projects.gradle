@@ -10,6 +10,31 @@ allprojects {
 
     compile  "junit:junit:4.8.2", 
               "org.mockito:mockito-all:1.8.5"
+
+    //settings for geb/spock/selenium
+    def junitVersion = "4.8.2"
+    def gebVersion = "0.6.1"
+    def spockVersion = "0.6-groovy-1.8-SNAPSHOT"
+    def seleniumVersion = "2.9.0"
+
+    //TODO: investigate if we can use spock 0.5-groovy-1.8 and move to groovy 1.8
+    // If using Spock, need to depend on geb-spock
+    testCompile "org.codehaus.geb:geb-spock:$gebVersion"
+    testCompile "org.spockframework:spock-core:$spockVersion"
+
+    // If using JUnit, need to depend on geb-junit (3 or 4)
+    testCompile "org.codehaus.geb:geb-junit4:$gebVersion"
+    testCompile "junit:junit-dep:$junitVersion"
+
+    // The drivers we want to use
+    drivers = ["htmlunit"] //, "firefox", "chrome"]
+
+    // Need a driver implementation
+    drivers.each { driver ->
+      testCompile "org.seleniumhq.selenium:selenium-${driver}-driver:$seleniumVersion"
+    }
+    testRuntime "org.seleniumhq.selenium:selenium-support:$seleniumVersion"
+
   }
 
   sourceCompatibility = "1.6"
