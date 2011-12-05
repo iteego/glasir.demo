@@ -9,7 +9,7 @@ allprojects {
   apply plugin: 'groovy'
   
   repositories {
-    //TODO: we might or might not want customers connecting to our repo
+    //TODO: we may or may not want the repo to be used this way
     ivy.addCredentials("Artifactory Realm", "iteego.artifactoryonline.com", artifactoryReader, artifactoryReaderPwd)    
     mavenRepo url: 'http://iteego.artifactoryonline.com/iteego/glasir-repos'
   }

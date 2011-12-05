@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+ATG-Required: env
+ATG-Config-Path: config
+
+Name: db
+ATG-Assembler-Import-File: True
+
+Name: import
+ATG-Assembler-Import-File: True

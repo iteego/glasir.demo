@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE process SYSTEM "dynamosystemresource:/atg/dtds/pdl/pdl_1.0.dtd">
+<process author="admin" creation-time="1237381206454" enabled="true" last-modified-by="admin" modification-time="1275555913407">
+  <segment migrate-from="1237554017251" migrate-subjects="true">
+    <segment-name>Category Promotion 1</segment-name>
+    <!--================================-->
+    <!--== Items requested by slot CategoryPromotionContent1  -->
+    <!--================================-->
+    <event id="1">
+      <event-name>atg.dss.SlotItemRequest</event-name>
+      <filter operator="eq">
+        <event-property>
+          <property-name>slotName</property-name>
+        </event-property>
+        <constant>/atg/registry/Slots/CategoryPromotionContent1</constant>
+      </filter>
+    </event>
+    <!--================================-->
+    <!--== Add items to slot named CategoryPromotionContent1 from targeter CategoryPromotionContent1  -->
+    <!--================================-->
+    <action id="2">
+      <action-name>fillSlot</action-name>
+      <action-param name="slot">
+        <nucleus-property>
+          <nucleus-path>/atg/registry/Slots/CategoryPromotionContent1</nucleus-path>
+        </nucleus-property>
+      </action-param>
+      <action-param name="targeter">
+        <nucleus-property>
+          <nucleus-path>/atg/registry/RepositoryTargeters/ProductCatalog/CategoryPromotionContent1</nucleus-path>
+        </nucleus-property>
+      </action-param>
+    </action>
+  </segment>
+  <segment migrate-from="1237554017251" migrate-subjects="true">
+    <segment-name>Category Promotion 2</segment-name>
+    <!--================================-->
+    <!--== Items requested by slot CategoryPromotionContent2  -->
+    <!--================================-->
+    <event id="1">
+      <event-name>atg.dss.SlotItemRequest</event-name>
+      <filter operator="eq">
+        <event-property>
+          <property-name>slotName</property-name>
+        </event-property>
+        <constant>/atg/registry/Slots/CategoryPromotionContent2</constant>
+      </filter>
+    </event>
+    <!--================================-->
+    <!--== Add items to slot named CategoryPromotionContent2 from targeter CategoryPromotionContent2  -->
+    <!--================================-->
+    <action id="2">
+      <action-name>fillSlot</action-name>
+      <action-param name="slot">
+        <nucleus-property>
+          <nucleus-path>/atg/registry/Slots/CategoryPromotionContent2</nucleus-path>
+        </nucleus-property>
+      </action-param>
+      <action-param name="targeter">
+        <nucleus-property>
+          <nucleus-path>/atg/registry/RepositoryTargeters/ProductCatalog/CategoryPromotionContent2</nucleus-path>
+        </nucleus-property>
+      </action-param>
+    </action>
+  </segment>
+</process>
