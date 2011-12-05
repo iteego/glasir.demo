@@ -67,7 +67,11 @@ subprojects {
     destinationDir = file("lib")
     baseName = 'classes'
   }
-      
+
+  test {
+    exclude '**/*GebSpec.class'
+  }
+
   clean << {
     ant.delete file: 'lib/classes.jar'
     if (!file('lib').listFiles()) {
