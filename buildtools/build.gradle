@@ -38,3 +38,4 @@ apply from: "include/assembly-tasks.gradle"
 apply from: "include/jboss-tasks.gradle"
 apply from: "include/rules.gradle"
 apply from: "include/atg-db-tasks.gradle" 
+
