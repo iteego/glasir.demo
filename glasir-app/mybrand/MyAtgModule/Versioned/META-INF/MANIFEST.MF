@@ -1,3 +1,0 @@
-Manifest-Version: 1.0
-ATG-Required: mybrand.MyAtgModule
-ATG-Config-Path: config

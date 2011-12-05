@@ -1,4 +1,0 @@
-Manifest-Version: 1.0
-ATG-Required: env mybrand.MyAtgModule.Versioned DCS-UI.Versioned SiteAdmin.Versioned PubPortlet
-ATG-Config-Path: config
-

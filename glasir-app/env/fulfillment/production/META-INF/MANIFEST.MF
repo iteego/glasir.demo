@@ -1,4 +1,0 @@
-Manifest-Version: 1.0
-ATG-Required: env.fulfillment
-ATG-Config-Path: config
-

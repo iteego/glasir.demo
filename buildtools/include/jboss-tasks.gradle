@@ -18,10 +18,9 @@ To your "gradle startDevStore" command. Usually, module flavors are used for dif
   for example, use "gradle startDevStore -Pflavor=oracle" to bypass the default h2 database choice.
 */
 task startDevStore(type: RunAtgOnJBoss, dependsOn: []) {
-//task startDevStore(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
   jBossRoot     jbossRoot
   serverName    storeServerName
-  modules       project.hasProperty("flavor") && ["oracle","hsql-mem","hsql-file"].contains(project.getProperty("flavor")) ? "env.store.dev." + project.getProperty("flavor") : "env.store.dev"
+  modules       project.hasProperty("flavor") && ["oracle"].contains(project.getProperty("flavor")) ? "env.CRSDemo.store.dev." + project.getProperty("flavor") : "env.CRSDemo.store.dev"
 }
 
 /*
@@ -31,16 +30,15 @@ To your "gradle startDevStore" command. Usually, module flavors are used for dif
   for example, use "gradle startDevAdmin -Pflavor=oracle" to bypass the default h2 database choice.
 */
 task startDevAdmin(type: RunAtgOnJBoss, dependsOn: []) {
-//task startDevAdmin(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
   jBossRoot     jbossRoot
   serverName    adminServerName
-    modules       project.hasProperty("flavor") && ["oracle","hsql-mem","hsql-file"].contains(project.getProperty("flavor")) ? "env.admin.dev." + project.getProperty("flavor") : "env.admin.dev"
+    modules       project.hasProperty("flavor") && ["oracle"].contains(project.getProperty("flavor")) ? "env.CRSDemo.admin.dev." + project.getProperty("flavor") : "env.CRSDemo.admin.dev"
 }
 
 task startCiStore(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
   jBossRoot     jbossRoot
   serverName    storeServerName
-  modules       "env.store.dev"
+  modules       "env.CRSDemo.store.dev"
   async         true
 }
 
@@ -54,7 +52,7 @@ task verifyCiStore(type: Tail, dependsOn: [startCiStore]) {
 task startCiAdmin(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
   jBossRoot     jbossRoot
   serverName    adminServerName
-  modules       "env.admin.dev"
+  modules       "env.CRSDemo.admin.dev"
   async         true
 }
 

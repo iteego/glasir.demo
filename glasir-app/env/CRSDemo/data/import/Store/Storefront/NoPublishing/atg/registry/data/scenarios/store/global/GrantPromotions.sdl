@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE process SYSTEM "dynamosystemresource:/atg/dtds/pdl/pdl_1.0.dtd">
+<process author="admin" creation-time="1203411931330" enabled="true" last-modified-by="admin" modification-time="1262683767067">
+  <segment migrate-from="1203412198928" migrate-subjects="true">
+    <segment-name>Segment 1</segment-name>
+    <!--================================-->
+    <!--== Registers  -->
+    <!--================================-->
+    <event id="1">
+      <event-name>atg.dps.Register</event-name>
+    </event>
+    <!--================================-->
+    <!--== Give promotion promotions: ATG Store - 15% Off Accessories  -->
+    <!--================================-->
+    <action id="2">
+      <action-name>promotion</action-name>
+      <action-param name="promotions">
+        <array type="java.lang.String[]">
+          <constant>se-promo230003</constant>
+        </array>
+      </action-param>
+    </action>
+    <!--================================-->
+    <!--== Gender is female  -->
+    <!--================================-->
+    <condition construct="people-element" id="3">
+      <filter construct="profile-property-filter" operator="eq">
+        <subject-property>
+          <property-name>gender</property-name>
+        </subject-property>
+        <constant>female</constant>
+      </filter>
+    </condition>
+    <!--================================-->
+    <!--== in group ThirtySomethings  -->
+    <!--================================-->
+    <condition construct="people-element" id="4">
+      <filter construct="profile-group-filter" operator="eq">
+        <subject-property>
+          <property-name>ThirtySomethings</property-name>
+        </subject-property>
+        <constant type="boolean">true</constant>
+      </filter>
+    </condition>
+    <!--================================-->
+    <!--== Give promotion promotions: 25% off Women's Apparel  -->
+    <!--================================-->
+    <action id="5">
+      <action-name>promotion</action-name>
+      <action-param name="promotions">
+        <array type="java.lang.String[]">
+          <constant>se-promo240001</constant>
+        </array>
+      </action-param>
+    </action>
+  </segment>
+</process>
