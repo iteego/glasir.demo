@@ -9,6 +9,9 @@ Pattern: print<AtgModuleName>: Prints a module dependency tree for an atg module
                   module 'DCS.Search.Order.Index'""") { String taskName ->
   if (taskName.startsWith("print")) {
     task(taskName) << {
+      moduleMap.each { k, v -> 
+        println v
+      }
       printTree(taskName - "print")
     }
   }
@@ -53,3 +56,88 @@ Pattern: checkManifest<AtgModuleName>: Checks the module MANIFEST.MF against the
   }
 }
 
+tasks.addRule("""\
+Pattern: graph<AtgModuleName>: draws a graphical dependency graph for the specified ATG module""") { String taskName ->
+  if (taskName.startsWith("graph")) {
+    task(taskName) << {
+      def moduleName = taskName - 'graph'
+      def m = moduleMap[moduleName]
+      if (!m) {
+        println "Unable to locate module with name '$moduleName'"
+        System.exit(1)
+      }
+      def dotGraph = createGraphViz(m)
+        
+      def chartParams = [cht: 'gv', chof: 'png', chl: dotGraph]
+      def url = "http://chart.googleapis.com/chart?" 
+      url += chartParams.collect {k,v -> "$k=${URLEncoder.encode(v)}"}.join('&')
+    
+      def graphFile = file("$reportsDir/module_graph.png")
+      graphFile.withOutputStream{out ->
+        out << new URL(url).openStream()
+      }   
+      println "ATG module dependency graph written to: ${graphFile.absolutePath}"
+    }    
+  }
+}
+
+String createGraphViz(m) {
+  Set<String> edges = [] as Set
+  String dotGraph = "digraph Compile { \n"
+  
+  dotGraph += createGraphVizRecursive(edges, m)
+    
+  dotGraph += "}"
+  
+  dotGraph
+}
+
+String createGraphVizRecursive(edges, parent) {
+  String graph = ''
+  
+  parent.requiredModules.each { child ->    
+    if (!child) {
+      println "$parent has null child, modules: ${parent.requiredModules}"
+      return
+    }
+    
+    String entry = getGraphVizEntry(parent, child)
+    if (!edges.contains(entry)) {
+      graph += entry
+      edges << entry
+    }
+    graph += createGraphVizRecursive(edges, child)
+  }  
+  
+  graph
+}
+
+String getGraphVizEntry(parent, child) {
+  /  "${child.name}" -> "${parent.name}"/ + "\n"
+}
+/*
+compileDepsPng = file("$reportsDir/compileDeps.png")
+task dependenciesPng() {
+  
+  inputs.files subprojects.configurations.compile
+  outputs.files compileDepsPng
+  doFirst {
+    if(compileDepsPng.exists()) compileDepsPng.delete()
+    if(!reportsDir.exists()) reportsDir.mkdirs()
+  
+  }
+  doLast {
+    dotGraph = "digraph Compile{"
+    subprojects.each {subproject ->
+      subproject.configurations.compile.dependencies.each { dependency ->
+        if(dependency instanceof ProjectDependency) {
+          
+          dotGraph += "\"$subproject.name\" -> \"$dependency.name\"" 
+        }   
+      }
+    }
+    dotGraph += "}"
+  
+  }
+}
+*/
