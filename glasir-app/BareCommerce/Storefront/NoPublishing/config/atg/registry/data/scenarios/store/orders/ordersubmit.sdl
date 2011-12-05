@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE process SYSTEM "dynamosystemresource:/atg/dtds/pdl/pdl_1.0.dtd">
+<process author="admin" creation-time="1147706865102" enabled="true" last-modified-by="admin" modification-time="1149257383612">
+  <segment migrate-from="1149107880657,1149257029445,1149257258442" migrate-subjects="true">
+    <segment-name>Segment 1</segment-name>
+    <!--================================-->
+    <!--== Order submitted  -->
+    <!--================================-->
+    <event id="1">
+      <event-name>atg.commerce.fulfillment.SubmitOrder</event-name>
+    </event>
+    <fork id="2">
+      <branch id="2.1">
+        <!--================================-->
+        <!--== Email address is   -->
+        <!--================================-->
+        <condition construct="people-element" id="2.1.1">
+          <filter construct="profile-property-filter" operator="eq">
+            <subject-property>
+              <property-name>email</property-name>
+            </subject-property>
+            <constant/>
+          </filter>
+        </condition>
+        <stop id="2.1.2"/>
+      </branch>
+      <branch id="2.2">
+        <!--================================-->
+        <!--== Email address is undefined  -->
+        <!--================================-->
+        <condition construct="people-element" id="2.2.1">
+          <filter construct="profile-property-filter" operator="isNull">
+            <subject-property>
+              <property-name>email</property-name>
+            </subject-property>
+          </filter>
+        </condition>
+        <stop id="2.2.2"/>
+      </branch>
+      <branch id="2.3"/>
+    </fork>
+    <!--================================-->
+    <!--== Send email with path ATG Reference Commerce Store:/emailtemplates/orderConfirmation.jsp  -->
+    <!--================================-->
+    <action id="3">
+      <action-name>sendEmail</action-name>
+      <action-param name="scenarioPathInfo">
+        <constant>ATG Commerce Reference Store:/emailtemplates/orderConfirmation.jsp</constant>
+      </action-param>
+      <action-param name="site">
+        <event-property construct="event-property">
+          <property-name>siteId</property-name>
+        </event-property>
+      </action-param>
+    </action>
+  </segment>
+</process>

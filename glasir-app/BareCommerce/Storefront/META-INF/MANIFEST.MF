@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+ATG-Required: BareCommerce.Base BareCommerce.Integrations DCS.AbandonedOrderServices
+ATG-Config-Path: config
+ATG-Product: BareCommerce
+ATG-Web-Module: j2ee-apps/Webapp/app.war
+ATG-Class-Path: lib/classes.jar

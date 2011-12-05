@@ -23,6 +23,12 @@ task startDevStore(type: RunAtgOnJBoss, dependsOn: []) {
   modules       project.hasProperty("flavor") && ["oracle"].contains(project.getProperty("flavor")) ? "env.CRSDemo.store.dev." + project.getProperty("flavor") : "env.CRSDemo.store.dev"
 }
 
+task startBareDevStore(type: RunAtgOnJBoss, dependsOn: []) {
+  jBossRoot     jbossRoot
+  serverName    storeServerName
+  modules       project.hasProperty("flavor") && ["oracle"].contains(project.getProperty("flavor")) ? "env.BareCommerce.store.dev." + project.getProperty("flavor") : "env.BareCommerce.store.dev"
+}
+
 /*
 You can invoke any specific flavor of the "env.admin.dev" module by adding the parameter
   "-Pflavor=FlavorName" or "--project-prop flavor=FlavorName"
