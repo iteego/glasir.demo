@@ -1,0 +1,3458 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE gsa-template SYSTEM "dynamosystemresource:/atg/dtds/gsa/gsa_1.0.dtd">
+<gsa-template>
+<import-items>
+<!-- 5 items of type mapMode -->
+
+<add-item item-descriptor="mapMode" id="1">
+  <set-property name="description"><![CDATA[Standard View Mode]]></set-property>
+  <set-property name="name"><![CDATA[view]]></set-property>
+</add-item>
+
+<add-item item-descriptor="mapMode" id="2">
+  <set-property name="description"><![CDATA[Standard Edit Mode]]></set-property>
+  <set-property name="name"><![CDATA[edit]]></set-property>
+</add-item>
+
+<add-item item-descriptor="mapMode" id="3">
+  <set-property name="fallbackMode"><![CDATA[1]]></set-property>
+  <set-property name="description"><![CDATA[Standard Browse Mode]]></set-property>
+  <set-property name="name"><![CDATA[browse]]></set-property>
+</add-item>
+
+<add-item item-descriptor="mapMode" id="4">
+  <set-property name="fallbackMode"><![CDATA[1]]></set-property>
+  <set-property name="description"><![CDATA[Standard Diff Mode]]></set-property>
+  <set-property name="name"><![CDATA[diff]]></set-property>
+</add-item>
+
+<add-item item-descriptor="mapMode" id="5">
+  <set-property name="fallbackMode"><![CDATA[4]]></set-property>
+  <set-property name="description"><![CDATA[Standard Conflict Mode]]></set-property>
+  <set-property name="name"><![CDATA[conflict]]></set-property>
+</add-item>
+
+<!-- 11 items of type itemMapping -->
+
+<add-item item-descriptor="itemMapping" id="1">
+  <set-property name="formHandler"><![CDATA[1]]></set-property>
+  <set-property name="viewMappings"><![CDATA[101]]></set-property>
+  <set-property name="itemName"><![CDATA[*]]></set-property>
+  <set-property name="description"><![CDATA[Default Read-Only Mapping for Repository Items]]></set-property>
+  <set-property name="name"><![CDATA[*]]></set-property>
+  <set-property name="mode"><![CDATA[1]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+  <set-property name="itemPath"><![CDATA[Repository Item]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemMapping" id="100005">
+  <set-property name="attributes"><![CDATA[debug=600020]]></set-property>
+  <set-property name="viewMappings"><![CDATA[100003,100007]]></set-property>
+  <set-property name="itemName"><![CDATA[descriptor1]]></set-property>
+  <set-property name="description"><![CDATA[Some View Mapping]]></set-property>
+  <set-property name="name"><![CDATA[*]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/devtest/TestRepository2]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemMapping" id="100051">
+  <set-property name="formHandler"><![CDATA[100062]]></set-property>
+  <set-property name="viewMappings"><![CDATA[100052]]></set-property>
+  <set-property name="itemName"><![CDATA[wwwTextFileAsset]]></set-property>
+  <set-property name="description"><![CDATA[Text File Edit Mapping]]></set-property>
+  <set-property name="name"><![CDATA[*]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/epub/file/WWWFileSystem]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemMapping" id="ca_textFileView">
+  <set-property name="formHandler"><![CDATA[100062]]></set-property>
+  <set-property name="viewMappings"><![CDATA[ca_textFileViewView]]></set-property>
+  <set-property name="itemName"><![CDATA[wwwTextFileAsset]]></set-property>
+  <set-property name="description"><![CDATA[Text File View Mapping]]></set-property>
+  <set-property name="name"><![CDATA[*]]></set-property>
+  <set-property name="mode"><![CDATA[1]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/epub/file/WWWFileSystem]]></set-property>
+</add-item>
+
+
+
+<add-item item-descriptor="itemMapping" id="ca_cfgTargeterView">
+  <set-property name="formHandler"><![CDATA[100062]]></set-property>
+  <set-property name="viewMappings"><![CDATA[ca_cfgTargeterViewView]]></set-property>
+  <set-property name="itemName"><![CDATA[targeter]]></set-property>
+  <set-property name="description"><![CDATA[Targeter View Mapping]]></set-property>
+  <set-property name="name"><![CDATA[*]]></set-property>
+  <set-property name="mode"><![CDATA[1]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/epub/file/ConfigFileSystem]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemMapping" id="ca_cfgTargeterEdit">
+  <set-property name="formHandler"><![CDATA[100062]]></set-property>
+  <set-property name="viewMappings"><![CDATA[ca_cfgTargeterEditView]]></set-property>
+  <set-property name="itemName"><![CDATA[targeter]]></set-property>
+  <set-property name="description"><![CDATA[Targeter Edit Mapping]]></set-property>
+  <set-property name="name"><![CDATA[*]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/epub/file/ConfigFileSystem]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="itemMapping" id="ca_cfgContntGrpView">
+  <set-property name="formHandler"><![CDATA[100062]]></set-property>
+  <set-property name="viewMappings"><![CDATA[ca_cfgContntGrpViewView]]></set-property>
+  <set-property name="itemName"><![CDATA[contentGroup]]></set-property>
+  <set-property name="description"><![CDATA[Content Group View Mapping]]></set-property>
+  <set-property name="name"><![CDATA[*]]></set-property>
+  <set-property name="mode"><![CDATA[1]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/epub/file/ConfigFileSystem]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemMapping" id="ca_cfgContntGrpEdit">
+  <set-property name="formHandler"><![CDATA[100062]]></set-property>
+  <set-property name="viewMappings"><![CDATA[ca_cfgContntGrpEditView]]></set-property>
+  <set-property name="itemName"><![CDATA[contentGroup]]></set-property>
+  <set-property name="description"><![CDATA[Content Group Edit Mapping]]></set-property>
+  <set-property name="name"><![CDATA[*]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/epub/file/ConfigFileSystem]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="itemMapping" id="ca_cfgProfileGrpView">
+  <set-property name="formHandler"><![CDATA[100062]]></set-property>
+  <set-property name="viewMappings"><![CDATA[ca_cfgProfileGrpViewView]]></set-property>
+  <set-property name="itemName"><![CDATA[contentGroup]]></set-property>
+  <set-property name="description"><![CDATA[Profile Group View Mapping]]></set-property>
+  <set-property name="name"><![CDATA[*]]></set-property>
+  <set-property name="mode"><![CDATA[1]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/epub/file/ConfigFileSystem]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemMapping" id="ca_cfgProfileGrpEdit">
+  <set-property name="formHandler"><![CDATA[100062]]></set-property>
+  <set-property name="viewMappings"><![CDATA[ca_cfgProfileGrpEditView]]></set-property>
+  <set-property name="itemName"><![CDATA[profileGroup]]></set-property>
+  <set-property name="description"><![CDATA[Profile Group Edit Mapping]]></set-property>
+  <set-property name="name"><![CDATA[*]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/epub/file/ConfigFileSystem]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="itemMapping" id="ca_cfgSlotView">
+  <set-property name="formHandler"><![CDATA[100062]]></set-property>
+  <set-property name="viewMappings"><![CDATA[ca_cfgSlotViewView]]></set-property>
+  <set-property name="itemName"><![CDATA[slot]]></set-property>
+  <set-property name="description"><![CDATA[Slot View Mapping]]></set-property>
+  <set-property name="name"><![CDATA[*]]></set-property>
+  <set-property name="mode"><![CDATA[1]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/epub/file/ConfigFileSystem]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemMapping" id="ca_cfgSlotEdit">
+  <set-property name="formHandler"><![CDATA[100062]]></set-property>
+  <set-property name="viewMappings"><![CDATA[ca_cfgSlotEditView]]></set-property>
+  <set-property name="itemName"><![CDATA[slot]]></set-property>
+  <set-property name="description"><![CDATA[Slot Edit Mapping]]></set-property>
+  <set-property name="name"><![CDATA[*]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/epub/file/ConfigFileSystem]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="itemMapping" id="ca_cfgScenarioView">
+  <set-property name="formHandler"><![CDATA[100062]]></set-property>
+  <set-property name="viewMappings"><![CDATA[ca_cfgSenarioViewView]]></set-property>
+  <set-property name="itemName"><![CDATA[scenario]]></set-property>
+  <set-property name="description"><![CDATA[Scenario View Mapping]]></set-property>
+  <set-property name="name"><![CDATA[*]]></set-property>
+  <set-property name="mode"><![CDATA[1]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/epub/file/ConfigFileSystem]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemMapping" id="ca_cfgScenarioEdit">
+  <set-property name="formHandler"><![CDATA[100062]]></set-property>
+  <set-property name="viewMappings"><![CDATA[ca_cfgSenarioEditView]]></set-property>
+  <set-property name="itemName"><![CDATA[scenario]]></set-property>
+  <set-property name="description"><![CDATA[Scenario Edit Mapping]]></set-property>
+  <set-property name="name"><![CDATA[*]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/epub/file/ConfigFileSystem]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="itemMapping" id="ca_folderEdit">
+  <set-property name="formHandler"><![CDATA[100081]]></set-property>
+  <set-property name="viewMappings"><![CDATA[ca_folderEditView]]></set-property>
+  <set-property name="itemName"><![CDATA[fileFolder]]></set-property>
+  <set-property name="description"><![CDATA[File Folder Edit Mapping]]></set-property>
+  <set-property name="name"><![CDATA[*]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/epub/file/ConfigFileSystem]]></set-property>
+</add-item>
+
+
+
+<add-item item-descriptor="itemMapping" id="ca_folderView">
+  <set-property name="formHandler"><![CDATA[100081]]></set-property>
+  <set-property name="viewMappings"><![CDATA[ca_folderViewView]]></set-property>
+  <set-property name="itemName"><![CDATA[fileFolder]]></set-property>
+  <set-property name="description"><![CDATA[File Folder View Mapping]]></set-property>
+  <set-property name="name"><![CDATA[*]]></set-property>
+  <set-property name="mode"><![CDATA[1]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/epub/file/ConfigFileSystem]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="itemMapping" id="2">
+  <set-property name="formHandler"><![CDATA[1]]></set-property>
+  <set-property name="viewMappings"><![CDATA[102]]></set-property>
+  <set-property name="itemName"><![CDATA[*]]></set-property>
+  <set-property name="description"><![CDATA[Default Editable ItemMapping for Repository Items]]></set-property>
+  <set-property name="name"><![CDATA[*]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+  <set-property name="itemPath"><![CDATA[Repository Item]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemMapping" id="3">
+  <set-property name="formHandler"><![CDATA[1]]></set-property>
+  <set-property name="viewMappings"><![CDATA[103]]></set-property>
+  <set-property name="itemName"><![CDATA[*]]></set-property>
+  <set-property name="description"><![CDATA[Default Browse Mapping for Repository Items]]></set-property>
+  <set-property name="name"><![CDATA[*]]></set-property>
+  <set-property name="mode"><![CDATA[3]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+  <set-property name="itemPath"><![CDATA[Repository Item]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemMapping" id="4">
+  <set-property name="formHandler"><![CDATA[2]]></set-property>
+  <set-property name="attributes"><![CDATA[atgFormValueDict2=5,atgFormValueDict1=4]]></set-property>
+  <set-property name="viewMappings"><![CDATA[104]]></set-property>
+  <set-property name="itemName"><![CDATA[*]]></set-property>
+  <set-property name="description"><![CDATA[Default Diff Mapping for Repository Items]]></set-property>
+  <set-property name="name"><![CDATA[*]]></set-property>
+  <set-property name="mode"><![CDATA[4]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+  <set-property name="itemPath"><![CDATA[Repository Item]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemMapping" id="5">
+  <set-property name="formHandler"><![CDATA[3]]></set-property>
+  <set-property name="viewMappings"><![CDATA[110]]></set-property>
+  <set-property name="itemName"><![CDATA[*]]></set-property>
+  <set-property name="description"><![CDATA[Default Read-Only Mapping for File Items]]></set-property>
+  <set-property name="name"><![CDATA[*]]></set-property>
+  <set-property name="mode"><![CDATA[1]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+  <set-property name="itemPath"><![CDATA[File]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemMapping" id="6">
+  <set-property name="formHandler"><![CDATA[3]]></set-property>
+  <set-property name="viewMappings"><![CDATA[111]]></set-property>
+  <set-property name="itemName"><![CDATA[*]]></set-property>
+  <set-property name="description"><![CDATA[Default Edit Mapping for File Items]]></set-property>
+  <set-property name="name"><![CDATA[*]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+  <set-property name="itemPath"><![CDATA[File]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemMapping" id="7">
+  <set-property name="formHandler"><![CDATA[4]]></set-property>
+  <set-property name="viewMappings"><![CDATA[104]]></set-property>
+  <set-property name="itemName"><![CDATA[*]]></set-property>
+  <set-property name="description"><![CDATA[Default Conflict Mapping for Repository Items]]></set-property>
+  <set-property name="name"><![CDATA[*]]></set-property>
+  <set-property name="mode"><![CDATA[5]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+  <set-property name="itemPath"><![CDATA[Repository Item]]></set-property>
+</add-item>
+
+<!-- 11 items of type itemViewMapping -->
+
+<add-item item-descriptor="itemViewMapping" id="100003">
+  <set-property name="displayName"><![CDATA[Non Numbers]]></set-property>
+  <set-property name="description"><![CDATA[Test View 1]]></set-property>
+  <set-property name="name"><![CDATA[SomeView]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[someLong=100028,someByte=100018,someFloat=100032,someShort=100034,someInteger=100030,someDouble=100038]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewMapping" id="100007">
+  <set-property name="displayName"><![CDATA[Numbers!]]></set-property>
+  <set-property name="description"><![CDATA[Some Other View Description]]></set-property>
+  <set-property name="name"><![CDATA[SomeOtherView]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[displayName=100040]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewMapping" id="100052">
+  <set-property name="displayName"><![CDATA[Edit]]></set-property>
+  <set-property name="description"><![CDATA[Text File Edit View]]></set-property>
+  <set-property name="name"><![CDATA[TextFileEditView]]></set-property>
+  <set-property name="view"><![CDATA[6]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[fileName=100058,text=100054,parentFolderPath=100059,class=100061]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewMapping" id="ca_textFileViewView">
+  <set-property name="displayName"><![CDATA[View]]></set-property>
+  <set-property name="description"><![CDATA[Text File View]]></set-property>
+  <set-property name="name"><![CDATA[TextFileViewView]]></set-property>
+  <set-property name="view"><![CDATA[5]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[fileName=ca_100080,text=ca_100081,parentFolderPath=ca_100082,class=ca_100083,uploadedFile=ca_100084]]></set-property>
+</add-item>
+
+
+
+<add-item item-descriptor="itemViewMapping" id="ca_cfgTargeterViewView">
+  <set-property name="displayName"><![CDATA[View]]></set-property>
+  <set-property name="description"><![CDATA[Targeter View]]></set-property>
+  <set-property name="name"><![CDATA[TargeterViewView]]></set-property>
+  <set-property name="view"><![CDATA[5]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[text=ca_100100,class=ca_100101,uploadedFile=ca_100102]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewMapping" id="ca_cfgTargeterEditView">
+  <set-property name="displayName"><![CDATA[Edit]]></set-property>
+  <set-property name="description"><![CDATA[Targeter Edit]]></set-property>
+  <set-property name="name"><![CDATA[TargeterEditView]]></set-property>
+  <set-property name="view"><![CDATA[5]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[class=ca_100105,fileName=ca_100106,parentFolderPath=ca_100107,text=ca_100108]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="itemViewMapping" id="ca_cfgContntGrpViewView">
+  <set-property name="displayName"><![CDATA[View]]></set-property>
+  <set-property name="description"><![CDATA[Content Group View]]></set-property>
+  <set-property name="name"><![CDATA[ContentGroupViewView]]></set-property>
+  <set-property name="view"><![CDATA[5]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[text=ca_100110,class=ca_100111,uploadedFile=ca_100112]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewMapping" id="ca_cfgContntGrpEditView">
+  <set-property name="displayName"><![CDATA[View]]></set-property>
+  <set-property name="description"><![CDATA[Content Group Edit]]></set-property>
+  <set-property name="name"><![CDATA[ContentGroupEditView]]></set-property>
+  <set-property name="view"><![CDATA[5]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[class=ca_100115,fileName=ca_100116,parentFolderPath=ca_100117,text=ca_100118]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="itemViewMapping" id="ca_cfgProfileGrpViewView">
+  <set-property name="displayName"><![CDATA[View]]></set-property>
+  <set-property name="description"><![CDATA[Profile Group View]]></set-property>
+  <set-property name="name"><![CDATA[ProfileGroupViewView]]></set-property>
+  <set-property name="view"><![CDATA[5]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[text=ca_100120,class=ca_100121,uploadedFile=ca_100122]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewMapping" id="ca_cfgProfileGrpEditView">
+  <set-property name="displayName"><![CDATA[View]]></set-property>
+  <set-property name="description"><![CDATA[Profile Group Edit]]></set-property>
+  <set-property name="name"><![CDATA[ProfileGroupEditView]]></set-property>
+  <set-property name="view"><![CDATA[5]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[class=ca_100125,fileName=ca_100126,parentFolderPath=ca_100127,text=ca_100128]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="itemViewMapping" id="ca_cfgSlotViewView">
+  <set-property name="displayName"><![CDATA[View Slot]]></set-property>
+  <set-property name="description"><![CDATA[Slot View]]></set-property>
+  <set-property name="name"><![CDATA[SlotViewView]]></set-property>
+  <set-property name="view"><![CDATA[5]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[text=ca_100140,class=ca_100141,uploadedFile=ca_100142]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewMapping" id="ca_cfgSlotEditView">
+  <set-property name="displayName"><![CDATA[Edit Slot]]></set-property>
+  <set-property name="description"><![CDATA[Slot Edit]]></set-property>
+  <set-property name="name"><![CDATA[SlotEditView]]></set-property>
+  <set-property name="view"><![CDATA[5]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[class=ca_100145,fileName=ca_100146,parentFolderPath=ca_100147,text=ca_100148]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="itemViewMapping" id="ca_cfgSenarioViewView">
+  <set-property name="displayName"><![CDATA[View]]></set-property>
+  <set-property name="description"><![CDATA[Scenario View]]></set-property>
+  <set-property name="name"><![CDATA[ScenarioViewView]]></set-property>
+  <set-property name="view"><![CDATA[5]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[text=ca_100150,class=ca_100151,uploadedFile=ca_100152]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewMapping" id="ca_cfgSenarioEditView">
+  <set-property name="displayName"><![CDATA[Edit]]></set-property>
+  <set-property name="description"><![CDATA[Scenario Edit]]></set-property>
+  <set-property name="name"><![CDATA[ScenarioEditView]]></set-property>
+  <set-property name="view"><![CDATA[5]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[class=ca_100155,fileName=ca_100156,parentFolderPath=ca_100157,text=ca_100158]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="itemViewMapping" id="ca_folderEditView">
+  <set-property name="displayName"><![CDATA[Edit Folder]]></set-property>
+  <set-property name="description"><![CDATA[File Folder Edit View]]></set-property>
+  <set-property name="name"><![CDATA[FileFolderEditView]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[fileName=ca_100063,parentFolderPath=ca_100064,class=ca_100065]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewMapping" id="ca_folderViewView">
+  <set-property name="displayName"><![CDATA[View Folder]]></set-property>
+  <set-property name="description"><![CDATA[File Folder Viewer]]></set-property>
+  <set-property name="name"><![CDATA[FileFolderView]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[fileName=ca_100070,parentFolderPath=ca_100071,class=ca_100072]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="itemViewMapping" id="101">
+  <set-property name="displayName"><![CDATA[View]]></set-property>
+  <set-property name="description"><![CDATA[Default Read-Only Repository Item View]]></set-property>
+  <set-property name="name"><![CDATA[DefaultRepView]]></set-property>
+  <set-property name="view"><![CDATA[1]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewMapping" id="102">
+  <set-property name="displayName"><![CDATA[Edit]]></set-property>
+  <set-property name="description"><![CDATA[Default Edit Repository Item View]]></set-property>
+  <set-property name="name"><![CDATA[DefaultRepEdit]]></set-property>
+  <set-property name="view"><![CDATA[2]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewMapping" id="103">
+  <set-property name="displayName"><![CDATA[Browse]]></set-property>
+  <set-property name="description"><![CDATA[Default Repository Item Browse View]]></set-property>
+  <set-property name="name"><![CDATA[DefaultRepBrowse]]></set-property>
+  <set-property name="view"><![CDATA[3]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewMapping" id="104">
+  <set-property name="displayName"><![CDATA[Diff]]></set-property>
+  <set-property name="description"><![CDATA[Default Repository Item Diff View]]></set-property>
+  <set-property name="name"><![CDATA[DefaultRepDiff]]></set-property>
+  <set-property name="view"><![CDATA[4]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewMapping" id="110">
+  <set-property name="displayName"><![CDATA[View]]></set-property>
+  <set-property name="description"><![CDATA[Default File Read-Only View]]></set-property>
+  <set-property name="name"><![CDATA[DefaultFileView]]></set-property>
+  <set-property name="view"><![CDATA[5]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewMapping" id="111">
+  <set-property name="displayName"><![CDATA[Edit]]></set-property>
+  <set-property name="description"><![CDATA[Default File Edit View]]></set-property>
+  <set-property name="name"><![CDATA[DefaultFileEdit]]></set-property>
+  <set-property name="view"><![CDATA[6]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[fileName=ca_100090,parentFolderPath=100059,class=100061]]></set-property>
+</add-item>
+
+<!-- 20 items of type propertyViewMapping -->
+
+<add-item item-descriptor="propertyViewMapping" id="100018">
+  <set-property name="propertyView"><![CDATA[ca_hidden]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="100020">
+  <set-property name="propertyView"><![CDATA[ca_hidden]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="100022">
+  <set-property name="propertyView"><![CDATA[ca_hidden]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="100024">
+  <set-property name="propertyView"><![CDATA[ca_hidden]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="100028">
+  <set-property name="propertyView"><![CDATA[ca_hidden]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="100030">
+  <set-property name="propertyView"><![CDATA[ca_hidden]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="100032">
+  <set-property name="propertyView"><![CDATA[ca_hidden]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="100034">
+  <set-property name="propertyView"><![CDATA[ca_hidden]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="100036">
+  <set-property name="propertyView"><![CDATA[ca_hidden]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="100038">
+  <set-property name="propertyView"><![CDATA[ca_hidden]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="100040">
+  <set-property name="propertyView"><![CDATA[ca_hidden]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="100045">
+  <set-property name="propertyView"><![CDATA[10]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="100046">
+  <set-property name="propertyView"><![CDATA[11]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="100047">
+  <set-property name="propertyView"><![CDATA[70]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="100054">
+  <set-property name="propertyView"><![CDATA[91]]></set-property>
+  <set-property name="attributeValues"><![CDATA[cols=1000024,rows=1000026,disableFormSaver=ca_1000027]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="100058">
+  <set-property name="propertyView"><![CDATA[ca_fileNameEdit]]></set-property>
+  <set-property name="description"><![CDATA[File Name Editor]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="100059">
+  <set-property name="propertyView"><![CDATA[301]]></set-property>
+  <set-property name="attributeValues"><![CDATA[]]></set-property>
+  <set-property name="description"><![CDATA[Parent Folder Picker]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="100061">
+  <set-property name="propertyView"><![CDATA[ca_hidden]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100063">
+  <set-property name="propertyView"><![CDATA[11]]></set-property>
+  <set-property name="description"><![CDATA[File Name View]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100064">
+  <set-property name="propertyView"><![CDATA[301]]></set-property>
+  <set-property name="description"><![CDATA[File Folder Editor Mapping]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100065">
+  <set-property name="propertyView"><![CDATA[ca_hidden]]></set-property>
+  <set-property name="description"><![CDATA[Hide class property]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100070">
+  <set-property name="propertyView"><![CDATA[10]]></set-property>
+  <set-property name="description"><![CDATA[File Name Property View]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100071">
+  <set-property name="propertyView"><![CDATA[10]]></set-property>
+  <set-property name="description"><![CDATA[File Folder Property View]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100072">
+  <set-property name="propertyView"><![CDATA[ca_hidden]]></set-property>
+  <set-property name="description"><![CDATA[Hide class property]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100080">
+  <set-property name="propertyView"><![CDATA[10]]></set-property>
+  <set-property name="description"><![CDATA[File Name]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100081">
+  <set-property name="propertyView"><![CDATA[90]]></set-property>
+  <set-property name="description"><![CDATA[Text Contents]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100082">
+  <set-property name="propertyView"><![CDATA[10]]></set-property>
+  <set-property name="description"><![CDATA[Parent Folder]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100083">
+  <set-property name="propertyView"><![CDATA[ca_hidden]]></set-property>
+  <set-property name="description"><![CDATA[hide class]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100084">
+  <set-property name="propertyView"><![CDATA[ca_hidden]]></set-property>
+  <set-property name="description"><![CDATA[hide uploaded file]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100090">
+  <set-property name="propertyView"><![CDATA[ca_fileNameEdit]]></set-property>
+  <set-property name="attributeValues"><![CDATA[spellCheck=1200028]]></set-property>
+  <set-property name="description"><![CDATA[File Name Editor]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100091">
+  <set-property name="propertyView"><![CDATA[ca_fileNameEdit]]></set-property>
+  <set-property name="attributeValues"><![CDATA[spellCheck=1200028]]></set-property>
+  <set-property name="description"><![CDATA[File Name Editor]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100100">
+  <set-property name="propertyView"><![CDATA[90]]></set-property>
+  <set-property name="description"><![CDATA[Text Contents]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100101">
+  <set-property name="propertyView"><![CDATA[ca_hidden]]></set-property>
+  <set-property name="description"><![CDATA[Class]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100102">
+  <set-property name="propertyView"><![CDATA[ca_hidden]]></set-property>
+  <set-property name="description"><![CDATA[Uploaded File]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100105">
+  <set-property name="propertyView"><![CDATA[ca_hidden]]></set-property>
+  <set-property name="description"><![CDATA[Class]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100106">
+  <set-property name="propertyView"><![CDATA[ca_fileNameEdit]]></set-property>
+  <set-property name="description"><![CDATA[File Name]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100107">
+  <set-property name="propertyView"><![CDATA[301]]></set-property>
+  <set-property name="description"><![CDATA[Parent Folder]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100108">
+  <set-property name="propertyView"><![CDATA[91]]></set-property>
+  <set-property name="description"><![CDATA[Text Contents]]></set-property>
+</add-item>
+
+
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100110">
+  <set-property name="propertyView"><![CDATA[90]]></set-property>
+  <set-property name="description"><![CDATA[Text Contents]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100111">
+  <set-property name="propertyView"><![CDATA[ca_hidden]]></set-property>
+  <set-property name="description"><![CDATA[Class]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100112">
+  <set-property name="propertyView"><![CDATA[ca_hidden]]></set-property>
+  <set-property name="description"><![CDATA[Uploaded File]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100115">
+  <set-property name="propertyView"><![CDATA[ca_hidden]]></set-property>
+  <set-property name="description"><![CDATA[Class]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100116">
+  <set-property name="propertyView"><![CDATA[ca_fileNameEdit]]></set-property>
+  <set-property name="description"><![CDATA[File Name]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100117">
+  <set-property name="propertyView"><![CDATA[301]]></set-property>
+  <set-property name="description"><![CDATA[Parent Folder]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100118">
+  <set-property name="propertyView"><![CDATA[91]]></set-property>
+  <set-property name="description"><![CDATA[Text Contents]]></set-property>
+</add-item>
+
+
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100120">
+  <set-property name="propertyView"><![CDATA[90]]></set-property>
+  <set-property name="description"><![CDATA[Text Contents]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100121">
+  <set-property name="propertyView"><![CDATA[ca_hidden]]></set-property>
+  <set-property name="description"><![CDATA[Class]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100122">
+  <set-property name="propertyView"><![CDATA[ca_hidden]]></set-property>
+  <set-property name="description"><![CDATA[Uploaded File]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100125">
+  <set-property name="propertyView"><![CDATA[ca_hidden]]></set-property>
+  <set-property name="description"><![CDATA[Class]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100126">
+  <set-property name="propertyView"><![CDATA[ca_fileNameEdit]]></set-property>
+  <set-property name="description"><![CDATA[File Name]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100127">
+  <set-property name="propertyView"><![CDATA[301]]></set-property>
+  <set-property name="description"><![CDATA[Parent Folder]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100128">
+  <set-property name="propertyView"><![CDATA[91]]></set-property>
+  <set-property name="description"><![CDATA[Text Contents]]></set-property>
+</add-item>
+
+
+
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100140">
+  <set-property name="propertyView"><![CDATA[90]]></set-property>
+  <set-property name="description"><![CDATA[Text Contents]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100141">
+  <set-property name="propertyView"><![CDATA[ca_hidden]]></set-property>
+  <set-property name="description"><![CDATA[Class]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100142">
+  <set-property name="propertyView"><![CDATA[ca_hidden]]></set-property>
+  <set-property name="description"><![CDATA[Uploaded File]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100145">
+  <set-property name="propertyView"><![CDATA[ca_hidden]]></set-property>
+  <set-property name="description"><![CDATA[Class]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100146">
+  <set-property name="propertyView"><![CDATA[ca_fileNameEdit]]></set-property>
+  <set-property name="description"><![CDATA[File Name]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100147">
+  <set-property name="propertyView"><![CDATA[301]]></set-property>
+  <set-property name="description"><![CDATA[Parent Folder]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100148">
+  <set-property name="propertyView"><![CDATA[91]]></set-property>
+  <set-property name="description"><![CDATA[Text Contents]]></set-property>
+</add-item>
+
+
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100150">
+  <set-property name="propertyView"><![CDATA[90]]></set-property>
+  <set-property name="description"><![CDATA[Text Contents]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100151">
+  <set-property name="propertyView"><![CDATA[ca_hidden]]></set-property>
+  <set-property name="description"><![CDATA[Class]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100152">
+  <set-property name="propertyView"><![CDATA[ca_hidden]]></set-property>
+  <set-property name="description"><![CDATA[Uploaded File]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100155">
+  <set-property name="propertyView"><![CDATA[ca_hidden]]></set-property>
+  <set-property name="description"><![CDATA[Class]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100156">
+  <set-property name="propertyView"><![CDATA[ca_fileNameEdit]]></set-property>
+  <set-property name="description"><![CDATA[File Name]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100157">
+  <set-property name="propertyView"><![CDATA[301]]></set-property>
+  <set-property name="description"><![CDATA[Parent Folder]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="ca_100158">
+  <set-property name="propertyView"><![CDATA[91]]></set-property>
+  <set-property name="description"><![CDATA[Text Contents]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="propertyViewMapping" id="dcs_40">
+  <set-property name="description"><![CDATA[Media path property]]></set-property>
+  <set-property name="propertyView"><![CDATA[10]]></set-property>
+</add-item>
+
+<!-- 24 items of type propertyView -->
+
+
+<add-item item-descriptor="propertyView" id="ca_hidden">
+  <set-property name="type"><![CDATA[*]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/hidden.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Hidden Property View]]></set-property>
+  <set-property name="name"><![CDATA[Hidden]]></set-property>
+  <set-property name="mode"><![CDATA[1]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="ca_unmapped">
+  <set-property name="type"><![CDATA[?]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/unmapped.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Unmapped Property View]]></set-property>
+  <set-property name="name"><![CDATA[Unmapped]]></set-property>
+  <set-property name="mode"><![CDATA[1]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="ca_unmappedComponent">
+  <set-property name="type"><![CDATA[?]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[true]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/unmappedComponent.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Unmapped Component Property View]]></set-property>
+  <set-property name="name"><![CDATA[Unmapped Component]]></set-property>
+  <set-property name="mode"><![CDATA[1]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="11">
+  <set-property name="attributes"><![CDATA[defaultValue=1100,textAboveField=1102,inputFieldMaxlength=1107,title=1101,labelBeforeField=1104,textBelowField=1103,labelAfterField=1105,inputFieldSize=1106,spellCheck=1108]]></set-property>
+  <set-property name="type"><![CDATA[string]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/string/simpleEdit.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Basic editor for string properties]]></set-property>
+  <set-property name="name"><![CDATA[Basic String Editor]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="12">
+  <set-property name="attributes"><![CDATA[inputFieldMaxlength=1207,inputFieldSize=1206,spellCheck=1208]]></set-property>
+  <set-property name="type"><![CDATA[string]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[true]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/string/simpleComponentEdit.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Basic editor for string collection properties]]></set-property>
+  <set-property name="name"><![CDATA[Basic String Component Editor]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="10">
+  <set-property name="attributes"><![CDATA[textBelowField=1003,textAboveField=1002,labelAfterField=1005,labelBeforeField=1004,title=1001]]></set-property>
+  <set-property name="type"><![CDATA[string]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/string/simpleView.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Basic viewer for string properties]]></set-property>
+  <set-property name="name"><![CDATA[Basic String Viewer]]></set-property>
+  <set-property name="mode"><![CDATA[1]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="21">
+  <set-property name="attributes"><![CDATA[defaultValue=2100,textAboveField=2102,inputFieldMaxlength=2107,title=2101,labelBeforeField=2104,textBelowField=2103,labelAfterField=2105,inputFieldSize=2106,minValue=2108,maxValue=2109]]></set-property>
+  <set-property name="type"><![CDATA[int]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/int/simpleEdit.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Basic editor for integer properties]]></set-property>
+  <set-property name="name"><![CDATA[Basic int Editor]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="22">
+  <set-property name="attributes"><![CDATA[inputFieldMaxlength=2207,inputFieldSize=2206]]></set-property>
+  <set-property name="type"><![CDATA[int]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[true]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/int/simpleComponentEdit.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Basic editor for int collection properties]]></set-property>
+  <set-property name="name"><![CDATA[Basic int Component Editor]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="20">
+  <set-property name="attributes"><![CDATA[textBelowField=2003,textAboveField=2002,labelAfterField=2005,labelBeforeField=2004,title=2001]]></set-property>
+  <set-property name="type"><![CDATA[int]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/int/simpleView.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Basic viewer for integer properties]]></set-property>
+  <set-property name="name"><![CDATA[Basic int Viewer]]></set-property>
+  <set-property name="mode"><![CDATA[1]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="31">
+  <set-property name="attributes"><![CDATA[defaultValue=3100,textAboveField=3102,inputFieldMaxlength=3107,title=3101,labelBeforeField=3104,textBelowField=3103,labelAfterField=3105,inputFieldSize=3106,minValue=3108,maxValue=3109]]></set-property>
+  <set-property name="type"><![CDATA[short]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/short/simpleEdit.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Basic editor for short properties]]></set-property>
+  <set-property name="name"><![CDATA[Basic short Editor]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="32">
+  <set-property name="attributes"><![CDATA[inputFieldMaxlength=3207,inputFieldSize=3206]]></set-property>
+  <set-property name="type"><![CDATA[short]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[true]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/short/simpleComponentEdit.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Basic editor for short collection properties]]></set-property>
+  <set-property name="name"><![CDATA[Basic short Component Editor]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="30">
+  <set-property name="attributes"><![CDATA[textBelowField=3003,textAboveField=3002,labelAfterField=3005,labelBeforeField=3004,title=3001]]></set-property>
+  <set-property name="type"><![CDATA[short]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/short/simpleView.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Basic viewer for short properties]]></set-property>
+  <set-property name="name"><![CDATA[Basic short Viewer]]></set-property>
+  <set-property name="mode"><![CDATA[1]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="41">
+  <set-property name="attributes"><![CDATA[defaultValue=4100,textAboveField=4102,inputFieldMaxlength=4107,title=4101,labelBeforeField=4104,textBelowField=4103,labelAfterField=4105,inputFieldSize=4106,minValue=4108,maxValue=4109]]></set-property>
+  <set-property name="type"><![CDATA[long]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/long/simpleEdit.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Basic editor for long properties]]></set-property>
+  <set-property name="name"><![CDATA[Basic long Editor]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="42">
+  <set-property name="attributes"><![CDATA[inputFieldMaxlength=4207,inputFieldSize=4206]]></set-property>
+  <set-property name="type"><![CDATA[long]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[true]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/long/simpleComponentEdit.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Basic editor for long collection properties]]></set-property>
+  <set-property name="name"><![CDATA[Basic long Component Editor]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="40">
+  <set-property name="attributes"><![CDATA[textBelowField=4003,textAboveField=4002,labelAfterField=4005,labelBeforeField=4004,title=4001]]></set-property>
+  <set-property name="type"><![CDATA[long]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/long/simpleView.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Basic viewer for long properties]]></set-property>
+  <set-property name="name"><![CDATA[Basic long Viewer]]></set-property>
+  <set-property name="mode"><![CDATA[1]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="51">
+  <set-property name="attributes"><![CDATA[defaultValue=5100,textAboveField=5102,inputFieldMaxlength=5107,title=5101,labelBeforeField=5104,textBelowField=5103,labelAfterField=5105,inputFieldSize=5106,minValue=5108,maxValue=5109]]></set-property>
+  <set-property name="type"><![CDATA[byte]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/byte/simpleEdit.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Basic editor for byte properties]]></set-property>
+  <set-property name="name"><![CDATA[Basic byte Editor]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="52">
+  <set-property name="attributes"><![CDATA[inputFieldMaxlength=5207,inputFieldSize=5206]]></set-property>
+  <set-property name="type"><![CDATA[byte]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[true]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/byte/simpleComponentEdit.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Basic editor for byte collection properties]]></set-property>
+  <set-property name="name"><![CDATA[Basic byte Component Editor]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="50">
+  <set-property name="attributes"><![CDATA[textBelowField=5003,textAboveField=5002,labelAfterField=5005,labelBeforeField=5004,title=5001]]></set-property>
+  <set-property name="type"><![CDATA[byte]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/byte/simpleView.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Basic viewer for byte properties]]></set-property>
+  <set-property name="name"><![CDATA[Basic byte Viewer]]></set-property>
+  <set-property name="mode"><![CDATA[1]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="61">
+  <set-property name="attributes"><![CDATA[defaultValue=6100,textAboveField=6102,inputFieldMaxlength=6107,title=6101,labelBeforeField=6104,textBelowField=6103,labelAfterField=6105,inputFieldSize=6106,minValue=6108,maxValue=6109]]></set-property>
+  <set-property name="type"><![CDATA[float]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/float/simpleEdit.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Basic editor for float properties]]></set-property>
+  <set-property name="name"><![CDATA[Basic float Editor]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="62">
+  <set-property name="attributes"><![CDATA[inputFieldMaxlength=6207,inputFieldSize=6206]]></set-property>
+  <set-property name="type"><![CDATA[float]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[true]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/float/simpleComponentEdit.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Basic editor for float collection properties]]></set-property>
+  <set-property name="name"><![CDATA[Basic float Component Editor]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="60">
+  <set-property name="attributes"><![CDATA[textBelowField=6003,textAboveField=6002,labelAfterField=6005,labelBeforeField=6004,title=6001]]></set-property>
+  <set-property name="type"><![CDATA[float]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/float/simpleView.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Basic viewer for float properties]]></set-property>
+  <set-property name="name"><![CDATA[Basic float Viewer]]></set-property>
+  <set-property name="mode"><![CDATA[1]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="71">
+  <set-property name="attributes"><![CDATA[defaultValue=7100,textAboveField=7102,inputFieldMaxlength=7107,title=7101,labelBeforeField=7104,textBelowField=7103,labelAfterField=7105,inputFieldSize=7106,minValue=7108,maxValue=7109]]></set-property>
+  <set-property name="type"><![CDATA[double]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/double/simpleEdit.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Basic editor for double properties]]></set-property>
+  <set-property name="name"><![CDATA[Basic double Editor]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="72">
+  <set-property name="attributes"><![CDATA[inputFieldMaxlength=7207,inputFieldSize=7206]]></set-property>
+  <set-property name="type"><![CDATA[double]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[true]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/double/simpleComponentEdit.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Basic editor for double collection properties]]></set-property>
+  <set-property name="name"><![CDATA[Basic double Component Editor]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="73">
+  <set-property name="attributes"><![CDATA[hideUpDownButtons=7320,deleteButtonText=7321,addButtonText=7322,editItemButtonText=7323]]></set-property>
+  <set-property name="type"><![CDATA[list]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/list/listEdit.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Basic editor for list properties]]></set-property>
+  <set-property name="name"><![CDATA[Basic List Editor]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="propertyView" id="74">
+  <set-property name="attributes"><![CDATA[deleteButtonText=7421,addButtonText=7422,editItemButtonText=7423]]></set-property>
+  <set-property name="type"><![CDATA[map]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/map/mapEdit.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Basic editor for map properties]]></set-property>
+  <set-property name="name"><![CDATA[Basic Map Editor]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="propertyView" id="75">
+  <set-property name="attributes"><![CDATA[hideUpDownButtons=7520,deleteButtonText=7521,addButtonText=7522,editItemButtonText=7523]]></set-property>
+  <set-property name="type"><![CDATA[array]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/array/arrayEdit.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Basic editor for array properties]]></set-property>
+  <set-property name="name"><![CDATA[Basic Array Editor]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="propertyView" id="76">
+  <set-property name="attributes"><![CDATA[deleteButtonText=7621,addButtonText=7622,editItemButtonText=7623]]></set-property>
+  <set-property name="type"><![CDATA[set]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/set/setEdit.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Basic editor for set properties]]></set-property>
+  <set-property name="name"><![CDATA[Basic Set Editor]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="propertyView" id="70">
+  <set-property name="attributes"><![CDATA[textBelowField=7003,textAboveField=7002,labelAfterField=7005,labelBeforeField=7004,title=7001]]></set-property>
+  <set-property name="type"><![CDATA[double]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/double/simpleView.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Basic viewer for double properties]]></set-property>
+  <set-property name="name"><![CDATA[Basic double Viewer]]></set-property>
+  <set-property name="mode"><![CDATA[1]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="81">
+  <set-property name="attributes"><![CDATA[defaultValue=8100,textAboveField=8102,title=8101,textBelowField=8103]]></set-property>
+  <set-property name="type"><![CDATA[boolean]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/boolean/pulldownMenuEdit.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="description"><![CDATA[Pulldown menu based editor for boolean properties]]></set-property>
+  <set-property name="name"><![CDATA[Pulldown menu boolean Editor]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="82">
+  <set-property name="attributes"><![CDATA[defaultValue=8200,textAboveField=8202,title=8201,textBelowField=8203]]></set-property>
+  <set-property name="type"><![CDATA[boolean]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/boolean/radioGroupEdit.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Radio group based editor for boolean properties]]></set-property>
+  <set-property name="name"><![CDATA[Radio group boolean Editor]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="83">
+  <set-property name="type"><![CDATA[boolean]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[true]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/boolean/pulldownMenuComponentEdit.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Pulldown editor for boolean collection properties]]></set-property>
+  <set-property name="name"><![CDATA[Pulldown boolean Component Editor]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="84">
+  <set-property name="type"><![CDATA[boolean]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[true]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/boolean/radioGroupComponentEdit.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Radio group editor for boolean collection properties]]></set-property>
+  <set-property name="name"><![CDATA[Radio group boolean Component Editor]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="80">
+  <set-property name="attributes"><![CDATA[textBelowField=8003,textAboveField=8002,title=8001]]></set-property>
+  <set-property name="type"><![CDATA[boolean]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/boolean/simpleView.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Basic viewer for boolean properties]]></set-property>
+  <set-property name="name"><![CDATA[Basic boolean Viewer]]></set-property>
+  <set-property name="mode"><![CDATA[1]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="91">
+  <set-property name="attributes"><![CDATA[defaultValue=9100,textAboveField=9102,inputFieldMaxlength=9107,title=9101,labelBeforeField=9104,textBelowField=9103,labelAfterField=9105,rows=9108,columns=9109,spellCheck=9110,disableFormSaver=ca_19250]]></set-property>
+  <set-property name="type"><![CDATA[big string]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/bigstring/textAreaEdit.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="description"><![CDATA[Text area based editor for big string properties]]></set-property>
+  <set-property name="name"><![CDATA[TextArea based string Editor]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="92">
+  <set-property name="attributes"><![CDATA[defaultValue=9200,textAboveField=9202,inputFieldMaxlength=9207,title=9201,textBelowField=9203,rows=9208,columns=9209,spellCheck=9210,dictionary=9211,appletWidth=9212,appletHeight=9213,simpleUI=9214]]></set-property>
+  <set-property name="type"><![CDATA[big string]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/bigstring/htmlEdit.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[WYSIWYG HTML editor for big string properties]]></set-property>
+  <set-property name="name"><![CDATA[WYSIWYG HTML Editor]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="93">
+  <set-property name="attributes"><![CDATA[inputFieldMaxlength=9307,inputFieldSize=9306]]></set-property>
+  <set-property name="type"><![CDATA[big string]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[true]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/bigstring/simpleComponentEdit.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Basic editor for big string collection properties]]></set-property>
+  <set-property name="name"><![CDATA[Basic big string Component Editor]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="90">
+  <set-property name="attributes"><![CDATA[textBelowField=9003,textAboveField=9002,labelAfterField=9005,labelBeforeField=9004,title=9001,replaceCRWith=9006]]></set-property>
+  <set-property name="type"><![CDATA[big string]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/bigstring/simpleView.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Basic text viewer for big string properties]]></set-property>
+  <set-property name="name"><![CDATA[Basic big string text Viewer]]></set-property>
+  <set-property name="mode"><![CDATA[1]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="propertyView" id="101">
+  <set-property name="attributes"><![CDATA[textAboveField=10102,title=10101,labelBeforeField=10104,textBelowField=10103,labelAfterField=10105,inputFieldSize=10106]]></set-property>
+  <set-property name="type"><![CDATA[atg.servlet.UploadedFile]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/file/fileEdit.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Basic chooser-based editor for file properties]]></set-property>
+  <set-property name="name"><![CDATA[Basic File Upload Chooser Editor]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="102">
+  <set-property name="attributes"><![CDATA[inputFieldMaxlength=10207,inputFieldSize=10206]]></set-property>
+  <set-property name="type"><![CDATA[atg.servlet.UploadedFile]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[true]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/file/fileComponentEdit.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Basic chooser-based editor for file collection properties]]></set-property>
+  <set-property name="name"><![CDATA[Basic file chooser Component Editor]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="100">
+  <set-property name="attributes"><![CDATA[textBelowField=10003,textAboveField=10002,labelAfterField=10005,labelBeforeField=10004,title=10001,replaceCRWith=10006]]></set-property>
+  <set-property name="type"><![CDATA[atg.servlet.UploadedFile]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/file/asTextView.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Viewer for file properties - show as text]]></set-property>
+  <set-property name="name"><![CDATA[File Viewer - Show as Text]]></set-property>
+  <set-property name="mode"><![CDATA[1]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="111">
+  <set-property name="attributes"><![CDATA[defaultValue=11100,textAboveField=11102,title=11101,labelBeforeField=11104,textBelowField=11103,labelAfterField=11105]]></set-property>
+  <set-property name="type"><![CDATA[enumerated]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/enumerated/pulldownMenuEdit.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="description"><![CDATA[Pulldown menu based editor for enumerated properties]]></set-property>
+  <set-property name="name"><![CDATA[Pulldown menu Enumerated Editor]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="112">
+  <set-property name="attributes"><![CDATA[defaultValue=11200,textAboveField=11202,title=11201,labelBeforeField=11204,textBelowField=11203,labelAfterField=11205]]></set-property>
+  <set-property name="type"><![CDATA[enumerated]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/enumerated/radioGroupEdit.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Radio group based editor for enumerated properties]]></set-property>
+  <set-property name="name"><![CDATA[Radio group enumerated Editor]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="113">
+  <set-property name="type"><![CDATA[enumerated]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[true]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/enumerated/pulldownMenuComponentEdit.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Pulldown editor for enumerated collection properties]]></set-property>
+  <set-property name="name"><![CDATA[Pulldown enumerated Component Editor]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="110">
+  <set-property name="attributes"><![CDATA[textBelowField=11003,textAboveField=11002,labelAfterField=11005,labelBeforeField=11004,title=11001]]></set-property>
+  <set-property name="type"><![CDATA[enumerated]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/enumerated/simpleView.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Basic viewer for enumerated properties]]></set-property>
+  <set-property name="name"><![CDATA[Basic enumerated Viewer]]></set-property>
+  <set-property name="mode"><![CDATA[1]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="121">
+  <set-property name="attributes"><![CDATA[textAboveField=12102,title=12101,labelBeforeField=12104,textBelowField=12103,labelAfterField=12105,inputFieldSize=12106,singleClickToClose=12107]]></set-property>
+  <set-property name="type"><![CDATA[date]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/date/calendarPopupEdit.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Popup editor for date properties]]></set-property>
+  <set-property name="name"><![CDATA[Basic popup date Editor]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="122">
+  <set-property name="attributes"><![CDATA[inputFieldMaxlength=12207,inputFieldSize=12206,singleClickToClose=ca_1600157]]></set-property>
+  <set-property name="type"><![CDATA[date]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[true]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/date/calendarPopupComponentEdit.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Popup editor for date collection properties]]></set-property>
+  <set-property name="name"><![CDATA[Basic popup date Component Editor]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="ca_defTimestampEdit">
+  <set-property name="attributes"><![CDATA[textAboveField=ca_1600140,title=ca_1600141,labelBeforeField=ca_1600142,textBelowField=ca_1600143,labelAfterField=ca_1600144,inputFieldSize=ca_1600145,singleClickToClose=ca_1600147]]></set-property>
+  <set-property name="type"><![CDATA[timestamp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/timestamp/calendarPopupEdit.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Popup editor for timestamp properties]]></set-property>
+  <set-property name="name"><![CDATA[Basic popup timestamp Editor]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="ca_defTimestampView">
+  <set-property name="attributes"><![CDATA[textAboveField=ca_1600031,title=ca_1600032,labelBeforeField=ca_1600033,textBelowField=ca_1600034,labelAfterField=ca_1600035,pattern=ca_1600037,type=ca_1600038,dateStyle=ca_1600039,timeStyle=ca_1600040,timeZone=ca_1600041]]></set-property>
+  <set-property name="type"><![CDATA[timestamp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/timestamp/simpleView.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Default viewer for timestamp properties]]></set-property>
+  <set-property name="name"><![CDATA[Basic timestamp Viewer]]></set-property>
+  <set-property name="mode"><![CDATA[1]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="ca_timestampComponentView">
+  <set-property name="attributes"><![CDATA[labelBeforeField=ca_1600100,labelAfterField=ca_1600101,pattern=ca_1600102,type=ca_1600103,dateStyle=ca_1600104,timeStyle=ca_1600105,timeZone=ca_1600106]]></set-property>
+  <set-property name="type"><![CDATA[timestamp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[true]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/timestamp/componentView.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Default viewer for component timestamp properties]]></set-property>
+  <set-property name="name"><![CDATA[Component timestamp Viewer]]></set-property>
+  <set-property name="mode"><![CDATA[1]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="ca_dateComponentView">
+  <set-property name="attributes"><![CDATA[labelBeforeField=ca_1600120,labelAfterField=ca_1600121,pattern=ca_1600122,type=ca_1600123,dateStyle=ca_1600124,timeStyle=ca_1600125,timeZone=ca_1600126]]></set-property>
+  <set-property name="type"><![CDATA[date]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[true]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/timestamp/componentView.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Default viewer for component date properties]]></set-property>
+  <set-property name="name"><![CDATA[Component date Viewer]]></set-property>
+  <set-property name="mode"><![CDATA[1]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="120">
+  <set-property name="attributes"><![CDATA[textBelowField=12003,textAboveField=12002,labelAfterField=12005,labelBeforeField=12004,title=12001,pattern=12007,type=ca_1600042,dateStyle=ca_1600043,timeStyle=ca_1600044,timeZone=ca_1600045]]></set-property>
+  <set-property name="type"><![CDATA[date]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/date/simpleView.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Viewer for date properties]]></set-property>
+  <set-property name="name"><![CDATA[Basic date viewer]]></set-property>
+  <set-property name="mode"><![CDATA[1]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="191">
+  <set-property name="attributes"><![CDATA[textAboveField=19102,title=19101,labelBeforeField=19104,textBelowField=19103,labelAfterField=19105,inputFieldSize=19106,editItemButtonText=19123,clearItemButtonText=19124]]></set-property>
+  <set-property name="type"><![CDATA[Repository Item]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/item/popupPickerEdit.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Popup item picker editor for RepositoryItem properties]]></set-property>
+  <set-property name="name"><![CDATA[RepositoryItem popup picker editor]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="192">
+  <set-property name="type"><![CDATA[Repository Item]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[true]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/item/popupPickerComponentEdit.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Popup item picker editor for RepositoryItem properties]]></set-property>
+  <set-property name="name"><![CDATA[RepositoryItem popup picker editor]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="190">
+  <set-property name="attributes"><![CDATA[textBelowField=19003,textAboveField=19002,labelAfterField=19005,labelBeforeField=19004,title=19001]]></set-property>
+  <set-property name="type"><![CDATA[Repository Item]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/item/simpleView.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Basic viewer for RepositoryItem properties]]></set-property>
+  <set-property name="name"><![CDATA[Basic RepositoryItem viewer]]></set-property>
+  <set-property name="mode"><![CDATA[1]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="ca_defArrayView">
+  <set-property name="attributes"><![CDATA[textBelowField=ca_1600048,textAboveField=ca_1600049,labelAfterField=ca_1600050,labelBeforeField=ca_1600051,title=ca_1600052]]></set-property>
+  <set-property name="type"><![CDATA[array]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/array/arrayView.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Array Viewer]]></set-property>
+  <set-property name="name"><![CDATA[Default array Viewer]]></set-property>
+  <set-property name="mode"><![CDATA[1]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="ca_defArrayListView">
+  <set-property name="attributes"><![CDATA[textBelowField=ca_1600055,textAboveField=ca_1600056,labelAfterField=ca_1600057,labelBeforeField=ca_1600058,title=ca_1600059]]></set-property>
+  <set-property name="type"><![CDATA[arraylist]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/array/arrayView.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[ArrayList Viewer]]></set-property>
+  <set-property name="name"><![CDATA[Default arraylist Viewer]]></set-property>
+  <set-property name="mode"><![CDATA[1]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="ca_defListView">
+  <set-property name="attributes"><![CDATA[textBelowField=ca_1600065,textAboveField=ca_1600066,labelAfterField=ca_1600067,labelBeforeField=ca_1600068,title=ca_1600069]]></set-property>
+  <set-property name="type"><![CDATA[list]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/array/arrayView.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[List Viewer]]></set-property>
+  <set-property name="name"><![CDATA[Default list Viewer]]></set-property>
+  <set-property name="mode"><![CDATA[1]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="ca_defSetView">
+  <set-property name="attributes"><![CDATA[textBelowField=ca_1600075,textAboveField=ca_1600076,labelAfterField=ca_1600077,labelBeforeField=ca_1600078,title=ca_1600079]]></set-property>
+  <set-property name="type"><![CDATA[set]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/array/arrayView.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Set Viewer]]></set-property>
+  <set-property name="name"><![CDATA[Default set Viewer]]></set-property>
+  <set-property name="mode"><![CDATA[1]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="propertyView" id="ca_defCmpItemView">
+  <set-property name="type"><![CDATA[Repository Item]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[true]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/item/componentView.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Default Repository Item Component View]]></set-property>
+  <set-property name="name"><![CDATA[Component Repository Item Viewer]]></set-property>
+  <set-property name="mode"><![CDATA[1]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="ca_defMapView">
+  <set-property name="attributes"><![CDATA[textBelowField=ca_1600085,textAboveField=ca_1600086,labelAfterKey=ca_1600087,labelBeforeKey=ca_1600088,labelBeforeValue=ca_1600097,labelAfterValue=ca_1600096,title=ca_1600089,horziontalKeyColumnAlign=ca_1600090,horziontalValueColumnAlign=ca_1600091,horziontalKeyColumnTitleAlign=ca_1600092,horziontalValueColumnTitleAlign=ca_1600093,keyColumnTitle=ca_1600094,valueColumnTitle=ca_1600095]]></set-property>
+  <set-property name="type"><![CDATA[map]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/map/mapView.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Map Viewer]]></set-property>
+  <set-property name="name"><![CDATA[Default Map Viewer]]></set-property>
+  <set-property name="mode"><![CDATA[1]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="300">
+  <set-property name="type"><![CDATA[atg.vfs.VirtualFile]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/file/folderView.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Folder Viewer]]></set-property>
+  <set-property name="name"><![CDATA[Default Folder Viewer]]></set-property>
+  <set-property name="mode"><![CDATA[1]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="301">
+  <set-property name="attributes"><![CDATA[inputFieldSize=ca_19202,title=ca_19203,textAboveField=ca_19204,labelBeforeField=ca_19205,labelAfterField=ca_19206,textBelowField=ca_19207,buttonText=ca_19231]]></set-property>
+  <set-property name="type"><![CDATA[atg.vfs.VirtualFile]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/file/folderEdit.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Pick a folder in the VFS]]></set-property>
+  <set-property name="name"><![CDATA[Default Folder Editor]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="302">
+  <set-property name="attributes"><![CDATA[inputFieldSize=ca_19222,title=ca_19223,textAboveField=ca_19224,labelBeforeField=ca_19225,labelAfterField=ca_19226,textBelowField=ca_19227,componentPath=ca_19228,itemType=ca_19229,buttonText=ca_19230,fileTypes=ca_19232]]></set-property>
+  <set-property name="type"><![CDATA[atg.vfs.VirtualFile]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/file/filePicker.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="description"><![CDATA[Pick existing files in the VFS]]></set-property>
+  <set-property name="name"><![CDATA[File Picker Editor]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="402">
+  <set-property name="type"><![CDATA[string]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[true]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/string/simpleComponentView.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Basic viewer for string collection properties]]></set-property>
+  <set-property name="name"><![CDATA[Basic String Component Viewer]]></set-property>
+  <set-property name="mode"><![CDATA[1]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="ca_fileNameEdit">
+  <set-property name="attributes"><![CDATA[textAboveField=ca_1600150,inputFieldMaxlength=ca_1600151,title=ca_1600152,labelBeforeField=ca_1600153,textBelowField=ca_1600154,labelAfterField=ca_1600155,inputFieldSize=ca_1600156]]></set-property>
+  <set-property name="type"><![CDATA[string]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/file/fileNameEdit.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Edit for file names, includes download option]]></set-property>
+  <set-property name="name"><![CDATA[File Name Editor]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- 8 items of type propertyViewAttributeDefinition -->
+
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="1208">
+  <set-property name="defaultValue"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Allow spell check on the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="1207">
+  <set-property name="defaultValue"><![CDATA[100]]></set-property>
+  <set-property name="description"><![CDATA[Maximum length of the data in the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="1206">
+  <set-property name="defaultValue"><![CDATA[50]]></set-property>
+  <set-property name="description"><![CDATA[Size of input field, in characters]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="1108">
+  <set-property name="defaultValue"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Allow spell check on the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="1107">
+  <set-property name="defaultValue"><![CDATA[100]]></set-property>
+  <set-property name="description"><![CDATA[Maximum length of the data in the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="1106">
+  <set-property name="defaultValue"><![CDATA[50]]></set-property>
+  <set-property name="description"><![CDATA[Size of input field, in characters]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="1105">
+  <set-property name="description"><![CDATA[Label to display after the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="1104">
+  <set-property name="description"><![CDATA[Label to display before the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="1103">
+  <set-property name="description"><![CDATA[Text to display below the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="1102">
+  <set-property name="description"><![CDATA[Text to display above the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="1101">
+  <set-property name="description"><![CDATA[Replacement field title]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="1100">
+  <set-property name="description"><![CDATA[Default value for field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="1005">
+  <set-property name="description"><![CDATA[Label to display after the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="1004">
+  <set-property name="description"><![CDATA[Label to display in front of field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="1003">
+  <set-property name="description"><![CDATA[Text to display below the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="1002">
+  <set-property name="description"><![CDATA[Text to display above the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="1001">
+  <set-property name="description"><![CDATA[Replacement field title]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="2207">
+  <set-property name="defaultValue"><![CDATA[100]]></set-property>
+  <set-property name="description"><![CDATA[Maximum length of the data in the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="2206">
+  <set-property name="defaultValue"><![CDATA[50]]></set-property>
+  <set-property name="description"><![CDATA[Size of input field, in characters]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="2109">
+  <set-property name="description"><![CDATA[Maximum value allowed in field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="2108">
+  <set-property name="description"><![CDATA[Minimum value allowed in field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="2107">
+  <set-property name="defaultValue"><![CDATA[100]]></set-property>
+  <set-property name="description"><![CDATA[Maximum length of the data in the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="2106">
+  <set-property name="defaultValue"><![CDATA[50]]></set-property>
+  <set-property name="description"><![CDATA[Size of input field, in characters]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="2105">
+  <set-property name="description"><![CDATA[Label to display after the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="2104">
+  <set-property name="description"><![CDATA[Label to display before the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="2103">
+  <set-property name="description"><![CDATA[Text to display below the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="2102">
+  <set-property name="description"><![CDATA[Text to display above the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="2101">
+  <set-property name="description"><![CDATA[Replacement field title]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="2100">
+  <set-property name="description"><![CDATA[Default value for field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="2005">
+  <set-property name="description"><![CDATA[Label to display after the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="2004">
+  <set-property name="description"><![CDATA[Label to display in front of field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="2003">
+  <set-property name="description"><![CDATA[Text to display below the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="2002">
+  <set-property name="description"><![CDATA[Text to display above the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="2001">
+  <set-property name="description"><![CDATA[Replacement field title]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="3207">
+  <set-property name="defaultValue"><![CDATA[100]]></set-property>
+  <set-property name="description"><![CDATA[Maximum length of the data in the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="3206">
+  <set-property name="defaultValue"><![CDATA[50]]></set-property>
+  <set-property name="description"><![CDATA[Size of input field, in characters]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="3109">
+  <set-property name="description"><![CDATA[Maximum value allowed in field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="3108">
+  <set-property name="description"><![CDATA[Minimum value allowed in field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="3107">
+  <set-property name="defaultValue"><![CDATA[100]]></set-property>
+  <set-property name="description"><![CDATA[Maximum length of the data in the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="3106">
+  <set-property name="defaultValue"><![CDATA[50]]></set-property>
+  <set-property name="description"><![CDATA[Size of input field, in characters]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="3105">
+  <set-property name="description"><![CDATA[Label to display after the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="3104">
+  <set-property name="description"><![CDATA[Label to display before the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="3103">
+  <set-property name="description"><![CDATA[Text to display below the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="3102">
+  <set-property name="description"><![CDATA[Text to display above the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="3101">
+  <set-property name="description"><![CDATA[Replacement field title]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="3100">
+  <set-property name="description"><![CDATA[Default value for field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="3005">
+  <set-property name="description"><![CDATA[Label to display after the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="3004">
+  <set-property name="description"><![CDATA[Label to display in front of field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="3003">
+  <set-property name="description"><![CDATA[Text to display below the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="3002">
+  <set-property name="description"><![CDATA[Text to display above the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="3001">
+  <set-property name="description"><![CDATA[Replacement field title]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="4207">
+  <set-property name="defaultValue"><![CDATA[100]]></set-property>
+  <set-property name="description"><![CDATA[Maximum length of the data in the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="4206">
+  <set-property name="defaultValue"><![CDATA[50]]></set-property>
+  <set-property name="description"><![CDATA[Size of input field, in characters]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="4109">
+  <set-property name="description"><![CDATA[Maximum value allowed in field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="4108">
+  <set-property name="description"><![CDATA[Minimum value allowed in field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="4107">
+  <set-property name="defaultValue"><![CDATA[100]]></set-property>
+  <set-property name="description"><![CDATA[Maximum length of the data in the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="4106">
+  <set-property name="defaultValue"><![CDATA[50]]></set-property>
+  <set-property name="description"><![CDATA[Size of input field, in characters]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="4105">
+  <set-property name="description"><![CDATA[Label to display after the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="4104">
+  <set-property name="description"><![CDATA[Label to display before the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="4103">
+  <set-property name="description"><![CDATA[Text to display below the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="4102">
+  <set-property name="description"><![CDATA[Text to display above the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="4101">
+  <set-property name="description"><![CDATA[Replacement field title]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="4100">
+  <set-property name="description"><![CDATA[Default value for field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="4005">
+  <set-property name="description"><![CDATA[Label to display after the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="4004">
+  <set-property name="description"><![CDATA[Label to display in front of field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="4003">
+  <set-property name="description"><![CDATA[Text to display below the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="4002">
+  <set-property name="description"><![CDATA[Text to display above the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="4001">
+  <set-property name="description"><![CDATA[Replacement field title]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="5207">
+  <set-property name="defaultValue"><![CDATA[100]]></set-property>
+  <set-property name="description"><![CDATA[Maximum length of the data in the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="5206">
+  <set-property name="defaultValue"><![CDATA[50]]></set-property>
+  <set-property name="description"><![CDATA[Size of input field, in characters]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="5109">
+  <set-property name="description"><![CDATA[Maximum value allowed in field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="5108">
+  <set-property name="description"><![CDATA[Minimum value allowed in field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="5107">
+  <set-property name="defaultValue"><![CDATA[100]]></set-property>
+  <set-property name="description"><![CDATA[Maximum length of the data in the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="5106">
+  <set-property name="defaultValue"><![CDATA[50]]></set-property>
+  <set-property name="description"><![CDATA[Size of input field, in characters]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="5105">
+  <set-property name="description"><![CDATA[Label to display after the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="5104">
+  <set-property name="description"><![CDATA[Label to display before the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="5103">
+  <set-property name="description"><![CDATA[Text to display below the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="5102">
+  <set-property name="description"><![CDATA[Text to display above the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="5101">
+  <set-property name="description"><![CDATA[Replacement field title]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="5100">
+  <set-property name="description"><![CDATA[Default value for field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="5005">
+  <set-property name="description"><![CDATA[Label to display after the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="5004">
+  <set-property name="description"><![CDATA[Label to display in front of field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="5003">
+  <set-property name="description"><![CDATA[Text to display below the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="5002">
+  <set-property name="description"><![CDATA[Text to display above the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="5001">
+  <set-property name="description"><![CDATA[Replacement field title]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="6207">
+  <set-property name="defaultValue"><![CDATA[100]]></set-property>
+  <set-property name="description"><![CDATA[Maximum length of the data in the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="6206">
+  <set-property name="defaultValue"><![CDATA[50]]></set-property>
+  <set-property name="description"><![CDATA[Size of input field, in characters]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="6109">
+  <set-property name="description"><![CDATA[Maximum value allowed in field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="6108">
+  <set-property name="description"><![CDATA[Minimum value allowed in field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="6107">
+  <set-property name="defaultValue"><![CDATA[100]]></set-property>
+  <set-property name="description"><![CDATA[Maximum length of the data in the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="6106">
+  <set-property name="defaultValue"><![CDATA[50]]></set-property>
+  <set-property name="description"><![CDATA[Size of input field, in characters]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="6105">
+  <set-property name="description"><![CDATA[Label to display after the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="6104">
+  <set-property name="description"><![CDATA[Label to display before the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="6103">
+  <set-property name="description"><![CDATA[Text to display below the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="6102">
+  <set-property name="description"><![CDATA[Text to display above the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="6101">
+  <set-property name="description"><![CDATA[Replacement field title]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="6100">
+  <set-property name="description"><![CDATA[Default value for field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="6005">
+  <set-property name="description"><![CDATA[Label to display after the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="6004">
+  <set-property name="description"><![CDATA[Label to display in front of field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="6003">
+  <set-property name="description"><![CDATA[Text to display below the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="6002">
+  <set-property name="description"><![CDATA[Text to display above the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="6001">
+  <set-property name="description"><![CDATA[Replacement field title]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="7320">
+  <set-property name="defaultValue"><![CDATA[false]]></set-property>
+  <set-property name="description"><![CDATA[Hide Up/Down buttons]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="7321">
+  <set-property name="defaultValue"><![CDATA[delete selected elements]]></set-property>
+  <set-property name="description"><![CDATA[Text for Delete button]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="7322">
+  <set-property name="defaultValue"><![CDATA[add a new element]]></set-property>
+  <set-property name="description"><![CDATA[Text for Add button]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="7323">
+  <set-property name="defaultValue"><![CDATA[edit link]]></set-property>
+  <set-property name="description"><![CDATA[Text for Edit Item button]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="7421">
+  <set-property name="defaultValue"><![CDATA[delete selected elements]]></set-property>
+  <set-property name="description"><![CDATA[Text for Delete button]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="7422">
+  <set-property name="defaultValue"><![CDATA[add a new element]]></set-property>
+  <set-property name="description"><![CDATA[Text for Add button]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="7423">
+  <set-property name="defaultValue"><![CDATA[edit link]]></set-property>
+  <set-property name="description"><![CDATA[Text for Edit Item button]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="7520">
+  <set-property name="defaultValue"><![CDATA[false]]></set-property>
+  <set-property name="description"><![CDATA[Hide Up/Down buttons]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="7521">
+  <set-property name="defaultValue"><![CDATA[delete selected elements]]></set-property>
+  <set-property name="description"><![CDATA[Text for Delete button]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="7522">
+  <set-property name="defaultValue"><![CDATA[add a new element]]></set-property>
+  <set-property name="description"><![CDATA[Text for Add button]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="7523">
+  <set-property name="defaultValue"><![CDATA[edit link]]></set-property>
+  <set-property name="description"><![CDATA[Text for Edit Item button]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="7621">
+  <set-property name="defaultValue"><![CDATA[delete selected elements]]></set-property>
+  <set-property name="description"><![CDATA[Text for Delete button]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="7622">
+  <set-property name="defaultValue"><![CDATA[add a new element]]></set-property>
+  <set-property name="description"><![CDATA[Text for Add button]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="7623">
+  <set-property name="defaultValue"><![CDATA[edit link]]></set-property>
+  <set-property name="description"><![CDATA[Text for Edit Item button]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="7207">
+  <set-property name="defaultValue"><![CDATA[100]]></set-property>
+  <set-property name="description"><![CDATA[Maximum length of the data in the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="7206">
+  <set-property name="defaultValue"><![CDATA[50]]></set-property>
+  <set-property name="description"><![CDATA[Size of input field, in characters]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="7109">
+  <set-property name="description"><![CDATA[Maximum value allowed in field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="7108">
+  <set-property name="description"><![CDATA[Minimum value allowed in field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="7107">
+  <set-property name="defaultValue"><![CDATA[100]]></set-property>
+  <set-property name="description"><![CDATA[Maximum length of the data in the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="7106">
+  <set-property name="defaultValue"><![CDATA[50]]></set-property>
+  <set-property name="description"><![CDATA[Size of input field, in characters]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="7105">
+  <set-property name="description"><![CDATA[Label to display after the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="7104">
+  <set-property name="description"><![CDATA[Label to display before the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="7103">
+  <set-property name="description"><![CDATA[Text to display below the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="7102">
+  <set-property name="description"><![CDATA[Text to display above the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="7101">
+  <set-property name="description"><![CDATA[Replacement field title]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="7100">
+  <set-property name="description"><![CDATA[Default value for field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="7005">
+  <set-property name="description"><![CDATA[Label to display after the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="7004">
+  <set-property name="description"><![CDATA[Label to display in front of field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="7003">
+  <set-property name="description"><![CDATA[Text to display below the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="7002">
+  <set-property name="description"><![CDATA[Text to display above the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="7001">
+  <set-property name="description"><![CDATA[Replacement field title]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="8203">
+  <set-property name="description"><![CDATA[Text to display below the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="8202">
+  <set-property name="description"><![CDATA[Text to display above the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="8201">
+  <set-property name="description"><![CDATA[Replacement field title]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="8200">
+  <set-property name="description"><![CDATA[Default value for field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="8103">
+  <set-property name="description"><![CDATA[Text to display below the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="8102">
+  <set-property name="description"><![CDATA[Text to display above the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="8101">
+  <set-property name="description"><![CDATA[Replacement field title]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="8100">
+  <set-property name="description"><![CDATA[Default value for field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="8003">
+  <set-property name="description"><![CDATA[Text to display below the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="8002">
+  <set-property name="description"><![CDATA[Text to display above the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="8001">
+  <set-property name="description"><![CDATA[Replacement field title]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="9307">
+  <set-property name="defaultValue"><![CDATA[100]]></set-property>
+  <set-property name="description"><![CDATA[Maximum length of the data in the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="9306">
+  <set-property name="defaultValue"><![CDATA[50]]></set-property>
+  <set-property name="description"><![CDATA[Size of input field, in characters]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="9214">
+  <set-property name="defaultValue"><![CDATA[false]]></set-property>
+  <set-property name="description"><![CDATA[Switch to show the applet in simple mode]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="9213">
+  <set-property name="defaultValue"><![CDATA[400]]></set-property>
+  <set-property name="description"><![CDATA[Height of EditLive applet, in pixels]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="9212">
+  <set-property name="defaultValue"><![CDATA[700]]></set-property>
+  <set-property name="description"><![CDATA[Width of EditLive applet, in pixels]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="9211">
+  <set-property name="defaultValue"><![CDATA[en_us]]></set-property>
+  <set-property name="description"><![CDATA[Spell check dictionary to use]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="9210">
+  <set-property name="defaultValue"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Allow spell check on the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="9209">
+  <set-property name="defaultValue"><![CDATA[50]]></set-property>
+  <set-property name="description"><![CDATA[Number of columns]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="9208">
+  <set-property name="defaultValue"><![CDATA[20]]></set-property>
+  <set-property name="description"><![CDATA[Number of rows]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="9207">
+  <set-property name="description"><![CDATA[Maximum length of the data in the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="9203">
+  <set-property name="description"><![CDATA[Text to display below the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="9202">
+  <set-property name="description"><![CDATA[Text to display above the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="9201">
+  <set-property name="description"><![CDATA[Replacement field title]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="9200">
+  <set-property name="description"><![CDATA[Default value for field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="9110">
+  <set-property name="defaultValue"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Allow spell check on the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="9109">
+  <set-property name="defaultValue"><![CDATA[50]]></set-property>
+  <set-property name="description"><![CDATA[Number of columns]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="9108">
+  <set-property name="defaultValue"><![CDATA[20]]></set-property>
+  <set-property name="description"><![CDATA[Number of rows]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="9107">
+  <set-property name="description"><![CDATA[Maximum length of the data in the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="9105">
+  <set-property name="description"><![CDATA[Label to display after the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="9104">
+  <set-property name="description"><![CDATA[Label to display before the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="9103">
+  <set-property name="description"><![CDATA[Text to display below the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="9102">
+  <set-property name="description"><![CDATA[Text to display above the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="9101">
+  <set-property name="description"><![CDATA[Replacement field title]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="9100">
+  <set-property name="description"><![CDATA[Default value for field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="9006">
+  <set-property name="defaultValue"><![CDATA[<BR>]]></set-property>
+  <set-property name="description"><![CDATA[String to substitute for carriage returns]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="9005">
+  <set-property name="description"><![CDATA[Label to display after the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="9004">
+  <set-property name="description"><![CDATA[Label to display in front of field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="9003">
+  <set-property name="description"><![CDATA[Text to display below the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="9002">
+  <set-property name="description"><![CDATA[Text to display above the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="9001">
+  <set-property name="description"><![CDATA[Replacement field title]]></set-property>
+</add-item>
+
+
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="10207">
+  <set-property name="defaultValue"><![CDATA[100]]></set-property>
+  <set-property name="description"><![CDATA[Maximum length of the data in the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="10206">
+  <set-property name="defaultValue"><![CDATA[50]]></set-property>
+  <set-property name="description"><![CDATA[Size of input field, in characters]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="10106">
+  <set-property name="defaultValue"><![CDATA[50]]></set-property>
+  <set-property name="description"><![CDATA[Size of input field, in characters]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="10105">
+  <set-property name="description"><![CDATA[Label to display after the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="10104">
+  <set-property name="description"><![CDATA[Label to display before the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="10103">
+  <set-property name="description"><![CDATA[Text to display below the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="10102">
+  <set-property name="description"><![CDATA[Text to display above the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="10101">
+  <set-property name="description"><![CDATA[Replacement field title]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="10100">
+  <set-property name="description"><![CDATA[Default value for field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="10006">
+  <set-property name="defaultValue"><![CDATA[<BR>]]></set-property>
+  <set-property name="description"><![CDATA[String to substitute for carriage returns]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="10005">
+  <set-property name="description"><![CDATA[Label to display after the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="10004">
+  <set-property name="description"><![CDATA[Label to display in front of field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="10003">
+  <set-property name="description"><![CDATA[Text to display below the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="10002">
+  <set-property name="description"><![CDATA[Text to display above the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="10001">
+  <set-property name="description"><![CDATA[Replacement field title]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="11205">
+  <set-property name="description"><![CDATA[Label to display after the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="11204">
+  <set-property name="description"><![CDATA[Label to display before the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="11203">
+  <set-property name="description"><![CDATA[Text to display below the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="11202">
+  <set-property name="description"><![CDATA[Text to display above the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="11201">
+  <set-property name="description"><![CDATA[Replacement field title]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="11200">
+  <set-property name="description"><![CDATA[Default value for field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="11105">
+  <set-property name="description"><![CDATA[Label to display after the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="11104">
+  <set-property name="description"><![CDATA[Label to display before the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="11103">
+  <set-property name="description"><![CDATA[Text to display below the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="11102">
+  <set-property name="description"><![CDATA[Text to display above the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="11101">
+  <set-property name="description"><![CDATA[Replacement field title]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="11100">
+  <set-property name="description"><![CDATA[Default value for field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="11005">
+  <set-property name="description"><![CDATA[Label to display after the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="11004">
+  <set-property name="description"><![CDATA[Label to display in front of field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="11003">
+  <set-property name="description"><![CDATA[Text to display below the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="11002">
+  <set-property name="description"><![CDATA[Text to display above the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="11001">
+  <set-property name="description"><![CDATA[Replacement field title]]></set-property>
+</add-item>
+
+
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="12207">
+  <set-property name="defaultValue"><![CDATA[MM-DD-YY]]></set-property>
+  <set-property name="description"><![CDATA[Date format string]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="12206">
+  <set-property name="defaultValue"><![CDATA[50]]></set-property>
+  <set-property name="description"><![CDATA[Size of input field, in characters]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="12107">
+  <set-property name="defaultValue"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Single click to close]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="12106">
+  <set-property name="defaultValue"><![CDATA[50]]></set-property>
+  <set-property name="description"><![CDATA[Size of input field, in characters]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="12105">
+  <set-property name="description"><![CDATA[Label to display after the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="12104">
+  <set-property name="description"><![CDATA[Label to display before the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="12103">
+  <set-property name="description"><![CDATA[Text to display below the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="12102">
+  <set-property name="description"><![CDATA[Text to display above the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="12101">
+  <set-property name="description"><![CDATA[Replacement field title]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="12100">
+  <set-property name="description"><![CDATA[Default value for field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="12007">
+  <set-property name="description"><![CDATA[JSTL fmt:fmtDate tag pattern attribue string]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600042">
+  <set-property name="defaultValue"><![CDATA[date]]></set-property>
+  <set-property name="description"><![CDATA[JSTL fmt:fmtDate type attribute string (date|time|both)]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600043">
+  <set-property name="defaultValue"><![CDATA[full]]></set-property>
+  <set-property name="description"><![CDATA[JSTL fmt:fmtDate dateStyle string (full|long|medium|short|default)]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600044">
+  <set-property name="defaultValue"><![CDATA[full]]></set-property>
+  <set-property name="description"><![CDATA[JSTL fmt:fmtDate timeStyle string (full|long|medium|short|default)]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600045">
+  <set-property name="description"><![CDATA[JSTL fmt:fmtDate timeZone string]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="12005">
+  <set-property name="description"><![CDATA[Label to display after the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="12004">
+  <set-property name="description"><![CDATA[Label to display in front of field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="12003">
+  <set-property name="description"><![CDATA[Text to display below the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="12002">
+  <set-property name="description"><![CDATA[Text to display above the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="12001">
+  <set-property name="description"><![CDATA[Replacement field title]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="19123">
+  <set-property name="defaultValue"><![CDATA[edit link]]></set-property>
+  <set-property name="description"><![CDATA[Text for Edit Item button]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="19124">
+  <set-property name="defaultValue"><![CDATA[clear link]]></set-property>
+  <set-property name="description"><![CDATA[Text for Clear Item button]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="19106">
+  <set-property name="defaultValue"><![CDATA[50]]></set-property>
+  <set-property name="description"><![CDATA[Size of input field, in characters]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="19105">
+  <set-property name="description"><![CDATA[Label to display after the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="19104">
+  <set-property name="description"><![CDATA[Label to display before the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="19103">
+  <set-property name="description"><![CDATA[Text to display below the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="19102">
+  <set-property name="description"><![CDATA[Text to display above the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="19101">
+  <set-property name="description"><![CDATA[Replacement field title]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="19100">
+  <set-property name="description"><![CDATA[Default value for field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="19005">
+  <set-property name="description"><![CDATA[Label to display after the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="19004">
+  <set-property name="description"><![CDATA[Label to display in front of field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="19003">
+  <set-property name="description"><![CDATA[Text to display below the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="19002">
+  <set-property name="description"><![CDATA[Text to display above the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="19001">
+  <set-property name="description"><![CDATA[Replacement field title]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_19202">
+  <set-property name="defaultValue"><![CDATA[50]]></set-property>
+  <set-property name="description"><![CDATA[Size of folder path input field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_19203">
+  <set-property name="description"><![CDATA[Folder chooser title]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_19204">
+  <set-property name="description"><![CDATA[Text above field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_19205">
+  <set-property name="description"><![CDATA[Label before field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_19206">
+  <set-property name="description"><![CDATA[Label after field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_19207">
+  <set-property name="description"><![CDATA[Text below field]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_19222">
+  <set-property name="defaultValue"><![CDATA[50]]></set-property>
+  <set-property name="description"><![CDATA[Size of folder path input field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_19223">
+  <set-property name="description"><![CDATA[Folder chooser title]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_19224">
+  <set-property name="description"><![CDATA[Text above field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_19225">
+  <set-property name="description"><![CDATA[Label before field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_19226">
+  <set-property name="description"><![CDATA[Label after field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_19227">
+  <set-property name="description"><![CDATA[Text below field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_19228">
+  <set-property name="defaultValue"><![CDATA[/atg/epub/file/ConfigFileSystem]]></set-property>
+  <set-property name="description"><![CDATA[VFS Component Path]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_19229">
+  <set-property name="description"><![CDATA[File Type]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_19230">
+  <set-property name="defaultValue"><![CDATA[Change...]]></set-property>
+  <set-property name="description"><![CDATA[Button Text]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_19231">
+  <set-property name="defaultValue"><![CDATA[Change...]]></set-property>
+  <set-property name="description"><![CDATA[Button Text]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_19232">
+  <set-property name="description"><![CDATA[VFS and file type regex, pattern is /path/to/VFS:fileType defaults to all file types]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_19250">
+  <set-property name="defaultValue"><![CDATA[false]]></set-property>
+  <set-property name="description"><![CDATA[Disable form saver functionality]]></set-property>
+</add-item>
+
+<!-- 6 items of type itemView -->
+
+<add-item item-descriptor="itemView" id="1">
+  <set-property name="attributes"><![CDATA[textAbove=102,title=101]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/item/gsa/oneColumnView.jsp]]></set-property>
+  <set-property name="description"><![CDATA[Repository Item Read-Only View - 1-column layout]]></set-property>
+  <set-property name="name"><![CDATA[Standard RepositoryItem View]]></set-property>
+  <set-property name="mode"><![CDATA[1]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemView" id="2">
+  <set-property name="attributes"><![CDATA[textAbove=202,title=201]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/item/gsa/oneColumnEdit.jsp]]></set-property>
+  <set-property name="description"><![CDATA[Repository Item Edit View - 1-column layout]]></set-property>
+  <set-property name="name"><![CDATA[Standard RepositoryItem Editor]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemView" id="3">
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/item/gsa/sampleBrowse.jsp]]></set-property>
+  <set-property name="description"><![CDATA[Default Repository Item Browse View]]></set-property>
+  <set-property name="name"><![CDATA[DefaultRepBrowse]]></set-property>
+  <set-property name="mode"><![CDATA[3]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemView" id="4">
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/item/gsa/diff.jsp]]></set-property>
+  <set-property name="description"><![CDATA[Default Repository Item Diff View]]></set-property>
+  <set-property name="name"><![CDATA[DefaultRepDiff]]></set-property>
+  <set-property name="mode"><![CDATA[4]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemView" id="5">
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/item/file/view.jsp]]></set-property>
+  <set-property name="description"><![CDATA[Default File Read-Only View]]></set-property>
+  <set-property name="name"><![CDATA[DefaultFileView]]></set-property>
+  <set-property name="mode"><![CDATA[1]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemView" id="6">
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/item/file/edit.jsp]]></set-property>
+  <set-property name="description"><![CDATA[Default File Edit View]]></set-property>
+  <set-property name="name"><![CDATA[DefaultFileEdit]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+</add-item>
+
+<!-- No items of type itemViewAttributeDefinition -->
+
+<add-item item-descriptor="itemViewAttributeDefinition" id="101">
+  <set-property name="description"><![CDATA[Replacement view title]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewAttributeDefinition" id="102">
+  <set-property name="description"><![CDATA[Text to show above the form]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewAttributeDefinition" id="201">
+  <set-property name="description"><![CDATA[Replacement view title]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewAttributeDefinition" id="202">
+  <set-property name="description"><![CDATA[Text above the form]]></set-property>
+</add-item>
+
+<!-- 5 items of type formHandler -->
+
+<add-item item-descriptor="formHandler" id="1">
+  <set-property name="path"><![CDATA[/atg/epub/servlet/RepositoryAssetFormHandler]]></set-property>
+  <set-property name="attributes"><![CDATA[atgFormValueDict=1]]></set-property>
+  <set-property name="description"><![CDATA[The default repository form handler]]></set-property>
+  <set-property name="name"><![CDATA[DefaultRepository]]></set-property>
+</add-item>
+
+<add-item item-descriptor="formHandler" id="2">
+  <set-property name="path"><![CDATA[/atg/epub/servlet/AssetDiffFormHandler]]></set-property>
+  <set-property name="attributes"><![CDATA[atgFormValueDict2=3,atgFormValueDict1=2]]></set-property>
+  <set-property name="description"><![CDATA[Default Repository Diff form handler]]></set-property>
+  <set-property name="name"><![CDATA[DefaultRepositoryDiff]]></set-property>
+</add-item>
+
+<add-item item-descriptor="formHandler" id="3">
+  <set-property name="path"><![CDATA[/atg/epub/servlet/BinaryFileAssetFormHandler]]></set-property>
+  <set-property name="attributes"><![CDATA[atgFormValueDict=800022]]></set-property>
+  <set-property name="description"><![CDATA[Default File Form Handler]]></set-property>
+  <set-property name="name"><![CDATA[DefaultFile]]></set-property>
+</add-item>
+
+<add-item item-descriptor="formHandler" id="4">
+  <set-property name="path"><![CDATA[/atg/epub/servlet/ProjectDiffFormHandler]]></set-property>
+  <set-property name="attributes"><![CDATA[atgFormValueDict2=5,atgFormValueDict1=4]]></set-property>
+  <set-property name="description"><![CDATA[Default Conflict form handler]]></set-property>
+  <set-property name="name"><![CDATA[DefaultRepositoryConflict]]></set-property>
+</add-item>
+
+<add-item item-descriptor="formHandler" id="100062">
+  <set-property name="path"><![CDATA[/atg/epub/servlet/TextFileAssetFormHandler]]></set-property>
+  <set-property name="attributes"><![CDATA[atgFormValueDict=1400030]]></set-property>
+  <set-property name="description"><![CDATA[Text File Asset Form Handler]]></set-property>
+</add-item>
+
+<add-item item-descriptor="formHandler" id="100081">
+  <set-property name="path"><![CDATA[/atg/epub/servlet/FolderAssetFormHandler]]></set-property>
+  <set-property name="attributes"><![CDATA[atgFormValueDict=ca_1500030]]></set-property>
+  <set-property name="description"><![CDATA[Folder File Asset Form Handler]]></set-property>
+  <set-property name="name"><![CDATA[File Folder Form Handler]]></set-property>
+</add-item>
+
+<!-- 9 items of type attributeValue -->
+
+<add-item item-descriptor="attributeValue" id="1">
+  <set-property name="value"><![CDATA[value]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="1000024">
+  <set-property name="value"><![CDATA[80]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="1000026">
+  <set-property name="value"><![CDATA[20]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="ca_1000027">
+  <set-property name="value"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="1200028">
+  <set-property name="value"><![CDATA[false]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="attributeValue" id="2">
+  <set-property name="value"><![CDATA[item1]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="3">
+  <set-property name="value"><![CDATA[item2]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="4">
+  <set-property name="value"><![CDATA[item1]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="5">
+  <set-property name="value"><![CDATA[item2]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="600020">
+  <set-property name="value"><![CDATA[false]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="800022">
+  <set-property name="value"><![CDATA[assetEditor]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="1400030">
+  <set-property name="value"><![CDATA[assetEditor]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="ca_1500030">
+  <set-property name="value"><![CDATA[assetEditor]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600031">
+  <set-property name="description"><![CDATA[Text to display above the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600032">
+  <set-property name="description"><![CDATA[Replacement field title]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600033">
+  <set-property name="description"><![CDATA[Label to display before the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600034">
+  <set-property name="description"><![CDATA[Text to display below the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600035">
+  <set-property name="description"><![CDATA[Label to display after the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600037">
+  <set-property name="description"><![CDATA[JSTL fmt:fmtDate tag pattern attribue string]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600038">
+  <set-property name="defaultValue"><![CDATA[both]]></set-property>
+  <set-property name="description"><![CDATA[JSTL fmt:fmtDate type attribute string (date|time|both)]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600039">
+  <set-property name="defaultValue"><![CDATA[full]]></set-property>
+  <set-property name="description"><![CDATA[JSTL fmt:fmtDate dateStyle string (full|long|medium|short|default)]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600040">
+  <set-property name="defaultValue"><![CDATA[full]]></set-property>
+  <set-property name="description"><![CDATA[JSTL fmt:fmtDate timeStyle string (full|long|medium|short|default)]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600041">
+  <set-property name="description"><![CDATA[JSTL fmt:fmtDate timeZone string]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600048">
+  <set-property name="description"><![CDATA[Text to display below the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600049">
+  <set-property name="description"><![CDATA[Text to display above the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600050">
+  <set-property name="description"><![CDATA[Label to display after the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600051">
+  <set-property name="description"><![CDATA[Label to display before the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600052">
+  <set-property name="description"><![CDATA[Replacement field title]]></set-property>
+</add-item>
+
+
+
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600055">
+  <set-property name="description"><![CDATA[Text to display below the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600056">
+  <set-property name="description"><![CDATA[Text to display above the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600057">
+  <set-property name="description"><![CDATA[Label to display after the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600058">
+  <set-property name="description"><![CDATA[Label to display before the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600059">
+  <set-property name="description"><![CDATA[Replacement field title]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600065">
+  <set-property name="description"><![CDATA[Text to display below the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600066">
+  <set-property name="description"><![CDATA[Text to display above the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600067">
+  <set-property name="description"><![CDATA[Label to display after the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600068">
+  <set-property name="description"><![CDATA[Label to display before the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600069">
+  <set-property name="description"><![CDATA[Replacement field title]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600075">
+  <set-property name="description"><![CDATA[Text to display below the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600076">
+  <set-property name="description"><![CDATA[Text to display above the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600077">
+  <set-property name="description"><![CDATA[Label to display after the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600078">
+  <set-property name="description"><![CDATA[Label to display before the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600079">
+  <set-property name="description"><![CDATA[Replacement field title]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600085">
+  <set-property name="description"><![CDATA[Text to display below the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600086">
+  <set-property name="description"><![CDATA[Text to display above the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600087">
+  <set-property name="description"><![CDATA[Label to display after the key]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600088">
+  <set-property name="description"><![CDATA[Label to display before the key]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600089">
+  <set-property name="description"><![CDATA[Replacement field title]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600090">
+  <set-property name="defaultValue"><![CDATA[left]]></set-property>
+  <set-property name="description"><![CDATA[Key Column Horizontal Alignment]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600091">
+  <set-property name="defaultValue"><![CDATA[left]]></set-property>
+  <set-property name="description"><![CDATA[Value Column Horizontal Alignment]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600092">
+  <set-property name="defaultValue"><![CDATA[left]]></set-property>
+  <set-property name="description"><![CDATA[Key Column Title Horizontal Alignment]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600093">
+  <set-property name="defaultValue"><![CDATA[left]]></set-property>
+  <set-property name="description"><![CDATA[Value Column Title Horizontal Alignment]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600094">
+  <set-property name="description"><![CDATA[Key Column Title]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600095">
+  <set-property name="description"><![CDATA[Value Column Title]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600096">
+  <set-property name="description"><![CDATA[Label to display after the value]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600097">
+  <set-property name="description"><![CDATA[Label to display before the value]]></set-property>
+</add-item>
+
+
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600100">
+  <set-property name="description"><![CDATA[Label to display before the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600101">
+  <set-property name="description"><![CDATA[Label to display after the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600102">
+  <set-property name="description"><![CDATA[JSTL fmt:fmtDate tag pattern attribue string]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600103">
+  <set-property name="defaultValue"><![CDATA[both]]></set-property>
+  <set-property name="description"><![CDATA[JSTL fmt:fmtDate type attribute string (date|time|both)]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600104">
+  <set-property name="defaultValue"><![CDATA[full]]></set-property>
+  <set-property name="description"><![CDATA[JSTL fmt:fmtDate dateStyle string (full|long|medium|short|default)]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600105">
+  <set-property name="defaultValue"><![CDATA[full]]></set-property>
+  <set-property name="description"><![CDATA[JSTL fmt:fmtDate timeStyle string (full|long|medium|short|default)]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600106">
+  <set-property name="description"><![CDATA[JSTL fmt:fmtDate timeZone string]]></set-property>
+</add-item>
+
+
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600120">
+  <set-property name="description"><![CDATA[Label to display before the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600121">
+  <set-property name="description"><![CDATA[Label to display after the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600122">
+  <set-property name="description"><![CDATA[JSTL fmt:fmtDate tag pattern attribue string]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600123">
+  <set-property name="defaultValue"><![CDATA[both]]></set-property>
+  <set-property name="description"><![CDATA[JSTL fmt:fmtDate type attribute string (date|time|both)]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600124">
+  <set-property name="defaultValue"><![CDATA[full]]></set-property>
+  <set-property name="description"><![CDATA[JSTL fmt:fmtDate dateStyle string (full|long|medium|short|default)]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600125">
+  <set-property name="defaultValue"><![CDATA[full]]></set-property>
+  <set-property name="description"><![CDATA[JSTL fmt:fmtDate timeStyle string (full|long|medium|short|default)]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600126">
+  <set-property name="description"><![CDATA[JSTL fmt:fmtDate timeZone string]]></set-property>
+</add-item>
+
+
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600140">
+  <set-property name="description"><![CDATA[Text to display above the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600141">
+  <set-property name="description"><![CDATA[Replacement field title]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600142">
+  <set-property name="description"><![CDATA[Label to display before the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600143">
+  <set-property name="description"><![CDATA[Text to display below field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600144">
+  <set-property name="description"><![CDATA[Label to display after the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600145">
+  <set-property name="defaultValue"><![CDATA[50]]></set-property>
+  <set-property name="description"><![CDATA[Size of input field, in characters]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600146">
+  <set-property name="defaultValue"><![CDATA[100]]></set-property>
+  <set-property name="description"><![CDATA[Date format string]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600147">
+  <set-property name="defaultValue"><![CDATA[false]]></set-property>
+  <set-property name="description"><![CDATA[Single click to close]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600150">
+  <set-property name="description"><![CDATA[Text to display above the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600151">
+  <set-property name="defaultValue"><![CDATA[255]]></set-property>
+  <set-property name="description"><![CDATA[Maximum length of the data in the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600152">
+  <set-property name="description"><![CDATA[Replacement field title]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600153">
+  <set-property name="description"><![CDATA[Label to display before the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600154">
+  <set-property name="description"><![CDATA[Text to display below the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600155">
+  <set-property name="description"><![CDATA[Label to display after the field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600156">
+  <set-property name="defaultValue"><![CDATA[50]]></set-property>
+  <set-property name="description"><![CDATA[Size of input field, in characters]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="ca_1600157">
+  <set-property name="defaultValue"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Single click to close]]></set-property>
+</add-item>
+
+<add-item item-descriptor="formHandler" id="12341">
+  <set-property name="path"><![CDATA[/atg/epub/servlet/FileRepositoryAssetFormHandler]]></set-property>
+  <set-property name="description"><![CDATA[File Asset Form Handler]]></set-property>
+  <set-property name="name"><![CDATA[File Form Handler]]></set-property>
+  <set-property name="attributes"><![CDATA[atgFormValueDict=1]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="itemView" id="dcs_10">
+  <set-property name="attributes"><![CDATA[textAbove=202,title=201]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/item/gsa/media/mediaInternalTextEdit.jsp]]></set-property>
+  <set-property name="description"><![CDATA[Media Internal Text Edit]]></set-property>
+  <set-property name="name"><![CDATA[Media Internal Text RepositoryItem Editor]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewMapping" id="dcs_20">
+  <set-property name="displayName"><![CDATA[Edit]]></set-property>
+  <set-property name="description"><![CDATA[Edit Media Internal Text]]></set-property>
+  <set-property name="name"><![CDATA[MediaInternalTextEdit]]></set-property>
+  <set-property name="view"><![CDATA[dcs_10]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[path=dcs_40]]></set-property>  
+</add-item>
+
+
+<add-item item-descriptor="itemMapping" id="dcs_30">
+  <set-property name="formHandler"><![CDATA[12341]]></set-property>
+  <set-property name="viewMappings"><![CDATA[dcs_20]]></set-property>
+  <set-property name="itemName"><![CDATA[media-internal-text]]></set-property>
+  <set-property name="description"><![CDATA[Default Editable ItemMapping for media internal text]]></set-property>
+  <set-property name="name"><![CDATA[*]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/commerce/catalog/ProductCatalog]]></set-property>
+</add-item>
+
+
+
+
+<add-item item-descriptor="itemView" id="dcs_11">
+  <set-property name="attributes"><![CDATA[textAbove=202,title=201]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/item/gsa/media/mediaInternalBinaryEdit.jsp]]></set-property>
+  <set-property name="description"><![CDATA[Media Internal Binary Edit]]></set-property>
+  <set-property name="name"><![CDATA[Media Internal Binary RepositoryItem Editor]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewMapping" id="dcs_21">
+  <set-property name="displayName"><![CDATA[Edit]]></set-property>
+  <set-property name="description"><![CDATA[Edit Media Internal Binary]]></set-property>
+  <set-property name="name"><![CDATA[MediaInternalBinaryEdit]]></set-property>
+  <set-property name="view"><![CDATA[dcs_11]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[path=dcs_40]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="itemMapping" id="dcs_31">
+  <set-property name="formHandler"><![CDATA[12341]]></set-property>
+  <set-property name="viewMappings"><![CDATA[dcs_21]]></set-property>
+  <set-property name="itemName"><![CDATA[media-internal-binary]]></set-property>
+  <set-property name="description"><![CDATA[Default Editable ItemMapping for media internal binary]]></set-property>
+  <set-property name="name"><![CDATA[*]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/commerce/catalog/ProductCatalog]]></set-property>
+</add-item>
+
+
+
+
+
+<add-item item-descriptor="itemView" id="dcs_12">
+  <set-property name="attributes"><![CDATA[textAbove=202,title=201]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/item/gsa/media/mediaExternalEdit.jsp]]></set-property>
+  <set-property name="description"><![CDATA[Media External Edit]]></set-property>
+  <set-property name="name"><![CDATA[Media External RepositoryItem Editor]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewMapping" id="dcs_22">
+  <set-property name="displayName"><![CDATA[MediaExternalEdit]]></set-property>
+  <set-property name="description"><![CDATA[Edit Media External]]></set-property>
+  <set-property name="name"><![CDATA[MediaExternalEdit]]></set-property>
+  <set-property name="view"><![CDATA[dcs_12]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[path=dcs_40]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="itemMapping" id="dcs_32">
+  <set-property name="formHandler"><![CDATA[12341]]></set-property>
+  <set-property name="viewMappings"><![CDATA[dcs_22]]></set-property>
+  <set-property name="itemName"><![CDATA[media-external]]></set-property>
+  <set-property name="description"><![CDATA[Default Editable ItemMapping for media external]]></set-property>
+  <set-property name="name"><![CDATA[*]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/commerce/catalog/ProductCatalog]]></set-property>
+</add-item>
+
+
+
+
+
+
+<add-item item-descriptor="itemView" id="dcs_13">
+  <set-property name="attributes"><![CDATA[textAbove=202,title=201]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/item/gsa/media/mediaInternalBinaryView.jsp]]></set-property>
+  <set-property name="description"><![CDATA[Media Internal Binary View]]></set-property>
+  <set-property name="name"><![CDATA[Media Internal Binary RepositoryItem Viewer]]></set-property>
+  <set-property name="mode"><![CDATA[1]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewMapping" id="dcs_23">
+  <set-property name="displayName"><![CDATA[ViewMediaInternalBinary]]></set-property>
+  <set-property name="description"><![CDATA[View Media Internal Binary]]></set-property>
+  <set-property name="name"><![CDATA[MediaInternalBinaryView]]></set-property>
+  <set-property name="view"><![CDATA[dcs_13]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="itemMapping" id="dcs_33">
+  <set-property name="formHandler"><![CDATA[12341]]></set-property>
+  <set-property name="viewMappings"><![CDATA[dcs_23]]></set-property>
+  <set-property name="itemName"><![CDATA[media-internal-binary]]></set-property>
+  <set-property name="description"><![CDATA[Default ItemMapping for media internal binary]]></set-property>
+  <set-property name="name"><![CDATA[*]]></set-property>
+  <set-property name="mode"><![CDATA[1]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/commerce/catalog/ProductCatalog]]></set-property>
+</add-item>
+
+
+
+
+
+<add-item item-descriptor="itemView" id="dcs_14">
+  <set-property name="attributes"><![CDATA[textAbove=202,title=201]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/item/gsa/media/mediaInternalTextView.jsp]]></set-property>
+  <set-property name="description"><![CDATA[Media Internal Text View]]></set-property>
+  <set-property name="name"><![CDATA[Media Internal Text RepositoryItem Viewer]]></set-property>
+  <set-property name="mode"><![CDATA[1]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewMapping" id="dcs_24">
+  <set-property name="displayName"><![CDATA[MediaInternalTextView]]></set-property>
+  <set-property name="description"><![CDATA[View Media Internal Text]]></set-property>
+  <set-property name="name"><![CDATA[MediaInternalTextView]]></set-property>
+  <set-property name="view"><![CDATA[dcs_14]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="itemMapping" id="dcs_34">
+  <set-property name="formHandler"><![CDATA[12341]]></set-property>
+  <set-property name="viewMappings"><![CDATA[dcs_24]]></set-property>
+  <set-property name="itemName"><![CDATA[media-internal-text]]></set-property>
+  <set-property name="description"><![CDATA[Default ItemMapping for media internal text]]></set-property>
+  <set-property name="name"><![CDATA[*]]></set-property>
+  <set-property name="mode"><![CDATA[1]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/commerce/catalog/ProductCatalog]]></set-property>
+</add-item>
+
+
+
+
+
+<add-item item-descriptor="itemView" id="dcs_15">
+  <set-property name="attributes"><![CDATA[textAbove=202,title=201]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/item/gsa/media/mediaExternalView.jsp]]></set-property>
+  <set-property name="description"><![CDATA[Media External Edit]]></set-property>
+  <set-property name="name"><![CDATA[Media External RepositoryItem Viewer]]></set-property>
+  <set-property name="mode"><![CDATA[1]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewMapping" id="dcs_25">
+  <set-property name="displayName"><![CDATA[MediaExternalView]]></set-property>
+  <set-property name="description"><![CDATA[View Media External]]></set-property>
+  <set-property name="name"><![CDATA[MediaExternalView]]></set-property>
+  <set-property name="view"><![CDATA[dcs_15]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="itemMapping" id="dcs_35">
+  <set-property name="formHandler"><![CDATA[12341]]></set-property>
+  <set-property name="viewMappings"><![CDATA[dcs_25]]></set-property>
+  <set-property name="itemName"><![CDATA[media-external]]></set-property>
+  <set-property name="description"><![CDATA[Default ItemMapping for media external]]></set-property>
+  <set-property name="name"><![CDATA[*]]></set-property>
+  <set-property name="mode"><![CDATA[1]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/commerce/catalog/ProductCatalog]]></set-property>
+</add-item>
+
+</import-items>
+
+</gsa-template>
+<!-- @version $Id: //product/BIZUI/version/10.0.2/data/viewmapping.xml#2 $$Change: 635969 $-->

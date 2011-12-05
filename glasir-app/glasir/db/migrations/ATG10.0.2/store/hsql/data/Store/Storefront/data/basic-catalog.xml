@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE gsa-template SYSTEM "dynamosystemresource:/atg/dtds/gsa/gsa_1.0.dtd">
+<gsa-template>
+<import-items>
+<!-- *** CATALOG FOLDER *** -->
+<add-item item-descriptor="catalogFolder" id="CatalogFolder">
+  <set-property name="name"><![CDATA[Catalogs]]></set-property>
+  <set-property name="childItems"><![CDATA[masterCatalog]]></set-property>
+</add-item>
+
+<!--
+This is the master catalog definition. rootCategory's childCategories are the beginning of the navigation category tree. All other root categories will not appear in the navigation but can used to store other products that will appear on the site.
+
+Do not change the repository id of this item.
+ -->
+<add-item item-descriptor="catalog" id="masterCatalog">
+  <set-property name="displayName"><![CDATA[Master Catalog]]></set-property>
+  <set-property name="rootNavigationCategory"><![CDATA[rootCategory]]></set-property>
+  <set-property name="rootCategories"><![CDATA[rootCategory]]></set-property>
+  <set-property name="allRootCategories"><![CDATA[rootCategory]]></set-property>
+  <set-property name="directAncestorCatalogsAndSelf"><![CDATA[masterCatalog]]></set-property>
+  <set-property name="siteIds"><![CDATA[basicSite]]></set-property>
+  <set-property name="creationDate"><![CDATA[01/01/2009 00:00:00]]></set-property>
+  <set-property name="lastModifiedDate"><![CDATA[01/01/2009 00:00:00]]></set-property>
+</add-item>
+
+<!-- *** CATEGORIES *** -->
+
+<!--
+The rootCategory is the root navigation category.
+Do not change the repository id of this item.
+ -->
+<add-item item-descriptor="category" id="rootCategory">
+  <set-property name="displayName"><![CDATA[Commerce Root]]></set-property>
+  <set-property name="siteIds"><![CDATA[basicSite]]></set-property>
+  <set-property name="creationDate"><![CDATA[01/01/2009 00:00:00]]></set-property>
+  <set-property name="computedCatalogs"><![CDATA[masterCatalog]]></set-property>
+</add-item>
+</import-items>
+</gsa-template>
+<!-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.0.2/Storefront/data/basic-catalog.xml#2 $$Change: 635969 $-->

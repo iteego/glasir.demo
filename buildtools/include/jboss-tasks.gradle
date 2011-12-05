@@ -11,16 +11,30 @@ jdbc:hsqldb:hsql://localhost/myalias;filepath=file:C:/files/mydatabase
 */
 task startDatabase(type: HsqlDb) {}
 
-task startDevStore(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
+/*
+You can invoke any specific flavor of the "env.store.dev" module by adding the parameter
+  "-Pflavor=FlavorName" or "--project-prop flavor=FlavorName"
+To your "gradle startDevStore" command. Usually, module flavors are used for different database types,
+  for example, use "gradle startDevStore -Pflavor=oracle" to bypass the default h2 database choice.
+*/
+task startDevStore(type: RunAtgOnJBoss, dependsOn: []) {
+//task startDevStore(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
   jBossRoot     jbossRoot
   serverName    storeServerName
-  modules       "env.store.dev"
+  modules       project.hasProperty("flavor") && ["oracle","hsql-mem","hsql-file"].contains(project.getProperty("flavor")) ? "env.store.dev." + project.getProperty("flavor") : "env.store.dev"
 }
 
-task startDevAdmin(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
+/*
+You can invoke any specific flavor of the "env.admin.dev" module by adding the parameter
+  "-Pflavor=FlavorName" or "--project-prop flavor=FlavorName"
+To your "gradle startDevStore" command. Usually, module flavors are used for different database types,
+  for example, use "gradle startDevAdmin -Pflavor=oracle" to bypass the default h2 database choice.
+*/
+task startDevAdmin(type: RunAtgOnJBoss, dependsOn: []) {
+//task startDevAdmin(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
   jBossRoot     jbossRoot
   serverName    adminServerName
-  modules       "env.admin.dev"
+    modules       project.hasProperty("flavor") && ["oracle","hsql-mem","hsql-file"].contains(project.getProperty("flavor")) ? "env.admin.dev." + project.getProperty("flavor") : "env.admin.dev"
 }
 
 task startCiStore(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {

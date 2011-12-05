@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE gsa-template SYSTEM "dynamosystemresource:/atg/dtds/gsa/gsa_1.0.dtd">
+<gsa-template>
+<import-items>
+
+<!-- 2 items of type searchEnvironment -->
+
+<add-item item-descriptor="searchEnvironment" id="crsIndexingSE">
+  <set-property name="hosts"><![CDATA[crsIndexingEnvHost]]></set-property>
+  <set-property name="parentProject"><![CDATA[crsSearchProject]]></set-property>
+  <set-property name="envType"><![CDATA[indexing]]></set-property>
+  <set-property name="envName"><![CDATA[indexing environment]]></set-property>
+  <set-property name="parentProjectName"><![CDATA[CRS Search Project]]></set-property>
+</add-item>
+
+<add-item item-descriptor="searchEnvironment" id="crsProductionSE">
+  <set-property name="hosts"><![CDATA[crsProductionEnvHost]]></set-property>
+  <set-property name="parentProject"><![CDATA[crsSearchProject]]></set-property>
+  <set-property name="targetName"><![CDATA[Production]]></set-property>
+  <set-property name="envType"><![CDATA[production]]></set-property>
+  <set-property name="envName"><![CDATA[commerce]]></set-property>
+  <set-property name="parentProjectName"><![CDATA[CRS Search Project]]></set-property>
+</add-item>
+
+<!-- 2 items of type searchEnvironmentHost -->
+
+<add-item item-descriptor="searchEnvironmentHost" id="crsIndexingEnvHost">
+  <set-property name="parentEnv"><![CDATA[crsIndexingSE]]></set-property>
+  <set-property name="indexRootPath"><![CDATA[../indexFiles]]></set-property>
+  <set-property name="numEngines"><![CDATA[1]]></set-property>
+  <set-property name="searchMachine"><![CDATA[crsSearchMachine]]></set-property>
+</add-item>
+
+<add-item item-descriptor="searchEnvironmentHost" id="crsProductionEnvHost">
+  <set-property name="parentEnv"><![CDATA[crsProductionSE]]></set-property>
+  <set-property name="indexRootPath"><![CDATA[../indexFiles]]></set-property>
+  <set-property name="numEngines"><![CDATA[1]]></set-property>
+  <set-property name="searchMachine"><![CDATA[crsSearchMachine]]></set-property>
+</add-item>
+
+<!-- 1 items of type searchMachine -->
+
+<add-item item-descriptor="searchMachine" id="crsSearchMachine">
+  <set-property name="hostname"><![CDATA[localhost]]></set-property>
+  <set-property name="launchServiceName"><![CDATA[/atg/search/routing/LaunchService]]></set-property>
+  <set-property name="startPort"><![CDATA[6072]]></set-property>
+  <set-property name="launchServicePort"><![CDATA[8860]]></set-property>
+  <set-property name="launchServiceProtocol"><![CDATA[rmi]]></set-property>
+  <set-property name="endPort"><![CDATA[6200]]></set-property>
+</add-item>
+
+
+<!-- 1 items of type searchIndex -->
+
+<add-item item-descriptor="searchIndex" id="crsSearchIndex">
+  <set-property name="logicalPartitions"><![CDATA[crsLogicalPartition]]></set-property>
+</add-item>
+
+<!-- 1 items of type logicalPartition -->
+
+<add-item item-descriptor="logicalPartition" id="crsLogicalPartition">
+  <set-property name="description"><![CDATA[]]></set-property>
+  <set-property name="contentLabel"><![CDATA[Catalog]]></set-property>
+  <set-property name="thisIndexFullIndex"><![CDATA[true]]></set-property>
+  <set-property name="sharedId"><![CDATA[crsLogicalPartition]]></set-property>
+  <set-property name="originalPhysicalPartitionCount"><![CDATA[19]]></set-property>
+  <set-property name="flaggedForFullIndex"><![CDATA[false]]></set-property>
+  <set-property name="physicalPartitions"><![CDATA[]]></set-property>
+  <set-property name="parentIndex"><![CDATA[crsSearchIndex]]></set-property>
+  <set-property name="name"><![CDATA[Catalog Content Set]]></set-property>
+</add-item>
+
+</import-items>
+
+</gsa-template>
+<!-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.0.2/Storefront/data/searchconfig-data.xml#2 $$Change: 635969 $-->

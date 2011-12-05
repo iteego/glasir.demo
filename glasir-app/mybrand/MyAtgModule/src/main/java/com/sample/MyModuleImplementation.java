@@ -9,7 +9,7 @@ public class MyModuleImplementation extends GenericService {
 
 	public MyModuleImplementation() {
 		System.out.println( "A MyModuleImplementation has been created. SomeValue = " + getSomeValue() );
-	}	
+	}
 
 
 	public boolean isEven( long value ) { return (value % 2 == 0); }

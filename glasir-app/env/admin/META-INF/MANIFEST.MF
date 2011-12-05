@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
-ATG-Required: env DCS-UI.Versioned BIZUI PubPortlet DafEar.Admin SiteAdmin.Versioned B2CCommerce.Versioned DCS.Versioned DCS-UI Store.EStore.Versioned Store.Storefront
+ATG-Required: env mybrand.MyAtgModule.Versioned DCS-UI.Versioned SiteAdmin.Versioned PubPortlet
 ATG-Config-Path: config
 
