@@ -3,6 +3,27 @@
 * arbitrary ATG module. Example ATG has a module called
 * 'DCS', the below will let you execute "gradle printDCS"
 */
+import groovyx.net.http.HTTPBuilder
+import static groovyx.net.http.Method.*
+import static groovyx.net.http.ContentType.*
+
+buildscript {
+  repositories { 
+    maven {
+      credentials { 
+        username artifactoryReader
+        password artifactoryReaderPwd
+      }
+      url "http://iteego.artifactoryonline.com/iteego/glasir-repos"
+    }
+  }
+  
+  dependencies {
+    classpath "org.codehaus.groovy.modules.http-builder:http-builder:0.5.1"
+  }
+}
+
+
 tasks.addRule("""\
 Pattern: print<AtgModuleName>: Prints a module dependency tree for an atg module
          Example: 'gradle printDCS.Search.Order.Index' will print out dependency tree for
@@ -67,15 +88,29 @@ Pattern: graph<AtgModuleName>: draws a graphical dependency graph for the specif
         System.exit(1)
       }
       def dotGraph = createGraphViz(m)
-        
-      def chartParams = [cht: 'gv', chof: 'png', chl: dotGraph]
-      def url = "http://chart.googleapis.com/chart?" 
-      url += chartParams.collect {k,v -> "$k=${URLEncoder.encode(v)}"}.join('&')
-    
+            
       def graphFile = file("$reportsDir/module_graph.png")
+      mkdir(graphFile.parentFile)
+      
+      def http = new HTTPBuilder( 'http://chart.googleapis.com' )
+      http.post(path: '/chart', 
+                body: [cht: 'gv', chof: 'png', chl: dotGraph], 
+                requestContentType: URLENC )  { resp, reader ->
+        println "---------- Post response received ----------"
+        println "Response status line: ${resp.statusLine}"
+        println "Response status code: ${resp.statusLine.statusCode}"
+        print   "Response content:     "
+                
+        graphFile.withOutputStream{out ->
+          out << reader
+        }   
+      } 
+    
+      /*
       graphFile.withOutputStream{out ->
         out << new URL(url).openStream()
-      }   
+      } 
+      */  
       println "ATG module dependency graph written to: ${graphFile.absolutePath}"
     }    
   }
@@ -113,7 +148,7 @@ String createGraphVizRecursive(edges, parent) {
 }
 
 String getGraphVizEntry(parent, child) {
-  /  "${child.name}" -> "${parent.name}"/ + "\n"
+  /  "${parent.name}" -> "${child.name}"/ + "\n"
 }
 /*
 compileDepsPng = file("$reportsDir/compileDeps.png")
