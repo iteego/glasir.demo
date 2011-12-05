@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
-ATG-Required: env.BareCommerce.store BareCommerce.Storefront.NoPublishing glasir.db
+ATG-Required: env.BareCommerce.store glasir.db
 ATG-Config-Path: config
 
