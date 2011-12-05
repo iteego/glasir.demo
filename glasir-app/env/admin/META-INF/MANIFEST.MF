@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
-ATG-Required: PubPortlet SiteAdmin.Versioned DCS-UI.Versioned Store.EStore.Versioned
+ATG-Required: env mybrand.MyAtgModule.Versioned DCS-UI.Versioned SiteAdmin.Versioned PubPortlet
 ATG-Config-Path: config
 

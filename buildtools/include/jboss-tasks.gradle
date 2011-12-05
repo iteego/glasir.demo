@@ -34,9 +34,7 @@ task startDevAdmin(type: RunAtgOnJBoss, dependsOn: []) {
 //task startDevAdmin(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
   jBossRoot     jbossRoot
   serverName    adminServerName
-  modules       "env.admin.dev.oracle"
-  //modules       "DCS-UI.Versioned,BIZUI,PubPortlet,DafEar.Admin,B2CCommerce.Versioned,DCS.Versioned,DCS-UI,Store.EStore.Versioned,Store.Storefront,env.admin.dev.oracle"
-//    modules       project.hasProperty("flavor") && ["oracle","hsql-mem","hsql-file"].contains(project.getProperty("flavor")) ? "env.admin.dev." + project.getProperty("flavor") : "env.admin.dev"
+    modules       project.hasProperty("flavor") && ["oracle","hsql-mem","hsql-file"].contains(project.getProperty("flavor")) ? "env.admin.dev." + project.getProperty("flavor") : "env.admin.dev"
 }
 
 task startCiStore(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
