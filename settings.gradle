@@ -1,55 +1,38 @@
-/*
- * Copyright (C) 2011 Iteego Inc and Matias Bjarland <mbjarland@gmail.com>
- *
- * This file is part of Glasir, a Gradle build framework for ATG E-Commerce
- * projects created by Iteego Inc and Matias Bjarland.
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-*
-* =============================================================================
-*
-* This is the settings.gradle file. It is by convention used by
-* gradle to set up multi-project project hiearchies.
-*
-* When executing gradle against a build.gradle file, gradle will
-* start by searching down the directory tree to see if it can find
-* a settings.gradle file and if so it it should consider itself
-* a part of a multi project build. Note that the settings.gradle
-* file is executed in the initialization phase of gradle execution
-* i.e. before almost anything in the build.gradle itself
-*
-* We start by referencing the atgradle artifact from the iteego repository
-* to get access to the build classes required. 
-*
- */
 import com.iteego.glasir.build.GlasirSettingsConvention
-import static org.apache.ivy.util.url.CredentialsStore.INSTANCE as ivy
 
-rootProject.name='glasir.bootstrap`'
+rootProject.name='glasir.boostrap'
 
 buildscript {    
   repositories {
-    ivy.addCredentials("Artifactory Realm", "iteego.artifactoryonline.com", artifactoryReader, artifactoryReaderPwd)
-    mavenRepo url: 'http://iteego.artifactoryonline.com/iteego/glasir-repos'
+    maven {
+      credentials {
+        username artifactoryReader
+        password artifactoryReaderPwd
+      }
+      url 'http://iteego.artifactoryonline.com/iteego/glasir-repos'
+    }
   }
 
+  //we need two artifacts to 'bootstrap' the gradle builds.
+  //1. The artifactory plugin as the configuration for this plugin is then 
+  //   used to resolve all other artifacts for the project
+  //2. The glasir.build plugin as he is required in this file (settings.gradle)
+  //   and can thus not be downloaded in a later build phase
   dependencies {
-    classpath('com.iteego.glasir:glasir.build:1.0.20-SNAPSHOT') { changing=true }
-    classpath('org.jfrog.buildinfo:build-info-extractor-gradle:2.0.x-SNAPSHOT:uber@jar')
+    classpath('com.iteego.glasir:glasir.build:1.0.25-SNAPSHOT') { changing=true }
+    classpath('org.jfrog.buildinfo:build-info-extractor-gradle:2.0.7')
   }
 
+  //set the expiry time for glasir.build and the gradle-artifactory plugin
+  configurations.classpath {
+    resolutionStrategy {
+      failOnVersionConflict()
+      cacheDynamicVersionsFor 1, 'minutes'
+      cacheChangingModulesFor 1, 'minutes'
+    }
+  }
+  configurations.classpath.resolutionStrategy.cacheChangingModulesFor 1, 'minutes'
+  
   //add the above dependencies to the classpath of all sub project build scripts
   configurations.classpath.each { file -> settings.classLoader.addURL(file.toURI().toURL()) }
 }

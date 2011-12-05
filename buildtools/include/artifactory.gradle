@@ -1,0 +1,56 @@
+configurations { 
+  glasirPackage
+}
+
+apply plugin: 'artifactory'
+artifactory {
+  contextUrl = 'http://iteego.artifactoryonline.com/iteego'
+  
+  //the artifactoryDeployer, etc variables come from <userhome>/.gradle/gradle.properties  
+  publish {
+    defaults { 
+      publishBuildInfo = true
+      publishArtifacts = true
+      publishPom = true      
+      publishIvy = false    
+      
+      publishConfigs 'glasirPackage'
+    }
+
+    repository {
+      repoKey = 'libs-snapshots-local'
+      username = artifactoryDeployer
+      password = artifactoryDeployerPwd
+    }
+  }
+  resolve {
+    repository {
+      repoKey = 'glasir-repos'
+      username = artifactoryReader
+      password = artifactoryReaderPwd
+    }
+  }     
+}  
+  
+
+task releaseZip(type: Zip) {
+  from("$globalDir") {
+    exclude 'buildtools/**/*'
+    exclude 'settings.gradle'
+    exclude '.*'
+  }
+}
+
+assemble.dependsOn(releaseZip)
+artifactoryPublish.dependsOn(assemble)
+
+artifacts {
+	glasirPackage(releaseZip) {
+	  name = "glasir-bootstrap"
+	}
+  glasirPackage file("package/package_config.groovy")
+}
+
+uploadArchives {
+  uploadDescriptor = true	
+}

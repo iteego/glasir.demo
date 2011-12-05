@@ -1,37 +1,17 @@
 import com.iteego.glasir.build.tasks.*
 
-/*****************************************************************************
- * We define some global directories which will be used throughout the build
- * script. Relevant implicit properties from gradle:
- *
- * projectDir - the directory where the build.gradle file lives
- * buildDir   - the directory where this project will store all build artifacts
- *
- */
-
-/*****************************************************************************
- * Set maven/ivy group and version if we would ever want to publish things into
- * a repo. This is the root project and the root project group is used as a
- * prefix for all subprojects
- *
- */
-group = 'com.mybrand'
-version = '1.0'
-
-//globalDir is the root of the scm structure 
 globalDir = file(projectDir, "..")
 
 brand = "glasir"
 
-//we use the below server names both for the jboss server and for the contained 
-//atg server dir
 storeServerName = "dev-store"
 adminServerName = "dev-admin"
 
 bigEarName = "${brand}.ear"
 bigEar = file(buildDir, "${bigEarName}")
 
-docRoot = "$globalDir/app/$brand/Webapp/docroot"
+//TODO: Fix this path
+docRoot = "$globalDir/glasir-app/$brand/MyAtgModule/j2ee-apps/MyApplication/store.war/"
 
 promptDir (message: "Please provide a valid ATG installation directory (with subdirectories home, DAS, ...): ",
            propertyName: "atgRoot",
