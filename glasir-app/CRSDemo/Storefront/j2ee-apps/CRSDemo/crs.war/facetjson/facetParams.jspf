@@ -1,0 +1,8 @@
+<%-- number of total product results --%>
+<json:property name="numResults"><dsp:valueof bean="QueryFormHandler.searchResponse.groupCount" /></json:property>
+<%-- current page --%>
+<json:property name="q_pageNum"><dsp:valueof param="q_pageNum" /></json:property>
+<json:property name="pagesAvailable"><dsp:valueof bean="QueryFormHandler.pagesAvailable" /></json:property>
+<json:property name="viewAll"><dsp:valueof param="viewAll" /></json:property>
+<json:property name="docSort"><dsp:valueof bean="QueryFormHandler.searchRequest.docSort" /></json:property>
+<%-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.0.2/Storefront/j2ee/store.war/facetjson/facetParams.jspf#2 $$Change: 635969 $--%>

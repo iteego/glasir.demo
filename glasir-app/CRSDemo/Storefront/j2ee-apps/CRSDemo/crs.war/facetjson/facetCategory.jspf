@@ -1,0 +1,69 @@
+<json:object>
+    
+  <dsp:getvalueof var="facetValueUrl" vartype="java.lang.String" bean="/OriginatingRequest.requestURI"/>
+    
+    <json:property name="name">
+      <fmt:message key="${facetName}"/>
+    </json:property>
+  
+    <json:property name="catid">
+      <dsp:valueof param="currentFacetHolder.facet.id"/>
+    </json:property>
+
+	<json:property name="catprop">
+      <dsp:valueof param="currentFacetHolder.facet.refinementElement.property"/>
+    </json:property>
+  
+    <json:array name="options">
+      <dsp:getvalueof var="facetValueNodes" param="currentFacetHolder.facetValueNodes"/>
+      <c:forEach var="currentFacetValueNode" items="${facetValueNodes}">
+        <dsp:param name="currentFacetValueNode" value="${currentFacetValueNode}"/>
+        <dsp:getvalueof var="facetingProperty" vartype="java.lang.String" param="currentFacetValueNode.facetValue.facet.refinementElement.property"/>
+
+        <json:object>         
+          <json:property name="id">
+            <dsp:valueof param="currentFacetValueNode.facetValue.facet.id"/>
+          </json:property>
+          
+          <json:property name="name">
+            <dsp:droplet name="/atg/commerce/search/refinement/RefinementValueDroplet">
+                <dsp:param name="refinementValue" value="${currentFacetValueNode.facetValue.value}"/>
+                <dsp:param name="refinementId" value="${currentFacetValueNode.facetValue.facet.id}"/>
+                <dsp:param name="locale" bean="/atg/userprofiling/Profile.PriceList.locale"/>
+                
+                <dsp:oparam name="output">
+                  <dsp:valueof param="displayValue" valueishtml="true"/>
+                </dsp:oparam>
+              </dsp:droplet>
+          </json:property>
+          
+          <json:property name="urlFacet">
+            <dsp:droplet name="CommerceFacetTrailDroplet">
+              <dsp:param name="trail" value="${currentTrail.trailString}" />
+              <dsp:param name="addFacet" param="currentFacetValueNode.facetValue" />
+              <dsp:param name="refineConfig" param="catRC" />
+              <dsp:oparam name="output">
+                <dsp:droplet name="/atg/store/droplet/EscapeJS">
+                  <dsp:param name="value" param="facetTrail.trailString"/>
+                  <dsp:oparam name="output">
+                    <dsp:valueof param="escapedValue" valueishtml="true"/>
+                  </dsp:oparam>
+                </dsp:droplet>
+                
+              </dsp:oparam>
+            </dsp:droplet>
+          </json:property>
+                    
+          <json:property name="qty">
+            <dsp:valueof param="currentFacetValueNode.facetValue.matchingDocsCount"/>
+          </json:property>
+          
+          <dsp:getvalueof var="trailsize" value="${fn:length(relatedCategories)}"/>
+          <json:property name="trailSize">${trailsize}</json:property>
+          <json:property name="addFacet">${addFacet}</json:property>
+                
+        </json:object>
+      </c:forEach>
+    </json:array>
+</json:object>
+<%-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.0.2/Storefront/j2ee/store.war/facetjson/facetCategory.jspf#1 $$Change: 633540 $--%>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE gsa-template SYSTEM "dynamosystemresource:/atg/dtds/gsa/gsa_1.0.dtd">
+<gsa-template>
+<import-items>
+
+<!-- 3 items of type contentSourceAdapter -->
+
+<add-item item-descriptor="contentSourceAdapter" id="crsContentSourceAdapter">
+  <set-property name="extraConfig"><![CDATA[crsProductCatalogEC]]></set-property>
+  <set-property name="name"><![CDATA[ATG Repository - localhost:8860 - /atg/commerce/search/ProductCatalogOutputConfig]]></set-property>
+</add-item>
+
+<add-item item-descriptor="contentSourceAdapter" id="crsRefineConfigAdapter">
+  <set-property name="handlingService"><![CDATA[/atg/commerce/search/refinement/CatalogRefineConfigAdapter]]></set-property>
+  <set-property name="name"><![CDATA[select_custsource_type.repository.refine_config]]></set-property>
+</add-item>
+
+<add-item item-descriptor="contentSourceAdapter" id="crsRankConfigAdapter">
+  <set-property name="handlingService"><![CDATA[/atg/commerce/search/config/CatalogRankConfigAdapter]]></set-property>
+  <set-property name="name"><![CDATA[select_custsource_type.repository.rank_config]]></set-property>
+</add-item>
+
+<!-- 3 items of type projectCustomizationDataSelection -->
+
+<add-item item-descriptor="projectCustomizationDataSelection" id="crsLanguageCDS">
+  <set-property name="extraConfig"><![CDATA[crsLanguageEC]]></set-property>
+  <set-property name="contentSourceAdapter"><![CDATA[srchLocalCustomizationDataAdapter]]></set-property>
+  <set-property name="sharedId"><![CDATA[crsLanguageCDS]]></set-property>
+  <set-property name="customizationDataType"><![CDATA[Language Configuration]]></set-property>
+  <set-property name="project"><![CDATA[crsSearchProject]]></set-property>
+  <set-property name="members"><![CDATA[English,German,Spanish]]></set-property>
+</add-item>
+
+<add-item item-descriptor="projectCustomizationDataSelection" id="crsRefinementCDS">
+  <set-property name="contentSourceAdapter"><![CDATA[crsRefineConfigAdapter]]></set-property>
+  <set-property name="sharedId"><![CDATA[crsRefinementCDS]]></set-property>
+  <set-property name="customizationDataType"><![CDATA[Refinement Configuration]]></set-property>
+  <set-property name="project"><![CDATA[crsSearchProject]]></set-property>
+</add-item>
+
+<add-item item-descriptor="projectCustomizationDataSelection" id="crsRankCDS">
+  <set-property name="contentSourceAdapter"><![CDATA[crsRankConfigAdapter]]></set-property>
+  <set-property name="sharedId"><![CDATA[crsRankCDS]]></set-property>
+  <set-property name="customizationDataType"><![CDATA[Rank Config]]></set-property>
+  <set-property name="project"><![CDATA[crsSearchProject]]></set-property>
+</add-item>
+
+
+<!-- 1 items of type contentSource -->
+
+<add-item item-descriptor="contentSource" id="crsContentSource">
+  <set-property name="parentLogicalPartition"><![CDATA[crsLogicalPartition]]></set-property>
+  <set-property name="contentSourceAdapter"><![CDATA[crsContentSourceAdapter]]></set-property>
+  <set-property name="docSetSubPath"><![CDATA[]]></set-property>
+  <set-property name="sharedId"><![CDATA[crsContentSource]]></set-property>
+  <set-property name="forceContentType"><![CDATA[false]]></set-property>
+  <set-property name="type"><![CDATA[structured]]></set-property>
+  <set-property name="name"><![CDATA[Catalog]]></set-property>
+</add-item>
+
+<!-- 1 items of type searchProject -->
+
+<add-item item-descriptor="searchProject" id="crsSearchProject">
+  <set-property name="description"><![CDATA[Commerce Reference Store search project]]></set-property>
+  <set-property name="customizationDataSelections"><![CDATA[crsLanguageCDS,crsRefinementCDS,crsRankCDS]]></set-property>
+  <set-property name="index"><![CDATA[crsSearchIndex]]></set-property>
+  <set-property name="searchEnvironments"><![CDATA[crsIndexingSE,crsProductionSE]]></set-property>
+  <set-property name="name"><![CDATA[Commerce Reference Store]]></set-property>
+</add-item>
+
+<!-- 2 items of type extraConfig -->
+
+<add-item item-descriptor="extraConfig" id="crsLanguageEC">
+  <set-property name="configuration"><![CDATA[#Mon Dec 21 17:18:31 EET 2009
+Spanish=
+German=
+English=
+]]></set-property>
+</add-item>
+
+<add-item item-descriptor="extraConfig" id="crsProductCatalogEC">
+  <set-property name="configuration"><![CDATA[#Mon Dec 21 17:18:07 EET 2009
+IndexingOutputConfigPort=/atg/commerce/search/ProductCatalogOutputConfig
+Type=repository
+HostMachine=localhost
+$class=atg.searchadmin.adapter.content.impl.RepositoryAdapter
+Port=8860
+Local=false
+]]></set-property>
+</add-item>
+
+</import-items>
+
+</gsa-template>
+<!-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.0.2/Storefront/data/searchadmin-data.xml#2 $$Change: 635969 $-->

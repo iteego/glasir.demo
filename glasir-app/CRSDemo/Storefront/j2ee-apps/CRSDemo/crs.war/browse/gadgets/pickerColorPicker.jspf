@@ -1,0 +1,92 @@
+<%-- 
+    This file is used for display color, and it should be included in the pickerLayout.jspf file
+--%>
+<dsp:getvalueof var="colors" param="colors"/>
+<dsp:getvalueof id="size" value="${fn:length(colors)}"/>
+
+<%--If colors are not provided for SKUs then color picker is not shown --%>
+<c:if test="${size > 0}">
+
+  <div class="atg_store_colorPicker">
+    
+    <span class="atg_store_pickerLabel">
+      <fmt:message key="common.color"/><fmt:message key="common.labelSeparator"/>
+    </span>
+      
+    <strong class="selector">
+     <c:forEach var="color" items="${colors}" varStatus="colorStatus">
+       <dsp:param name="color" value="${color}"/>
+       <dsp:getvalueof id="count" value="${colorStatus.count}"/>
+       <dsp:getvalueof var="imageurl" vartype="java.lang.String" param="color.swatch.url"/>
+       <dsp:getvalueof var="colorState" param="color.state"/>
+       <c:choose>
+         <c:when test="${colorState == 'selected'}">
+           <c:set var="selectedValue" value="true"/>
+           <c:set var="additionalClassString" value=""/>
+           <c:set var="titleKey" value="browse_picker.itemHasBeenSelected"/>
+           <c:set var="notOffered" value="false"/>
+         </c:when>
+         <c:when test="${colorState == 'available'}">
+           <c:set var="selectedValue" value="false"/>
+           <c:set var="additionalClassString" value="available"/>
+           <c:set var="titleKey" value="browse_picker.itemIsAvailable"/>
+           <c:set var="notOffered" value="false"/>
+         </c:when>
+         <c:when test="${colorState == 'preorderable'}">
+           <c:set var="selectedValue" value="false"/>
+           <c:set var="additionalClassString" value="preorderable"/>
+           <c:set var="titleKey" value="browse_picker.itemIsPreorderable"/>
+           <c:set var="notOffered" value="false"/>
+         </c:when>
+         <c:when test="${colorState == 'outofstock'}">
+           <c:set var="selectedValue" value="false"/>
+           <c:set var="additionalClassString" value="outOfStock"/>
+           <c:set var="titleKey" value="browse_picker.itemIsOutOfStock"/>
+           <c:set var="notOffered" value="false"/>
+         </c:when>
+         <c:when test="${colorState == 'backorderable'}">
+           <c:set var="selectedValue" value="false"/>
+           <c:set var="additionalClassString" value="backorderable"/>
+           <c:set var="titleKey" value="browse_picker.itemIsBackorderable"/>
+           <c:set var="notOffered" value="false"/>
+         </c:when>
+         <c:when test="${colorState == 'notoffered'}">
+           <c:set var="selectedValue" value="false"/>
+           <c:set var="additionalClassString" value="notOffered"/>
+           <c:set var="titleKey" value="browse_picker.itemIsNotAvailable"/>
+           <c:set var="notOffered" value="true"/>
+         </c:when>
+       </c:choose>
+  
+       <dsp:getvalueof id="colorName" idtype="java.lang.String" param="color.name"/>
+       <%-- Always encode item's properties, cause them can have special characters --%>
+       <c:set var="colorName" value="${fn:escapeXml(fn:replace(colorName, '\\'', '\\\\\\''))}"/>
+       <fmt:message var="colorTitle" key="${titleKey}">
+         <fmt:param value="${colorName}"/>
+       </fmt:message>
+       <c:choose>
+         <c:when test="${notOffered}">
+           <a href="javascript:void(0)" title="${colorTitle}">
+             <dsp:img src="${imageurl}" width="15" height="15" alt="${colorName}"/>
+           </a>
+         </c:when>
+        <c:when test="${selectedValue}">
+          <a class="atg_store_pickerAttribute" href="javascript:void(0)" title="${colorTitle}" 
+             onclick="atg.store.picker.clickColor('${colorName}');">
+            <dsp:img src="${imageurl}" width="15" height="15" alt="${colorName}"/>
+           </a>
+         </c:when>
+         <c:otherwise>
+           <a href="javascript:void(0)" title="${colorTitle}" onclick="atg.store.picker.clickColor('${colorName}');">
+            <dsp:img src="${imageurl}" width="15" height="15" alt="${colorName}"/>
+           </a>
+         </c:otherwise>
+       </c:choose>
+     </c:forEach>
+     <%-- display selected color name --%>
+         <%@include file="pickerColorAttribute.jspf" %>
+    </strong>
+  
+  </div>
+</c:if>
+<%-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.0.2/Storefront/j2ee/store.war/browse/gadgets/pickerColorPicker.jspf#2 $$Change: 635969 $--%>

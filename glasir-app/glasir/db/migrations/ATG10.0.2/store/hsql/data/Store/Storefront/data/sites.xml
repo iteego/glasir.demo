@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE gsa-template SYSTEM "dynamosystemresource:/atg/dtds/gsa/gsa_1.0.dtd">
+<gsa-template>
+<import-items>
+<!-- 3 items of type siteConfiguration -->
+
+<add-item item-descriptor="siteConfiguration" id="homeSite">
+  <set-property name="description"><![CDATA[ATG Home site]]></set-property>
+  <set-property name="modificationTime"><![CDATA[9/8/2009 14:17:05]]></set-property>
+  <set-property name="name"><![CDATA[ATG Home]]></set-property>
+  <set-property name="sitePriority"><![CDATA[2]]></set-property>
+  <set-property name="enabled"><![CDATA[true]]></set-property>
+  <set-property name="siteTypes"><![CDATA[commerce]]></set-property>
+  <set-property name="siteIcon"><![CDATA[/crsdocroot/images/storefront/homeStore_logo_small.png]]></set-property>
+    
+  <set-property name="defaultCatalog"><![CDATA[homeStoreCatalog]]></set-property>
+  <set-property name="defaultListPriceList"><![CDATA[listPrices]]></set-property>
+  <set-property name="defaultSalePriceList"><![CDATA[salePrices]]></set-property>
+
+  <!-- CRS specific properties -->  
+  <set-property name="resourceBundle"><![CDATA[atg.projects.store.web.WebAppResources]]></set-property>
+  <set-property name="newProductThresholdDays"><![CDATA[15]]></set-property>
+  <set-property name="defaultPageSize"><![CDATA[12]]></set-property>
+  
+  <set-property name="cssFile"><![CDATA[/css/site/home]]></set-property>
+
+  <set-property name="largeSiteIcon"><![CDATA[/crsdocroot/images/atghome/logo.png]]></set-property>
+
+  <set-property name="defaultCountry"><![CDATA[US]]></set-property>
+
+  <set-property name="billableCountries"><![CDATA[US,CA,MX,DE]]></set-property>
+  <set-property name="shippableCountries"><![CDATA[US,CA,MX,DE]]></set-property>
+
+  <set-property name="emailAFriendEnabled"><![CDATA[true]]></set-property>
+  
+  <set-property name="backInStockFromAddress"><![CDATA[ATG Home Service <ATGHomeService@example.com>]]></set-property>
+  <set-property name="newPasswordFromAddress"><![CDATA[ATG Home Service <ATGHomeService@example.com>]]></set-property>
+  <set-property name="orderConfirmationFromAddress"><![CDATA[ATG Home Service <ATGHomeService@example.com>]]></set-property>
+  <set-property name="orderShippedFromAddress"><![CDATA[ATG Home Service <ATGHomeService@example.com>]]></set-property>
+  <set-property name="promotionEmailAddress"><![CDATA[ATG Home Service <ATGHomeService@example.com>]]></set-property>
+  <set-property name="favicon"><![CDATA[/crsdocroot/images/storefront/site/home/favicon.png]]></set-property>
+  <set-property name="contextRoot"><![CDATA[/crs]]></set-property>
+  <set-property name="productionURL"><![CDATA[/crs/homeus]]></set-property>
+</add-item>
+
+<add-item item-descriptor="siteConfiguration" id="storeSiteUS">
+  <set-property name="description"><![CDATA[ATG Store site]]></set-property>
+  <set-property name="modificationTime"><![CDATA[9/8/2009 13:39:51]]></set-property>
+  <set-property name="name"><![CDATA[ATG Store]]></set-property>
+  <set-property name="sitePriority"><![CDATA[1]]></set-property>
+  <set-property name="enabled"><![CDATA[true]]></set-property>
+  <set-property name="siteTypes"><![CDATA[commerce]]></set-property>
+  <set-property name="siteIcon"><![CDATA[/crsdocroot/images/storefront/atgStore_logo_small.png]]></set-property>
+  
+  <set-property name="defaultCatalog"><![CDATA[masterCatalog]]></set-property>
+  <set-property name="defaultListPriceList"><![CDATA[listPrices]]></set-property>
+  <set-property name="defaultSalePriceList"><![CDATA[salePrices]]></set-property>
+  
+  <!-- CRS specific properties -->
+  <set-property name="resourceBundle"><![CDATA[atg.projects.store.web.WebAppResources]]></set-property>
+  <set-property name="newProductThresholdDays"><![CDATA[15]]></set-property>
+  <set-property name="defaultPageSize"><![CDATA[12]]></set-property>
+  
+  <set-property name="cssFile"><![CDATA[/css/site/store]]></set-property>
+
+  <set-property name="largeSiteIcon"><![CDATA[/crsdocroot/images/atgstore/logo.png]]></set-property>
+
+  <set-property name="defaultCountry"><![CDATA[US]]></set-property>
+
+  <set-property name="billableCountries"><![CDATA[US,CA,MX,DE]]></set-property>
+  <set-property name="shippableCountries"><![CDATA[US,CA,MX,DE]]></set-property>
+
+  <set-property name="emailAFriendEnabled"><![CDATA[true]]></set-property>
+  
+  <set-property name="backInStockFromAddress"><![CDATA[ATG Store Service <ATGStoreService@example.com>]]></set-property>
+  <set-property name="newPasswordFromAddress"><![CDATA[ATG Store Service <ATGStoreService@example.com>]]></set-property>
+  <set-property name="orderConfirmationFromAddress"><![CDATA[ATG Store Service <ATGStoreService@example.com>]]></set-property>
+  <set-property name="orderShippedFromAddress"><![CDATA[ATG Store Service <ATGStoreService@example.com>]]></set-property>
+  <set-property name="promotionEmailAddress"><![CDATA[ATG Store Service <ATGStoreService@example.com>]]></set-property>
+  <set-property name="favicon"><![CDATA[/crsdocroot/images/storefront/site/storeUS/favicon.png]]></set-property>
+  <set-property name="contextRoot"><![CDATA[/crs]]></set-property>
+  <set-property name="productionURL"><![CDATA[/crs/storeus]]></set-property>
+</add-item>
+
+<!-- 1 items of type siteGroup -->
+
+<add-item item-descriptor="siteGroup" id="siteGroupUS">
+  <set-property name="displayName"><![CDATA[Site group US]]></set-property>
+  <set-property name="sites"><![CDATA[storeSiteUS,homeSite]]></set-property>
+  <set-property name="shareableTypes"><![CDATA[atg.ShoppingCart]]></set-property>
+</add-item>
+
+</import-items>
+
+</gsa-template>
+<!-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.0.2/Storefront/data/sites.xml#2 $$Change: 635969 $-->

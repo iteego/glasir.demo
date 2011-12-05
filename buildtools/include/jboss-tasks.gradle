@@ -1,143 +1,70 @@
 import com.iteego.glasir.build.tasks.*
 
-/******************************************************************************
-* Tasks for starting/stopping local dev instances of jboss
+/*
+Starts a hsql instance in the gradle java process. It starts the instance 
+in a mode where the connecting url creates the database if it doesn't already 
+exists. Example connection URLS:
+ 
+jdbc:hsqldb:hsql://localhost/myalias;file:C:/files/mydatabase
+jdbc:hsqldb:hsql://localhost/myalias;mem:test;sql.enforce_types=true
+jdbc:hsqldb:hsql://localhost/myalias;filepath=file:C:/files/mydatabase
 */
+task startDatabase(type: HsqlDb) {}
 
-task startJBossCiStore << {
-  startJBossInstance storeServerName, 
-                     "env.storefront.dev", 
-                     true, 
-                     8787, 
-                     file("$buildDir/log/console.log")
-}
-
-task launchDevStore << {
-    startJBossInstance(storeServerName, "env.storefront.dev", true, 8787).execHandle.waitForFinish()
-}
-
-task launchCiStore(type: Tail, dependsOn: [startJBossCiStore]) {
-  file        "$jbossRoot/server/$storeServerName/log/server.log"
-  file        "$jbossRoot/server/$storeServerName/log/boot.log"  
-  failOn      regex: "ERROR[ ]*\\[", postFireTailPeriod: 2000
-  //sample log line: 
-  // 2011-11-09 04:42:19,264 INFO  [org.jboss.bootstrap.microcontainer.ServerImpl] JBoss (Microcontainer) [5.1.0 (build: SVNTag=JBPAPP_5_1_0 date=201009150028)] Started in 1m:6s:11ms
-  succeedOn "INFO[ ]*\\[org\\.jboss\\.bootstrap\\.microcontainer\\.ServerImpl\\].*JBoss \\(Microcontainer\\) \\[.*\\] Started in"
-}
-
-task shutdownDevStore << {
-  stopJBossInstance(store)
-}
-
-task startJBossAdmin << {
-  startJBossInstance(admin, "env.admin.dev", true, 9797)
-}
-
-task launchDevAdmin(type: Tail, dependsOn: [startJBossAdmin]) {
-  file      "$jbossRoot/server/$adminServerName/log/server.log"
-  file      "$jbossRoot/server/$adminServerName/log/boot.log"  
-  //failOn    "ERROR[ ]*\\["
-  //succeedOn "Nucleus running"
-  //postFailureTailSeconds = 2
-}
-
-
-task shutdownDevAdmin << {
-  stopJBossInstance(admin)
-}
-
-
-/******************************************************************************
-* Utility methods for dealing with local jboss start/stop
-* 
+/*
+You can invoke any specific flavor of the "env.store.dev" module by adding the parameter
+  "-Pflavor=FlavorName" or "--project-prop flavor=FlavorName"
+To your "gradle startDevStore" command. Usually, module flavors are used for different database types,
+  for example, use "gradle startDevStore -Pflavor=oracle" to bypass the default h2 database choice.
 */
-def startJBossInstance(serverName, modules, debug=false, debugPort=8787, redirectOutputToFile=null) {
-  def serverDir = file("$jbossRoot/server/$serverName")
-  if (!serverDir.exists()) {
-    println "ERROR: Can start jboss for non-existent server: $serverDir"
-  }
-  
-  javaExecAsync {
-    main = "org.jboss.Main"
-    classpath = files("$jbossRoot/bin/run.jar") 
-    workingDir = "$serverDir"
-    args "-b"
-    args "0.0.0.0"
-    args "-c"
-    args serverName
-    
-    if (redirectOutputToFile) {
-      println "> REDIRECTING CONSOLE TO FILE: $redirectOutputToFile"
-      mkdir(redirectOutputToFile.parent)
-      def stream = redirectOutputToFile.newOutputStream()
-      errorOutput = stream
-      standardOutput = stream
-    }
+task startDevStore(type: RunAtgOnJBoss, dependsOn: []) {
+  jBossRoot     jbossRoot
+  serverName    storeServerName
+  modules       project.hasProperty("flavor") && ["oracle"].contains(project.getProperty("flavor")) ? "env.CRSDemo.store.dev." + project.getProperty("flavor") : "env.CRSDemo.store.dev"
+}
 
-    systemProperty "log4j.configuration",              "file:$serverDir/conf/bootstrap-log4j.properties"
-    systemProperty "atg.dynamo.server.name",           serverName
-    //systemProperty "atg.dynamo.modules",             modules 
-    systemProperty "atg.dynamo.data-dir",              "$serverDir/ATG-Data"
-    systemProperty "jboss.server.log.dir",             "$serverDir/log"    
-    systemProperty "java.endorsed.dirs",               "$jbossRoot/lib/endorsed"
-    systemProperty "jboss.boot.server.log.file.level", "INFO" 
-    //systemProperty "atg.applauncher.versioner.Versionator.debug", "true"
-    //jvmArgs "-Dhttp.proxyHost=${proxy}"
-    //jvmArgs "-Dhttp.proxyPort=${proxyport}"
-    //jvmArgs "-Dhttps.proxyHost=${proxy}"
-    //jvmArgs "-Dhttps.proxyPort=${proxyport}"
-    jvmArgs "-Xms512m"
-    jvmArgs "-Xmx1536m"
-    jvmArgs "-XX:MaxPermSize=256m"
-    jvmArgs "-Xdebug"
-    jvmArgs "-Xrunjdwp:transport=dt_socket,address=$debugPort,server=y,suspend=n"
-
-  }
+task startBareDevStore(type: RunAtgOnJBoss, dependsOn: []) {
+  jBossRoot     jbossRoot
+  serverName    storeServerName
+  modules       project.hasProperty("flavor") && ["oracle"].contains(project.getProperty("flavor")) ? "env.BareCommerce.store.dev." + project.getProperty("flavor") : "env.BareCommerce.store.dev"
 }
 
 /*
-  JBOSS_START="$JBOSS_HOME/bin/run.sh -c $server_name -Datg.dynamo.liveconfig=on -Dsun.rmi.dgc.server.gcInterval=3600000 -Datg.dynamo.server.name=$ATG_CONF -Datg.dynamo.data-dir=$ATG_DATA_DIR -Djboss.server.log.dir=$JBOSS_LOG -b $JBOSS_BIND_IP $JBOSS_ADDITIONAL_PROPS"
-
-  -c $server_name 
-  -Datg.dynamo.liveconfig=on 
-  -Dsun.rmi.dgc.server.gcInterval=3600000 
-  -Datg.dynamo.server.name=$ATG_CONF 
-  -Datg.dynamo.data-dir=$ATG_DATA_DIR 
-  -Djboss.server.log.dir=$JBOSS_LOG 
-  -b $JBOSS_BIND_IP $JBOSS_ADDITIONAL_PROPS"
-
+You can invoke any specific flavor of the "env.admin.dev" module by adding the parameter
+  "-Pflavor=FlavorName" or "--project-prop flavor=FlavorName"
+To your "gradle startDevStore" command. Usually, module flavors are used for different database types,
+  for example, use "gradle startDevAdmin -Pflavor=oracle" to bypass the default h2 database choice.
 */
-
-/******************************************************************************
-* environment is one of: 'sandbox', 'development', etc
-* serverType is one of: 'store', 'admin', 'fulfillment', etc
-*/
-def stopJBossInstance(serverName) {
-  def jnpPort = getJnpPortForJbossServer(environment, serverName)
-  
-  javaExecAsync {
-    main = "org.jboss.Shutdown"
-    classpath = files("$jbossRoot/bin/shutdown.jar", "$jbossRoot/client/jbossall-client.jar") 
-    args "-s"
-    args "jnp://localhost:$jnpPort"
-    args "-u"
-    args "admin"
-    args "-p"
-    args "admin"
-  }
+task startDevAdmin(type: RunAtgOnJBoss, dependsOn: []) {
+  jBossRoot     jbossRoot
+  serverName    adminServerName
+    modules       project.hasProperty("flavor") && ["oracle"].contains(project.getProperty("flavor")) ? "env.CRSDemo.admin.dev." + project.getProperty("flavor") : "env.CRSDemo.admin.dev"
 }
 
-/******************************************************************************
-* Looks at the jboss-service.xml for the server in question to figure out which 
-* port we should use when asking the server to shut itself down
-*/
-int getJnpPortForJbossServer(environment, serverName) {
-  def jbossServiceFile = file("$globalDir/config/jboss/$serverName/conf/jboss-service.xml") //file("$globalDir/config/jboss/$environment/$serverName/conf/jboss-service.xml")
-  def mbeans = new XmlParser().parse(jbossServiceFile)
-  def portNode = mbeans.find { it.'@code' == 'org.jboss.naming.NamingService' }.attribute.find {
-    it.'@name' == "Port"
-  }
-  
-  portNode.text().toInteger()
+task startCiStore(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
+  jBossRoot     jbossRoot
+  serverName    storeServerName
+  modules       "env.CRSDemo.store.dev"
+  async         true
 }
 
+task verifyCiStore(type: Tail, dependsOn: [startCiStore]) {
+  file         "$jbossRoot/server/$storeServerName/log/console.log"
+  failOn       regex: "ERROR[ ]*\\[", postFireTailPeriod: "5 seconds"
+  succeedOn    "INFO[ ]*\\[org\\.jboss\\.bootstrap\\.microcontainer\\.ServerImpl\\].*JBoss \\(Microcontainer\\) \\[.*\\] Started in"
+  timeoutAfter "5 minutes"
+}
+
+task startCiAdmin(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
+  jBossRoot     jbossRoot
+  serverName    adminServerName
+  modules       "env.CRSDemo.admin.dev"
+  async         true
+}
+
+task verifyCiAdmin(type: Tail, dependsOn: [startCiAdmin]) {
+  file         "$jbossRoot/server/$adminServerName/log/console.log"
+  failOn       regex: "ERROR[ ]*\\[", postFireTailPeriod: "5 seconds"
+  succeedOn    "INFO[ ]*\\[org\\.jboss\\.bootstrap\\.microcontainer\\.ServerImpl\\].*JBoss \\(Microcontainer\\) \\[.*\\] Started in"
+  timeoutAfter "5 minutes"
+}

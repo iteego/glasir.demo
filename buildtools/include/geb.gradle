@@ -3,26 +3,26 @@ configurations {
     testCompile.transitive = true
 }
 */
- 
+
 dependencies {
     groovy "org.codehaus.groovy:groovy-all:1.7.10"
- 
+
     def gebVersion = "0.6.1"
     def seleniumVersion = "2.9.0"
- 
+
     // If using Spock, need to depend on geb-spock
     testCompile "org.codehaus.geb:geb-spock:$gebVersion"
     testCompile "org.spockframework:spock-core:0.5-groovy-1.7"
- 
+
     // If using JUnit, need to depend on geb-junit (3 or 4)
     testCompile "org.codehaus.geb:geb-junit4:$gebVersion"
     testCompile "junit:junit-dep:4.8.2"
- 
+
     // Need a driver implementation
     testCompile "org.seleniumhq.selenium:selenium-firefox-driver:$seleniumVersion"
     testRuntime "org.seleniumhq.selenium:selenium-support:$seleniumVersion"
 }
- 
+
 test {
     systemProperties "geb.build.reportsDir": "$reportsDir/geb"
 }

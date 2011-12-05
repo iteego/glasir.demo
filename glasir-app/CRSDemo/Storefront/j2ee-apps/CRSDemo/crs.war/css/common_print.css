@@ -1,0 +1,474 @@
+/***********************************************************************************************
+
+  Print stylesheet
+
+***********************************************************************************************/
+/* Reset Styles 
+-----------------------------------------------*/
+
+body{
+  font-size:62.5%;
+  font-family: Verdana,Geneva,sans-serif;
+  height:100%;
+}
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td { 
+	margin:0;
+	padding:0;
+}
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+}
+fieldset,img { 
+	border:0;
+}
+address,caption,cite,code,dfn,em,strong,th,var {
+	font-style:normal; 
+	font-weight:normal;
+}
+ol,ul {
+	list-style:none;
+}
+caption,th {
+	text-align:left;
+}
+h1,h2,h3,h4,h5,h6 {
+	font-weight:normal;
+}
+q:before,q:after {
+	content:'';
+}
+abbr,acronym { border:0;
+}
+
+*:focus{
+  outline: 1px dotted black;
+}
+
+/* Hide Page Elements for Print Header 
+-----------------------------------------------*/
+
+#atg_store_accessibility_nav,
+#atg_store_catNavArea,
+#atg_store_locale,
+#atg_store_tertiaryNavigation,
+#atg_store_search,
+#atg_store_logOut,
+#atg_store_personalNavArea,
+#atg_store_myAccountNav,
+hr{
+  display:none !important;
+}
+
+/* Page Header 
+-----------------------------------------------*/
+
+/* Logo */
+
+h1#atg_store_logo a[href]:after {
+  content: " (" attr(href) ") ";
+  font-size: 90%;
+}
+
+h1#atg_store_logo a[href^="/"]:after {
+  content: " (http://domain.com" attr(href) ") ";
+}
+
+h1#atg_store_logo a{
+  font-size: 1.1em;
+  clear: both;
+  padding-top: 50px;
+  background:url("/crsdocroot/images/atghome/logo.png") no-repeat scroll left top transparent !important;
+  display:block;
+}
+ 
+h1#atg_store_logo {
+  font-size: 1em;
+  clear: both;
+  float: left;
+  width: 600px;
+}
+
+.atg_store_nonCatHero{
+  float:left;
+  clear:left;
+  padding-top:10px;
+  padding-bottom: 10px;
+}
+
+.atg_store_nonCatHero h2{
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+/* Begin Order Details
+-----------------------------------------------*/
+.atg_store_orderDetails .atg_store_groupPayment{
+  clear:left;
+}
+
+.atg_store_orderDetails .atg_store_groupPayment dt{
+  clear:left;
+  width: 100px;
+}
+
+.atg_store_myOrderDetail {
+ margin-top:0 !important;
+ padding-left:0 !important;
+ padding-top:0 !important;
+}
+
+#atg_store_shipmentInfoContainer{
+  clear:left;
+}
+
+.atg_store_shipmentInfo {
+ border-bottom: 1px solid #ccc;
+ display: block;
+ padding-bottom: 25px;
+}
+
+#atg_store_multishipGroupInfoContainer{
+ clear: left;
+ float:left;
+ width: 99.75%;
+ border-left: 1px solid #ccc;
+ border-right: 1px solid #ccc;
+ border-collapse: collapse;
+ padding-bottom: 15px;
+ border-spacing:0;
+}
+
+.atg_store_orderDetails .atg_store_groupOrderInfo dt {
+margin-bottom:0px;
+width:100px;
+}
+
+*+html .atg_store_orderDetails .atg_store_groupOrderInfo dt {
+  float: left;
+  clear:left;
+}
+
+*+html .atg_store_orderDetails .atg_store_groupOrderInfo dd {
+  float: none;
+}
+
+.atg_store_orderDetails .atg_store_groupOrderInfo dd{
+  margin-bottom:10px;
+}
+
+.atg_store_shipmentInfo dl dt, .atg_store_shipmentInfo dl dd, .atg_store_multishipGroupInfo dl dt, .atg_store_multishipGroupInfo dl dd {
+ float:left;
+ font-size: 1.3em;
+}
+
+.atg_store_shipmentInfo dt, .atg_store_multishipGroupInfo dt {
+ clear:left;
+ font-weight: bold;
+ font-size: 1.3em;
+}
+
+#atg_store_shipmentInfoContainer dl{
+ float:left;
+ margin-right:105px;
+}
+
+.atg_store_orderDetails .atg_store_multishipGroupInfo {
+ width:600px;
+}
+
+.atg_store_orderDetails .atg_store_multishipGroupInfo dl {
+ width:300px;
+ padding: 15px 0px 0px ;
+}
+
+.atg_store_multishipGroupInfo dl.atg_store_groupShippingAddress {
+ float:left;
+}
+
+.atg_store_multishipGroupInfo dl.atg_store_groupShippingAddress dt {
+ margin-left: 10px;
+ width: 100px;
+}
+
+.atg_store_multishipGroupInfo dl.atg_store_groupPaymentMethod {
+ float: right;
+}
+
+.atg_store_multishipGroupInfo dl.atg_store_groupPaymentMethod dt {
+ width: 100px;
+}
+
+/* Begin Cart
+-----------------------------------------------*/
+
+#atg_store_container{
+ width: 100%;
+}
+#atg_store_cart {
+ border-collapse:collapse;
+ border-spacing:0;
+ border-left: 1px solid #ccc;
+ border-right: 1px solid #ccc;
+ border-bottom: 1px solid #ccc;
+ clear:both;
+ width:100%;
+ font-size: 1.3em;
+}
+#atg_store_cart table{
+ border-collapse:collapse;
+ border-spacing:0;
+}
+#atg_store_cart td {
+ border-bottom: 1px solid #ccc;
+}
+#atg_store_cart table td {
+ border-bottom: none;
+}
+.atg_store_rightCol #atg_store_content .aside{
+ width:214px;
+}
+
+#atg_store_cart th.site {
+ text-align:center;
+}
+
+#atg_store_cart th.item {
+ padding-left:55px;
+ text-align:left;
+}
+
+#atg_store_cart th {
+ border-top:1px solid #CCCCCC;
+ border-bottom:1px solid #CCCCCC;
+ padding-left:5px;
+}
+
+#atg_store_cart th.quantity {
+ text-align:center;
+}
+
+#atg_store_cart th.price {
+ padding-left:5px;
+ padding-right:5px;
+}
+
+#atg_store_cart th.total {
+ padding-right:5px;
+ text-align:right;
+}
+
+#atg_store_cart th.total {
+ text-align:right;
+}
+
+#atg_store_cart th.quantity {
+ padding-left:5px;
+ padding-right:0;
+ text-align:left !important;
+ width:60px;
+}
+
+#atg_store_cart td.total {
+ text-align:right;
+ width:75px;
+ font-weight:bold;
+ vertical-align: top;	
+}
+
+#atg_store_cart td.quantity, #atg_store_cart td.total {
+ padding:30px 5px;
+}
+
+#atg_store_cart td.total .price {
+ margin-right: 5px;
+}
+
+#atg_store_cart td.price {
+ vertical-align: top;
+ padding:30px 5px !important;
+}
+
+#atg_store_cart td.price span.atg_store_oldPrice {
+ color:#999999;
+ display:block;
+ font-size:0.83em;
+ white-space:nowrap;
+}
+
+#atg_store_cart td.site, .atg_store_dataTable td.site {
+ max-width:60px;
+ text-align:center;
+ width:60px;
+}
+
+#atg_store_cart td.image {
+ padding:20px;
+ width:105px;
+}
+
+#atg_store_cart td.image img {
+ height: 100px !important;
+ width: 100px !important;
+ outline: none;
+ border: none;
+}
+
+#atg_store_cart td.item {
+ width:135px;
+ vertical-align: top;
+ padding: 30px 0px;
+}
+
+#atg_store_cart td.item {
+ padding-right:5px;
+}
+
+#atg_store_cart td.price p.note {
+ color:#999999;
+ display:block;
+ font-size:0.83em;
+ max-width:80px;
+ width:80px;
+}
+
+#atg_store_cart td.atg_store_quantityPrice p.note, #atg_store_cart td.atg_store_quantityPrice .atg_store_oldPrice {
+ margin-left:65px;
+}
+
+#atg_store_cart td.atg_store_quantityPrice span.quantity {
+ display:block;
+ float:left;
+ white-space:nowrap;
+ width:65px;
+}
+
+#atg_store_cart td.atg_store_quantityPrice {
+ padding-top:30px;
+ width:130px;
+}
+
+/* Begin Order Summary
+-----------------------------------------------*/
+
+.atg_store_orderDetails .atg_store_orderSummary {
+ position: absolute;
+ left: 600px;
+ top: 82px;
+ width:225px !important;
+ font-size: 1.3em;
+ padding-top:20px;
+}
+
+.atg_store_orderSummary h2, .atg_store_orderSummary ul li {
+ padding:0 30px;
+}
+
+li.atg_store_orderTotal {
+ margin-top:30px;
+ min-height:25px !important;
+ padding:0px 0 !important;
+ clear: both;
+}
+
+.atg_store_orderSubTotals dl.subtotal {
+ font-weight:bold;
+}
+
+.atg_store_orderSummary h2 {
+ font-weight: bold !important;	
+ text-align: center;
+ font-size: 1.1em;
+}
+
+.atg_store_orderSubTotals dl.subtotal dt {
+ font-weight:bold;
+}
+
+.atg_store_orderTotal dl.total {
+ text-align: center;
+}
+
+.atg_store_orderTotal dl.total dt {
+ font-weight:bold; 
+ padding-left:30px;
+ padding-bottom:5px;
+}
+
+.atg_store_orderTotal dl.total dd {
+ padding-right:30px;
+ padding-bottom:5px;
+}
+
+.atg_store_orderSubTotals dt, .atg_store_orderTotal dt {
+ clear:left;
+ float:left;
+}
+
+.atg_store_orderSubTotals dl dd {
+ font-weight:bold;
+}
+
+.atg_store_orderSubTotals dd, .atg_store_orderTotal dd {
+ float:right;
+}
+
+.atg_store_orderDetails .atg_store_orderTotal {
+ margin-top:5px;
+}
+
+.atg_store_orderDetails .atg_store_shipmentInfo dl.atg_store_groupPayment {
+ float:left;
+ margin-right:0;
+ margin-top:10px;
+ margin-bottom: 25px;
+ width:375px;
+}
+
+.atg_store_shipmentInfo dl.atg_store_groupPayment {
+ float:right;
+}
+
+.atg_store_orderDetails .atg_store_shipmentInfo .atg_store_groupPayment dd.atg_store_groupPaymentCardExp {
+ clear: left;
+ margin-left: 100px;
+}
+
+.atg_store_shipmentInfo dl.atg_store_groupBillingAddress dt {
+ width: 100px;
+}
+
+/* Begin Copyright & Footer
+-----------------------------------------------*/
+
+#atg_store_footer {
+ padding-top:25px;
+}
+
+#atg_store_copyright {
+ font-size:1.1em;
+ padding-top:25px;
+ padding-bottom:225px;
+ text-align:center;
+ clear: both;
+}
+
+/* Self Clearing Floats 
+--------------------------------------------------*/
+
+/* Firefox */
+
+.atg_store_shipmentInfo:after{
+ content: ".";
+ display: block;
+ height: 0;
+ clear: both;
+ visibility: hidden;
+  }
+  
+/* IE */
+
+.atg_store_shipmentInfo{
+   zoom: 1 ;
+}

@@ -1,0 +1,32 @@
+/*****************************************************************************
+ * project description - displayed in 'gradle tasks', 'gradle projects' etc
+ * output
+ */
+task help << { 
+ println """\
+
+
+Welcome to Gradle ${gradle.gradleVersion}
+To run a build, run gradle <task> ...
+To see a list of available tasks, run gradle tasks
+To see a list of command-line options, run gradle --help
+ 
+******************************* Project Help **********************************
+This is gradle project for building, testing, and assembling the ${rootProject.name} 
+ecommerce project 
+
+Example usages: 
+  gradle tasks                - Show common tasks.
+  gradle projects             - Show the global project structure.
+  gradle test                 - Compile main and test sources, execute unit 
+                                tests in all modules, and generate reports.
+  gradle build                - Compile main sources.
+  gradle :MyBrand:Store:build - Run the build task on a specific atg module 
+                                (MyBrand.Store) and all its dependencies.
+  gradle printMyBrand.Store   - print a dependency tree for a specific atg 
+                                module (MyBrand.Store in this example).
+
+Project version: ${version}
+"""
+}
+

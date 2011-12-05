@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE gsa-template SYSTEM "dynamosystemresource:/atg/dtds/gsa/gsa_1.0.dtd">
+<gsa-template>
+<import-items>
+
+<!-- ======================================================================= -->
+<!-- View mappings for the store.estore.Versioned module                     -->
+<!-- ======================================================================= -->
+
+<!-- ======================================================================= -->
+<!-- Customizations for external user items                                  -->
+<!-- ======================================================================= -->
+
+<!-- View mapping for external user's commerce tab -->
+<add-item item-descriptor="attributeValue" id="aMgrAvExtUserCommerceCats">
+  <set-property name="value"><![CDATA[categoryCommercePromotions,categoryCommercePreferences,categoryCommerceAddressAndPhone,categoryCommerceBehaviorTracking,categoryCommerceLists,categoryCommerceGiftAddresses,categoryCommerceGeneral,categoryCommerceAbandonedOrderTracking,categoryOrderTracking,categoryCommercePayment]]></set-property>
+</add-item>
+
+<!-- ======================================================================= -->
+<!-- Customization for storeText item in StoreRepository to specify          -->
+<!--      defaultText's field length.                                        -->
+<!-- ======================================================================= -->
+
+<add-item item-descriptor="attributeValue" id="aMgrAvCrsResourceBundle">
+  <set-property name="value"><![CDATA[atg.remote.commerce.StoreResources]]></set-property>
+</add-item>
+
+<add-item item-descriptor="mapMode" id="AmMmDef">
+  <set-property name="name"><![CDATA[AssetManager.default]]></set-property>
+</add-item>
+
+<add-item item-descriptor="formHandler" id="crsAmFh">
+  <set-property name="name"><![CDATA[AssetManager default formHandler]]></set-property>
+  <set-property name="path"><![CDATA[/atg/remote/assetmanager/editor/service/RepositoryAssetService]]></set-property>
+</add-item>
+	
+<add-item item-descriptor="itemMapping" id="aMgrImEditTextTemplate">
+  <set-property name="name"><![CDATA[AssetManager]]></set-property>
+  <set-property name="description"><![CDATA[Commerce Reference Store mapping]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/store/stores/StoreRepository]]></set-property>
+  <set-property name="itemName"><![CDATA[storeText]]></set-property>
+  <set-property name="formHandler"><![CDATA[crsAmFh]]></set-property>
+  <set-property name="viewMappings"><![CDATA[aMgrIvmEditCRSText]]></set-property>
+  <set-property name="attributes"><![CDATA[resourceBundle=aMgrAvCrsResourceBundle]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewMapping" id="aMgrIvmEditCRSText">
+  <set-property name="name"><![CDATA[Commerce Reference Store repository text editor]]></set-property>
+  <set-property name="description"><![CDATA[Commerce Reference Store repository text editor]]></set-property>
+  <set-property name="displayName"><![CDATA[aMgrIvmCRSText.displayName]]></set-property>	
+  <set-property name="view"><![CDATA[aMgrIvCRSText]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[text=aMgrPvmEditCRSTextTemplate]]></set-property>
+  <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvCrsResourceBundle]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemView" id="aMgrIvCRSText">
+  <set-property name="name"><![CDATA[Commerce Reference Store]]></set-property>
+  <set-property name="description"><![CDATA[Commerce Reference Store itemView]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="applicationName"><![CDATA[Commerce Reference Store]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.DefaultAssetViewPanel]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="aMgrPvmEditCRSTextTemplate">
+  <set-property name="description"><![CDATA[Commerce Reference Store text template editor]]></set-property>
+  <set-property name="propertyView"><![CDATA[aMgrPvEditCRSTextTemplate]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="aMgrPvEditCRSTextTemplate">
+  <set-property name="name"><![CDATA[Commerce Reference Store text template editor]]></set-property>
+  <set-property name="description"><![CDATA[Commerce Reference Store text template editor]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[string]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.DefaultEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="attributes"><![CDATA[inputFieldMaxWidth=aMgrPvadIntInputFieldMaxWidth,inputFieldMaxlength=aMgrPvadTextTemplateLength]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadTextTemplateLength">
+  <set-property name="defaultValue"><![CDATA[4000]]></set-property>  
+  <set-property name="description"><![CDATA[Text template property field length]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadIntInputFieldMaxWidth">
+  <set-property name="defaultValue"><![CDATA[600]]></set-property>  
+  <set-property name="description"><![CDATA[Text template property field width in pixels]]></set-property>
+</add-item>
+
+<!-- ======================================================================= -->
+<!-- Customization for SEOTags item in SEORepository to specify          -->
+<!--      displayName and key fields length.                                        -->
+<!-- ======================================================================= -->
+
+<add-item item-descriptor="itemMapping" id="aMgrImEditSEOTagTemplate">
+  <set-property name="name"><![CDATA[AssetManager]]></set-property>
+  <set-property name="description"><![CDATA[CRS editable mapping for SEOTags repository item]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/seo/SEORepository]]></set-property>
+  <set-property name="itemName"><![CDATA[SEOTags]]></set-property>
+  <set-property name="formHandler"><![CDATA[aMgrFhRep]]></set-property>
+  <set-property name="viewMappings"><![CDATA[aMgrIvmEditSEOTags]]></set-property>
+  <set-property name="attributes"><![CDATA[resourceBundle=aMgrAvCrsResourceBundle]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewMapping" id="aMgrIvmEditSEOTags">
+  <set-property name="name"><![CDATA[CRS view mapping for SEOTags repository item]]></set-property>
+  <set-property name="description"><![CDATA[CRS view mapping for SEOTags repository item]]></set-property>
+  <set-property name="displayName"><![CDATA[aMgrIvmEditSEOTags.displayName]]></set-property>	
+  <set-property name="view"><![CDATA[aMgrIvRep]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[displayName=aMgrPvmEditSEOTagsName,key=aMgrPvmEditSEOTagsKey]]></set-property>
+  <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvCrsResourceBundle]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="aMgrPvmEditSEOTagsName">
+  <set-property name="description"><![CDATA[CRS displayName property view mapping for SEOTags item]]></set-property>
+  <set-property name="propertyView"><![CDATA[aMgrPvEditSEOTagsNameTemplate]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="aMgrPvEditSEOTagsNameTemplate">
+  <set-property name="name"><![CDATA[CRS property view for SEOTAgs item]]></set-property>
+  <set-property name="description"><![CDATA[CRS property view for SEOTAgs item]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
+  <set-property name="type"><![CDATA[string]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/defaultEditor.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="attributes"><![CDATA[inputFieldMaxlength=aMgrPvadSEOTagsNameMaxLength]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadSEOTagsNameMaxLength">
+  <set-property name="defaultValue"><![CDATA[100]]></set-property>  
+  <set-property name="description"><![CDATA[SEOTags displayName property field length]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="aMgrPvmEditSEOTagsKey">
+  <set-property name="description"><![CDATA[CRS key property view mapping for SEOTags item]]></set-property>
+  <set-property name="propertyView"><![CDATA[aMgrPvEditSEOTagsKeyTemplate]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="aMgrPvEditSEOTagsKeyTemplate">
+  <set-property name="name"><![CDATA[CRS property view for SEOTAgs item]]></set-property>
+  <set-property name="description"><![CDATA[CRS property view for SEOTAgs item]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
+  <set-property name="type"><![CDATA[string]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/defaultEditor.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="attributes"><![CDATA[inputFieldMaxlength=aMgrPvadSEOTagsKeyMaxLength]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadSEOTagsKeyMaxLength">
+  <set-property name="defaultValue"><![CDATA[100]]></set-property>  
+  <set-property name="description"><![CDATA[SEOTags key property field length]]></set-property>
+</add-item>
+
+<!-- ======================================================================= -->
+<!-- Customization for the JSP UI for all items in StoreRepository that should             -->
+<!--      be editable in the flex UI only.                                   -->
+<!-- ======================================================================= -->
+
+<add-item item-descriptor="itemMapping" id="aMgrImViewStore">
+  <set-property name="name"><![CDATA[AssetManager]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager read-only mapping for store items]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/store/stores/StoreRepository]]></set-property>
+  <set-property name="itemName"><![CDATA[*]]></set-property>
+  <set-property name="formHandler"><![CDATA[aMgrFhRep]]></set-property>
+  <set-property name="viewMappings"><![CDATA[wrongAppIvmNavigator]]></set-property>
+  <set-property name="attributes"><![CDATA[resourceBundle=MerchAvAppNameBnd,hideButtonBar=MerchAvNavigatorHideButtonBar,omitSecurityTab=MerchAvNavigatorOmitSecurityTab,application=MerchAvAppName]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemMapping" id="aMgrImEditStore">
+  <set-property name="name"><![CDATA[AssetManager]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager editable mapping for store items]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/store/stores/StoreRepository]]></set-property>
+  <set-property name="itemName"><![CDATA[*]]></set-property>
+  <set-property name="formHandler"><![CDATA[aMgrFhRep]]></set-property>
+  <set-property name="viewMappings"><![CDATA[wrongAppIvmNavigator]]></set-property>
+  <set-property name="attributes"><![CDATA[resourceBundle=MerchAvAppNameBnd,hideButtonBar=MerchAvNavigatorHideButtonBar,omitSecurityTab=MerchAvNavigatorOmitSecurityTab,application=MerchAvAppName]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="attributeValue" id="MerchAvNavigatorHideButtonBar">
+  <set-property name="value"><![CDATA[true]]></set-property>
+</add-item>
+<add-item item-descriptor="attributeValue" id="MerchAvNavigatorOmitSecurityTab">
+  <set-property name="value"><![CDATA[true]]></set-property>
+</add-item>
+<add-item item-descriptor="attributeValue" id="MerchAvAppNameBnd">
+  <set-property name="value"><![CDATA[atg.remote.commerce.Resources]]></set-property>
+</add-item>
+<add-item item-descriptor="attributeValue" id="MerchAvAppName">
+  <set-property name="value"><![CDATA[merchandising.activitySource.displayName]]></set-property>
+</add-item>
+
+</import-items>
+
+<!-- Promotions viewmappings adjustments -->
+<!-- Assign the defaultName property to a property editor that will limit its input length to the size of the db column -->
+<update-item item-descriptor="itemViewMapping" id="AmIvmCloseQualGen">
+  <set-property name="propertyMappings" add="true"><![CDATA[nameDefault=AmPvmCloseQualName]]></set-property>
+</update-item>  		
+	
+</gsa-template>
+<!-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.0.2/EStore/Versioned/install/data/viewmapping.xml#1 $$Change: 633540 $-->
+

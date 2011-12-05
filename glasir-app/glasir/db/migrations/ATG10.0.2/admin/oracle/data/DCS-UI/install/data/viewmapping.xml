@@ -1,0 +1,1567 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE gsa-template SYSTEM "dynamosystemresource:/atg/dtds/gsa/gsa_1.0.dtd">
+<gsa-template>
+<import-items>
+
+<!-- ======================================================================= -->
+<!-- View mappings for the DCS-UI module                                     -->
+<!-- ======================================================================= -->
+
+
+<!-- ======================================================================= -->
+<!-- Customization for height of all siteIds properties                      -->
+<!-- ======================================================================= -->
+
+
+<add-item item-descriptor="propertyViewMapping" id="AmPvmVSiteIdsColl">
+  <set-property name="description"><![CDATA[site ids property]]></set-property>
+  <set-property name="attributeValues"><![CDATA[gridMaxHeight=AmPValSiteIdHeight]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="attributeValue" id="AmPValSiteIdHeight">
+  <set-property name="value"><![CDATA[125]]></set-property>
+</add-item>
+
+<!-- ======================================================================= -->
+<!-- Customizations for catalogFolder items                                  -->
+<!-- ======================================================================= -->
+
+<!-- Item mapping; contains one view mapping per tab -->
+
+<add-item item-descriptor="itemMapping" id="AmImLogFldr">
+  <set-property name="name"><![CDATA[AssetManager]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager catalogFolder itemMapping]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/commerce/catalog/ProductCatalog]]></set-property>
+  <set-property name="itemName"><![CDATA[catalogFolder]]></set-property>
+  <set-property name="formHandler"><![CDATA[AmFhDef]]></set-property>
+  <set-property name="viewMappings"><![CDATA[AmIvmLogFldrGen]]></set-property>
+  <set-property name="attributes"><![CDATA[resourceBundle=AmAvLogFldrBnd]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvLogFldrBnd">
+  <set-property name="value"><![CDATA[atg.remote.commerce.Resources]]></set-property>
+</add-item>
+
+<!-- View mapping for catalogFolder's General tab -->
+
+<add-item item-descriptor="itemViewMapping" id="AmIvmLogFldrGen">
+  <set-property name="name"><![CDATA[AssetManager catalogFolder general itemViewMapping]]></set-property>
+  <set-property name="displayName"><![CDATA[AmIvmLogFldrGen.displayName]]></set-property>
+  <set-property name="view"><![CDATA[AmIvDef]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[siteIds=AmPvmVSiteIdsColl]]></set-property>
+  <set-property name="attributeValues"><![CDATA[excludedProperties=AmAvLogFldrGenExc]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvLogFldrGenExc">
+  <set-property name="value"><![CDATA[parent,itemAcl]]></set-property>
+</add-item>
+
+<!-- ======================================================================= -->
+<!-- Customizations for catalog items                                       -->
+<!-- ======================================================================= -->
+
+<!-- Item mapping; contains one view mapping per tab -->
+
+<add-item item-descriptor="itemMapping" id="AmImLog">
+  <set-property name="name"><![CDATA[AssetManager]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager catalog itemMapping]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/commerce/catalog/ProductCatalog]]></set-property>
+  <set-property name="itemName"><![CDATA[catalog]]></set-property>
+  <set-property name="formHandler"><![CDATA[AmFhDef]]></set-property>
+  <set-property name="viewMappings"><![CDATA[AmIvmLogGen]]></set-property>
+  <set-property name="attributes"><![CDATA[resourceBundle=AmAvLogBnd]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvLogBnd">
+  <set-property name="value"><![CDATA[atg.remote.commerce.Resources]]></set-property>
+</add-item>
+
+<!-- View mapping for catalog's General tab -->
+
+<add-item item-descriptor="itemViewMapping" id="AmIvmLogGen">
+  <set-property name="name"><![CDATA[AssetManager catalog general itemViewMapping]]></set-property>
+  <set-property name="displayName"><![CDATA[AmIvmLogGen.displayName]]></set-property>
+  <set-property name="view"><![CDATA[AmIvDef]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[siteIds=AmPvmVSiteIdsColl]]></set-property>
+  <set-property name="attributeValues"><![CDATA[includedCategories=AmAvLogGenCat,excludedProperties=AmAvLogGenExc,includeNewProperties=AmAvLogGenNew]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvLogGenCat">
+  <set-property name="value"><![CDATA[categoryBasics,categoryCategorization,categoryInfo,Uncategorized]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvLogGenExc">
+  <set-property name="value"><![CDATA[ancestorCategories,directAncestorCatalogsAndSelf,indirectAncestorCatalogs,ancestorCatalogsAndSelf,directParentCatalogs,parentFolders,itemAcl,status,parentCategories,creationDate,lastModifiedDate,allRootCategoryIds]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvLogGenNew">
+  <set-property name="value"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- ======================================================================= -->
+<!-- Customizations for category items                                       -->
+<!-- ======================================================================= -->
+
+<!-- Item mapping; contains one view mapping per tab -->
+
+<add-item item-descriptor="itemMapping" id="AmImCat">
+  <set-property name="name"><![CDATA[AssetManager]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager category itemMapping]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/commerce/catalog/ProductCatalog]]></set-property>
+  <set-property name="itemName"><![CDATA[category]]></set-property>
+  <set-property name="formHandler"><![CDATA[AmFhDef]]></set-property>
+  <set-property name="viewMappings"><![CDATA[AmIvmCatGen,AmIvmCatMedia,AmIvmCatPrdt,AmIvmCatAdv]]></set-property>
+  <set-property name="attributes"><![CDATA[resourceBundle=AmAvCatBnd]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvCatBnd">
+  <set-property name="value"><![CDATA[atg.remote.commerce.Resources]]></set-property>
+</add-item>
+
+
+<!-- View mapping for category's General tab -->
+
+<add-item item-descriptor="itemViewMapping" id="AmIvmCatGen">
+  <set-property name="name"><![CDATA[AssetManager category general itemViewMapping]]></set-property>
+  <set-property name="displayName"><![CDATA[AmIvmCatGen.displayName]]></set-property>
+  <set-property name="view"><![CDATA[AmIvDef]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[siteIds=AmPvmVSiteIdsColl,childCategoryGroup=AmPvmEContGrpCatCat]]></set-property>
+  <set-property name="attributeValues"><![CDATA[includedCategories=AmAvCatGenCat,excludedProperties=AmAvCatGenExc]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvCatGenCat">
+  <set-property name="value"><![CDATA[categoryBasics,categoryPresentation,categoryPublishing,categoryCategorization]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvCatGenExc">
+  <set-property name="value"><![CDATA[ancestorCategories,catalog,parentCatalog,computedCatalogs,parentCatalogs,dynamicRelatedCategories,dynamicChildCategories,relatedCategories,childCategories,catalogs,subCatalogsChildCategories,categoryInfos]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="AmPvmEContGrpCatCat">
+  <set-property name="description"><![CDATA[AssetManager Content Group Path Property Edit]]></set-property>
+  <set-property name="propertyView"><![CDATA[AmPvEContGrp]]></set-property>
+</add-item>
+
+
+<!-- View mapping for category's Media tab -->
+
+<add-item item-descriptor="itemViewMapping" id="AmIvmCatMedia">
+  <set-property name="name"><![CDATA[AssetManager category media itemViewMapping]]></set-property>
+  <set-property name="displayName"><![CDATA[AmIvmCatMedia.displayName]]></set-property>
+  <set-property name="view"><![CDATA[AmIvDef]]></set-property>
+  <set-property name="attributeValues"><![CDATA[includedCategories=AmAvCatMediaCat]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvCatMediaCat">
+  <set-property name="value"><![CDATA[categoryImagesMedia]]></set-property>
+</add-item>
+
+<!-- View mapping for category's Products tab -->
+
+<add-item item-descriptor="itemViewMapping" id="AmIvmCatPrdt">
+  <set-property name="name"><![CDATA[AssetManager category products itemViewMapping]]></set-property>
+  <set-property name="displayName"><![CDATA[AmIvmCatPrdt.displayName]]></set-property>
+  <set-property name="view"><![CDATA[AmIvDef]]></set-property>
+  <set-property name="attributeValues"><![CDATA[includedCategories=AmAvCatPrdtCat,excludedProperties=AmAvCatPrdtExc]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[childProductGroup=AmPvmEContGrpCatPrd]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvCatPrdtCat">
+  <set-property name="value"><![CDATA[categoryProducts]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvCatPrdtExc">
+  <set-property name="value"><![CDATA[dynamicChildProducts,childProducts]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="AmPvmEContGrpCatPrd">
+  <set-property name="description"><![CDATA[AssetManager Content Group Path Property Edit]]></set-property>
+  <set-property name="propertyView"><![CDATA[AmPvEContGrp]]></set-property>
+</add-item>
+
+<!-- View mapping for category's Advanced tab -->
+
+<add-item item-descriptor="itemViewMapping" id="AmIvmCatAdv">
+  <set-property name="name"><![CDATA[AssetManager category advanced itemViewMapping]]></set-property>
+  <set-property name="displayName"><![CDATA[AmIvmCatAdv.displayName]]></set-property>
+  <set-property name="view"><![CDATA[AmIvDef]]></set-property>
+  <set-property name="attributeValues"><![CDATA[includeNewProperties=AmAvCatAdvProp,excludedProperties=AmAvCatAdvExc]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[relatedCategoryGroup=AmPvmEContGrpCatAdv,childCategoryGroup=AmPvmEContGrpCatAdv]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvCatAdvProp">
+  <set-property name="value"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvCatAdvExc">
+  <set-property name="value"><![CDATA[defaultParentCategory,creationDate,itemAcl,parentCategoryForCatalog,ancestorCategoryIds]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="AmPvmEContGrpCatAdv">
+  <set-property name="description"><![CDATA[AssetManager Content Group Path Property Edit]]></set-property>
+  <set-property name="propertyView"><![CDATA[AmPvEContGrp]]></set-property>
+</add-item>
+
+<!-- ======================================================================= -->
+<!-- Customizations for product items                                        -->
+<!-- ======================================================================= -->
+
+<!-- Item mapping; contains one view mapping per tab -->
+
+<add-item item-descriptor="itemMapping" id="AmImPrdt">
+  <set-property name="name"><![CDATA[AssetManager]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager product itemMapping]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/commerce/catalog/ProductCatalog]]></set-property>
+  <set-property name="itemName"><![CDATA[product]]></set-property>
+  <set-property name="formHandler"><![CDATA[AmFhDef]]></set-property>
+  <set-property name="viewMappings"><![CDATA[AmIvmPrdtGen,AmIvmPrdtSkus,AmIvmPrdtCat,AmIvmPrdtMedia,AmIvmPrdtPrice,AmIvmPrdtCrossEdit,AmIvmPrdtAdv]]></set-property>
+  <set-property name="attributes"><![CDATA[resourceBundle=AmAvPrdtBnd]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvPrdtBnd">
+  <set-property name="value"><![CDATA[atg.remote.commerce.Resources]]></set-property>
+</add-item>
+
+<!-- View mapping for product's General tab -->
+
+<add-item item-descriptor="itemViewMapping" id="AmIvmPrdtGen">
+  <set-property name="name"><![CDATA[AssetManager product general itemViewMapping]]></set-property>
+  <set-property name="displayName"><![CDATA[AmIvmPrdtGen.displayName]]></set-property>
+  <set-property name="view"><![CDATA[AmIvDef]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[siteIds=AmPvmVSiteIdsColl]]></set-property>
+  <set-property name="attributeValues"><![CDATA[includedCategories=AmAvPrdtGenCat,displayImagePropertyName=AmAvPrdtGenImagePropName,displayImageCategoryName=AmAvPrdtGenImageCatName]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvPrdtGenCat">
+  <set-property name="value"><![CDATA[categoryBasics,categoryPresentation,categoryPublishing]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvPrdtGenImagePropName">
+  <set-property name="value"><![CDATA[thumbnailImage]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvPrdtGenImageCatName">
+  <set-property name="value"><![CDATA[categoryBasics]]></set-property>
+</add-item>
+
+<!-- View mapping for product's SKUs tab -->
+
+<add-item item-descriptor="itemViewMapping" id="AmIvmPrdtSkus">
+  <set-property name="name"><![CDATA[AssetManager product SKUs itemViewMapping]]></set-property>
+  <set-property name="displayName"><![CDATA[AmIvmPrdtSkus.displayName]]></set-property>
+  <set-property name="view"><![CDATA[AmIvDef]]></set-property>
+  <set-property name="attributeValues"><![CDATA[includedCategories=AmAvPrdtSkusCat,excludedProperties=AmAvPrdtSkusExc]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvPrdtSkusCat">
+  <set-property name="value"><![CDATA[categoryProductSkus]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvPrdtSkusExc">
+</add-item>
+
+<!-- View mapping for product's Media tab -->
+
+<add-item item-descriptor="itemViewMapping" id="AmIvmPrdtMedia">
+  <set-property name="name"><![CDATA[AssetManager product media itemViewMapping]]></set-property>
+  <set-property name="displayName"><![CDATA[AmIvmPrdtMedia.displayName]]></set-property>
+  <set-property name="view"><![CDATA[AmIvDef]]></set-property>
+  <set-property name="attributeValues"><![CDATA[includedCategories=AmAvPrdtMediaCat]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvPrdtMediaCat">
+  <set-property name="value"><![CDATA[categoryImagesMedia]]></set-property>
+</add-item>
+
+
+<!-- View mapping for product's Categorized tab -->
+
+<add-item item-descriptor="itemViewMapping" id="AmIvmPrdtCat">
+  <set-property name="name"><![CDATA[AssetManager product general itemViewMapping]]></set-property>
+  <set-property name="displayName"><![CDATA[AmIvmPrdtCat.displayName]]></set-property>
+  <set-property name="view"><![CDATA[AmIvDef]]></set-property>
+  <set-property name="attributeValues"><![CDATA[includedCategories=AmAvPrdtCatCat,excludedTransientProperties=AmAvPrdtCatTrExc,excludedProperties=AmAvPrdtCatExc]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[parentCategories=AmPvmVParentCat]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvPrdtCatCat">
+  <set-property name="value"><![CDATA[categoryCategorization]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvPrdtCatTrExc">
+  <set-property name="value"><![CDATA[parentCategories]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvPrdtCatExc">
+  <set-property name="value"><![CDATA[catalogs,ancestorCategories,ancestorCategoryIds,catalogsRelatedProducts,derivedCatalogs,computedCatalogs]]></set-property>
+</add-item>
+
+<!-- Customization for default catalog editor -->
+
+<add-item item-descriptor="propertyViewMapping" id="AmPvmDefaultCatalog">
+  <set-property name="description"><![CDATA[Default Catalog Editor]]></set-property>
+  <set-property name="propertyView"><![CDATA[AmPvDefaultCatalog]]></set-property>
+</add-item>
+
+<!-- Property view for default category -->
+<add-item item-descriptor="propertyView" id="AmPvDefaultCatalog">
+  <set-property name="name"><![CDATA[AssetManager default catalog propertyView]]></set-property>
+  <set-property name="description"><![CDATA[default catalog property editor]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[/atg/commerce/catalog/ProductCatalog:catalog]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.RepositoryItemEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="attributes"><![CDATA[customAssetPropertyService=AmPvAttDefDefaultCatalog]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvAttDefDefaultCatalog">
+  <set-property name="defaultValue"><![CDATA[/atg/remote/assetmanager/editor/service/ReverseSinglePropertyService]]></set-property>
+</add-item>
+
+<!-- Customization for parent category editor -->
+
+<add-item item-descriptor="propertyViewMapping" id="AmPvmVParentCat">
+  <set-property name="description"><![CDATA[Parent Category Editor]]></set-property>
+  <set-property name="propertyView"><![CDATA[AmPvParentCat]]></set-property>
+</add-item>
+
+
+<!-- Property view for parent category -->
+<add-item item-descriptor="propertyView" id="AmPvParentCat">
+  <set-property name="name"><![CDATA[AssetManager parent categories propertyView]]></set-property>
+  <set-property name="description"><![CDATA[parent categories property editor]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[/atg/commerce/catalog/ProductCatalog:category]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.collection.ReferenceCollectionEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="attributes"><![CDATA[customAssetPropertyService=AmPvSrvParentCat,defaultColumnWidth=AmPvSrvParentCatColWid,useColumnHeaders=AmPvSrvParentCatHeaders,addItemsToTop=AmPvSrvParentCatTop,hideAddNew=AmPvSrvParentCatHideNew,subPropertyColumns=AmPvParentCatCols]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvSrvParentCat">
+  <set-property name="defaultValue"><![CDATA[/atg/remote/assetmanager/editor/service/ReversePropertyService]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvSrvParentCatColWid">
+  <set-property name="defaultValue"><![CDATA[125]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvSrvParentCatHeaders">
+  <set-property name="defaultValue"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvSrvParentCatTop">
+  <set-property name="defaultValue"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvSrvParentCatHideNew">
+  <set-property name="defaultValue"><![CDATA[true]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvParentCatCols">
+  <set-property name="defaultValue"><![CDATA[$id,$displayName,siteIds.name]]></set-property>
+  <set-property name="description"><![CDATA[Columns displayed for collections of parent categories]]></set-property>
+</add-item>
+
+<!-- View mapping for product's Suggestions tab -->
+
+<add-item item-descriptor="itemViewMapping" id="AmIvmPrdtCrossEdit">
+  <set-property name="name"><![CDATA[AssetManager Product CrossSell Item View Mapping]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager product cross-sell item view mapping]]></set-property>
+  <set-property name="displayName"><![CDATA[AmIvmPrdtCross.displayName]]></set-property>
+  <set-property name="attributeValues"><![CDATA[resourceBundle=AmAvPrdtCrossResourceBundle,includedCategories=AmIvmPrdtCrossEditCat,excludedProperties=AmAvPrdtCrossExc]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[relatedProductGroup=AmPvmEContGrpPrdSug,upsellProductGroup=AmPvmEContGrpPrdSug]]></set-property>
+  <set-property name="view"><![CDATA[AmIvDef]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmIvmPrdtCrossEditCat">
+  <set-property name="value"><![CDATA[categoryCrossSells,categoryUpsells,categoryAutomatedRecommendations]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="attributeValue" id="AmAvPrdtCrossExc">
+  <set-property name="value"><![CDATA[productInfos]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvPrdtCrossResourceBundle">
+  <set-property name="value"><![CDATA[atg.remote.commerce.Resources]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="AmPvmEContGrpPrdSug">
+  <set-property name="description"><![CDATA[AssetManager Content Group Path Property Edit]]></set-property>
+  <set-property name="propertyView"><![CDATA[AmPvEContGrp]]></set-property>
+</add-item>
+
+<!-- View mapping for product's Advanced tab -->
+
+<add-item item-descriptor="itemViewMapping" id="AmIvmPrdtAdv">
+  <set-property name="name"><![CDATA[AssetManager product advanced itemViewMapping]]></set-property>
+  <set-property name="displayName"><![CDATA[AmIvmPrdtAdv.displayName]]></set-property>
+  <set-property name="view"><![CDATA[AmIvDef]]></set-property>
+  <set-property name="attributeValues"><![CDATA[includeNewProperties=AmAvPrdtAdvProp,excludedProperties=AmIvmPrdtAdvExc]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvPrdtAdvProp">
+  <set-property name="value"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmIvmPrdtAdvExc">
+  <set-property name="value"><![CDATA[creationDate,itemAcl,adminDisplayName]]></set-property>
+</add-item>
+
+<!-- Customization for products in a collection editor -->
+
+<add-item item-descriptor="propertyView" id="AmPvProdCompEditColl">
+  <set-property name="name"><![CDATA[AssetManager product component editor for collections]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager product component editor for collections]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[/atg/commerce/catalog/ProductCatalog:product]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[true]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="attributes"><![CDATA[subPropertyColumns=AmPvadProdCompEditCollCols]]></set-property>
+  <set-property name="containerFamily"><![CDATA[CollectionEditor]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadProdCompEditCollCols">
+  <set-property name="defaultValue"><![CDATA[$id,$displayName]]></set-property>
+  <set-property name="description"><![CDATA[Columns displayed for collections of products]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewMapping" id="AmIvmPrdtPrice">
+  <set-property name="name"><![CDATA[AssetManager product pricing itemViewMapping]]></set-property>
+  <set-property name="displayName"><![CDATA[AmIvmPrdtPrice.displayName]]></set-property>
+  <set-property name="view"><![CDATA[AmIvPrdtPrice]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemView" id="AmIvPrdtPrice">
+  <set-property name="name"><![CDATA[AssetManager product pricing itemView]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager product pricing itemView]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.pricing.view.PricingPanel]]></set-property>
+  <set-property name="attributes"><![CDATA[customAssetViewService=AmIvadPrdtPriceService,itemViewMappingFilter=AmIvadPrdtPriceFilter]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewAttributeDefinition" id="AmIvadPrdtPriceService">
+  <set-property name="defaultValue"><![CDATA[/atg/remote/assetmanager/pricing/service/PriceListService]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewAttributeDefinition" id="AmIvadPrdtPriceFilter">
+  <set-property name="defaultValue"><![CDATA[/atg/remote/assetmanager/pricing/service/PricingTabFilter]]></set-property>
+</add-item>
+
+<!-- ======================================================================= -->
+<!-- Customizations for sku items                                            -->
+<!-- ======================================================================= -->
+
+<!-- Item mapping; contains one view mapping per tab -->
+
+<add-item item-descriptor="itemMapping" id="AmImSku">
+  <set-property name="name"><![CDATA[AssetManager]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager sku itemMapping]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/commerce/catalog/ProductCatalog]]></set-property>
+  <set-property name="itemName"><![CDATA[sku]]></set-property>
+  <set-property name="formHandler"><![CDATA[AmFhDef]]></set-property>
+  <set-property name="viewMappings"><![CDATA[AmIvmSkuGen,AmIvmSkuMedia,AmIvmSkuPricing,AmIvmSkuPrice,AmIvmSkuAdv]]></set-property>
+  <set-property name="attributes"><![CDATA[resourceBundle=AmAvSkuBnd]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvSkuBnd">
+  <set-property name="value"><![CDATA[atg.remote.commerce.Resources]]></set-property>
+</add-item>
+
+<!-- View mapping for sku's General tab -->
+
+<add-item item-descriptor="itemViewMapping" id="AmIvmSkuGen">
+  <set-property name="name"><![CDATA[AssetManager sku general itemViewMapping]]></set-property>
+  <set-property name="displayName"><![CDATA[AmIvmSkuGen.displayName]]></set-property>
+  <set-property name="view"><![CDATA[AmIvDef]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[siteIds=AmPvmVSiteIdsColl]]></set-property>
+  <set-property name="attributeValues"><![CDATA[includedCategories=AmAvSkuGenCat,excludedProperties=AmAvSkuGenExc]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvSkuGenCat">
+  <set-property name="value"><![CDATA[categoryBasics,categoryPresentation,categoryProductSkus,categoryPublishing]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvSkuGenExc">
+</add-item>
+
+<!-- View mapping for sku's Media tab -->
+
+<add-item item-descriptor="itemViewMapping" id="AmIvmSkuMedia">
+  <set-property name="name"><![CDATA[AssetManager sku media itemViewMapping]]></set-property>
+  <set-property name="displayName"><![CDATA[AmIvmSkuMedia.displayName]]></set-property>
+  <set-property name="view"><![CDATA[AmIvDef]]></set-property>
+  <set-property name="attributeValues"><![CDATA[includedCategories=AmAvSkuMediaCat]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvSkuMediaCat">
+  <set-property name="value"><![CDATA[categoryImagesMedia]]></set-property>
+</add-item>
+
+<!-- View mapping for sku's Pricing tab -->
+
+<add-item item-descriptor="itemViewMapping" id="AmIvmSkuPricing">
+  <set-property name="name"><![CDATA[AssetManager sku pricing itemViewMapping]]></set-property>
+  <set-property name="displayName"><![CDATA[AmIvmSkuPricing.displayName]]></set-property>
+  <set-property name="view"><![CDATA[AmIvDef]]></set-property>
+  <set-property name="attributeValues"><![CDATA[includedCategories=AmAvSkuPricingCat]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvSkuPricingCat">
+  <set-property name="value"><![CDATA[categoryPricing]]></set-property>
+</add-item>
+
+<!-- View mapping for sku's Advanced tab -->
+
+<add-item item-descriptor="itemViewMapping" id="AmIvmSkuAdv">
+  <set-property name="name"><![CDATA[AssetManager sku advanced itemViewMapping]]></set-property>
+  <set-property name="displayName"><![CDATA[AmIvmSkuAdv.displayName]]></set-property>
+  <set-property name="view"><![CDATA[AmIvDef]]></set-property>
+  <set-property name="attributeValues"><![CDATA[includeNewProperties=AmAvSkuAdvProp,excludedProperties=AmIvmSkuAdvExc]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvSkuAdvProp">
+  <set-property name="value"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmIvmSkuAdvExc">
+  <set-property name="value"><![CDATA[itemAcl,derivedCatalogs,catalogsReplacementProducts,computedCatalogs,replacementProducts,creationDate,skuInfos]]></set-property>
+</add-item>
+
+<!-- Customization for skus in a collection editor -->
+
+<add-item item-descriptor="propertyView" id="AmPvSkuCompEditColl">
+  <set-property name="name"><![CDATA[AssetManager sku component editor for collections]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager sku component editor for collections]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[/atg/commerce/catalog/ProductCatalog:sku]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[true]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="attributes"><![CDATA[subPropertyColumns=AmPvadSkuCompEditCollCols]]></set-property>
+  <set-property name="containerFamily"><![CDATA[CollectionEditor]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadSkuCompEditCollCols">
+  <set-property name="defaultValue"><![CDATA[$id,$displayName]]></set-property>
+  <set-property name="description"><![CDATA[Columns displayed for collections of skus]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewMapping" id="AmIvmSkuPrice">
+  <set-property name="name"><![CDATA[AssetManager sku pricing itemViewMapping]]></set-property>
+  <set-property name="displayName"><![CDATA[AmIvmSkuPrice.displayName]]></set-property>
+  <set-property name="view"><![CDATA[AmIvSkuPrice]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemView" id="AmIvSkuPrice">
+  <set-property name="name"><![CDATA[AssetManager sku pricing itemView]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager sku pricing itemView]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.pricing.view.PricingPanel]]></set-property>
+  <set-property name="attributes"><![CDATA[customAssetViewService=AmIvadSkuPriceService,itemViewMappingFilter=AmIvadSkuPriceFilter]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewAttributeDefinition" id="AmIvadSkuPriceService">
+  <set-property name="defaultValue"><![CDATA[/atg/remote/assetmanager/pricing/service/PriceListService]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewAttributeDefinition" id="AmIvadSkuPriceFilter">
+  <set-property name="defaultValue"><![CDATA[/atg/remote/assetmanager/pricing/service/PricingTabFilter]]></set-property>
+</add-item>
+
+<!-- ======================================================================= -->
+<!-- Customizations for media internal binary items                          -->
+<!-- ======================================================================= -->
+
+<!-- Item mapping; contains one view mapping per tab -->
+
+<add-item item-descriptor="itemMapping" id="AmImMediaBinary">
+  <set-property name="name"><![CDATA[AssetManager]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager media binary itemMapping]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/commerce/catalog/ProductCatalog]]></set-property>
+  <set-property name="itemName"><![CDATA[media-internal-binary]]></set-property>
+  <set-property name="formHandler"><![CDATA[AmFhDef]]></set-property>
+  <set-property name="viewMappings"><![CDATA[AmIvmMediaBinaryGen]]></set-property>
+  <set-property name="attributes"><![CDATA[resourceBundle=AmAvMediaBnd]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvMediaBnd">
+  <set-property name="value"><![CDATA[atg.remote.commerce.Resources]]></set-property>
+</add-item>
+
+<!-- View mapping for MediaBinary's General tab -->
+
+<add-item item-descriptor="itemViewMapping" id="AmIvmMediaBinaryGen">
+  <set-property name="name"><![CDATA[AssetManager media internal binary general itemViewMapping]]></set-property>
+  <set-property name="displayName"><![CDATA[AmIvmMediaBinaryGen.displayName]]></set-property>
+  <set-property name="view"><![CDATA[AmIvDef]]></set-property>
+  <set-property name="attributeValues"><![CDATA[specificProperties=AmAvMediaBinaryGenProps]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[name=AmPvmVImageName]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvMediaBinaryGenProps">
+  <set-property name="value"><![CDATA[name,description,data,parentFolder,path,creationDate,mimeType]]></set-property>
+</add-item>
+
+<!-- Customizations for media-internal-binary "name" field  -->
+
+<add-item item-descriptor="propertyViewMapping" id="AmPvmVImageName">
+  <set-property name="description"><![CDATA[Image Name property view]]></set-property>
+  <set-property name="propertyView"><![CDATA[AmPvImageName]]></set-property>
+  <set-property name="attributeValues"><![CDATA[propertyValidators=AmPValImageNameValidator,fileExtensions=AmPValImageExtensions]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmPValImageNameValidator">
+<set-property name="value"><![CDATA[atg.assetmanager.editor.view.property.validate.FileExtensionPropertyValidator]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmPValImageExtensions">
+<set-property name="value"><![CDATA[.jpg,.gif,.png]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="propertyView" id="AmPvImageName">
+  <set-property name="name"><![CDATA[AssetManager image name propertyView]]></set-property>
+  <set-property name="description"><![CDATA[image name propertyView]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[?]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.ImageNameEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="attributes"><![CDATA[inputFieldMaxlength=AmPvadDefInputFieldMaxLength,inputFieldMaxWidth=AmPvadDefInputFieldMaxWidth]]></set-property>
+</add-item>
+
+
+
+<!-- ======================================================================= -->
+<!-- Customizations for media internal text                                  -->
+<!-- ======================================================================= -->
+
+<!-- Item mapping; contains one view mapping per tab -->
+
+<add-item item-descriptor="itemMapping" id="AmImMediaText">
+  <set-property name="name"><![CDATA[AssetManager]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager media internal text itemMapping]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/commerce/catalog/ProductCatalog]]></set-property>
+  <set-property name="itemName"><![CDATA[media-internal-text]]></set-property>
+  <set-property name="formHandler"><![CDATA[AmFhDef]]></set-property>
+  <set-property name="viewMappings"><![CDATA[AmIvmMediaTextGen]]></set-property>
+  <set-property name="attributes"><![CDATA[resourceBundle=AmAvMediaTextBnd]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvMediaTextBnd">
+  <set-property name="value"><![CDATA[atg.remote.commerce.Resources]]></set-property>
+</add-item>
+
+<!-- View mapping for Media Internal Text's General tab -->
+
+<add-item item-descriptor="itemViewMapping" id="AmIvmMediaTextGen">
+  <set-property name="name"><![CDATA[AssetManager media internal text general itemViewMapping]]></set-property>
+  <set-property name="displayName"><![CDATA[AmIvmMediaTextGen.displayName]]></set-property>
+  <set-property name="view"><![CDATA[AmIvDef]]></set-property>
+  <set-property name="attributeValues"><![CDATA[specificProperties=AmAvMediaTextGenProps]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvMediaTextGenProps">
+  <set-property name="value"><![CDATA[name,description,data,parentFolder,path,creationDate]]></set-property>
+</add-item>
+
+
+
+<!-- ======================================================================= -->
+<!-- Customizations for media external                                       -->
+<!-- ======================================================================= -->
+
+<!-- Item mapping; contains one view mapping per tab -->
+
+<add-item item-descriptor="itemMapping" id="AmImMediaExternal">
+  <set-property name="name"><![CDATA[AssetManager]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager media external itemMapping]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/commerce/catalog/ProductCatalog]]></set-property>
+  <set-property name="itemName"><![CDATA[media-external]]></set-property>
+  <set-property name="formHandler"><![CDATA[AmFhDef]]></set-property>
+  <set-property name="viewMappings"><![CDATA[AmIvmMediaExternalGen]]></set-property>
+  <set-property name="attributes"><![CDATA[resourceBundle=AmAvMediaExternalBnd]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvMediaExternalBnd">
+  <set-property name="value"><![CDATA[atg.remote.commerce.Resources]]></set-property>
+</add-item>
+
+<!-- View mapping for Media External's General tab -->
+
+<add-item item-descriptor="itemViewMapping" id="AmIvmMediaExternalGen">
+  <set-property name="name"><![CDATA[AssetManager media external general itemViewMapping]]></set-property>
+  <set-property name="displayName"><![CDATA[AmIvmMediaExternalGen.displayName]]></set-property>
+  <set-property name="view"><![CDATA[AmIvDef]]></set-property>
+  <set-property name="attributeValues"><![CDATA[specificProperties=AmAvMediaExternalGenProps,displayImagePropertyName=AmAvMediaExtImagePropName]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvMediaExternalGenProps">
+  <set-property name="value"><![CDATA[name,description,parentFolder,path,creationDate,url]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvMediaExtImagePropName">
+  <set-property name="value"><![CDATA[this]]></set-property>
+</add-item>
+
+<!-- ======================================================================= -->
+<!-- Customizations for promotion items                                        -->
+<!-- ======================================================================= -->
+
+<!-- Promotions formHandler -->
+
+<add-item item-descriptor="formHandler" id="AmFhPrmo">
+  <set-property name="name"><![CDATA[AssetManager promotions default formHandler]]></set-property>
+  <set-property name="path"><![CDATA[/atg/remote/assetmanager/editor/service/PromotionAssetService]]></set-property>
+</add-item>
+
+<!-- Item mapping; contains one view mapping per tab -->
+
+<add-item item-descriptor="itemMapping" id="AmImPrmo">
+  <set-property name="name"><![CDATA[AssetManager]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager promotion itemMapping]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/commerce/catalog/ProductCatalog]]></set-property>
+  <set-property name="itemName"><![CDATA[promotion]]></set-property>
+  <set-property name="formHandler"><![CDATA[AmFhPrmo]]></set-property>
+  <set-property name="viewMappings"><![CDATA[AmIvmPrmoGen,AmIvmPrmoAvailCoup,AmIvmPrmoSites,AmIvmPrmoMed]]></set-property>
+  <set-property name="attributes"><![CDATA[resourceBundle=AmAvPrmoBnd]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvPrmoBnd">
+  <set-property name="value"><![CDATA[atg.remote.commerce.Resources]]></set-property>
+</add-item>
+
+<!-- View mapping for promotion's General tab -->
+
+<add-item item-descriptor="itemViewMapping" id="AmIvmPrmoGen">
+  <set-property name="name"><![CDATA[AssetManager promotions general itemViewMapping]]></set-property>
+  <set-property name="displayName"><![CDATA[AmIvmPrmoGen.displayName]]></set-property>
+  <set-property name="view"><![CDATA[AmIvDef]]></set-property>
+  <set-property name="attributeValues"><![CDATA[includedCategories=AmAvPrmoGenCat]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[pmdlRule=AmPvmPrmoPMDL,enabled=AmPvmPrmoEnbl,priority=AmPvmPrmoDefInt,displayName=AmPvmPrmoDef,description=AmPvmPrmoDef,closenessQualifiers=AmPvmPrmoRefColl]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvPrmoGenCat">
+  <set-property name="value"><![CDATA[categoryBasics,categoryPresentation,Uncategorized]]></set-property>
+</add-item>
+
+<!-- View mapping for promotion's Sites tab -->
+
+<add-item item-descriptor="itemViewMapping" id="AmIvmPrmoSites">
+  <set-property name="name"><![CDATA[AssetManager promotions sites itemViewMapping]]></set-property>
+  <set-property name="displayName"><![CDATA[AmIvmPrmoSites.displayName]]></set-property>
+  <set-property name="view"><![CDATA[AmIvDef]]></set-property>
+  <set-property name="attributeValues"><![CDATA[includedCategories=AmAvPrmoSitesCat]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[sites=AmPvmPrmoSitesRefColl,siteGroups=AmPvmPrmoSiteGroupsRefColl]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvPrmoSitesCat">
+  <set-property name="value"><![CDATA[categorySites]]></set-property>
+</add-item>  
+
+<!-- View mapping for promotion's Media tab -->
+
+<add-item item-descriptor="itemViewMapping" id="AmIvmPrmoMed">
+  <set-property name="name"><![CDATA[AssetManager promotions media itemViewMapping]]></set-property>
+  <set-property name="displayName"><![CDATA[AmIvmPrmoMed.displayName]]></set-property>
+  <set-property name="view"><![CDATA[AmIvPrmoMed]]></set-property>
+  <set-property name="attributeValues"><![CDATA[includedCategories=AmAvPrmoMedCat,excludedProperties=PromoMediaEndDate]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[media=AmPvmPrmoMedia,startDate=AmPvmPrmoMedDisplayDate]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvPrmoMedCat">
+  <set-property name="value"><![CDATA[categoryMedia]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="PromoMediaEndDate"> 
+  <set-property name="value"><![CDATA[endDate]]></set-property> 
+</add-item>  
+  
+<!-- Custom view for promotions Media tab -->
+
+<add-item item-descriptor="itemView" id="AmIvPrmoMed">
+  <set-property name="name"><![CDATA[Promotions Media Items itemView]]></set-property>
+  <set-property name="description"><![CDATA[Promotions Media Items itemView]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.DefaultAssetViewPanel]]></set-property>
+  <set-property name="attributes"><![CDATA[customAssetViewService=AmIvadPrmoMed]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewAttributeDefinition" id="AmIvadPrmoMed">
+  <set-property name="defaultValue"><![CDATA[/atg/remote/assetmanager/editor/service/PromotionMediaAssetViewService]]></set-property>
+</add-item>
+
+<!-- Property view mapping for promotions media items -->
+<add-item item-descriptor="propertyViewMapping" id="AmPvmPrmoMedia">
+  <set-property name="description"><![CDATA[AssetManager promotions media view mapping]]></set-property>
+  <set-property name="propertyView"><![CDATA[AmPvPrmoMedia]]></set-property>
+</add-item>
+
+<!-- Property view for promotions media items -->
+<add-item item-descriptor="propertyView" id="AmPvPrmoMedia">
+  <set-property name="name"><![CDATA[AssetManager media propertyView for promotions]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager media propertyView for promotions]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[?]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="attributes"><![CDATA[customAssetPropertyService=AmPvadPrmoMedia]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadPrmoMedia">
+  <set-property name="defaultValue"><![CDATA[/atg/remote/assetmanager/editor/service/PromotionMediaPropertyService]]></set-property>
+</add-item>
+
+<!-- Default change aware property view mapping for promotions -->
+<add-item item-descriptor="propertyViewMapping" id="AmPvmPrmoDef">
+  <set-property name="description"><![CDATA[AssetManager promotions default view mapping]]></set-property>
+  <set-property name="propertyView"><![CDATA[AmPvPrmoDef]]></set-property>
+</add-item>
+
+<!-- Default change aware propertyView for promotions-->
+<add-item item-descriptor="propertyView" id="AmPvPrmoDef">
+  <set-property name="name"><![CDATA[AssetManager default propertyView for promotions]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager default propertyView for promotions]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[?]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.ChangeAwareDefaultEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="attributes"><![CDATA[inputFieldMaxlength=AmPvadDefInputFieldMaxLength,inputFieldMaxWidth=AmPvadDefInputFieldMaxWidth]]></set-property>
+</add-item>
+
+<!-- Integer change aware property view mapping for promotions -->
+<add-item item-descriptor="propertyViewMapping" id="AmPvmPrmoDefInt">
+  <set-property name="description"><![CDATA[AssetManager promotions integer view mapping]]></set-property>
+  <set-property name="propertyView"><![CDATA[AmPvPrmoDefInt]]></set-property>
+</add-item>
+
+<!-- Integer change aware propertyView for promotions-->
+<add-item item-descriptor="propertyView" id="AmPvPrmoDefInt">
+  <set-property name="name"><![CDATA[AssetManager integer propertyView for promotions]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager integer propertyView for promotions]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[?]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.PromotionPriorityEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="attributes"><![CDATA[inputFieldMaxlength=AmPvadDefInputFieldMaxLength,inputFieldMaxWidth=AmPvadDefInputFieldMaxWidth,allowedChars=AmPvadIntAllowedChars,inputFieldMaxlength=AmPvadIntInputFieldMaxLength]]></set-property>
+</add-item>
+
+<!-- Boolean change aware property view mapping for promotions -->
+<add-item item-descriptor="propertyViewMapping" id="AmPvmPrmoEnbl">
+  <set-property name="description"><![CDATA[AssetManager promotions boolean view mapping]]></set-property>
+  <set-property name="propertyView"><![CDATA[AmPvPrmoEnbl]]></set-property>
+</add-item>
+
+<!-- Boolean change aware propertyView for promotions-->
+<add-item item-descriptor="propertyView" id="AmPvPrmoEnbl">
+  <set-property name="name"><![CDATA[AssetManager boolean propertyView for promotions]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager boolean propertyView for promotions]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[?]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.ChangeAwareBooleanEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="attributes"><![CDATA[resourceBundle=AmPvadPrmoEnblResBund,trueValueKey=AmPvadPrmoEnblTrueRes,falseValueKey=AmPvadPrmoEnblFalseRes]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadPrmoEnblTrueRes">
+  <set-property name="defaultValue"><![CDATA[booleanEditor.trueValueString]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadPrmoEnblFalseRes">
+  <set-property name="defaultValue"><![CDATA[booleanEditor.falseValueString]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadPrmoEnblResBund">
+  <set-property name="defaultValue"><![CDATA[ATGResources]]></set-property>
+</add-item>
+
+<!-- Change aware collection editor property view mapping for promotions -->
+<add-item item-descriptor="propertyViewMapping" id="AmPvmPrmoRefColl">
+  <set-property name="description"><![CDATA[AssetManager promotions collection editor view mapping]]></set-property>
+  <set-property name="propertyView"><![CDATA[AmPvPrmoRefColl]]></set-property>
+</add-item>
+
+<!-- Change aware collection editor propertyView for promotions-->
+<add-item item-descriptor="propertyView" id="AmPvPrmoRefColl">
+  <set-property name="name"><![CDATA[AssetManager collection editor propertyView for promotions]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager collection editor propertyView for promotions]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[?]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.ClosenessQualifierCollectionEditor]]></set-property>
+  <set-property name="attributes"><![CDATA[useColumnHeaders=AmPvadCQHeaders,subPropertyColumns=AmPvadCQCols,upsellMedia.nameColumnComponent=AmPvadCQMCC,upsellAction.nameColumnComponent=AmPvadCQACC,defaultColumnWidth=AmPvadCQColWidth,$displayNameColumnHeaderTextKey=AmPvadCQDspNmeHdr,resourceBundle=AmPvadCQResBund,customAssetPropertyService=AmPvAttDefCQPropSvc]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadCQHeaders">
+  <set-property name="defaultValue"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadCQCols">
+  <set-property name="defaultValue"><![CDATA[$id,$displayName,upsellMedia.name,upsellAction.name]]></set-property>
+  <set-property name="description"><![CDATA[Columns displayed for collections of closeness qualifiers]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadCQMCC">
+  <set-property name="defaultValue"><![CDATA[atg.assetmanager.editor.view.property.collection.UpsellMediaDataGridColumn]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadCQACC">
+  <set-property name="defaultValue"><![CDATA[atg.assetmanager.editor.view.property.collection.UpsellActionDataGridColumn]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadCQColWidth">
+  <set-property name="defaultValue"><![CDATA[125]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadCQDspNmeHdr">
+  <set-property name="defaultValue"><![CDATA[merchandising.promotions.CQEditor.displayNameHeaderText]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadCQResBund">
+  <set-property name="defaultValue"><![CDATA[atg.remote.commerce.Resources]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvAttDefCQPropSvc">
+  <set-property name="defaultValue"><![CDATA[/atg/remote/assetmanager/editor/service/PromotionCQPropertyService]]></set-property>
+</add-item>
+
+<!-- Collection editor property view mapping for promotions sites -->
+<add-item item-descriptor="propertyViewMapping" id="AmPvmPrmoSitesRefColl">
+  <set-property name="description"><![CDATA[AM collection editor for promotions sites]]></set-property>
+  <set-property name="propertyView"><![CDATA[AmPvPrmoSitesRefColl]]></set-property>
+</add-item>
+
+<!-- Collection editor propertyView for promotions sites -->
+<add-item item-descriptor="propertyView" id="AmPvPrmoSitesRefColl">
+  <set-property name="name"><![CDATA[AM collection editor for promotions sites]]></set-property>
+  <set-property name="description"><![CDATA[AM collection editor for promotions sites]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[?]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.collection.ReferenceCollectionEditor]]></set-property>
+  <set-property name="attributes"><![CDATA[hideAddNew=AmPvadPrmoHideAdd,useColumnHeaders=AmPvadPrmoUseHeaders,subPropertyColumns=AmPvadPrmoSiteCols,defaultColumnWidth=AmPvadPrmoSiteColWidth,nameColumnHeaderTextKey=AmPvadPSCEHdr,emptyCollectionMsg=AmPvadPSCEEmMsg,resourceBundle=AmPvadCQResBund]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadPrmoHideAdd">
+  <set-property name="defaultValue"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadPrmoUseHeaders">
+  <set-property name="defaultValue"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadPrmoSiteCols">
+  <set-property name="defaultValue"><![CDATA[name]]></set-property>
+  <set-property name="description"><![CDATA[Columns displayed for promotion sites]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadPrmoSiteColWidth">
+  <set-property name="defaultValue"><![CDATA[100%]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadPSCEHdr">
+  <set-property name="defaultValue"><![CDATA[merchandising.promotions.SiteEditor.nameHeaderText]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadPSCEEmMsg">
+  <set-property name="defaultValue"><![CDATA[Click Select to add existing items.]]></set-property>
+</add-item>
+
+<!-- Collection editor property view mapping for promotions site groups -->
+<add-item item-descriptor="propertyViewMapping" id="AmPvmPrmoSiteGroupsRefColl">
+  <set-property name="description"><![CDATA[AM collection editor for promotions site groups]]></set-property>
+  <set-property name="propertyView"><![CDATA[AmPvPrmoSiteGroupsRefColl]]></set-property>
+</add-item>
+
+<!-- Collection editor propertyView for promotions site groups -->
+<add-item item-descriptor="propertyView" id="AmPvPrmoSiteGroupsRefColl">
+  <set-property name="name"><![CDATA[AM collection editor for promotions site groups]]></set-property>
+  <set-property name="description"><![CDATA[AM collection editor for promotions site groups]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[?]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.collection.ReferenceCollectionEditor]]></set-property>
+  <set-property name="attributes"><![CDATA[hideAddNew=AmPvadPrmoHideAdd,useColumnHeaders=AmPvadPrmoUseHeaders,subPropertyColumns=AmPvadPrmoSiteGrpCols,defaultColumnWidth=AmPvadPrmoSiteColWidth,displayNameColumnHeaderTextKey=AmPvadPSGCEHdr,emptyCollectionMsg=AmPvadPSCEEmMsg,resourceBundle=AmPvadCQResBund]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadPrmoSiteGrpCols">
+  <set-property name="defaultValue"><![CDATA[displayName]]></set-property>
+  <set-property name="description"><![CDATA[Columns displayed for promotion site groups]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadPSGCEHdr">
+  <set-property name="defaultValue"><![CDATA[merchandising.promotions.SiteGroupEditor.nameHeaderText]]></set-property>
+</add-item>
+
+<!-- Timestamp change aware property view mapping for promotions -->
+<add-item item-descriptor="propertyViewMapping" id="AmPvmPrmoTimestamp">
+  <set-property name="description"><![CDATA[AssetManager promotions timestamp view mapping]]></set-property>
+  <set-property name="propertyView"><![CDATA[AmPvPrmoTimestamp]]></set-property>
+</add-item>
+
+<!-- Timestamp change aware propertyView for promotions-->
+<add-item item-descriptor="propertyView" id="AmPvPrmoTimestamp">
+  <set-property name="name"><![CDATA[AssetManager timestamp propertyView for promotions]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager timestamp propertyView for promotions]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[?]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.ChangeAwareTimestampEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- Property view mapping for promotions "usage" property -->
+<add-item item-descriptor="propertyViewMapping" id="AmPvmPrmoMedDisplayDate">
+  <set-property name="description"><![CDATA[AssetManager promotions media display date view mapping]]></set-property>
+  <set-property name="propertyView"><![CDATA[AmPvPrmoMedDisplayDate]]></set-property>
+</add-item>
+
+<!-- Property view for promotions "usage" property -->
+<add-item item-descriptor="propertyView" id="AmPvPrmoMedDisplayDate">
+  <set-property name="name"><![CDATA[AssetManager promotions media display date propertyView]]></set-property>
+  <set-property name="description"><![CDATA[The promotions media display date property which is a combination of the "startDate" and "endDate" properties ]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[?]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.PromotionMediaDisplayDateEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="attributes"><![CDATA[customAssetPropertyService=AmPvadPrmoMedDisplayDate]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadPrmoMedDisplayDate">
+  <set-property name="defaultValue"><![CDATA[/atg/remote/assetmanager/editor/service/PromotionMediaDisplayDatePropertyService]]></set-property>
+</add-item>
+
+<!-- Property view mapping for promotions condition and offer -->
+<add-item item-descriptor="propertyViewMapping" id="AmPvmPrmoPMDL">
+  <set-property name="description"><![CDATA[AssetManager promotions PMDL view mapping]]></set-property>
+  <set-property name="propertyView"><![CDATA[AmPvPrmoPMDL]]></set-property>
+</add-item>
+
+<!-- Property view for promotions condition & offer (i.e. the PMDL) -->
+<add-item item-descriptor="propertyView" id="AmPvPrmoPMDL">
+  <set-property name="name"><![CDATA[AssetManager condition and offer (PMDL) propertyView]]></set-property>
+  <set-property name="description"><![CDATA[Launches the promotions template UI for editing the condition and offer]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[string]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.ConditionAndOfferPropertyEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="attributes"><![CDATA[customAssetPropertyService=AmPvadPrmoPMDL]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadPrmoPMDL">
+  <set-property name="defaultValue"><![CDATA[/atg/remote/assetmanager/editor/service/ConditionAndOfferPropertyService]]></set-property>
+</add-item>
+
+<!-- View mapping for promotion's Availability and Coupons tab -->
+<add-item item-descriptor="itemViewMapping" id="AmIvmPrmoAvailCoup">
+  <set-property name="name"><![CDATA[AssetManager promotions coupons itemViewMapping]]></set-property>
+  <set-property name="displayName"><![CDATA[AmIvmPrmoAvailCoup.displayName]]></set-property>
+  <set-property name="view"><![CDATA[AmIvPrmoAvailCoup]]></set-property>
+  <set-property name="attributeValues"><![CDATA[includedCategories=AmAvPrmoAvailCoupCat]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[global=AmPvmPrmoAvail,oneUsePerOrder=AmPvmPrmoShip,beginUsable=AmPvmPrmoUsage,uses=AmPvmPrmoUses,allowMultiple=AmPvmPromoMultiple]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvPrmoAvailCoupCat">
+  <set-property name="value"><![CDATA[categoryAvailability]]></set-property>
+</add-item>
+
+<!-- Custom view for promotions Availability and Coupons tab -->
+
+<add-item item-descriptor="itemView" id="AmIvPrmoAvailCoup">
+  <set-property name="name"><![CDATA[Promotions Coupons itemView]]></set-property>
+  <set-property name="description"><![CDATA[Promotions Coupons itemView]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.DefaultAssetViewPanel]]></set-property>
+  <set-property name="attributes"><![CDATA[customAssetViewService=AmIvadPrmoAvailCoup]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewAttributeDefinition" id="AmIvadPrmoAvailCoup">
+  <set-property name="defaultValue"><![CDATA[/atg/remote/assetmanager/editor/service/PromotionCouponsAssetViewService]]></set-property>
+</add-item>   
+  
+<!-- Property view mapping for promotions "Availability" property -->
+<add-item item-descriptor="propertyViewMapping" id="AmPvmPrmoAvail">
+  <set-property name="description"><![CDATA[AssetManager promotions availability view mapping]]></set-property>
+  <set-property name="propertyView"><![CDATA[AmPvPrmoAvail]]></set-property>
+</add-item>
+
+<!-- Property view for promotions "Availability" property -->
+<add-item item-descriptor="propertyView" id="AmPvPrmoAvail">
+  <set-property name="name"><![CDATA[AssetManager promotions availability propertyView]]></set-property>
+  <set-property name="description"><![CDATA[The promotions "availability" property which is a combination of the "global" and "allowAnonymous" properties ]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[string]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.PromotionAvailabilityEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="attributes"><![CDATA[customAssetPropertyService=AmPvadPrmoAvail,required=AmPvadPrmoAvailReq]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadPrmoAvail">
+  <set-property name="defaultValue"><![CDATA[/atg/remote/assetmanager/editor/service/PromotionAvailabilityPropertyService]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadPrmoAvailReq">
+  <set-property name="defaultValue"><![CDATA[true]]></set-property>
+</add-item>
+  
+<!-- Property view mapping for promotions "usage" property -->
+<add-item item-descriptor="propertyViewMapping" id="AmPvmPrmoUsage">
+  <set-property name="description"><![CDATA[AssetManager promotions usage view mapping]]></set-property>
+  <set-property name="propertyView"><![CDATA[AmPvPrmoUsage]]></set-property>
+</add-item>
+
+<!-- Property view for promotions "usage" property -->
+<add-item item-descriptor="propertyView" id="AmPvPrmoUsage">
+  <set-property name="name"><![CDATA[AssetManager promotions usage propertyView]]></set-property>
+  <set-property name="description"><![CDATA[The promotions "usage" property which is a combination of the "global" and "allowAnonymous" properties ]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[string]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.PromotionUsageEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="attributes"><![CDATA[customAssetPropertyService=AmPvadPrmoUsage]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadPrmoUsage">
+  <set-property name="defaultValue"><![CDATA[/atg/remote/assetmanager/editor/service/PromotionUsagePropertyService]]></set-property>
+</add-item>
+  
+<!-- Property view mapping for promotions "allowMultiple" property -->
+<add-item item-descriptor="propertyViewMapping" id="AmPvmPromoMultiple">
+  <set-property name="description"><![CDATA[AssetManager promotions allow multiple view mapping]]></set-property>
+  <set-property name="propertyView"><![CDATA[AmPvPromoMultiple]]></set-property>
+</add-item>  
+  
+<!-- Property view for promotions "allowMultiple" property -->
+<add-item item-descriptor="propertyView" id="AmPvPromoMultiple">
+  <set-property name="name"><![CDATA[AssetManager promotions allowMultiple propertyView]]></set-property>
+  <set-property name="description"><![CDATA[The promotions "allowMultiple" property]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[?]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.AllowMultiplePropertyEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="attributes"><![CDATA[customAssetPropertyService=AmPvadPromoMultiple]]></set-property>
+</add-item>
+  
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadPromoMultiple">
+  <set-property name="defaultValue"><![CDATA[/atg/remote/assetmanager/editor/service/PromotionAllowMultiplePropertyService]]></set-property>
+</add-item>  
+
+<!-- Property view mapping for promotions shipping groups property (oneUse) -->
+<add-item item-descriptor="propertyViewMapping" id="AmPvmPrmoShip">
+  <set-property name="description"><![CDATA[AssetManager promotions shipping groups view mapping]]></set-property>
+  <set-property name="propertyView"><![CDATA[AmPvPrmoShip]]></set-property>
+</add-item>
+
+<!-- Property view for promotions shipping groups property (oneUse)-->
+<add-item item-descriptor="propertyView" id="AmPvPrmoShip">
+  <set-property name="name"><![CDATA[AssetManager propertyView for promotions shipping groups]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager propertyView for promotions shipping groups]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[?]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.PromotionUsePerOrderEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="attributes"><![CDATA[resourceBundle=AmPvadPrmoShipResBund,trueValueKey=AmPvadPrmoShipTrueRes,falseValueKey=AmPvadPrmoShipFalseRes]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadPrmoShipTrueRes">
+  <set-property name="defaultValue"><![CDATA[shippingGroupEditor.trueValueString]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadPrmoShipFalseRes">
+  <set-property name="defaultValue"><![CDATA[shippingGroupEditor.falseValueString]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadPrmoShipResBund">
+  <set-property name="defaultValue"><![CDATA[MerchandisingResources]]></set-property>
+</add-item>
+
+<!-- Property view mapping for promotions "uses" property -->
+<add-item item-descriptor="propertyViewMapping" id="AmPvmPrmoUses">
+  <set-property name="description"><![CDATA[AssetManager promotions uses view mapping]]></set-property>
+  <set-property name="propertyView"><![CDATA[AmPvPrmoUses]]></set-property>
+</add-item>
+
+<!-- Property view for promotions "uses" property -->
+<add-item item-descriptor="propertyView" id="AmPvPrmoUses">
+  <set-property name="name"><![CDATA[AssetManager promotions uses propertyView]]></set-property>
+  <set-property name="description"><![CDATA[The promotions "uses" property ]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[string]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.PromotionUsesEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="attributes"><![CDATA[customAssetPropertyService=AmPvadPrmoUses,required=AmPvadPrmoUsesReq]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadPrmoUses">
+  <set-property name="defaultValue"><![CDATA[/atg/remote/assetmanager/editor/service/PromotionUsesPropertyService]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadPrmoUsesReq">
+  <set-property name="defaultValue"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- ======================================================================= -->
+<!-- Customizations for promotion folders                                    -->
+<!-- ======================================================================= -->
+
+<!-- Item mapping; contains one view mapping per tab -->
+
+<add-item item-descriptor="itemMapping" id="AmImPrmoFold">
+  <set-property name="name"><![CDATA[AssetManager]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager promotion folder itemMapping]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/commerce/catalog/ProductCatalog]]></set-property>
+  <set-property name="itemName"><![CDATA[promotionFolder]]></set-property>
+  <set-property name="formHandler"><![CDATA[AmFhDef]]></set-property>
+  <set-property name="viewMappings"><![CDATA[AmIvmPrmoFoldGen]]></set-property>
+  <set-property name="attributes"><![CDATA[resourceBundle=AmAvPrmoBnd]]></set-property>
+</add-item>
+
+<!-- View mapping for promotion folder General tab -->
+
+<add-item item-descriptor="itemViewMapping" id="AmIvmPrmoFoldGen">
+  <set-property name="name"><![CDATA[AssetManager promotions folder general itemViewMapping]]></set-property>
+  <set-property name="displayName"><![CDATA[AmIvmPrmoFoldGen.displayName]]></set-property>
+  <set-property name="view"><![CDATA[AmIvDef]]></set-property>
+  <set-property name="attributeValues"><![CDATA[includedCategories=AmAvPrmoFoldGenCat]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvPrmoFoldGenCat">
+  <set-property name="value"><![CDATA[categoryBasics]]></set-property>
+</add-item>
+
+
+<!-- ======================================================================= -->
+<!-- Customizations for coupons                                              -->
+<!-- ======================================================================= -->
+
+<!-- Asset service / form handler for coupons -->
+<add-item item-descriptor="formHandler" id="AmFhCoup">
+  <set-property name="name"><![CDATA[AssetManager coupon default formHandler]]></set-property>
+  <set-property name="path"><![CDATA[/atg/remote/assetmanager/editor/service/CouponAssetService]]></set-property>
+</add-item>
+
+<!-- Item mapping; contains one view mapping per tab -->
+<add-item item-descriptor="itemMapping" id="AmImCoup">
+  <set-property name="name"><![CDATA[AssetManager]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager coupon itemMapping]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/commerce/claimable/ClaimableRepository]]></set-property>
+  <set-property name="itemName"><![CDATA[DeployablePromotionClaimable]]></set-property>
+  <set-property name="formHandler"><![CDATA[AmFhCoup]]></set-property>
+  <set-property name="viewMappings"><![CDATA[AmIvmCoupGen]]></set-property>
+  <set-property name="attributes"><![CDATA[resourceBundle=AmAvPrmoBnd,showCreationId=AmAvCoupCreateId]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvCoupCreateId">
+  <set-property name="value"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- View mapping for coupon General tab -->
+
+<add-item item-descriptor="itemViewMapping" id="AmIvmCoupGen">
+  <set-property name="name"><![CDATA[AssetManager coupons general itemViewMapping]]></set-property>
+  <set-property name="displayName"><![CDATA[AmIvmCoupGen.displayName]]></set-property>
+  <set-property name="view"><![CDATA[AmIvCoupGen]]></set-property>
+  <set-property name="attributeValues"><![CDATA[includedCategories=AmAvCoupGenCat]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[displayName=AmPvmCoupName,redeemableOnPromotionSites=AmPvmCoupUsePromoSite,promotions=AmPvmCoupPromo]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvCoupGenCat">
+  <set-property name="value"><![CDATA[categoryBasics]]></set-property>
+</add-item>
+
+<!-- Item view for coupon general tab-->
+<add-item item-descriptor="itemView" id="AmIvCoupGen">
+  <set-property name="name"><![CDATA[AssetManager coupons general itemView]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager coupons general itemView]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.DefaultAssetViewPanel]]></set-property>
+  <set-property name="attributes"><![CDATA[customAssetViewService=AmIvadCoupGenSvc]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewAttributeDefinition" id="AmIvadCoupGenSvc">
+  <set-property name="defaultValue"><![CDATA[/atg/remote/assetmanager/editor/service/CouponAssetViewService]]></set-property>
+</add-item>   
+
+<!-- Property view mapping for coupons "name" property -->
+<add-item item-descriptor="propertyViewMapping" id="AmPvmCoupName">
+  <set-property name="description"><![CDATA[AssetManager coupon name property view mapping]]></set-property>
+  <set-property name="propertyView"><![CDATA[AmPvCoupName]]></set-property>
+</add-item>
+
+<!-- Property view for coupons "name" property -->
+<add-item item-descriptor="propertyView" id="AmPvCoupName">
+  <set-property name="name"><![CDATA[AssetManager propertyView for coupons "name" property]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager propertyView for coupons "name" property]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[?]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.DefaultEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="attributes"><![CDATA[customAssetPropertyService=AmPvAttDefCoupName,inputFieldMaxlength=AmPvAttDefCoupNameLength,inputFieldMaxWidth=AmPvAttDefCoupNameWidth]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvAttDefCoupName">
+  <set-property name="defaultValue"><![CDATA[/atg/remote/assetmanager/editor/service/CouponNamePropertyService]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvAttDefCoupNameLength">
+  <set-property name="defaultValue"><![CDATA[254]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvAttDefCoupNameWidth">
+  <set-property name="defaultValue"><![CDATA[360]]></set-property>
+</add-item>
+  
+
+<!-- Property view mapping for coupons "use_promo_site" property -->
+<add-item item-descriptor="propertyViewMapping" id="AmPvmCoupUsePromoSite">
+  <set-property name="description"><![CDATA[AssetManager coupon use promo site property view mapping]]></set-property>
+  <set-property name="propertyView"><![CDATA[AmPvCoupUsePromoSite]]></set-property>
+</add-item>
+
+<!-- Property view for coupons "use_promo_site" property -->
+<add-item item-descriptor="propertyView" id="AmPvCoupUsePromoSite">
+  <set-property name="name"><![CDATA[AssetManager propertyView for coupons "use_promo_site" property]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager propertyView for coupons "use_promo_site" property]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[?]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.CouponsRedeemableForEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="attributes"><![CDATA[resourceBundle=AmPvadCoupUsePromoSiteResBund,trueValueKey=AmPvadCoupUsePromoSiteTrue,falseValueKey=AmPvadCoupUsePromoSiteFalse]]></set-property>
+</add-item>
+  
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadCoupUsePromoSiteTrue">
+  <set-property name="defaultValue"><![CDATA[couponGeneralEditor.trueValueString]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadCoupUsePromoSiteFalse">
+  <set-property name="defaultValue"><![CDATA[couponGeneralEditor.faliseValueString]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadCoupUsePromoSiteResBund">
+  <set-property name="defaultValue"><![CDATA[MerchandisingResources]]></set-property>
+</add-item>
+
+<!-- Collection editor property view mapping for Coupons promotions -->
+<add-item item-descriptor="propertyViewMapping" id="AmPvmCoupPromo">
+  <set-property name="description"><![CDATA[AM collection editor for promotions site groups]]></set-property>
+  <set-property name="propertyView"><![CDATA[AmPvCoupPromo]]></set-property>
+</add-item>
+
+<!-- Collection editor propertyView for coupons promotions -->
+<add-item item-descriptor="propertyView" id="AmPvCoupPromo">
+  <set-property name="name"><![CDATA[AM collection editor for promotions site groups]]></set-property>
+  <set-property name="description"><![CDATA[AM collection editor for promotions site groups]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[?]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.collection.CouponPromotionsCollectionEditor]]></set-property>
+  <set-property name="attributes"><![CDATA[useColumnHeaders=AmPvadPrmoUseHeaders,$displayNameColumnHeaderTextKey=AmPvadCoupPrmoHdr,resourceBundle=AmPvadCQResBund]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadPrmoUseHeaders">
+  <set-property name="defaultValue"><![CDATA[true]]></set-property>
+</add-item>  
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadCoupPrmoHdr">
+  <set-property name="defaultValue"><![CDATA[merchandising.coupon.displayNameLabel]]></set-property>
+</add-item>
+  
+
+<!-- ======================================================================= -->
+<!-- Customizations for coupon folders                                       -->
+<!-- ======================================================================= -->
+
+<!-- Item mapping; contains one view mapping per tab -->
+
+<add-item item-descriptor="itemMapping" id="AmImCoupFold">
+  <set-property name="name"><![CDATA[AssetManager]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager coupon folder itemMapping]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/commerce/claimable/ClaimableRepository]]></set-property>
+  <set-property name="itemName"><![CDATA[promotionClaimableFolder]]></set-property>
+  <set-property name="formHandler"><![CDATA[AmFhDef]]></set-property>
+  <set-property name="viewMappings"><![CDATA[AmIvmCoupFoldGen]]></set-property>
+  <set-property name="attributes"><![CDATA[resourceBundle=AmAvPrmoBnd]]></set-property>
+</add-item>
+
+<!-- View mapping for coupon General tab -->
+
+<add-item item-descriptor="itemViewMapping" id="AmIvmCoupFoldGen">
+  <set-property name="name"><![CDATA[AssetManager coupons folders general itemViewMapping]]></set-property>
+  <set-property name="displayName"><![CDATA[AmIvmCoupFoldGen.displayName]]></set-property>
+  <set-property name="view"><![CDATA[AmIvDef]]></set-property>
+  <set-property name="attributeValues"><![CDATA[includedCategories=AmAvCoupFoldGenCat]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvCoupFoldGenCat">
+  <set-property name="value"><![CDATA[categoryBasics]]></set-property>
+</add-item>
+
+<!-- ======================================================================= -->
+<!-- Customizations for closeness qualifiers                                 -->
+<!-- ======================================================================= -->
+
+<!-- Asset service / form handler for closeness qualifier -->
+<add-item item-descriptor="formHandler" id="AmFhCloseQual">
+  <set-property name="name"><![CDATA[AssetManager closeness qualifier default formHandler]]></set-property>
+  <set-property name="path"><![CDATA[/atg/remote/assetmanager/editor/service/ClosenessQualifierAssetService]]></set-property>
+</add-item>
+
+<!-- Item mapping for closeness qualifiers -->
+<add-item item-descriptor="itemMapping" id="AmImCloseQual">
+  <set-property name="name"><![CDATA[AssetManager]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager closeness qualifier itemMapping]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/commerce/catalog/ProductCatalog]]></set-property>
+  <set-property name="itemName"><![CDATA[closenessQualifier]]></set-property>
+  <set-property name="formHandler"><![CDATA[AmFhCloseQual]]></set-property>
+  <set-property name="viewMappings"><![CDATA[AmIvmCloseQualGen]]></set-property>
+  <set-property name="attributes"><![CDATA[resourceBundle=AmAvPrmoBnd]]></set-property>
+</add-item>
+
+<!-- View mapping for closeness qualifiers General tab -->
+<add-item item-descriptor="itemViewMapping" id="AmIvmCloseQualGen">
+  <set-property name="name"><![CDATA[AssetManager coupons folders general itemViewMapping]]></set-property>
+  <set-property name="displayName"><![CDATA[AmIvmCloseQualGen.displayName]]></set-property>
+  <set-property name="view"><![CDATA[AmIvDef]]></set-property>
+  <set-property name="attributeValues"><![CDATA[includedCategories=AmAvCloseQualGenCat]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[pmdlRule=AmPvmCloseQualPMDL,name=AmPvmCloseQualName]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvCloseQualGenCat">
+  <set-property name="value"><![CDATA[categoryBasics]]></set-property>
+</add-item>
+
+<!-- Property view mapping for closeness qualifier PMDL property -->
+<add-item item-descriptor="propertyViewMapping" id="AmPvmCloseQualPMDL">
+  <set-property name="description"><![CDATA[AssetManager closeness qualifier PMDL property view mapping]]></set-property>
+  <set-property name="propertyView"><![CDATA[AmPvCloseQualPMDL]]></set-property>
+</add-item>
+
+<!-- Property view for closeness qualifier PMDL property -->
+<add-item item-descriptor="propertyView" id="AmPvCloseQualPMDL">
+  <set-property name="name"><![CDATA[AssetManager closeness qualifier PMDL propertyView]]></set-property>
+  <set-property name="description"><![CDATA[The closeness qualifier PMDL property ]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[string]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.ExpressionPropertyEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="attributes"><![CDATA[customAssetPropertyService=AmPvadCloseQualPMDL]]></set-property>
+</add-item>
+
+<!-- Property service for Closeness Qualifier PMDL -->
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadCloseQualPMDL">
+  <set-property name="defaultValue"><![CDATA[/atg/remote/assetmanager/editor/service/ClosenessQualifierPMDLPropertyService]]></set-property>
+</add-item>
+
+<!-- Property view mapping for closeness qualifier name property -->
+<add-item item-descriptor="propertyViewMapping" id="AmPvmCloseQualName">
+  <set-property name="description"><![CDATA[AssetManager closeness qualifier name property view mapping]]></set-property>
+  <set-property name="propertyView"><![CDATA[AmPvCloseQualName]]></set-property>
+</add-item>
+
+<!-- Property view for closeness qualifier name property -->
+<add-item item-descriptor="propertyView" id="AmPvCloseQualName">
+  <set-property name="name"><![CDATA[AssetManager closeness qualifier name propertyView]]></set-property>
+  <set-property name="description"><![CDATA[The closeness qualifier name property ]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[string]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.DefaultEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="attributes"><![CDATA[inputFieldMaxWidth=AmPvadDefInputFieldMaxLength,inputFieldMaxlength=AmPvadCQNameMaxLength]]></set-property>
+</add-item>
+
+<!-- Max length for closeness qualifier name -->
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadCQNameMaxLength">
+  <set-property name="defaultValue"><![CDATA[40]]></set-property>
+</add-item>
+
+
+<!-- ======================================================================= -->
+<!-- Customizations for upsell actions                                       -->
+<!-- ======================================================================= -->
+
+<!-- Item mapping for upsell actions -->
+<add-item item-descriptor="itemMapping" id="AmImUpSell">
+  <set-property name="name"><![CDATA[AssetManager]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager upsell action itemMapping]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/commerce/catalog/ProductCatalog]]></set-property>
+  <set-property name="itemName"><![CDATA[upsellAction]]></set-property>
+  <set-property name="formHandler"><![CDATA[AmFhDef]]></set-property>
+  <set-property name="viewMappings"><![CDATA[AmIvmUpSell]]></set-property>
+  <set-property name="attributes"><![CDATA[resourceBundle=AmAvPrmoBnd]]></set-property>
+</add-item>
+
+<!-- View mapping for the single upsell actions tab -->
+<add-item item-descriptor="itemViewMapping" id="AmIvmUpSell">
+  <set-property name="name"><![CDATA[AssetManager upsell action general itemViewMapping]]></set-property>
+  <set-property name="displayName"><![CDATA[AmIvmUpSell.displayName]]></set-property>
+  <set-property name="view"><![CDATA[AmIvDef]]></set-property>
+  <set-property name="attributeValues"><![CDATA[includedCategories=AmAvUpSellGenCat]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[upsellProductsGroup=AmPvmUpSellGroup,name=AmPvmUpsellName]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvUpSellGenCat">
+  <set-property name="value"><![CDATA[categoryUpsell]]></set-property>
+</add-item>
+
+<!-- Property view mapping for upsell products group -->
+<add-item item-descriptor="propertyViewMapping" id="AmPvmUpSellGroup">
+  <set-property name="description"><![CDATA[AssetManager upsell products group property view mapping]]></set-property>
+  <set-property name="propertyView"><![CDATA[AmPvEContGrp]]></set-property>
+</add-item>
+
+<!-- Property view mapping for upsell name property -->
+<add-item item-descriptor="propertyViewMapping" id="AmPvmUpsellName">
+  <set-property name="description"><![CDATA[AssetManager upsell name property view mapping]]></set-property>
+  <set-property name="propertyView"><![CDATA[AmPvUpsellName]]></set-property>
+</add-item>
+
+<!-- Property view for upsell name property -->
+<add-item item-descriptor="propertyView" id="AmPvUpsellName">
+  <set-property name="name"><![CDATA[AssetManager upsell name propertyView]]></set-property>
+  <set-property name="description"><![CDATA[The upsell name property ]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[string]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.DefaultEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="attributes"><![CDATA[inputFieldMaxWidth=AmPvadDefInputFieldMaxLength,inputFieldMaxlength=AmPvadUpslNameMaxLength]]></set-property>
+</add-item>
+
+<!-- Max length for upsell name -->
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadUpslNameMaxLength">
+  <set-property name="defaultValue"><![CDATA[40]]></set-property>
+</add-item>
+
+</import-items>
+
+</gsa-template>
+<!-- @version $Id: //product/DCS-UI/version/10.0.2/src/install/data/viewmapping.xml#3 $$Change: 635969 $ -->

@@ -1,38 +1,5 @@
 import com.iteego.glasir.build.tasks.*
 
-/*****************************************************************************
- * Ear assembling tasks.
- *
- * NOTE: The default behavior for a ear task is 'release'
- * or 'production' behavior. We've made the development setup a special case
- * and there is a special task 'enableDevSettings' which you need to add
- * first in your dependsOn chain if you want to call the ear tasks and have
- * them generate dev enabled EAR files
- *
- *
- * Available attributes and their defaults:
- *
- *   File    outputFile - the ear file to be created
- *           default: none
- *   String  modules - names of the atg modules to assemble
- *           default: none
- *   boolean standalone - whether or not to include atg in the ear
- *           default: false
- *   boolean overwrite - whether to overwrite if exploded ear is present
- *           default: true
- *   boolean pack - whether to pack the resulting exploded dir into an archive
- *           default: true
- *   ConfigurableFileCollection searchRootDirs - where to search for modules
- *           when assembling the ear. You can create a custom one using something
- *           like "searchRootDirs = files('pathOne', 'pathTwo')"
- *           default: uses the configured atgRoot and the root of the source
- *                    control dir tree as search roots
- *   boolean loggingDebug - enable debug logging on the atg assembler
- *           default: false
- *
- *
- */
-
 task atgCoreSqlInstallationOrder << {
   description = "Displays build/install/sql ordering for ATG core modules."
   printAtgCoreSqlInstallationOrder()
@@ -88,22 +55,20 @@ task syncStoreEar(type: Copy) {
 }
 
 task syncAdminEar(type: Copy) {
-  println "ADMIN JBOSS SERVER NOT SET UP YET - GLASIR-50"
-  //from storeEar
-  //into "$jbossRoot/server/${store}/deploy/${storeEarName}"
+  from bigEar
+  into "$jbossRoot/server/$adminServerName/deploy/${bigEarName}"
 }
 
 task syncStoreServer(type: Copy, description: "Creates a dev server setup in your jboss installation") {
   from("$jbossRoot/server/default")
-  from "$globalDir/config/jboss/storefront/development"
+  from "$globalDir/config/jboss/store/dev"
   into "$jbossRoot/server/$storeServerName"
 }
 
 task syncAdminServer(type: Copy, description: "Creates a dev server setup in your jboss installation") {
-  println "ADMIN JBOSS SERVER NOT SET UP YET - GLASIR-50"
-  //from "$jbossRoot/server/default"
-  //from "$globalDir/config/jboss/storefront/development"
-  //into "$jbossRoot/server/${store}"
+  from "$jbossRoot/server/default"
+  from "$globalDir/config/jboss/admin/dev"
+  into "$jbossRoot/server/$adminServerName"
 }
 
 task syncDocRoot(type: Copy) {
@@ -114,8 +79,8 @@ task syncDocRoot(type: Copy) {
 
 //TODO: Fix the jsp task
 task jsp(type: Copy, description: "A fast sync of jsp files only into a (running or not) jboss node") {
-  from "$globalDir/MyBrand/Consumer/Webapp/j2ee-apps/Storefront/store.war"
-  into "$jbossRoot/server/${storeServerName}/deploy/${bigEarName}/storefront.war"
+  from "$globalDir/MyBrand/Consumer/Webapp/j2ee-apps/store/store.war"
+  into "$jbossRoot/server/${storeServerName}/deploy/${bigEarName}/store.war"
 }
  
 task syncStore(dependsOn: [syncStoreEar, syncStoreServer, syncDocRoot])
@@ -132,10 +97,19 @@ task ciDeploy {
   dependsOn = [syncStoreServer, syncAdminServer, syncStoreEar, syncAdminEar]
 }
 
-task cleanAll(dependsOn: ['clean']) << {
-  description = "Cleans out all the 'build' directories in the source tree _AND_ the jboss server dirs"
+task cleanLocalDatabase(dependsOn: ['clean']) << {
+  description = "Cleans out the local database, if any"
+  delete("$jbossRoot/server/glasir.db")
+}
+
+task cleanJbossServers(dependsOn: ['clean']) << {
+  description = "Cleans out the jboss server dirs"
   delete("$jbossRoot/server/${storeServerName}")
   delete("$jbossRoot/server/${adminServerName}")
+}
+
+task cleanAll(dependsOn: ['clean','cleanJbossServers','cleanLocalDatabase']) << {
+  description = "Cleans out all the 'build' directories in the source tree, the jboss server dirs and the local database, if any"
 }
 
 String getAllEnvironmentModules() {

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE gsa-template SYSTEM "dynamosystemresource:/atg/dtds/gsa/gsa_1.0.dtd">
+<gsa-template>
+<import-items>
+
+<add-item item-descriptor="organization" id="root">
+  <set-property name="name"><![CDATA[root]]></set-property>
+</add-item>
+
+<add-item item-descriptor="role" id="portal-admin" tag="portal-admin-role">
+  <set-property name="name"><![CDATA[portal-admin]]></set-property>
+  <set-property name="description"><![CDATA[Portal Administrator]]></set-property>
+</add-item>
+
+<add-item item-descriptor="roleFolder" id="root">
+  <set-property name="name"><![CDATA[All Communities]]></set-property>
+  <set-property name="childItems" value="$tag:portal-admin-role$" />
+</add-item>
+
+<add-item item-descriptor="roleFolder" id="100001">
+  <set-property name="childItems"><![CDATA[100008,100007,100006,100005,100004,100003,100002,100001]]></set-property>
+  <set-property name="type"><![CDATA[roleFolder]]></set-property>
+  <set-property name="description"><![CDATA[role : bizui]]></set-property>
+  <set-property name="name"><![CDATA[bizui]]></set-property>
+  <set-property name="parent"><![CDATA[root]]></set-property>
+</add-item>
+
+<add-item item-descriptor="role" id="100001">
+  <set-property name="description"><![CDATA[gear-manager: bizui]]></set-property>
+  <set-property name="name"><![CDATA[100001-gear-manager]]></set-property>
+</add-item>
+
+<add-item item-descriptor="role" id="100002">
+  <set-property name="description"><![CDATA[Guest: bizui]]></set-property>
+  <set-property name="name"><![CDATA[100001-guest]]></set-property>
+</add-item>
+
+<add-item item-descriptor="role" id="100003">
+  <set-property name="description"><![CDATA[Leader: bizui]]></set-property>
+  <set-property name="name"><![CDATA[100001-leader]]></set-property>
+</add-item>
+
+<add-item item-descriptor="role" id="100004">
+  <set-property name="description"><![CDATA[Member: bizui]]></set-property>
+  <set-property name="name"><![CDATA[100001-member]]></set-property>
+</add-item>
+
+<add-item item-descriptor="role" id="100005">
+  <set-property name="description"><![CDATA[page-manager: bizui]]></set-property>
+  <set-property name="name"><![CDATA[100001-page-manager]]></set-property>
+</add-item>
+
+<add-item item-descriptor="role" id="100006">
+  <set-property name="description"><![CDATA[portal-admin: bizui]]></set-property>
+  <set-property name="name"><![CDATA[100001-portal-admin]]></set-property>
+</add-item>
+
+<add-item item-descriptor="role" id="100007">
+  <set-property name="description"><![CDATA[settings-manager: bizui]]></set-property>
+  <set-property name="name"><![CDATA[100001-settings-manager]]></set-property>
+</add-item>
+
+<add-item item-descriptor="role" id="100008">
+  <set-property name="description"><![CDATA[user-manager: bizui]]></set-property>
+  <set-property name="name"><![CDATA[100001-user-manager]]></set-property>
+</add-item>
+
+<add-item item-descriptor="roleFolder" id="100002">
+  <set-property name="childItems"><![CDATA[100016,100015,100014,100013,100012,100011,100010,100009]]></set-property>
+  <set-property name="type"><![CDATA[roleFolder]]></set-property>
+  <set-property name="description"><![CDATA[role : atgadmin]]></set-property>
+  <set-property name="name"><![CDATA[atgadmin]]></set-property>
+  <set-property name="parent"><![CDATA[root]]></set-property>
+</add-item>
+
+<add-item item-descriptor="role" id="100009">
+  <set-property name="description"><![CDATA[gear-manager: atgadmin]]></set-property>
+  <set-property name="name"><![CDATA[100002-gear-manager]]></set-property>
+</add-item>
+
+<add-item item-descriptor="role" id="100010">
+  <set-property name="description"><![CDATA[Guest: atgadmin]]></set-property>
+  <set-property name="name"><![CDATA[100002-guest]]></set-property>
+</add-item>
+
+<add-item item-descriptor="role" id="100011">
+  <set-property name="description"><![CDATA[Leader: atgadmin]]></set-property>
+  <set-property name="name"><![CDATA[100002-leader]]></set-property>
+</add-item>
+
+<add-item item-descriptor="role" id="100012">
+  <set-property name="description"><![CDATA[Member: atgadmin]]></set-property>
+  <set-property name="name"><![CDATA[100002-member]]></set-property>
+</add-item>
+
+<add-item item-descriptor="role" id="100013">
+  <set-property name="description"><![CDATA[page-manager: atgadmin]]></set-property>
+  <set-property name="name"><![CDATA[100002-page-manager]]></set-property>
+</add-item>
+
+<add-item item-descriptor="role" id="100014">
+  <set-property name="description"><![CDATA[portal-admin: atgadmin]]></set-property>
+  <set-property name="name"><![CDATA[100002-portal-admin]]></set-property>
+</add-item>
+
+<add-item item-descriptor="role" id="100015">
+  <set-property name="description"><![CDATA[settings-manager: atgadmin]]></set-property>
+  <set-property name="name"><![CDATA[100002-settings-manager]]></set-property>
+</add-item>
+
+<add-item item-descriptor="role" id="100016">
+  <set-property name="description"><![CDATA[user-manager: atgadmin]]></set-property>
+  <set-property name="name"><![CDATA[100002-user-manager]]></set-property>
+</add-item>
+
+<add-item item-descriptor="user" id="portal-admin">
+  <set-property name="firstName"><![CDATA[admin]]></set-property>
+  <set-property name="parentOrganization" value="root"/> 
+  <set-property name="ancestors" value="root"/>
+  <set-property name="roles" value="$tag:portal-admin-role$,epubSuperAdmin"/>
+  <set-property name="password"><![CDATA[21232f297a57a5a743894a0e4a801fc3]]></set-property>
+  <set-property name="member"><![CDATA[true]]></set-property>
+  <set-property name="login"><![CDATA[admin]]></set-property>
+</add-item>
+
+</import-items>
+
+<!-- all update-item tags must go outside of the import-items tag -->
+
+<update-item item-descriptor="user" id="19004">
+  <set-property name="roles"><![CDATA[epubSuperAdmin,100004]]></set-property>
+</update-item>
+
+<update-item item-descriptor="roleFolder" id="root">
+  <set-property name="childFolders" add="true"><![CDATA[100001,100002]]></set-property>
+</update-item>
+
+</gsa-template>
+<!-- @version $Id: //product/BIZUI/version/10.0.2/data/profile.xml#2 $$Change: 635969 $-->

@@ -1,0 +1,98 @@
+<dsp:getvalueof id="productId" idtype="java.lang.String" param="product.repositoryId"/>
+
+
+  
+  
+  <dsp:importbean bean="/atg/userprofiling/Profile"/>
+  <dsp:importbean bean="/atg/store/profile/SessionBean"/>
+  <dsp:importbean bean="/atg/commerce/catalog/comparison/ProductListContains"/>
+  <dsp:importbean bean="/atg/commerce/catalog/comparison/ProductList"/>
+  <dsp:importbean bean="/atg/commerce/collections/filter/droplet/GiftlistSiteFilterDroplet"/>
+
+  <ul id="moreactions">
+  
+    <dsp:include page="/browse/gadgets/pickerAddToGiftListFormParams.jsp">
+      <dsp:param name="product" param="product" />
+      <dsp:param name="sku" param="selectedSku"/>
+      <dsp:param name="categoryId" param="categoryId"/>
+    </dsp:include>
+
+    <dsp:getvalueof var="isTransient" bean="Profile.transient"/>
+ 
+    <c:if test="${isTransient == 'false'}">
+      <dsp:getvalueof var="giftlists" bean="Profile.giftlists"/>
+    
+      <c:if test="${not empty giftlists}">
+        <%-- Add to Gift list --%>
+        <dsp:include page="/browse/gadgets/productAddToGiftList.jsp">
+          <dsp:param name="product" param="product" />
+          <dsp:param name="sku" param="selectedSku"/>
+          <dsp:param name="categoryId" param="categoryId"/>
+        </dsp:include>
+      </c:if>
+    </c:if>
+    
+    <%--
+      Check if selected SKU already added to a wishlist. If so, modify wishlist button style. 
+    --%>
+    <c:set var="viewWishListButtonStyle" value=""/>
+    <dsp:getvalueof param="selectedSku.repositoryId" var="selectedSkuId" vartype="java.lang.String"/>
+    <dsp:droplet name="GiftlistSiteFilterDroplet">
+      <dsp:param name="collection" bean="Profile.wishlist.giftlistItems"/>
+      <dsp:oparam name="output">
+        <dsp:getvalueof param="filteredCollection" var="items" vartype="java.util.Collection"/>
+        <c:forEach items="${items}" var="item">
+          <dsp:param name="item" value="${item}"/>
+          <dsp:getvalueof param="item.catalogRefId" var="currentSkuId" vartype="java.lang.String"/>
+          <c:if test="${selectedSkuId == currentSkuId}">
+            <c:set var="viewWishListButtonStyle" value=" atg_store_viewWishlist"/>
+          </c:if>
+        </c:forEach>
+      </dsp:oparam>
+    </dsp:droplet>
+    <li class="atg_store_wishListsActions${viewWishListButtonStyle}">
+      <%-- Add to Wishlist list --%>
+      <dsp:include page="/browse/gadgets/productAddToWishList.jsp">
+        <dsp:param name="product" param="product"/>
+        <dsp:param name="sku" param="selectedSku"/>
+        <dsp:param name="categoryId" param="categoryId"/>
+        <dsp:param name="actionFlag" value="${empty viewWishListButtonStyle}"/>
+      </dsp:include>
+    </li>
+    <dsp:droplet name="ProductListContains">
+      <dsp:param name="productList" bean="ProductList"/>
+      <dsp:param name="productID" param="product.repositoryId"/>
+
+      <dsp:oparam name="false">
+        <%-- Add to compare list --%>
+        <li class="atg_store_compareActions">
+          <dsp:include page="/browse/gadgets/productAction.jsp">
+            <dsp:param name="product" param="product"/>
+            <dsp:param name="categoryId" param="categoryId"/>
+            <dsp:param name="action" value="compare"/>
+          </dsp:include>
+        </li>
+      </dsp:oparam>
+      <dsp:oparam name="true">
+        <%-- View compare list --%>
+        <li class="atg_store_viewComparisons">
+          <dsp:include page="/browse/gadgets/productAction.jsp">
+            <dsp:param name="product" param="product"/>
+            <dsp:param name="categoryId" param="categoryId"/>
+            <dsp:param name="action" value="viewComparisons"/>
+          </dsp:include>
+        </li>
+      </dsp:oparam>
+    </dsp:droplet> 
+    <li class="atg_store_emailActions">
+      <%-- Email a Friend link --%>
+      <dsp:include page="/browse/gadgets/productAction.jsp">
+        <dsp:param name="product" param="product"/>
+        <dsp:param name="categoryId" param="categoryId"/>
+        <dsp:param name="action" value="emailFriend"/>
+      </dsp:include>       
+    </li>
+
+  </ul>
+
+<%-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.0.2/Storefront/j2ee/store.war/browse/gadgets/pickerActions.jspf#2 $$Change: 635969 $--%>

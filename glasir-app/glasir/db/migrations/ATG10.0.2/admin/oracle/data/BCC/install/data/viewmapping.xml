@@ -1,0 +1,819 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE gsa-template SYSTEM "dynamosystemresource:/atg/dtds/gsa/gsa_1.0.dtd">
+<gsa-template>
+<import-items>
+
+<!-- ======================================================================= -->
+<!-- AssetManager view mappings                                              -->
+<!-- ======================================================================= -->
+
+<!-- AssetManager mapModes -->
+
+<add-item item-descriptor="mapMode" id="AmMmDef">
+  <set-property name="name"><![CDATA[AssetManager.default]]></set-property>
+</add-item>
+
+<add-item item-descriptor="mapMode" id="AmMmDiff">
+  <set-property name="name"><![CDATA[AssetManager.reviewDiffs]]></set-property>
+</add-item>
+
+<add-item item-descriptor="mapMode" id="AmMmConflict">
+  <set-property name="name"><![CDATA[AssetManager.reviewConflicts]]></set-property>
+</add-item>
+
+<add-item item-descriptor="mapMode" id="AmMmSuggest">
+  <set-property name="name"><![CDATA[AssetManager.reviewSuggest]]></set-property>
+</add-item>
+
+<!-- Default formHandler -->
+
+<add-item item-descriptor="formHandler" id="AmFhDef">
+  <set-property name="name"><![CDATA[AssetManager default formHandler]]></set-property>
+  <set-property name="path"><![CDATA[/atg/remote/assetmanager/editor/service/RepositoryAssetService]]></set-property>
+</add-item>
+
+<!-- Diff formHandler -->
+
+<add-item item-descriptor="formHandler" id="AmFhDiff">
+  <set-property name="name"><![CDATA[AssetManager diff formHandler]]></set-property>
+  <set-property name="path"><![CDATA[/atg/remote/assetmanager/diff/DiffAssetStateAssembler]]></set-property>
+</add-item>
+
+<!-- Default itemMapping -->
+
+<add-item item-descriptor="itemMapping" id="AmImDef">
+  <set-property name="name"><![CDATA[AssetManager]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager default itemMapping]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="itemPath"><![CDATA[Repository Item]]></set-property>
+  <set-property name="itemName"><![CDATA[*]]></set-property>
+  <set-property name="formHandler"><![CDATA[AmFhDef]]></set-property>
+  <set-property name="viewMappings"><![CDATA[AmIvmDef]]></set-property>
+  <set-property name="attributes"><![CDATA[resourceBundle=AmAvDefBnd]]></set-property>
+</add-item>
+
+<!-- Default itemMapping in diff mode -->
+
+<add-item item-descriptor="itemMapping" id="AmImDiff">
+  <set-property name="name"><![CDATA[AssetManager]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager diff itemMapping]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDiff]]></set-property>
+  <set-property name="itemPath"><![CDATA[Repository Item]]></set-property>
+  <set-property name="itemName"><![CDATA[*]]></set-property>
+  <set-property name="formHandler"><![CDATA[AmFhDiff]]></set-property>
+  <set-property name="viewMappings"><![CDATA[AmIvmDiff]]></set-property>
+  <set-property name="attributes"><![CDATA[resourceBundle=AmAvDefBnd]]></set-property>
+</add-item>
+
+<!-- Default itemMapping in conflict mode -->
+
+<add-item item-descriptor="itemMapping" id="AmImConflict">
+  <set-property name="name"><![CDATA[AssetManager]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager conflict itemMapping]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmConflict]]></set-property>
+  <set-property name="itemPath"><![CDATA[Repository Item]]></set-property>
+  <set-property name="itemName"><![CDATA[*]]></set-property>
+  <set-property name="formHandler"><![CDATA[AmFhDiff]]></set-property>
+  <set-property name="viewMappings"><![CDATA[AmIvmConflict]]></set-property>
+  <set-property name="attributes"><![CDATA[resourceBundle=AmAvDefBnd]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemMapping" id="AmImSuggest">
+  <set-property name="name"><![CDATA[AssetManager]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager suggest itemMapping]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmSuggest]]></set-property>
+  <set-property name="itemPath"><![CDATA[Repository Item]]></set-property>
+  <set-property name="itemName"><![CDATA[*]]></set-property>
+  <set-property name="formHandler"><![CDATA[AmFhDiff]]></set-property>
+  <set-property name="viewMappings"><![CDATA[AmIvmSuggest]]></set-property>
+  <set-property name="attributes"><![CDATA[resourceBundle=AmAvDefBnd]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="AmAvDefBnd">
+  <set-property name="value"><![CDATA[atg.remote.assetmanager.Resources]]></set-property>
+</add-item>
+
+<!-- Default itemViewMapping -->
+
+<add-item item-descriptor="itemViewMapping" id="AmIvmDef">
+  <set-property name="name"><![CDATA[AssetManager default itemViewMapping]]></set-property>
+  <set-property name="displayName"><![CDATA[AmIvmDef.displayName]]></set-property>
+  <set-property name="view"><![CDATA[AmIvDef]]></set-property>
+  <!-- NB: Remove this when PR 159798 is fixed -->
+  <set-property name="attributeValues"><![CDATA[resourceBundle=AmAvDefBnd]]></set-property>
+</add-item>
+
+<!-- Default itemViewMapping in diff mode -->
+
+<add-item item-descriptor="itemViewMapping" id="AmIvmDiff">
+  <set-property name="name"><![CDATA[AssetManager diff itemViewMapping]]></set-property>
+  <set-property name="displayName"><![CDATA[AssetManager diff itemViewMapping]]></set-property>
+  <set-property name="view"><![CDATA[AmIvDiff]]></set-property>
+  <set-property name="attributeValues"><![CDATA[resourceBundle=AmAvDefBnd]]></set-property>
+</add-item>
+
+<!-- Default itemViewMapping in conflict mode -->
+
+<add-item item-descriptor="itemViewMapping" id="AmIvmConflict">
+  <set-property name="name"><![CDATA[AssetManager conflict itemViewMapping]]></set-property>
+  <set-property name="displayName"><![CDATA[AssetManager conflict itemViewMapping]]></set-property>
+  <set-property name="view"><![CDATA[AmIvConflict]]></set-property>
+  <set-property name="attributeValues"><![CDATA[resourceBundle=AmAvDefBnd]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewMapping" id="AmIvmSuggest">
+  <set-property name="name"><![CDATA[AssetManager suggest itemViewMapping]]></set-property>
+  <set-property name="displayName"><![CDATA[AssetManager suggest itemViewMapping]]></set-property>
+  <set-property name="view"><![CDATA[AmIvSuggest]]></set-property>
+  <set-property name="attributeValues"><![CDATA[resourceBundle=AmAvDefBnd]]></set-property>
+</add-item>
+
+<!-- Default itemView -->
+
+<add-item item-descriptor="itemView" id="AmIvDef">
+  <set-property name="name"><![CDATA[AssetManager default itemView]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager default itemView]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.DefaultAssetViewPanel]]></set-property>
+</add-item>
+
+<!-- Default itemView in diff mode -->
+
+<add-item item-descriptor="itemView" id="AmIvDiff">
+  <set-property name="name"><![CDATA[AssetManager diff itemView]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager diff itemView]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDiff]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.DefaultAssetViewPanel]]></set-property>
+</add-item>
+
+<!-- Default itemView in conflict mode -->
+
+<add-item item-descriptor="itemView" id="AmIvConflict">
+  <set-property name="name"><![CDATA[AssetManager conflict itemView]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager conflict itemView]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmConflict]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.DefaultAssetViewPanel]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemView" id="AmIvSuggest">
+  <set-property name="name"><![CDATA[AssetManager suggest itemView]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager suggest itemView]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmSuggest]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.DefaultAssetViewPanel]]></set-property>
+</add-item>
+
+<!-- ======================================================================= -->
+<!-- Default propertyViews                                                   -->
+<!-- ======================================================================= -->
+
+<!-- Default propertyView -->
+
+<add-item item-descriptor="propertyView" id="AmPvDef">
+  <set-property name="name"><![CDATA[AssetManager default propertyView]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager default propertyView]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[?]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.DefaultEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="attributes"><![CDATA[inputFieldMaxlength=AmPvadDefInputFieldMaxLength]]></set-property>
+</add-item>
+
+<!-- Default propertyView in diff mode -->
+
+<add-item item-descriptor="propertyView" id="AmPvDDef">
+  <set-property name="name"><![CDATA[AssetManager diff propertyView]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager diff propertyView]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDiff]]></set-property>
+  <set-property name="type"><![CDATA[?]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.diff.view.property.DefaultPropertyViewer]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- Default propertyView in conflict mode -->
+
+<add-item item-descriptor="propertyView" id="AmPvCDef">
+  <set-property name="name"><![CDATA[AssetManager conflict propertyView]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager conflict propertyView]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmConflict]]></set-property>
+  <set-property name="type"><![CDATA[?]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.diff.view.property.DefaultPropertyViewer]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="AmPvSDef">
+  <set-property name="name"><![CDATA[AssetManager suggest propertyView]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager suggest propertyView]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmSuggest]]></set-property>
+  <set-property name="type"><![CDATA[?]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.diff.view.property.DefaultPropertyViewer]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadDefInputFieldMaxLength">
+  <set-property name="defaultValue"><![CDATA[254]]></set-property>
+  <set-property name="description"><![CDATA[Max number of characters in the input field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadDefInputFieldMaxWidth">
+  <set-property name="defaultValue"><![CDATA[600]]></set-property>
+  <set-property name="description"><![CDATA[Max width of the input field in pixels]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="AmPvInt">
+  <set-property name="name"><![CDATA[AssetManager integer propertyView]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager integer propertyView]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[int]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.DefaultEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="attributes"><![CDATA[inputFieldMaxlength=AmPvadIntInputFieldMaxLength,allowedChars=AmPvadIntAllowedChars]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadIntInputFieldMaxLength">
+  <set-property name="defaultValue"><![CDATA[254]]></set-property>
+  <set-property name="description"><![CDATA[Max number of characters in the input field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadIntInputFieldMaxWidth">
+  <set-property name="defaultValue"><![CDATA[600]]></set-property>
+  <set-property name="description"><![CDATA[Max width of input field in pixels]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadIntAllowedChars">
+  <set-property name="defaultValue"><![CDATA[0-9\-]]></set-property>
+  <set-property name="description"><![CDATA[Characters allowed in the input field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="AmPvFloat">
+  <set-property name="name"><![CDATA[AssetManager float propertyView]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager float propertyView]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[float]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.DefaultEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="attributes"><![CDATA[inputFieldMaxlength=AmPvadFloatInputFieldMaxLength,allowedChars=AmPvadFloatAllowedChars]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadFloatInputFieldMaxLength">
+  <set-property name="defaultValue"><![CDATA[254]]></set-property>
+  <set-property name="description"><![CDATA[Max number of characters in the input field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadFloatInputFieldMaxWidth">
+  <set-property name="defaultValue"><![CDATA[600]]></set-property>
+  <set-property name="description"><![CDATA[Max width of input field in pixels]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadFloatAllowedChars">
+  <set-property name="defaultValue"><![CDATA[0-9+\-.eEfF]]></set-property>
+  <set-property name="description"><![CDATA[Characters allowed in the input field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="AmPvBool">
+  <set-property name="name"><![CDATA[AssetManager boolean propertyView]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager boolean propertyView]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[boolean]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.BooleanEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="AmPvDBool">
+  <set-property name="name"><![CDATA[AssetManager boolean propertyView in diff mode]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager boolean propertyView in diff mode]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDiff]]></set-property>
+  <set-property name="type"><![CDATA[boolean]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.diff.view.property.BooleanViewer]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="AmPvCBool">
+  <set-property name="name"><![CDATA[AssetManager boolean propertyView in conflict mode]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager boolean propertyView in conflict mode]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmConflict]]></set-property>
+  <set-property name="type"><![CDATA[boolean]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.diff.view.property.BooleanViewer]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="AmPvEnum">
+  <set-property name="name"><![CDATA[AssetManager enumerated propertyView]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager enumerated propertyView]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[enumerated]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.EnumEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="attributes"><![CDATA[listMaxHeight=AmPvadEnumListMaxHeight]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="AmPvStringEnum">
+  <set-property name="name"><![CDATA[AssetManager enumerated string propertyView]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager enumerated string propertyView]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[enumerated string]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.EnumEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="attributes"><![CDATA[listMaxHeight=AmPvadEnumListMaxHeight]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadEnumListMaxHeight">
+  <set-property name="defaultValue"><![CDATA[250]]></set-property>
+  <set-property name="description"><![CDATA[Max height of list in pixels]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="AmPvDate">
+  <set-property name="name"><![CDATA[AssetManager date propertyView]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager date propertyView]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[date]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.DateEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="AmPvDDate">
+  <set-property name="name"><![CDATA[AssetManager date propertyView in diff mode]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager date propertyView in diff mode]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDiff]]></set-property>
+  <set-property name="type"><![CDATA[date]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.diff.view.property.DateViewer]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="AmPvCDate">
+  <set-property name="name"><![CDATA[AssetManager date propertyView in conflict mode]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager date propertyView in conflict mode]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmConflict]]></set-property>
+  <set-property name="type"><![CDATA[date]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.diff.view.property.DateViewer]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="AmPvTimestamp">
+  <set-property name="name"><![CDATA[AssetManager timestamp propertyView]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager timestamp propertyView]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[timestamp]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.TimestampEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="AmPvDTimestamp">
+  <set-property name="name"><![CDATA[AssetManager timestamp propertyView in diff mode]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager timestamp propertyView in diff mode]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDiff]]></set-property>
+  <set-property name="type"><![CDATA[timestamp]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.diff.view.property.TimestampViewer]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="AmPvCTimestamp">
+  <set-property name="name"><![CDATA[AssetManager timestamp propertyView in conflict mode]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager timestamp propertyView in conflict mode]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmConflict]]></set-property>
+  <set-property name="type"><![CDATA[timestamp]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.diff.view.property.TimestampViewer]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="AmPvBigStr">
+  <set-property name="name"><![CDATA[AssetManager big string propertyView]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager big string propertyView]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[big string]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.BigStringEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="attributes"><![CDATA[hideFontFamily=AmPvadBigStrHideFontFamily,hideFontColor=AmPvadBigStrHideFontColor,editorHeight=AmPvadBigStrEditorHeight]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadBigStrHideFontFamily">
+  <set-property name="defaultValue"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Controls whether the font family control is hidden]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadBigStrHideFontColor">
+  <set-property name="defaultValue"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Controls whether the font color control is hidden]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadBigStrEditorHeight">
+  <set-property name="defaultValue"><![CDATA[300]]></set-property>
+  <set-property name="description"><![CDATA[Max height of the rich text editor in pixels]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="AmPvBigStrPlain">
+  <set-property name="name"><![CDATA[AA AssetManager plain text big string propertyView]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager plain text big string propertyView]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[big string]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.BigStringPlainTextEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="attributes"><![CDATA[editorHeight=AmPvadPlainBigStrEditorHeight]]></set-property></add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadPlainBigStrEditorHeight">
+  <set-property name="defaultValue"><![CDATA[300]]></set-property>
+  <set-property name="description"><![CDATA[Max height of the big text editor in pixels]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="AmPvRepositoryItem">
+  <set-property name="name"><![CDATA[AssetManager repository item propertyView]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager repository item propertyView]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[Repository Item]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.RepositoryItemEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="AmPvBinary">
+  <set-property name="name"><![CDATA[AssetManager binary propertyView]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager binary propertyView]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[binary]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.ImageUploadEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="AmPvDRepositoryItem">
+  <set-property name="name"><![CDATA[AssetManager repository item propertyView in diff mode]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager repository item propertyView in diff mode]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDiff]]></set-property>
+  <set-property name="type"><![CDATA[Repository Item]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.diff.view.property.RepositoryItemViewer]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="AmPvCRepositoryItem">
+  <set-property name="name"><![CDATA[AssetManager repository item propertyView in conflict mode]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager repository item propertyView in conflict mode]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmConflict]]></set-property>
+  <set-property name="type"><![CDATA[Repository Item]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.diff.view.property.RepositoryItemViewer]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="AmPvDList">
+  <set-property name="name"><![CDATA[AssetManager list propertyView in diff mode]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager list propertyView in diff mode]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDiff]]></set-property>
+  <set-property name="type"><![CDATA[list]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.diff.view.property.CollectionViewer]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="AmPvCList">
+  <set-property name="name"><![CDATA[AssetManager list propertyView in conflict mode]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager list propertyView in conflict mode]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmConflict]]></set-property>
+  <set-property name="type"><![CDATA[list]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.diff.view.property.CollectionViewer]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="AmPvSList">
+  <set-property name="name"><![CDATA[AssetManager list propertyView in suggest mode]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager list propertyView in suggest mode]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmSuggest]]></set-property>
+  <set-property name="type"><![CDATA[list]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.diff.view.property.SuggestedListViewer]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="AmPvDSet">
+  <set-property name="name"><![CDATA[AssetManager set propertyView in diff mode]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager set propertyView]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDiff]]></set-property>
+  <set-property name="type"><![CDATA[set]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.diff.view.property.CollectionViewer]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="AmPvCSet">
+  <set-property name="name"><![CDATA[AssetManager set propertyView in conflict mode]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager set propertyView in conflict mode]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmConflict]]></set-property>
+  <set-property name="type"><![CDATA[set]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.diff.view.property.CollectionViewer]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="AmPvSSet">
+  <set-property name="name"><![CDATA[AssetManager set propertyView in suggest mode]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager set propertyView in suggest mode]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmSuggest]]></set-property>
+  <set-property name="type"><![CDATA[set]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.diff.view.property.SuggestedSetViewer]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="AmPvDArray">
+  <set-property name="name"><![CDATA[AssetManager array propertyView in diff mode]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager array propertyView]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDiff]]></set-property>
+  <set-property name="type"><![CDATA[array]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.diff.view.property.CollectionViewer]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="AmPvCArray">
+  <set-property name="name"><![CDATA[AssetManager array propertyView in conflict mode]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager array propertyView in conflict mode]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmConflict]]></set-property>
+  <set-property name="type"><![CDATA[array]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.diff.view.property.CollectionViewer]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="AmPvSArray">
+  <set-property name="name"><![CDATA[AssetManager array propertyView in suggest mode]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager array propertyView in suggest mode]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmSuggest]]></set-property>
+  <set-property name="type"><![CDATA[array]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.diff.view.property.SuggestedListViewer]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="AmPvDMap">
+  <set-property name="name"><![CDATA[AssetManager map propertyView in diff mode]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager map propertyView]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDiff]]></set-property>
+  <set-property name="type"><![CDATA[map]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.diff.view.property.MapViewer]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="AmPvCMap">
+  <set-property name="name"><![CDATA[AssetManager map propertyView in conflict mode]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager map propertyView in conflict mode]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmConflict]]></set-property>
+  <set-property name="type"><![CDATA[map]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.diff.view.property.MapViewer]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="AmPvSMap">
+  <set-property name="name"><![CDATA[AssetManager map propertyView in suggest mode]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager map propertyView in suggest mode]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmSuggest]]></set-property>
+  <set-property name="type"><![CDATA[map]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.diff.view.property.SuggestedMapViewer]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- Collection editor mappings -->
+
+<add-item item-descriptor="propertyView" id="AmPvRefList">
+  <set-property name="name"><![CDATA[AssetManager reference list propertyView]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager reference list propertyView]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[list]]></set-property>
+  <set-property name="componentType"><![CDATA[Repository Item]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.collection.ReferenceCollectionEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="attributes"><![CDATA[useColumnHeaders=AmPvadRefListColumnHeaders,addItemsToTop=AmPvadRefListAddToTop]]></set-property>
+  <set-property name="containerFamily"><![CDATA[CollectionEditor]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadRefListColumnHeaders">
+  <set-property name="defaultValue"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Indicates whether column headers are used]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadRefListAddToTop">
+  <set-property name="defaultValue"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Indicates whether items are added to the top]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="AmPvPrimList">
+  <set-property name="name"><![CDATA[AssetManager primitive list propertyView]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager primitive list propertyView]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[list]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.collection.PrimitiveCollectionEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="attributes"><![CDATA[useColumnHeaders=AmPvadPrimListColumnHeaders,addItemsToTop=AmPvadPrimListAddToTop]]></set-property>
+  <set-property name="containerFamily"><![CDATA[CollectionEditor]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadPrimListColumnHeaders">
+  <set-property name="defaultValue"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Indicates whether column headers are used]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadPrimListAddToTop">
+  <set-property name="defaultValue"><![CDATA[false]]></set-property>
+  <set-property name="description"><![CDATA[Indicates whether new values are added to the top]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="AmPvRefArray">
+  <set-property name="name"><![CDATA[AssetManager reference array propertyView]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager reference array propertyView]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[array]]></set-property>
+  <set-property name="componentType"><![CDATA[Repository Item]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.collection.ReferenceCollectionEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="attributes"><![CDATA[useColumnHeaders=AmPvadRefArrayColumnHeaders,addItemsToTop=AmPvadRefArrayAddToTop]]></set-property>
+  <set-property name="containerFamily"><![CDATA[CollectionEditor]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadRefArrayColumnHeaders">
+  <set-property name="defaultValue"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Indicates whether column headers are used]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadRefArrayAddToTop">
+  <set-property name="defaultValue"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Indicates whether items are added to the top]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="AmPvPrimArray">
+  <set-property name="name"><![CDATA[AssetManager primitive array propertyView]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager primitive array propertyView]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[array]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.collection.PrimitiveCollectionEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="attributes"><![CDATA[useColumnHeaders=AmPvadPrimArrayColumnHeaders,addItemsToTop=AmPvadPrimArrayAddToTop]]></set-property>
+  <set-property name="containerFamily"><![CDATA[CollectionEditor]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadPrimArrayColumnHeaders">
+  <set-property name="defaultValue"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Indicates whether column headers are used]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadPrimArrayAddToTop">
+  <set-property name="defaultValue"><![CDATA[false]]></set-property>
+  <set-property name="description"><![CDATA[Indicates whether new values are added to the top]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="AmPvRefSet">
+  <set-property name="name"><![CDATA[AssetManager reference set propertyView]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager reference set propertyView]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[set]]></set-property>
+  <set-property name="componentType"><![CDATA[Repository Item]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.collection.ReferenceCollectionEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="attributes"><![CDATA[useColumnHeaders=AmPvadRefSetColumnHeaders,addItemsToTop=AmPvadRefSetAddToTop,shouldSortSets=AmPvadRefSetShouldSort]]></set-property>
+  <set-property name="containerFamily"><![CDATA[CollectionEditor]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadRefSetColumnHeaders">
+  <set-property name="defaultValue"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Indicates whether column headers are used]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadRefSetAddToTop">
+  <set-property name="defaultValue"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Indicates whether items are added to the top]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadRefSetShouldSort">
+  <set-property name="defaultValue"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Indicates whether the collection should be sorted]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="AmPvPrimSet">
+  <set-property name="name"><![CDATA[AssetManager primitive set propertyView]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager primitive set propertyView]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[set]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.collection.PrimitiveCollectionEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="attributes"><![CDATA[useColumnHeaders=AmPvadPrimSetColumnHeaders,addItemsToTop=AmPvadPrimSetAddToTop]]></set-property>
+  <set-property name="containerFamily"><![CDATA[CollectionEditor]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadPrimSetColumnHeaders">
+  <set-property name="defaultValue"><![CDATA[false]]></set-property>
+  <set-property name="description"><![CDATA[Indicates whether column headers are used]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadPrimSetAddToTop">
+  <set-property name="defaultValue"><![CDATA[false]]></set-property>
+  <set-property name="description"><![CDATA[Indicates whether new values are added to the top]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="AmPvStrEnumSet">
+  <set-property name="name"><![CDATA[AssetManager enumerated string set propertyView]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager enumerated string set propertyView]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[set]]></set-property>
+  <set-property name="componentType"><![CDATA[enumerated string]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.collection.StringEnumCollectionEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="containerFamily"><![CDATA[CollectionEditor]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="AmPvRefMap">
+  <set-property name="name"><![CDATA[AssetManager reference map propertyView]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager reference map propertyView]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[map]]></set-property>
+  <set-property name="componentType"><![CDATA[Repository Item]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.collection.ReferenceCollectionEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="attributes"><![CDATA[useColumnHeaders=AmPvadRefMapColumnHeaders,addItemsToTop=AmPvadRefMapAddToTop]]></set-property>
+  <set-property name="containerFamily"><![CDATA[CollectionEditor]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadRefMapColumnHeaders">
+  <set-property name="defaultValue"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Indicates whether column headers are used]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadRefMapAddToTop">
+  <set-property name="defaultValue"><![CDATA[false]]></set-property>
+  <set-property name="description"><![CDATA[Indicates whether new entries are added to the top]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="AmPvPrimMap">
+  <set-property name="name"><![CDATA[AssetManager primitive map propertyView]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager primitive map propertyView]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[map]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.collection.PrimitiveCollectionEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="attributes"><![CDATA[useColumnHeaders=AmPvadPrimMapColumnHeaders,addItemsToTop=AmPvadPrimMapAddToTop]]></set-property>
+  <set-property name="containerFamily"><![CDATA[CollectionEditor]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadPrimMapColumnHeaders">
+  <set-property name="defaultValue"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Indicates whether column headers are used]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadPrimMapAddToTop">
+  <set-property name="defaultValue"><![CDATA[false]]></set-property>
+  <set-property name="description"><![CDATA[Indicates whether new entries are added to the top]]></set-property>
+</add-item>
+
+<!-- Content Group Path mappings -->
+
+<add-item item-descriptor="propertyView" id="AmPvEContGrp">
+  <set-property name="name"><![CDATA[AssetManager Content Group Path Editor]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager Content Group Path Editor]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[string]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.ContentGroupPathEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="attributes"><![CDATA[hideCreate=AmPvSrvHideCreate,prohibitDrilldown=AmPvSrvProhibitDrilldown]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvSrvHideCreate">
+  <set-property name="defaultValue"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvSrvProhibitDrilldown">
+  <set-property name="defaultValue"><![CDATA[true]]></set-property>
+</add-item>
+
+</import-items>
+
+</gsa-template>
+<!-- @version $Id: //product/BCC/version/10.0.2/src/install/data/viewmapping.xml#2 $$Change: 635969 $ -->

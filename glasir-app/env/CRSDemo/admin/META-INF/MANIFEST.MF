@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+ATG-Required: env.CRSDemo CRSDemo.Data.Versioned DCS-UI.Versioned SiteAdmin.Versioned PubPortlet
+ATG-Config-Path: config
+

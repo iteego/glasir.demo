@@ -1,0 +1,18 @@
+Datasource name: Non-Versioned
+Top level module list: DCS-UI.Versioned,BIZUI,PubPortlet,DafEar.Admin,SiteAdmin.Versioned,B2CCommerce.Versioned,DCS.Versioned,DCS-UI,Store.EStore.Versioned,Store.Storefront,Portal.paf,Store.Storefront
+#
+#catalog
+DataImport: Repository:/atg/commerce/catalog/ProductCatalog Path:/Store/Storefront/data/out-no18n-catalog.xml Module:Store.EStore
+DataImport: Repository:/atg/commerce/pricing/priceLists/PriceLists Path:/Store/Storefront/data/out-pricelists.xml Module:Store.EStore
+DataImport: Repository:/atg/store/stores/StoreRepository Path:/Store/Storefront/data/stores.xml Module:Store.EStore
+DataImport: Repository:/atg/multisite/SiteRepository Path:/Store/Storefront/data/sites.xml Module:Store.EStore
+DataImport: Repository:/atg/seo/SEORepository Path:/Store/Storefront/data/seo-tags.xml Module:Store.EStore
+DataImport: Repository:/atg/commerce/catalog/ProductCatalog Path:/Store/Storefront/data/promos.xml Module:Store.EStore
+DataImport: Repository:/atg/store/stores/StoreRepository Path:/Store/Storefront/data/storetext.xml Module:Store.EStore
+DataImport: Repository:/atg/commerce/claimable/ClaimableRepository Path:/Store/Storefront/data/claimable.xml Module:Store.EStore
+#
+#core
+DataImport: Repository:/atg/commerce/inventory/InventoryRepository Path:/Store/Storefront/data/out-inventory.xml Module:Store.EStore
+DataImport: Repository:/atg/userprofiling/ProfileAdapterRepository Path:/Store/Storefront/data/users.xml Module:Store.EStore
+DataImport: Repository:/atg/commerce/order/OrderRepository Path:/Store/Storefront/data/orders.xml Module:DCS.AbandonedOrderServices,Store.EStore
+DataImport: Repository:/atg/commerce/gifts/Giftlists Path:/Store/Storefront/data/wishlists.xml Module:Store.EStore

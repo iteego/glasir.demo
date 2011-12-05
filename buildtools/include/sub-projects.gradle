@@ -1,43 +1,31 @@
-
-import static org.apache.ivy.util.url.CredentialsStore.INSTANCE as ivy
-
 /******************************************************************************
  * Gradle project and sub-project setup calls
  *****************************************************************************/
 
 allprojects {
   apply plugin: 'groovy'
-  
-  repositories {
-    //TODO: we might or might not want customers connecting to our repo
-    ivy.addCredentials("Artifactory Realm", "iteego.artifactoryonline.com", artifactoryReader, artifactoryReaderPwd)    
-    mavenRepo url: 'http://iteego.artifactoryonline.com/iteego/glasir-repos'
-  }
-  
-  dependencies {  
-    def groovyVersion = "org.codehaus.groovy:groovy:1.7.9"
+    
+  dependencies {
+    groovy "org.codehaus.groovy:groovy:1.8.4"
 
-    // The below enables us to write atg classes in mixed java/groovy. Groovy
-    // jar will be downloaded and cached from a maven repo on demand.
-    groovy groovyVersion
+    compile  "junit:junit:4.8.2", 
+              "org.mockito:mockito-all:1.8.5"
 
-    testCompile "junit:junit:4.8.2", 
-                "org.mockito:mockito-all:1.8.5",
-		            groovyVersion
-
-    //settings for geb/spock/selenium      
+    //settings for geb/spock/selenium
+    def junitVersion = "4.8.2"
     def gebVersion = "0.6.1"
+    def spockVersion = "0.6-groovy-1.8-SNAPSHOT"
     def seleniumVersion = "2.9.0"
- 
+
     //TODO: investigate if we can use spock 0.5-groovy-1.8 and move to groovy 1.8
     // If using Spock, need to depend on geb-spock
     testCompile "org.codehaus.geb:geb-spock:$gebVersion"
-    testCompile "org.spockframework:spock-core:0.5-groovy-1.7"
- 
+    testCompile "org.spockframework:spock-core:$spockVersion"
+
     // If using JUnit, need to depend on geb-junit (3 or 4)
     testCompile "org.codehaus.geb:geb-junit4:$gebVersion"
-    testCompile "junit:junit-dep:4.8.2"
- 
+    testCompile "junit:junit-dep:$junitVersion"
+
     // The drivers we want to use
     drivers = ["htmlunit"] //, "firefox", "chrome"]
 
@@ -45,31 +33,9 @@ allprojects {
     drivers.each { driver ->
       testCompile "org.seleniumhq.selenium:selenium-${driver}-driver:$seleniumVersion"
     }
-    testRuntime "org.seleniumhq.selenium:selenium-support:$seleniumVersion"              
-  }
+    testRuntime "org.seleniumhq.selenium:selenium-support:$seleniumVersion"
 
-  drivers.each { driver ->
-    task "${driver}Test"(type: Test) {
-      testReportDir = file("$reportsDir/$name/tests")
-      testResultsDir = file("$buildDir/test-results/$name")
-      
-      isGebTask = true
-  
-      systemProperty "geb.build.reportsDir", "$reportsDir/$name/geb"
-      systemProperty "geb.env", driver
-  
-      // If you wanted to set the baseUrl in your build…
-      // systemProperty "geb.build.baseUrl", "http://myapp.com"
-    }
   }
-  
-  //exclude the geb tests from the normal unit test run. unit tests should be run post
-  //compile but should not require a live node. We need to separate these two beasts.
-  test {
-    exclude '**/*GebSpec.class'
-  }
-  //task test(overwrite: true, dependsOn: drivers.collect { tasks["${it}Test"] })
-
 
   sourceCompatibility = "1.6"
   targetCompatibility = "1.6"
@@ -101,7 +67,11 @@ subprojects {
     destinationDir = file("lib")
     baseName = 'classes'
   }
-      
+
+  test {
+    exclude '**/*GebSpec.class'
+  }
+
   clean << {
     ant.delete file: 'lib/classes.jar'
     if (!file('lib').listFiles()) {
@@ -143,14 +113,7 @@ class TestReportAggregator extends Copy {
     }
 
     def getTestTasks() {
-        //TODO: Clean this dependency up...
-        //Here we make sure that when we aggregate the normal unit tests, we don't pull in the 
-        //geb tests. This would force geb tests to be executed when you run normal unit tests 
-        //and break the build. 
-        projects.collect { it.tasks.withType(Test) }
-                .flatten()
-                .findAll { !it.hasProperty('isGebTask') }
-
+        projects.collect { it.tasks.withType(Test) }.flatten()
     }
 
     def getInputTestResultDirs() {

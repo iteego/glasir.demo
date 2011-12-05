@@ -1,0 +1,68 @@
+<dsp:getvalueof var="facetValueUrl" vartype="java.lang.String" bean="/OriginatingRequest.requestURI"/>
+<dsp:getvalueof var="categoryIdVar" param="categoryId"/>   
+    
+    <%-- count size --%>
+        <c:set var="tempSize" value="0"/>
+        <dsp:droplet name="ForEach">
+            <dsp:param name="array" param="facetTrail.facetValues"/>
+            <dsp:setvalue param="currentFacetValue" paramvalue="element"/>
+            <dsp:oparam name="output">
+        <dsp:getvalueof var="currentFacetValue" param="currentFacetValue" />
+        <c:if test="${currentFacetValue.facet.class.name == 'atg.repository.search.refinement.RefinementFacet'}">
+          <c:set var="tempSize" value="${tempSize+1}"/>
+        </c:if>
+            </dsp:oparam>
+        </dsp:droplet>
+       <dsp:droplet name="ForEach">
+            <dsp:param name="array" param="facetTrail.facetValues"/>
+            <dsp:oparam name="output">
+                <dsp:getvalueof var="removeFacet" param="element"/>
+        <c:if test="${removeFacet.facet.class.name == 'atg.repository.search.refinement.RefinementFacet'}">
+                  <dsp:getvalueof var="labelVar" param="labelParm"/>
+                  <dsp:getvalueof var="facetingLable" vartype="java.lang.String"  param="element.facet.refinementElement.label"/>
+                  <dsp:getvalueof var="facetingProperty" vartype="java.lang.String"  param="element.facet.refinementElement.property"/>
+
+                  <c:if test="${labelVar==facetingLable}">
+            <json:property name="categoryId">${categoryIdVar}</json:property>
+            <json:property name="labelVar">${labelVar}</json:property>
+            <json:property name="id">
+              <dsp:valueof param="element.facet.id"/>
+            </json:property>                                   
+            <json:property name="facetingLable">${facetingLable}</json:property>
+            <json:property name="facetingProperty">${facetingProperty}</json:property>
+            <json:property name="name">
+              
+              <dsp:droplet name="/atg/commerce/search/refinement/RefinementValueDroplet">
+                <dsp:param name="refinementValue" param="element.value"/>
+                <dsp:param name="refinementId" param="element.facet.id"/>
+                <dsp:param name="locale" bean="/atg/userprofiling/Profile.PriceList.locale"/>
+                
+                <dsp:oparam name="output">
+                  <dsp:valueof param="displayValue" valueishtml="true"/>
+                </dsp:oparam>
+              </dsp:droplet>
+              
+            </json:property>
+            <json:property name="catName"><fmt:message key="${labelVar}"/></json:property>
+            <json:property name="urlFacet">
+              <dsp:droplet name="CommerceFacetTrailDroplet">
+                <dsp:param name="trail" value="${currentTrail.trailString}" />
+                <dsp:param name="removeFacet" param="element" />
+                <dsp:param name="refineConfig" param="catRC" />
+                <dsp:oparam name="output">
+                  <dsp:valueof param="facetTrail.trailString" valueishtml="true"/>
+                </dsp:oparam>
+              </dsp:droplet>
+            </json:property>
+            <json:property name="urlPage">
+              
+            </json:property>
+            <json:property name="removeFacet">${removeFacet}</json:property>
+            <json:property name="value"><dsp:valueof param="element.value"/></json:property>
+            <json:property name="trailSize">${tempSize}</json:property>
+                  </c:if>
+        </c:if>
+            </dsp:oparam>
+        </dsp:droplet>
+<%-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.0.2/Storefront/j2ee/store.war/facetjson/facetsObject.jspf#2 $$Change: 635969 $--%>        
+    

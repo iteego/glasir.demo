@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE gsa-template SYSTEM "dynamosystemresource:/atg/dtds/gsa/gsa_1.0.dtd">
+
+
+<gsa-template>
+<import-items>
+
+<add-item item-descriptor="userSegmentList" id="CommerceReporting">
+  <set-property name="displayName"><![CDATA[Commerce Reports]]></set-property>
+  <set-property name="description"><![CDATA[Segments of interest for Commerce Reporting.]]></set-property>
+</add-item>
+
+<add-item item-descriptor="userSegmentList" id="Merchandising">
+  <set-property name="displayName"><![CDATA[Merchandising]]></set-property>
+  <set-property name="description"><![CDATA[Segments of interest for Search Merchandising.]]></set-property>
+</add-item>
+
+
+</import-items>
+</gsa-template>
+<!-- @version $Id: //product/DCS/version/10.0.2/templates/DCS/install/data/initial-segment-lists.xml#2 $$Change: 635969 $ -->
