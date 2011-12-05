@@ -1,29 +1,12 @@
-
-import static org.apache.ivy.util.url.CredentialsStore.INSTANCE as ivy
-
 /******************************************************************************
  * Gradle project and sub-project setup calls
  *****************************************************************************/
 
 allprojects {
   apply plugin: 'groovy'
-  
-  repositories {
-    //TODO: we may or may not want the repo to be used this way
-    ivy.addCredentials("Artifactory Realm", "iteego.artifactoryonline.com", artifactoryReader, artifactoryReaderPwd)    
-    mavenRepo url: 'http://iteego.artifactoryonline.com/iteego/glasir-repos'
-  }
-  
+    
   dependencies {
-    def groovyVersion = "org.codehaus.groovy:groovy:1.8.3"
-
-    // The below enables us to write atg classes in mixed java/groovy. Groovy
-    // jar will be downloaded and cached from a maven repo on demand.
-    groovy groovyVersion
-
-    testCompile "junit:junit:4.8.2", 
-                "org.mockito:mockito-all:1.8.5",
-		            groovyVersion
+    groovy "org.codehaus.groovy:groovy:1.8.4"
 
     compile  "junit:junit:4.8.2", 
               "org.mockito:mockito-all:1.8.5"
