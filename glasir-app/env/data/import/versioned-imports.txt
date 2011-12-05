@@ -4,16 +4,16 @@ Top level module list: DCS-UI.Versioned,BIZUI,PubPortlet,DafEar.Admin,SiteAdmin.
 #publishing
 DataImport: Repository:/atg/userprofiling/InternalProfileRepository Path:/Publishing/base/install/epub-role-data.xml Module:DSS.InternalUsers 
 DataImport: Repository:/atg/epub/file/PublishingFileRepository Path:/Publishing/base/install/epub-file-repository-data.xml Module:Publishing.base 
-RepoLoader:files="DSS/atg/registry/data/scenarios/DSS/*.sdl & DSS/atg/registry/data/scenarios/recorders/*.sdl"
+RepoLoader:files="DSS/atg/registry/data/scenarios/DSS/*.sdl & DSS/atg/registry/data/scenarios/recorders/*.sdl" fileMapping="/atg/epub/file/typemappers/ScenarioTypeMapping" folderMapping="/atg/epub/file/typemappers/FileFolderTypeMapping"
 DataImport: Repository:/atg/userprofiling/PersonalizationRepository Path:/DCS/install/data/initial-segment-lists.xml Module:DPS.Versioned 
 DataImport: Repository:/atg/commerce/catalog/ProductCatalog Path:/Store/Storefront/data/out-versioned-no18n-catalog.xml Module:Store.EStore.Versioned 
 DataImport: Repository:/atg/commerce/pricing/priceLists/PriceLists Path:/Store/Storefront/data/out-pricelists.xml Module:Store.EStore.Versioned 
 DataImport: Repository:/atg/store/stores/StoreRepository Path:/Store/Storefront/data/stores.xml Module:Store.EStore.Versioned 
-RepoLoader:files="Store/Storefront/NoPublishing/atg/registry/Slots/*.properties"
-RepoLoader:files="Store/Storefront/NoPublishing/atg/registry/RepositoryTargeters/ProductCatalog/*.properties"
-RepoLoader:files="Store/Storefront/NoPublishing/atg/registry/RepositoryGroups/*.properties"
-RepoLoader:files="Store/Storefront/NoPublishing/atg/registry/RepositoryGroups/UserProfiles/*.properties"
-RepoLoader:files="Store/Storefront/NoPublishing/atg/registry/data/scenarios/store/abandonedorders/*.sdl & Store/Storefront/NoPublishing/atg/registry/data/scenarios/store/global/*.sdl & Store/Storefront/NoPublishing/atg/registry/data/scenarios/store/homepage/*.sdl & Store/Storefront/NoPublishing/atg/registry/data/scenarios/store/category/*.sdl & Store/Storefront/NoPublishing/atg/registry/data/scenarios/store/orders/*.sdl & Store/Storefront/NoPublishing/atg/registry/data/scenarios/DCS/*.sdl"
+RepoLoader:files="Store/Storefront/NoPublishing/atg/registry/Slots/*.properties" fileMapping="/atg/epub/file/typemappers/SlotTypeMapping" folderMapping="/atg/epub/file/typemappers/FileFolderTypeMapping"
+RepoLoader:files="Store/Storefront/NoPublishing/atg/registry/RepositoryTargeters/ProductCatalog/*.properties" fileMapping="/atg/epub/file/typemappers/TargeterTypeMapping" folderMapping="/atg/epub/file/typemappers/FileFolderTypeMapping"
+RepoLoader:files="Store/Storefront/NoPublishing/atg/registry/RepositoryGroups/*.properties" fileMapping="/atg/epub/file/typemappers/ContentGroupTypeMapping" folderMapping="/atg/epub/file/typemappers/FileFolderTypeMapping"
+RepoLoader:files="Store/Storefront/NoPublishing/atg/registry/RepositoryGroups/UserProfiles/*.properties" fileMapping="/atg/epub/file/typemappers/SegmentTypeMapping" folderMapping="/atg/epub/file/typemappers/FileFolderTypeMapping"
+RepoLoader:files="Store/Storefront/NoPublishing/atg/registry/data/scenarios/store/abandonedorders/*.sdl & Store/Storefront/NoPublishing/atg/registry/data/scenarios/store/global/*.sdl & Store/Storefront/NoPublishing/atg/registry/data/scenarios/store/homepage/*.sdl & Store/Storefront/NoPublishing/atg/registry/data/scenarios/store/category/*.sdl & Store/Storefront/NoPublishing/atg/registry/data/scenarios/store/orders/*.sdl & Store/Storefront/NoPublishing/atg/registry/data/scenarios/DCS/*.sdl" fileMapping="/atg/epub/file/typemappers/ScenarioTypeMapping" folderMapping="/atg/epub/file/typemappers/FileFolderTypeMapping"
 DataImport: Repository:/atg/multisite/SiteRepository Path:/Store/Storefront/data/sites.xml Module:Store.EStore.Versioned 
 DataImport: Repository:/atg/commerce/catalog/ProductCatalog Path:/Store/Storefront/data/versioned-promos.xml Module:Store.EStore.Versioned 
 DataImport: Repository:/atg/commerce/claimable/ClaimableRepository Path:/Store/Storefront/data/claimable.xml Module:DCS.Versioned 
