@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+ATG-Required: env.CRSDemo.store CRSDemo.Storefront.NoPublishing glasir.db
+ATG-Config-Path: config
+

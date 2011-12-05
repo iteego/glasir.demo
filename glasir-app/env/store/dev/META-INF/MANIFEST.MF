@@ -1,4 +1,0 @@
-Manifest-Version: 1.0
-ATG-Required: env.store Store.Storefront.NoPublishing glasir.db
-ATG-Config-Path: config
-
