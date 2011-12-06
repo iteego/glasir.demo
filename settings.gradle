@@ -1,15 +1,16 @@
 import com.iteego.glasir.build.GlasirSettingsConvention
 
+//set the root project name which will also be the default artifact name
 rootProject.name='glasir.boostrap'
 
+//set up a base classpath for this settings.gradle file and build.gradle files for 
+//included projects
 buildscript {    
   repositories {
     maven {
-      credentials {
-        username artifactoryReader
-        password artifactoryReaderPwd
-      }
-      url 'http://iteego.artifactoryonline.com/iteego/glasir-repos'
+      credentials.username artifactoryReader
+      credentials.password artifactoryReaderPwd
+      url "http://iteego.artifactoryonline.com/iteego/glasir-repos"
     }
   }
 
@@ -23,29 +24,23 @@ buildscript {
     classpath('org.jfrog.buildinfo:build-info-extractor-gradle:2.0.7')
   }
 
-  //set the expiry time for glasir.build and the gradle-artifactory plugin
   configurations.classpath {
     resolutionStrategy {
       failOnVersionConflict()
-      cacheDynamicVersionsFor 1, 'minutes'
-      cacheChangingModulesFor 1, 'minutes'
+      cacheDynamicVersionsFor 10, 'minutes'
+      cacheChangingModulesFor 10, 'minutes'
     }
   }
-  configurations.classpath.resolutionStrategy.cacheChangingModulesFor 1, 'minutes'
   
   //add the above dependencies to the classpath of all sub project build scripts
   configurations.classpath.each { file -> settings.classLoader.addURL(file.toURI().toURL()) }
 }
 
 /*
-* 
 * Now use a convention object and set the required properties for setting up a gradle 
 * multi project structure reflecting the ATG module structure in this source tree
-*
 */
 new GlasirSettingsConvention().with {
-  // prompt for location of ATG dir, persisted into properties file
-  // if file and property exists, value is returned without prompting
   String atgRoot = promptDir(message: "Please provide a valid ATG installation directory: ",
                              blockUntilSubItemsExist: "home/localconfig,home/bin, DAS",
                              propertyFile: "$settingsDir/.local.build.properties",
