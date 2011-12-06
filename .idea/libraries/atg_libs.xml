@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="atg-libs">
+    <CLASSES>
+      <root url="file://$ATG_ROOT$/DAS/lib" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$ATG_ROOT$/DAS/lib" recursive="false" />
+  </library>
+</component>

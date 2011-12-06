@@ -4,9 +4,6 @@ Pattern: print<AtgModuleName>: Prints a module dependency tree for an atg module
                   module 'DCS.Search.Order.Index'""") { String taskName ->
   if (taskName.startsWith("print")) {
     task(taskName) << {
-      moduleMap.each { k, v -> 
-        println v
-      }
       printTree(taskName - "print")
     }
   }

@@ -34,15 +34,17 @@ artifactory {
   
 
 task releaseZip(type: Zip) {
+/*
   from("$globalDir") {
-    exclude 'buildtools/**/*'
+    exclude 'buildtools/ * * / *'
     exclude 'settings.gradle'
     exclude '.*'
   }
+*/
 }
 
-assemble.dependsOn(releaseZip)
-artifactoryPublish.dependsOn(assemble)
+artifactoryPublish.dependsOn(releaseZip)
+
 
 artifacts {
 	glasirPackage(releaseZip) {
