@@ -18,7 +18,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-import com.iteego.glasir.build.tasks.*
 
 defaultTasks 'assemble'
 
@@ -27,15 +26,20 @@ version = "1.0.85-SNAPSHOT"
 group = "com.iteego.glasir"
 
 apply plugin: 'glasir.build'
-apply plugin: 'maven'
 
 apply from: 'include/environment.gradle'
 
+apply from: "include/sub-projects.gradle"
+
 apply from: "include/artifactory.gradle"
-apply from: "include/help.gradle"
-apply from: "include/sub-projects.gradle" 
+
 apply from: "include/assembly-tasks.gradle"
+
 apply from: "include/jboss-tasks.gradle"
+
 apply from: "include/rules.gradle"
-apply from: "include/atg-db-tasks.gradle" 
+
+apply from: "include/atg-db-tasks.gradle"
+
+apply from: "include/help.gradle"
 
