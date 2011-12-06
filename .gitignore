@@ -1,3 +1,5 @@
 .gradle/
 .local.build.properties
 build
+*~
+.idea/workspace.xml
