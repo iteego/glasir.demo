@@ -3,12 +3,36 @@
 * arbitrary ATG module. Example ATG has a module called
 * 'DCS', the below will let you execute "gradle printDCS"
 */
+import groovyx.net.http.HTTPBuilder
+import static groovyx.net.http.Method.*
+import static groovyx.net.http.ContentType.*
+
+buildscript {
+  repositories { 
+    maven {
+      credentials { 
+        username artifactoryReader
+        password artifactoryReaderPwd
+      }
+      url "http://iteego.artifactoryonline.com/iteego/glasir-repos"
+    }
+  }
+  
+  dependencies {
+    classpath "org.codehaus.groovy.modules.http-builder:http-builder:0.5.1"
+  }
+}
+
+
 tasks.addRule("""\
 Pattern: print<AtgModuleName>: Prints a module dependency tree for an atg module
          Example: 'gradle printDCS.Search.Order.Index' will print out dependency tree for
                   module 'DCS.Search.Order.Index'""") { String taskName ->
   if (taskName.startsWith("print")) {
     task(taskName) << {
+      moduleMap.each { k, v -> 
+        println v
+      }
       printTree(taskName - "print")
     }
   }
@@ -53,3 +77,102 @@ Pattern: checkManifest<AtgModuleName>: Checks the module MANIFEST.MF against the
   }
 }
 
+tasks.addRule("""\
+Pattern: graph<AtgModuleName>: draws a graphical dependency graph for the specified ATG module""") { String taskName ->
+  if (taskName.startsWith("graph")) {
+    task(taskName) << {
+      def moduleName = taskName - 'graph'
+      def m = moduleMap[moduleName]
+      if (!m) {
+        println "Unable to locate module with name '$moduleName'"
+        System.exit(1)
+      }
+      def dotGraph = createGraphViz(m)
+            
+      def graphFile = file("$reportsDir/module_graph.png")
+      mkdir(graphFile.parentFile)
+      
+      def http = new HTTPBuilder( 'http://chart.googleapis.com' )
+      http.post(path: '/chart', 
+                body: [cht: 'gv', chof: 'png', chl: dotGraph], 
+                requestContentType: URLENC )  { resp, reader ->
+        println "---------- Post response received ----------"
+        println "Response status line: ${resp.statusLine}"
+        println "Response status code: ${resp.statusLine.statusCode}"
+        print   "Response content:     "
+                
+        graphFile.withOutputStream{out ->
+          out << reader
+        }   
+      } 
+    
+      /*
+      graphFile.withOutputStream{out ->
+        out << new URL(url).openStream()
+      } 
+      */  
+      println "ATG module dependency graph written to: ${graphFile.absolutePath}"
+    }    
+  }
+}
+
+String createGraphViz(m) {
+  Set<String> edges = [] as Set
+  String dotGraph = "digraph Compile { \n"
+  
+  dotGraph += createGraphVizRecursive(edges, m)
+    
+  dotGraph += "}"
+  
+  dotGraph
+}
+
+String createGraphVizRecursive(edges, parent) {
+  String graph = ''
+  
+  parent.requiredModules.each { child ->    
+    if (!child) {
+      println "$parent has null child, modules: ${parent.requiredModules}"
+      return
+    }
+    
+    String entry = getGraphVizEntry(parent, child)
+    if (!edges.contains(entry)) {
+      graph += entry
+      edges << entry
+    }
+    graph += createGraphVizRecursive(edges, child)
+  }  
+  
+  graph
+}
+
+String getGraphVizEntry(parent, child) {
+  /  "${parent.name}" -> "${child.name}"/ + "\n"
+}
+/*
+compileDepsPng = file("$reportsDir/compileDeps.png")
+task dependenciesPng() {
+  
+  inputs.files subprojects.configurations.compile
+  outputs.files compileDepsPng
+  doFirst {
+    if(compileDepsPng.exists()) compileDepsPng.delete()
+    if(!reportsDir.exists()) reportsDir.mkdirs()
+  
+  }
+  doLast {
+    dotGraph = "digraph Compile{"
+    subprojects.each {subproject ->
+      subproject.configurations.compile.dependencies.each { dependency ->
+        if(dependency instanceof ProjectDependency) {
+          
+          dotGraph += "\"$subproject.name\" -> \"$dependency.name\"" 
+        }   
+      }
+    }
+    dotGraph += "}"
+  
+  }
+}
+*/
