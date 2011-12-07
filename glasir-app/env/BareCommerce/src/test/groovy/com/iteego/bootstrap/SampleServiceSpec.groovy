@@ -59,23 +59,23 @@ class SampleServiceSpec extends Specification {
   def cleanupSpec() {
   }
 
-  def "check that creating a valid user returns the right values"() {
+  def "check that a user with correct values passes validation"() {
     when:
       def shopper = new SampleService(firstName: 'Bob', lastName: 'Smith', zip: '02115')
 
     then:
-      shopper.isValidPerson
+      shopper.isValidCustomer
   }
 
   //Unroll makes it so that every row in the data grid below results in a separate junit test in the resulting
   //report
-  @Unroll("Check that firstName=#firstName, lastName=#lastName, and zip=#zip results in validPerson=#expectedValidation")
+  @Unroll("check that firstName=#firstName, lastName=#lastName, and zip=#zip results in validCustomer=#expectedValidation")
   def "check firstName, lastName, zip combinations"() {
     setup:
       def shopper = new SampleService(firstName: firstName, lastName: lastName, zip: zip)
 
     expect:
-      shopper.isValidPerson == expectedValidation
+      shopper.isValidCustomer == expectedValidation
 
     where:
       firstName    | lastName  | zip     | expectedValidation

@@ -11,7 +11,7 @@ class SampleService extends GenericService {
   String lastName
   String zip
 
-  boolean getIsValidPerson() {
+  boolean getIsValidCustomer() {
     //in a boolean context a (null, empty string, or zero) evaluates to false in groovy
     //the ?. operator in groovy is null safe. null?.property() will just return null
     firstName?.length() && lastName?.length() && (zip?.length() == 5 || zip?.length() == 10)

@@ -41,7 +41,7 @@ task startDevAdmin(type: RunAtgOnJBoss, dependsOn: []) {
     modules       project.hasProperty("flavor") && ["oracle"].contains(project.getProperty("flavor")) ? "env.CRSDemo.admin.dev." + project.getProperty("flavor") : "env.CRSDemo.admin.dev"
 }
 
-task startCiStore(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
+task startCiStore(type: RunAtgOnJBoss, dependsOn: []) {
   jBossRoot     jbossRoot
   serverName    storeServerName
   modules       "env.CRSDemo.store.dev"

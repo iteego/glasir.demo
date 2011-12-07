@@ -2,6 +2,14 @@
  * Gradle project and sub-project setup calls
  *****************************************************************************/
 
+//the below is a list of test drivers for the geb web testing framework.
+//a driver can emulate a specific browser and excercise the application UI.
+//the htmlunit driver is a headless driver suitable for CI testing of the application UI
+//See http://www.gebish.org/manual/current/configuration.html#driver_implementation
+//for more details
+//available drivers: htmlunit, firefox, ie, chrome, android                
+drivers = ['htmlunit']
+
 allprojects {
   apply plugin: 'groovy'
     
@@ -11,8 +19,11 @@ allprojects {
     testCompile "junit:junit:4.8.2", 
                 "org.spockframework:spock-core:0.5-groovy-1.7",
                 "org.codehaus.geb:geb-spock:0.6.1",
-                "org.codehaus.geb:geb-junit4:0.6.1",
-                "org.seleniumhq.selenium:selenium-htmlunit-driver:2.9.0"
+                "org.codehaus.geb:geb-junit4:0.6.1"
+
+    drivers.each { driver ->
+      testCompile "org.seleniumhq.selenium:selenium-${driver}-driver:2.9.0"
+    }
 
     testRuntime "org.seleniumhq.selenium:selenium-support:2.9.0"
   }
@@ -23,18 +34,23 @@ allprojects {
   compileJava {
     options.compilerArgs = ['-Xlint:deprecation'] //, '-Xlint:unchecked']
   }
-}
 
-subprojects {
-  // set the maven 'group' for the sub project,
-  group = getProjectGroup(project, true)
-
-  setupAtgDependencies(project, ['compile', 'testCompile'])
-
-  task print << {
-    printTree(project)
+  drivers.each { driver -> 
+    task "${driver}Test"(type: Test) {
+      isWebTest = true
+      include '**/*GebSpec.class'
+  
+      testReportDir = file("$reportsDir/geb-tests")
+      testResultsDir = file("$buildDir/geb-test-results/")
+  
+      systemProperty "geb.build.reportsDir", "$reportsDir/$name/geb"
+      systemProperty "geb.env", driver
+      
+      //TODO: Externalize the below host/port configuration somehow
+      systemProperty "geb.build.baseUrl", "http://localhost:10080"
+    }  
   }
-
+  
   jar  {
     //only create a jar file if we have some classes to jar up, 
     //to to this we check if the 'compileJava' task did any work (if so, we have something
@@ -57,11 +73,26 @@ subprojects {
     if (!file('lib').listFiles()) {
       ant.delete dir: 'lib'
     }
+  }  
+
+  task print << {
+    printTree(project)
   }
 }
 
+subprojects {
+  //set ivy/maven 'group' for the subproject, generated via a method call to glasir.build 
+  //gradle plugin
+  group = getProjectGroup(project, true)
+
+  //configures dependencies for this project based on the atg MANIFEST.MF file
+  //ATG-Required attribute values. Applies these dependencies to the configurations
+  //given as the second argument
+  setupAtgDependencies(project, ['compile', 'testCompile'])
+}
 
 task aggregateTestReports(type: TestReportAggregator, dependsOn: subprojects.check) {
+  includeWebTests = false
   testReportDir = file("${reportsDir}/tests")
   testResultsDir = file("${buildDir}/test-results")
   projects = subprojects
@@ -79,29 +110,33 @@ gradle.projectsEvaluated { g ->
 }
 
 class TestReportAggregator extends Copy {
-    def projects
-    File testResultsDir
+  def projects
+  File testResultsDir
+  boolean includeWebTests = false
+  
+  @OutputDirectory
+  File testReportDir
+  
+  def TestReportAggregator() {
+    dependsOn { testTasks }
+    from { inputTestResultDirs }
+    into { testResultsDir }
+  }
+
+  @TaskAction
+  def aggregate() {
+    def report = new org.gradle.api.internal.tasks.testing.junit.report.DefaultTestReport(testReportDir: testReportDir, testResultsDir: testResultsDir)
+    report.generateReport()
+  }
+
+  def getTestTasks() {
+    def testTasks = projects.collect { it.tasks.withType(Test) }.flatten()
     
-    @OutputDirectory
-    File testReportDir
-    
-    def TestReportAggregator() {
-        dependsOn { testTasks }
-        from { inputTestResultDirs }
-        into { testResultsDir }
-    }
+    //exclude web tests from the 
+    includeWebTests ? testTasks : testTasks.findAll { !it.hasProperty('isWebTest') } 
+  }
 
-    @TaskAction
-    def aggregate() {
-        def report = new org.gradle.api.internal.tasks.testing.junit.report.DefaultTestReport(testReportDir: testReportDir, testResultsDir: testResultsDir)
-        report.generateReport()
-    }
-
-    def getTestTasks() {
-        projects.collect { it.tasks.withType(Test) }.flatten()
-    }
-
-    def getInputTestResultDirs() {
-        testTasks*.testResultsDir
-    }
+  def getInputTestResultDirs() {
+    testTasks*.testResultsDir
+  }
 }
