@@ -49,9 +49,77 @@ task assembleDevEar(type: AtgAssemblerTask) {
   }
 }
 
+task assembleLinkedEar(type: AtgAssemblerTask) {
+    dependsOn "build"
+
+    modules = allEnvironmentModules
+    outputFile = bigEar
+    standalone = true
+    liveconfig = false
+    pack = false
+    extraClasspath = files("${globalDir}/buildtools/gradle-lib/dtds.jar")
+    loggingDebug = false
+
+    doAfterAssembly {
+        def mainAppDir = new File("${globalDir}/glasir-app")
+
+        // Link all top-level application modules from source tree
+        def destinationDir = "$bigEar.canonicalPath/atg_bootstrap.war/WEB-INF/ATG-INF"
+        mainAppDir.eachDir {
+            if (!it.name.equals("META-INF")) {
+                def linkName = "$destinationDir/$it.name"
+                def result = ant.symlink( link: linkName, action: "delete")
+                if (!result) {
+                  file(linkName).deleteDir()
+                }
+                ant.symlink( link: linkName, resource: it.canonicalPath, overwrite: true)
+            }
+        }
+
+        // Link all war webapp folders from source tree
+        destinationDir = "$bigEar.canonicalPath"
+        mainAppDir.eachFileRecurse {
+            if (it.name.equals("MANIFEST.MF")) {
+                File manifest = it
+                manifest.getText().eachMatch(/ATG-Web-Module:.*/) {
+                    def line = it
+                    line.split(':')[1].replaceAll("^\\s+", "").replaceAll("\\s+\$", "").split(' ').each {
+                        String warSourcePath = manifest.absolutePath - "META-INF/MANIFEST.MF" + it
+                        String war = new File(warSourcePath).name
+                        def linkName="$destinationDir/$war"
+                        def result = ant.symlink( link: linkName, action: "delete")
+                        if (!result) {
+                          file(linkName).deleteDir()
+                        }
+                        ant.symlink( link: linkName, resource: warSourcePath, overwrite: true)
+                    }
+                }
+            }
+        }
+
+        // Link all atg server directories from source tree
+        //copy {
+        destinationDir = "${bigEar.canonicalPath}/atg_bootstrap.war/WEB-INF/ATG-INF/home/servers"
+        file("${globalDir}/config/atg").eachDir {
+            File atgServer = it
+            def linkName="$destinationDir/${atgServer.name}"
+            new File(linkName).delete()
+            ant.symlink( link: linkName, resource: atgServer.canonicalPath, overwrite: true)
+        }
+        //  from "${globalDir}/config/atg"
+        //  into "${bigEar.canonicalPath}/atg_bootstrap.war/WEB-INF/ATG-INF/home/servers"
+        //}
+    }
+}
+
+
 task syncStoreEar(type: Copy) {
   from bigEar
   into "$jbossRoot/server/$storeServerName/deploy/${bigEarName}"
+}
+
+task linkStoreEar << {
+  ant.symlink( link: "$jbossRoot/server/$storeServerName/deploy/$bigEarName", resource: bigEar.canonicalPath)
 }
 
 task syncAdminEar(type: Copy) {
