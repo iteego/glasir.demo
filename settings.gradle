@@ -10,7 +10,7 @@ buildscript {
     maven {
       credentials.username artifactoryReader
       credentials.password artifactoryReaderPwd
-      url "http://iteego.artifactoryonline.com/iteego/glasir-repos"
+      url "http://iteego.artifactoryonline.com/iteego/glasir"
     }
   }
 

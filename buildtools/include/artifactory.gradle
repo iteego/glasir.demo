@@ -25,7 +25,7 @@ artifactory {
   }
   resolve {
     repository {
-      repoKey = 'glasir-repos'
+      repoKey = 'glasir'
       username = artifactoryReader
       password = artifactoryReaderPwd
     }
