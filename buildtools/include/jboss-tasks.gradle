@@ -8,8 +8,8 @@ exists. Example connection URLS:
 jdbc:hsqldb:hsql://localhost/myalias;file:C:/files/mydatabase
 jdbc:hsqldb:hsql://localhost/myalias;mem:test;sql.enforce_types=true
 jdbc:hsqldb:hsql://localhost/myalias;filepath=file:C:/files/mydatabase
+task startDatabase(type: com.iteego.glasir.build.tasks.H2Db) {}
 */
-task startDatabase(type: HsqlDb) {}
 
 /*
 You can invoke any specific flavor of the "env.store.dev" module by adding the parameter
@@ -18,15 +18,20 @@ To your "gradle startDevStore" command. Usually, module flavors are used for dif
   for example, use "gradle startDevStore -Pflavor=oracle" to bypass the default h2 database choice.
 */
 task startDevStore(type: RunAtgOnJBoss, dependsOn: []) {
-  jBossRoot     jbossRoot
+  jBossRoot     jBossRoot
   serverName    storeServerName
   modules       project.hasProperty("flavor") && ["oracle"].contains(project.getProperty("flavor")) ? "env.CRSDemo.store.dev." + project.getProperty("flavor") : "env.CRSDemo.store.dev"
+
+  doFirst { 
+    println "Starting dev store node with modules: ${modules}"
+  }
 }
 
 task startBareDevStore(type: RunAtgOnJBoss, dependsOn: []) {
-  jBossRoot     jbossRoot
+  jBossRoot     jBossRoot
   serverName    storeServerName
   modules       project.hasProperty("flavor") && ["oracle"].contains(project.getProperty("flavor")) ? "env.BareCommerce.store.dev." + project.getProperty("flavor") : "env.BareCommerce.store.dev"
+  
 }
 
 /*
@@ -36,34 +41,38 @@ To your "gradle startDevStore" command. Usually, module flavors are used for dif
   for example, use "gradle startDevAdmin -Pflavor=oracle" to bypass the default h2 database choice.
 */
 task startDevAdmin(type: RunAtgOnJBoss, dependsOn: []) {
-  jBossRoot     jbossRoot
+  jBossRoot     jBossRoot
   serverName    adminServerName
-    modules       project.hasProperty("flavor") && ["oracle"].contains(project.getProperty("flavor")) ? "env.CRSDemo.admin.dev." + project.getProperty("flavor") : "env.CRSDemo.admin.dev"
+  modules       project.hasProperty("flavor") && ["oracle"].contains(project.getProperty("flavor")) ? "env.CRSDemo.admin.dev." + project.getProperty("flavor") : "env.CRSDemo.admin.dev"
+  
+  doFirst { 
+    println "Starting dev admin node with modules: ${modules}"
+  }
 }
 
 task startCiStore(type: RunAtgOnJBoss, dependsOn: []) {
-  jBossRoot     jbossRoot
+  jBossRoot     jBossRoot
   serverName    storeServerName
   modules       "env.CRSDemo.store.dev"
   async         true
 }
 
 task verifyCiStore(type: Tail, dependsOn: [startCiStore]) {
-  file         "$jbossRoot/server/$storeServerName/log/console.log"
+  file         "$jBossRoot/server/$storeServerName/log/console.log"
   failOn       regex: "ERROR[ ]*\\[", postFireTailPeriod: "5 seconds"
   succeedOn    "INFO[ ]*\\[org\\.jboss\\.bootstrap\\.microcontainer\\.ServerImpl\\].*JBoss \\(Microcontainer\\) \\[.*\\] Started in"
   timeoutAfter "5 minutes"
 }
 
-task startCiAdmin(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
-  jBossRoot     jbossRoot
+task startCiAdmin(type: RunAtgOnJBoss, dependsOn: []) {
+  jBossRoot     jBossRoot
   serverName    adminServerName
   modules       "env.CRSDemo.admin.dev"
   async         true
 }
 
 task verifyCiAdmin(type: Tail, dependsOn: [startCiAdmin]) {
-  file         "$jbossRoot/server/$adminServerName/log/console.log"
+  file         "$jBossRoot/server/$adminServerName/log/console.log"
   failOn       regex: "ERROR[ ]*\\[", postFireTailPeriod: "5 seconds"
   succeedOn    "INFO[ ]*\\[org\\.jboss\\.bootstrap\\.microcontainer\\.ServerImpl\\].*JBoss \\(Microcontainer\\) \\[.*\\] Started in"
   timeoutAfter "5 minutes"

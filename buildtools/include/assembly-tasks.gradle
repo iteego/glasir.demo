@@ -115,40 +115,40 @@ task assembleLinkedEar(type: AtgAssemblerTask) {
 
 task syncStoreEar(type: Copy) {
   from bigEar
-  into "$jbossRoot/server/$storeServerName/deploy/${bigEarName}"
+  into "$jBossRoot/server/$storeServerName/deploy/${bigEarName}"
 }
 
 task linkStoreEar << {
-  ant.symlink( link: "$jbossRoot/server/$storeServerName/deploy/$bigEarName", resource: bigEar.canonicalPath)
+  ant.symlink( link: "$jBossRoot/server/$storeServerName/deploy/$bigEarName", resource: bigEar.canonicalPath)
 }
 
 task syncAdminEar(type: Copy) {
   from bigEar
-  into "$jbossRoot/server/$adminServerName/deploy/${bigEarName}"
+  into "$jBossRoot/server/$adminServerName/deploy/${bigEarName}"
 }
 
 task syncStoreServer(type: Copy, description: "Creates a dev server setup in your jboss installation") {
-  from("$jbossRoot/server/default")
+  from("$jBossRoot/server/default")
   from "$globalDir/config/jboss/store/dev"
-  into "$jbossRoot/server/$storeServerName"
+  into "$jBossRoot/server/$storeServerName"
 }
 
 task syncAdminServer(type: Copy, description: "Creates a dev server setup in your jboss installation") {
-  from "$jbossRoot/server/default"
+  from "$jBossRoot/server/default"
   from "$globalDir/config/jboss/admin/dev"
-  into "$jbossRoot/server/$adminServerName"
+  into "$jBossRoot/server/$adminServerName"
 }
 
 task syncDocRoot(type: Copy) {
   from docRoot
-  into "$jbossRoot/server/${storeServerName}/deploy/ROOT.war"
+  into "$jBossRoot/server/${storeServerName}/deploy/ROOT.war"
 }
 
 
 //TODO: Fix the jsp task
 task jsp(type: Copy, description: "A fast sync of jsp files only into a (running or not) jboss node") {
   from "$globalDir/MyBrand/Consumer/Webapp/j2ee-apps/store/store.war"
-  into "$jbossRoot/server/${storeServerName}/deploy/${bigEarName}/store.war"
+  into "$jBossRoot/server/${storeServerName}/deploy/${bigEarName}/store.war"
 }
  
 task syncStore(dependsOn: [syncStoreEar, syncStoreServer, syncDocRoot])
@@ -167,13 +167,13 @@ task ciDeploy {
 
 task cleanLocalDatabase(dependsOn: ['clean']) << {
   description = "Cleans out the local database, if any"
-  delete("$jbossRoot/server/glasir.db")
+  delete("$jBossRoot/server/glasir.db")
 }
 
 task cleanJbossServers(dependsOn: ['clean']) << {
   description = "Cleans out the jboss server dirs"
-  delete("$jbossRoot/server/${storeServerName}")
-  delete("$jbossRoot/server/${adminServerName}")
+  delete("$jBossRoot/server/${storeServerName}")
+  delete("$jBossRoot/server/${adminServerName}")
 }
 
 task cleanAll(dependsOn: ['clean','cleanJbossServers','cleanLocalDatabase']) << {
