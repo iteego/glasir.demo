@@ -6,6 +6,6 @@
 import org.h2.tools.Server
 
 Integer activePort = 9092
-Server.main(["-tcpAllowOthers"] as String[])
+Server.main(["-tcp", "-tcpAllowOthers"] as String[])
 
 println "** H2 database started on port $activePort..."
