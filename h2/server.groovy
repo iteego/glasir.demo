@@ -4,6 +4,8 @@
 ])
 import groovy.sql.Sql
 
+
+boolean explicitCommits = true
 String url = new File('jdbc.url').text.trim()
 println "URL: $url"
 
@@ -12,6 +14,8 @@ def sql = Sql.newInstance(url, "sa", "sa", "org.h2.jdbcx.JdbcDataSource") //"org
 if (!tableExists(sql, "test")) {
   println "'test' table not found, creating it, please rerun script to run some selects on it"
   int affected = sql.executeUpdate("CREATE TABLE if not exists test(ID INT AUTO_INCREMENT PRIMARY KEY, NAME VARCHAR(255)) ")
+
+  if (explicitCommits) sql.commit()
   println "table create affected ${affected}"
 } 
 
@@ -20,6 +24,8 @@ sql.eachRow("select * from test") { row ->
 }
 
 def ins = sql.executeInsert("insert into test (name) values ('kalle')")
+if (explicitCommits) sql.commit()
+
 println "insert affected ${ins}"
 
 if (args.size() > 0) {
