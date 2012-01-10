@@ -14,7 +14,7 @@ bigEar = file(buildDir, "${bigEarName}")
 docRoot = "$globalDir/glasir-app/$brand/MyAtgModule/j2ee-apps/MyApplication/store.war/"
 
 println "atgRoot = $atgRoot"
-println "jbossRoot = $jBossRoot"
+println "jBossRoot = $jBossRoot"
 
 //On hudson or other environments we can set the environment either by 
 //a system property -Dorg.gradle.project.env=production or by 
