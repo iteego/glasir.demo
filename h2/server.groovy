@@ -4,10 +4,13 @@
 ])
 import groovy.sql.Sql
 
-
 boolean explicitCommits = true
+
 String url = new File('jdbc.url').text.trim()
+
+println ""
 println "URL: $url"
+println ""
 
 def sql = Sql.newInstance(url, "sa", "sa", "org.h2.jdbcx.JdbcDataSource") //"org.h2.Driver")
 
@@ -16,20 +19,26 @@ if (!tableExists(sql, "test")) {
   int affected = sql.executeUpdate("CREATE TABLE if not exists test(ID INT AUTO_INCREMENT PRIMARY KEY, NAME VARCHAR(255)) ")
 
   if (explicitCommits) sql.commit()
-  println "table create affected ${affected}"
-} 
+  //println "table create affected ${affected}"
+} else {
+  println "Table exists!"
+}
 
+println "Inserting row into table 'test'"
+def ins = sql.executeInsert("insert into test (name) values ('kalle')")
+if (explicitCommits) sql.commit()
+println "id values from insert: ${ins}"
+
+println ""
+println "Rows in table 'test' after insert:"
 sql.eachRow("select * from test") { row ->
   println "ROW: " + row   
 }
 
-def ins = sql.executeInsert("insert into test (name) values ('kalle')")
-if (explicitCommits) sql.commit()
-
-println "insert affected ${ins}"
-
 if (args.size() > 0) {
-  Thread.sleep(60000)
+  println ""
+  println "Arguments provided...sleeping indefinitely..."
+  Thread.sleep(6000000)
 }
 
 
