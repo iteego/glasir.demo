@@ -30,13 +30,13 @@ To your "gradle startDevStore" command. Usually, module flavors are used for dif
 task startDevStore(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
   jBossRoot     jbossRoot
   serverName    storeServerName
-  modules       project.hasProperty("flavor") && ["oracle"].contains(project.getProperty("flavor")) ? "env.CRSDemo.store.dev." + project.getProperty("flavor") : "env.CRSDemo.store.dev"
+  modules       moduleWithFlavors("env.CRSDemo.store.dev")
 }
 
 task startBareDevStore(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
   jBossRoot     jbossRoot
   serverName    storeServerName
-  modules       project.hasProperty("flavor") && ["oracle"].contains(project.getProperty("flavor")) ? "env.BareCommerce.store.dev." + project.getProperty("flavor") : "env.BareCommerce.store.dev"
+  modules       moduleWithFlavors("env.BareCommerce.store.dev")
 }
 
 /*
@@ -48,13 +48,13 @@ To your "gradle startDevStore" command. Usually, module flavors are used for dif
 task startDevAdmin(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
   jBossRoot     jbossRoot
   serverName    adminServerName
-    modules       project.hasProperty("flavor") && ["oracle"].contains(project.getProperty("flavor")) ? "env.CRSDemo.admin.dev." + project.getProperty("flavor") : "env.CRSDemo.admin.dev"
+  modules       moduleWithFlavors("env.CRSDemo.admin.dev")
 }
 
 task startCiStore(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
   jBossRoot     jbossRoot
   serverName    storeServerName
-  modules       "env.CRSDemo.store.dev"
+  modules       moduleWithFlavors("env.CRSDemo.store.dev")
   async         true
 }
 
@@ -68,7 +68,7 @@ task verifyCiStore(type: Tail, dependsOn: [startCiStore]) {
 task startCiAdmin(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
   jBossRoot     jbossRoot
   serverName    adminServerName
-  modules       "env.CRSDemo.admin.dev"
+  modules       moduleWithFlavors("env.CRSDemo.admin.dev")
   async         true
 }
 
@@ -78,3 +78,13 @@ task verifyCiAdmin(type: Tail, dependsOn: [startCiAdmin]) {
   succeedOn    "INFO[ ]*\\[org\\.jboss\\.bootstrap\\.microcontainer\\.ServerImpl\\].*JBoss \\(Microcontainer\\) \\[.*\\] Started in"
   timeoutAfter "5 minutes"
 }
+
+def moduleWithFlavors(String module) {
+  String result = module
+  if (project.hasProperty('flavor')) {
+    result += ".${project.flavor}"      
+  }
+  
+  result
+}
+

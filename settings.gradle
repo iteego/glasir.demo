@@ -20,7 +20,7 @@ buildscript {
   //2. The glasir.build plugin as he is required in this file (settings.gradle)
   //   and can thus not be downloaded in a later build phase
   dependencies {
-    classpath('com.iteego.glasir:glasir.build:1.0.32-SNAPSHOT')
+    classpath('com.iteego.glasir:glasir.build:1.0.34-SNAPSHOT')
     classpath('org.jfrog.buildinfo:build-info-extractor-gradle:2.0.7')
   }
 
