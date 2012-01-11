@@ -1,15 +1,34 @@
 import com.iteego.glasir.build.tasks.*
 
 /*
-Starts a hsql instance in the gradle java process. It starts the instance 
+Starts a h2 instance in the gradle java process. It starts the instance 
 in a mode where the connecting url creates the database if it doesn't already 
 exists. Example connection URLS:
  
-jdbc:hsqldb:hsql://localhost/myalias;file:C:/files/mydatabase
-jdbc:hsqldb:hsql://localhost/myalias;mem:test;sql.enforce_types=true
-jdbc:hsqldb:hsql://localhost/myalias;filepath=file:C:/files/mydatabase
+Example url pattern for connecting to the database instance
+started by the below task:
+
+jdbc:h2:tcp://localhost/<database_name>
+
+as in:
+
+jdbc:h2:tcp://localhost/glasir_pub
+
 */
-task startDatabase(type: HsqlDb) {}
+task startDatabase(type: H2) {
+  baseDir file("$globalDir/data")
+  tcp true     //default, here for clarity. Starts the db server
+  tcpPort 9092 //default, here for clarity
+  web true     //starts the web console`
+  webPort 9093
+}
+
+task startDatabaseConsole(type: H2) {
+  baseDir file("$globalDir/data")
+  tcp false
+  web true
+  webPort 9093
+}
 
 /*
 You can invoke any specific flavor of the "env.store.dev" module by adding the parameter
@@ -17,16 +36,16 @@ You can invoke any specific flavor of the "env.store.dev" module by adding the p
 To your "gradle startDevStore" command. Usually, module flavors are used for different database types,
   for example, use "gradle startDevStore -Pflavor=oracle" to bypass the default h2 database choice.
 */
-task startDevStore(type: RunAtgOnJBoss, dependsOn: []) {
+task startDevStore(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
   jBossRoot     jbossRoot
   serverName    storeServerName
-  modules       project.hasProperty("flavor") && ["oracle"].contains(project.getProperty("flavor")) ? "env.CRSDemo.store.dev." + project.getProperty("flavor") : "env.CRSDemo.store.dev"
+  modules       moduleWithFlavors("env.CRSDemo.store.dev")
 }
 
-task startBareDevStore(type: RunAtgOnJBoss, dependsOn: []) {
+task startBareDevStore(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
   jBossRoot     jbossRoot
   serverName    storeServerName
-  modules       project.hasProperty("flavor") && ["oracle"].contains(project.getProperty("flavor")) ? "env.BareCommerce.store.dev." + project.getProperty("flavor") : "env.BareCommerce.store.dev"
+  modules       moduleWithFlavors("env.BareCommerce.store.dev")
 }
 
 /*
@@ -35,16 +54,16 @@ You can invoke any specific flavor of the "env.admin.dev" module by adding the p
 To your "gradle startDevStore" command. Usually, module flavors are used for different database types,
   for example, use "gradle startDevAdmin -Pflavor=oracle" to bypass the default h2 database choice.
 */
-task startDevAdmin(type: RunAtgOnJBoss, dependsOn: []) {
+task startDevAdmin(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
   jBossRoot     jbossRoot
   serverName    adminServerName
-    modules       project.hasProperty("flavor") && ["oracle"].contains(project.getProperty("flavor")) ? "env.CRSDemo.admin.dev." + project.getProperty("flavor") : "env.CRSDemo.admin.dev"
+  modules       moduleWithFlavors("env.CRSDemo.admin.dev")
 }
 
-task startCiStore(type: RunAtgOnJBoss, dependsOn: []) {
+task startCiStore(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
   jBossRoot     jbossRoot
   serverName    storeServerName
-  modules       "env.CRSDemo.store.dev"
+  modules       moduleWithFlavors("env.CRSDemo.store.dev")
   async         true
 }
 
@@ -58,7 +77,7 @@ task verifyCiStore(type: Tail, dependsOn: [startCiStore]) {
 task startCiAdmin(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
   jBossRoot     jbossRoot
   serverName    adminServerName
-  modules       "env.CRSDemo.admin.dev"
+  modules       moduleWithFlavors("env.CRSDemo.admin.dev")
   async         true
 }
 
@@ -68,3 +87,13 @@ task verifyCiAdmin(type: Tail, dependsOn: [startCiAdmin]) {
   succeedOn    "INFO[ ]*\\[org\\.jboss\\.bootstrap\\.microcontainer\\.ServerImpl\\].*JBoss \\(Microcontainer\\) \\[.*\\] Started in"
   timeoutAfter "5 minutes"
 }
+
+def moduleWithFlavors(String module) {
+  String result = module
+  if (project.hasProperty('flavor')) {
+    result += ".${project.flavor}"      
+  }
+  
+  result
+}
+

@@ -1,47 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <datasources>
-
     <!-- core -->
-
-    <!-- hsql-mem -->
-<!--
-    <xa-datasource>
-        <jndi-name>GlasirProductionDS-hsql-mem</jndi-name>
-        <track-connection-by-tx/>
-        <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
-        <xa-datasource-class>org.hsqldb.jdbc.pool.JDBCXADataSource</xa-datasource-class>
-        <xa-datasource-property name="Url">jdbc:hsqldb:hsql://localhost/glasir_core;mem:glasir_core;encoding=UTF-8;check_props=true;sql.syntax_ora=true;autoCommit=false</xa-datasource-property>
-        <xa-datasource-property name="User">sa</xa-datasource-property>
-        <xa-datasource-property name="Password"></xa-datasource-property>
-        <min-pool-size>5</min-pool-size>
-        <max-pool-size>20</max-pool-size>
-        <idle-timeout-minutes>10</idle-timeout-minutes>
-        <prepared-statement-cache-size>32</prepared-statement-cache-size>
-    </xa-datasource>
--->
-
-    <!-- hsql-file -->
-<!--
-    <xa-datasource>
-        <jndi-name>GlasirProductionDS-hsql-file</jndi-name>
-        <track-connection-by-tx/>
-        <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
-        <xa-datasource-class>org.hsqldb.jdbc.pool.JDBCXADataSource</xa-datasource-class>
-        <xa-datasource-property name="Url">jdbc:hsqldb:file:../glasir.db/glasir_core;encoding=UTF-8;check_props=true;sql.syntax_ora=true;autoCommit=false</xa-datasource-property>
-        <xa-datasource-property name="User">sa</xa-datasource-property>
-        <xa-datasource-property name="Password"></xa-datasource-property>
-        <min-pool-size>5</min-pool-size>
-        <max-pool-size>20</max-pool-size>
-        <idle-timeout-minutes>10</idle-timeout-minutes>
-        <prepared-statement-cache-size>32</prepared-statement-cache-size>
-    </xa-datasource>
--->
-
-    <!-- h2 -->
+    
+    <!-- h2 file-based (default) -->
     <xa-datasource>
         <jndi-name>GlasirProductionDS-h2</jndi-name>
         <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
-        <xa-datasource-property name="URL">jdbc:h2:../glasir.db/glasir_core;AUTO_SERVER=TRUE;MODE=Oracle;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1;AUTOCOMMIT=OFF;LOCK_MODE=0;MVCC=TRUE;CACHE_SIZE=65536</xa-datasource-property>
+        <xa-datasource-property name="URL">jdbc:h2:tcp://localhost/glasir_core;MODE=Oracle;AUTOCOMMIT=OFF;CACHE_SIZE=65536</xa-datasource-property>
         <min-pool-size>5</min-pool-size>
         <max-pool-size>100</max-pool-size>
         <idle-timeout-minutes>10</idle-timeout-minutes>
@@ -52,6 +17,21 @@
         </security>
     </xa-datasource>
 
+    <!-- h2 in-memory (flavor 'h2mem') -->
+    <xa-datasource>
+        <jndi-name>GlasirProductionDS-h2mem</jndi-name>
+        <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
+        <xa-datasource-property name="URL">jdbc:h2:tcp://localhost/mem:glasir_core;MODE=Oracle;AUTOCOMMIT=OFF;CACHE_SIZE=65536</xa-datasource-property>
+        <min-pool-size>5</min-pool-size>
+        <max-pool-size>100</max-pool-size>
+        <idle-timeout-minutes>10</idle-timeout-minutes>
+        <prepared-statement-cache-size>32</prepared-statement-cache-size>
+        <security>
+            <user-name>sa</user-name>
+            <password>sa</password>
+        </security>
+    </xa-datasource>
+    
     <!-- oracle  -->
     <xa-datasource>
         <jndi-name>GlasirProductionDS-oracle</jndi-name>
@@ -78,45 +58,26 @@
 
     <!-- cat a  -->
 
-    <!-- hsql-mem -->
-<!--
-    <xa-datasource>
-        <jndi-name>GlasirSwitchingDS_A-hsql-mem</jndi-name>
-        <track-connection-by-tx/>
-        <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
-        <xa-datasource-class>org.hsqldb.jdbc.pool.JDBCXADataSource</xa-datasource-class>
-        <xa-datasource-property name="Url">jdbc:hsqldb:hsql://localhost/glasir_a;mem:glasir_a;encoding=UTF-8;check_props=true;sql.syntax_ora=true;autoCommit=false</xa-datasource-property>
-        <xa-datasource-property name="User">sa</xa-datasource-property>
-        <xa-datasource-property name="Password"></xa-datasource-property>
-        <min-pool-size>5</min-pool-size>
-        <max-pool-size>20</max-pool-size>
-        <idle-timeout-minutes>10</idle-timeout-minutes>
-        <prepared-statement-cache-size>32</prepared-statement-cache-size>
-    </xa-datasource>
--->
-
-    <!-- hsql-file -->
-<!--
-    <xa-datasource>
-        <jndi-name>GlasirSwitchingDS_A-hsql-file</jndi-name>
-        <track-connection-by-tx/>
-        <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
-        <xa-datasource-class>org.hsqldb.jdbc.pool.JDBCXADataSource</xa-datasource-class>
-        <xa-datasource-property name="Url">jdbc:hsqldb:file:../glasir.db/glasir_a;encoding=UTF-8;check_props=true;sql.syntax_ora=true;autoCommit=false</xa-datasource-property>
-        <xa-datasource-property name="User">sa</xa-datasource-property>
-        <xa-datasource-property name="Password"></xa-datasource-property>
-        <min-pool-size>5</min-pool-size>
-        <max-pool-size>20</max-pool-size>
-        <idle-timeout-minutes>10</idle-timeout-minutes>
-        <prepared-statement-cache-size>32</prepared-statement-cache-size>
-    </xa-datasource>
--->
-
-    <!-- h2 -->
+    <!-- h2 file-based (default) -->
     <xa-datasource>
         <jndi-name>GlasirSwitchingDS_A-h2</jndi-name>
         <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
-        <xa-datasource-property name="URL">jdbc:h2:../glasir.db/glasir_a;AUTO_SERVER=TRUE;MODE=Oracle;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1;AUTOCOMMIT=OFF;LOCK_MODE=0;MVCC=TRUE;CACHE_SIZE=65536</xa-datasource-property>
+        <xa-datasource-property name="URL">jdbc:h2:tcp://localhost/glasir_a;MODE=Oracle;AUTOCOMMIT=OFF;CACHE_SIZE=65536</xa-datasource-property>
+        <min-pool-size>5</min-pool-size>
+        <max-pool-size>100</max-pool-size>
+        <idle-timeout-minutes>10</idle-timeout-minutes>
+        <prepared-statement-cache-size>32</prepared-statement-cache-size>
+        <security>
+            <user-name>sa</user-name>
+            <password>sa</password>
+        </security>
+    </xa-datasource>
+
+    <!-- h2 in-memory (flavor 'h2mem') -->
+    <xa-datasource>
+        <jndi-name>GlasirSwitchingDS_A-h2mem</jndi-name>
+        <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
+        <xa-datasource-property name="URL">jdbc:h2:tcp://localhost/mem:glasir_a;MODE=Oracle;AUTOCOMMIT=OFF;CACHE_SIZE=65536</xa-datasource-property>
         <min-pool-size>5</min-pool-size>
         <max-pool-size>100</max-pool-size>
         <idle-timeout-minutes>10</idle-timeout-minutes>
@@ -152,46 +113,27 @@
 
 
     <!-- cat b  -->
-
-    <!-- hsql-mem -->
-<!--
-    <xa-datasource>
-        <jndi-name>GlasirSwitchingDS_B-hsql-mem</jndi-name>
-        <track-connection-by-tx/>
-        <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
-        <xa-datasource-class>org.hsqldb.jdbc.pool.JDBCXADataSource</xa-datasource-class>
-        <xa-datasource-property name="Url">jdbc:hsqldb:hsql://localhost/glasir_b;mem:glasir_b;encoding=UTF-8;check_props=true;sql.syntax_ora=true;autoCommit=false</xa-datasource-property>
-        <xa-datasource-property name="User">sa</xa-datasource-property>
-        <xa-datasource-property name="Password"></xa-datasource-property>
-        <min-pool-size>5</min-pool-size>
-        <max-pool-size>20</max-pool-size>
-        <idle-timeout-minutes>10</idle-timeout-minutes>
-        <prepared-statement-cache-size>32</prepared-statement-cache-size>
-    </xa-datasource>
--->
-
-    <!-- hsql-file -->
-<!--
-    <xa-datasource>
-        <jndi-name>GlasirSwitchingDS_B-hsql-file</jndi-name>
-        <track-connection-by-tx/>
-        <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
-        <xa-datasource-class>org.hsqldb.jdbc.pool.JDBCXADataSource</xa-datasource-class>
-        <xa-datasource-property name="Url">jdbc:hsqldb:file:../glasir.db/glasir_b;encoding=UTF-8;check_props=true;sql.syntax_ora=true;autoCommit=false</xa-datasource-property>
-        <xa-datasource-property name="User">sa</xa-datasource-property>
-        <xa-datasource-property name="Password"></xa-datasource-property>
-        <min-pool-size>5</min-pool-size>
-        <max-pool-size>20</max-pool-size>
-        <idle-timeout-minutes>10</idle-timeout-minutes>
-        <prepared-statement-cache-size>32</prepared-statement-cache-size>
-    </xa-datasource>
--->
-
-    <!-- h2 -->
+    
+    <!-- h2 file-based (default) -->
     <xa-datasource>
         <jndi-name>GlasirSwitchingDS_B-h2</jndi-name>
         <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
-        <xa-datasource-property name="URL">jdbc:h2:../glasir.db/glasir_b;AUTO_SERVER=TRUE;MODE=Oracle;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1;AUTOCOMMIT=OFF;LOCK_MODE=0;MVCC=TRUE;CACHE_SIZE=65536</xa-datasource-property>
+        <xa-datasource-property name="URL">jdbc:h2:tcp://localhost/glasir_b;MODE=Oracle;AUTOCOMMIT=OFF;CACHE_SIZE=65536</xa-datasource-property>
+        <min-pool-size>5</min-pool-size>
+        <max-pool-size>100</max-pool-size>
+        <idle-timeout-minutes>10</idle-timeout-minutes>
+        <prepared-statement-cache-size>32</prepared-statement-cache-size>
+        <security>
+            <user-name>sa</user-name>
+            <password>sa</password>
+        </security>
+    </xa-datasource>
+
+    <!-- h2 in-memory (flavor 'h2mem') -->
+    <xa-datasource>
+        <jndi-name>GlasirSwitchingDS_B-h2mem</jndi-name>
+        <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
+        <xa-datasource-property name="URL">jdbc:h2:tcp://localhost/mem:glasir_b;MODE=Oracle;AUTOCOMMIT=OFF;CACHE_SIZE=65536</xa-datasource-property>
         <min-pool-size>5</min-pool-size>
         <max-pool-size>100</max-pool-size>
         <idle-timeout-minutes>10</idle-timeout-minutes>
@@ -228,45 +170,26 @@
 
     <!-- pub -->
 
-    <!-- hsql-mem -->
-<!--
-    <xa-datasource>
-        <jndi-name>GlasirPublishingDS-hsql-mem</jndi-name>
-        <track-connection-by-tx/>
-        <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
-        <xa-datasource-class>org.hsqldb.jdbc.pool.JDBCXADataSource</xa-datasource-class>
-        <xa-datasource-property name="Url">jdbc:hsqldb:hsql://localhost/glasir_pub;mem:glasir_pub;encoding=UTF-8;check_props=true;sql.syntax_ora=true;autoCommit=false</xa-datasource-property>
-        <xa-datasource-property name="User">sa</xa-datasource-property>
-        <xa-datasource-property name="Password"></xa-datasource-property>
-        <min-pool-size>5</min-pool-size>
-        <max-pool-size>20</max-pool-size>
-        <idle-timeout-minutes>10</idle-timeout-minutes>
-        <prepared-statement-cache-size>32</prepared-statement-cache-size>
-    </xa-datasource>
--->
-
-    <!-- hsql-file -->
-<!--
-    <xa-datasource>
-        <jndi-name>GlasirPublishingDS-hsql-file</jndi-name>
-        <track-connection-by-tx/>
-        <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
-        <xa-datasource-class>org.hsqldb.jdbc.pool.JDBCXADataSource</xa-datasource-class>
-        <xa-datasource-property name="Url">jdbc:hsqldb:file:../glasir.db/glasir_pub;encoding=UTF-8;check_props=true;sql.syntax_ora=true;autoCommit=false</xa-datasource-property>
-        <xa-datasource-property name="User">sa</xa-datasource-property>
-        <xa-datasource-property name="Password"></xa-datasource-property>
-        <min-pool-size>5</min-pool-size>
-        <max-pool-size>20</max-pool-size>
-        <idle-timeout-minutes>10</idle-timeout-minutes>
-        <prepared-statement-cache-size>32</prepared-statement-cache-size>
-    </xa-datasource>
--->
-
-    <!-- h2 -->
+    <!-- h2 file-based (default) -->
     <xa-datasource>
         <jndi-name>GlasirPublishingDS-h2</jndi-name>
         <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
-        <xa-datasource-property name="URL">jdbc:h2:../glasir.db/glasir_pub;AUTO_SERVER=TRUE;MODE=Oracle;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1;AUTOCOMMIT=OFF;LOCK_MODE=0;MVCC=TRUE;CACHE_SIZE=65536</xa-datasource-property>
+        <xa-datasource-property name="URL">jdbc:h2:tcp://localhost/glasir_pub;MODE=Oracle;AUTOCOMMIT=OFF;CACHE_SIZE=65536</xa-datasource-property>
+        <min-pool-size>5</min-pool-size>
+        <max-pool-size>100</max-pool-size>
+        <idle-timeout-minutes>10</idle-timeout-minutes>
+        <prepared-statement-cache-size>32</prepared-statement-cache-size>
+        <security>
+            <user-name>sa</user-name>
+            <password>sa</password>
+        </security>
+    </xa-datasource>
+
+    <!-- h2 in-memory (flavor 'h2mem') -->
+    <xa-datasource>
+        <jndi-name>GlasirPublishingDS-h2mem</jndi-name>
+        <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
+        <xa-datasource-property name="URL">jdbc:h2:tcp://localhost/mem:glasir_pub;MODE=Oracle;AUTOCOMMIT=OFF;CACHE_SIZE=65536</xa-datasource-property>
         <min-pool-size>5</min-pool-size>
         <max-pool-size>100</max-pool-size>
         <idle-timeout-minutes>10</idle-timeout-minutes>
