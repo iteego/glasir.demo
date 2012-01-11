@@ -1,7 +1,12 @@
 .gradle/
 .local.build.properties
 build
+data
+packages
 *~
 .idea/workspace.xml
 .idea/dictionaries/
-packages
+.idea/tasks.xml
+.idea/dictionaries/
+.idea/inspectionProfiles
+.idea/dictionaries/

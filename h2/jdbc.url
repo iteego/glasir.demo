@@ -1,0 +1,1 @@
+jdbc:h2:tcp://localhost:19092/glasir_pub
