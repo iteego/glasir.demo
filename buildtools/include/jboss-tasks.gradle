@@ -37,7 +37,7 @@ To your "gradle startDevStore" command. Usually, module flavors are used for dif
   for example, use "gradle startDevStore -Pflavor=oracle" to bypass the default h2 database choice.
 */
 task startDevStore(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
-  jBossRoot     jBossRoot
+  jBossHome     jBossRoot
   serverName    storeServerName
   modules       moduleWithFlavors("env.CRSDemo.store.dev")
 
@@ -47,7 +47,7 @@ task startDevStore(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
 }
 
 task startBareDevStore(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
-  jBossRoot     jBossRoot
+  jBossHome     jBossRoot
   serverName    storeServerName
   modules       moduleWithFlavors("env.BareCommerce.store.dev")
   
@@ -63,7 +63,7 @@ To your "gradle startDevStore" command. Usually, module flavors are used for dif
   for example, use "gradle startDevAdmin -Pflavor=oracle" to bypass the default h2 database choice.
 */
 task startDevAdmin(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
-  jBossRoot     jBossRoot
+  jBossHome     jBossRoot
   serverName    adminServerName
   modules       moduleWithFlavors("env.CRSDemo.admin.dev")
   
@@ -73,7 +73,7 @@ task startDevAdmin(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
 }
 
 task startCiStore(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
-  jBossRoot     jBossRoot
+  jBossHome     jBossRoot
   serverName    storeServerName
   modules       moduleWithFlavors("env.CRSDemo.store.dev")
   async         true
@@ -87,7 +87,7 @@ task verifyCiStore(type: Tail, dependsOn: [startCiStore]) {
 }
 
 task startCiAdmin(type: RunAtgOnJBoss, dependsOn: []) {
-  jBossRoot     jBossRoot
+  jBossHome     jBossRoot
   serverName    adminServerName
   modules       moduleWithFlavors("env.CRSDemo.admin.dev")
   async         true
