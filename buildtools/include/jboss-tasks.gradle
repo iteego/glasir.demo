@@ -16,8 +16,9 @@ jdbc:h2:tcp://localhost/glasir_pub
 
 */
 task startDatabase(type: H2) {
-  baseDir file("$jbossRoot/glasir-data")
-  tcpPort 19092
+  baseDir file("$globalDir/data")
+  //tcpPort 19092
+  //trace true
 }
 
 /*
