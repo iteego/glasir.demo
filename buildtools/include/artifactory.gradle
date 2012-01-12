@@ -11,7 +11,7 @@ artifactory {
     defaults { 
       publishBuildInfo = true
       publishArtifacts = true
-      publishPom = true      
+      publishPom = false      
       publishIvy = false    
       
       publishConfigs 'glasirPackage'
