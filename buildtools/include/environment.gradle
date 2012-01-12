@@ -6,6 +6,7 @@ brand = "glasir"
 
 storeServerName = "dev-store"
 adminServerName = "dev-admin"
+databaseDir = file("$globalDir/data")
 
 bigEarName = "${brand}.ear"
 bigEar = file(buildDir, "${bigEarName}")

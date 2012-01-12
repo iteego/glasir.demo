@@ -167,7 +167,7 @@ task ciDeploy {
 
 task cleanLocalDatabase(dependsOn: ['clean']) << {
   description = "Cleans out the local database, if any"
-  delete("$jBossRoot/server/glasir.db")
+  delete(databaseDir)
 }
 
 task cleanJbossServers(dependsOn: ['clean']) << {
