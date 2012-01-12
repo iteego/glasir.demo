@@ -13,15 +13,8 @@ bigEar = file(buildDir, "${bigEarName}")
 //TODO: Fix this path
 docRoot = "$globalDir/glasir-app/$brand/MyAtgModule/j2ee-apps/MyApplication/store.war/"
 
-promptDir (message: "Please provide a valid ATG installation directory (with subdirectories home, DAS, ...): ",
-           propertyName: "atgRoot",
-           blockUntilSubItemsExist: "home/localconfig,home/bin, DAS",
-           propertyFile: "$globalDir/.local.build.properties",
-           loadQuietly: true)
-promptDir (message: "Please provide a valid JBoss installation directory (with subdirectories bin, lib, server, ...): ",
-           propertyName: "jbossRoot",
-           blockUntilSubItemsExist: "bin,lib,server",
-           propertyFile: "$globalDir/.local.build.properties")
+println "atgRoot = $atgRoot"
+println "jBossRoot = $jBossRoot"
 
 //On hudson or other environments we can set the environment either by 
 //a system property -Dorg.gradle.project.env=production or by 

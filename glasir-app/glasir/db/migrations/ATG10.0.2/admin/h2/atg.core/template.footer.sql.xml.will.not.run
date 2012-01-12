@@ -1,6 +1,0 @@
-
-]]>
-                </sql>
-              <rollback/>
-            </changeSet>
-          </databaseChangeLog>

@@ -11,8 +11,14 @@ buildscript {
       credentials.username artifactoryReader
       credentials.password artifactoryReaderPwd
       url "http://iteego.artifactoryonline.com/iteego/glasir"
+
+      //url "http://localhost:8081/artifactory/glasir"
+
     }
   }
+
+  //add a configuration for management of glasir packages
+  configurations.add("glasir")
 
   //we need two artifacts to 'bootstrap' the gradle builds.
   //1. The artifactory plugin as the configuration for this plugin is then 
@@ -20,15 +26,19 @@ buildscript {
   //2. The glasir.build plugin as he is required in this file (settings.gradle)
   //   and can thus not be downloaded in a later build phase
   dependencies {
-    classpath('com.iteego.glasir:glasir.build:1.0.25-SNAPSHOT') { changing=true }
+    classpath('com.iteego.glasir:glasir.build:1.0.37-SNAPSHOT')
     classpath('org.jfrog.buildinfo:build-info-extractor-gradle:2.0.7')
+    
+    glasir('com.iteego.glasir.pkg:glasir.db:1.0.88-SNAPSHOT') 
+    glasir('com.iteego.glasir.pkg:jboss-eap-5.1.0:1.0-SNAPSHOT')
+    glasir('com.iteego.glasir.pkg:atg-10.0.2:1.0-SNAPSHOT')
   }
 
-  configurations.classpath {
+  configurations.all {
     resolutionStrategy {
       failOnVersionConflict()
-      cacheDynamicVersionsFor 10, 'minutes'
-      cacheChangingModulesFor 10, 'minutes'
+      cacheDynamicVersionsFor 0, 'seconds'
+      cacheChangingModulesFor 0, 'seconds'
     }
   }
   
@@ -41,16 +51,21 @@ buildscript {
 * multi project structure reflecting the ATG module structure in this source tree
 */
 new GlasirSettingsConvention().with {
+  installGlasirPackages(buildscript.configurations.glasir, settings)
+
+  /*
   String atgRoot = promptDir(message: "Please provide a valid ATG installation directory: ",
                              blockUntilSubItemsExist: "home/localconfig,home/bin, DAS",
                              propertyFile: "$settingsDir/.local.build.properties",
                              propertyName: "atgRoot")
-
+  */
+  
   // configure module search roots. This enables the build to locate
   // all relevant ATG modules and analyze the ATG module dependencies of the
   // project. settingsDir is a gradle injected property representing the directory
   // where the settings.gradle file lives
   moduleSearchRoot dir: file(atgRoot), isAtgCore: true
+  moduleSearchRoot dir: new File(settingsDir, 'packages/modules'), isAtgCore: true
   moduleSearchRoot dir: settingsDir, isAtgCore: false, includes: "glasir-app"
 
   //the below configures the gradle subprojects using the given module

@@ -1,3 +1,4 @@
 Manifest-Version: 1.0
-ATG-Required: env.CRSDemo.admin
+ATG-Required: env.CRSDemo.store.dev
 ATG-Config-Path: config
+
