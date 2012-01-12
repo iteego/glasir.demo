@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-ATG-Required: env.CRSDemo
+ATG-Required: env.CRSDemo glasir.db
 ATG-Config-Path: config
 
 Name: db

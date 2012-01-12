@@ -36,7 +36,7 @@ task assembleDevEar(type: AtgAssemblerTask) {
   liveconfig = false
   pack = false
   extraClasspath = files("${globalDir}/buildtools/gradle-lib/dtds.jar")
-  loggingDebug = true
+  loggingDebug = false
 
   //doAfterAssembly is called after the ear is assembled (into an exploded stage dir)
   //but before the ear is packed

@@ -29,7 +29,7 @@ buildscript {
     classpath('com.iteego.glasir:glasir.build:1.0.37-SNAPSHOT')
     classpath('org.jfrog.buildinfo:build-info-extractor-gradle:2.0.7')
     
-    glasir('com.iteego.glasir.pkg:glasir.db:1.0.87-SNAPSHOT') 
+    glasir('com.iteego.glasir.pkg:glasir.db:1.0.88-SNAPSHOT') 
     glasir('com.iteego.glasir.pkg:jboss-eap-5.1.0:1.0-SNAPSHOT')
     glasir('com.iteego.glasir.pkg:atg-10.0.2:1.0-SNAPSHOT')
   }

@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
-ATG-Required: env.CRSDemo.store CRSDemo.Storefront.NoPublishing glasir.db
+ATG-Required: env.CRSDemo.store CRSDemo.Storefront.NoPublishing
 ATG-Config-Path: config
 
