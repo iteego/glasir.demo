@@ -37,8 +37,8 @@ buildscript {
   configurations.all {
     resolutionStrategy {
       failOnVersionConflict()
-      cacheDynamicVersionsFor 0, 'seconds'
-      cacheChangingModulesFor 0, 'seconds'
+      cacheDynamicVersionsFor 60, 'seconds'
+      cacheChangingModulesFor 60, 'seconds'
     }
   }
   
