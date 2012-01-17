@@ -23,13 +23,6 @@ task startDatabase(type: H2) {
   webPort 9093
 }
 
-task startDatabaseConsole(type: H2) {
-  baseDir file("$globalDir/data")
-  tcp false
-  web true
-  webPort 9093
-}
-
 /*
 You can invoke any specific flavor of the "env.store.dev" module by adding the parameter
   "-Pflavor=FlavorName" or "--project-prop flavor=FlavorName"

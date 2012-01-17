@@ -4,7 +4,8 @@ configurations {
 
 apply plugin: 'artifactory'
 artifactory {
-  contextUrl = 'http://iteego.artifactoryonline.com/iteego'
+  //contextUrl = 'http://iteego.artifactoryonline.com/iteego'
+  contextUrl =  artifactoryReaderUrl
   
   //the artifactoryDeployer, etc variables come from <userhome>/.gradle/gradle.properties  
   publish {

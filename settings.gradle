@@ -10,10 +10,10 @@ buildscript {
     maven {
       credentials.username artifactoryReader
       credentials.password artifactoryReaderPwd
-      url "http://iteego.artifactoryonline.com/iteego/glasir"
-
-      //url "http://localhost:8081/artifactory/glasir"
-
+      //please set the 'artifactoryReaderUrl' property to 
+      //either a local artifactory instance or "http://iteego.artifactoryonline.com/iteego/glasir"
+      //in your gradle.properties
+      url artifactoryReaderUrl
     }
   }
 
@@ -26,10 +26,10 @@ buildscript {
   //2. The glasir.build plugin as he is required in this file (settings.gradle)
   //   and can thus not be downloaded in a later build phase
   dependencies {
-    classpath('com.iteego.glasir:glasir.build:1.0.37-SNAPSHOT')
+    classpath('com.iteego.glasir:glasir.build:1.0.39-SNAPSHOT') { changing=true }
     classpath('org.jfrog.buildinfo:build-info-extractor-gradle:2.0.7')
     
-    glasir('com.iteego.glasir.pkg:glasir.db:1.0.88-SNAPSHOT') 
+    glasir('com.iteego.glasir.pkg:glasir.db:1.0.88-SNAPSHOT') { changing=true }
     glasir('com.iteego.glasir.pkg:jboss-eap-5.1.0:1.0-SNAPSHOT')
     glasir('com.iteego.glasir.pkg:atg-10.0.2:1.0-SNAPSHOT')
   }
