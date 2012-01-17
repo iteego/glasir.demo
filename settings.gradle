@@ -8,11 +8,12 @@ rootProject.name='glasir.boostrap'
 buildscript {    
   repositories {
     maven {
+      //please set the below three 'artifactoryXXXX' properties in your 
+      //USER_HOME/.gradle/gradle.properties file
+      //The 'artifactoryReaderUrl' property should be set to 
+      //either a local artifactory instance or "http://iteego.artifactoryonline.com/iteego/glasir"
       credentials.username artifactoryReader
       credentials.password artifactoryReaderPwd
-      //please set the 'artifactoryReaderUrl' property to 
-      //either a local artifactory instance or "http://iteego.artifactoryonline.com/iteego/glasir"
-      //in your gradle.properties
       url artifactoryReaderUrl
     }
   }
@@ -52,13 +53,6 @@ buildscript {
 */
 new GlasirSettingsConvention().with {
   installGlasirPackages(buildscript.configurations.glasir, settings)
-
-  /*
-  String atgRoot = promptDir(message: "Please provide a valid ATG installation directory: ",
-                             blockUntilSubItemsExist: "home/localconfig,home/bin, DAS",
-                             propertyFile: "$settingsDir/.local.build.properties",
-                             propertyName: "atgRoot")
-  */
   
   // configure module search roots. This enables the build to locate
   // all relevant ATG modules and analyze the ATG module dependencies of the

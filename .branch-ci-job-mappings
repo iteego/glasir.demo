@@ -8,5 +8,4 @@
 # 
 #
 
-master      : glasir.bootstrap       : db22a7f7c02db7817a37c89613c224e2
-store       : glasir.bootstrap-store : 4355f332b6ef1a642db3ab2ce6481f63
+master      : glasir.commerce       : db22a7f7c02db7817a37c89613c224e2
