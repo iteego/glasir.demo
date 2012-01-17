@@ -9,13 +9,12 @@
       <sourceFolder url="file://$MODULE_DIR$/glasir-app/env/BareCommerce/src/main/groovy" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/.gradle" />
       <excludeFolder url="file://$MODULE_DIR$/.idea" />
+      <excludeFolder url="file://$MODULE_DIR$/buildtools/build" />
+      <excludeFolder url="file://$MODULE_DIR$/data" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="groovy-1.8.0" level="application" />
-    <orderEntry type="library" name="glasir.build-libs" level="project" />
-    <orderEntry type="library" name="gradle-cache" level="project" />
-    <orderEntry type="library" name="atg-libs" level="project" />
+    <orderEntry type="library" name="groovy-1.8.2" level="application" />
   </component>
 </module>
 
