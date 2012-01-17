@@ -5,7 +5,7 @@ task atgCoreSqlInstallationOrder << {
   printAtgCoreSqlInstallationOrder()
 }
 
-task assembleReleaseEar(type: AtgAssemblerTask, description: "Runs a build and assembles a release storefront ear") {
+task assembleReleaseEar(type: AtgAssemblerTask, description: "Runs a build and assembles a release ear") {
   dependsOn = ["clean", "build"]
 
   modules = allEnvironmentModules
@@ -27,7 +27,7 @@ task assembleReleaseEar(type: AtgAssemblerTask, description: "Runs a build and a
   }
 }
 
-task assembleDevEar(type: AtgAssemblerTask) {
+task assembleDevEar(type: AtgAssemblerTask, description: "Runs a build and assembles a development ear") {
   dependsOn "build"
   
   modules = allEnvironmentModules
@@ -161,8 +161,8 @@ task devDeploy {
 }
 
 task ciDeploy {
-  description = "Deploys the ear to jboss"  
-  dependsOn = [syncStoreServer, syncAdminServer, syncStoreEar, syncAdminEar]
+  description = "Compile, test, assemble, and deploys the release ear to jboss"
+  dependsOn = [assembleReleaseEar, syncStore, syncAdmin]
 }
 
 task cleanLocalDatabase(dependsOn: ['clean']) << {

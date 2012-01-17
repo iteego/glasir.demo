@@ -73,16 +73,16 @@ task startDevAdmin(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
 }
 
 task startCiStore(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
-  jBossHome     jBossRoot
-  serverName    storeServerName
-  modules       moduleWithFlavors("env.CRSDemo.store.dev")
-  async         true
+    jBossHome     jBossRoot
+    serverName    storeServerName
+    modules       moduleWithFlavors("env.CRSDemo.store.dev")
+    async         true
 }
 
 task verifyCiStore(type: Tail, dependsOn: [startCiStore]) {
   file         "$jBossRoot/server/$storeServerName/log/console.log"
   failOn       regex: "ERROR[ ]*\\[", postFireTailPeriod: "5 seconds"
-  succeedOn    "INFO[ ]*\\[org\\.jboss\\.bootstrap\\.microcontainer\\.ServerImpl\\].*JBoss \\(Microcontainer\\) \\[.*\\] Started in"
+  succeedOn    "INFO.*JBoss \\(Microcontainer\\) \\[.*\\] Started in"
   timeoutAfter "5 minutes"
 }
 
@@ -96,9 +96,28 @@ task startCiAdmin(type: RunAtgOnJBoss, dependsOn: []) {
 task verifyCiAdmin(type: Tail, dependsOn: [startCiAdmin]) {
   file         "$jBossRoot/server/$adminServerName/log/console.log"
   failOn       regex: "ERROR[ ]*\\[", postFireTailPeriod: "5 seconds"
-  succeedOn    "INFO[ ]*\\[org\\.jboss\\.bootstrap\\.microcontainer\\.ServerImpl\\].*JBoss \\(Microcontainer\\) \\[.*\\] Started in"
+  succeedOn    "INFO.*JBoss \\(Microcontainer\\) \\[.*\\] Started in"
   timeoutAfter "5 minutes"
 }
+
+/* Ugly workaround to make stop tasks work */
+task stopStore << {
+    proc = "${jBossRoot}/bin/shutdown.sh -s jnp://localhost:3099 -u admin -p admin".execute()
+    proc.waitFor()
+}
+
+task stopAdmin << {
+    proc = "${jBossRoot}/bin/shutdown.sh -s jnp://localhost:1099 -u admin -p admin".execute()
+    proc.waitFor()
+}
+
+/* This is what the stop tasks SHOULD look like
+task stopAdmin(type: StopJBossInstance, dependsOn: []) {
+    jBossHome     jBossRoot
+    serverName    adminServerName
+    jnpPort       1099
+}
+*/
 
 def moduleWithFlavors(String module) {
   String result = module
@@ -108,4 +127,3 @@ def moduleWithFlavors(String module) {
   
   result
 }
-
