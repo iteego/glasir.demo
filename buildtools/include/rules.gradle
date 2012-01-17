@@ -58,7 +58,7 @@ buildscript {
     maven {
       credentials.username artifactoryReader
       credentials.password artifactoryReaderPwd
-      url  artifactoryReaderUrl
+      url  "$artifactoryReaderUrl/glasir"
     }
   }
   

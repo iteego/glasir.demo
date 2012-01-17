@@ -11,10 +11,10 @@ buildscript {
       //please set the below three 'artifactoryXXXX' properties in your 
       //USER_HOME/.gradle/gradle.properties file
       //The 'artifactoryReaderUrl' property should be set to 
-      //either a local artifactory instance or "http://iteego.artifactoryonline.com/iteego/glasir"
+      //either a local artifactory instance or "http://iteego.artifactoryonline.com/iteego"
       credentials.username artifactoryReader
       credentials.password artifactoryReaderPwd
-      url artifactoryReaderUrl
+      url "$artifactoryReaderUrl/glasir"
     }
   }
 
