@@ -21,6 +21,7 @@ task startDatabase(type: H2) {
   tcpPort 9092 //default, here for clarity
   web true     //starts the web console`
   webPort 9093
+  //http://www.h2database.com/javadoc/org/h2/constant/SysProperties.html#h2.serverCachedObjects
   System.properties['h2.serverCachedObjects'] = '2048'
 }
 
