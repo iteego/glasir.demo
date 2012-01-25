@@ -25,6 +25,10 @@ task startDatabase(type: H2) {
   System.properties['h2.serverCachedObjects'] = '2048'
 }
 
+task startDbAndSleep( dependsOn: 'startDatabase') {
+  doLast {sleep(180000)}
+ }
+
 /*
 You can invoke any specific flavor of the "env.store.dev" module by adding the parameter
   "-Pflavor=FlavorName" or "--project-prop flavor=FlavorName"
