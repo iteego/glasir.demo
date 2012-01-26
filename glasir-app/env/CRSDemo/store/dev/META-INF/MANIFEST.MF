@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
-ATG-Required: env.CRSDemo.store CRSDemo.Storefront.NoPublishing
+ATG-Required: env.CRSDemo.store
 ATG-Config-Path: config
 
