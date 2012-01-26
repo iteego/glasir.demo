@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-ATG-Required: CRSDemo
+ATG-Required: CRSDemo Store.EStore
 ATG-Config-Path: config
 
 Name: db

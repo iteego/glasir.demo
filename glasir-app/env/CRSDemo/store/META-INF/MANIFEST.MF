@@ -1,3 +1,3 @@
 Manifest-Version: 1.0
-ATG-Required: env.CRSDemo CRSDemo.Storefront DCS.PublishingAgent
+ATG-Required: env.CRSDemo CRSDemo.Storefront DCS.PublishingAgent RL glasir.db
 ATG-Config-Path: config
