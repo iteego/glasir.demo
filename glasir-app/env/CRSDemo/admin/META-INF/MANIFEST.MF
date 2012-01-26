@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
-ATG-Required: CRSDemo.Integrations.Versioned DCS-UI.Versioned SiteAdmin.Versioned PubPortlet env.CRSDemo RL glasir.db
+ATG-Required: env.CRSDemo CRSDemo.Integrations.Versioned SiteAdmin.Versioned DCS-UI.Versioned PubPortlet RL glasir.db
 ATG-Config-Path: config
 
