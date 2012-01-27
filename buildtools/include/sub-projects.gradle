@@ -11,6 +11,7 @@
 drivers = ['htmlunit']
 
 allprojects {
+  if (project.path.startsWith(":env")) return
   apply plugin: 'groovy'
     
   dependencies {
@@ -27,6 +28,14 @@ allprojects {
 
     testRuntime "org.seleniumhq.selenium:selenium-support:2.9.0"
   }
+  
+  configurations.all {
+    resolutionStrategy {
+      cacheDynamicVersionsFor 5, 'minutes'
+      cacheChangingModulesFor 5, 'minutes'
+    }
+  }
+
 
   sourceCompatibility = "1.6"
   targetCompatibility = "1.6"
@@ -81,6 +90,7 @@ allprojects {
 }
 
 subprojects {
+  if (project.path.startsWith(":env")) return
   //set ivy/maven 'group' for the subproject, generated via a method call to glasir.build 
   //gradle plugin
   group = getProjectGroup(project, true)
@@ -91,7 +101,9 @@ subprojects {
   setupAtgDependencies(project, ['compile', 'testCompile'])
 }
 
-task aggregateTestReports(type: TestReportAggregator, dependsOn: subprojects.check) {
+task aggregateTestReports(type: TestReportAggregator) {
+  dependsOn subprojects.findAll { !it.path.startsWith(":env") }.collect { it.check }
+
   includeWebTests = false
   testReportDir = file("${reportsDir}/tests")
   testResultsDir = file("${buildDir}/test-results")

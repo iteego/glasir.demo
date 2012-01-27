@@ -1,72 +1,41 @@
-import com.iteego.glasir.build.GlasirSettingsConvention
-
-//set the root project name which will also be the default artifact name
-rootProject.name='glasir.boostrap'
-
-//set up a base classpath for this settings.gradle file and build.gradle files for 
-//included projects
 buildscript {    
   repositories {
     maven {
-      //please set the below three 'artifactoryXXXX' properties in your 
-      //USER_HOME/.gradle/gradle.properties file
-      //The 'artifactoryReaderUrl' property should be set to 
-      //either a local artifactory instance or "http://iteego.artifactoryonline.com/iteego"
       credentials.username artifactoryReader
       credentials.password artifactoryReaderPwd
       url "$artifactoryReaderUrl/glasir"
     }
   }
 
-  //add a configuration for management of glasir packages
-  configurations.add("glasir")
-
-  //we need two artifacts to 'bootstrap' the gradle builds.
-  //1. The artifactory plugin as the configuration for this plugin is then 
-  //   used to resolve all other artifacts for the project
-  //2. The glasir.build plugin as he is required in this file (settings.gradle)
-  //   and can thus not be downloaded in a later build phase
   dependencies {
-    classpath('com.iteego.glasir:glasir.build:1.0.39-SNAPSHOT') { changing=true }
+    classpath('com.iteego.glasir:glasir.build:1.1.0-SNAPSHOT') { changing=true }
     classpath('org.jfrog.buildinfo:build-info-extractor-gradle:2.0.7')
-    
-    glasir('com.iteego.glasir.pkg:glasir.db:1.0.88-SNAPSHOT') { changing=true }
-    glasir('com.iteego.glasir.pkg:jboss-eap-5.1.0:1.0-SNAPSHOT')
-    glasir('com.iteego.glasir.pkg:atg-10.0.2:1.0-SNAPSHOT')
   }
 
-  configurations.all {
+  configurations.classpath {
     resolutionStrategy {
       failOnVersionConflict()
-      cacheDynamicVersionsFor 60, 'seconds'
-      cacheChangingModulesFor 60, 'seconds'
+      cacheDynamicVersionsFor 5, 'minutes'
+      cacheChangingModulesFor 5, 'minutes'
     }
   }
   
-  //add the above dependencies to the classpath of all sub project build scripts
   configurations.classpath.each { file -> settings.classLoader.addURL(file.toURI().toURL()) }
 }
 
-/*
-* Now use a convention object and set the required properties for setting up a gradle 
-* multi project structure reflecting the ATG module structure in this source tree
-*/
-new GlasirSettingsConvention().with {
-  installGlasirPackages(buildscript.configurations.glasir, settings)
-  
-  // configure module search roots. This enables the build to locate
-  // all relevant ATG modules and analyze the ATG module dependencies of the
-  // project. settingsDir is a gradle injected property representing the directory
-  // where the settings.gradle file lives
-  moduleSearchRoot dir: file(atgRoot), isAtgCore: true
-  moduleSearchRoot dir: new File(settingsDir, 'packages/modules'), isAtgCore: true
-  moduleSearchRoot dir: settingsDir, isAtgCore: false, includes: "glasir-app"
-
-  //the below configures the gradle subprojects using the given module
-  //search roots and the resulting atg modules. First parameter settings
-  //is gradle injected settings instance, second param is a name for
-  //the root project (and also the sub dir where we should look for
-  //modules
-  initializeProjectStructure (settings as Settings, "glasir-app")
+new glasir.Build(this).with {
+  setup {
+    rootProjectName "glasir-app"
+    cachePackagesFor 120, 'minutes'
+    
+    dependencies {
+      glasirpackage('com.iteego.glasir.pkg:atg-10.0.2:1.0-SNAPSHOT')
+      glasirpackage('com.iteego.glasir.pkg:jboss-eap-5.1.0:1.0-SNAPSHOT')
+      glasirpackage('com.iteego.glasir.pkg:glasir.db:1.0.88-SNAPSHOT') { changing=true }
+    }
+    
+    addAtgModules from: atgRoot
+    addAtgModules from: "$settingsDir/packages/modules", isGlasirCore: true
+    addAtgModules from: "$settingsDir/glasir-app", isAtgCore: false, excludes: ["**/j2ee-apps/", "**/data/db/", "**/data/import", "**/build/", "**/config/", "**/src/", "**/lib/"]
+  }
 }
-
