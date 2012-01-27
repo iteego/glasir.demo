@@ -15,8 +15,8 @@ buildscript {
   configurations.classpath {
     resolutionStrategy {
       failOnVersionConflict()
-      cacheDynamicVersionsFor 0, 'minutes'
-      cacheChangingModulesFor 0, 'minutes'
+      cacheDynamicVersionsFor 10, 'minutes'
+      cacheChangingModulesFor 10, 'minutes'
     }
   }
   
@@ -36,6 +36,7 @@ new glasir.Build(this).with {
     
     addAtgModules from: atgRoot
     addAtgModules from: "$settingsDir/packages/modules", isGlasirCore: true
-    addAtgModules from: "$settingsDir/glasir-app", isAtgCore: false, excludes: ["**/j2ee-apps/", "**/data/db/", "**/data/import", "**/build/", "**/config/", "**/src/", "**/lib/"]
+    addAtgModules from: "$settingsDir/glasir-app", isAtgCore: false, 
+                  excludes: ["**/j2ee-apps/", "**/data/db/", "**/data/import", "**/build/", "**/config/", "**/src/", "**/lib/"]
   }
 }
