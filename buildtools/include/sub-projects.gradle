@@ -11,7 +11,16 @@
 drivers = ['htmlunit']
 
 allprojects {
-  if (project.path.startsWith(":env")) return
+  task print << {
+    printTree(project)
+  }
+
+  if (project != rootProject && !file("$projectDir/src").isDirectory()) {
+    configurations.add("default")    
+    configurations.add("compile")    
+    configurations.add("testCompile")    
+    return
+  }
   apply plugin: 'groovy'
     
   dependencies {
@@ -83,26 +92,24 @@ allprojects {
       ant.delete dir: 'lib'
     }
   }  
-
-  task print << {
-    printTree(project)
-  }
 }
 
 subprojects {
-  if (project.path.startsWith(":env")) return
   //set ivy/maven 'group' for the subproject, generated via a method call to glasir.build 
   //gradle plugin
   group = getProjectGroup(project, true)
 
+  //if (!file("$projectDir/src").isDirectory()) return
+  //println "Setting up classpaths for ${project.path}"
+
   //configures dependencies for this project based on the atg MANIFEST.MF file
   //ATG-Required attribute values. Applies these dependencies to the configurations
   //given as the second argument
-  setupAtgDependencies(project, ['compile', 'testCompile'])
+  setupAtgDependencies(project, ['compile', 'testCompile']) //, false, true) //the last true to turn on debugging 
 }
 
 task aggregateTestReports(type: TestReportAggregator) {
-  dependsOn subprojects.findAll { !it.path.startsWith(":env") }.collect { it.check }
+  dependsOn getTasksByName('check', true)
 
   includeWebTests = false
   testReportDir = file("${reportsDir}/tests")

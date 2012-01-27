@@ -31,7 +31,7 @@ task assembleDevEar(type: AtgAssemblerTask, description: "Runs a build and assem
   dependsOn "build"
   
   modules = allEnvironmentModules
-  outputFile = bigEar
+  outputFile = file("$jBossRoot/server/$storeServerName/deploy/${bigEarName}")
   standalone = true
   liveconfig = false
   pack = false
@@ -116,8 +116,8 @@ task assembleLinkedEar(type: AtgAssemblerTask) {
 
 
 task syncStoreEar(type: Copy) {
-  from bigEar
-  into "$jBossRoot/server/$storeServerName/deploy/${bigEarName}"
+//  from bigEar
+//  into "$jBossRoot/server/$storeServerName/deploy/${bigEarName}"
 }
 
 task linkStoreEar << {
@@ -125,7 +125,7 @@ task linkStoreEar << {
 }
 
 task syncAdminEar(type: Copy) {
-  from bigEar
+  from "$jBossRoot/server/$storeServerName/deploy/${bigEarName}"
   into "$jBossRoot/server/$adminServerName/deploy/${bigEarName}"
 }
 

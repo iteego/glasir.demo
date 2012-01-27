@@ -43,3 +43,6 @@ apply from: "include/atg-db-tasks.gradle"
 
 apply from: "include/help.gradle"
 
+task none << {
+  println "Hello World"
+}

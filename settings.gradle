@@ -15,8 +15,8 @@ buildscript {
   configurations.classpath {
     resolutionStrategy {
       failOnVersionConflict()
-      cacheDynamicVersionsFor 5, 'minutes'
-      cacheChangingModulesFor 5, 'minutes'
+      cacheDynamicVersionsFor 0, 'minutes'
+      cacheChangingModulesFor 0, 'minutes'
     }
   }
   

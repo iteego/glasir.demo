@@ -89,7 +89,8 @@ Pattern: graph<AtgModuleName>: draws a graphical dependency graph for the specif
       def http = new HTTPBuilder( 'http://chart.googleapis.com' )
       http.post(path: '/chart', 
                 body: [cht: 'gv', chof: 'png', chl: dotGraph], 
-                requestContentType: URLENC )  { resp, reader ->
+                requestContentType: URLENC ,
+                contentType: BINARY)  { resp, reader ->
         if (resp.statusLine.statusCode != 200) {        
           println "---------- Error response received from Google Charts API ----------"
           println "Response status line: ${resp.statusLine}"
