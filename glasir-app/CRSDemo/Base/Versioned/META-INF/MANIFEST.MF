@@ -1,3 +1,3 @@
 Manifest-Version: 1.0
-ATG-Required: CRSDemo CRSDemo.Data.Versioned Store.EStore.Versioned
+ATG-Required: CRSDemo.Data.Versioned CRSDemo.Data.Properties.Versioned CRSDemo.Base Store.EStore.Versioned
 ATG-Config-Path: config
