@@ -8,7 +8,7 @@ buildscript {
   }
 
   dependencies {
-    classpath('com.iteego.glasir:glasir.build:1.1.0-SNAPSHOT') { changing=true }
+    classpath('com.iteego.glasir:glasir.build:1.1.1-SNAPSHOT') { changing=true }
     classpath('org.jfrog.buildinfo:build-info-extractor-gradle:2.0.7')
   }
 
