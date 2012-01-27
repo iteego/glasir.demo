@@ -17,7 +17,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.iteego.bootstrap
+package com.sample
 
 import spock.lang.Shared
 import spock.lang.Unroll
@@ -61,7 +61,7 @@ class SampleServiceSpec extends Specification {
 
   def "check that a user with correct values passes validation"() {
     when:
-      def shopper = new SampleService(firstName: 'Bob', lastName: 'Smith', zip: '02115')
+      def shopper = new SampleService(firstName: 'Bob', lastName: 'Smith', zip: '02115', baseProperty: 'foobar')
 
     then:
       shopper.isValidCustomer
@@ -69,23 +69,26 @@ class SampleServiceSpec extends Specification {
 
   //Unroll makes it so that every row in the data grid below results in a separate junit test in the resulting
   //report
-  @Unroll("check that firstName=#firstName, lastName=#lastName, and zip=#zip results in validCustomer=#expectedValidation")
+  @Unroll("check that firstName=#firstName, lastName=#lastName, zip=#zip, and baseProperty=#baseProperty results in validCustomer=#expectedValidation")
   def "check firstName, lastName, zip combinations"() {
     setup:
-      def shopper = new SampleService(firstName: firstName, lastName: lastName, zip: zip)
+      def shopper = new SampleService(firstName: firstName, lastName: lastName, zip: zip, baseProperty: baseProperty)
 
     expect:
       shopper.isValidCustomer == expectedValidation
 
     where:
-      firstName    | lastName  | zip     | expectedValidation
-      "Bob"        | "Smith"   | "02115" | true
-      ""           | "Smith"   | "02115" | false
-      null         | "Smith"   | "02115" | false
-      "Bob"        | ""        | "02115" | false
-      "Bob"        | null      | "02115" | false
-      "Bob"        | "Smith"   | ""      | false
-      "Bob"        | "Smith"   | null    | false
-      "Bob"        | "Smith"   | "0211"  | false
+      firstName    | lastName  | zip     | baseProperty | expectedValidation
+      "Bob"        | "Smith"   | "02115" | "test"       | true
+      ""           | "Smith"   | "02115" | "test"       | false
+      null         | "Smith"   | "02115" | "test"       | false
+      "Bob"        | ""        | "02115" | "test"       | false
+      "Bob"        | null      | "02115" | "test"       | false
+      "Bob"        | "Smith"   | ""      | "test"       | false
+      "Bob"        | "Smith"   | null    | "test"       | false
+      "Bob"        | "Smith"   | "0211"  | "test"       | false
+
+      "Bob"        | "Smith"   | "02115" | ""           | false
+      "Bob"        | "Smith"   | "02115" | null         | false
   }
 }
