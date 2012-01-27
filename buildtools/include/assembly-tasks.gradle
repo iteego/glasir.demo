@@ -36,8 +36,9 @@ task assembleDevEar(type: AtgAssemblerTask, description: "Runs a build and assem
   liveconfig = false
   pack = false
   extraClasspath = files("${globalDir}/buildtools/gradle-lib/dtds.jar")
-  loggingDebug = true
-  searchRootDirs = files("$globalDir/packages", "$globalDir/glasir-app")
+  loggingDebug = false
+  //TODO: Fix the below hack somehow...
+  searchRootDirs = files("$atgRoot", "$globalDir/packages/modules", "$globalDir/packages","$globalDir")
   
   //doAfterAssembly is called after the ear is assembled (into an exploded stage dir)
   //but before the ear is packed
