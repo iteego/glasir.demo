@@ -8,13 +8,14 @@ buildscript {
   }
 
   dependencies {
-    classpath('com.iteego.glasir:glasir.build:1.1.0-SNAPSHOT') { changing=true }
-    classpath('org.jfrog.buildinfo:build-info-extractor-gradle:2.0.7')
+    classpath('com.iteego.glasir:glasir.build:1.1.1-SNAPSHOT') { changing=true }
+    classpath 'org.jfrog.buildinfo:build-info-extractor-gradle:2.0.7'
+    classpath 'org.codehaus.groovy.modules.http-builder:http-builder:0.5.1'
   }
 
   configurations.classpath {
     resolutionStrategy {
-      failOnVersionConflict()
+      //failOnVersionConflict()
       cacheDynamicVersionsFor 10, 'minutes'
       cacheChangingModulesFor 10, 'minutes'
     }
@@ -40,3 +41,4 @@ new glasir.Build(this).with {
                   excludes: ["**/j2ee-apps/", "**/data/db/", "**/data/import", "**/build/", "**/config/", "**/src/", "**/lib/"]
   }
 }
+
