@@ -12,7 +12,7 @@ task atgCoreSqlInstallationOrder << {
 task assembleReleaseEar(type: AtgAssemblerTask, description: "Runs a build and assembles a release ear") {
   dependsOn = ["clean", "build"]
 
-  modules = allEnvironmentModules
+  modules = getAllEnvironmentModules()
   outputFile = bigEar
   standalone = true
   liveconfig = true

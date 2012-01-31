@@ -2,6 +2,13 @@
  * Gradle project and sub-project setup calls
  *****************************************************************************/
 
+//add bogus tasks to the root project to enable child-project builds via 
+//'gradle build' in the root project
+['clean','build','test'].each {
+  task "$it" {}
+}
+
+
 //the below is a list of test drivers for the geb web testing framework.
 //a driver can emulate a specific browser and excercise the application UI.
 //the htmlunit driver is a headless driver suitable for CI testing of the application UI
@@ -10,21 +17,15 @@
 //available drivers: htmlunit, firefox, ie, chrome, android                
 drivers = ['htmlunit']
 
-allprojects {
-  apply plugin: 'glasir.build'
-
-  //if (project != rootProject && !file("$projectDir/src").isDirectory()) {
-  //
-  if (project != rootProject && !file("$projectDir/src").isDirectory()) {    
-    //configurations.add("default")    
-
-    //
-    //configurations.add("compile")    
-    //configurations.add("testCompile")    
+allprojects {  
+  project.isBuildProject = new File(projectDir, "/src").isDirectory()
+  if (!project.isBuildProject) {    
     return
   }
+  
+  apply plugin: 'glasir.build'
   apply plugin: 'groovy'
-    
+
   dependencies {
     groovy "org.codehaus.groovy:groovy:1.7.10"
 
@@ -62,7 +63,7 @@ allprojects {
       systemProperty "geb.build.baseUrl", "http://localhost:10080"
     }  
   }
-  
+
   jar  {
     //only create a jar file if we have some classes to jar up, 
     //to to this we check if the 'compileJava' task did any work (if so, we have something
@@ -89,14 +90,9 @@ allprojects {
 }
 
 subprojects {
-  //set ivy/maven 'group' for the subproject, generated via a method call to glasir.build 
-  //gradle plugin
-  group = glasir.projectGroup
-  //version = rootProject.version
+  if (!project.isBuildProject) return
 
-  //if (!file("$projectDir/src").isDirectory()) return
-  //println "Setting up classpaths for ${project.path}"
-  if (!file("$projectDir/src").isDirectory()) return
+  group = glasir.projectGroup
 
   //configures dependencies for this project based on the atg MANIFEST.MF file
   //ATG-Required attribute values. Applies these dependencies to the configurations
@@ -107,13 +103,12 @@ subprojects {
       verbose false
     }     
   }
-  //setupAtgDependencies(project, ['compile', 'testCompile']) //, false, true) //the last true to turn on debugging 
 }
 
 task aggregateTestReports(type: TestReportAggregator) {
-  //def buildDir = file("$projectDir/build")
-  //def reportsDir = file("$buildDir/reports")
-  //reportsDir.mkdirs()
+  def buildDir = file("$projectDir/build")
+  def reportsDir = file("$buildDir/reports")
+  reportsDir.mkdirs()
   
   dependsOn getTasksByName('check', true)
 

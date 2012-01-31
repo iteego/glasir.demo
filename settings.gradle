@@ -6,6 +6,14 @@ buildscript {
       url "$artifactoryReaderUrl/glasir"
     }
   }
+  
+  configurations.classpath {
+    resolutionStrategy {
+      //failOnVersionConflict()
+      cacheDynamicVersionsFor 0, 'minutes'
+      cacheChangingModulesFor 0, 'minutes'
+    }
+  }
 
   dependencies {
     classpath('com.iteego.glasir:glasir.build:1.1.4-SNAPSHOT') { changing=true }
@@ -14,23 +22,32 @@ buildscript {
       exclude group: 'org.codehaus.groovy', module: 'groovy'
     }
   }
+    
+  configurations.classpath.each { file -> settings.classLoader.addURL(file.toURI().toURL()) }
+}
 
-  configurations.classpath {
+gradle.allprojects {
+  repositories {
+    maven {
+      credentials.username artifactoryReader
+      credentials.password artifactoryReaderPwd
+      url "$artifactoryReaderUrl/glasir"
+    }
+  }
+  configurations.all {
     resolutionStrategy {
-      //failOnVersionConflict()
       cacheDynamicVersionsFor 0, 'minutes'
       cacheChangingModulesFor 0, 'minutes'
     }
   }
-  
-  configurations.classpath.each { file -> settings.classLoader.addURL(file.toURI().toURL()) }
-}
 
+}
 new glasir.Build(this).with {
   setup {
     rootProjectName "glasir-app"
     cachePackagesFor 120, 'minutes'
     
+    //disablePackageUpdates true
     dependencies {
       glasirpackage('com.iteego.glasir.pkg:atg-10.0.2:1.0-SNAPSHOT')
       glasirpackage('com.iteego.glasir.pkg:jboss-eap-5.1.0:1.0-SNAPSHOT')
@@ -43,4 +60,3 @@ new glasir.Build(this).with {
                   excludes: ["**/j2ee-apps/", "**/data/db/", "**/data/import", "**/build/", "**/config/", "**/src/", "**/lib/"]
   }
 }
-

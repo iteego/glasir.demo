@@ -19,18 +19,25 @@
  *
  */
 
+long stamp = System.currentTimeMillis()
 defaultTasks 'assemble'
 
 //project name is set in ../settings.gradle
 version = "1.1.0-SNAPSHOT"
 group = "com.iteego.glasir"
+stamp = report(stamp, "init")
+
+apply plugin: 'glasir.build'
+stamp = report(stamp, "root.glasir.build")
 
 apply from: 'include/environment.gradle'
+stamp = report(stamp, "environment")
 
 apply from: "include/sub-projects.gradle"
+stamp = report(stamp, "sub-projects")
 
+/*
 apply plugin: 'artifactory'
-
 artifactory {
   contextUrl =  artifactoryReaderUrl  
   resolve {
@@ -41,17 +48,33 @@ artifactory {
     }
   }     
 }  
+*/
+stamp = report(stamp, "artifactory")
 
 apply from: "include/assembly-tasks.gradle"
+stamp = report(stamp, "assembly-tasks")
 
 apply from: "include/jboss-tasks.gradle"
+stamp = report(stamp, "jboss-tasks")
 
 apply from: "include/rules.gradle"
+stamp = report(stamp, "rules")
 
 apply from: "include/atg-db-tasks.gradle"
+//stamp = report(stamp, "atg-db-tasks")
 
 apply from: "include/help.gradle"
+//stamp = report(stamp, "help")
 
 task none << {
   println "Hello World"
+}
+
+long report(long last, String name) {
+  long current = System.currentTimeMillis()
+  long delta = current - last
+  
+  println "===> $name took ${delta}ms"
+  
+  current  
 }
