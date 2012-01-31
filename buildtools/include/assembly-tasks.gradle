@@ -1,5 +1,9 @@
 import com.iteego.glasir.build.tasks.*
 
+String getAllEnvironmentModules() {
+  glasir.moduleMap.keySet().findAll( { it.startsWith('env.') || it == 'env' } ).sort().join( " " )
+}
+
 task atgCoreSqlInstallationOrder << {
   description = "Displays build/install/sql ordering for ATG core modules."
   printAtgCoreSqlInstallationOrder()
@@ -180,8 +184,4 @@ task cleanJbossServers(dependsOn: ['clean']) << {
 
 task cleanAll(dependsOn: ['clean','cleanJbossServers','cleanLocalDatabase']) << {
   description = "Cleans out all the 'build' directories in the source tree, the jboss server dirs and the local database, if any"
-}
-
-String getAllEnvironmentModules() {
-  moduleMap.keySet().findAll( { it.startsWith('env.') || it == 'env' } ).sort().join( " " )
 }

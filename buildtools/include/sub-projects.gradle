@@ -11,14 +11,16 @@
 drivers = ['htmlunit']
 
 allprojects {
-  task print << {
-    printTree(project)
-  }
+  apply plugin: 'glasir.build'
 
-  if (project != rootProject && !file("$projectDir/src").isDirectory()) {
-    configurations.add("default")    
-    configurations.add("compile")    
-    configurations.add("testCompile")    
+  //if (project != rootProject && !file("$projectDir/src").isDirectory()) {
+  //
+  if (project != rootProject && !file("$projectDir/src").isDirectory()) {    
+    //configurations.add("default")    
+
+    //
+    //configurations.add("compile")    
+    //configurations.add("testCompile")    
     return
   }
   apply plugin: 'groovy'
@@ -38,14 +40,6 @@ allprojects {
     testRuntime "org.seleniumhq.selenium:selenium-support:2.9.0"
   }
   
-  configurations.all {
-    resolutionStrategy {
-      cacheDynamicVersionsFor 5, 'minutes'
-      cacheChangingModulesFor 5, 'minutes'
-    }
-  }
-
-
   sourceCompatibility = "1.6"
   targetCompatibility = "1.6"
   
@@ -97,18 +91,30 @@ allprojects {
 subprojects {
   //set ivy/maven 'group' for the subproject, generated via a method call to glasir.build 
   //gradle plugin
-  group = getProjectGroup(project, true)
+  group = glasir.projectGroup
+  //version = rootProject.version
 
   //if (!file("$projectDir/src").isDirectory()) return
   //println "Setting up classpaths for ${project.path}"
+  if (!file("$projectDir/src").isDirectory()) return
 
   //configures dependencies for this project based on the atg MANIFEST.MF file
   //ATG-Required attribute values. Applies these dependencies to the configurations
   //given as the second argument
-  setupAtgDependencies(project, ['compile', 'testCompile']) //, false, true) //the last true to turn on debugging 
+  glasir {
+    atgDependencies {
+      applyToConfigurations "compile", "testCompile"      
+      verbose false
+    }     
+  }
+  //setupAtgDependencies(project, ['compile', 'testCompile']) //, false, true) //the last true to turn on debugging 
 }
 
 task aggregateTestReports(type: TestReportAggregator) {
+  //def buildDir = file("$projectDir/build")
+  //def reportsDir = file("$buildDir/reports")
+  //reportsDir.mkdirs()
+  
   dependsOn getTasksByName('check', true)
 
   includeWebTests = false

@@ -1,6 +1,6 @@
 import com.iteego.glasir.build.tasks.*
 
-globalDir = file(projectDir, "..")
+globalDir = file("projectDir/..")
 
 brand = "glasir"
 
@@ -9,7 +9,7 @@ adminServerName = "dev-admin"
 databaseDir = file("$globalDir/data")
 
 bigEarName = "${brand}.ear"
-bigEar = file(buildDir, "${bigEarName}")
+bigEar = file("$buildDir/$bigEarName")
 
 //TODO: Fix this path
 docRoot = "$globalDir/glasir-app/$brand/MyAtgModule/j2ee-apps/MyApplication/store.war/"

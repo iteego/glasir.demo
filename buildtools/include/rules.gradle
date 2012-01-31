@@ -59,7 +59,7 @@ Pattern: graph<AtgModuleName>: draws a graphical dependency graph for the specif
   if (taskName.startsWith("graph")) {
     task(taskName) << {
       def moduleName = taskName - 'graph'
-      def m = moduleMap[moduleName]
+      def m = glasir.moduleMap[moduleName]
       if (!m) {
         throw new GradleException("Unable to locate module '$moduleName'")
       }
