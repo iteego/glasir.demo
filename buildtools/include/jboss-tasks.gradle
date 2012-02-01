@@ -13,8 +13,11 @@ jdbc:h2:tcp://localhost/<database_name>
 as in:
 
 jdbc:h2:tcp://localhost/glasir_pub
-
 */
+import com.iteego.glasir.util.Chronograph
+
+Chronograph.timer.pushContext("jboss-tasks")
+Chronograph.timer.start("startDatabase")
 task startDatabase(type: H2) {
   baseDir databaseDir
   tcp true     //default, here for clarity. Starts the db server
@@ -24,10 +27,15 @@ task startDatabase(type: H2) {
   //http://www.h2database.com/javadoc/org/h2/constant/SysProperties.html#h2.serverCachedObjects
   System.properties['h2.serverCachedObjects'] = '2048'
 }
+Chronograph.timer.stop("startDatabase")
 
+Chronograph.timer.start("startDbAndSleep")
 task startDbAndSleep( dependsOn: 'startDatabase') {
   doLast {sleep(180000)}
- }
+}
+Chronograph.timer.stop("startDbAndSleep")
+
+Chronograph.timer.start("devNodes")
 
 /*
 You can invoke any specific flavor of the "env.store.dev" module by adding the parameter
@@ -70,35 +78,45 @@ task startDevAdmin(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
     println "Starting dev admin node with modules: ${modules}"
   }
 }
+Chronograph.timer.stop("devNodes")
 
+Chronograph.timer.start("startCiStore")
 task startCiStore(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
     jBossHome     jBossRoot
     serverName    storeServerName
     modules       moduleWithFlavors("env.CRSDemo.store.dev")
     async         true
 }
+Chronograph.timer.stop("startCiStore")
 
+Chronograph.timer.start("verifyCiStore")
 task verifyCiStore(type: Tail, dependsOn: [startCiStore]) {
   file         "$jBossRoot/server/$storeServerName/log/console.log"
   failOn       regex: "ERROR[ ]*\\[", postFireTailPeriod: "5 seconds"
   succeedOn    "INFO.*JBoss \\(Microcontainer\\) \\[.*\\] Started in"
   timeoutAfter "5 minutes"
 }
+Chronograph.timer.stop("verifyCiStore")
 
+Chronograph.timer.start("startCiAdmin")
 task startCiAdmin(type: RunAtgOnJBoss, dependsOn: []) {
   jBossHome     jBossRoot
   serverName    adminServerName
   modules       moduleWithFlavors("env.CRSDemo.admin.dev")
   async         true
 }
+Chronograph.timer.stop("startCiAdmin")
 
+Chronograph.timer.start("verifyCiAdmin")
 task verifyCiAdmin(type: Tail, dependsOn: [startCiAdmin]) {
   file         "$jBossRoot/server/$adminServerName/log/console.log"
   failOn       regex: "ERROR[ ]*\\[", postFireTailPeriod: "5 seconds"
   succeedOn    "INFO.*JBoss \\(Microcontainer\\) \\[.*\\] Started in"
   timeoutAfter "5 minutes"
 }
+Chronograph.timer.stop("verifyCiAdmin")
 
+Chronograph.timer.start("rest")
 /* Ugly workaround to make stop tasks work */
 task stopStore << {
     proc = "${jBossRoot}/bin/shutdown.sh -s jnp://localhost:3099 -u admin -p admin".execute()
@@ -126,3 +144,6 @@ def moduleWithFlavors(String module) {
   
   result
 }
+
+Chronograph.timer.stop("rest")
+Chronograph.timer.reportAll()
