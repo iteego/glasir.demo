@@ -29,7 +29,7 @@ buildscript {
 new glasir.Build(this).with {
   setup {
     rootProjectName "glasir-app"
-    cachePackagesFor 0, 'minutes'
+    cachePackagesFor 5, 'minutes'
     
     //disablePackageUpdates true
     dependencies {

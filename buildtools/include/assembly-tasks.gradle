@@ -185,3 +185,13 @@ task cleanJbossServers(dependsOn: ['clean']) << {
 task cleanAll(dependsOn: ['clean','cleanJbossServers','cleanLocalDatabase']) << {
   description = "Cleans out all the 'build' directories in the source tree, the jboss server dirs and the local database, if any"
 }
+
+task olle << {
+  //glasir.modules returns a List<com.iteego.glasir.build.core.AtgModule> 
+  glasir.modules.findAll { !it.isAtgCore && it.manifest?.atgWebModule }.each { module -> 
+    println "==================="
+    println "$module.name at ${module.pathRelativeTo(module.dir)}"
+    println "Web module: ${module.manifest.atgWebModule}"
+  }
+}
+
