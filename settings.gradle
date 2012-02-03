@@ -9,7 +9,6 @@ buildscript {
   
   configurations.classpath {
     resolutionStrategy {
-      //failOnVersionConflict()
       cacheDynamicVersionsFor 0, 'minutes'
       cacheChangingModulesFor 0, 'minutes'
     }
@@ -51,7 +50,6 @@ new glasir.Build(this).with {
     rootProjectName "glasir-app"
     cachePackagesFor 5, 'minutes'
     
-    //disablePackageUpdates true
     dependencies {
       glasirpackage('com.iteego.glasir.pkg:atg-10.0.2:1.1.0')
       glasirpackage('com.iteego.glasir.pkg:jboss-eap-5.1.0:1.1.0')
