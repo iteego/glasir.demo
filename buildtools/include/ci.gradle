@@ -1,0 +1,33 @@
+task ciDeploy {
+  description = "Compile, test, assemble, and deploys the release ear to jboss"
+  dependsOn = [assembleReleaseEar, syncStore, syncAdmin]
+}
+
+
+task startCiStore(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
+    jBossHome     jBossRoot
+    serverName    storeServerName
+    modules       moduleWithFlavors("env.CRSDemo.store.dev")
+    async         true
+}
+
+task verifyCiStore(type: Tail, dependsOn: [startCiStore]) {
+  file         "$jBossRoot/server/$storeServerName/log/console.log"
+  failOn       regex: "ERROR[ ]*\\[", postFireTailPeriod: "5 seconds"
+  succeedOn    "INFO.*JBoss \\(Microcontainer\\) \\[.*\\] Started in"
+  timeoutAfter "5 minutes"
+}
+
+task startCiAdmin(type: RunAtgOnJBoss, dependsOn: []) {
+  jBossHome     jBossRoot
+  serverName    adminServerName
+  modules       moduleWithFlavors("env.CRSDemo.admin.dev")
+  async         true
+}
+
+task verifyCiAdmin(type: Tail, dependsOn: [startCiAdmin]) {
+  file         "$jBossRoot/server/$adminServerName/log/console.log"
+  failOn       regex: "ERROR[ ]*\\[", postFireTailPeriod: "5 seconds"
+  succeedOn    "INFO.*JBoss \\(Microcontainer\\) \\[.*\\] Started in"
+  timeoutAfter "5 minutes"
+}

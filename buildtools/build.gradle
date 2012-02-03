@@ -20,36 +20,34 @@
  */
 
 long stamp = System.currentTimeMillis()
-defaultTasks 'assemble'
+defaultTasks 'devDeploy'
 
 //project name is set in ../settings.gradle
 version = "1.1.0-SNAPSHOT"
 group = "com.iteego.glasir"
+
+/*******************************************/
+/* Some properties used in the build files */
+globalDir       = file("${rootProject.projectDir}/..").canonicalFile
+
+storeServerName = "dev-store"
+adminServerName = "dev-admin"
+
+databaseDir     = file("$globalDir/data")
+
+bigEarName      = "glasir.ear"
+bigEar          = file("$buildDir/$bigEarName")
+//TODO: Fix this path
+docRoot         = "$globalDir/glasir-app/bogus/MyAtgModule/j2ee-apps/MyApplication/store.war/"
+
+
 stamp = report(stamp, "init")
 
 apply plugin: 'glasir.build'
 stamp = report(stamp, "root.glasir.build")
 
-apply from: 'include/environment.gradle'
-stamp = report(stamp, "environment")
-
 apply from: "include/sub-projects.gradle"
 stamp = report(stamp, "sub-projects")
-
-/*
-apply plugin: 'artifactory'
-artifactory {
-  contextUrl =  artifactoryReaderUrl  
-  resolve {
-    repository {
-      repoKey = 'glasir'
-      username = artifactoryReader
-      password = artifactoryReaderPwd
-    }
-  }     
-}  
-*/
-stamp = report(stamp, "artifactory")
 
 apply from: "include/assembly-tasks.gradle"
 stamp = report(stamp, "assembly-tasks")
@@ -60,11 +58,13 @@ stamp = report(stamp, "jboss-tasks")
 apply from: "include/rules.gradle"
 stamp = report(stamp, "rules")
 
-apply from: "include/atg-db-tasks.gradle"
-//stamp = report(stamp, "atg-db-tasks")
-
-apply from: "include/help.gradle"
+//apply from: "include/help.gradle"
 //stamp = report(stamp, "help")
+
+//if we are running in the ci server, include some ci tasks
+if (System.env['BUILD_NUMBER']) {
+  apply from: 'include/ci.gradle'
+}
 
 task none << {
   println "Hello World"

@@ -16,7 +16,7 @@ buildscript {
   }
 
   dependencies {
-    classpath('com.iteego.glasir:glasir.build:1.1.4-SNAPSHOT') { changing=true }
+    classpath('com.iteego.glasir:glasir.build:1.1.5-SNAPSHOT') { changing=true }
     classpath('org.jfrog.buildinfo:build-info-extractor-gradle:2.0.7')
     classpath('org.codehaus.groovy.modules.http-builder:http-builder:0.5.1') {
       exclude group: 'org.codehaus.groovy', module: 'groovy'
@@ -24,6 +24,26 @@ buildscript {
   }
     
   configurations.classpath.each { file -> settings.classLoader.addURL(file.toURI().toURL()) }
+}
+
+gradle.allprojects { 
+  repositories {
+    maven {
+      credentials.username artifactoryReader
+      credentials.password artifactoryReaderPwd
+      url "$artifactoryReaderUrl/glasir"
+    }
+  }
+  
+  configurations.all {
+    resolutionStrategy {
+      //failOnVersionConflict()
+      cacheDynamicVersionsFor 60, 'minutes'
+      cacheChangingModulesFor 60, 'minutes'
+    }
+  }
+
+
 }
 
 new glasir.Build(this).with {

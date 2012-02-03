@@ -1,7 +1,7 @@
 import com.iteego.glasir.build.tasks.*
 
 String getAllEnvironmentModules() {
-  glasir.moduleMap.keySet().findAll( { it.startsWith('env.') || it == 'env' } ).sort().join( " " )
+  glasir.modules.collect { it.name }.findAll { it.startsWith('env.') || it == 'env' }.sort().join(" ")
 }
 
 task atgCoreSqlInstallationOrder << {
@@ -12,7 +12,7 @@ task atgCoreSqlInstallationOrder << {
 task assembleReleaseEar(type: AtgAssemblerTask, description: "Runs a build and assembles a release ear") {
   dependsOn = ["clean", "build"]
 
-  modules = getAllEnvironmentModules()
+  modules = allEnvironmentModules
   outputFile = bigEar
   standalone = true
   liveconfig = true
@@ -41,8 +41,9 @@ task assembleDevEar(type: AtgAssemblerTask, description: "Runs a build and assem
   pack = false
   extraClasspath = files("${globalDir}/buildtools/gradle-lib/dtds.jar")
   loggingDebug = false
-  //TODO: Fix the below hack somehow...
-  searchRootDirs = files("$atgRoot", "$globalDir/packages/modules", "$globalDir/packages","$globalDir")
+  
+  //TODO: Figure out if there is a clean way of making the atg assembler find all the required stuff
+  searchRootDirs = files("$atgRoot", "$globalDir", "$globalDir/packages", "$globalDir/packages/modules/glasir")
   
   //doAfterAssembly is called after the ear is assembled (into an exploded stage dir)
   //but before the ear is packed
@@ -166,10 +167,6 @@ task devDeploy {
   dependsOn = [assembleDevEar, syncStore, syncAdmin]
 }
 
-task ciDeploy {
-  description = "Compile, test, assemble, and deploys the release ear to jboss"
-  dependsOn = [assembleReleaseEar, syncStore, syncAdmin]
-}
 
 task cleanLocalDatabase(dependsOn: ['clean']) << {
   description = "Cleans out the local database, if any"
@@ -187,11 +184,14 @@ task cleanAll(dependsOn: ['clean','cleanJbossServers','cleanLocalDatabase']) << 
 }
 
 task olle << {
-  //glasir.modules returns a List<com.iteego.glasir.build.core.AtgModule> 
-  glasir.modules.findAll { !it.isAtgCore && it.manifest?.atgWebModule }.each { module -> 
-    println "==================="
-    println "$module.name at ${module.pathRelativeTo(module.dir)}"
-    println "Web module: ${module.manifest.atgWebModule}"
+  glasir.topModules.each { m ->
+    println "Top module: $m.name -> $m.dir"  
+  }
+  
+  println ""
+  
+  glasir.webModules.each { m -> 
+    println "Web module: $m.name -> $m.manifest.atgWebModule"
   }
 }
 

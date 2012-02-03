@@ -66,7 +66,7 @@ Pattern: graph<AtgModuleName>: draws a graphical dependency graph for the specif
 
       def dotGraph = createDotGraph(m)
       //println "DOTGRAPH: \n$dotGraph"
-      def graphFile = file("$reportsDir/graph-${moduleName}.png")
+      def graphFile = file("$buildDir/reports/graph-${moduleName}.png")
       if (!graphFile.parentFile.exists()) {
         mkdir(graphFile.parentFile) 
       }
