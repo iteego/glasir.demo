@@ -183,7 +183,13 @@ task cleanAll(dependsOn: ['clean','cleanJbossServers','cleanLocalDatabase']) << 
   description = "Cleans out all the 'build' directories in the source tree, the jboss server dirs and the local database, if any"
 }
 
+task kalle << {
+  glasir.deleteDir(new File('olle'))
+}
 task olle << {
+  file(".").eachFileRecurse { File f -> 
+    println "File $f isSymLink ${glasir.isSymlink(f)}"
+  }
   glasir.topModules.each { m ->
     println "Top module: $m.name -> $m.dir"  
   }
