@@ -53,10 +53,10 @@ allprojects {
       isWebTest = true
       include '**/*GebSpec.class'
   
-      testReportDir = file("$reportsDir/geb-tests")
+      testReportDir = file("${reporting.baseDir}/geb-tests")
       testResultsDir = file("$buildDir/geb-test-results/")
   
-      systemProperty "geb.build.reportsDir", "$reportsDir/$name/geb"
+      systemProperty "geb.build.reportsDir", "${reporting.baseDir}/$name/geb"
       systemProperty "geb.env", driver
       
       //TODO: Externalize the below host/port configuration somehow

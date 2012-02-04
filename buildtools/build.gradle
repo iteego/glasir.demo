@@ -41,22 +41,22 @@ bigEar          = file("$buildDir/$bigEarName")
 docRoot         = "$globalDir/glasir-app/bogus/MyAtgModule/j2ee-apps/MyApplication/store.war/"
 
 
-stamp = report(stamp, "init")
+//stamp = report(stamp, "init")
 
 apply plugin: 'glasir.build'
-stamp = report(stamp, "root.glasir.build")
+//stamp = report(stamp, "root.glasir.build")
 
 apply from: "include/sub-projects.gradle"
-stamp = report(stamp, "sub-projects")
+//stamp = report(stamp, "sub-projects")
 
 apply from: "include/assembly-tasks.gradle"
-stamp = report(stamp, "assembly-tasks")
+//stamp = report(stamp, "assembly-tasks")
 
 apply from: "include/jboss-tasks.gradle"
-stamp = report(stamp, "jboss-tasks")
+//stamp = report(stamp, "jboss-tasks")
 
 apply from: "include/rules.gradle"
-stamp = report(stamp, "rules")
+//stamp = report(stamp, "rules")
 
 //apply from: "include/help.gradle"
 //stamp = report(stamp, "help")
