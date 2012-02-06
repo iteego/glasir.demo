@@ -44,16 +44,6 @@ task assembleDevEar(type: AtgAssemblerTask, description: "Runs a build and assem
   
   //TODO: Figure out if there is a clean way of making the atg assembler find all the required stuff
   searchRootDirs = files("$atgRoot", "$globalDir", "$globalDir/packages", "$globalDir/packages/modules/glasir")
-  
-  //doAfterAssembly is called after the ear is assembled (into an exploded stage dir)
-  //but before the ear is packed
-  doAfterAssembly {
-    copy {
-      //file("${globalDir}/config/atg").eachDir { from it }
-      from "${globalDir}/config/atg"
-      into "${bigEar.canonicalPath}/atg_bootstrap.war/WEB-INF/ATG-INF/home/servers"
-    }
-  }
 }
 
 task assembleLinkedEar(type: AtgAssemblerTask) {
@@ -147,10 +137,14 @@ task syncAdminServer(type: Copy, description: "Creates a dev server setup in you
 }
 
 task syncDocRoot(type: Copy) {
-  from docRoot
-  into "$jBossRoot/server/${storeServerName}/deploy/ROOT.war"
+    from docRoot
+    into "$jBossRoot/server/${storeServerName}/deploy/ROOT.war"
 }
 
+task syncAtgServers(type: Copy) {
+    from "${globalDir}/config/atg"
+    into "$jBossRoot/ATG-Data/servers"
+}
 
 //TODO: Fix the jsp task
 task jsp(type: Copy, description: "A fast sync of jsp files only into a (running or not) jboss node") {
@@ -164,9 +158,8 @@ task syncAdmin(dependsOn: [syncAdminEar, syncAdminServer])
 
 task devDeploy {
   description = "Compile, test, assemble, and deploys the dev ear to jboss"  
-  dependsOn = [assembleDevEar, syncStore, syncAdmin]
+  dependsOn = [assembleDevEar, syncStore, syncAdmin, syncAtgServers]
 }
-
 
 task cleanLocalDatabase(dependsOn: ['clean']) << {
   description = "Cleans out the local database, if any"
