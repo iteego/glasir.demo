@@ -15,7 +15,7 @@ buildscript {
   }
 
   dependencies {
-    classpath('com.iteego.glasir:glasir.build:1.1.5-SNAPSHOT') { changing=true }
+    classpath('com.iteego.glasir:glasir.build:1.1.6-SNAPSHOT') { changing=true }
     classpath('org.jfrog.buildinfo:build-info-extractor-gradle:2.0.7')
     classpath('org.codehaus.groovy.modules.http-builder:http-builder:0.5.1') {
       exclude group: 'org.codehaus.groovy', module: 'groovy'
