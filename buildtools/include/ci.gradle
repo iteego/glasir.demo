@@ -1,5 +1,14 @@
 import com.iteego.glasir.build.tasks.*
 
+def moduleWithFlavors(String module) {
+  String result = module
+  if (project.hasProperty('flavor')) {
+    result += ".${project.flavor}"      
+  }
+  
+  result
+}
+
 task ciDeploy {
   description = "Compile, test, assemble, and deploys the release ear to jboss"
   dependsOn = [assembleReleaseEar, syncStore, syncAdmin]
