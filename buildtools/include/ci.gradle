@@ -1,3 +1,5 @@
+import com.iteego.glasir.build.tasks.*
+
 task ciDeploy {
   description = "Compile, test, assemble, and deploys the release ear to jboss"
   dependsOn = [assembleReleaseEar, syncStore, syncAdmin]
