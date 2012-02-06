@@ -9,8 +9,8 @@ buildscript {
   
   configurations.classpath {
     resolutionStrategy {
-      cacheDynamicVersionsFor 0, 'minutes'
-      cacheChangingModulesFor 0, 'minutes'
+      cacheDynamicVersionsFor 10, 'minutes'
+      cacheChangingModulesFor 10, 'minutes'
     }
   }
 
