@@ -10,7 +10,7 @@ task atgCoreSqlInstallationOrder << {
 }
 
 task assembleReleaseEar(type: AtgAssemblerTask, description: "Runs a build and assembles a release ear") {
-  dependsOn = ["clean", "build"]
+  dependsOn = ["cleanAll", "build"]
 
   modules = allEnvironmentModules
   outputFile = bigEar
@@ -34,8 +34,13 @@ task assembleReleaseEar(type: AtgAssemblerTask, description: "Runs a build and a
   }
 }
 
+task safeDeleteDevEar << {
+  glasir.deleteDir(file("$jBossRoot/server/$storeServerName/deploy/${bigEarName}"))
+}
+
 task assembleDevEar(type: AtgAssemblerTask, description: "Runs a build and assembles a development ear") {
   dependsOn "build"
+  dependsOn "safeDeleteDevEar"
   
   modules = allEnvironmentModules
   outputFile = file("$jBossRoot/server/$storeServerName/deploy/${bigEarName}")
