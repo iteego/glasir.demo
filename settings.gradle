@@ -9,8 +9,8 @@ buildscript {
   
   configurations.classpath {
     resolutionStrategy {
-      cacheDynamicVersionsFor 10, 'minutes'
-      cacheChangingModulesFor 10, 'minutes'
+      cacheDynamicVersionsFor 1, 'minutes'
+      cacheChangingModulesFor 1, 'minutes'
     }
   }
 
@@ -37,8 +37,8 @@ gradle.allprojects {
   configurations.all {
     resolutionStrategy {
       //failOnVersionConflict()
-      cacheDynamicVersionsFor 60, 'minutes'
-      cacheChangingModulesFor 60, 'minutes'
+      cacheDynamicVersionsFor 5, 'minutes'
+      cacheChangingModulesFor 5, 'minutes'
     }
   }
 

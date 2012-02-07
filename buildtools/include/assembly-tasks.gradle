@@ -17,7 +17,10 @@ task assembleReleaseEar(type: AtgAssemblerTask, description: "Runs a build and a
   standalone = true
   liveconfig = true
   pack = true
+  
   extraClasspath = files("${globalDir}/buildtools/gradle-lib/dtds.jar")
+  
+  searchRootDirs = files("$atgRoot", "$globalDir", "$globalDir/packages", "$globalDir/packages/modules/glasir")
   loggingDebug = false
 
   //doAfterAssembly is called after the ear is assembled (into an exploded stage dir)
