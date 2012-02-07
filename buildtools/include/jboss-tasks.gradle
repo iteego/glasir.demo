@@ -76,12 +76,18 @@ task startDevAdmin(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
 
 /* Ugly workaround to make stop tasks work */
 task stopStore << {
-    proc = "${jBossRoot}/bin/shutdown.sh -s jnp://localhost:3099 -u admin -p admin".execute()
+    def shellScript = file("${jBossRoot}/bin/shutdown.sh")
+    ant.chmod file: shellScript, perm: 'ug+xr'
+
+    proc = "$shellScript -s jnp://localhost:3099 -u admin -p admin".execute()
     proc.waitFor()
 }
 
 task stopAdmin << {
-    proc = "${jBossRoot}/bin/shutdown.sh -s jnp://localhost:1099 -u admin -p admin".execute()
+    def shellScript = file("${jBossRoot}/bin/shutdown.sh")
+    ant.chmod file: shellScript, perm: 'ug+xr'
+
+    proc = "$shellScript -s jnp://localhost:1099 -u admin -p admin".execute()
     proc.waitFor()
 }
 

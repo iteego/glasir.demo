@@ -104,7 +104,7 @@ task syncStoreJBossServer(type: Copy, description: "Creates a dev server setup i
   into "$jBossRoot/server/$storeServerName"
 }
 
-task syncAdminJBossServer(type: Copy, description: "Creates a dev server setup in your jboss installation") {
+task syncAdminServer(type: Copy, description: "Creates a dev server setup in your jboss installation") {
   from "$jBossRoot/server/default"
   from "$globalDir/config/jboss/admin/dev"
   into "$jBossRoot/server/$adminServerName"
