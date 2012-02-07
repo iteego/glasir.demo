@@ -7,7 +7,7 @@
 task build {}
 task test {}
 task clean << {
-    delete "$globalDir/buildtools/build"
+    glasir.deleteDir "$globalDir/buildtools/build"
 }
 
 //the below is a list of test drivers for the geb web testing framework.
@@ -85,7 +85,7 @@ allprojects {
   clean << {
     delete file: 'lib/classes.jar'
     if (!file('lib').listFiles()) {
-      delete dir: 'lib'
+      glasir.deleteDir file('lib')
     }
   }  
 }
