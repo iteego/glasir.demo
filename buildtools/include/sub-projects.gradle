@@ -82,9 +82,9 @@ allprojects {
   }
 
   clean << {
-    ant.delete file: 'lib/classes.jar'
+    delete file: 'lib/classes.jar'
     if (!file('lib').listFiles()) {
-      ant.delete dir: 'lib'
+      delete dir: 'lib'
     }
   }  
 }

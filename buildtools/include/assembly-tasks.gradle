@@ -163,13 +163,14 @@ task devDeploy {
 
 task cleanLocalDatabase(dependsOn: ['clean']) << {
   description = "Cleans out the local database, if any"
-  delete(databaseDir)
+  glasir.deleteDir(databaseDir)
 }
 
 task cleanJbossServers(dependsOn: ['clean']) << {
   description = "Cleans out the jboss server dirs"
-  delete("$jBossRoot/server/${storeServerName}")
-  delete("$jBossRoot/server/${adminServerName}")
+  glasir.deleteDir("$jBossRoot/server/${storeServerName}")
+  glasir.deleteDir("$jBossRoot/server/${adminServerName}")
+  glasir.deleteDir("$jBossRoot/ATG-Data")
 }
 
 task cleanAll(dependsOn: ['clean','cleanJbossServers','cleanLocalDatabase']) << {
