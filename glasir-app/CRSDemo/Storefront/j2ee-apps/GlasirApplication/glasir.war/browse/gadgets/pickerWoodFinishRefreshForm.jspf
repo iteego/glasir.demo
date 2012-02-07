@@ -1,0 +1,14 @@
+<%--
+     This form is submitted from javascript to refresh the wood finish picker (by requesting
+     this page again) after the user has selected something new. See picker.js.
+--%>
+
+<dsp:form formid="woodfinishrefreshform" id="woodfinishrefreshform" method="post"
+          action="${originatingRequest.contextPath}/browse/pickerWoodFinishContainer.jsp">
+  <input name="productId" type="hidden" value='<dsp:valueof param="productId"/>'/>
+  <input name="categoryId" type="hidden" value='<dsp:valueof param="categoryId"/>'/>
+  <input name="selectedWoodFinish" type="hidden" value='<dsp:valueof param="selectedWoodFinish"/>'/>
+  <input name="savedquantity" type="hidden" value='<dsp:valueof param="savedquantity"/>'/>
+  <input name="savedgiftlist" type="hidden" value='<dsp:valueof param="savedgiftlist"/>'/>
+</dsp:form>
+<%-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.0.2/Storefront/j2ee/store.war/browse/gadgets/pickerWoodFinishRefreshForm.jspf#2 $$Change: 635969 $--%>

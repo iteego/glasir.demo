@@ -1,0 +1,19 @@
+<%-- 
+    This file is used for display item id, and it should be included in the pickerLayout.jspf file
+--%>
+<div class="atg_store_productID">
+  <dsp:getvalueof var="selectedSku" param="selectedSku"/> 
+  <c:if test="${not empty selectedSku}">
+    <dsp:include page="/global/gadgets/skuAvailabilityLookup.jsp">
+      <dsp:param name="product" param="product"/>
+      <dsp:param name="skuId" param="selectedSku.repositoryId"/>
+      <dsp:param name="showUnavailable" value="true"/>
+    </dsp:include>
+    <c:if test="${!empty availabilityMessage}">
+      <div class="atg_store_availability">
+        <span>${availabilityMessage}</span>
+      </div>
+    </c:if>
+  </c:if>
+</div>
+<%-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.0.2/Storefront/j2ee/store.war/browse/gadgets/pickerAvailabilityMessage.jspf#2 $$Change: 635969 $--%>

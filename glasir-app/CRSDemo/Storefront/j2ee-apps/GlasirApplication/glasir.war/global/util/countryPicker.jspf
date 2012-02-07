@@ -1,0 +1,18 @@
+<%-- 
+This page fragment generates a series of dsp:option tags, one for each
+country we want to let the user select as part of an address.  
+--%>
+
+<%-- Iterate over the list of known destinations and generate an option tag for each --%>
+
+  <dsp:droplet name="/atg/store/droplet/CountryListDroplet">
+    <dsp:param name="userLocale" value="${requestLocale.locale}" />
+    <dsp:oparam name="output">
+      <dsp:getvalueof var="countries" vartype="java.lang.Object" param="countries"/>
+      <c:forEach var="country" items="${countries}">
+        <dsp:param name="country" value="${country}"/>
+        <dsp:option paramvalue="country.code"><dsp:valueof param="country.displayName"/></dsp:option>
+      </c:forEach>
+    </dsp:oparam>
+  </dsp:droplet>
+<%-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.0.2/Storefront/j2ee/store.war/global/util/countryPicker.jspf#2 $$Change: 635969 $--%>

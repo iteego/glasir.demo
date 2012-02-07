@@ -1,0 +1,38 @@
+<json:array name="facets">
+  <%-- setting this param because resulting include page uses it --%>
+  <dsp:setvalue param="facetTrail" value="${currentTrail}" />
+
+  <c:forEach var="currentFacetValue" items="${currentTrail.facetValues}" >
+    <c:choose>
+      <%-- 
+      We should figure out a better way to determine if the facet is a RefinementFacet without using a scriplet --%>
+      <c:when test="${currentFacetValue.facet.class.name == 'atg.repository.search.refinement.RefinementFacet'}">
+        <dsp:getvalueof var="facetingProperty" vartype="java.lang.String"
+                  value="${currentFacetValue.facet.refinementElement.property}"/>
+        <dsp:getvalueof var="facetingLable" vartype="java.lang.String"
+                  value="${currentFacetValue.facet.refinementElement.label}"/>
+        <dsp:getvalueof var="facetId" vartype="java.lang.String" value="${currentFacetValue.facet.id}"/>
+        
+        <dsp:getvalueof var="trailSizeVar" param="trailSize"/>
+        <dsp:getvalueof var="categoryIdVar" param="categoryId"/>
+        
+        <c:if test="${(! empty trailSizeVar) && (fn:length(fn:trim(trailSizeVar)) > 0) }">
+          <c:set var="newSize" value="${trailSizeVar - 1}" />
+        </c:if>
+        
+        <c:set var="facetSize" value="${facetSize+1}"/>
+        <dsp:getvalueof var="size" vartype="java.lang.String" value="${newSize}"/>
+
+        <c:if test="${facetingProperty != 'ancestorCategories.$repositoryId' && facetingLable != 'facet.label.Category'}">
+          <dsp:setvalue param="labelParm" value="${facetingLable}"/>
+          <json:object>
+            <%@ include file="facetsObject.jspf" %>
+          </json:object>
+        </c:if>
+
+      </c:when>
+    </c:choose>
+  </c:forEach>       
+
+</json:array>
+<%-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.0.2/Storefront/j2ee/store.war/facetjson/facetFacets.jspf#2 $$Change: 635969 $--%>

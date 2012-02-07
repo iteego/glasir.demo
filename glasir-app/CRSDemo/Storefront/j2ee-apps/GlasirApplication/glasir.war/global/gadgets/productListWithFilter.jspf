@@ -1,0 +1,10 @@
+<dsp:page>
+  <dsp:importbean bean="/atg/store/droplet/CatalogItemFilterDroplet"/>
+  <dsp:droplet name="CatalogItemFilterDroplet">
+    <dsp:param name="collection" param="productArray"/>
+    <dsp:oparam name="output">
+      <dsp:getvalueof var="filteredCollection" param="filteredCollection"/>
+    </dsp:oparam>
+  </dsp:droplet>
+</dsp:page>
+<%-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.0.2/Storefront/j2ee/store.war/global/gadgets/productListWithFilter.jspf#2 $$Change: 635969 $--%>

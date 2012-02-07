@@ -1,0 +1,2968 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE taglib
+	PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN"
+	"http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd">
+
+<taglib>
+  <tlib-version>1.0</tlib-version>
+  <jsp-version>1.2</jsp-version>
+  <short-name>standard</short-name>
+  <uri>http://www.atg.com/taglibs/daf/coreTaglib1_0</uri>
+
+  <description>The tag library containing all the tags in the JSP Standard Taglib spec</description>
+
+  <!-- CreateUrl -->
+  <tag>
+    <name>CreateUrl</name>
+    <tag-class>atg.taglib.core.CreateUrlTag</tag-class>
+    <tei-class>atg.taglib.core.CreateUrlTEI</tei-class>
+    <body-content>JSP</body-content>
+    <description>
+      creates a url with param/value pairs
+    </description>
+
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>url</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>encode</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>xml</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- CreateUrl lowercase -->
+  <tag>
+    <name>createUrl</name>
+    <tag-class>atg.taglib.core.CreateUrlTag</tag-class>
+    <tei-class>atg.taglib.core.CreateUrlTEI</tei-class>
+    <body-content>JSP</body-content>
+    <description>
+      creates a url with param/value pairs
+    </description>
+
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>url</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>encode</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>xml</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- UrlParam -->
+  <tag>
+    <name>UrlParam</name>
+    <tag-class>atg.taglib.core.UrlParamTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+      used inside a CreateUrl tag to specify param/value pairs
+    </description>
+
+    <attribute>
+      <name>param</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>value</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- UrlParam lowercase -->
+  <tag>
+    <name>urlParam</name>
+    <tag-class>atg.taglib.core.UrlParamTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+      used inside a CreateUrl tag to specify param/value pairs
+    </description>
+
+    <attribute>
+      <name>param</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>value</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- UrlParamValue -->
+  <tag>
+    <name>UrlParamValue</name>
+    <tag-class>atg.taglib.core.UrlParamValueTag</tag-class>
+    <tei-class>atg.taglib.core.UrlParamValueTEI</tei-class>
+    <body-content>JSP</body-content>
+    <description>
+      used to pull a param value out of an http request
+    </description>
+
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>param</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- UrlParamValue lowercase -->
+  <tag>
+    <name>urlParamValue</name>
+    <tag-class>atg.taglib.core.UrlParamValueTag</tag-class>
+    <tei-class>atg.taglib.core.UrlParamValueTEI</tei-class>
+    <body-content>JSP</body-content>
+    <description>
+      used to pull a param value out of an http request
+    </description>
+
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>param</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- Redirect -->
+  <tag>
+    <name>Redirect</name>
+    <tag-class>atg.taglib.core.RedirectTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+      used to forward the current request to a new resource
+    </description>
+
+    <attribute>
+      <name>url</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- Redirect lowercase -->
+  <tag>
+    <name>redirect</name>
+    <tag-class>atg.taglib.core.RedirectTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+      used to forward the current request to a new resource
+    </description>
+
+    <attribute>
+      <name>url</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- Cast -->
+  <tag>
+    <name>Cast</name>
+    <tag-class>atg.taglib.core.CastTag</tag-class>
+    <tei-class>atg.taglib.core.CastTEI</tei-class>
+    <body-content>JSP</body-content>
+    <description>
+      casts an object to a given class type
+    </description>
+
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>value</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>castClass</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- exposeBody -->
+  <tag>
+    <name>exposeBody</name>
+    <tag-class>atg.taglib.core.ExposeBodyTag</tag-class>
+    <tei-class>atg.taglib.core.ExposeBodyTEI</tei-class>
+    <body-content>JSP</body-content>
+    <description>
+      exposes the contents of its body as a scripting variable
+    </description>
+    
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- ExposeBody  uppercase -->
+  <tag>
+    <name>ExposeBody</name>
+    <tag-class>atg.taglib.core.ExposeBodyTag</tag-class>
+    <tei-class>atg.taglib.core.ExposeBodyTEI</tei-class>
+    <body-content>JSP</body-content>
+    <description>
+      exposes the contents of its body as a scripting variable
+    </description>
+    
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+
+
+  <!-- Cast lowercase -->
+  <tag>
+    <name>cast</name>
+    <tag-class>atg.taglib.core.CastTag</tag-class>
+    <tei-class>atg.taglib.core.CastTEI</tei-class>
+    <body-content>JSP</body-content>
+    <description>
+      casts an object to a given class type
+    </description>
+
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>value</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>castClass</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- ForEach -->
+  <tag>
+    <name>ForEach</name>
+    <tag-class>atg.taglib.core.ForEachTag</tag-class>
+    <tei-class>atg.taglib.core.ForEachTEI</tei-class>
+    <body-content>JSP</body-content>
+    <description>
+      iterates through a set of values
+    </description>
+
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>values</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>step</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>startIndex</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>rangeCount</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>endIndex</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>castClass</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>keyCastClass</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>elementId</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>keyId</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- ForEach lowercase -->
+  <tag>
+    <name>forEach</name>
+    <tag-class>atg.taglib.core.ForEachTag</tag-class>
+    <tei-class>atg.taglib.core.ForEachTEI</tei-class>
+    <body-content>JSP</body-content>
+    <description>
+      iterates through a set of values
+    </description>
+
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>values</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>step</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>startIndex</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>rangeCount</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>endIndex</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>castClass</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>keyCastClass</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>elementId</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>keyId</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- Sort -->
+  <tag>
+    <name>Sort</name>
+    <tag-class>atg.taglib.core.SortTag</tag-class>
+    <tei-class>atg.taglib.core.SortTEI</tei-class>
+    <body-content>JSP</body-content>
+    <description>
+      sorts a set of values
+    </description>
+
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>values</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>reverse</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>comparator</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- Sort lowercase -->
+  <tag>
+    <name>sort</name>
+    <tag-class>atg.taglib.core.SortTag</tag-class>
+    <tei-class>atg.taglib.core.SortTEI</tei-class>
+    <body-content>JSP</body-content>
+    <description>
+      sorts a set of values
+    </description>
+
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>values</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>reverse</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>comparator</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- OrderBy -->
+  <tag>
+    <name>OrderBy</name>
+    <tag-class>atg.taglib.core.OrderByTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+      specifies a sorting order for an enclosing Sort tag
+    </description>
+
+    <attribute>
+      <name>property</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- OrderBy lowercase -->
+  <tag>
+    <name>orderBy</name>
+    <tag-class>atg.taglib.core.OrderByTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+      specifies a sorting order for an enclosing Sort tag
+    </description>
+
+    <attribute>
+      <name>property</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- OrderByReverse -->
+  <tag>
+    <name>OrderByReverse</name>
+    <tag-class>atg.taglib.core.OrderByReverseTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+      specifies a reverse sorting order for an enclosing Sort tag
+    </description>
+
+    <attribute>
+      <name>property</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- OrderByReverse lowercase -->
+  <tag>
+    <name>orderByReverse</name>
+    <tag-class>atg.taglib.core.OrderByReverseTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+      specifies a reverse sorting order for an enclosing Sort tag
+    </description>
+
+    <attribute>
+      <name>property</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- Switch -->
+  <tag>
+    <name>Switch</name>
+    <tag-class>atg.taglib.core.SwitchTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+      works like a java switch block. can contain any number of
+      case and defaultCase subtags.
+    </description>
+    <attribute>
+      <name>value</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>comparator</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- Switch lowercase -->
+  <tag>
+    <name>switch</name>
+    <tag-class>atg.taglib.core.SwitchTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+      works like a java switch block. can contain any number of
+      case and defaultCase subtags.
+    </description>
+    <attribute>
+      <name>value</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>comparator</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- ExclusiveIf -->
+  <tag>
+    <name>ExclusiveIf</name>
+    <tag-class>atg.taglib.core.ExclusiveIfTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+      renders one of several boolean conditional tags
+    </description>
+  </tag>
+
+  <!-- ExclusiveIf lowercase -->
+  <tag>
+    <name>exclusiveIf</name>
+    <tag-class>atg.taglib.core.ExclusiveIfTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+      renders one of several boolean conditional tags
+    </description>
+  </tag>
+
+  <!-- Case -->
+  <tag>
+    <name>Case</name>
+    <tag-class>atg.taglib.core.CaseTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+      used inside the body of a Switch tag, rendered
+      if its value attribute is equal to the value attribute 
+      of the switch tag
+    </description>
+    <attribute>
+      <name>value</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- Case lowercase -->
+  <tag>
+    <name>case</name>
+    <tag-class>atg.taglib.core.CaseTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+      used inside the body of a Switch tag, rendered
+      if its value attribute is equal to the value attribute 
+      of the switch tag
+    </description>
+    <attribute>
+      <name>value</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- DefaultCase -->
+  <tag>
+    <name>DefaultCase</name>
+    <tag-class>atg.taglib.core.DefaultCaseTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+      used inside the body of an ExlusiveIf or Switch tag, rendered
+      if no other boolean conditional tags are rendered
+    </description>
+  </tag>
+
+  <!-- DefaultCase lowercase -->
+  <tag>
+    <name>defaultCase</name>
+    <tag-class>atg.taglib.core.DefaultCaseTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+      used inside the body of an ExlusiveIf or Switch tag, rendered
+      if no other boolean conditional tags are rendered
+    </description>
+  </tag>
+
+  <!-- TestTag -->
+  <tag>
+    <name>Test</name>
+    <tag-class>atg.taglib.core.TestTag</tag-class>
+    <tei-class>atg.taglib.core.TestTEI</tei-class>
+    <body-content>JSP</body-content>
+    <description>
+      tests a value for various attributes
+    </description>
+
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>value</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- TestTag lowercase -->
+  <tag>
+    <name>test</name>
+    <tag-class>atg.taglib.core.TestTag</tag-class>
+    <tei-class>atg.taglib.core.TestTEI</tei-class>
+    <body-content>JSP</body-content>
+    <description>
+      tests a value for various attributes
+    </description>
+
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>value</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- CompareTag -->
+  <tag>
+    <name>Compare</name>
+    <tag-class>atg.taglib.core.CompareTag</tag-class>
+    <tei-class>atg.taglib.core.CompareTEI</tei-class>
+    <body-content>JSP</body-content>
+    <description>
+      tests a value for various attributes
+    </description>
+
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>comparator</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>object1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>object2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>boolean1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>boolean2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>byte1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>byte2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>char1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>char2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>short1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>short2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>int1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>int2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>long1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>long2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>float1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>float2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>double1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>double2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- CompareTag lowercase -->
+  <tag>
+    <name>compare</name>
+    <tag-class>atg.taglib.core.CompareTag</tag-class>
+    <tei-class>atg.taglib.core.CompareTEI</tei-class>
+    <body-content>JSP</body-content>
+    <description>
+      tests a value for various attributes
+    </description>
+
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>comparator</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>object1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>object2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>boolean1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>boolean2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>byte1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>byte2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>char1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>char2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>short1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>short2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>int1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>int2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>long1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>long2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>float1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>float2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>double1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>double2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- IfContains -->
+  <tag>
+    <name>IfContains</name>
+    <tag-class>atg.taglib.core.ContainsTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+      Tests to see if a given value is present in a set of values
+    </description>
+    
+    <attribute>
+      <name>comparator</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>compareElement</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>values</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>object</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>boolean</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>byte</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>char</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>short</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>int</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>long</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>float</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>double</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- IfContains lowercase -->
+  <tag>
+    <name>ifContains</name>
+    <tag-class>atg.taglib.core.ContainsTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+      Tests to see if a given value is present in a set of values
+    </description>
+    
+    <attribute>
+      <name>comparator</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>compareElement</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>values</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>object</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>boolean</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>byte</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>char</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>short</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>int</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>long</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>float</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>double</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- IfNotContains -->
+  <tag>
+    <name>IfNotContains</name>
+    <tag-class>atg.taglib.core.NotContainsTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+      Tests to see if a given value is not present in a set of values
+    </description>
+    
+    <attribute>
+      <name>comparator</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>compareElement</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>values</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>object</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>boolean</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>byte</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>char</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>short</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>int</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>long</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>float</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>double</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- IfNotContains lowercase -->
+  <tag>
+    <name>ifNotContains</name>
+    <tag-class>atg.taglib.core.NotContainsTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+      Tests to see if a given value is not present in a set of values
+    </description>
+    
+    <attribute>
+      <name>comparator</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>compareElement</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>values</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>object</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>boolean</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>byte</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>char</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>short</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>int</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>long</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>float</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>double</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- If -->
+  <tag>
+    <name>If</name>
+    <tag-class>atg.taglib.core.IfTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+      Test to see if a boolean value is true
+    </description>
+
+    <attribute>
+      <name>value</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+  
+  <!-- If lowercase -->
+  <tag>
+    <name>if</name>
+    <tag-class>atg.taglib.core.IfTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+      Test to see if a boolean value is true
+    </description>
+
+    <attribute>
+      <name>value</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+  
+  <!-- IfNot -->
+  <tag>
+    <name>IfNot</name>
+    <tag-class>atg.taglib.core.IfNotTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+      Test to see if a boolean value is false
+    </description>
+
+    <attribute>
+      <name>value</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- IfNot lowercase -->
+  <tag>
+    <name>ifNot</name>
+    <tag-class>atg.taglib.core.IfNotTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+      Test to see if a boolean value is false
+    </description>
+
+    <attribute>
+      <name>value</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- IfNull -->
+  <tag>
+    <name>IfNull</name>
+    <tag-class>atg.taglib.core.IfNullTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+      tests to see if a given Object value is null
+    </description>
+
+    <attribute>
+      <name>value</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- IfNull lowercase -->
+  <tag>
+    <name>ifNull</name>
+    <tag-class>atg.taglib.core.IfNullTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+      tests to see if a given Object value is null
+    </description>
+
+    <attribute>
+      <name>value</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- IfNotNull -->
+  <tag>
+    <name>IfNotNull</name>
+    <tag-class>atg.taglib.core.IfNotNullTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+      tests to see if a given Object value is not null
+    </description>
+
+    <attribute>
+      <name>value</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- IfNotNull lowercase -->
+  <tag>
+    <name>ifNotNull</name>
+    <tag-class>atg.taglib.core.IfNotNullTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+      tests to see if a given Object value is not null
+    </description>
+
+    <attribute>
+      <name>value</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- IfEqual -->
+  <tag>
+    <name>IfEqual</name>
+    <tag-class>atg.taglib.core.IfEqualTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+      tests to see if two values are equal
+    </description>
+
+    <attribute>
+      <name>comparator</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>object1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>object2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>boolean1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>boolean2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>byte1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>byte2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>char1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>char2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>short1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>short2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>int1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>int2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>long1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>long2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>float1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>float2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>double1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>double2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- IfEqual lowercase -->
+  <tag>
+    <name>ifEqual</name>
+    <tag-class>atg.taglib.core.IfEqualTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+      tests to see if two values are equal
+    </description>
+
+    <attribute>
+      <name>comparator</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>object1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>object2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>boolean1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>boolean2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>byte1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>byte2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>char1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>char2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>short1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>short2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>int1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>int2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>long1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>long2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>float1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>float2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>double1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>double2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- IfNotEqual -->
+  <tag>
+    <name>IfNotEqual</name>
+    <tag-class>atg.taglib.core.IfNotEqualTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+      tests to see if two values are not equal
+    </description>
+
+    <attribute>
+      <name>comparator</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>object1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>object2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>boolean1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>boolean2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>byte1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>byte2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>char1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>char2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>short1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>short2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>int1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>int2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>long1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>long2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>float1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>float2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>double1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>double2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- IfNotEqual lowercase -->
+  <tag>
+    <name>ifNotEqual</name>
+    <tag-class>atg.taglib.core.IfNotEqualTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+      tests to see if two values are not equal
+    </description>
+
+    <attribute>
+      <name>comparator</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>object1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>object2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>boolean1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>boolean2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>byte1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>byte2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>char1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>char2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>short1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>short2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>int1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>int2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>long1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>long2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>float1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>float2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>double1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>double2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- IfLessThan -->
+  <tag>
+    <name>IfLessThan</name>
+    <tag-class>atg.taglib.core.IfLessThanTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+      tests to see if one value is less than another
+    </description>
+
+    <attribute>
+      <name>comparator</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>object1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>object2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>boolean1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>boolean2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>byte1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>byte2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>char1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>char2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>short1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>short2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>int1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>int2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>long1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>long2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>float1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>float2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>double1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>double2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- IfLessThan lowercase -->
+  <tag>
+    <name>ifLessThan</name>
+    <tag-class>atg.taglib.core.IfLessThanTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+      tests to see if one value is less than another
+    </description>
+
+    <attribute>
+      <name>comparator</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>object1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>object2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>boolean1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>boolean2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>byte1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>byte2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>char1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>char2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>short1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>short2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>int1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>int2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>long1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>long2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>float1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>float2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>double1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>double2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- IfLessThanOrEqual -->
+  <tag>
+    <name>IfLessThanOrEqual</name>
+    <tag-class>atg.taglib.core.IfLessThanOrEqualTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+      tests to see if one value is less than or equal to another
+    </description>
+
+    <attribute>
+      <name>comparator</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>object1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>object2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>boolean1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>boolean2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>byte1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>byte2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>char1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>char2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>short1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>short2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>int1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>int2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>long1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>long2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>float1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>float2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>double1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>double2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- IfLessThanOrEqual lowercase -->
+  <tag>
+    <name>ifLessThanOrEqual</name>
+    <tag-class>atg.taglib.core.IfLessThanOrEqualTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+      tests to see if one value is less than or equal to another
+    </description>
+
+    <attribute>
+      <name>comparator</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>object1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>object2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>boolean1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>boolean2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>byte1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>byte2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>char1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>char2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>short1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>short2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>int1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>int2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>long1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>long2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>float1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>float2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>double1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>double2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- IfGreaterThan -->
+  <tag>
+    <name>IfGreaterThan</name>
+    <tag-class>atg.taglib.core.IfGreaterThanTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+      tests to see if one value is greater than another
+    </description>
+
+    <attribute>
+      <name>comparator</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>object1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>object2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>boolean1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>boolean2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>byte1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>byte2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>char1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>char2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>short1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>short2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>int1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>int2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>long1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>long2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>float1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>float2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>double1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>double2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- IfGreaterThan lowercase -->
+  <tag>
+    <name>ifGreaterThan</name>
+    <tag-class>atg.taglib.core.IfGreaterThanTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+      tests to see if one value is greater than another
+    </description>
+
+    <attribute>
+      <name>comparator</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>object1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>object2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>boolean1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>boolean2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>byte1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>byte2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>char1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>char2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>short1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>short2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>int1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>int2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>long1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>long2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>float1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>float2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>double1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>double2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- IfGreaterThanOrEqual -->
+  <tag>
+    <name>IfGreaterThanOrEqual</name>
+    <tag-class>atg.taglib.core.IfGreaterThanOrEqualTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+      tests to see if one value is greater than or equal to another
+    </description>
+
+    <attribute>
+      <name>comparator</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>object1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>object2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>boolean1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>boolean2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>byte1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>byte2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>char1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>char2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>short1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>short2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>int1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>int2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>long1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>long2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>float1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>float2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>double1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>double2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- IfGreaterThanOrEqual lowercase -->
+  <tag>
+    <name>ifGreaterThanOrEqual</name>
+    <tag-class>atg.taglib.core.IfGreaterThanOrEqualTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+      tests to see if one value is greater than or equal to another
+    </description>
+
+    <attribute>
+      <name>comparator</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>object1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>object2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>boolean1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>boolean2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>byte1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>byte2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>char1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>char2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>short1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>short2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>int1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>int2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>long1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>long2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>float1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>float2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>double1</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>double2</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- ContainsEJBTag -->
+  <tag>
+    <name>IfContainsEJB</name>
+    <tag-class>atg.taglib.core.ContainsEJBTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+       Tests to see if a given EJB is present in a set of values
+    </description>
+
+    <attribute>
+      <name>values</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>ejb</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- ContainsEJBTag lowercase -->
+  <tag>
+    <name>ifContainsEJB</name>
+    <tag-class>atg.taglib.core.ContainsEJBTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+       Tests to see if a given EJB is present in a set of values
+    </description>
+
+    <attribute>
+      <name>values</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>ejb</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- NotContainsEJBTag -->
+  <tag>
+    <name>IfNotContainsEJB</name>
+    <tag-class>atg.taglib.core.NotContainsEJBTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+       Tests to see if a given EJB is NOT present in a set of values
+    </description>
+
+    <attribute>
+      <name>values</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>ejb</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- NotContainsEJBTag lowercase -->
+  <tag>
+    <name>ifNotContainsEJB</name>
+    <tag-class>atg.taglib.core.NotContainsEJBTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+       Tests to see if a given EJB is NOT present in a set of values
+    </description>
+
+    <attribute>
+      <name>values</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>ejb</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- IfEqualEJBTag -->
+  <tag>
+    <name>IfEqualEJB</name>
+    <tag-class>atg.taglib.core.IfEqualEJBTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+       Tests to see whether two given EJBs are equal 
+    </description>
+
+    <attribute>
+      <name>ejb1</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>ejb2</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- IfEqualEJBTag lowercase -->
+  <tag>
+    <name>ifEqualEJB</name>
+    <tag-class>atg.taglib.core.IfEqualEJBTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+       Tests to see whether two given EJBs are equal 
+    </description>
+
+    <attribute>
+      <name>ejb1</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>ejb2</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- IfNotEqualEJBTag -->
+  <tag>
+    <name>IfNotEqualEJB</name>
+    <tag-class>atg.taglib.core.IfNotEqualEJBTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+       Tests to see whether two given EJBs are equal 
+    </description>
+
+    <attribute>
+      <name>ejb1</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>ejb2</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- IfNotEqualEJBTag lowercase -->
+  <tag>
+    <name>ifNotEqualEJB</name>
+    <tag-class>atg.taglib.core.IfNotEqualEJBTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>
+       Tests to see whether two given EJBs are equal 
+    </description>
+
+    <attribute>
+      <name>ejb1</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>ejb2</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <!-- BeginTransactionTag -->
+  <tag>
+    <name>BeginTransaction</name>
+    <tag-class>atg.taglib.core.BeginTransactionTag</tag-class>
+    <tei-class>atg.taglib.core.BeginTransactionTEI</tei-class>
+    <body-content>JSP</body-content>
+    <description>
+       Call UserTransaction begin 
+    </description>
+
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+    </attribute>
+  </tag>
+
+  <!-- BeginTransactionTag lowercase -->
+  <tag>
+    <name>beginTransaction</name>
+    <tag-class>atg.taglib.core.BeginTransactionTag</tag-class>
+    <tei-class>atg.taglib.core.BeginTransactionTEI</tei-class>
+    <body-content>JSP</body-content>
+    <description>
+       Call UserTransaction begin 
+    </description>
+
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+    </attribute>
+  </tag>
+
+  <!-- CommitTransactionTag -->
+  <tag>
+    <name>CommitTransaction</name>
+    <tag-class>atg.taglib.core.CommitTransactionTag</tag-class>
+    <tei-class>atg.taglib.core.CommitTransactionTEI</tei-class>
+    <body-content>JSP</body-content>
+    <description>
+       Call UserTransaction commit 
+    </description>
+
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+    </attribute>
+  </tag>
+
+  <!-- CommitTransactionTag lowercase -->
+  <tag>
+    <name>commitTransaction</name>
+    <tag-class>atg.taglib.core.CommitTransactionTag</tag-class>
+    <tei-class>atg.taglib.core.CommitTransactionTEI</tei-class>
+    <body-content>JSP</body-content>
+    <description>
+       Call UserTransaction commit 
+    </description>
+
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+    </attribute>
+  </tag>
+
+  <!-- RollbackTransactionTag -->
+  <tag>
+    <name>RollbackTransaction</name>
+    <tag-class>atg.taglib.core.RollbackTransactionTag</tag-class>
+    <tei-class>atg.taglib.core.RollbackTransactionTEI</tei-class>
+    <body-content>JSP</body-content>
+    <description>
+       Call UserTransaction rollback 
+    </description>
+
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+    </attribute>
+  </tag>
+
+  <!-- RollbackTransactionTag lowercase -->
+  <tag>
+    <name>rollbackTransaction</name>
+    <tag-class>atg.taglib.core.RollbackTransactionTag</tag-class>
+    <tei-class>atg.taglib.core.RollbackTransactionTEI</tei-class>
+    <body-content>JSP</body-content>
+    <description>
+       Call UserTransaction rollback 
+    </description>
+
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+    </attribute>
+  </tag>
+
+  <!-- SetTransactionRollbackOnlyTag -->
+  <tag>
+    <name>SetTransactionRollbackOnly</name>
+    <tag-class>atg.taglib.core.SetTransactionRollbackOnlyTag</tag-class>
+    <tei-class>atg.taglib.core.SetTransactionRollbackOnlyTEI</tei-class>
+    <body-content>JSP</body-content>
+    <description>
+       Call UserTransaction setRollbackOnly
+    </description>
+
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+    </attribute>
+  </tag>
+
+  <!-- SetTransactionRollbackOnlyTag lowercase -->
+  <tag>
+    <name>setTransactionRollbackOnly</name>
+    <tag-class>atg.taglib.core.SetTransactionRollbackOnlyTag</tag-class>
+    <tei-class>atg.taglib.core.SetTransactionRollbackOnlyTEI</tei-class>
+    <body-content>JSP</body-content>
+    <description>
+       Call UserTransaction setRollbackOnly
+    </description>
+
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+    </attribute>
+  </tag>
+
+  <!-- TransactionStatusTag -->
+  <tag>
+    <name>TransactionStatus</name>
+    <tag-class>atg.taglib.core.TransactionStatusTag</tag-class>
+    <tei-class>atg.taglib.core.TransactionStatusTEI</tei-class>
+    <body-content>JSP</body-content>
+    <description>
+       Check UseTransaction Status
+    </description>
+
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+    </attribute>
+  </tag>
+
+  <!-- TransactionStatusTag lowercase -->
+  <tag>
+    <name>transactionStatus</name>
+    <tag-class>atg.taglib.core.TransactionStatusTag</tag-class>
+    <tei-class>atg.taglib.core.TransactionStatusTEI</tei-class>
+    <body-content>JSP</body-content>
+    <description>
+       Check UseTransaction Status
+    </description>
+
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+    </attribute>
+  </tag>
+
+  <!-- DemarcateTransactionTag -->
+  <tag>
+    <name>DemarcateTransaction</name>
+    <tag-class>atg.taglib.core.DemarcateTransactionTag</tag-class>
+    <tei-class>atg.taglib.core.DemarcateTransactionTEI</tei-class>
+    <body-content>JSP</body-content>
+    <description>
+       Start a transaction and commit at the end
+    </description>
+
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+    </attribute>
+  </tag>
+
+  <!-- DemarcateTransactionTag lowercase -->
+  <tag>
+    <name>demarcateTransaction</name>
+    <tag-class>atg.taglib.core.DemarcateTransactionTag</tag-class>
+    <tei-class>atg.taglib.core.DemarcateTransactionTEI</tei-class>
+    <body-content>JSP</body-content>
+    <description>
+       Start a transaction and commit at the end
+    </description>
+
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+    </attribute>
+  </tag>
+
+</taglib>

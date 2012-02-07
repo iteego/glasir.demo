@@ -1,0 +1,21 @@
+<dsp:importbean var="requestLocale" bean="/atg/dynamo/servlet/RequestLocale" />
+<fmt:setLocale value="${requestLocale.locale}"/>
+
+<dsp:importbean bean="/atg/multisite/SiteContext"/>
+<dsp:getvalueof var="resourceBundle" bean="SiteContext.site.resourceBundle" />
+
+<dsp:importbean bean="/atg/store/StoreConfiguration" />
+<dsp:getvalueof var="defaultResourceBundle" bean="StoreConfiguration.defaultResourceBundle" />
+
+<%-- Set the resource bundle location from the site context. If it doesn't
+     exist in the site context, get it from configuration file. --%>
+<c:choose>
+  <c:when test="${not empty resourceBundle}">
+    <fmt:setBundle basename="${resourceBundle}"/>
+  </c:when>
+  <c:otherwise>
+    <fmt:setBundle basename="${defaultResourceBundle}"/>
+  </c:otherwise>
+</c:choose>
+
+<%-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.0.2/Storefront/j2ee/store.war/includes/context.jspf#2 $$Change: 635969 $--%>

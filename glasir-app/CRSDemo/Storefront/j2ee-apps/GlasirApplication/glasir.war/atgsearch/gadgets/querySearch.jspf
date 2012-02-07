@@ -1,0 +1,68 @@
+<%-- assume question is valid --%>
+<c:choose>
+  <%-- if there's already a trail, then turn that string into a bean --%>
+  <c:when test="${currentTrail != null && currentTrail != ''}">
+    <dsp:droplet name="CommerceFacetTrailDroplet">
+      <dsp:param name="trail" value="${currentTrail}" />
+      <dsp:param name="refineConfig" param="catRC" />
+      <dsp:oparam name="output">
+        <dsp:getvalueof var="currentTrail" param="facetTrail" />
+      </dsp:oparam>
+    </dsp:droplet>
+  </c:when>
+
+  <%-- if this is the first search, just make the facetTrail contain only the search --%>
+  <c:when test="${currentTrail == null || currentTrail == ''}">
+    <dsp:droplet name="CommerceFacetTrailDroplet">
+      <dsp:param name="trail" value="" />
+      <dsp:param name="addFacet" value="SRCH:${question}" />
+      <dsp:param name="refineConfig" param="catRC" />
+      <dsp:oparam name="output">
+        <dsp:getvalueof var="currentTrail" param="facetTrail" />
+      </dsp:oparam>
+    </dsp:droplet>
+  </c:when>
+</c:choose>
+
+<dsp:getvalueof var="q_pageNum" param="q_pageNum" />
+<dsp:getvalueof var="q_viewAll" param="viewAll" />
+<dsp:getvalueof var="q_pageSize" param="q_pageSize" />
+<dsp:getvalueof var="q_facetTrail" param="q_facetTrail" />
+
+<c:if test="${not empty q_facetTrail}">
+  <dsp:setvalue bean="FacetSearchTools.facetTrail" value="${q_facetTrail}"/>
+</c:if>
+
+<%-- do searching now --%>
+<dsp:setvalue bean="QueryFormHandler.searchRequest.question" paramvalue="q_question"/>
+<dsp:getvalueof var="sortingType" vartype="java.lang.String" param="q_docSort"/>
+<c:choose>
+  <c:when test="${sortingType == 'title'}">
+    <dsp:setvalue bean="QueryFormHandler.searchRequest.docSort" value="strprop"/>
+    <dsp:setvalue bean="QueryFormHandler.searchRequest.docSortProp" value="displayName"/>
+  </c:when>
+  <c:otherwise>
+    <dsp:setvalue bean="QueryFormHandler.searchRequest.docSort" paramvalue="q_docSort"/>
+  </c:otherwise>
+</c:choose>
+<dsp:setvalue bean="QueryFormHandler.searchRequest.docSortOrder" paramvalue="q_docSortOrder"/>
+<dsp:setvalue bean="QueryFormHandler.searchRequest.multiSearchSession" value="true"/>
+<dsp:setvalue bean="QueryFormHandler.searchRequest.saveRequest" value="true"/>
+
+<c:if test="${not empty q_pageSize}">
+  <dsp:setvalue bean="QueryFormHandler.searchRequest.pageSize" paramvalue="q_pageSize"/>
+</c:if>  
+
+<c:choose>
+  <c:when test="${q_viewAll == true}">
+    <dsp:setvalue bean="QueryFormHandler.searchRequest.pageSize" value="5000"/>
+    <dsp:setvalue bean="QueryFormHandler.search" value="submit"/>
+  </c:when>
+  <c:when test="${q_pageNum != null && q_pageNum != ''}">
+     <dsp:setvalue bean="QueryFormHandler.goToPage" paramvalue="q_pageNum"/>
+  </c:when>
+  <c:otherwise>
+     <dsp:setvalue bean="QueryFormHandler.search" value="submit"/>
+  </c:otherwise>
+</c:choose>
+<%-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.0.2/Storefront/j2ee/store.war/atgsearch/gadgets/querySearch.jspf#1 $$Change: 633540 $--%>

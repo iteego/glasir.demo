@@ -1,0 +1,105 @@
+<%-- 
+    This file is used to display item size, and it is included in the pickerLayout.jspf file
+--%>
+<dsp:getvalueof var="sizes" param="sizes"/>
+<dsp:getvalueof id="sizeQuantity" value="${fn:length(sizes)}"/>
+
+<%--If colors are not provided for SKUs then color picker is not shown --%>
+<c:if test="${sizeQuantity > 0}">
+
+  <div class="atg_store_sizePicker">
+  
+    <span class="atg_store_pickerLabel">
+      <fmt:message key="common.size"/><fmt:message key="common.labelSeparator"/>
+    </span>
+    
+    <strong class="selector">
+  
+      <c:forEach var="size" items="${sizes}" varStatus="sizeStatus">
+        <dsp:getvalueof id="count" value="${sizeStatus.count}"/>
+        <dsp:param name="size" value="${size}"/>
+        <dsp:getvalueof var="sizeState" param="size.state"/>
+        
+        <c:choose>
+          <c:when test="${sizeState == 'selected'}">
+            <c:set var="selectedValue" value="true"/>
+            <c:set var="additionalClassString" value=""/>
+            <c:set var="titleKey" value="browse_picker.itemHasBeenSelected"/>
+            <c:set var="notOffered" value="false"/>
+          </c:when>
+          <c:when test="${sizeState == 'available'}">
+            <c:set var="selectedValue" value="false"/>
+            <c:set var="additionalClassString" value="available"/>
+            <c:set var="titleKey" value="browse_picker.itemIsAvailable"/>
+            <c:set var="notOffered" value="false"/>
+          </c:when>
+          <c:when test="${sizeState == 'preorderable'}">
+            <c:set var="selectedValue" value="false"/>
+            <c:set var="additionalClassString" value="preorderable"/>
+            <c:set var="titleKey" value="browse_picker.itemIsPreorderable"/>
+            <c:set var="notOffered" value="false"/>
+          </c:when>
+          <c:when test="${sizeState == 'outofstock'}">
+            <c:set var="selectedValue" value="false"/>
+            <c:set var="additionalClassString" value="outOfStock"/>
+            <c:set var="titleKey" value="browse_picker.itemIsOutOfStock"/>
+            <c:set var="notOffered" value="false"/>
+          </c:when>
+          <c:when test="${sizeState == 'backorderable'}">
+            <c:set var="selectedValue" value="false"/>
+            <c:set var="additionalClassString" value="backorderable"/>
+            <c:set var="titleKey" value="browse_picker.itemIsBackorderable"/>
+            <c:set var="notOffered" value="false"/>
+          </c:when>
+          <c:when test="${sizeState == 'notoffered'}">
+            <c:set var="selectedValue" value="false"/>
+            <c:set var="additionalClassString" value="notOffered"/>
+            <c:set var="titleKey" value="browse_picker.itemIsNotAvailable"/>
+            <c:set var="notOffered" value="true"/>
+          </c:when>
+        </c:choose>
+          
+        <dsp:getvalueof id="sizeName" idtype="java.lang.String" param="size.name"/>
+        <%-- Always encode item's properties, cause them can have special characters --%>
+        <c:set var="sizeName" value="${fn:escapeXml(fn:replace(sizeName, '\\'', '\\\\\\''))}"/>
+        <fmt:message var="oneSize" key="common.size.oneSize"/>
+        <c:set var="isOneSize" value="${oneSize == sizeName}"/>
+        
+        <fmt:message var="sizeTitle" key="${titleKey}">
+          <fmt:param value="${sizeName}"/>
+        </fmt:message>
+        
+        <c:choose>
+          <c:when test="${notOffered}">
+            <span class="disabled${(isOneSize)?' atg_store_oneSize':''}" title="${sizeTitle}">
+              <c:out value="${sizeName}"/>
+            </span>
+          </c:when>
+         <c:when test="${selectedValue}">
+            <a class="atg_store_pickerAttribute${(isOneSize)?' atg_store_oneSize':''}" href="javascript:void(0)" title="${sizeTitle}" onClick="atg.store.picker.clickSize('${sizeName}');">
+              <c:out value="${sizeName}"/>
+            </a>
+          </c:when>
+          <c:otherwise>
+            <a class="${(isOneSize)?' atg_store_oneSize':''}" href="javascript:void(0)" title="${sizeTitle}" onClick="atg.store.picker.clickSize('${sizeName}');">
+              <c:out value="${sizeName}"/>
+            </a>
+          </c:otherwise>
+        </c:choose>
+      </c:forEach><%-- ForEach sizes --%>
+       
+      <%-- Display size chart --%>
+      <c:if test="${sizeQuantity > 1}">
+        <a class="chart atg_store_help" href="javascript:void(0)" onclick="atg.store.util.openwindow('gadgets/sizeChart.jsp','sizeChart',500,500)"><fmt:message key="browse_picker.sizeChart"/></a>
+      </c:if>
+      
+    </strong>
+    
+    <strong class="details">
+      
+     
+    </strong> 
+      
+  </div>
+</c:if>
+<%-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.0.2/Storefront/j2ee/store.war/browse/gadgets/pickerSizePicker.jspf#2 $$Change: 635969 $--%>
