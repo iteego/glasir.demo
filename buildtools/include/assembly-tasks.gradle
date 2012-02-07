@@ -52,6 +52,15 @@ task assembleDevEar(type: AtgAssemblerTask, description: "Runs a build and assem
   
   //TODO: Figure out if there is a clean way of making the atg assembler find all the required stuff
   searchRootDirs = files("$atgRoot", "$globalDir", "$globalDir/packages", "$globalDir/packages/modules/glasir")
+
+  // Make sure to first remove the ear file, so that the assembler does not try to write files into any folder
+  // that contains symbolic links. If there would be any symbolic links in an already existing ear file,
+  // the assembler would simply follow them and write into their destination directory, which in our case is
+  // the source tree. By removing the ear file safely before starting the assembler, we avoid clobbering our
+  // source tree with assembler output files.
+  doFirst {
+    glasir.deleteDir("$jBossRoot/server/$storeServerName/deploy/${bigEarName}")
+  }
 }
 
 task syncStoreEar(type: Copy) {
@@ -84,6 +93,15 @@ task syncDocRoot(type: Copy) {
 task syncAtgServers(type: Copy) {
     from "${globalDir}/config/atg"
     into "$jBossRoot/ATG-Data/servers"
+
+    // Make sure to first remove the existing server directories, so that the copy task does not try to write files
+    // into any folder that contains symbolic links. If there would be any symbolic links in an already existing
+    // destination folder, the copy task would simply follow them and write into their target directory,
+    // which in our case is the source tree. By removing the directories safely before starting the copy,
+    // we avoid clobbering our source tree with build output files.
+    doFirst {
+        glasir.deleteDir("$jBossRoot/ATG-Data/servers/*")
+    }
 }
 
 task syncStore(dependsOn: [syncStoreEar, syncStoreServer, syncDocRoot])
