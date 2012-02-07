@@ -49,77 +49,9 @@ task assembleDevEar(type: AtgAssemblerTask, description: "Runs a build and assem
   searchRootDirs = files("$atgRoot", "$globalDir", "$globalDir/packages", "$globalDir/packages/modules/glasir")
 }
 
-task assembleLinkedEar(type: AtgAssemblerTask) {
-    dependsOn "build"
-
-    modules = allEnvironmentModules
-    outputFile = bigEar
-    standalone = true
-    liveconfig = false
-    pack = false
-    extraClasspath = files("${globalDir}/buildtools/gradle-lib/dtds.jar")
-    loggingDebug = false
-
-    doAfterAssembly {
-        def mainAppDir = new File("${globalDir}/glasir-app")
-
-        // Link all top-level application modules from source tree
-        def destinationDir = "$bigEar.canonicalPath/atg_bootstrap.war/WEB-INF/ATG-INF"
-        mainAppDir.eachDir {
-            if (!it.name.equals("META-INF")) {
-                def linkName = "$destinationDir/$it.name"
-                def result = ant.symlink( link: linkName, action: "delete")
-                if (!result) {
-                  file(linkName).deleteDir()
-                }
-                ant.symlink( link: linkName, resource: it.canonicalPath, overwrite: true)
-            }
-        }
-
-        // Link all war webapp folders from source tree
-        destinationDir = "$bigEar.canonicalPath"
-        mainAppDir.eachFileRecurse {
-            if (it.name.equals("MANIFEST.MF")) {
-                File manifest = it
-                manifest.getText().eachMatch(/ATG-Web-Module:.*/) {
-                    def line = it
-                    line.split(':')[1].replaceAll("^\\s+", "").replaceAll("\\s+\$", "").split(' ').each {
-                        String warSourcePath = manifest.absolutePath - "META-INF/MANIFEST.MF" + it
-                        String war = new File(warSourcePath).name
-                        def linkName="$destinationDir/$war"
-                        def result = ant.symlink( link: linkName, action: "delete")
-                        if (!result) {
-                          file(linkName).deleteDir()
-                        }
-                        ant.symlink( link: linkName, resource: warSourcePath, overwrite: true)
-                    }
-                }
-            }
-        }
-
-        // Link all atg server directories from source tree
-        //copy {
-        destinationDir = "${bigEar.canonicalPath}/atg_bootstrap.war/WEB-INF/ATG-INF/home/servers"
-        file("${globalDir}/config/atg").eachDir {
-            File atgServer = it
-            def linkName="$destinationDir/${atgServer.name}"
-            new File(linkName).delete()
-            ant.symlink( link: linkName, resource: atgServer.canonicalPath, overwrite: true)
-        }
-        //  from "${globalDir}/config/atg"
-        //  into "${bigEar.canonicalPath}/atg_bootstrap.war/WEB-INF/ATG-INF/home/servers"
-        //}
-    }
-}
-
-
 task syncStoreEar(type: Copy) {
 //  from bigEar
 //  into "$jBossRoot/server/$storeServerName/deploy/${bigEarName}"
-}
-
-task linkStoreEar << {
-  ant.symlink( link: "$jBossRoot/server/$storeServerName/deploy/$bigEarName", resource: bigEar.canonicalPath)
 }
 
 task syncAdminEar(type: Copy) {
@@ -149,12 +81,6 @@ task syncAtgServers(type: Copy) {
     into "$jBossRoot/ATG-Data/servers"
 }
 
-//TODO: Fix the jsp task
-task jsp(type: Copy, description: "A fast sync of jsp files only into a (running or not) jboss node") {
-  from "$globalDir/MyBrand/Consumer/Webapp/j2ee-apps/store/store.war"
-  into "$jBossRoot/server/${storeServerName}/deploy/${bigEarName}/store.war"
-}
- 
 task syncStore(dependsOn: [syncStoreEar, syncStoreServer, syncDocRoot])
 
 task syncAdmin(dependsOn: [syncAdminEar, syncAdminServer])
@@ -224,22 +150,3 @@ task cleanJbossServers(dependsOn: ['clean']) << {
 task cleanAll(dependsOn: ['clean','cleanJbossServers','cleanLocalDatabase']) << {
   description = "Cleans out all the 'build' directories in the source tree, the jboss server dirs and the local database, if any"
 }
-
-task kalle << {
-  glasir.deleteDir(new File('olle'))
-}
-task olle << {
-  file(".").eachFileRecurse { File f -> 
-    println "File $f isSymLink ${glasir.isSymlink(f)}"
-  }
-  glasir.topModules.each { m ->
-    println "Top module: $m.name -> $m.dir"  
-  }
-  
-  println ""
-  
-  glasir.webModules.each { m -> 
-    println "Web module: $m.name -> $m.manifest.atgWebModule"
-  }
-}
-

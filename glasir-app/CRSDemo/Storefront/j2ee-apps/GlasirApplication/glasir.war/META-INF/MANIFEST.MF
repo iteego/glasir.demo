@@ -1,3 +1,3 @@
 Manifest-Version: 1.0
-ATG-Module-Uri: bareCommerce.war
-ATG-Context-Root: bareCommerce
+ATG-Module-Uri: glasir.war
+ATG-Context-Root: glasir
