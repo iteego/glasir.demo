@@ -7,7 +7,7 @@
     <xa-datasource>
         <jndi-name>GlasirProductionDS-h2</jndi-name>
         <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
-        <xa-datasource-property name="URL">jdbc:h2:tcp://localhost/glasir_core;MODE=Oracle;AUTOCOMMIT=OFF;CACHE_SIZE=65536</xa-datasource-property>
+        <xa-datasource-property name="URL">jdbc:h2:tcp://localhost/glasir_core;MODE=Oracle;AUTOCOMMIT=OFF;CACHE_SIZE=65536;MVCC=TRUE</xa-datasource-property>
         <min-pool-size>5</min-pool-size>
         <max-pool-size>100</max-pool-size>
         <idle-timeout-minutes>10</idle-timeout-minutes>
@@ -63,7 +63,7 @@
     <xa-datasource>
         <jndi-name>GlasirSwitchingDS_A-h2</jndi-name>
         <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
-        <xa-datasource-property name="URL">jdbc:h2:tcp://localhost/glasir_a;MODE=Oracle;AUTOCOMMIT=OFF;CACHE_SIZE=65536</xa-datasource-property>
+        <xa-datasource-property name="URL">jdbc:h2:tcp://localhost/glasir_a;MODE=Oracle;AUTOCOMMIT=OFF;CACHE_SIZE=65536;MVCC=TRUE</xa-datasource-property>
         <min-pool-size>5</min-pool-size>
         <max-pool-size>100</max-pool-size>
         <idle-timeout-minutes>10</idle-timeout-minutes>
@@ -119,7 +119,7 @@
     <xa-datasource>
         <jndi-name>GlasirSwitchingDS_B-h2</jndi-name>
         <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
-        <xa-datasource-property name="URL">jdbc:h2:tcp://localhost/glasir_b;MODE=Oracle;AUTOCOMMIT=OFF;CACHE_SIZE=65536</xa-datasource-property>
+        <xa-datasource-property name="URL">jdbc:h2:tcp://localhost/glasir_b;MODE=Oracle;AUTOCOMMIT=OFF;CACHE_SIZE=65536;MVCC=TRUE</xa-datasource-property>
         <min-pool-size>5</min-pool-size>
         <max-pool-size>100</max-pool-size>
         <idle-timeout-minutes>10</idle-timeout-minutes>
@@ -175,7 +175,7 @@
     <xa-datasource>
         <jndi-name>GlasirPublishingDS-h2</jndi-name>
         <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
-        <xa-datasource-property name="URL">jdbc:h2:tcp://localhost/glasir_pub;MODE=Oracle;AUTOCOMMIT=OFF;CACHE_SIZE=65536</xa-datasource-property>
+        <xa-datasource-property name="URL">jdbc:h2:tcp://localhost/glasir_pub;MODE=Oracle;AUTOCOMMIT=OFF;CACHE_SIZE=65536;MVCC=TRUE</xa-datasource-property>
         <min-pool-size>5</min-pool-size>
         <max-pool-size>100</max-pool-size>
         <idle-timeout-minutes>10</idle-timeout-minutes>
