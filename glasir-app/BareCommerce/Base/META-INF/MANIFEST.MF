@@ -1,5 +1,0 @@
-Manifest-Version: 1.0
-ATG-Required: BareCommerce Store.EStore
-ATG-Config-Path: config
-ATG-Class-Path: lib/classes.jar
-

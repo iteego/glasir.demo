@@ -1,4 +1,0 @@
-Manifest-Version: 1.0
-ATG-Required: env.BareCommerce.admin.dev
-ATG-Config-Path: config
-

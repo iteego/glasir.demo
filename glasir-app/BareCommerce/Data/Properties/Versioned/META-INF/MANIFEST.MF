@@ -1,3 +1,0 @@
-Manifest-Version: 1.0
-ATG-Required: BareCommerce.Data.Properties
-ATG-Config-Path: config
