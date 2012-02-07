@@ -48,16 +48,6 @@ task startDevStore(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
   }
 }
 
-task startBareDevStore(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
-  jBossHome     jBossRoot
-  serverName    storeServerName
-  modules       moduleWithFlavors("env.BareCommerce.store.dev")
-  
-  doFirst { 
-    println "Starting bare dev store node with modules: ${modules}"
-  }
-}
-
 /*
 You can invoke any specific flavor of the "env.admin.dev" module by adding the parameter
   "-Pflavor=FlavorName" or "--project-prop flavor=FlavorName"
