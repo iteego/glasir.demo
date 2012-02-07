@@ -14,7 +14,6 @@ task ciDeploy {
   dependsOn = [assembleReleaseEar, syncStore, syncAdmin]
 }
 
-
 task startCiStore(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
     jBossHome     jBossRoot
     serverName    storeServerName

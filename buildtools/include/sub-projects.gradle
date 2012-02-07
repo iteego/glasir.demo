@@ -4,10 +4,11 @@
 
 //add bogus tasks to the root project to enable child-project builds via 
 //'gradle build' in the root project
-['clean','build','test'].each {
-  task "$it" {}
+task build {}
+task test {}
+task clean << {
+    delete "$globalDir/buildtools/build"
 }
-
 
 //the below is a list of test drivers for the geb web testing framework.
 //a driver can emulate a specific browser and excercise the application UI.

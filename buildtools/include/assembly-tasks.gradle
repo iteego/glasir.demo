@@ -10,7 +10,7 @@ task atgCoreSqlInstallationOrder << {
 }
 
 task assembleReleaseEar(type: AtgAssemblerTask, description: "Runs a build and assembles a release ear") {
-  dependsOn = ["clean", "build"]
+  dependsOn "build"
 
   modules = allEnvironmentModules
   outputFile = bigEar
@@ -38,7 +38,7 @@ task assembleDevEar(type: AtgAssemblerTask, description: "Runs a build and assem
   dependsOn "build"
   
   modules = allEnvironmentModules
-  outputFile = file("$jBossRoot/server/$storeServerName/deploy/${bigEarName}")
+  outputFile = bigEar
   standalone = true
   liveconfig = false
   pack = false
@@ -54,27 +54,57 @@ task assembleDevEar(type: AtgAssemblerTask, description: "Runs a build and assem
   // the source tree. By removing the ear file safely before starting the assembler, we avoid clobbering our
   // source tree with assembler output files.
   doFirst {
-    glasir.deleteDir("$jBossRoot/server/$storeServerName/deploy/${bigEarName}")
+    glasir.deleteDir(bigEar)
   }
 }
 
-task syncStoreEar(type: Copy) {
-//  from bigEar
-//  into "$jBossRoot/server/$storeServerName/deploy/${bigEarName}"
+def getOnWindows () {
+  System.properties['os.name'].toLowerCase().startsWith("windows")
 }
 
-task syncAdminEar(type: Copy) {
-  from "$jBossRoot/server/$storeServerName/deploy/${bigEarName}"
-  into "$jBossRoot/server/$adminServerName/deploy/${bigEarName}"
+task copyStoreEar(type: Copy, description: "Copies the ear file into the deploy directory of the JBOSS server") {
+  dependsOn "syncStoreJBossServer"
+  def target = "$jBossRoot/server/$storeServerName/deploy/${bigEarName}"
+  from bigEar
+  into target
 }
 
-task syncStoreServer(type: Copy, description: "Creates a dev server setup in your jboss installation") {
+task linkStoreEar(description: "Creates a symbolic link from the store ear file to the big ear") << {
+  def target = "$jBossRoot/server/$storeServerName/deploy/${bigEarName}"
+  ant.symlink( link: target, resource: bigEar, overwrite: true)
+}
+
+linkStoreEar.dependsOn "syncStoreJBossServer"
+
+task copyAdminEar(type: Copy, description: "Copies the ear file into the deploy directory of the JBOSS server, if on Windows, otherwise use a symbolic link") {
+  dependsOn "syncAdminJBossServer"
+  def target = "$jBossRoot/server/$adminServerName/deploy/${bigEarName}"
+  from bigEar
+  into target
+}
+
+task linkAdminEar(description: "Copies the ear file into the deploy directory of the JBOSS server, if on Windows, otherwise use a symbolic link") << {
+  def target = "$jBossRoot/server/$adminServerName/deploy/${bigEarName}"
+  ant.symlink( link: target, resource: bigEar, overwrite: true)
+}
+
+linkAdminEar.dependsOn "syncAdminJBossServer"
+
+task syncStoreEar(description: "Copies the ear file into the deploy directory of the JBOSS server, if on Windows, otherwise use a symbolic link") {
+  dependsOn onWindows ? "copyStoreEar" : "linkStoreEar"
+}
+
+task syncAdminEar(description: "Copies the ear file into the deploy directory of the JBOSS server, if on Windows, otherwise use a symbolic link") {
+  dependsOn onWindows ? "copyAdminEar" : "linkAdminEar"
+}
+
+task syncStoreJBossServer(type: Copy, description: "Creates a dev server setup in your jboss installation") {
   from("$jBossRoot/server/default")
   from "$globalDir/config/jboss/store/dev"
   into "$jBossRoot/server/$storeServerName"
 }
 
-task syncAdminServer(type: Copy, description: "Creates a dev server setup in your jboss installation") {
+task syncAdminJBossServer(type: Copy, description: "Creates a dev server setup in your jboss installation") {
   from "$jBossRoot/server/default"
   from "$globalDir/config/jboss/admin/dev"
   into "$jBossRoot/server/$adminServerName"
@@ -99,58 +129,55 @@ task syncAtgServers(type: Copy) {
     }
 }
 
-task syncStore(dependsOn: [syncStoreEar, syncStoreServer, syncDocRoot])
+task syncStore(dependsOn: [syncStoreEar, syncDocRoot])
 
-task syncAdmin(dependsOn: [syncAdminEar, syncAdminServer])
+task syncAdmin(dependsOn: [syncAdminEar])
 
 task devDeploy {
   description = "Compile, test, assemble, and deploys the dev ear to jboss"  
   dependsOn = [assembleDevEar, syncStore, syncAdmin, syncAtgServers]
 }
 
-
 def atgServers() {
-    def servers = []
-    file("${globalDir}/config/atg").eachDir {
-        servers << it
-    }
-    servers
+  def servers = []
+  file("${globalDir}/config/atg").eachDir {
+    servers << it
+  }
+  servers
 }
 
 devDeploy << {
 
-    def os = System.getProperty("os.name")
-    if (!os.startsWith("Windows")) {
-        def mainAppDir = new File("${globalDir}/glasir-app")
+  if (!onWindows) {
+    def mainAppDir = new File("${globalDir}/glasir-app")
 
-        // Link all top-level application modules from source tree
-        def destinationDir = "$jBossRoot/server/${storeServerName}/deploy/${bigEarName}/atg_bootstrap.war/WEB-INF/ATG-INF"
-        glasir.topModules.each {
-            def linkName = "${destinationDir}/${it.name}"
-            glasir.deleteDir(linkName)
-            ant.symlink( link: linkName, resource: it.dir, overwrite: true)
-        }
-
-        // Link all war webapp folders from source tree
-        destinationDir = "$jBossRoot/server/${storeServerName}/deploy/${bigEarName}"
-        glasir.webModules.each { m ->
-            m.manifest.atgWebModuleAsList.each {
-                File moduleDir = file("${m.dir}/${it}")
-                def linkName="$destinationDir/${moduleDir.name}"
-                glasir.deleteDir(linkName)
-                ant.symlink( link: linkName, resource: moduleDir, overwrite: true)
-            }
-        }
-
-        // Link all atg server directories from source tree
-        destinationDir = "$jBossRoot/ATG-Data/servers"
-        atgServers().each {
-            def linkName="$destinationDir/${it.name}"
-            glasir.deleteDir(linkName)
-            ant.symlink( link: linkName, resource: it, overwrite: true)
-        }
+    // Link all top-level application modules from source tree
+    def destinationDir = "$jBossRoot/server/${storeServerName}/deploy/${bigEarName}/atg_bootstrap.war/WEB-INF/ATG-INF"
+    glasir.topModules.each {
+      def linkName = "${destinationDir}/${it.name}"
+      glasir.deleteDir(linkName)
+      ant.symlink( link: linkName, resource: it.dir, overwrite: true)
     }
 
+    // Link all war webapp folders from source tree
+    destinationDir = "$jBossRoot/server/${storeServerName}/deploy/${bigEarName}"
+    glasir.webModules.each { m ->
+      m.manifest.atgWebModuleAsList.each {
+        File moduleDir = file("${m.dir}/${it}")
+        def linkName="$destinationDir/${moduleDir.name}"
+        glasir.deleteDir(linkName)
+        ant.symlink( link: linkName, resource: moduleDir, overwrite: true)
+      }
+    }
+
+    // Link all atg server directories from source tree
+    destinationDir = "$jBossRoot/ATG-Data/servers"
+    atgServers().each {
+      def linkName="$destinationDir/${it.name}"
+      glasir.deleteDir(linkName)
+      ant.symlink( link: linkName, resource: it, overwrite: true)
+    }
+  }
 }
 
 task cleanLocalDatabase(dependsOn: ['clean']) << {
