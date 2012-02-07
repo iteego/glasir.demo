@@ -41,7 +41,7 @@ To your "gradle startDevStore" command. Usually, module flavors are used for dif
 task startDevStore(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
   jBossHome     jBossRoot
   serverName    storeServerName
-  modules       moduleWithFlavors("env.CRSDemo.store.dev")
+  modules       moduleWithFlavors("env.Main.store.dev")
 
   doFirst { 
     println "Starting dev store node with modules: ${modules}"
@@ -57,7 +57,7 @@ To your "gradle startDevStore" command. Usually, module flavors are used for dif
 task startDevAdmin(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
   jBossHome     jBossRoot
   serverName    adminServerName
-  modules       moduleWithFlavors("env.CRSDemo.admin.dev")
+  modules       moduleWithFlavors("env.Main.admin.dev")
   
   doFirst { 
     println "Starting dev admin node with modules: ${modules}"

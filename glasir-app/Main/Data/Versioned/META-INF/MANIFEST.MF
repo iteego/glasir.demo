@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+ATG-Required: Main.Data Store.EStore
+ATG-Config-Path: config

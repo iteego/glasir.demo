@@ -1,3 +1,0 @@
-Manifest-Version: 1.0
-ATG-Required: CRSDemo.Data CRSDemo.Data.Properties Store.EStore
-ATG-Config-Path: config

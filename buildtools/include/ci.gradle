@@ -18,7 +18,7 @@ task ciDeploy {
 task startCiStore(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
     jBossHome     jBossRoot
     serverName    storeServerName
-    modules       moduleWithFlavors("env.CRSDemo.store.dev")
+    modules       moduleWithFlavors("env.Main.store.dev")
     async         true
 }
 
@@ -32,7 +32,7 @@ task verifyCiStore(type: Tail, dependsOn: [startCiStore]) {
 task startCiAdmin(type: RunAtgOnJBoss, dependsOn: []) {
   jBossHome     jBossRoot
   serverName    adminServerName
-  modules       moduleWithFlavors("env.CRSDemo.admin.dev")
+  modules       moduleWithFlavors("env.Main.admin.dev")
   async         true
 }
 

@@ -1,6 +1,0 @@
-Manifest-Version: 1.0
-ATG-Required: CRSDemo.Integrations CRSDemo.Base DCS.AbandonedOrderServices
-ATG-Config-Path: config
-ATG-Product: CRSDemo
-ATG-Web-Module: j2ee-apps/GlasirApplication/glasir.war j2ee-apps/GlasirApplication/crs.war j2ee-apps/GlasirApplication/storedocroot.war j2ee-apps/GlasirApplication/dcs-sample-catalog.war
-ATG-Class-Path: lib/classes.jar
