@@ -170,12 +170,13 @@ devDeploy << {
       }
     }
 
-    // Link all atg server directories from source tree
-    destinationDir = "$jBossRoot/ATG-Data/servers"
-    atgServers().each {
-      def linkName="$destinationDir/${it.name}"
-      glasir.deleteDir(linkName)
-      ant.symlink( link: linkName, resource: it, overwrite: true)
+    // Copy all atg server directories from source tree
+    // note that we cannot use symbolic linking for the atg servers
+    // because when the nodes start up, they clobber those directories with ample run-time data
+    // meaning we would get lots of runtime files into the source tree if we were to symlink instead of copy
+    copy {
+      from file("${globalDir}/config/atg")
+      into file("$jBossRoot/ATG-Data/servers")
     }
   }
 }
