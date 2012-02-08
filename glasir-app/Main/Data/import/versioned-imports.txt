@@ -37,3 +37,4 @@ DataImport: Repository:/atg/web/viewmapping/ViewMappingRepository Path:/Store/ES
 DataImport: Repository:/atg/web/viewmapping/ViewMappingRepository Path:/Store/EStore/Versioned/install/data/site-template-viewmapping.xml Module:SiteAdmin.Versioned,Store.EStore.Versioned 
 DataImport: Repository:/atg/userprofiling/InternalProfileRepository Path:/DCS-UI/Versioned/install/data/users.xml Module:DCS-UI.Versioned 
 DataImport: Repository:/atg/web/viewmapping/ViewMappingRepository Path:/DCS-UI/Versioned/install/data/viewmapping.xml Module:DCS-UI.Versioned 
+DataImport: Repository:/atg/epub/PublishingRepository Path:/Glasir/admin/publishing-topology.xml Module:Publishing.base

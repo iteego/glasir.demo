@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE gsa-template SYSTEM "dynamosystemresource:/atg/dtds/gsa/gsa_1.0.dtd">
+<gsa-template>
+  <import-items>
+    <add-item item-descriptor="transportDef" tag="TRANSPORT_DEF_200001">
+      <set-property name="rmiURI"><![CDATA[rmi://localhost:10060/atg/epub/AgentTransport]]></set-property>
+    </add-item>
+
+    <add-item item-descriptor="agentDef" tag="AGENT_DEF_200001">
+      <set-property name="includeAssetDestinations"><![CDATA[/atg/epub/file/WWWFileSystem,/atg/epub/file/ConfigFileSystem]]></set-property>
+      <set-property name="displayName"><![CDATA[dev-store-target]]></set-property>
+      <set-property name="creationTime"><![CDATA[1/1/2012 00:00:00]]></set-property>
+      <set-property name="transport" value="$tag:TRANSPORT_DEF_200001$"/>
+      <set-property name="principalAssets"><![CDATA[REPOSITORY]]></set-property>
+    </add-item>
+
+    <add-item item-descriptor="targetDef" tag="TARGET_DEF_30">
+      <set-property name="description"><![CDATA[The Production target is set to localhost in the development environment.]]></set-property>
+      <set-property name="agents" value="$tag:AGENT_DEF_200001$"/>
+      <set-property name="displayName"><![CDATA[Production]]></set-property>
+      <set-property name="creationTime"><![CDATA[1/1/2012 00:00:00]]></set-property>
+      <set-property name="destinations"><![CDATA[/atg/seo/SEORepository=/atg/seo/SEORepository_production,/atg/commerce/catalog/ProductCatalog=/atg/commerce/catalog/ProductCatalog_production,/atg/store/stores/StoreRepository=/atg/store/stores/StoreRepository_production,/atg/multisite/SiteRepository=/atg/multisite/SiteRepository_production,/atg/commerce/pricing/priceLists/SecurePriceLists=/atg/commerce/pricing/priceLists/PriceLists_production,/atg/commerce/claimable/ClaimableRepository=/atg/commerce/claimable/ClaimableRepository_production,/atg/userprofiling/PersonalizationRepository=/atg/userprofiling/PersonalizationRepository_production]]></set-property>
+      <set-property name="flagAgents"><![CDATA[false]]></set-property>
+    </add-item>
+
+    <add-item item-descriptor="topologyDef" tag="TOPOLOGY_DEF_200001">
+      <set-property name="targets" value="$tag:TARGET_DEF_30$"/>
+    </add-item>
+  </import-items>
+</gsa-template>
