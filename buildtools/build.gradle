@@ -33,12 +33,11 @@ globalDir       = file("${rootProject.projectDir}/..").canonicalFile
 storeServerName = "dev-store"
 adminServerName = "dev-admin"
 
-databaseDir     = file("$globalDir/data")
+databaseDir     = file("$jBossRoot/ATG-Data/h2.db")
 
 bigEarName      = "glasir.ear"
 bigEar          = file("$buildDir/$bigEarName")
-//TODO: Fix this path
-docRoot         = "$globalDir/glasir-app/bogus/MyAtgModule/j2ee-apps/MyApplication/store.war/"
+docRoot         = "$globalDir/glasir-app/Main/j2ee-apps/GlasirApplication/glasir.war/"
 
 
 //stamp = report(stamp, "init")
