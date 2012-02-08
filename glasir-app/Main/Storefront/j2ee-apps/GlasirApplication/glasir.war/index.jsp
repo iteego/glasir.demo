@@ -8,7 +8,7 @@
     <h2>Commerce Reference Store</h2>
     <p>This application is the Oracle Web Commerce Reference Store demo application</p>
     <p><a href="/crs">Commerce Reference Store</a></p>
-    <h2>DCS Sample Cstalog</h2>
+    <h2>DCS Sample Catalog</h2>
     <p>This application has shipped with ATG since the beginning of time.
     It illustrates how to develop page logic using JSP and is very useful when figuring out how to best build commerce pages.
     It contains no images - only straight JSP.</p>
