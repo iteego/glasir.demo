@@ -1,5 +1,10 @@
 import com.iteego.glasir.build.tasks.*
 
+configurations.add('entityresolver') 
+dependencies { 
+  entityresolver 'com.iteego.glasir:glasir.entityresolver:1.0'
+}
+
 String getAllEnvironmentModules() {
   glasir.modules.collect { it.name }.findAll { it.startsWith('env.') || it == 'env' }.sort().join(" ")
 }
@@ -18,7 +23,7 @@ task assembleReleaseEar(type: AtgAssemblerTask, description: "Runs a build and a
   liveconfig = true
   pack = true
   
-  extraClasspath = files("${globalDir}/buildtools/gradle-lib/dtds.jar")
+  extraClasspath = files(configurations.entityresolver.files)
   
   searchRootDirs = files("$atgRoot", "$globalDir", "$globalDir/packages", "$globalDir/packages/modules/glasir")
   loggingDebug = false
@@ -42,7 +47,7 @@ task assembleDevEar(type: AtgAssemblerTask, description: "Runs a build and assem
   standalone = true
   liveconfig = false
   pack = false
-  extraClasspath = files("${globalDir}/buildtools/gradle-lib/dtds.jar")
+  extraClasspath = files(configurations.entityresolver.files)
   loggingDebug = false
   
   //TODO: Figure out if there is a clean way of making the atg assembler find all the required stuff
