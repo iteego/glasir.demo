@@ -37,7 +37,7 @@ gradle.allprojects {
 new glasir.Build(this).with {
   setup {
     rootProjectName "glasir-app"
-    cachePackagesFor 5, 'minutes'
+    cachePackagesFor 0, 'minutes'
     
     dependencies {
       glasirpackage('com.iteego.glasir.pkg:atg-10.0.2:1.1.0')
