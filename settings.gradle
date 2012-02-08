@@ -8,18 +8,12 @@ buildscript {
   }
   
   configurations.classpath {
-    resolutionStrategy {
-      cacheDynamicVersionsFor 1, 'minutes'
-      cacheChangingModulesFor 1, 'minutes'
-    }
+    resolutionStrategy.cacheDynamicVersionsFor 0, 'minutes'
+    resolutionStrategy.cacheChangingModulesFor 0, 'minutes'
   }
 
   dependencies {
     classpath('com.iteego.glasir:glasir.build:1.1.6-SNAPSHOT') { changing=true }
-    classpath('org.jfrog.buildinfo:build-info-extractor-gradle:2.0.7')
-    classpath('org.codehaus.groovy.modules.http-builder:http-builder:0.5.1') {
-      exclude group: 'org.codehaus.groovy', module: 'groovy'
-    }
   }
     
   configurations.classpath.each { file -> settings.classLoader.addURL(file.toURI().toURL()) }
@@ -35,14 +29,9 @@ gradle.allprojects {
   }
   
   configurations.all {
-    resolutionStrategy {
-      //failOnVersionConflict()
-      cacheDynamicVersionsFor 5, 'minutes'
-      cacheChangingModulesFor 5, 'minutes'
-    }
+    resolutionStrategy.cacheDynamicVersionsFor 4, 'hours'
+    resolutionStrategy.cacheChangingModulesFor 4, 'hours'
   }
-
-
 }
 
 new glasir.Build(this).with {
@@ -53,7 +42,7 @@ new glasir.Build(this).with {
     dependencies {
       glasirpackage('com.iteego.glasir.pkg:atg-10.0.2:1.1.0')
       glasirpackage('com.iteego.glasir.pkg:jboss-eap-5.1.0:1.1.0')
-      glasirpackage('com.iteego.glasir.pkg:glasir.db:1.0.88-SNAPSHOT') { changing=true }
+      glasirpackage('com.iteego.glasir.pkg:glasir.db:1.0.89-SNAPSHOT') { changing=true }
     }
     
     addAtgModules from: atgRoot
