@@ -269,9 +269,9 @@
    <!-- ======================= -->
 
    <root>
+      <priority value="INFO" />
       <appender-ref ref="CONSOLE" />
       <appender-ref ref="FILE" />
-      <priority value="INFO" />
    </root>
 
    <!-- Clustering logging -->
