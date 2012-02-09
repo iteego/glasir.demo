@@ -11,7 +11,7 @@ then
   fi 
   echo "Sending kill$SIGNAL signal to JBoss instance(s):"
   echo $PIDS
-  echo $PIDS | xargs kill $1    
+  echo $PIDS | xargs kill $SIGNAL    
 else 
   echo "No running jboss instances detected"
 fi

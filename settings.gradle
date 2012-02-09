@@ -13,7 +13,7 @@ buildscript {
   }
 
   dependencies {
-    classpath('com.iteego.glasir:glasir.build:1.1.6-SNAPSHOT') { changing=true }
+    classpath('com.iteego.glasir:glasir.build:1.1.7-SNAPSHOT') { changing=true }
   }
     
   configurations.classpath.each { file -> settings.classLoader.addURL(file.toURI().toURL()) }
@@ -37,7 +37,7 @@ gradle.allprojects {
 new glasir.Build(this).with {
   setup {
     rootProjectName "glasir-app"
-    cachePackagesFor 0, 'minutes'
+    cachePackagesFor 15, 'minutes'
     
     dependencies {
       glasirpackage('com.iteego.glasir.pkg:atg-10.0.2:1.1.0')

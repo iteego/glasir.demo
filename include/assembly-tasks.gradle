@@ -25,7 +25,7 @@ task assembleReleaseEar(type: AtgAssemblerTask, description: "Runs a build and a
   
   extraClasspath = files(configurations.entityresolver.files)
   
-  searchRootDirs = files("$atgRoot", "$globalDir", "$globalDir/packages", "$globalDir/packages/modules/glasir")
+  searchRootDirs = files("$atgRoot", "$rootDir", "$rootDir/packages", "$rootDir/packages/modules/glasir")
   loggingDebug = false
 
   //doAfterAssembly is called after the ear is assembled (into an exploded stage dir)
@@ -33,7 +33,7 @@ task assembleReleaseEar(type: AtgAssemblerTask, description: "Runs a build and a
   doAfterAssembly {
     copy {
       //TODO: Fix the config/atg dir structure for release ears
-      file("${globalDir}/config/atg").eachDir { from it }
+      file("${rootDir}/config/atg").eachDir { from it }
       into "${bigEar.canonicalPath}.exploded/atg_bootstrap.war/WEB-INF/ATG-INF/home/servers"
     }
   }
@@ -51,7 +51,7 @@ task assembleDevEar(type: AtgAssemblerTask, description: "Runs a build and assem
   loggingDebug = false
   
   //TODO: Figure out if there is a clean way of making the atg assembler find all the required stuff
-  searchRootDirs = files("$atgRoot", "$globalDir", "$globalDir/packages", "$globalDir/packages/modules/glasir")
+  searchRootDirs = files("$atgRoot", "$rootDir", "$rootDir/packages", "$rootDir/packages/modules/glasir")
 
   // Make sure to first remove the ear file, so that the assembler does not try to write files into any folder
   // that contains symbolic links. If there would be any symbolic links in an already existing ear file,
@@ -105,13 +105,13 @@ task syncAdminEar(description: "Copies the ear file into the deploy directory of
 
 task syncStoreJBossServer(type: Copy, description: "Creates a dev server setup in your jboss installation") {
   from("$jBossRoot/server/default")
-  from "$globalDir/config/jboss/store/dev"
+  from "$rootDir/config/jboss/store/dev"
   into "$jBossRoot/server/$storeServerName"
 }
 
 task syncAdminJBossServer(type: Copy, description: "Creates a dev server setup in your jboss installation") {
   from "$jBossRoot/server/default"
-  from "$globalDir/config/jboss/admin/dev"
+  from "$rootDir/config/jboss/admin/dev"
   into "$jBossRoot/server/$adminServerName"
 }
 
@@ -121,7 +121,7 @@ task syncDocRoot(type: Copy) {
 }
 
 task syncAtgServers(type: Copy) {
-    from "${globalDir}/config/atg"
+    from "${rootDir}/config/atg"
     into "$jBossRoot/ATG-Data/servers"
 
     // Make sure to first remove the existing server directories, so that the copy task does not try to write files
@@ -145,7 +145,7 @@ task devDeploy {
 
 def atgServers() {
   def servers = []
-  file("${globalDir}/config/atg").eachDir {
+  file("${rootDir}/config/atg").eachDir {
     servers << it
   }
   servers
@@ -154,7 +154,7 @@ def atgServers() {
 devDeploy << {
 
   if (!onWindows) {
-    def mainAppDir = new File("${globalDir}/glasir-app")
+    def mainAppDir = new File("${rootDir}/glasir-app")
 
     // Link all top-level application modules from source tree
     def destinationDir = "$jBossRoot/server/${storeServerName}/deploy/${bigEarName}/atg_bootstrap.war/WEB-INF/ATG-INF"
@@ -180,7 +180,7 @@ devDeploy << {
     // because when the nodes start up, they clobber those directories with ample run-time data
     // meaning we would get lots of runtime files into the source tree if we were to symlink instead of copy
     copy {
-      from file("${globalDir}/config/atg")
+      from file("${rootDir}/config/atg")
       into file("$jBossRoot/ATG-Data/servers")
     }
   }

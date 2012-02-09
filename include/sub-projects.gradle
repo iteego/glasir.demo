@@ -7,7 +7,13 @@
 task build {}
 task test {}
 task clean << {
-    glasir.deleteDir "$globalDir/buildtools/build"
+    glasir.deleteDir "$rootDir/build"
+}
+
+gradle.projectsEvaluated { g ->
+  build.dependsOn(getTasksByName('build', true) - build)
+  test.dependsOn(getTasksByName('test', true) - test)
+  clean.dependsOn(getTasksByName('clean', true) - clean)
 }
 
 //the below is a list of test drivers for the geb web testing framework.
@@ -19,12 +25,11 @@ task clean << {
 drivers = ['htmlunit']
 
 allprojects {  
-  project.isBuildProject = new File(projectDir, "/src").isDirectory()
+  project.isBuildProject = file("$projectDir/src").isDirectory()
   if (!project.isBuildProject) {    
     return
   }
   
-  apply plugin: 'glasir.build'
   apply plugin: 'groovy'
 
   dependencies {
@@ -93,6 +98,8 @@ allprojects {
 subprojects {
   if (!project.isBuildProject) return
 
+  apply plugin: 'glasir.build'
+
   group = glasir.projectGroup
 
   //configures dependencies for this project based on the atg MANIFEST.MF file
@@ -124,11 +131,6 @@ task aggregateTestReports(type: TestReportAggregator) {
   }    
 }
 build.dependsOn(aggregateTestReports)
-
-gradle.projectsEvaluated { g ->
-  build.dependsOn(getTasksByName('build', true) - build)
-  clean.dependsOn(getTasksByName('clean', true) - clean)
-}
 
 class TestReportAggregator extends Copy {
   def projects

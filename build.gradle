@@ -22,13 +22,11 @@
 long stamp = System.currentTimeMillis()
 defaultTasks 'devDeploy'
 
-//project name is set in ../settings.gradle
 version = "1.1.0-SNAPSHOT"
 group = "com.iteego.glasir"
 
-/*******************************************/
-/* Some properties used in the build files */
-globalDir       = file("${rootProject.projectDir}/..").canonicalFile
+/********************************************/
+/* Some properties used in the build files  */
 
 storeServerName = "dev-store"
 adminServerName = "dev-admin"
@@ -37,33 +35,28 @@ databaseDir     = file("$jBossRoot/ATG-Data/h2.db")
 
 bigEarName      = "glasir.ear"
 bigEar          = file("$buildDir/$bigEarName")
-docRoot         = "$globalDir/glasir-app/Main/j2ee-apps/GlasirApplication/glasir.war/"
+docRoot         = "$rootDir/glasir-app/Main/j2ee-apps/GlasirApplication/glasir.war/"
 
+/********************************************/
+/* Now apply some plugins and include files */
 
-//stamp = report(stamp, "init")
-
+apply plugin: 'idea'
 apply plugin: 'glasir.build'
-//stamp = report(stamp, "root.glasir.build")
 
 apply from: "include/sub-projects.gradle"
-//stamp = report(stamp, "sub-projects")
-
 apply from: "include/assembly-tasks.gradle"
-//stamp = report(stamp, "assembly-tasks")
-
 apply from: "include/jboss-tasks.gradle"
-//stamp = report(stamp, "jboss-tasks")
-
 apply from: "include/rules.gradle"
-//stamp = report(stamp, "rules")
 
 //apply from: "include/help.gradle"
-//stamp = report(stamp, "help")
 
 //if we are running in the ci server, include some ci tasks
 if (System.env['BUILD_NUMBER']) {
   apply from: 'include/ci.gradle'
 }
+
+/********************************************/
+/* A couple of methods for build testing    */
 
 task none << {
   println "Hello World"
