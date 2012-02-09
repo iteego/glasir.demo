@@ -3,22 +3,23 @@ import com.iteego.glasir.build.tasks.*
 def moduleWithFlavors(String module) {
   String result = module
   if (project.hasProperty('flavor')) {
-    result += ".${project.flavor}"      
+    result += ".${project.flavor}"
   }
-  
+
   result
 }
 
 task ciDeploy {
-  description = "Compile, test, assemble, and deploys the release ear to jboss"
-  dependsOn = [assembleReleaseEar, syncStore, syncAdmin]
+  description = "Deploys the release ear to jboss"
+  dependsOn = [syncStore, syncAdmin]
 }
 
 task startCiStore(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
-    jBossHome     jBossRoot
-    serverName    storeServerName
-    modules       moduleWithFlavors("env.Main.store.dev")
-    async         true
+  jBossHome     jBossRoot
+  serverName    storeServerName
+  modules       moduleWithFlavors("env.Main.store.dev")
+  async         true
+  description = "Starts the Ci Store instance"
 }
 
 task verifyCiStore(type: Tail, dependsOn: [startCiStore]) {
@@ -26,6 +27,7 @@ task verifyCiStore(type: Tail, dependsOn: [startCiStore]) {
   failOn       regex: "ERROR[ ]*\\[", postFireTailPeriod: "5 seconds"
   succeedOn    "INFO.*JBoss \\(Microcontainer\\) \\[.*\\] Started in"
   timeoutAfter "5 minutes"
+  description = "Starts the Ci Store instance, tails its output log and ensures there are no errors"
 }
 
 task startCiAdmin(type: RunAtgOnJBoss, dependsOn: []) {
@@ -33,6 +35,7 @@ task startCiAdmin(type: RunAtgOnJBoss, dependsOn: []) {
   serverName    adminServerName
   modules       moduleWithFlavors("env.Main.admin.dev")
   async         true
+  description = "Starts the Ci Admin instance"
 }
 
 task verifyCiAdmin(type: Tail, dependsOn: [startCiAdmin]) {
@@ -40,4 +43,5 @@ task verifyCiAdmin(type: Tail, dependsOn: [startCiAdmin]) {
   failOn       regex: "ERROR[ ]*\\[", postFireTailPeriod: "5 seconds"
   succeedOn    "INFO.*JBoss \\(Microcontainer\\) \\[.*\\] Started in"
   timeoutAfter "5 minutes"
+  description = "Starts the Ci Admin instance, tails its output log and ensures there are no errors"
 }
