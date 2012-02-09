@@ -7,7 +7,7 @@
              http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd
              http://www.liquibase.org/xml/ns/dbchangelog-ext
              http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
-            <changeSet id='changeset_atg_ootb' author='Marcus Pemer' context='all'>
+            <changeSet id='changeset_atg_ootb' author='SQL shipped with Oracle - liquibase patch added by Glasir' context='all'>
               <preConditions>
                 <not>
                   <tableExists tableName='bogus_precondition_table'/>

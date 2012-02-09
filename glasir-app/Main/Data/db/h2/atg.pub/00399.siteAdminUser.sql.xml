@@ -12,7 +12,7 @@
        It will be overridden later on by an actual user/role import file, so this maneuver is purely cosmetic.
     -->
 
-    <changeSet id='changeset_atg_ootb' author='Marcus Pemer' context='all'>
+    <changeSet id='changeset_atg_ootb' author='SQL shipped with Oracle - liquibase patch added by Glasir' context='all'>
         <preConditions>
             <sqlCheck expectedResult="0">select count(1) from dpi_role where role_id='siteAdminUser' and version=0</sqlCheck>
         </preConditions>
