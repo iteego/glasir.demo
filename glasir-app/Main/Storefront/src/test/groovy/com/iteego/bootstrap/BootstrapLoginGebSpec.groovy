@@ -20,7 +20,7 @@ class BootstrapLoginGebSpec extends GebReportingSpec {
 		at BootstrapHomePage
 
 		and:
-		formErrors.contains("The supplied login was invalid.")
+		formErrorMessage.toString().contains("that login is not valid")
 	}
 	
 }
