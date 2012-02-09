@@ -8,8 +8,8 @@ buildscript {
   }
   
   configurations.classpath {
-    resolutionStrategy.cacheDynamicVersionsFor 0, 'minutes'
-    resolutionStrategy.cacheChangingModulesFor 0, 'minutes'
+    resolutionStrategy.cacheDynamicVersionsFor 1, 'minutes'
+    resolutionStrategy.cacheChangingModulesFor 1, 'minutes'
   }
 
   dependencies {
@@ -27,17 +27,11 @@ gradle.allprojects {
       url "$artifactoryReaderUrl/glasir"
     }
   }
-  
-  configurations.all {
-    resolutionStrategy.cacheDynamicVersionsFor 4, 'hours'
-    resolutionStrategy.cacheChangingModulesFor 4, 'hours'
-  }
 }
 
 new glasir.Build(this).with {
   setup {
-    rootProjectName "glasir-app"
-    cachePackagesFor 15, 'minutes'
+    cachePackagesFor 1, 'minutes'
     
     dependencies {
       glasirpackage('com.iteego.glasir.pkg:atg-10.0.2:1.1.0')
@@ -48,6 +42,6 @@ new glasir.Build(this).with {
     addAtgModules from: atgRoot
     addAtgModules from: "$settingsDir/packages/modules", isGlasirCore: true
     addAtgModules from: "$settingsDir/glasir-app", isAtgCore: false, 
-                  excludes: ["**/j2ee-apps/", "**/data/db/", "**/data/import", "**/build/", "**/config/", "**/src/", "**/lib/"]
+                  excludes: ["**/*.war/", "Main/Data/db/", "Main/Data/import/", "**/build/", "**/config/", "**/src/", "**/lib/"]
   }
 }
