@@ -24,12 +24,12 @@ import spock.lang.Unroll
 import spock.lang.Specification
 
 /*
-  A spock specification for SampleService
+  A spock specification for ExtendedService
 
   See http://code.google.com/p/spock/wiki/SpockBasics for details about the
   excellent spock Behavior Driver Development testing framework
 */
-class SampleServiceSpec extends Specification {
+class ExtendedServiceSpec extends Specification {
   //if we need to _force_ some output to the build console while running
   //tests, we can use out.println "message"
   PrintStream out = new PrintStream(new FileOutputStream(FileDescriptor.out))
@@ -61,7 +61,7 @@ class SampleServiceSpec extends Specification {
 
   def "check that a user with correct values passes validation"() {
     when:
-      def shopper = new SampleService(firstName: 'Bob', lastName: 'Smith', zip: '02115', baseProperty: 'foobar')
+      def shopper = new ExtendedService(firstName: 'Bob', lastName: 'Smith', zip: '02115', baseProperty: 'foobar')
 
     then:
       shopper.isValidCustomer
@@ -72,7 +72,7 @@ class SampleServiceSpec extends Specification {
   @Unroll("check that firstName=#firstName, lastName=#lastName, zip=#zip, and baseProperty=#baseProperty results in validCustomer=#expectedValidation")
   def "check firstName, lastName, zip combinations"() {
     setup:
-      def shopper = new SampleService(firstName: firstName, lastName: lastName, zip: zip, baseProperty: baseProperty)
+      def shopper = new ExtendedService(firstName: firstName, lastName: lastName, zip: zip, baseProperty: baseProperty)
 
     expect:
       shopper.isValidCustomer == expectedValidation

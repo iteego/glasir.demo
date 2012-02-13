@@ -41,11 +41,16 @@ Pattern: checkManifest<AtgModuleName>: Checks the module MANIFEST.MF against the
   if (taskName.startsWith("checkManifest")) {
     task(taskName) << {
       def moduleName = (taskName - "checkManifest")
-      def m = module(moduleName)
+      def m = glasir.module(moduleName)
       Set<File> cpFiles = m.fullClasspath
       Set<File> libFiles = []      
-      new File(m.dir, "lib").eachFileRecurse { f -> 
-        libFiles << f
+      def libDir = file("${m.dir}/lib")
+      if (libDir.directory) {
+        file("${m.dir}/lib").eachFileRecurse { f -> 
+          libFiles << f
+        }      
+      } else {
+        println "No lib directory found for module $moduleName at $m.dir"
       }
     
       def inCpNotInLib = (cpFiles - libFiles).findAll { it.canonicalPath.contains(m.dir.canonicalPath) } 
@@ -56,10 +61,9 @@ Pattern: checkManifest<AtgModuleName>: Checks the module MANIFEST.MF against the
           println "  $it"
         }
       } else {
-        println "All the files in the MANIFEST.MF ATG-Class-Path attribute exist - OK" 
+        println "Check that files referred to in the MANIFEST.MF ATG-Class-Path attribute exist - OK" 
       }
       
-      println ""
       def inLibNotInCp = (libFiles - cpFiles)
       if (inLibNotInCp) {
         println "Files in <moduleDir>/lib which are not referred to in MANIFEST.MF ATG-Class-Path:"
@@ -67,7 +71,7 @@ Pattern: checkManifest<AtgModuleName>: Checks the module MANIFEST.MF against the
           println "  $it"
         }      
       } else {
-        println "All the files <moduleDir>/lib are referred to in MANIFEST.MF ATG-Class-Path - OK" 
+        println "Check that the files in <moduleDir>/lib are referred to in MANIFEST.MF ATG-Class-Path - OK" 
       }
     }
   }

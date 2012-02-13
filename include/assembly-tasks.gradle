@@ -1,5 +1,13 @@
 import com.iteego.glasir.build.tasks.*
 
+repositories {
+  maven {
+    credentials.username artifactoryReader
+    credentials.password artifactoryReaderPwd
+    url "$artifactoryReaderUrl/glasir"
+  }
+}
+
 configurations.add('entityresolver') 
 dependencies { 
   entityresolver 'com.iteego.glasir:glasir.entityresolver:1.0'

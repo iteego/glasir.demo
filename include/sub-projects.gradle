@@ -2,19 +2,28 @@
  * Gradle project and sub-project setup calls
  *****************************************************************************/
 
-//add bogus tasks to the root project to enable child-project builds via 
-//'gradle build' in the root project
-task build {}
-task test {}
-task clean << {
-    glasir.deleteDir "$rootDir/build"
+apply plugin: 'groovy'
+
+//make the clean task symlink-safe
+task clean(overwrite: true) << {
+  glasir.deleteDir "$rootDir/build"
+}
+def javaTasks = ['compileJava', 'jar','processResources','classes','compileTestJava','processTestResources',
+ 'testClasses', 'build', 'test','check', 'assemble']
+ 
+javaTasks.each {
+  //tasks.getByName(it).enabled = false 
 }
 
-gradle.projectsEvaluated { g ->
-  build.dependsOn(getTasksByName('build', true) - build)
-  test.dependsOn(getTasksByName('test', true) - test)
-  clean.dependsOn(getTasksByName('clean', true) - clean)
-}
+//gradle.projectsEvaluated { g ->
+//  tasks.each { task -> 
+//    task.dependsOn(getTasksByName(task.name, true) - task)
+//  }
+//  javaTasks.each {
+//    def t = tasks.getByName(it)
+//    t.dependsOn(getTasksByName(it, true) - t)
+//  }
+//}
 
 //the below is a list of test drivers for the geb web testing framework.
 //a driver can emulate a specific browser and excercise the application UI.
@@ -31,6 +40,14 @@ allprojects {
   }
   
   apply plugin: 'groovy'
+
+  repositories {
+    maven {
+      credentials.username artifactoryReader
+      credentials.password artifactoryReaderPwd
+      url "$artifactoryReaderUrl/glasir"
+    }
+  }
 
   dependencies {
     groovy "org.codehaus.groovy:groovy:1.7.10"
@@ -118,16 +135,18 @@ task aggregateTestReports(type: TestReportAggregator) {
   def reportsDir = file("$buildDir/reports")
   reportsDir.mkdirs()
   
-  dependsOn getTasksByName('check', true)
+  //dependsOn getTasksByName('check', true)
 
   includeWebTests = false
   testReportDir = file("${reportsDir}/tests")
   testResultsDir = file("${buildDir}/test-results")
   projects = subprojects
   doLast {
-    println "> "
-    println "> Aggregated test report saved at $testReportDir/index.html"
-    println "> "
+    if (didWork) {
+      println "> "
+      println "> Aggregated test report saved at $testReportDir/index.html"
+      println "> "
+    }
   }    
 }
 build.dependsOn(aggregateTestReports)
@@ -144,6 +163,11 @@ class TestReportAggregator extends Copy {
     dependsOn { testTasks }
     from { inputTestResultDirs }
     into { testResultsDir }
+    outputs.upToDateWhen { 
+      //println "AGGREGATE DEPENDSUPTODATE: ${dependsOnTaskDidWork()}"
+      //println "INPUTS: ${inputTestResultDirs}"
+      !dependsOnTaskDidWork()
+    }
   }
 
   @TaskAction

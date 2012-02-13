@@ -1,3 +1,5 @@
+package com.glasir.BootstrapHomePage
+
 import spock.lang.*
 import geb.*
 import geb.spock.*

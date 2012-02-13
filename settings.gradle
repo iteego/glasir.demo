@@ -8,35 +8,25 @@ buildscript {
   }
   
   configurations.classpath {
-    resolutionStrategy.cacheDynamicVersionsFor 1, 'minutes'
-    resolutionStrategy.cacheChangingModulesFor 1, 'minutes'
+    resolutionStrategy.cacheDynamicVersionsFor 5, 'minutes'
+    resolutionStrategy.cacheChangingModulesFor 5, 'minutes'
   }
 
   dependencies {
-    classpath('com.iteego.glasir:glasir.build:1.1.7-SNAPSHOT') { changing=true }
+    classpath('com.iteego.glasir:glasir.build:1.1.9')
   }
     
   configurations.classpath.each { file -> settings.classLoader.addURL(file.toURI().toURL()) }
 }
 
-gradle.allprojects { 
-  repositories {
-    maven {
-      credentials.username artifactoryReader
-      credentials.password artifactoryReaderPwd
-      url "$artifactoryReaderUrl/glasir"
-    }
-  }
-}
-
 new glasir.Build(this).with {
   setup {
-    cachePackagesFor 1, 'minutes'
+    cachePackagesFor 5, 'minutes'
     
     dependencies {
       glasirpackage('com.iteego.glasir.pkg:atg-10.0.2:1.1.0')
       glasirpackage('com.iteego.glasir.pkg:jboss-eap-5.1.0:1.1.0')
-      glasirpackage('com.iteego.glasir.pkg:glasir.db:1.0.89-SNAPSHOT') { changing=true }
+      glasirpackage('com.iteego.glasir.pkg:glasir.db:1.0.90')
     }
     
     addAtgModules from: atgRoot

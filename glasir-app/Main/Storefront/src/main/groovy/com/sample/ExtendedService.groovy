@@ -4,9 +4,11 @@ import atg.nucleus.GenericService
 
 /**
  * Dummy service to demonstrate spock specification driven testing. See
- * SampleServiceSpec.groovy for the associated specification
+ * ExtendedServiceSpec.groovy for the associated specification. This service 
+ * also demonstrates that code in one atg module can depend on code in another, as long
+ * as the correct ATG-Requires attribute is set in the module manifest file. 
  */
-class SampleService extends BaseService {
+class ExtendedService extends BaseService {
   String firstName
   String lastName
   String zip

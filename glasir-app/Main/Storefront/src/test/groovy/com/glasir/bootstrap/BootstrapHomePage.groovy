@@ -1,3 +1,5 @@
+package com.glasir.bootstrap
+
 import geb.*
 
 class BootstrapHomePage extends Page {
