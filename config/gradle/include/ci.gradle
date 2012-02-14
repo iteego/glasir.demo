@@ -14,7 +14,7 @@ configurations {
 } 
 
 dependencies {
-  ciReleaseEar("${project.group}:${project.name}:${project.version}") { changing = true }
+  ciReleaseEar("${project.group}:${project.name}:${project.version}@ear") { changing = true }
 }
 
 task ciDeploy {
