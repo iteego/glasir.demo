@@ -42,21 +42,30 @@ docRoot         = "$rootDir/glasir-app/Main/j2ee-apps/GlasirApplication/glasir.w
 apply plugin: 'idea'
 apply plugin: 'glasir.build'
 
-apply from: "config/gradle/sub-projects.gradle"
-apply from: "config/gradle/assembly-tasks.gradle"
-apply from: "config/gradle/artifactory.gradle"
-apply from: "config/gradle/jboss-tasks.gradle"
-apply from: "config/gradle/rules.gradle"
+apply from: "config/gradle/include/sub-projects.gradle"
+apply from: "config/gradle/include/assembly-tasks.gradle"
+apply from: "config/gradle/include/artifactory.gradle"
+apply from: "config/gradle/include/jboss-tasks.gradle"
+apply from: "config/gradle/include/rules.gradle"
 
-//apply from: "config/gradle/help.gradle"
+//apply from: "config/gradle/include/help.gradle"
 
 //if we are running in the ci server, include some ci tasks
 if (System.env['BUILD_NUMBER']) {
-  apply from: 'config/gradle/ci.gradle'
+  apply from: 'config/gradle/include/ci.gradle'
 }
 
-/********************************************/
-/* A method used for debugging the build    */
+/*********************************************
+ * A gradle custom task for generating gradle 
+ * install scripts so that the user of the 
+ * repo does not need to install gradle           
+*/
+
+task wrapper(type: Wrapper) {
+  gradleVersion = '1.0-milestone-8'
+  jarFile = "$rootDir/config/gradle/wrapper/gradle-wrapper.jar"
+  propertiesFile = "$rootDir/config/gradle/wrapper/gradle-wrapper.properties"
+}
 
 task none << {
   println "Hello World!"
