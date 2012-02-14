@@ -21,6 +21,7 @@ artifactory {
       publishIvy = false    
       
       publishConfigs 'glasirEar'
+      mavenDescriptor = "$buildDir/poms/pom-ear.xml"
     }
 
     repository {
@@ -38,6 +39,21 @@ artifactory {
   }     
 }   
 
+task createPomDir(type: Directory) {
+  dir = file("$buildDir/poms")
+}
+
+task generateEarPom(type: Copy, dependsOn: createPomDir) {
+  from("$rootDir/config/artifact") {
+    include "pom-ear.xml"
+    filter(ReplaceTokens, tokens:[groupToken: project.group, 
+                                  nameToken: project.name, 
+                                  versionToken: project.version])
+  }
+  into "$buildDir/poms"
+}
+
+artifactoryPublish.dependsOn(generateEarPom)
 
 artifacts {
 	glasirEar(bigEar) { 

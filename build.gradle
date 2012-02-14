@@ -42,17 +42,17 @@ docRoot         = "$rootDir/glasir-app/Main/j2ee-apps/GlasirApplication/glasir.w
 apply plugin: 'idea'
 apply plugin: 'glasir.build'
 
-apply from: "include/sub-projects.gradle"
-apply from: "include/assembly-tasks.gradle"
-apply from: "include/artifactory.gradle"
-apply from: "include/jboss-tasks.gradle"
-apply from: "include/rules.gradle"
+apply from: "config/gradle/sub-projects.gradle"
+apply from: "config/gradle/assembly-tasks.gradle"
+apply from: "config/gradle/artifactory.gradle"
+apply from: "config/gradle/jboss-tasks.gradle"
+apply from: "config/gradle/rules.gradle"
 
-//apply from: "include/help.gradle"
+//apply from: "config/gradle/help.gradle"
 
 //if we are running in the ci server, include some ci tasks
 if (System.env['BUILD_NUMBER']) {
-  apply from: 'include/ci.gradle'
+  apply from: 'config/gradle/ci.gradle'
 }
 
 /********************************************/
