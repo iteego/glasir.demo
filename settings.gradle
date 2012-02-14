@@ -17,6 +17,7 @@ buildscript {
 
 new glasir.Build(this).with {
   setup {
+    rootProjectName "glasir.commerce"
     dependencies {
       glasirpackage("com.iteego.glasir.pkg:atg-10.0.2:1.1.0")
       glasirpackage("com.iteego.glasir.pkg:jboss-eap-5.1.0:1.1.0")

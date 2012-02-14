@@ -1,14 +1,18 @@
 import org.apache.tools.ant.filters.ReplaceTokens
 
-configurations { 
-  glasirEar {
-    description = "Configuration for ear publishing on CI server"
-  }
-}
-
 //we include the maven plugin to stop the build from logging warnings
 apply plugin: 'maven' 
 apply plugin: 'artifactory'
+
+earPom = file("$buildDir/poms/pom-ear.xml")
+
+configurations { 
+  glasirEar {
+    description = "Custom configuration for ear publishing on CI server"
+  }
+}
+
+
 artifactory {
   contextUrl = artifactoryReaderUrl
   
@@ -40,7 +44,7 @@ artifactory {
 }   
 
 task createPomDir(type: Directory) {
-  dir = file("$buildDir/poms")
+  dir = earPom.parentFile
 }
 
 task generateEarPom(type: Copy, dependsOn: createPomDir) {
@@ -50,7 +54,7 @@ task generateEarPom(type: Copy, dependsOn: createPomDir) {
                                   nameToken: project.name, 
                                   versionToken: project.version])
   }
-  into "$buildDir/poms"
+  into earPom.parentFile
 }
 
 artifactoryPublish.dependsOn(generateEarPom)
