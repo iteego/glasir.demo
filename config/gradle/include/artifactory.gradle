@@ -14,9 +14,6 @@ configurations {
 
 
 artifactory {
-  contextUrl = artifactoryReaderUrl
-  
-  //the artifactoryDeployer, etc variables come from <userhome>/.gradle/gradle.properties  
   publish {
     defaults { 
       publishBuildInfo = true
@@ -27,20 +24,7 @@ artifactory {
       publishConfigs 'glasirEar'
       mavenDescriptor = "$buildDir/poms/pom-ear.xml"
     }
-
-    repository {
-      repoKey = 'glasir-snapshots-local'
-      username = artifactoryDeployer
-      password = artifactoryDeployerPwd
-    }
   }
-  resolve {
-    repository {
-      repoKey = 'glasir'
-      username = artifactoryReader
-      password = artifactoryReaderPwd      
-    }
-  }     
 }   
 
 task createPomDir(type: Directory) {
