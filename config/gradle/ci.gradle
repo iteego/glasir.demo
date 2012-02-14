@@ -9,9 +9,32 @@ def moduleWithFlavors(String module) {
   result
 }
 
+configurations { 
+  ciReleaseEar
+} 
+
+dependencies {
+  ciReleaseEar("${project.group}:${project.name}:${project.version}") { changing = true }
+}
+
 task ciDeploy {
   description = "Deploys the release ear to jboss"
   dependsOn = [syncStore, syncAdmin]
+}
+
+//This is run only on ci server and _only_ if we are doing a deploy
+//i.e. not when we are building/publishing the ear
+gradle.taskGraph.whenReady {taskGraph ->
+  if (taskGraph.hasTask(ciDeploy)) {
+    println "> ========================================="
+    println "> Resolving release ear from artifactory..."
+    def earFromArtifactory = configurations.ciReleaseEar.find { it.name.endsWith(".ear") }
+    println "> Resolved: $earFromArtifactory"
+    
+    //replace the bigEar variable with a pointer to the ear downloaded from 
+    //artifactory into our gradle cache
+    project.properties['bigEar'] = earFromArtifactory 
+  } 
 }
 
 task startCiStore(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
