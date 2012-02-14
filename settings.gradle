@@ -8,7 +8,8 @@ buildscript {
   }
   
   dependencies {
-    classpath('com.iteego.glasir:glasir.build:1.1.9')
+    classpath "com.iteego.glasir:glasir.build:1.1.9"
+    classpath "org.jfrog.buildinfo:build-info-extractor-gradle:2.0.11"
   }
     
   configurations.classpath.each { file -> settings.classLoader.addURL(file.toURI().toURL()) }
@@ -17,9 +18,9 @@ buildscript {
 new glasir.Build(this).with {
   setup {
     dependencies {
-      glasirpackage('com.iteego.glasir.pkg:atg-10.0.2:1.1.0')
-      glasirpackage('com.iteego.glasir.pkg:jboss-eap-5.1.0:1.1.0')
-      glasirpackage('com.iteego.glasir.pkg:glasir.db:1.0.90')
+      glasirpackage("com.iteego.glasir.pkg:atg-10.0.2:1.1.0")
+      glasirpackage("com.iteego.glasir.pkg:jboss-eap-5.1.0:1.1.0")
+      glasirpackage("com.iteego.glasir.pkg:glasir.db:1.0.90")
     }
     
     addAtgModules from: atgRoot

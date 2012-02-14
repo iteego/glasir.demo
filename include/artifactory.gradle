@@ -1,0 +1,51 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
+configurations { 
+  glasirEar {
+    description = "Configuration for ear publishing on CI server"
+  }
+}
+
+//we include the maven plugin to stop the build from logging warnings
+apply plugin: 'maven' 
+apply plugin: 'artifactory'
+artifactory {
+  contextUrl = artifactoryReaderUrl
+  
+  //the artifactoryDeployer, etc variables come from <userhome>/.gradle/gradle.properties  
+  publish {
+    defaults { 
+      publishBuildInfo = true
+      publishArtifacts = true
+      publishPom = true      
+      publishIvy = false    
+      
+      publishConfigs 'glasirEar'
+    }
+
+    repository {
+      repoKey = 'glasir-snapshots-local'
+      username = artifactoryDeployer
+      password = artifactoryDeployerPwd
+    }
+  }
+  resolve {
+    repository {
+      repoKey = 'glasir'
+      username = artifactoryReader
+      password = artifactoryReaderPwd      
+    }
+  }     
+}   
+
+
+artifacts {
+	glasirEar(bigEar) { 
+	  name = "glasir.commerce"	
+	}
+}
+
+uploadArchives {
+  uploadDescriptor = true	
+}
+
