@@ -32,10 +32,10 @@ adminServerName = "dev-admin"
 
 databaseDir     = file("$jBossRoot/ATG-Data/h2.db")
 
-
 bigEarName      = "${rootProject.name}.ear"
 bigEar          = file("$buildDir/$bigEarName")
 docRoot         = "$rootDir/glasir-app/Main/j2ee-apps/GlasirApplication/glasir.war/"
+isReleaseBuild  = false
 
 /********************************************/
 /* Now apply some plugins and include files */
