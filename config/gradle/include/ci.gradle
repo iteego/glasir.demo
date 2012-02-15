@@ -28,12 +28,9 @@ gradle.taskGraph.whenReady {taskGraph ->
   if (taskGraph.hasTask(ciDeploy)) {
     println "> ========================================="
     println "> Resolving release ear from artifactory..."
-    def earFromArtifactory = configurations.ciReleaseEar.find { it.name.endsWith(".ear") }
-    println "> Resolved: $earFromArtifactory"
-    
-    //replace the bigEar variable with a pointer to the ear downloaded from 
-    //artifactory into our gradle cache
-    project.properties['bigEar'] = earFromArtifactory 
+    //TODO: Make the find closure more specific
+    bigEar = configurations.ciReleaseEar.find { name == bigEarName }
+    println "> Resolved, value of 'bigEar' set to '$earFromArtifactory'"
   } 
 }
 
