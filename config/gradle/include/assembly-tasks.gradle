@@ -106,11 +106,13 @@ task linkAdminEar(description: "Copies the ear file into the deploy directory of
 linkAdminEar.dependsOn "syncAdminJBossServer"
 
 task syncStoreEar(description: "Copies the ear file into the deploy directory of the JBOSS server, if on Windows, otherwise use a symbolic link") {
-  dependsOn onWindows || isReleaseBuild ? "copyStoreEar" : "linkStoreEar"
+  String action = (onWindows || isReleaseBuild) ? "copyStoreEar" : "linkStoreEar"
+  dependsOn action
 }
 
 task syncAdminEar(description: "Copies the ear file into the deploy directory of the JBOSS server, if on Windows, otherwise use a symbolic link") {
-  dependsOn onWindows || isReleaseBuild ? "copyAdminEar" : "linkAdminEar"
+  String action = (onWindows || isReleaseBuild) ? "copyAdminEar" : "linkAdminEar"
+  dependsOn action
 }
 
 task syncStoreJBossServer(type: Copy, description: "Creates a dev server setup in your jboss installation") {
