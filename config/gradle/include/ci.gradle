@@ -29,7 +29,7 @@ gradle.taskGraph.whenReady {taskGraph ->
     println "> ========================================="
     println "> Resolving release ear from artifactory..."
     //TODO: Make the find closure more specific
-    bigEar = configurations.ciReleaseEar.find { name == bigEarName }
+    bigEar = configurations.ciReleaseEar.find { name.startsWith(rootProject.name) && name.endsWith(".ear) }
     println "> Resolved, value of 'bigEar' set to '$bigEar'"
   } 
 }
