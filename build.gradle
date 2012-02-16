@@ -19,8 +19,6 @@
  *
  */
 
-defaultTasks 'devDeploy'
-
 version = "1.0-SNAPSHOT"
 group = "com.iteego.glasir"
 
