@@ -4,7 +4,7 @@ import org.apache.tools.ant.filters.ReplaceTokens
 apply plugin: 'maven' 
 apply plugin: 'artifactory'
 
-earPom = file("$buildDir/poms/pom-ear.xml")
+ext.earPom = file("$buildDir/poms/pom-ear.xml")
 
 configurations { 
   glasirEar {
@@ -27,8 +27,8 @@ artifactory {
   }
 }   
 
-task createPomDir(type: Directory) {
-  dir = earPom.parentFile
+task createPomDir {
+  mkdir(earPom.parentFile)
 }
 
 task generateEarPom(type: Copy, dependsOn: createPomDir) {

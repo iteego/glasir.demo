@@ -31,10 +31,10 @@ javaTasks.each {
 //See http://www.gebish.org/manual/current/configuration.html#driver_implementation
 //for more details
 //available drivers: htmlunit, firefox, ie, chrome, android                
-drivers = ['htmlunit']
+ext.drivers = ['htmlunit']
 
 allprojects {  
-  project.isBuildProject = file("$projectDir/src").isDirectory()
+  project.ext.isBuildProject = file("$projectDir/src").isDirectory()
   if (!project.isBuildProject) {    
     return
   }
@@ -73,7 +73,7 @@ allprojects {
 
   drivers.each { driver -> 
     task "${driver}Test"(type: Test) {
-      isWebTest = true
+      ext.isWebTest = true
       include '**/*GebSpec.class'
   
       testReportDir = file("${reporting.baseDir}/geb-tests")

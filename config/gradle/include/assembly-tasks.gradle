@@ -28,7 +28,7 @@ task assembleReleaseEar(type: AtgAssemblerTask, description: "Runs a build and a
   modules = allEnvironmentModules
   outputFile = bigEar
   standalone = true
-  liveconfig = true
+  liveConfig = true
   pack = true
   
   extraClasspath = files(configurations.entityresolver.files)
@@ -53,7 +53,7 @@ task assembleDevEar(type: AtgAssemblerTask, description: "Runs a build and assem
   modules = allEnvironmentModules
   outputFile = bigEar
   standalone = true
-  liveconfig = false
+  liveConfig = false
   pack = false
   extraClasspath = files(configurations.entityresolver.files)
   loggingDebug = false
