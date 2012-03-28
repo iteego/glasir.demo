@@ -1,28 +1,27 @@
-package com.glasir.BootstrapHomePage
+package com.glasir.bootstrap
 
 import spock.lang.*
 import geb.*
 import geb.spock.*
 
 class BootstrapLoginGebSpec extends GebReportingSpec {
-	def "logging in with a non existent user results in an error"() {
-		when:
-		to BootstrapHomePage
-		
-		and:
-		username.value "bogus user"
-		
-		and: 
-        password.value "bogus password"
+  def "logging in with a non existent user results in an error"() {
+    when:
+    to BootstrapHomePage
     
-        and:
-        loginButton.click()
+    and:
+    username.value "bogus user"
     
-		then:
-		at BootstrapHomePage
+    and: 
+    password.value "bogus password"
+    
+    and:
+    loginButton.click()
+    
+    then:
+    at BootstrapHomePage
 
-		and:
-		formErrorMessage.toString().contains("that login is not valid")
-	}
-	
+    and:
+    formErrorMessage.toString().contains("that login is not valid")
+  } 
 }

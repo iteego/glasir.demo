@@ -3,7 +3,7 @@ package com.glasir.bootstrap
 import geb.*
 
 class BootstrapHomePage extends Page {
-	static url = "http://localhost:10080/crs/myaccount/login.jsp?loginFromHeader=yes"
+	static url = "/crs/myaccount/login.jsp?loginFromHeader=yes"
 	static at = { title == "ATG Store - Powered by ATG" }
 
 	static content = {
