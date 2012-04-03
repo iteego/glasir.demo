@@ -73,9 +73,18 @@ allprojects {
 
   drivers.each { driver -> 
     task "${driver}Test"(type: Test) {
+      //force geb tests to run even when executing repeated builds
+      outputs.upToDateWhen { 
+        def gebSpecs = fileTree(dir: project.projectDir, include: '**/*GebSpec.class')
+        //if we have geb specs in this project, consider the htmlunitTest task and its siblings
+        //never "up to date" forcing the geb tests to run every time the task is called
+        return !(gebSpecs.files)
+      }
+
       ext.isWebTest = true
       include '**/*GebSpec.class'
-  
+      
+      
       testReportDir = file("${reporting.baseDir}/geb-tests")
       testResultsDir = file("$buildDir/geb-test-results/")
   
@@ -83,7 +92,15 @@ allprojects {
       systemProperty "geb.env", driver
       
       //TODO: Externalize the below host/port configuration somehow
-      systemProperty "geb.build.baseUrl", "http://localhost:10080"
+      systemProperty "geb.build.baseUrl", 'http://localhost:10080'
+      
+      reportLocationLogged = false
+      afterTest { 
+        if (didWork && !reportLocationLogged) {
+          println "Geb functional test report written to ${testReportDir}.."
+          reportLocationLogged = true
+        }
+      }
     }  
   }
 

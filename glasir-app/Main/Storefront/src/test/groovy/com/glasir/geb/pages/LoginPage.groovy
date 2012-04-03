@@ -1,10 +1,10 @@
-package com.glasir.bootstrap
+package com.glasir.geb.pages
 
 import geb.*
 
-class BootstrapHomePage extends Page {
-	static url = "/crs/myaccount/login.jsp?loginFromHeader=yes"
-	static at = { title == "ATG Store - Powered by ATG" }
+class LoginPage extends Page {
+	static url = "/crs/myaccount/login.jsp"
+  static at = { $("body", class: "atg_store_pageLogin") }
 
 	static content = {
 	  //the below formErrors item will return a list of strings containing the 

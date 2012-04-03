@@ -29,7 +29,7 @@ Pattern: print<AtgModuleName>: Prints a module dependency tree for an atg module
                   module 'DCS.Search.Order.Index'""") { String taskName ->
   if (taskName.startsWith("print")) {
     task(taskName) << {
-      printTree(taskName - "print")
+      glasir.printTree(taskName - "print")
     }
   }
 }
