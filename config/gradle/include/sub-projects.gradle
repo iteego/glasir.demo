@@ -94,11 +94,11 @@ allprojects {
       //TODO: Externalize the below host/port configuration somehow
       systemProperty "geb.build.baseUrl", 'http://localhost:10080'
       
-      reportLocationLogged = false
+      ext.reportLocationLogged = false
       afterTest { 
-        if (didWork && !reportLocationLogged) {
+        if (didWork && !ext.reportLocationLogged) {
           println "Geb functional test report written to ${testReportDir}.."
-          reportLocationLogged = true
+          ext.reportLocationLogged = true
         }
       }
     }  
