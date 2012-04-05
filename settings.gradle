@@ -8,11 +8,11 @@ buildscript {
   }
   
   dependencies {
-    classpath "com.iteego.glasir:glasir.build:1.1.20-SNAPSHOT"
+    classpath "com.iteego.glasir:glasir.build:1.1.22-SNAPSHOT"
     classpath "org.jfrog.buildinfo:build-info-extractor-gradle:2.0.12"
   }
 
-  configurations.classpath.resolutionStrategy.cacheChangingModulesFor 24, 'hours'    
+  configurations.classpath.resolutionStrategy.cacheChangingModulesFor 24, 'seconds'    
   configurations.classpath.each { file -> settings.classLoader.addURL(file.toURI().toURL()) }
 }
 

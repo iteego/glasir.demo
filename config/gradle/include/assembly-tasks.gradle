@@ -142,7 +142,8 @@ task syncAtgServers(type: Copy) {
     // which in our case is the source tree. By removing the directories safely before starting the copy,
     // we avoid clobbering our source tree with build output files.
     doFirst {
-        glasir.deleteDir("$jBossRoot/ATG-Data/servers/*")
+        glasir.deleteDir("$jBossRoot/ATG-Data/servers/$storeServerName")
+        glasir.deleteDir("$jBossRoot/ATG-Data/servers/$adminServerName")
     }
 }
 
