@@ -1,3 +1,2 @@
 Manifest-Version: 1.0
-ATG-Class-Path: lib/classes.jar
 Glasir-Build-Is-Top-Module: true

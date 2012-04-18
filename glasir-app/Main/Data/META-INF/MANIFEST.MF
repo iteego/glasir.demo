@@ -1,7 +1,6 @@
 Manifest-Version: 1.0
 ATG-Required: Main
 ATG-Config-Path: config
-ATG-Class-Path: lib/xml-apis-1.3.03.jar lib/classes.jar lib/xpp3_min-1.1.4c.jar
 
 Name: db
 ATG-Assembler-Import-File: True

@@ -97,7 +97,7 @@ allprojects {
       ext.reportLocationLogged = false
       afterTest { 
         if (didWork && !ext.reportLocationLogged) {
-          println "Geb functional test report written to ${testReportDir}.."
+          println "> Geb report written to: ${rootProject.relativePath(testReportDir)}/index.html"
           ext.reportLocationLogged = true
         }
       }
