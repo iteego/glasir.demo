@@ -10,3 +10,7 @@ packages/
 .idea/dictionaries/
 .idea/inspectionProfiles
 .idea/dictionaries/
+*.iml
+*.ipr
+*.iws
+

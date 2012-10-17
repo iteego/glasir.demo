@@ -31,8 +31,6 @@ task assembleReleaseEar(type: AtgAssemblerTask, description: "Runs a build and a
   liveConfig = true
   pack = true
   
-  extraClasspath = files(configurations.entityresolver.files)
-  
   searchRootDirs = files("$atgRoot", "$rootDir", "$rootDir/packages", "$rootDir/packages/modules/glasir")
   loggingDebug = false
 
@@ -49,13 +47,14 @@ task assembleReleaseEar(type: AtgAssemblerTask, description: "Runs a build and a
 
 task assembleDevEar(type: AtgAssemblerTask, description: "Runs a build and assembles a development ear") {
   dependsOn "build"
-  
+
   modules = allEnvironmentModules
   outputFile = bigEar
-  standalone = true
+  standalone = false
+  runInPlace = true
+  
   liveConfig = false
   pack = false
-  extraClasspath = files(configurations.entityresolver.files)
   loggingDebug = false
   
   //TODO: Figure out if there is a clean way of making the atg assembler find all the required stuff

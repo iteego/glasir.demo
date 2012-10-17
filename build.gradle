@@ -81,3 +81,11 @@ task prompt << {
 }
 
 
+/*****************************************************************************
+ * A gradle custom task for generating gradle install scripts so that the user
+ * of the repo does not need to install gradle
+*/
+task wrapper(type: Wrapper) {
+  gradleVersion = '1.2'
+  jarFile = 'config/gradle/wrapper/gradle-wrapper.jar'
+}
