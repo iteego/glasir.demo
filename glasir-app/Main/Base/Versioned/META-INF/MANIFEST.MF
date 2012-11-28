@@ -1,3 +1,4 @@
 Manifest-Version: 1.0
-ATG-Required: Main.Data.Versioned Main.Data.Properties.Versioned Main.Base Store.EStore.Versioned
+ATG-Required: Main.Data.Versioned Main.Data.Properties.Versioned 
+ Main.Base Store.EStore.Versioned
 ATG-Config-Path: config
