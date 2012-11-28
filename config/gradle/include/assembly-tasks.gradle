@@ -1,4 +1,5 @@
 import com.iteego.glasir.build.tasks.*
+import com.iteego.glasir.build.api.tasks.*
 
 repositories {
   maven {

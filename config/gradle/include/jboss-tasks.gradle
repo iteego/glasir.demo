@@ -1,4 +1,4 @@
-import com.iteego.glasir.build.tasks.*
+import com.iteego.glasir.build.api.tasks.*
 
 /*
 Starts a h2 instance in the gradle java process. It starts the instance 

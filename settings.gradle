@@ -8,11 +8,11 @@ buildscript {
   }
   
   dependencies {
-    classpath "com.iteego.glasir:glasir.build:1.1.30-SNAPSHOT"
+    classpath "com.iteego.glasir:glasir.build:1.2.7-SNAPSHOT"
     classpath "org.jfrog.buildinfo:build-info-extractor-gradle:2.0.12"
   }
 
-  configurations.classpath.resolutionStrategy.cacheChangingModulesFor 24, 'hours'    
+  configurations.classpath.resolutionStrategy.cacheChangingModulesFor 0, 'hours'    
   configurations.classpath.each { file -> settings.classLoader.addURL(file.toURI().toURL()) }
 }
 
@@ -23,7 +23,7 @@ new glasir.Build(this).with {
     dependencies {
       glasirpackage("com.iteego.glasir.pkg:atg-10.0.2:1.1.4")
       glasirpackage("com.iteego.glasir.pkg:jboss-eap-5.1.0:1.1.2")
-      glasirpackage("com.iteego.glasir.pkg:glasir.db:1.1.1-SNAPSHOT")
+      glasirpackage("com.iteego.glasir.pkg:glasir.db:1.1.3-SNAPSHOT")
     }
     
     addAtgModules from: atgRoot
