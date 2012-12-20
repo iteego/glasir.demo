@@ -214,3 +214,34 @@ task cleanJbossServers(dependsOn: ['clean']) << {
 task cleanAll(dependsOn: ['clean','cleanJbossServers','cleanLocalDatabase']) << {
   description = "Cleans out all the 'build' directories in the source tree, the jboss server dirs and the local database, if any"
 }
+
+//add tasks to synchronize the war module content from the source
+//tree into the ear file. Assuming the war directory name in the generated
+//ear file is foobar.war, the corresponding generated sync task name will be
+//syncFoobarWar
+def syncTasks = []
+glasir.webModules.findAll { !it.isAtgCore }.each { webModule ->
+  def cappedName = webModule.uri.tokenize('.').collect { it.capitalize() }.join('')
+  String taskName = "sync$cappedName"
+  File target = file("$bigEar/${webModule.uri}")
+  
+  if (!target.exists()) return
+  
+  syncTasks << task(type: Sync, taskName) {
+    from webModule.dir
+    into target
+    
+    doFirst { 
+      println "    from: ${relativePath(webModule.dir)}"
+      println "    into: $target"    
+    }
+  }
+}
+
+//and create a macro sync tasks which runs them all
+task sync(dependsOn: syncTasks)
+
+//task syncStore(dependsOn: [syncStoreEar, sync])
+
+//task syncAdmin(dependsOn: [syncAdminEar])
+
