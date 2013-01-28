@@ -42,7 +42,7 @@
         <idle-timeout-minutes>15</idle-timeout-minutes>
         <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
         <xa-datasource-class>oracle.jdbc.xa.client.OracleXADataSource</xa-datasource-class>
-        <xa-datasource-property name="URL">jdbc:oracle:thin:@db.local:1521:ORACLE</xa-datasource-property>
+        <xa-datasource-property name="URL">jdbc:oracle:thin:@localhost:1521:ORCL</xa-datasource-property>
         <xa-datasource-property name="User">glasir_core</xa-datasource-property>
         <xa-datasource-property name="Password">password</xa-datasource-property>
         <validation>
@@ -98,7 +98,7 @@
         <idle-timeout-minutes>15</idle-timeout-minutes>
         <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
         <xa-datasource-class>oracle.jdbc.xa.client.OracleXADataSource</xa-datasource-class>
-        <xa-datasource-property name="URL">jdbc:oracle:thin:@db.local:1521:ORACLE</xa-datasource-property>
+        <xa-datasource-property name="URL">jdbc:oracle:thin:@localhost:1521:ORCL</xa-datasource-property>
         <xa-datasource-property name="User">glasir_a</xa-datasource-property>
         <xa-datasource-property name="Password">password</xa-datasource-property>
         <validation>
@@ -154,7 +154,7 @@
         <idle-timeout-minutes>15</idle-timeout-minutes>
         <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
         <xa-datasource-class>oracle.jdbc.xa.client.OracleXADataSource</xa-datasource-class>
-        <xa-datasource-property name="URL">jdbc:oracle:thin:@db.local:1521:ORACLE</xa-datasource-property>
+        <xa-datasource-property name="URL">jdbc:oracle:thin:@localhost:1521:ORCL</xa-datasource-property>
         <xa-datasource-property name="User">glasir_b</xa-datasource-property>
         <xa-datasource-property name="Password">password</xa-datasource-property>
         <validation>
@@ -210,7 +210,7 @@
         <idle-timeout-minutes>15</idle-timeout-minutes>
         <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
         <xa-datasource-class>oracle.jdbc.xa.client.OracleXADataSource</xa-datasource-class>
-        <xa-datasource-property name="URL">jdbc:oracle:thin:@db.local:1521:ORACLE</xa-datasource-property>
+        <xa-datasource-property name="URL">jdbc:oracle:thin:@localhost:1521:ORCL</xa-datasource-property>
         <xa-datasource-property name="User">glasir_pub</xa-datasource-property>
         <xa-datasource-property name="Password">password</xa-datasource-property>
         <validation>
