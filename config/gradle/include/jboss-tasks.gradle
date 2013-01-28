@@ -42,6 +42,7 @@ task startDevStore(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
     jBossHome     jBossRoot
     serverName    storeServerName
     modules       moduleWithFlavors("env.Main.store.dev")
+    glasirDevMode true
 
     doFirst {
         println "Starting dev store node with modules: ${modules}"

@@ -8,7 +8,7 @@ buildscript {
   }
   
   dependencies {
-    classpath "com.iteego.glasir:glasir.build:1.2.7-SNAPSHOT"
+    classpath "com.iteego.glasir:glasir.build:1.2.12-SNAPSHOT"
     classpath "org.jfrog.buildinfo:build-info-extractor-gradle:2.0.12"
   }
 
@@ -24,10 +24,12 @@ new glasir.Build(this).with {
       glasirpackage("com.iteego.glasir.pkg:atg-10.0.2:1.1.5")
       glasirpackage("com.iteego.glasir.pkg:jboss-eap-5.1.0:1.1.2")
       glasirpackage("com.iteego.glasir.pkg:glasir.db:1.1.4-SNAPSHOT")
+      glasirpackage("com.iteego.glasir.pkg:atg-initializer-10.0.2:1.0.0")
     }
     
     addAtgModules from: atgRoot
     addAtgModules from: "$settingsDir/packages/modules", isGlasirCore: true
+    addAtgModules from: "$settingsDir/packages/initializer", isAtgCore: false
     addAtgModules from: "$settingsDir/glasir-app", isAtgCore: false, 
                   excludes: ["**/*.war/", "Main/Data/db/", "Main/Data/import/", "**/build/", "**/config/", "**/src/", "**/lib/"]
   }
