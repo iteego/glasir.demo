@@ -49,18 +49,18 @@ task assembleReleaseEar(type: AtgAssemblerTask, description: "Runs a build and a
 task assembleDevEar(type: AtgAssemblerTask, description: "Runs a build and assembles a development ear") {
   dependsOn "build"
 
-  modules = allEnvironmentModules
+  modules = allEnvironmentModules + ' CustomModule'
   outputFile = bigEar
   standalone = false
   runInPlace = true
   
   liveConfig = false
   pack = false
-  loggingDebug = false
+  loggingDebug = true
   useInitializer = true
   
   //TODO: Figure out if there is a clean way of making the atg assembler find all the required stuff
-  searchRootDirs = files("$atgRoot", "$rootDir", "$rootDir/packages", "$rootDir/packages/modules/glasir")
+  searchRootDirs = files("$atgRoot", "$rootDir", "$rootDir/packages", "$rootDir/packages/modules/glasir", "/tmp")
 
   // Make sure to first remove the ear file, so that the assembler does not try to write files into any folder
   // that contains symbolic links. If there would be any symbolic links in an already existing ear file,
