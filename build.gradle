@@ -299,6 +299,7 @@ task createGlasirDbData << {
 
                           // Add the repoloader definition in the glasir.db format
                           def missing = false
+                          // Todo: Add src-module to the definition below and modify glasir.db to read it!
                           String s = "RepoLoader:files=\"${files.join(" & ")}\" fileMapping=\"${repoloader.'file-mapping'.text()}\" folderMapping=\"${repoloader.'folder-mapping'.text()}\"\n"
                           println s
                           if (repoloader.'requires-addon-id') {
