@@ -90,6 +90,11 @@ task wrapper(type: Wrapper) {
 }
 
 task createGlasirDbData << {
+  String mainModuleName = 'env.Main.store.dev.oracle'
+  mainModuleName = 'env.Main.admin.dev.oracle'
+
+  def fullModuleList = glasir.moduleMap[mainModuleName].fullBuildOrder
+
   Map<String, Object> instanceTypeMap = new HashMap<String, Object>()
   // Map datasource name to sql files.
   Map<String, List<String>> sqlFiles = new HashMap<String, List<String>>()
@@ -99,7 +104,7 @@ task createGlasirDbData << {
   println "Top level module list: " + glasir.modules.collect({it.name}).join(",") + "\n"
 
   // Read product.xml files for products.
-  glasir.moduleMap['env.Main.store.dev.oracle'].fullBuildOrder.findAll {
+  fullModuleList.findAll {
     file("${it.dir}/cim/product.xml").exists()
   }.each { module ->
     def productxml = new File("${module.dir}/cim/product.xml")
@@ -125,7 +130,7 @@ task createGlasirDbData << {
   println "__________________________________________"
 
   // We will be using these server instance types below.
-  def myInstanceTypes = ["production"]
+  def myInstanceTypes = ["management"/*, "production"*/]
 
   // Addons are important in the selection of data imports and repository loader actions.
   def mySelectedAddons = [
@@ -136,6 +141,7 @@ task createGlasirDbData << {
       "prodLock",
       "queryConsoleOnManagement",
       "storefront-full-setup",
+      //"storefront_no_publishing",
       "switchingdatasource"
     ]
   // These are the addons: find /home/mwangel/jobb/iteego/glasir.demo/packages -print0|grep -zZ -i product\.xml|xargs -0 grep '<product\-addon id\='
@@ -169,7 +175,7 @@ task createGlasirDbData << {
 
   // Read dbinit.xml files for the modules.
   //glasir.modules.each { module ->
-  glasir.moduleMap['env.Main.store.dev.oracle'].fullBuildOrder.each { module ->
+  fullModuleList.each { module ->
     File cimDir = new File(module.dir as File, "cim")
     if (cimDir.exists()) {
       println "--------------------------"
@@ -273,7 +279,7 @@ task createGlasirDbData << {
                           List<String> files = new ArrayList<String>()
                           repoloader.files.each {
                             // GET src-module!
-                            def srcModuleName = it.'src-module'
+                            def srcModuleName = it.'src-module'.text()
                             def srcModule = glasir.module(srcModuleName)
                             println "src-module : $srcModuleName"
                             println "resolved to: ${srcModule}"
@@ -281,12 +287,12 @@ task createGlasirDbData << {
 
                             if (it.'config-path') {
                               def configPath = it.'config-path'.text()
-                              println "  ==> Repository loader with config-path $configPath. Module ${module.name}. File ${dbinit}. Schema ${schemaNode.@id}"
+                              println "  ==> Repository loader with config-path $configPath. Module ${module.name}. File ${dbinit}. Schema ${requiredSchemaId}"
                               files.add("${it.'config-path'.text()}${System.properties['file.separator']}${it.'file-pattern'.text()}")
                             }
                             else if (it.'file-path') {
                               def filePath = it.'file-path'.text()
-                              println "  ==> Repository loader with file-path $filePath. Module ${module.name}. File ${dbinit}. Schema ${schemaNode.@id}"
+                              println "  ==> Repository loader with file-path $filePath. Module ${module.name}. File ${dbinit}. Schema ${requiredSchemaId}"
                               files.add("${it.'file-path'.text()}${System.properties['file.separator']}${it.'file-pattern'.text()}")
                             }
                           }
@@ -294,6 +300,7 @@ task createGlasirDbData << {
                           // Add the repoloader definition in the glasir.db format
                           def missing = false
                           String s = "RepoLoader:files=\"${files.join(" & ")}\" fileMapping=\"${repoloader.'file-mapping'.text()}\" folderMapping=\"${repoloader.'folder-mapping'.text()}\"\n"
+                          println s
                           if (repoloader.'requires-addon-id') {
                             println "        ---==> Repository loader requires addons '${repoloader.'requires-addon-id'.collect {it.@id}}'"
                             missing = repoloader.'requires-addon-id'.any { !mySelectedAddons.contains(it.@id) }
