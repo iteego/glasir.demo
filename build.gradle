@@ -160,6 +160,7 @@ task createGlasirDbData << {
 
   // Read dbinit.xml files for the modules.
   glasir.modules.each { module ->
+//  glasir.moduleMap['env.Main.store.dev.oracle'].fullBuildOrder.each { module ->
     File cimDir = new File(module.dir as File, "cim")
     if (cimDir.exists()) {
       println "--------------------------"
@@ -206,12 +207,15 @@ task createGlasirDbData << {
                           //<!ELEMENT sql (path+)>
                           //<!ELEMENT path (requires-addon-id*,create,drop)>
                           child.path.each { sqlPath ->
+                            if(sqlPath.create.text().contains("logical_org_ddl.sql")) {
+                              println "$child"
+                            }
 
                             def missing = false
                             if( sqlPath.'requires-addon-id' ) {
                               //println "      Create SQL: ${sqlPath.create.text()}"
                               //println "      Drop SQL  : ${sqlPath.drop.text()}"
-                              //println "        ---==> Sql path requires addons '${sqlPath.'requires-addon-id'.collect {it.@id}}'"
+                              println "        ---==> Sql path '${sqlPath.create.text()}' requires addons '${sqlPath.'requires-addon-id'.collect {it.@id}}'"
                               missing = sqlPath.'requires-addon-id'.any { !mySelectedAddons.contains(it.@id) }
                             }//if repository loader requires specific addons
 
@@ -233,10 +237,10 @@ task createGlasirDbData << {
                           String s = "DataImport: Repository:$repoPath Path:$filePath Module:${module.name}"
                           //println "    ${datasourceId}  $s"
                           //println "       (Module config path: ${module.manifest.atgConfigPath})"
-                          if (dataimport.'requires-addon-id') println "       ---==> Data Import requires addons '${dataimport.'requires-addon-id'.collect {it.@id}}'"
-                          if (dataimport.'incompatible-addon-id') println "       ---==> Data Import is incompatible with addons '${dataimport.'incompatible-addon-id'.collect {it.@id}}'"
-                          if (dataimport.user) println "       ---==> Data Import requires user '${dataimport.user.text()}'"
-                          if (dataimport.workspace) println "       ---==> Data Import requires workspace '${dataimport.workspace.text()}'"
+                          if (dataimport.'requires-addon-id') println "       ---==> Data Import $filePath requires addons '${dataimport.'requires-addon-id'.collect {it.@id}}'"
+                          if (dataimport.'incompatible-addon-id') println "       ---==> Data Import $filePath is incompatible with addons '${dataimport.'incompatible-addon-id'.collect {it.@id}}'"
+                          if (dataimport.user) println "       ---==> Data Import $filePath requires user '${dataimport.user.text()}'"
+                          if (dataimport.workspace) println "       ---==> Data Import $filePath requires workspace '${dataimport.workspace.text()}'"
 
                           def missing = false
                           def blocked = false
