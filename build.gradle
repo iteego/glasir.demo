@@ -159,8 +159,8 @@ task createGlasirDbData << {
 
 
   // Read dbinit.xml files for the modules.
-  glasir.modules.each { module ->
-//  glasir.moduleMap['env.Main.store.dev.oracle'].fullBuildOrder.each { module ->
+  //glasir.modules.each { module ->
+  glasir.moduleMap['env.Main.store.dev.oracle'].fullBuildOrder.each { module ->
     File cimDir = new File(module.dir as File, "cim")
     if (cimDir.exists()) {
       println "--------------------------"
