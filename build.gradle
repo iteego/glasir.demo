@@ -128,8 +128,17 @@ task createGlasirDbData << {
   def myInstanceTypes = ["production"]
 
   // Addons are important in the selection of data imports and repository loader actions.
-  def mySelectedAddons = ["dcs-csr", "storefront-full-setup"]
-  // These are the addons:
+  def mySelectedAddons = [
+      "dcs-csr",
+      "international",
+      "merch",
+      "previewOnManagement",
+      "prodLock",
+      "queryConsoleOnManagement",
+      "storefront-full-setup",
+      "switchingdatasource"
+    ]
+  // These are the addons: find /home/mwangel/jobb/iteego/glasir.demo/packages -print0|grep -zZ -i product\.xml|xargs -0 grep '<product\-addon id\='
   //id="clicktoconnect"
   //id="cybersource"
   //id="dcs-csr"
