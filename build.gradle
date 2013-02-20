@@ -71,8 +71,7 @@ task none << {
 
 task prompt << {
   def p = "echo 'Accept license [y/n]: '".execute()
-  p.
-  //print "Accept license [y/n]: "
+  p.print "Accept license [y/n]: "
   p.waitFor()
   def result = new Scanner(System.in).useDelimiter(System.properties['line.separator']).next()
   
@@ -88,4 +87,254 @@ task prompt << {
 task wrapper(type: Wrapper) {
   gradleVersion = '1.3'
   jarFile = 'config/gradle/wrapper/gradle-wrapper.jar'
+}
+
+task createGlasirDbData << {
+  Map<String, Object> instanceTypeMap = new HashMap<String, Object>()
+  // Map datasource name to sql files.
+  Map<String, List<String>> sqlFiles = new HashMap<String, List<String>>()
+  // Map datasource name to data-import and repository-loader statements.
+  Map<String, List<String>> imports = new HashMap<String, List<String>>()
+  println "Install Units: ${glasir.installUnits}"
+  println "Top level module list: " + glasir.modules.collect({it.name}).join(",") + "\n"
+
+  // Read product.xml files for products.
+  glasir.moduleMap['env.Main.store.dev.oracle'].fullBuildOrder.findAll {
+    file("${it.dir}/cim/product.xml").exists()
+  }.each { module ->
+    def productxml = new File("${module.dir}/cim/product.xml")
+    println "Scanning file $productxml"
+    def parser = new groovy.util.XmlParser(false, false)
+    // Set these two features to skip dtd verification.
+    parser.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
+    parser.setFeature("http://xml.org/sax/features/namespaces", false)
+    def root = parser.parse(productxml) // root should be the "database-initializer" node.
+    if (root == null) {
+      println "Root element not recognized. Expected \"product\" Found \"$root\""
+    } else {
+      def serverInstanceTypes = root.'server-instance-type'
+      serverInstanceTypes.each { serverInstanceType ->
+        def sitId = serverInstanceType.@id
+        println "Found server instance type \"$sitId\""
+        instanceTypeMap[sitId] = serverInstanceType
+      }
+    }
+  }
+
+  println "__________________________________________"
+  println "__________________________________________"
+
+  // We will be using these server instance types below.
+  def myInstanceTypes = ["production"]
+
+  // Addons are important in the selection of data imports and repository loader actions.
+  def mySelectedAddons = ["dcs-csr", "storefront-full-setup"]
+  // These are the addons:
+  //id="clicktoconnect"
+  //id="cybersource"
+  //id="dcs-csr"
+  //id="externalPreviewServer"
+  //id="fulfillment"
+  //id="fulfillment_using_atg"
+  //id="indexByProduct"
+  //id="indexBySku"
+  //id="international"
+  //id="lock"
+  //id="merch"
+  //id="nonswitchingdatasource"
+  //id="preview"
+  //id="previewOnManagement"
+  //id="prodLock"
+  //id="pubLock"
+  //id="queryConsoleOnManagement"
+  //id="queryConsoleOnProduction"
+  //id="reporting"
+  //id="search"
+  //id="staging"
+  //id="storefront-basic-setup"
+  //id="storefront-full-setup"
+  //id="storefront_demo"
+  //id="storefront_no_publishing"
+  //id="switchingdatasource"
+
+
+  // Read dbinit.xml files for the modules.
+  glasir.modules.each { module ->
+    File cimDir = new File(module.dir as File, "cim")
+    if (cimDir.exists()) {
+      println "--------------------------"
+      File dbinit = new File(cimDir, "dbinit.xml")
+      if (dbinit.exists()) {
+        println "Module      : ${module}"
+        println "Install Unit: ${module.installUnit}"
+        println "dbinit.xml  : $dbinit"
+
+
+        def root = null
+        try {
+          // Using the constructor arguments "validating" and "namespaceAware" should work. Doesn't.
+          def parser = new groovy.util.XmlParser(false, false)
+          // Set these two features to skip dtd verification.
+          parser.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
+          parser.setFeature("http://xml.org/sax/features/namespaces", false)
+          root = parser.parse(dbinit) // root should be the "database-initializer" node.
+
+
+          if (root == null) {
+            println "Root element not recognized. Expected \"database-initializer\" Found \"$root\""
+          } else {
+            // This tag name is used in both dbinit.dtd and product.dtd but they are different tags.
+            def serverInstanceTypes = root.'server-instance-type'
+            serverInstanceTypes.each { serverInstanceType ->
+              if (myInstanceTypes.contains(serverInstanceType.@id)) {
+                println "Looking at server instance type \"${serverInstanceType.@id}\""
+
+                def dataSources = serverInstanceType.datasource
+                dataSources.each { datasource ->
+                  String datasourceId = datasource.@id
+                  println "  For data source $datasourceId"
+
+                  def requiredSchemas = datasource.schema
+                  requiredSchemas.each { requiredSchema ->
+                    def requiredSchemaId = requiredSchema.@id
+                    println "    Use schema ${requiredSchemaId}"
+
+                    def schema = root.schema.find { it.@id == requiredSchemaId }
+                    if (schema) {
+                      schema.children().each { child ->
+                        if (child.name() == "sql") {
+                          //<!ELEMENT sql (path+)>
+                          //<!ELEMENT path (requires-addon-id*,create,drop)>
+                          child.path.each { sqlPath ->
+
+                            def missing = false
+                            if( sqlPath.'requires-addon-id' ) {
+                              //println "      Create SQL: ${sqlPath.create.text()}"
+                              //println "      Drop SQL  : ${sqlPath.drop.text()}"
+                              //println "        ---==> Sql path requires addons '${sqlPath.'requires-addon-id'.collect {it.@id}}'"
+                              missing = sqlPath.'requires-addon-id'.any { !mySelectedAddons.contains(it.@id) }
+                            }//if repository loader requires specific addons
+
+                            if (!missing) {
+                              if( !sqlFiles.containsKey(datasourceId) ) {
+                                sqlFiles[datasourceId] = new ArrayList<String>()
+                              }
+                              def combinedPath = new File( module.dir as File, sqlPath.create.text() as String )
+                              sqlFiles[datasourceId].add( combinedPath.absolutePath )
+                            }//if !missing
+                          }
+                        }
+                        else if (child.name() == "data-import") {
+                          // DTD: <!ELEMENT data-import (requires-addon-id*,incompatible-addon-id*,repository-path,import-file-path,user?,workspace?,comment?)>
+                          def dataimport = child
+                          def repoPath = dataimport.'repository-path'.text()
+                          def filePath = dataimport.'import-file-path'.text() // Relative to the ATG root, presumably.                 
+
+                          String s = "DataImport: Repository:$repoPath Path:$filePath Module:${module.name}"
+                          //println "    ${datasourceId}  $s"
+                          //println "       (Module config path: ${module.manifest.atgConfigPath})"
+                          if (dataimport.'requires-addon-id') println "       ---==> Data Import requires addons '${dataimport.'requires-addon-id'.collect {it.@id}}'"
+                          if (dataimport.'incompatible-addon-id') println "       ---==> Data Import is incompatible with addons '${dataimport.'incompatible-addon-id'.collect {it.@id}}'"
+                          if (dataimport.user) println "       ---==> Data Import requires user '${dataimport.user.text()}'"
+                          if (dataimport.workspace) println "       ---==> Data Import requires workspace '${dataimport.workspace.text()}'"
+
+                          def missing = false
+                          def blocked = false
+                          if (dataimport.'requires-addon-id' || dataimport.'incompatible-addon-id') {
+                            missing = dataimport.'requires-addon-id'.any { !mySelectedAddons.contains(it.@id) }
+                            blocked = dataimport.'incompatible-addon-id'.any { mySelectedAddons.contains(it.@id) }
+                            //println "missing:$missing, blocked:$blocked"
+                          }
+
+                          if(!missing && !blocked) {
+                            if(!imports.containsKey( datasourceId ) ) {
+                              imports[datasourceId] = new ArrayList<String>()
+                            }
+                            imports [datasourceId].add(s)
+                          }
+                        }
+                        else if (child.name() == "repository-loader") {
+                          // DTD: <!ELEMENT repository-loader (requires-addon-id*,cleanup-src-module?,cleanup-file-path?,files+,file-mapping,folder-mapping)>
+                          // DTD: <!ELEMENT files (src-module,(config-path|file-path),file-pattern)>
+                          def repoloader = child
+                          List<String> files = new ArrayList<String>()
+                          repoloader.files.each {
+                            // GET src-module!
+                            def srcModuleName = it.'src-module'
+                            def srcModule = glasir.module(srcModuleName)
+                            println "src-module : $srcModuleName"
+                            println "resolved to: ${srcModule}"
+                            println "with config path: ${srcModule.manifest.atgConfigPath}"
+
+                            if (it.'config-path') {
+                              def configPath = it.'config-path'.text()
+                              println "  ==> Repository loader with config-path $configPath. Module ${module.name}. File ${dbinit}. Schema ${schemaNode.@id}"
+                              files.add("${it.'config-path'.text()}${System.properties['file.separator']}${it.'file-pattern'.text()}")
+                            }
+                            else if (it.'file-path') {
+                              def filePath = it.'file-path'.text()
+                              println "  ==> Repository loader with file-path $filePath. Module ${module.name}. File ${dbinit}. Schema ${schemaNode.@id}"
+                              files.add("${it.'file-path'.text()}${System.properties['file.separator']}${it.'file-pattern'.text()}")
+                            }
+                          }
+
+                          // Add the repoloader definition in the glasir.db format
+                          def missing = false
+                          String s = "RepoLoader:files=\"${files.join(" & ")}\" fileMapping=\"${repoloader.'file-mapping'.text()}\" folderMapping=\"${repoloader.'folder-mapping'.text()}\"\n"
+                          if (repoloader.'requires-addon-id') {
+                            println "        ---==> Repository loader requires addons '${repoloader.'requires-addon-id'.collect {it.@id}}'"
+                            missing = repoloader.'requires-addon-id'.any { !mySelectedAddons.contains(it.@id) }
+                          }//if repository loader requires specific addons
+                          if (!missing) {
+                            if (!imports.containsKey(datasourceId) ) {
+                              imports[datasourceId] = new ArrayList<String>()
+                            }
+                            imports [datasourceId].add(s)
+                          }//if !missing
+                        }
+                        else {
+                          println "ERROR! UNKNOWN SCHEMA CHILD NAME '${child.name()}'. EXPECTED sql, data-import or repository-loader."
+                        }
+
+                      } // schema.each
+                    } else {
+                      println "ERROR! MISSING SCHEMA '$requiredSchemaId' FOR DATASOURCE '${datasource.@id}' IN SERVER INSTANCE TYPE '${serverInstanceType.@id}' IN FILE '$dbinit'."
+                    }
+                  } // if data source has schemas
+                }//for each data source
+              } else {
+                //println "Ignoring server instance type \"${serverInstanceType.@id}\""
+              }
+            }//for each server instance type
+
+          }
+        }
+        catch (Throwable e) {
+          println "Failed to read file: \"$dbinit\". Message: $e"
+        }
+      } else {
+        println "(File not found: \"dbinit.xml\" for module \"${module.name}\")"
+      }
+    }//if directory cim exists
+  }//for each module
+
+  println "*******"
+  println "* SQL *"
+  println "*******"
+  sqlFiles.keySet().each { key ->
+    println "Datasource name: $key"
+    sqlFiles[key].each { statement ->
+      println statement
+    }
+  }
+
+  println "***********"
+  println "* IMPORTS *"
+  println "***********"
+  imports.keySet().each { key ->
+    println "Datasource name: $key"
+    imports[key].each { statement ->
+      println statement
+    }
+  }
 }
