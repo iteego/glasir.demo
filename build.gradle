@@ -109,11 +109,9 @@ task createGlasirDbData << {
   def fullModuleList = glasir.moduleMap[mainModuleName].fullBuildOrder
 
   Map<String, Object> instanceTypeMap = new HashMap<String, Object>()
+
   // Map datasource name to sql files.
   Map<String, List<String>> sqlFiles = new HashMap<String, List<String>>()
-
-  // Map datasource name to data-import and repository-loader statements.
-  Map<String, List<String>> imports = new HashMap<String, List<String>>()
 
   // It is not certain that we want to group imports by datasource, maybe it should just be a list.
   Map<String, List<ImportAndModule>> importNodes = new HashMap<String, List<ImportAndModule>>()
@@ -290,8 +288,6 @@ task createGlasirDbData << {
                           def startups = dataimport.@'start-up-module'
 
                           String s = "DataImport: Repository:$repoPath Path:$filePath Module:${startups} (defined in ${module.name})"
-                          //println "    ${datasourceId}  $s"
-                          //println "       (Module config path: ${module.manifest.atgConfigPath})"
                           if (dataimport.'requires-addon-id') println "       ---==> Data Import $filePath requires addons '${dataimport.'requires-addon-id'.collect {it.@id}}'"
                           if (dataimport.'incompatible-addon-id') println "       ---==> Data Import $filePath is incompatible with addons '${dataimport.'incompatible-addon-id'.collect {it.@id}}'"
                           if (dataimport.user) println "       ---==> Data Import $filePath requires user '${dataimport.user.text()}'"
@@ -302,15 +298,12 @@ task createGlasirDbData << {
                           if (dataimport.'requires-addon-id' || dataimport.'incompatible-addon-id') {
                             missing = dataimport.'requires-addon-id'.any { !mySelectedAddons.contains(it.@id) }
                             blocked = dataimport.'incompatible-addon-id'.any { mySelectedAddons.contains(it.@id) }
-                            //println "missing:$missing, blocked:$blocked"
                           }
 
                           if(!missing && !blocked) {
-                            if(!imports.containsKey( datasourceId ) ) {
-                              imports[datasourceId] = new ArrayList<String>()
+                            if(!importNodes.containsKey( datasourceId ) ) {
                               importNodes[datasourceId] = new ArrayList<ImportAndModule>()
                             }
-                            imports [datasourceId].add(s)
                             importNodes[datasourceId].add new ImportAndModule( node:dataimport, definingModule: module )
                           }
                         }
@@ -318,42 +311,15 @@ task createGlasirDbData << {
                           // DTD: <!ELEMENT repository-loader (requires-addon-id*,cleanup-src-module?,cleanup-file-path?,files+,file-mapping,folder-mapping)>
                           // DTD: <!ELEMENT files (src-module,(config-path|file-path),file-pattern)>
                           def repoloader = child
-                          List<String> files = new ArrayList<String>()
-                          repoloader.files.each {
-                            // GET src-module!
-                            def srcModuleName = it.'src-module'.text()
-                            def srcModule = glasir.module(srcModuleName)
-                            println "src-module : $srcModuleName"
-                            println "resolved to: ${srcModule}"
-                            println "with config path: ${srcModule.manifest.atgConfigPath}"
-
-                            if (it.'config-path') {
-                              def configPath = it.'config-path'.text()
-                              println "  ==> Repository loader with config-path $configPath. Module ${module.name}. File ${dbinit}. Schema ${requiredSchemaId}"
-                              files.add("${it.'config-path'.text()}${System.properties['file.separator']}${it.'file-pattern'.text()}")
-                            }
-                            else if (it.'file-path') {
-                              def filePath = it.'file-path'.text()
-                              println "  ==> Repository loader with file-path $filePath. Module ${module.name}. File ${dbinit}. Schema ${requiredSchemaId}"
-                              files.add("${it.'file-path'.text()}${System.properties['file.separator']}${it.'file-pattern'.text()}")
-                            }
-                          }
-
-                          // Add the repoloader definition in the glasir.db format
                           def missing = false
-                          // Todo: Add src-module to the definition below and modify glasir.db to read it!
-                          String s = "RepoLoader:files=\"${files.join(" & ")}\" fileMapping=\"${repoloader.'file-mapping'.text()}\" folderMapping=\"${repoloader.'folder-mapping'.text()}\"\n"
-                          println s
                           if (repoloader.'requires-addon-id') {
                             println "        ---==> Repository loader requires addons '${repoloader.'requires-addon-id'.collect {it.@id}}'"
                             missing = repoloader.'requires-addon-id'.any { !mySelectedAddons.contains(it.@id) }
                           }//if repository loader requires specific addons
                           if( !missing ) {
-                            if( !imports.containsKey(datasourceId) ) {
-                              imports[ datasourceId ] = new ArrayList<String>()
+                            if( !importNodes.containsKey(datasourceId) ) {
                               importNodes[ datasourceId ] = new ArrayList<ImportAndModule>()
                             }
-                            imports[ datasourceId ].add(s)
                             importNodes[ datasourceId ].add new ImportAndModule( node:repoloader, definingModule: module )
                           }//if !missing
                         }
@@ -392,21 +358,12 @@ task createGlasirDbData << {
       println statement
     }
   }
-              /*
-  println "***********"
-  println "* IMPORTS *"
-  println "***********"
-  imports.keySet().each { key ->
-    println "Datasource name: $key"
-    imports[key].each { statement ->
-      println statement
-    }
-  }      */
+
 
   // Get data files from jar files or directories, copy them to specific places, create the imports.txt file.
   List<String> importCommands = new ArrayList<String>()
   importNodes.keySet().each { key ->
-    println "Datasource name: $key"
+    println "\nDatasource name: $key"
 
     importNodes[key].each { entry ->
       if( entry.node.name() == "data-import" ) {
@@ -508,7 +465,6 @@ task createGlasirDbData << {
         }
 
         // Add the repoloader definition in the glasir.db format
-        def missing = false
         String command = "RepoLoader:files=\"${files.join(" & ")}\" fileMapping=\"${repoloader.'file-mapping'.text()}\" folderMapping=\"${repoloader.'folder-mapping'.text()}\""
         importCommands.add command
       }
@@ -518,5 +474,5 @@ task createGlasirDbData << {
 
   File commandFile = new File( outputMainDirectory, "imports.txt" )
   commandFile.text = importCommands.join( System.properties["line.separator"] as String )
-  println "FILE:\n${commandFile.text}"
+  println "IMPORT FILE: $commandFile"
 }
