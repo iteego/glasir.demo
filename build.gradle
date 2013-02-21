@@ -108,6 +108,7 @@ task createGlasirDbData << {
 
   def fullModuleList = glasir.moduleMap[mainModuleName].fullBuildOrder
 
+  Map<String, Node> namedDatasourceMap = new HashMap<String,Node>()
   Map<String, Object> instanceTypeMap = new HashMap<String, Object>()
 
   // Map datasource name to sql files.
@@ -132,14 +133,18 @@ task createGlasirDbData << {
     parser.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
     parser.setFeature("http://xml.org/sax/features/namespaces", false)
     def root = parser.parse(productxml) // root should be the "database-initializer" node.
-    if (root == null) {
-      println "Root element not recognized. Expected \"product\" Found \"$root\""
+    if (root?.name() != "product" ) {
+      println "Root element not recognized. Expected \"product\" Found \"${root.name()}\""
     } else {
       def serverInstanceTypes = root.'server-instance-type'
       serverInstanceTypes.each { serverInstanceType ->
         def sitId = serverInstanceType.@id
         println "Found server instance type \"$sitId\""
         instanceTypeMap[sitId] = serverInstanceType
+      }
+
+      root.'named-datasource'.each { nds ->
+        namedDatasourceMap[ nds.@id ] = nds
       }
     }
   }
@@ -348,6 +353,10 @@ task createGlasirDbData << {
       }
     }//if directory cim exists
   }//for each module
+
+  println ""
+  println "Named JNDI data sources:\n ${namedDatasourceMap.collect{ "${it.key} -> ${it.value.jndi.text()}" }.join("\n ") }"
+  println ""
 
   println "*******"
   println "* SQL *"
