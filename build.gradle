@@ -509,11 +509,7 @@ task createGlasirDbData << {
 
         // Add the repoloader definition in the glasir.db format
         def missing = false
-        // Todo: Add src-module to the definition below and modify glasir.db to read it!
-        String s = "RepoLoader:files=\"${files.join(" & ")}\" fileMapping=\"${repoloader.'file-mapping'.text()}\" folderMapping=\"${repoloader.'folder-mapping'.text()}\"\n"
-        //println s
-
-        String command = "RepoLoader:files=\"${files.join(" & ")}\" fileMapping=\"${repoloader.'file-mapping'.text()}\" folderMapping=\"${repoloader.'folder-mapping'.text()}\"\n"
+        String command = "RepoLoader:files=\"${files.join(" & ")}\" fileMapping=\"${repoloader.'file-mapping'.text()}\" folderMapping=\"${repoloader.'folder-mapping'.text()}\""
         importCommands.add command
       }
 
