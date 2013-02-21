@@ -477,7 +477,7 @@ task createGlasirDbData << {
             File config = new File( srcModule.dir as File, srcModule.manifest.atgConfigPath as String )
             if( config.isFile() ) {
               if( config.name.toLowerCase().endsWith(".jar") ) {
-                println " copy from zipTree '$config', include '$configPath/$filePattern', into '$moduleToDir'"
+                //println " copy from zipTree '$config', include '$configPath/$filePattern', into '$moduleToDir'"
                 copy {
                   from zipTree( config )
                   include( "$configPath/$filePattern" )
