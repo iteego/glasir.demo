@@ -89,7 +89,20 @@ task wrapper(type: Wrapper) {
   jarFile = 'config/gradle/wrapper/gradle-wrapper.jar'
 }
 
+class ImportAndModule {
+  /**
+   * The XML node.
+   */
+  groovy.util.Node node
+
+  /**
+   * The module in where the dbinit.xml file is (the file that defines the imports). We need this to resolve paths.
+   */
+  com.iteego.glasir.build.api.AtgModule definingModule
+}
+
 task createGlasirDbData << {
+
   String mainModuleName = 'env.Main.store.dev.oracle'
   mainModuleName = 'env.Main.admin.dev.oracle'
 
@@ -98,8 +111,15 @@ task createGlasirDbData << {
   Map<String, Object> instanceTypeMap = new HashMap<String, Object>()
   // Map datasource name to sql files.
   Map<String, List<String>> sqlFiles = new HashMap<String, List<String>>()
+
   // Map datasource name to data-import and repository-loader statements.
   Map<String, List<String>> imports = new HashMap<String, List<String>>()
+
+  // It is not certain that we want to group imports by datasource, maybe it should just be a list.
+  Map<String, List<ImportAndModule>> importNodes = new HashMap<String, List<ImportAndModule>>()
+
+
+
   println "Install Units: ${glasir.installUnits}"
   println "Top level module list: " + glasir.modules.collect({it.name}).join(",") + "\n"
 
@@ -130,7 +150,10 @@ task createGlasirDbData << {
   println "__________________________________________"
 
   // We will be using these server instance types below.
-  def myInstanceTypes = ["management"/*, "production"*/]
+  def myInstanceTypes = [
+    "management"
+    //"production"
+  ]
 
   // Addons are important in the selection of data imports and repository loader actions.
   def mySelectedAddons = [
@@ -171,6 +194,22 @@ task createGlasirDbData << {
   //id="storefront_demo"
   //id="storefront_no_publishing"
   //id="switchingdatasource"
+
+  /**
+   * This is where we put the resulting files that glasir.db will later consume.
+   */
+  File outputMainDirectory = new File( "./importRootDir-$mainModuleName-${myInstanceTypes.join("_")}")
+
+  /**
+   * Where .sql files go after they have been transformed into XML.
+   */
+  File outputDbDirectory = new File( outputMainDirectory, "db" )
+
+  /**
+   * Where .sdl and .properties and .xml files go for data-import and repository-loader.
+   */
+  File outputImportDirectory = new File( outputMainDirectory, "import" )
+
 
 
   // Read dbinit.xml files for the modules.
@@ -247,9 +286,10 @@ task createGlasirDbData << {
                           // DTD: <!ELEMENT data-import (requires-addon-id*,incompatible-addon-id*,repository-path,import-file-path,user?,workspace?,comment?)>
                           def dataimport = child
                           def repoPath = dataimport.'repository-path'.text()
-                          def filePath = dataimport.'import-file-path'.text() // Relative to the ATG root, presumably.                 
+                          def filePath = dataimport.'import-file-path'.text() // Relative to the ATG root, presumably.
+                          def startups = dataimport.@'start-up-module'
 
-                          String s = "DataImport: Repository:$repoPath Path:$filePath Module:${module.name}"
+                          String s = "DataImport: Repository:$repoPath Path:$filePath Module:${startups} (defined in ${module.name})"
                           //println "    ${datasourceId}  $s"
                           //println "       (Module config path: ${module.manifest.atgConfigPath})"
                           if (dataimport.'requires-addon-id') println "       ---==> Data Import $filePath requires addons '${dataimport.'requires-addon-id'.collect {it.@id}}'"
@@ -268,8 +308,10 @@ task createGlasirDbData << {
                           if(!missing && !blocked) {
                             if(!imports.containsKey( datasourceId ) ) {
                               imports[datasourceId] = new ArrayList<String>()
+                              importNodes[datasourceId] = new ArrayList<ImportAndModule>()
                             }
                             imports [datasourceId].add(s)
+                            importNodes[datasourceId].add new ImportAndModule( node:dataimport, definingModule: module )
                           }
                         }
                         else if (child.name() == "repository-loader") {
@@ -306,11 +348,13 @@ task createGlasirDbData << {
                             println "        ---==> Repository loader requires addons '${repoloader.'requires-addon-id'.collect {it.@id}}'"
                             missing = repoloader.'requires-addon-id'.any { !mySelectedAddons.contains(it.@id) }
                           }//if repository loader requires specific addons
-                          if (!missing) {
-                            if (!imports.containsKey(datasourceId) ) {
-                              imports[datasourceId] = new ArrayList<String>()
+                          if( !missing ) {
+                            if( !imports.containsKey(datasourceId) ) {
+                              imports[ datasourceId ] = new ArrayList<String>()
+                              importNodes[ datasourceId ] = new ArrayList<ImportAndModule>()
                             }
-                            imports [datasourceId].add(s)
+                            imports[ datasourceId ].add(s)
+                            importNodes[ datasourceId ].add new ImportAndModule( node:repoloader, definingModule: module )
                           }//if !missing
                         }
                         else {
@@ -348,7 +392,7 @@ task createGlasirDbData << {
       println statement
     }
   }
-
+              /*
   println "***********"
   println "* IMPORTS *"
   println "***********"
@@ -357,5 +401,126 @@ task createGlasirDbData << {
     imports[key].each { statement ->
       println statement
     }
+  }      */
+
+  // Get data files from jar files or directories, copy them to specific places, create the imports.txt file.
+  List<String> importCommands = new ArrayList<String>()
+  importNodes.keySet().each { key ->
+    println "Datasource name: $key"
+
+    importNodes[key].each { entry ->
+      if( entry.node.name() == "data-import" ) {
+        String repoPath = entry.node.'repository-path'.text()
+        String filePath = entry.node.'import-file-path'.text() // Relative to the ATG root, presumably.
+        String startups = entry.node.@'start-up-module'
+        startups = startups?.replaceAll( " ", "" )
+        if( !startups ) {
+          startups = entry.definingModule.name
+          println "WARNING: data-import: start-up-module is empty, using defining module name: '$startups'. Import-file-path='$filePath'. Repository-path='$repoPath'."
+        }
+
+        File fromPath = new File( filePath )
+        File baseDir = glasir.model.atgRootDir
+        File fromFile = new File( baseDir, filePath )
+        File toDir = new File( outputImportDirectory, fromPath.parent )
+        File toFile = new File( outputImportDirectory, fromPath.toString() )
+        if( !fromFile.exists() ) {
+          println "ERROR: data-import: file not found: '$fromFile'"
+        }
+        //println "DEBUG: data-import: copy from '$fromFile' to '$toFile'."
+        if( !toDir.exists() ) {
+          def mkdirs = toDir.mkdirs()
+          if( !mkdirs ) {
+            println "ERROR: data-import: mkdirs() failed for path '$toDir'."
+            throw new Exception("FAIL: mkdirs $toDir")
+          }
+        }
+        if( toFile.exists() ) {
+          def rmFile = toFile.delete()
+          if( !rmFile ) {
+            println "ERROR: data-import: delete failed for file '$toFile'."
+          }
+        }
+
+        // Copy
+        // Todo: Copy file in a way that can not cause out-of-memory exceptions in the JVM.
+        toFile << fromFile.bytes
+
+        // Add the command to the import list.
+        String command = "DataImport: Repository:$repoPath Path:$filePath Module:${startups}"
+        importCommands.add command
+
+      } else if( entry.node.name() == "repository-loader" ) {
+
+        def repoloader = entry.node
+        List<String> files = new ArrayList<String>()
+        repoloader.files.each { repoFile ->
+          String srcModuleName = repoFile.'src-module'.text()
+          def srcModule = glasir.module( srcModuleName )
+          String filePattern = repoFile.'file-pattern'.text()
+//          println "src-module : $srcModuleName"
+//          println "resolved to: $srcModule"
+//          println "with config path: ${srcModule.manifest.atgConfigPath}"
+
+          // Create <outputDirectory>/import/$moduleName/
+          File moduleToDir = new File( outputImportDirectory, srcModuleName )
+          File fileToDir = null
+          File fromFile = null
+
+          if (repoFile.'config-path') {
+            String configPath = repoFile.'config-path'.text()
+
+            // Create <outputDirectory>/import/$moduleName/$configPath/
+            //fileToDir = new File( moduleToDir, configPath )
+
+            // Get the file (it can be in a jar file)
+            File config = new File( srcModule.dir as File, srcModule.manifest.atgConfigPath as String )
+            if( config.isFile() ) {
+              if( config.name.toLowerCase().endsWith(".jar") ) {
+                println " copy from zipTree '$config', include '$configPath/$filePattern', into '$moduleToDir'"
+                copy {
+                  from zipTree( config )
+                  include( "$configPath/$filePattern" )
+                  into moduleToDir
+                }
+              } else {
+                println "ERROR: THE CONFIG-PATH FOR MODULE $srcModuleName IS A FILE BUT NOT A JAR."
+              }
+            } else {
+              println " copy from fileTree '$config', include '$configPath/$filePattern', into '$moduleToDir'"
+              copy {
+                from fileTree( config )
+                include( "$configPath/$filePattern" )
+                into moduleToDir
+              }
+            }
+
+            //println "  ==> Repository loader with config-path $configPath. Module ${module.name}. File ${dbinit}. Schema ${requiredSchemaId}"
+            def fs = "${System.properties['file.separator']}"
+            files.add("$srcModuleName$fs$configPath$fs$filePattern")
+          }
+          else if (repoFile.'file-path') {
+            def filePath = repoFile.'file-path'.text()
+            println "  ==> Repository loader with file-path $filePath. Module ${module.name}. File ${dbinit}. Schema ${requiredSchemaId}"
+            files.add("${repoFile.'file-path'.text()}${System.properties['file.separator']}${repoFile.'file-pattern'.text()}")
+          }
+
+        }
+
+        // Add the repoloader definition in the glasir.db format
+        def missing = false
+        // Todo: Add src-module to the definition below and modify glasir.db to read it!
+        String s = "RepoLoader:files=\"${files.join(" & ")}\" fileMapping=\"${repoloader.'file-mapping'.text()}\" folderMapping=\"${repoloader.'folder-mapping'.text()}\"\n"
+        //println s
+
+        String command = "RepoLoader:files=\"${files.join(" & ")}\" fileMapping=\"${repoloader.'file-mapping'.text()}\" folderMapping=\"${repoloader.'folder-mapping'.text()}\"\n"
+        importCommands.add command
+      }
+
+    }
   }
+
+  File commandFile = new File( outputMainDirectory, "imports.txt" )
+  commandFile.text = importCommands.join( System.properties["line.separator"] as String )
+  println "FILE:\n${commandFile.text}"
 }
