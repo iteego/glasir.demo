@@ -134,13 +134,24 @@ task createGlasirDbData << {
     parser.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
     parser.setFeature("http://xml.org/sax/features/namespaces", false)
     def root = parser.parse(productxml) // root should be the "database-initializer" node.
+
     if (root?.name() != "product" ) {
       println "Root element not recognized. Expected \"product\" Found \"${root.name()}\""
     } else {
+      def productId = root.@id
+      def requiredAddonsForThisProduct = root.'requires-addon-id'
+      def requiredProductsForThisProduct = root.'product-id-required'
+      def addons = root.'product-addon-group'
+
+      println "Product \"$productId\" "
+      if( requiredProductsForThisProduct ) println " required products: " + requiredProductsForThisProduct.collect{it.@id}.join(", ")
+      if( requiredAddonsForThisProduct ) println " required addons  : " + requiredAddonsForThisProduct.collect{it.@id}.join(", ")
+
       def serverInstanceTypes = root.'server-instance-type'
+      if( serverInstanceTypes ) println " instance types   : " + serverInstanceTypes.collect{it.@id}.join(", ")
       serverInstanceTypes.each { serverInstanceType ->
         def sitId = serverInstanceType.@id
-        println "Found server instance type \"$sitId\""
+        //println "  Server instance type \"$sitId\""
         instanceTypeMap[sitId] = serverInstanceType
       }
 
@@ -215,6 +226,8 @@ task createGlasirDbData << {
   File outputImportDirectory = new File( outputMainDirectory, "import" )
 
 
+  println "Selected addons: ${mySelectedAddons.join(", ")}"
+  println "Selected instance types: ${myInstanceTypes.join(", ")}"
 
   // Read dbinit.xml files for the modules.
   //glasir.modules.each { module ->
@@ -246,17 +259,17 @@ task createGlasirDbData << {
             def serverInstanceTypes = root.'server-instance-type'
             serverInstanceTypes.each { serverInstanceType ->
               if (myInstanceTypes.contains(serverInstanceType.@id)) {
-                println "Looking at server instance type \"${serverInstanceType.@id}\""
+                //println "Looking at server instance type \"${serverInstanceType.@id}\""
 
                 def dataSources = serverInstanceType.datasource
                 dataSources.each { datasource ->
                   String datasourceId = datasource.@id
-                  println "  For data source $datasourceId"
+                  //println "  For data source $datasourceId"
 
                   def requiredSchemas = datasource.schema
                   requiredSchemas.each { requiredSchema ->
                     def requiredSchemaId = requiredSchema.@id
-                    println "    Use schema ${requiredSchemaId}"
+                    //println "    Use schema ${requiredSchemaId}"
 
                     def schema = root.schema.find { it.@id == requiredSchemaId }
                     if (schema) {
@@ -363,7 +376,8 @@ task createGlasirDbData << {
   println "* SQL *"
   println "*******"
   sqlFiles.keySet().each { key ->
-    println "Datasource name: $key"
+    def jndi = namedDatasourceMap[key]?.jndi?.text()
+    println "Datasource name: $key (JNDI \"$jndi\")"
     sqlFiles[key].each { statement ->
       println statement
     }
@@ -484,5 +498,7 @@ task createGlasirDbData << {
 
   File commandFile = new File( outputMainDirectory, "imports.txt" )
   commandFile.text = importCommands.join( System.properties["line.separator"] as String )
+  println "---------------------------------------------------------------------"
   println "IMPORT FILE: $commandFile"
+  println "---------------------------------------------------------------------"
 }
