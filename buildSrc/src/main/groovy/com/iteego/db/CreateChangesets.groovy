@@ -379,7 +379,9 @@ public class CreateChangesets extends DefaultTask
 
           // Add the command to the import list.
           String command = "DataImport: Repository:$repoPath Path:$filePath Module:${startups}"
-          importCommands.add command
+          if( !importCommands.contains( command ) ) {
+            importCommands.add command
+          }
 
         } else if( entry.node.name() == "repository-loader" ) {
 
