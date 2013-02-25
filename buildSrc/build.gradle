@@ -1,0 +1,12 @@
+  repositories {
+    maven {
+      credentials.username artifactoryReader
+      credentials.password artifactoryReaderPwd
+      url "$artifactoryReaderUrl/glasir"
+    }
+  }
+
+  dependencies {
+    compile "com.iteego.glasir:glasir.build:1.2.14-SNAPSHOT"
+  }
+

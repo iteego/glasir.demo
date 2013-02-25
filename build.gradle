@@ -49,7 +49,7 @@ apply from: "config/gradle/include/assembly-tasks.gradle"
 apply from: "config/gradle/include/artifactory.gradle"
 apply from: "config/gradle/include/jboss-tasks.gradle"
 apply from: "config/gradle/include/rules.gradle"
-apply from: "config/gradle/include/oracle-to-h2.gradle"
+//apply from: "config/gradle/include/oracle-to-h2.gradle"
 
 //apply from: "config/gradle/include/help.gradle"
 
@@ -92,8 +92,12 @@ task wrapper(type: Wrapper) {
   jarFile = 'config/gradle/wrapper/gradle-wrapper.jar'
 }
 
-task olle(type:CreateChangesets) {
+task createManagementChangesets(type:CreateChangesets) {
   mainModuleName = "env.Main.admin.dev.oracle"
   instanceType = "management"
-  //instanceType = "production"
+}
+
+task createProductionChangesets(type:CreateChangesets) {
+  mainModuleName = "env.Main.store.dev.oracle"
+  instanceType = "production"
 }
