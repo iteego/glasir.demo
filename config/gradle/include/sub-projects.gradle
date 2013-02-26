@@ -133,6 +133,7 @@ subprojects {
   if (!project.isBuildProject) return
 
   apply plugin: 'glasir.build'
+  glasir.useGroovyInCompileClasspath = true
 
   group = glasir.projectGroup
 
