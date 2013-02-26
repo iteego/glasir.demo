@@ -41,6 +41,7 @@ public class CreateChangesets extends DefaultTask
 
     // It is not certain that we want to group imports by datasource, maybe it should just be a list.
     Map<String, List<ImportAndModule>> importNodes = new HashMap<String, List<ImportAndModule>>()
+    List<ImportAndModule> flatImportNodes = new ArrayList<ImportAndModule>()
 
 
 
@@ -194,55 +195,63 @@ public class CreateChangesets extends DefaultTask
               def serverInstanceTypes = root.'server-instance-type'
               serverInstanceTypes.each { serverInstanceType ->
                 if (myInstanceTypes.contains(serverInstanceType.@id)) {
-                  //println "Looking at server instance type \"${serverInstanceType.@id}\""
+                  println "Looking at server instance type \"${serverInstanceType.@id}\""
 
                   def dataSources = serverInstanceType.datasource
                   dataSources.each { datasource ->
                     String datasourceId = datasource.@id
-                    //println "  For data source $datasourceId"
+                    println "  For data source $datasourceId"
+                    if( datasourceId == "nonswitchingCore" ) {
+                      println "#########################################################"
+                      println " Skip data source id nonswitchingCore even though it is required"
+                      println "#########################################################"
+                    } else {
+                      def requiredSchemas = datasource.schema
+                      requiredSchemas.each { requiredSchema ->
+                        def requiredSchemaId = requiredSchema.@id
+                        println "    Use schema ${requiredSchemaId}"
 
-                    def requiredSchemas = datasource.schema
-                    requiredSchemas.each { requiredSchema ->
-                      def requiredSchemaId = requiredSchema.@id
-                      //println "    Use schema ${requiredSchemaId}"
+                        def schema = root.schema.find { it.@id == requiredSchemaId }
+                        if (schema) {
+                          schema.children().each { child ->
+                            if (child.name() == "sql") {
+                              //<!ELEMENT sql (path+)>
+                              //<!ELEMENT path (requires-addon-id*,create,drop)>
+                              scanSqlElement( selectedAddons, namedDatasourceMap, module, child, sqlFiles, datasourceId, dbinit)
+                            }
+                            else if (child.name() == "data-import") {
+                              // DTD: <!ELEMENT data-import (requires-addon-id*,incompatible-addon-id*,repository-path,import-file-path,user?,workspace?,comment?)>
+                              scanDataImportElement( selectedAddons, module, child, importNodes, flatImportNodes, datasourceId, dbinit )
+                            }
+                            else if (child.name() == "repository-loader") {
+                              // DTD: <!ELEMENT repository-loader (requires-addon-id*,cleanup-src-module?,cleanup-file-path?,files+,file-mapping,folder-mapping)>
+                              // DTD: <!ELEMENT files (src-module,(config-path|file-path),file-pattern)>
+                              def repoloader = child
+                              def missing = false
+                              if (repoloader.'requires-addon-id') {
+                                println "        ---==> Repository loader requires addons '${repoloader.'requires-addon-id'.collect {it.@id}}'"
+                                missing = repoloader.'requires-addon-id'.any { !selectedAddons.contains(it.@id) }
+                              }//if repository loader requires specific addons
+                              if( !missing ) {
+                                if( !importNodes.containsKey(datasourceId) ) {
+                                  importNodes[ datasourceId ] = new ArrayList<ImportAndModule>()
+                                }
+                                importNodes[ datasourceId ].add new ImportAndModule( node:repoloader, definingModule: module )
 
-                      def schema = root.schema.find { it.@id == requiredSchemaId }
-                      if (schema) {
-                        schema.children().each { child ->
-                          if (child.name() == "sql") {
-                            //<!ELEMENT sql (path+)>
-                            //<!ELEMENT path (requires-addon-id*,create,drop)>
-                            scanSqlElement( selectedAddons, namedDatasourceMap, module, child, sqlFiles, datasourceId, dbinit)
-                          }
-                          else if (child.name() == "data-import") {
-                            // DTD: <!ELEMENT data-import (requires-addon-id*,incompatible-addon-id*,repository-path,import-file-path,user?,workspace?,comment?)>
-                            scanDataImportElement( selectedAddons, module, child, importNodes, datasourceId, dbinit )
-                          }
-                          else if (child.name() == "repository-loader") {
-                            // DTD: <!ELEMENT repository-loader (requires-addon-id*,cleanup-src-module?,cleanup-file-path?,files+,file-mapping,folder-mapping)>
-                            // DTD: <!ELEMENT files (src-module,(config-path|file-path),file-pattern)>
-                            def repoloader = child
-                            def missing = false
-                            if (repoloader.'requires-addon-id') {
-                              println "        ---==> Repository loader requires addons '${repoloader.'requires-addon-id'.collect {it.@id}}'"
-                              missing = repoloader.'requires-addon-id'.any { !selectedAddons.contains(it.@id) }
-                            }//if repository loader requires specific addons
-                            if( !missing ) {
-                              if( !importNodes.containsKey(datasourceId) ) {
-                                importNodes[ datasourceId ] = new ArrayList<ImportAndModule>()
-                              }
-                              importNodes[ datasourceId ].add new ImportAndModule( node:repoloader, definingModule: module )
-                            }//if !missing
-                          }
-                          else {
-                            println "ERROR! UNKNOWN SCHEMA CHILD NAME '${child.name()}'. EXPECTED sql, data-import or repository-loader."
-                          }
+                                // todo: check for duplicates before inserting
+                                flatImportNodes.add( new ImportAndModule( node:repoloader, definingModule: module ) )
+                              }//if !missing
+                            }
+                            else {
+                              println "ERROR! UNKNOWN SCHEMA CHILD NAME '${child.name()}'. EXPECTED sql, data-import or repository-loader."
+                            }
 
-                        } // schema.each
-                      } else {
-                        println "ERROR! MISSING SCHEMA '$requiredSchemaId' FOR DATASOURCE '${datasource.@id}' IN SERVER INSTANCE TYPE '${serverInstanceType.@id}' IN FILE '$dbinit'."
-                      }
-                    } // if data source has schemas
+                          } // schema.each
+                        } else {
+                          println "ERROR! MISSING SCHEMA '$requiredSchemaId' FOR DATASOURCE '${datasource.@id}' IN SERVER INSTANCE TYPE '${serverInstanceType.@id}' IN FILE '$dbinit'."
+                        }
+                      } // if data source has schemas
+                    }
                   }//for each data source
                 } else {
                   println "Ignoring server instance type \"${serverInstanceType.@id}\""
@@ -287,7 +296,7 @@ public class CreateChangesets extends DefaultTask
           throw new Exception("Only 'oracle' is supported as source database type at this time.")
         }
         createChangeSetFromSql( DBTYPE_ORACLE, DBTYPE_H2, actualFromFile, toFile, toFileName, "glasir", "all" )
-        println "$toFileName <- ${actualFromFile.toString()}"
+        //println "$toFileName <- ${actualFromFile.toString()}"
       }
     }
 
@@ -298,10 +307,12 @@ public class CreateChangesets extends DefaultTask
     importCommands.add( "Top level module list: $mainModuleName" )
     importCommands.add( "" )
 
-    importNodes.keySet().each { key ->
-      println "\nDatasource name: $key"
+    //importNodes.keySet().each { key ->
+      //println "\nDatasource name: $key"
 
-      importNodes[key].each { entry ->
+      //importNodes[key].each { entry ->
+    println "flat: " + flatImportNodes
+      flatImportNodes.each { entry ->
         if( entry.node.name() == "data-import" ) {
           String repoPath = entry.node.'repository-path'.text()
           String filePath = entry.node.'import-file-path'.text() // Relative to the ATG root, presumably.
@@ -408,7 +419,7 @@ public class CreateChangesets extends DefaultTask
         }
 
       }
-    }
+    //}
 
     File commandFile = new File( outputImportDirectory, "imports.txt" )
     logger.info "Creating import definition file: '$commandFile'."
@@ -419,16 +430,16 @@ public class CreateChangesets extends DefaultTask
   }
 
 
-  protected void scanDataImportElement( List<String> selectedAddons, com.iteego.glasir.build.api.AtgModule module, Node dataimport, Map<String, List<ImportAndModule>> importNodes, String datasourceId, File dbinit ) {
+  protected void scanDataImportElement( List<String> selectedAddons, com.iteego.glasir.build.api.AtgModule module, Node dataimport, Map<String, List<ImportAndModule>> importNodes, List<ImportAndModule> flatImportNodes, String datasourceId, File dbinit ) {
     def repoPath = dataimport.'repository-path'.text()
     def filePath = dataimport.'import-file-path'.text() // Relative to the ATG root, presumably.
     def startups = dataimport.@'start-up-module'
 
     String s = "DataImport: Repository:$repoPath Path:$filePath Module:${startups} (defined in ${module.name})"
-    if (dataimport.'requires-addon-id') println "       ---==> Data Import $filePath requires addons '${dataimport.'requires-addon-id'.collect {it.@id}}'"
-    if (dataimport.'incompatible-addon-id') println "       ---==> Data Import $filePath is incompatible with addons '${dataimport.'incompatible-addon-id'.collect {it.@id}}'"
-    if (dataimport.user) println "       ---==> Data Import $filePath requires user '${dataimport.user.text()}'"
-    if (dataimport.workspace) println "       ---==> Data Import $filePath requires workspace '${dataimport.workspace.text()}'"
+//    if (dataimport.'requires-addon-id') println "       ---==> Data Import $filePath requires addons '${dataimport.'requires-addon-id'.collect {it.@id}}'"
+//    if (dataimport.'incompatible-addon-id') println "       ---==> Data Import $filePath is incompatible with addons '${dataimport.'incompatible-addon-id'.collect {it.@id}}'"
+//    if (dataimport.user) println "       ---==> Data Import $filePath requires user '${dataimport.user.text()}'"
+//    if (dataimport.workspace) println "       ---==> Data Import $filePath requires workspace '${dataimport.workspace.text()}'"
 
     def missing = false
     def blocked = false
@@ -441,7 +452,16 @@ public class CreateChangesets extends DefaultTask
       if(!importNodes.containsKey( datasourceId ) ) {
         importNodes[datasourceId] = new ArrayList<ImportAndModule>()
       }
+
       importNodes[datasourceId].add new ImportAndModule( node:dataimport, definingModule: module )
+
+      def x = flatImportNodes.count { (it.definingModule.dir == module.dir) && (it.node.'import-file-path'.text() == dataimport.'import-file-path'.text()) }
+      if( x == 0 ) {
+        flatImportNodes.add( new ImportAndModule( node:dataimport, definingModule: module ) )
+      } else {
+        println "************* duplicate!"
+      }
+      println ":::: data import : module.dir=${module.dir}, node=${dataimport.'import-file-path'.text()}"
     }
   }
 
@@ -450,9 +470,9 @@ public class CreateChangesets extends DefaultTask
     child.path.each { sqlPath ->
       def missing = false
       if (sqlPath.'requires-addon-id') {
-        logger.debug "      Create SQL: ${sqlPath.create.text()}"
-        logger.debug "      Drop SQL  : ${sqlPath.drop.text()}"
-        logger.info "        ---==> Sql path '${sqlPath.create.text()}' requires addons '${sqlPath.'requires-addon-id'.collect {it.@id}}'"
+//        logger.debug "      Create SQL: ${sqlPath.create.text()}"
+//        logger.debug "      Drop SQL  : ${sqlPath.drop.text()}"
+//        logger.info "        ---==> Sql path '${sqlPath.create.text()}' requires addons '${sqlPath.'requires-addon-id'.collect {it.@id}}'"
         missing = sqlPath.'requires-addon-id'.any { !selectedAddons.contains(it.@id) }
       }//if repository loader requires specific addons
 
@@ -463,7 +483,7 @@ public class CreateChangesets extends DefaultTask
             sqlFiles[jndiName] = new ArrayList<String>()
           }
           def combinedPath = new File(module.dir as File, sqlPath.create.text() as String)
-          println "  SQL: $combinedPath"
+//          println "  SQL: $combinedPath"
           if (!sqlFiles[jndiName].contains(combinedPath.absolutePath)) {
             sqlFiles[jndiName].add(combinedPath.absolutePath)
           }
