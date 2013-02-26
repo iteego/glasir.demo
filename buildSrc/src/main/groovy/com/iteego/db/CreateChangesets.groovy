@@ -90,9 +90,9 @@ public class CreateChangesets extends DefaultTask
     println ""
 
 
-    def myFromDbType = "oracle" // Used when selecting ddl files for the sql import.
-    def myToDbType = "mySql"
-    println "From DB type '$myFromDbType' to '$myToDbType'."
+    def fromDbType = "oracle" // Used when selecting ddl files for the sql import.
+    def toDbType = "h2"
+    println "From DB type '$fromDbType' to '$toDbType'."
 
 
     // We will be using these server instance types below.
@@ -212,61 +212,11 @@ public class CreateChangesets extends DefaultTask
                           if (child.name() == "sql") {
                             //<!ELEMENT sql (path+)>
                             //<!ELEMENT path (requires-addon-id*,create,drop)>
-                            child.path.each { sqlPath ->
-                              if(sqlPath.create.text().contains("logical_org_ddl.sql")) {
-                                println "$child"
-                              }
-
-                              def missing = false
-                              if( sqlPath.'requires-addon-id' ) {
-                                //println "      Create SQL: ${sqlPath.create.text()}"
-                                //println "      Drop SQL  : ${sqlPath.drop.text()}"
-                                println "        ---==> Sql path '${sqlPath.create.text()}' requires addons '${sqlPath.'requires-addon-id'.collect {it.@id}}'"
-                                missing = sqlPath.'requires-addon-id'.any { !selectedAddons.contains(it.@id) }
-                              }//if repository loader requires specific addons
-
-                              if (!missing) {
-                                def jndiName = namedDatasourceMap[datasourceId]?.jndi?.text()
-                                if( jndiName ) {
-                                  if( !sqlFiles.containsKey(jndiName) ) {
-                                    sqlFiles[jndiName] = new ArrayList<String>()
-                                  }
-                                  def combinedPath = new File( module.dir as File, sqlPath.create.text() as String )
-                                  if( !sqlFiles[jndiName].contains( combinedPath.absolutePath ) ) {
-                                    sqlFiles[jndiName].add( combinedPath.absolutePath )
-                                  }
-                                } else {
-                                  println("WARNING: Found use of undefined datasource name: '$datasourceId' in file '$dbinit'.")
-                                }
-                              }//if not missing any required addons
-                            }
+                            scanSqlElement( selectedAddons, namedDatasourceMap, module, child, sqlFiles, datasourceId, dbinit)
                           }
                           else if (child.name() == "data-import") {
                             // DTD: <!ELEMENT data-import (requires-addon-id*,incompatible-addon-id*,repository-path,import-file-path,user?,workspace?,comment?)>
-                            def dataimport = child
-                            def repoPath = dataimport.'repository-path'.text()
-                            def filePath = dataimport.'import-file-path'.text() // Relative to the ATG root, presumably.
-                            def startups = dataimport.@'start-up-module'
-
-                            String s = "DataImport: Repository:$repoPath Path:$filePath Module:${startups} (defined in ${module.name})"
-                            if (dataimport.'requires-addon-id') println "       ---==> Data Import $filePath requires addons '${dataimport.'requires-addon-id'.collect {it.@id}}'"
-                            if (dataimport.'incompatible-addon-id') println "       ---==> Data Import $filePath is incompatible with addons '${dataimport.'incompatible-addon-id'.collect {it.@id}}'"
-                            if (dataimport.user) println "       ---==> Data Import $filePath requires user '${dataimport.user.text()}'"
-                            if (dataimport.workspace) println "       ---==> Data Import $filePath requires workspace '${dataimport.workspace.text()}'"
-
-                            def missing = false
-                            def blocked = false
-                            if (dataimport.'requires-addon-id' || dataimport.'incompatible-addon-id') {
-                              missing = dataimport.'requires-addon-id'.any { !selectedAddons.contains(it.@id) }
-                              blocked = dataimport.'incompatible-addon-id'.any { selectedAddons.contains(it.@id) }
-                            }
-
-                            if(!missing && !blocked) {
-                              if(!importNodes.containsKey( datasourceId ) ) {
-                                importNodes[datasourceId] = new ArrayList<ImportAndModule>()
-                              }
-                              importNodes[datasourceId].add new ImportAndModule( node:dataimport, definingModule: module )
-                            }
+                            scanDataImportElement( selectedAddons, module, child, importNodes, datasourceId, dbinit )
                           }
                           else if (child.name() == "repository-loader") {
                             // DTD: <!ELEMENT repository-loader (requires-addon-id*,cleanup-src-module?,cleanup-file-path?,files+,file-mapping,folder-mapping)>
@@ -317,15 +267,23 @@ public class CreateChangesets extends DefaultTask
     println "*******"
     println "* SQL *"
     println "*******"
-    sqlFiles.keySet().eachWithIndex { jndiName, jndiIndex ->
-      println "Datasource JNDI name: '$jndiName'"
-      File jndiSubDir = new File( outputDbDirectory, jndiName )
+    // Translate default JNDI names from ATG to Glasir.
+    def iteegoDataDirectories = ['ATGProductionDS':'atg.core', 'ATGSwitchingDS_A':'atg.cat.a', 'ATGSwitchingDS_B':'atg.cat.b', 'ATGPublishingDS':'atg.pub']
+
+    sqlFiles.keySet().eachWithIndex { jndiNameATG, jndiIndex ->
+      def jndiName = iteegoDataDirectories[jndiNameATG] ?: jndiNameATG
+      println "Datasource JNDI name: '$jndiName', dbType: '$toDbType'"
+      File dbSubDir = new File( outputDbDirectory, toDbType )
+      println "Create dbSubDir  : '$dbSubDir'"
+      dbSubDir.mkdirs()
+      File jndiSubDir = new File( dbSubDir, jndiName )
+      println "Create jndiSubDir: '$jndiSubDir'"
       jndiSubDir.mkdirs()
-      sqlFiles[ jndiName ].eachWithIndex { templatedPath, index ->
-        File actualFromFile = new File( templatedPath.replace( "\${database}", myFromDbType ) )
+      sqlFiles[ jndiNameATG ].eachWithIndex { templatedPath, index ->
+        File actualFromFile = new File( templatedPath.replace( "\${database}", fromDbType ) )
         String toFileName = "${((jndiIndex+1)*100 + index).toString().padLeft(5,'0')}.${actualFromFile.name}.xml"
         File toFile = new File( jndiSubDir, toFileName )
-        if( !myFromDbType=="oracle") {
+        if( !fromDbType=="oracle") {
           throw new Exception("Only 'oracle' is supported as source database type at this time.")
         }
         createChangeSetFromSql( DBTYPE_ORACLE, DBTYPE_H2, actualFromFile, toFile, toFileName, "glasir", "all" )
@@ -336,6 +294,10 @@ public class CreateChangesets extends DefaultTask
 
     // Get data files from jar files or directories, copy them to specific places, create the imports.txt file.
     List<String> importCommands = new ArrayList<String>()
+
+    importCommands.add( "Top level module list: $mainModuleName" )
+    importCommands.add( "" )
+
     importNodes.keySet().each { key ->
       println "\nDatasource name: $key"
 
@@ -356,20 +318,20 @@ public class CreateChangesets extends DefaultTask
           File toDir = new File( outputImportDirectory, fromPath.parent )
           File toFile = new File( outputImportDirectory, fromPath.toString() )
           if( !fromFile.exists() ) {
-            println "ERROR: data-import: file not found: '$fromFile'"
+            logger.error "data-import: file not found: '$fromFile'"
           }
-          //println "DEBUG: data-import: copy from '$fromFile' to '$toFile'."
+          logger.debug "data-import: copy from '$fromFile' to '$toFile'."
           if( !toDir.exists() ) {
             def mkdirs = toDir.mkdirs()
             if( !mkdirs ) {
-              println "ERROR: data-import: mkdirs() failed for path '$toDir'."
+              logger.error "data-import: mkdirs() failed for path '$toDir'."
               throw new Exception("FAIL: mkdirs $toDir")
             }
           }
           if( toFile.exists() ) {
             def rmFile = toFile.delete()
             if( !rmFile ) {
-              println "ERROR: data-import: delete failed for file '$toFile'."
+              logger.error "data-import: delete failed for file '$toFile'."
             }
           }
 
@@ -448,7 +410,8 @@ public class CreateChangesets extends DefaultTask
       }
     }
 
-    File commandFile = new File( outputMainDirectory, "imports.txt" )
+    File commandFile = new File( outputImportDirectory, "imports.txt" )
+    logger.info "Creating import definition file: '$commandFile'."
     commandFile.text = importCommands.join( System.properties["line.separator"] as String )
     println "---------------------------------------------------------------------"
     println "IMPORT FILE: $commandFile"
@@ -456,16 +419,71 @@ public class CreateChangesets extends DefaultTask
   }
 
 
-/**
- * Turn some sql into Liquibase change sets that can be run in some other database.
- * @param sourceDbType Use one of the types defined in this class, for example DBTYPE_ORACLE.
- * @param targetDbType Use one of the types defined in this class, for example DBTYPE_H2.
- * @param inputSql The file where the source sql is.
- * @param xmlFileOut This file will be created or overwritten.
- * @param id Changeset ID, should be very unique.
- * @param author Changeset Author, not very important.
- * @param context Changeset Context, not really used when this documentation was written.
- */
+  protected void scanDataImportElement( List<String> selectedAddons, com.iteego.glasir.build.api.AtgModule module, Node dataimport, Map<String, List<ImportAndModule>> importNodes, String datasourceId, File dbinit ) {
+    def repoPath = dataimport.'repository-path'.text()
+    def filePath = dataimport.'import-file-path'.text() // Relative to the ATG root, presumably.
+    def startups = dataimport.@'start-up-module'
+
+    String s = "DataImport: Repository:$repoPath Path:$filePath Module:${startups} (defined in ${module.name})"
+    if (dataimport.'requires-addon-id') println "       ---==> Data Import $filePath requires addons '${dataimport.'requires-addon-id'.collect {it.@id}}'"
+    if (dataimport.'incompatible-addon-id') println "       ---==> Data Import $filePath is incompatible with addons '${dataimport.'incompatible-addon-id'.collect {it.@id}}'"
+    if (dataimport.user) println "       ---==> Data Import $filePath requires user '${dataimport.user.text()}'"
+    if (dataimport.workspace) println "       ---==> Data Import $filePath requires workspace '${dataimport.workspace.text()}'"
+
+    def missing = false
+    def blocked = false
+    if (dataimport.'requires-addon-id' || dataimport.'incompatible-addon-id') {
+      missing = dataimport.'requires-addon-id'.any { !selectedAddons.contains(it.@id) }
+      blocked = dataimport.'incompatible-addon-id'.any { selectedAddons.contains(it.@id) }
+    }
+
+    if(!missing && !blocked) {
+      if(!importNodes.containsKey( datasourceId ) ) {
+        importNodes[datasourceId] = new ArrayList<ImportAndModule>()
+      }
+      importNodes[datasourceId].add new ImportAndModule( node:dataimport, definingModule: module )
+    }
+  }
+
+
+  protected void scanSqlElement( List<String> selectedAddons, Map namedDatasourceMap, com.iteego.glasir.build.api.AtgModule module, Node child, Map<String, List<String>> sqlFiles, String datasourceId, File dbinit) {
+    child.path.each { sqlPath ->
+      def missing = false
+      if (sqlPath.'requires-addon-id') {
+        logger.debug "      Create SQL: ${sqlPath.create.text()}"
+        logger.debug "      Drop SQL  : ${sqlPath.drop.text()}"
+        logger.info "        ---==> Sql path '${sqlPath.create.text()}' requires addons '${sqlPath.'requires-addon-id'.collect {it.@id}}'"
+        missing = sqlPath.'requires-addon-id'.any { !selectedAddons.contains(it.@id) }
+      }//if repository loader requires specific addons
+
+      if (!missing) {
+        def jndiName = namedDatasourceMap[datasourceId]?.jndi?.text()
+        if (jndiName) {
+          if (!sqlFiles.containsKey(jndiName)) {
+            sqlFiles[jndiName] = new ArrayList<String>()
+          }
+          def combinedPath = new File(module.dir as File, sqlPath.create.text() as String)
+          println "  SQL: $combinedPath"
+          if (!sqlFiles[jndiName].contains(combinedPath.absolutePath)) {
+            sqlFiles[jndiName].add(combinedPath.absolutePath)
+          }
+        } else {
+          println("WARNING: Found use of undefined datasource name: '$datasourceId' in file '$dbinit'.")
+        }
+      }//if not missing any required addons
+    }
+  }
+
+  /**
+  * Turn some sql into Liquibase change sets that can be run in some other database.
+  * @param sourceDbType Use one of the types defined in this class, for example DBTYPE_ORACLE.
+  * @param targetDbType Use one of the types defined in this class, for example DBTYPE_H2.
+  * @param inputSql The file where the source sql is.
+  * @param xmlFileOut This file will be created or overwritten.
+  * @param id Changeset ID, should be very unique.
+  * @param author Changeset Author, not very important.
+  * @param context Changeset Context, not really used when this documentation was written.
+  */
   def createChangeSetFromSql(String sourceDbType, String targetDbType, File inputSql, File xmlFileOut, String id, String author, String context) {
     def writer = new StringWriter()
     def indentPrinter = new IndentPrinter(writer, '  ', true)
@@ -493,9 +511,16 @@ public class CreateChangesets extends DefaultTask
         'xsi:schemaLocation': schemaLocation) {
 
       changeSet(id: id, author: author, context: context) {
+        preConditions {
+          not {
+            tableExists( tableName:'bogus_precondition_table_name' )
+          }
+        }
+
         sql {
           mkp.yieldUnescaped "<![CDATA[\n$sqlData\n]]>\n  "
         }
+
         rollback()
       }
     }
@@ -504,15 +529,11 @@ public class CreateChangesets extends DefaultTask
     println "XML change set written to $xmlFileOut"
   }
 
-  /*
-
-  o
-  o Remove stored procedures
-  o Rewrite alter table from "alter table X modify (...)" to "alter table X alter ..."
-  o Remove alter session statements
-
-  */
-
+  /**
+  * Remove stored procedures.
+  * Rewrite alter table from "alter table X modify (...)" to "alter table X alter ...".
+  * Remove alter session statements.
+  **/
   String massageOracleSqlToWorkInH2(String oracleSqlText) {
     StringBuilder result = new StringBuilder()
 
