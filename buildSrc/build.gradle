@@ -7,6 +7,6 @@
   }
 
   dependencies {
-    compile "com.iteego.glasir:glasir.build:1.2.14-SNAPSHOT"
+    compile "com.iteego.glasir:glasir.build:1.2.15-SNAPSHOT"
   }
 
