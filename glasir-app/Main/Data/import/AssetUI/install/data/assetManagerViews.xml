@@ -435,35 +435,6 @@
 
 <!-- Editor -->
 
-<add-item item-descriptor="propertyView" id="aMgrPvEBigStrElj">
-  <set-property name="name"><![CDATA[AssetManager big-string EditLive editor]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager big-string EditLive editor]]></set-property>
-  <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
-  <set-property name="type"><![CDATA[big string]]></set-property>
-  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
-  <set-property name="uri"><![CDATA[/assetEditor/property/bigStringEditor_elj.jsp]]></set-property>
-  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
-  <set-property name="isDefault"><![CDATA[false]]></set-property>
-  <set-property name="attributes"><![CDATA[fullWidth=aMgrPvEBigStrEljFull,appletHeight=aMgrPvadEBStrEljAppletHeight,simpleUI=aMgrPvadEBStrEljAppletSimpleUI,dictionary=aMgrPvadEBStrEljAppletUseSpellDict]]></set-property>
-</add-item>
-
-<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvEBigStrEljFull">
-  <set-property name="description"><![CDATA[Indicates a full-width property editor]]></set-property>
-  <set-property name="defaultValue"><![CDATA[true]]></set-property>
-</add-item>
-<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadEBStrEljAppletHeight">
-  <set-property name="defaultValue"><![CDATA[300]]></set-property>
-  <set-property name="description"><![CDATA[Height of EditLive applet, in pixels]]></set-property>
-</add-item>
-<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadEBStrEljAppletUseSpellDict">
-  <set-property name="defaultValue"><![CDATA[en_us]]></set-property>
-  <set-property name="description"><![CDATA[Spell check dictionary to use]]></set-property>
-</add-item>
-<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadEBStrEljAppletSimpleUI">
-  <set-property name="defaultValue"><![CDATA[false]]></set-property>
-  <set-property name="description"><![CDATA[Switch to show the applet in simple mode]]></set-property>
-</add-item>
-
 <add-item item-descriptor="propertyView" id="aMgrPvEBigStr">
   <set-property name="name"><![CDATA[AssetManager big-string editor]]></set-property>
   <set-property name="description"><![CDATA[AssetManager big-string editor]]></set-property>
@@ -484,50 +455,6 @@
 <add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadEBStrCols">
   <set-property name="description"><![CDATA[Number of columns]]></set-property>
   <set-property name="defaultValue"><![CDATA[50]]></set-property>
-</add-item>
-
-<add-item item-descriptor="propertyView" id="aMgrPvMultiEBigStr">
-  <set-property name="name"><![CDATA[AssetManager big-string editor multi-edit mode]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager big-string editor multi-edit mode]]></set-property>
-  <set-property name="mode"><![CDATA[aMgrMmMultiEdit]]></set-property>
-  <set-property name="type"><![CDATA[big string]]></set-property>
-  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
-  <set-property name="uri"><![CDATA[/assetEditor/property/bigStringEditor_elj.jsp]]></set-property>
-  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
-  <set-property name="isDefault"><![CDATA[false]]></set-property>
-  <set-property name="attributes"><![CDATA[fullWidth=aMgrPvadMultiEBigStrEljFull,appletHeight=aMgrPvadMultiEBStrEljAppletHeight,simpleUI=aMgrPvadMultiEBStrEljAppletSimpleUI,dictionary=aMgrPvadMultiEBStrEljAppletUseSpellDict,forceTextArea=aMgrPvadMultiEBStrEljUseTextArea,textAreaRows=aMgrPvadMultiEBStrEljRows,textAreaColumns=aMgrPvadMultiEBStrEljCols]]></set-property>
-</add-item>
-
-<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadMultiEBigStrEljFull">
-  <set-property name="description"><![CDATA[Indicates a full-width property editor]]></set-property>
-  <set-property name="defaultValue"><![CDATA[true]]></set-property>
-</add-item>
-<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadMultiEBStrEljAppletHeight">
-  <set-property name="defaultValue"><![CDATA[300]]></set-property>
-  <set-property name="description"><![CDATA[Height of EditLive applet, in pixels]]></set-property>
-</add-item>
-<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadMultiEBStrEljAppletUseSpellDict">
-  <set-property name="defaultValue"><![CDATA[en_us]]></set-property>
-  <set-property name="description"><![CDATA[Spell check dictionary to use]]></set-property>
-</add-item>
-<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadMultiEBStrEljAppletSimpleUI">
-  <set-property name="defaultValue"><![CDATA[false]]></set-property>
-  <set-property name="description"><![CDATA[Switch to show the applet in simple mode]]></set-property>
-</add-item>
-
-<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadMultiEBStrEljRows">
-  <set-property name="description"><![CDATA[Number of rows (used when using textarea instead of Editlive Editor)]]></set-property>
-  <set-property name="defaultValue"><![CDATA[20]]></set-property>
-</add-item>
-
-<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadMultiEBStrEljCols">
-  <set-property name="description"><![CDATA[Number of columns (used when using textarea instead of Editlive Editor)]]></set-property>
-  <set-property name="defaultValue"><![CDATA[50]]></set-property>
-</add-item>
-
-<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadMultiEBStrEljUseTextArea">
-  <set-property name="description"><![CDATA[Force the use of Textarea instead of the ELJ editor - _ALL_ or multi-edit operation name]]></set-property>
-  <set-property name="defaultValue"><![CDATA[List]]></set-property>
 </add-item>
 
 <!-- ======================================================================= -->
@@ -1486,6 +1413,7 @@
   <set-property name="description"><![CDATA[Asset Picker Browse ItemViewMapping]]></set-property>
   <set-property name="displayName"><![CDATA[Browse]]></set-property>
   <set-property name="view"><![CDATA[aMgrIvAPBrowse]]></set-property>
+  <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvAPResourceBundle]]></set-property>
 </add-item>
 
 <add-item item-descriptor="itemViewMapping" id="aMgrIvmAPSearch">
@@ -1493,6 +1421,7 @@
   <set-property name="description"><![CDATA[Asset Picker Search ItemViewMapping]]></set-property>
   <set-property name="displayName"><![CDATA[Search]]></set-property>
   <set-property name="view"><![CDATA[aMgrIvAPSearch]]></set-property>
+  <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvAPResourceBundle]]></set-property>
 </add-item>
 
 <!-- itemViews -->
@@ -1503,7 +1432,7 @@
   <set-property name="mode"><![CDATA[aMgrMmPick]]></set-property>
   <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
   <set-property name="uri"><![CDATA[/components/assetPickerTreeBrowse.jsp]]></set-property>
-  <set-property name="attributes"><![CDATA[tabDisplayName=aMgrIvadAPBrowse]]></set-property>
+  <set-property name="attributes"><![CDATA[tabDisplayName=aMgrIvadAPBrowse,tabDisplayNameKey=aMgrIvadAPBrowseNameKey]]></set-property>
 </add-item>
 
 <add-item item-descriptor="itemView" id="aMgrIvAPSearch">
@@ -1512,7 +1441,7 @@
   <set-property name="mode"><![CDATA[aMgrMmPick]]></set-property>
   <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
   <set-property name="uri"><![CDATA[/components/assetPickerSearch.jsp]]></set-property>
-  <set-property name="attributes"><![CDATA[tabDisplayName=aMgrIvadAPSearch]]></set-property>
+  <set-property name="attributes"><![CDATA[tabDisplayName=aMgrIvadAPSearch,tabDisplayNameKey=aMgrIvadAPSearchNameKey]]></set-property>
 </add-item>
 
 <add-item item-descriptor="itemView" id="aMgrIvAPList">
@@ -1521,24 +1450,45 @@
   <set-property name="mode"><![CDATA[aMgrMmPick]]></set-property>
   <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
   <set-property name="uri"><![CDATA[/components/assetPickerRepositoryAssetList.jsp]]></set-property>
-  <set-property name="attributes"><![CDATA[tabDisplayName=aMgrIvadAPList]]></set-property>
+  <set-property name="attributes"><![CDATA[tabDisplayName=aMgrIvadAPList,tabDisplayNameKey=aMgrIvadAPListNameKey]]></set-property>
 </add-item>
 
 <!-- itemViewAttributeDefinitions -->
 
 <add-item item-descriptor="itemViewAttributeDefinition" id="aMgrIvadAPBrowse">
-  <set-property name="description"><![CDATA[Asset Picker Browse Tab Display Name]]></set-property>
+  <set-property name="description"><![CDATA[Asset Picker Browse Tab Name]]></set-property>
   <set-property name="defaultValue"><![CDATA[Browse]]></set-property>
 </add-item>
 
+<add-item item-descriptor="itemViewAttributeDefinition" id="aMgrIvadAPBrowseNameKey">
+  <set-property name="description"><![CDATA[Asset Picker Browse Tab Display Name Key]]></set-property>
+  <set-property name="defaultValue"><![CDATA[assetPicker.tab.browse]]></set-property>
+</add-item>
+
 <add-item item-descriptor="itemViewAttributeDefinition" id="aMgrIvadAPSearch">
-  <set-property name="description"><![CDATA[Asset Picker Search Tab Display Name]]></set-property>
+  <set-property name="description"><![CDATA[Asset Picker Search Tab Name]]></set-property>
   <set-property name="defaultValue"><![CDATA[Search]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewAttributeDefinition" id="aMgrIvadAPSearchNameKey">
+  <set-property name="description"><![CDATA[Asset Picker Search Tab Display Name Key]]></set-property>
+  <set-property name="defaultValue"><![CDATA[assetPicker.tab.search]]></set-property>
 </add-item>
 
 <add-item item-descriptor="itemViewAttributeDefinition" id="aMgrIvadAPList">
   <set-property name="description"><![CDATA[Asset Picker List Tab Display Name]]></set-property>
   <set-property name="defaultValue"><![CDATA[List]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewAttributeDefinition" id="aMgrIvadAPListNameKey">
+  <set-property name="description"><![CDATA[Asset Picker List Tab Display Name Key]]></set-property>
+  <set-property name="defaultValue"><![CDATA[assetPicker.tab.list]]></set-property>
+</add-item>
+
+<!-- attributeValues -->
+
+<add-item item-descriptor="attributeValue" id="aMgrAvAPResourceBundle">
+  <set-property name="value"><![CDATA[atg.web.assetmanager.WebAppResources]]></set-property>
 </add-item>
 
 <!-- ======================================================================= -->
@@ -1777,4 +1727,4 @@
 </import-items>
 
 </gsa-template>
-<!-- @version $Id: //product/AssetUI/version/10.0.2/src/install/data/assetManagerViews.xml#2 $$Change: 635969 $-->
+<!-- @version $Id: //product/AssetUI/version/10.1.1/src/install/data/assetManagerViews.xml#1 $$Change: 690623 $-->

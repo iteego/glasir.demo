@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE gsa-template SYSTEM "dynamosystemresource:/atg/dtds/gsa/gsa_1.0.dtd">
 <gsa-template>
 <import-items>
@@ -39,19 +39,6 @@
   <set-property name="childItems"><![CDATA[epubSuperAdmin,epubAdmin,epubUser,epubManager]]></set-property>
 </add-item>
 
-<!-- users -->
-
-<add-item item-descriptor="user" id="19004">
-  <set-property name="firstName"><![CDATA[Publishing]]></set-property>
-  <set-property name="lastName"><![CDATA[Administrator]]></set-property>
-  <set-property name="roles"><![CDATA[epubSuperAdmin]]></set-property>
-  <set-property name="locale"><![CDATA[en_US]]></set-property>
-  <set-property name="email"><![CDATA[pubAdmin@example.com]]></set-property>
-  <set-property name="password"><![CDATA[5793ad9f379fc633f7bbf462deae4809]]></set-property>
-  <set-property name="member"><![CDATA[true]]></set-property>
-  <set-property name="login"><![CDATA[publishing]]></set-property>
-</add-item>
-
 </import-items>
 
 <!-- all update-item tags must go outside of the import-items tag -->
@@ -63,4 +50,4 @@
 </update-item>
 
 </gsa-template>
-<!-- @version $Id: //product/Publishing/version/10.0.2/pws/install/epub-role-data.xml#2 $$Change: 635969 $ -->
+<!-- @version $Id: //product/Publishing/version/10.1.1/pws/install/epub-role-data.xml#1 $$Change: 690623 $ -->

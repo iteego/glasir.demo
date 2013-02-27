@@ -116,16 +116,16 @@
 <!-- Custom views for segment's General tab -->
 
 <add-item item-descriptor="itemView" id="aMgrIvEditSegGen">
-  <set-property name="name"><![CDATA[AssetManager segment General panel view]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager segment general panel view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI segment General panel view]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI segment general panel view]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
   <set-property name="applicationName"><![CDATA[DPS-UI]]></set-property>
   <set-property name="uri"><![CDATA[/assetEditor/tab/targeting/segmentGeneral.jsp]]></set-property>
 </add-item>
 
 <add-item item-descriptor="itemView" id="aMgrIvViewSegGen">
-  <set-property name="name"><![CDATA[AssetManager segment General panel view]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager segment general panel view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI segment General panel view]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI segment general panel view]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
   <set-property name="applicationName"><![CDATA[DPS-UI]]></set-property>
   <set-property name="uri"><![CDATA[/assetEditor/tab/targeting/browseSegmentGeneral.jsp]]></set-property>
@@ -134,16 +134,16 @@
 <!-- View mapping for segment's Rules tab -->
 
 <add-item item-descriptor="itemViewMapping" id="aMgrIvmEditSegRules">
-  <set-property name="name"><![CDATA[AssetManager segment Rules View]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager segment rules view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI segment Rules View]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI segment rules view]]></set-property>
   <set-property name="displayName"><![CDATA[aMgrIvmSegRules.displayName]]></set-property>
   <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvSegRulesResourceBundle]]></set-property>
   <set-property name="view"><![CDATA[aMgrIvEditSegRules]]></set-property>
 </add-item>
 
 <add-item item-descriptor="itemViewMapping" id="aMgrIvmViewSegRules">
-  <set-property name="name"><![CDATA[AssetManager segment Rules View]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager segment rules view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI segment Rules View]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI segment rules view]]></set-property>
   <set-property name="displayName"><![CDATA[aMgrIvmSegRules.displayName]]></set-property>
   <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvSegRulesResourceBundle]]></set-property>
   <set-property name="view"><![CDATA[aMgrIvViewSegRules]]></set-property>
@@ -156,16 +156,16 @@
 <!-- Custom view for segment's Rules tab -->
 
 <add-item item-descriptor="itemView" id="aMgrIvEditSegRules">
-  <set-property name="name"><![CDATA[AssetManager segment Rules panel view]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager segment rules panel view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI segment Rules panel view]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI segment rules panel view]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
   <set-property name="applicationName"><![CDATA[DPS-UI]]></set-property>
   <set-property name="uri"><![CDATA[/assetEditor/tab/targeting/segmentRules.jsp]]></set-property>
 </add-item>
 
 <add-item item-descriptor="itemView" id="aMgrIvViewSegRules">
-  <set-property name="name"><![CDATA[AssetManager segment Rules panel view]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager segment rules panel view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI segment Rules panel view]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI segment rules panel view]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
   <set-property name="applicationName"><![CDATA[DPS-UI]]></set-property>
   <set-property name="uri"><![CDATA[/assetEditor/tab/targeting/browseSegmentRules.jsp]]></set-property>
@@ -174,8 +174,8 @@
 <!-- Form handler for segment items -->
 
 <add-item item-descriptor="formHandler" id="aMgrFhSeg">
-  <set-property name="name"><![CDATA[AssetManager SegmentFormHandler]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager segment asset form handler]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI SegmentFormHandler]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI segment asset form handler]]></set-property>
   <set-property name="path"><![CDATA[/atg/web/assetmanager/editor/targeting/SegmentFormHandler]]></set-property>
   <set-property name="attributes"><![CDATA[atgFormValueDict=aMgrAvSegDict]]></set-property>
 </add-item>
@@ -192,7 +192,7 @@
 
 <add-item item-descriptor="itemMapping" id="aMgrImViewCGrp">
   <set-property name="name"><![CDATA[AssetManager]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager read-only mapping for contentGroup items]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI read-only mapping for contentGroup items]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
   <set-property name="itemPath"><![CDATA[/atg/epub/file/PublishingFileRepository]]></set-property>
   <set-property name="itemName"><![CDATA[contentGroup]]></set-property>
@@ -202,7 +202,7 @@
 
 <add-item item-descriptor="itemMapping" id="aMgrImEditCGrp">
   <set-property name="name"><![CDATA[AssetManager]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager editable mapping for contentGroup items]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI editable mapping for contentGroup items]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
   <set-property name="itemPath"><![CDATA[/atg/epub/file/PublishingFileRepository]]></set-property>
   <set-property name="itemName"><![CDATA[contentGroup]]></set-property>
@@ -213,16 +213,16 @@
 <!-- View mapping for contentGroup's General tab -->
 
 <add-item item-descriptor="itemViewMapping" id="aMgrIvmEditCGrpGen">
-  <set-property name="name"><![CDATA[AssetManager contentGroup General View]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager contentGroup general view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI contentGroup General View]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI contentGroup general view]]></set-property>
   <set-property name="displayName"><![CDATA[aMgrIvmCGrpGen.displayName]]></set-property>
   <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvCGrpGenResourceBundle]]></set-property>
   <set-property name="view"><![CDATA[aMgrIvEditCGrpGen]]></set-property>
 </add-item>
 
 <add-item item-descriptor="itemViewMapping" id="aMgrIvmViewCGrpGen">
-  <set-property name="name"><![CDATA[AssetManager contentGroup General View]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager contentGroup general view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI contentGroup General View]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI contentGroup general view]]></set-property>
   <set-property name="displayName"><![CDATA[aMgrIvmCGrpGen.displayName]]></set-property>
   <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvCGrpGenResourceBundle]]></set-property>
   <set-property name="view"><![CDATA[aMgrIvViewCGrpGen]]></set-property>
@@ -235,16 +235,16 @@
 <!-- Custom view for contentGroup's General tab -->
 
 <add-item item-descriptor="itemView" id="aMgrIvEditCGrpGen">
-  <set-property name="name"><![CDATA[AssetManager contentGroup General panel view]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager contentGroup general panel view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI contentGroup General panel view]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI contentGroup general panel view]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
   <set-property name="applicationName"><![CDATA[DPS-UI]]></set-property>
   <set-property name="uri"><![CDATA[/assetEditor/tab/targeting/contentGroupGeneral.jsp]]></set-property>
 </add-item>
 
 <add-item item-descriptor="itemView" id="aMgrIvViewCGrpGen">
-  <set-property name="name"><![CDATA[AssetManager contentGroup General panel view]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager contentGroup general panel view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI contentGroup General panel view]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI contentGroup general panel view]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
   <set-property name="applicationName"><![CDATA[DPS-UI]]></set-property>
   <set-property name="uri"><![CDATA[/assetEditor/tab/targeting/browseContentGroupGeneral.jsp]]></set-property>
@@ -253,16 +253,16 @@
 <!-- View mapping for contentGroup's Rules tab -->
 
 <add-item item-descriptor="itemViewMapping" id="aMgrIvmEditCGrpRules">
-  <set-property name="name"><![CDATA[AssetManager contentGroup Rules View]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager contentGroup rules view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI contentGroup Rules View]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI contentGroup rules view]]></set-property>
   <set-property name="displayName"><![CDATA[aMgrIvmCGrpRules.displayName]]></set-property>
   <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvCGrpRulesResourceBundle]]></set-property>
   <set-property name="view"><![CDATA[aMgrIvEditCGrpRules]]></set-property>
 </add-item>
 
 <add-item item-descriptor="itemViewMapping" id="aMgrIvmViewCGrpRules">
-  <set-property name="name"><![CDATA[AssetManager contentGroup Rules View]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager contentGroup rules view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI contentGroup Rules View]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI contentGroup rules view]]></set-property>
   <set-property name="displayName"><![CDATA[aMgrIvmCGrpRules.displayName]]></set-property>
   <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvCGrpRulesResourceBundle]]></set-property>
   <set-property name="view"><![CDATA[aMgrIvViewCGrpRules]]></set-property>
@@ -275,16 +275,16 @@
 <!-- Custom view for contentGroup's Rules tab -->
 
 <add-item item-descriptor="itemView" id="aMgrIvEditCGrpRules">
-  <set-property name="name"><![CDATA[AssetManager contentGroup Rules panel view]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager contentGroup rules panel view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI contentGroup Rules panel view]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI contentGroup rules panel view]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
   <set-property name="applicationName"><![CDATA[DPS-UI]]></set-property>
   <set-property name="uri"><![CDATA[/assetEditor/tab/targeting/contentGroupRules.jsp]]></set-property>
 </add-item>
 
 <add-item item-descriptor="itemView" id="aMgrIvViewCGrpRules">
-  <set-property name="name"><![CDATA[AssetManager contentGroup Rules panel view]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager contentGroup rules panel view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI contentGroup Rules panel view]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI contentGroup rules panel view]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
   <set-property name="applicationName"><![CDATA[DPS-UI]]></set-property>
   <set-property name="uri"><![CDATA[/assetEditor/tab/targeting/browseContentGroupRules.jsp]]></set-property>
@@ -294,8 +294,8 @@
 <!-- Form handler for contentGroup items -->
 
 <add-item item-descriptor="formHandler" id="aMgrFhCGrp">
-  <set-property name="name"><![CDATA[AssetManager ContentGroupFormHandler]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager contentGroup asset form handler]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI ContentGroupFormHandler]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI contentGroup asset form handler]]></set-property>
   <set-property name="path"><![CDATA[/atg/web/assetmanager/editor/targeting/ContentGroupFormHandler]]></set-property>
   <set-property name="attributes"><![CDATA[atgFormValueDict=aMgrAvCGrpDict]]></set-property>
 </add-item>
@@ -312,7 +312,7 @@
 
 <add-item item-descriptor="itemMapping" id="aMgrImViewTarg">
   <set-property name="name"><![CDATA[AssetManager]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager read-only mapping for targeter items]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI read-only mapping for targeter items]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
   <set-property name="itemPath"><![CDATA[/atg/epub/file/PublishingFileRepository]]></set-property>
   <set-property name="itemName"><![CDATA[targeter]]></set-property>
@@ -322,7 +322,7 @@
 
 <add-item item-descriptor="itemMapping" id="aMgrImEditTarg">
   <set-property name="name"><![CDATA[AssetManager]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager editable mapping for targeter items]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI editable mapping for targeter items]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
   <set-property name="itemPath"><![CDATA[/atg/epub/file/PublishingFileRepository]]></set-property>
   <set-property name="itemName"><![CDATA[targeter]]></set-property>
@@ -333,16 +333,16 @@
 <!-- View mapping for targeter's General tab -->
 
 <add-item item-descriptor="itemViewMapping" id="aMgrIvmEditTargGen">
-  <set-property name="name"><![CDATA[AssetManager targeter General View]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager targeter general view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI targeter General View]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI targeter general view]]></set-property>
   <set-property name="displayName"><![CDATA[aMgrIvmTargGen.displayName]]></set-property>
   <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvTargGenResourceBundle]]></set-property>
   <set-property name="view"><![CDATA[aMgrIvEditTargGen]]></set-property>
 </add-item>
 
 <add-item item-descriptor="itemViewMapping" id="aMgrIvmViewTargGen">
-  <set-property name="name"><![CDATA[AssetManager targeter General View]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager targeter general view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI targeter General View]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI targeter general view]]></set-property>
   <set-property name="displayName"><![CDATA[aMgrIvmTargGen.displayName]]></set-property>
   <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvTargGenResourceBundle]]></set-property>
   <set-property name="view"><![CDATA[aMgrIvViewTargGen]]></set-property>
@@ -355,16 +355,16 @@
 <!-- Custom view for targeter's General tab -->
 
 <add-item item-descriptor="itemView" id="aMgrIvEditTargGen">
-  <set-property name="name"><![CDATA[AssetManager targeter General panel view]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager targeter general panel view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI targeter General panel view]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI targeter general panel view]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
   <set-property name="applicationName"><![CDATA[DPS-UI]]></set-property>
   <set-property name="uri"><![CDATA[/assetEditor/tab/targeting/targeterGeneral.jsp]]></set-property>
 </add-item>
 
 <add-item item-descriptor="itemView" id="aMgrIvViewTargGen">
-  <set-property name="name"><![CDATA[AssetManager targeter General panel view]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager targeter general panel view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI targeter General panel view]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI targeter general panel view]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
   <set-property name="applicationName"><![CDATA[DPS-UI]]></set-property>
   <set-property name="uri"><![CDATA[/assetEditor/tab/targeting/browseTargeterGeneral.jsp]]></set-property>
@@ -373,16 +373,16 @@
 <!-- View mapping for targeter's Rules tab -->
 
 <add-item item-descriptor="itemViewMapping" id="aMgrIvmEditTargRules">
-  <set-property name="name"><![CDATA[AssetManager targeter Rules View]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager targeter rules view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI targeter Rules View]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI targeter rules view]]></set-property>
   <set-property name="displayName"><![CDATA[aMgrIvmTargRules.displayName]]></set-property>
   <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvTargRulesResourceBundle]]></set-property>
   <set-property name="view"><![CDATA[aMgrIvEditTargRules]]></set-property>
 </add-item>
 
 <add-item item-descriptor="itemViewMapping" id="aMgrIvmViewTargRules">
-  <set-property name="name"><![CDATA[AssetManager targeter Rules View]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager targeter rules view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI targeter Rules View]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI targeter rules view]]></set-property>
   <set-property name="displayName"><![CDATA[aMgrIvmTargRules.displayName]]></set-property>
   <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvTargRulesResourceBundle]]></set-property>
   <set-property name="view"><![CDATA[aMgrIvViewTargRules]]></set-property>
@@ -395,16 +395,16 @@
 <!-- Custom view for targeter's Rules tab -->
 
 <add-item item-descriptor="itemView" id="aMgrIvEditTargRules">
-  <set-property name="name"><![CDATA[AssetManager targeter Rules panel view]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager targeter rules panel view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI targeter Rules panel view]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI targeter rules panel view]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
   <set-property name="applicationName"><![CDATA[DPS-UI]]></set-property>
   <set-property name="uri"><![CDATA[/assetEditor/tab/targeting/targeterRules.jsp]]></set-property>
 </add-item>
 
 <add-item item-descriptor="itemView" id="aMgrIvViewTargRules">
-  <set-property name="name"><![CDATA[AssetManager targeter Rules panel view]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager targeter rules panel view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI targeter Rules panel view]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI targeter rules panel view]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
   <set-property name="applicationName"><![CDATA[DPS-UI]]></set-property>
   <set-property name="uri"><![CDATA[/assetEditor/tab/targeting/browseTargeterRules.jsp]]></set-property>
@@ -413,8 +413,8 @@
 <!-- Form handler for targeter items -->
 
 <add-item item-descriptor="formHandler" id="aMgrFhTarg">
-  <set-property name="name"><![CDATA[AssetManager TargeterFormHandler]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager targeter asset form handler]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI TargeterFormHandler]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI targeter asset form handler]]></set-property>
   <set-property name="path"><![CDATA[/atg/web/assetmanager/editor/targeting/TargeterFormHandler]]></set-property>
   <set-property name="attributes"><![CDATA[atgFormValueDict=aMgrAvTargDict]]></set-property>
 </add-item>
@@ -431,7 +431,7 @@
 
 <add-item item-descriptor="itemMapping" id="aMgrImViewIntUser">
   <set-property name="name"><![CDATA[AssetManager]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager read-only mapping for internal user items]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI read-only mapping for internal user items]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
   <set-property name="itemPath"><![CDATA[/atg/userprofiling/InternalProfileRepository]]></set-property>
   <set-property name="itemName"><![CDATA[user]]></set-property>
@@ -442,7 +442,7 @@
 
 <add-item item-descriptor="itemMapping" id="aMgrImEditIntUser">
   <set-property name="name"><![CDATA[AssetManager]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager editable mapping for internal user items]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI editable mapping for internal user items]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
   <set-property name="itemPath"><![CDATA[/atg/userprofiling/InternalProfileRepository]]></set-property>
   <set-property name="itemName"><![CDATA[user]]></set-property>
@@ -457,8 +457,8 @@
 
 <!-- View mapping for internal user's basics tab -->
 <add-item item-descriptor="itemViewMapping" id="aMgrIvmIntUserBasics">
-  <set-property name="name"><![CDATA[AssetManager Internal User Basics View]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager internal users basics view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI Internal User Basics View]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI internal users basics view]]></set-property>
   <set-property name="displayName"><![CDATA[aMgrIvmIntUserBasics.displayName]]></set-property>
   <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvIntUserBasicsResourceBundle,categorizedGrouping=aMgrAvIntUserBasicsCats,excludedProperties=aMgrAvIntUserBasicsExc,showNewProperties=aMgrAvIntUserBasicsShowNew]]></set-property>
   <set-property name="view"><![CDATA[aMgrIvRep]]></set-property>
@@ -474,7 +474,7 @@
 </add-item>
 
 <add-item item-descriptor="attributeValue" id="aMgrAvIntUserBasicsExc">
-  <set-property name="value"><![CDATA[previousPasswords,projectHistory]]></set-property>
+  <set-property name="value"><![CDATA[previousPasswords,projectHistory,passwordSalt]]></set-property>
 </add-item>
 
 <add-item item-descriptor="attributeValue" id="aMgrAvIntUserBasicsShowNew">
@@ -484,13 +484,13 @@
 <!-- Custom editor for user's password property -->
 
 <add-item item-descriptor="propertyViewMapping" id="aMgrPvmEPassword">
-  <set-property name="description"><![CDATA[AssetManager editable password property view mapping]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI editable password property view mapping]]></set-property>
   <set-property name="propertyView"><![CDATA[aMgrPvEPassword]]></set-property>
 </add-item>
 
 <add-item item-descriptor="propertyView" id="aMgrPvEPassword">
-  <set-property name="name"><![CDATA[AssetManager editable password editor]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager editable passwordeditor]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI editable password editor]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI editable passwordeditor]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
   <set-property name="type"><![CDATA[string]]></set-property>
   <set-property name="applicationName"><![CDATA[DPS-UI]]></set-property>
@@ -499,14 +499,14 @@
 </add-item>
 
 <add-item item-descriptor="propertyViewMapping" id="aMgrPvmVETstmp">
-  <set-property name="description"><![CDATA[AssetManager Edit Mode Timestamp Property View]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI Edit Mode Timestamp Property View]]></set-property>
   <set-property name="propertyView"><![CDATA[aMgrPvVTStmp]]></set-property>
 </add-item>
 
 <!-- View mapping for external user's content administration tab -->
 <add-item item-descriptor="itemViewMapping" id="aMgrIvmIntUserCA">
-  <set-property name="name"><![CDATA[AssetManager Internal User Content Administration View]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager external users content administration view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI Internal User Content Administration View]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI external users content administration view]]></set-property>
   <set-property name="displayName"><![CDATA[aMgrIvmIntUserCA.displayName]]></set-property>
   <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvIntUserBasicsResourceBundle,categorizedGrouping=aMgrAvIntUserCACats,excludedProperties=aMgrAvIntUserCAExc]]></set-property>
   <set-property name="view"><![CDATA[aMgrIvRep]]></set-property>
@@ -523,8 +523,8 @@
 <!-- View mapping for internal user's Orgs and Roles tab -->
 
 <add-item item-descriptor="itemViewMapping" id="aMgrIvmIntUserOrgsRoles">
-  <set-property name="name"><![CDATA[AssetManager Internal User Orgs and Roles View]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager internal user orgs and roles view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI Internal User Orgs and Roles View]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI internal user orgs and roles view]]></set-property>
   <set-property name="displayName"><![CDATA[aMgrIvmIntUserOrgsRoles.displayName]]></set-property>
   <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvIntUserOrgsRolesResourceBundle,categorizedGrouping=aMgrAvIntUserOrgsRolesCats,excludedProperties=aMgrAvIntUserOrgsRolesExc,additionalFragmentContext=aMgrFragUserEffectivePrincipalsCtx,additionalFragment=aMgrFragUserEffectivePrincipals]]></set-property>
   <set-property name="view"><![CDATA[aMgrIvRep]]></set-property>
@@ -553,7 +553,7 @@
 
 <!-- Hide the create button on the User.parentOrg property editor -->
 <add-item item-descriptor="propertyViewMapping" id="aMgrPvmEUserParentOrg">
-  <set-property name="description"><![CDATA[AssetManager Edit Mode User.parentOrganization editor with Create button disabled ]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI Edit Mode User.parentOrganization editor with Create button disabled ]]></set-property>
   <set-property name="attributeValues"><![CDATA[hideCreate=aMgrAvUserParentOrgHideCreate]]></set-property>
 </add-item>
 
@@ -563,7 +563,7 @@
 
 <!-- Hide the add new button on the User.secondaryOrganizations property editor -->
 <add-item item-descriptor="propertyViewMapping" id="aMgrPvmEUserSecOrgs">
-  <set-property name="description"><![CDATA[AssetManager Edit Mode User.secondaryOrganizations editor with Add New button disabled ]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI Edit Mode User.secondaryOrganizations editor with Add New button disabled ]]></set-property>
   <set-property name="attributeValues"><![CDATA[hideAddNew=aMgrAvUserSecOrgsHideAddNew]]></set-property>
 </add-item>
 
@@ -573,7 +573,7 @@
 
 <!-- Hide the add new button on the User.roles property editor -->
 <add-item item-descriptor="propertyViewMapping" id="aMgrPvmEUserRoles">
-  <set-property name="description"><![CDATA[AssetManager Edit Mode User.roles editor with Add New button disabled ]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI Edit Mode User.roles editor with Add New button disabled ]]></set-property>
   <set-property name="attributeValues"><![CDATA[hideAddNew=aMgrAvUserRolesHideAddNew]]></set-property>
 </add-item>
 
@@ -584,8 +584,8 @@
 
 <!-- View mapping for internal user's Access Rights tab -->
 <add-item item-descriptor="itemViewMapping" id="aMgrIvmIntUserAccess">
-  <set-property name="name"><![CDATA[AssetManager Internal User Access Rights View]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager internal user access rights view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI Internal User Access Rights View]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI internal user access rights view]]></set-property>
   <set-property name="displayName"><![CDATA[aMgrIvmIntUserAccessRights.displayName]]></set-property>
   <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvIntUserAccessResourceBundle]]></set-property>
   <set-property name="view"><![CDATA[aMgrIvUserAccessRights]]></set-property>
@@ -598,8 +598,8 @@
 <!-- Custom view for an user's access rights tab -->
 
 <add-item item-descriptor="itemView" id="aMgrIvUserAccessRights">
-  <set-property name="name"><![CDATA[AssetManager User Access Rights view]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager User Access Rights view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI User Access Rights view]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI User Access Rights view]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
   <set-property name="applicationName"><![CDATA[DPS-UI]]></set-property>
   <set-property name="uri"><![CDATA[/assetEditor/tab/profile/userAccessRights.jsp]]></set-property>
@@ -608,8 +608,8 @@
 <!-- View mapping for internal user's User Segments tab -->
 
 <add-item item-descriptor="itemViewMapping" id="aMgrIvmIntUserSeg">
-  <set-property name="name"><![CDATA[AssetManager Internal User Segments View]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager internal user segments view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI Internal User Segments View]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI internal user segments view]]></set-property>
   <set-property name="displayName"><![CDATA[aMgrIvmIntUserSegments.displayName]]></set-property>
   <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvIntUserSegmentsResourceBundle]]></set-property>
   <set-property name="view"><![CDATA[aMgrIvAssetGroups]]></set-property>
@@ -621,8 +621,8 @@
 <!-- Custom view for an asset's content groups tab -->
 
 <add-item item-descriptor="itemView" id="aMgrIvAssetGroups">
-  <set-property name="name"><![CDATA[AssetManager asset groups view]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager asset groups view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI asset groups view]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI asset groups view]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
   <set-property name="applicationName"><![CDATA[DPS-UI]]></set-property>
   <set-property name="uri"><![CDATA[/assetEditor/tab/profile/groupsTab.jsp]]></set-property>
@@ -636,23 +636,23 @@
 
 <add-item item-descriptor="itemMapping" id="aMgrImViewExtUser">
   <set-property name="name"><![CDATA[AssetManager]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager read-only mapping for external user items]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI read-only mapping for external user items]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
   <set-property name="itemPath"><![CDATA[/atg/userprofiling/ProfileAdapterRepository]]></set-property>
   <set-property name="itemName"><![CDATA[user]]></set-property>
   <set-property name="formHandler"><![CDATA[aMgrFhUserRep]]></set-property>
-  <set-property name="viewMappings"><![CDATA[aMgrIvmExtUserBasics,aMgrIvmExtUserCommerce,aMgrIvmExtUserB2B,aMgrIvmExtUserOrgsRoles,aMgrIvmExtUserSeg]]></set-property>
+  <set-property name="viewMappings"><![CDATA[aMgrIvmExtUserBasics,aMgrIvmExtUserCommerce,aMgrIvmExtUserOrgsRoles,aMgrIvmExtUserSeg]]></set-property>
   <set-property name="attributes"><![CDATA[disablePreview=aMgrExtUserDisablePreview]]></set-property>
 </add-item>
 
 <add-item item-descriptor="itemMapping" id="aMgrImEditExtUser">
   <set-property name="name"><![CDATA[AssetManager]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager editable mapping for external user items]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI editable mapping for external user items]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
   <set-property name="itemPath"><![CDATA[/atg/userprofiling/ProfileAdapterRepository]]></set-property>
   <set-property name="itemName"><![CDATA[user]]></set-property>
   <set-property name="formHandler"><![CDATA[aMgrFhUserRep]]></set-property>
-  <set-property name="viewMappings"><![CDATA[aMgrIvmExtUserBasics,aMgrIvmExtUserCommerce,aMgrIvmExtUserB2B,aMgrIvmExtUserOrgsRoles,aMgrIvmExtUserSeg]]></set-property>
+  <set-property name="viewMappings"><![CDATA[aMgrIvmExtUserBasics,aMgrIvmExtUserCommerce,aMgrIvmExtUserOrgsRoles,aMgrIvmExtUserSeg]]></set-property>
   <set-property name="attributes"><![CDATA[disablePreview=aMgrExtUserDisablePreview]]></set-property>
 </add-item>
 
@@ -662,8 +662,8 @@
 
 <!-- View mapping for external user's basics tab -->
 <add-item item-descriptor="itemViewMapping" id="aMgrIvmExtUserBasics">
-  <set-property name="name"><![CDATA[AssetManager External User Basics View]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager external users basics view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI External User Basics View]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI external users basics view]]></set-property>
   <set-property name="displayName"><![CDATA[aMgrIvmExtUserBasics.displayName]]></set-property>
   <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvExtUserBasicsResourceBundle,categorizedGrouping=aMgrAvExtUserBasicsCats,excludedProperties=aMgrAvExtUserBasicsExc,showNewProperties=aMgrAvExtUserBasicsShowNew]]></set-property>
   <set-property name="view"><![CDATA[aMgrIvRep]]></set-property>
@@ -679,7 +679,7 @@
 </add-item>
 
 <add-item item-descriptor="attributeValue" id="aMgrAvExtUserBasicsExc">
-  <set-property name="value"><![CDATA[previousPasswords,projectHistory]]></set-property>
+  <set-property name="value"><![CDATA[previousPasswords,projectHistory,passwordSalt]]></set-property>
 </add-item>
 
 <add-item item-descriptor="attributeValue" id="aMgrAvExtUserBasicsShowNew">
@@ -688,19 +688,20 @@
 
 <!-- View mapping for external user's commerce tab -->
 <add-item item-descriptor="itemViewMapping" id="aMgrIvmExtUserCommerce">
-  <set-property name="name"><![CDATA[AssetManager External User Commerce View]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager external users commerce view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI External User Commerce View]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI external users commerce view]]></set-property>
   <set-property name="displayName"><![CDATA[aMgrIvmExtUserCommerce.displayName]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[allCreditCards=aMgrPvmAllCreditCards,allSecondaryAddresses=aMgrPvmAllSecondaryAddresses,allPreferredVendors=aMgrPvmAllPreferredVendors]]></set-property>
   <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvExtUserBasicsResourceBundle,categorizedGrouping=aMgrAvExtUserCommerceCats,excludedProperties=aMgrAvExtUserCommerceExc,atgItemViewMappingFilter=aMgrAvExtUserCommerceFilter,requiredModule=aMgrAvExtUserCommerceModule]]></set-property>
   <set-property name="view"><![CDATA[aMgrIvRep]]></set-property>
 </add-item>
 
 <add-item item-descriptor="attributeValue" id="aMgrAvExtUserCommerceCats">
-  <set-property name="value"><![CDATA[categoryCommercePromotions,categoryCommercePreferences,categoryCommerceAddressAndPhone,categoryCommerceBehaviorTracking,categoryCommerceLists,categoryCommerceGiftAddresses,categoryCommerceGeneral,categoryCommerceAbandonedOrderTracking,categoryCommercePayment]]></set-property>
+  <set-property name="value"><![CDATA[categoryCommercePromotions,categoryCommercePreferences,categoryCommerceAddressAndPhone,categoryCommerceBehaviorTracking,categoryCommerceLists,categoryCommerceGeneral,categoryCommerceAbandonedOrderTracking,categoryCommercePayment,categoryCommerceContract,categoryPurchasingPreferences,categoryPurchasingCostCenters,categoryPurchasingApprovals]]></set-property>
 </add-item>
 
 <add-item item-descriptor="attributeValue" id="aMgrAvExtUserCommerceExc">
-  <set-property name="value"><![CDATA[]]></set-property>
+  <set-property name="value"><![CDATA[creditCards,secondaryAddresses,preferredVendors]]></set-property>
 </add-item>
 
 <add-item item-descriptor="attributeValue" id="aMgrAvExtUserCommerceFilter">
@@ -711,36 +712,83 @@
   <set-property name="value"><![CDATA[DCS]]></set-property>
 </add-item>
 
-<!-- View mapping for external user's B2B commerce tab -->
-<add-item item-descriptor="itemViewMapping" id="aMgrIvmExtUserB2B">
-  <set-property name="name"><![CDATA[AssetManager External User B2B Commerce View]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager external users b2b commerce view]]></set-property>
-  <set-property name="displayName"><![CDATA[aMgrIvmExtUserB2B.displayName]]></set-property>
-  <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvExtUserBasicsResourceBundle,categorizedGrouping=aMgrAvExtUserB2BCats,excludedProperties=aMgrAvExtUserB2BExc,atgItemViewMappingFilter=aMgrAvExtUserB2BFilter,requiredModule=aMgrAvExtUserB2BModule]]></set-property>
-  <set-property name="view"><![CDATA[aMgrIvRep]]></set-property>
+<!-- Property view mapping for all credit cards property -->
+<add-item item-descriptor="propertyViewMapping" id="aMgrPvmAllCreditCards">
+  <set-property name="description"><![CDATA[DPS-UI AllCreditCards view mapping]]></set-property>
+  <set-property name="propertyView"><![CDATA[aMgrPvAllCreditCards]]></set-property>
 </add-item>
 
-<add-item item-descriptor="attributeValue" id="aMgrAvExtUserB2BCats">
-  <set-property name="value"><![CDATA[categoryCommerceContract,myCategoryBillingShipping,myCategoryPurchasingApprovals,myCategoryPurchasingPreferences,categoryPurchasingPreferences,categoryBillingShipping,categoryPurchasingApprovals]]></set-property>
+<!-- Property view for all credit cards property -->
+<add-item item-descriptor="propertyView" id="aMgrPvAllCreditCards">
+  <set-property name="name"><![CDATA[DPS-UI property view for all credit cards]]></set-property>
+  <set-property name="description"><![CDATA[DPS-UI property view for all credit cards]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
+  <set-property name="type"><![CDATA[map]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.DefaultEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="attributes"><![CDATA[localValue=AmPvadSAllCreditCardsLV]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/unionEditor.jsp]]></set-property>
 </add-item>
 
-<add-item item-descriptor="attributeValue" id="aMgrAvExtUserB2BExc">
-  <set-property name="value"><![CDATA[]]></set-property>
+<!-- Attribute for allCreditCards pointing at the local value of the union -->
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadSAllCreditCardsLV">
+  <set-property name="defaultValue"><![CDATA[creditCards]]></set-property>
 </add-item>
 
-<add-item item-descriptor="attributeValue" id="aMgrAvExtUserB2BFilter">
-  <set-property name="value"><![CDATA[/atg/web/assetmanager/editor/RequiredModuleTabFilter]]></set-property>
+<!-- Property view mapping for all secondary addresses property -->
+<add-item item-descriptor="propertyViewMapping" id="aMgrPvmAllSecondaryAddresses">
+  <set-property name="description"><![CDATA[DPS-UI AllSecondaryAddresses view mapping]]></set-property>
+  <set-property name="propertyView"><![CDATA[aMgrPvAllSecondaryAddresses]]></set-property>
 </add-item>
 
-<add-item item-descriptor="attributeValue" id="aMgrAvExtUserB2BModule">
-  <set-property name="value"><![CDATA[B2BCommerce]]></set-property>
+<!-- Property view for all secondary addresses property -->
+<add-item item-descriptor="propertyView" id="aMgrPvAllSecondaryAddresses">
+  <set-property name="name"><![CDATA[DPS-UI property view for all secondary addresses]]></set-property>
+  <set-property name="description"><![CDATA[DPS-UI property view for all secondary addresses]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
+  <set-property name="type"><![CDATA[map]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.DefaultEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="attributes"><![CDATA[localValue=AmPvadSAllSecondaryAddressesLV]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/unionEditor.jsp]]></set-property>
+</add-item>
+
+<!-- Attribute for allSecondaryAddresses pointing at the local value of the union -->
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadSAllSecondaryAddressesLV">
+  <set-property name="defaultValue"><![CDATA[secondaryAddresses]]></set-property>
+</add-item>
+
+<!-- Property view mapping for all preferred vendors property -->
+<add-item item-descriptor="propertyViewMapping" id="aMgrPvmAllPreferredVendors">
+  <set-property name="description"><![CDATA[DPS-UI AllPreferredVendors view mapping]]></set-property>
+  <set-property name="propertyView"><![CDATA[aMgrPvAllPreferredVendors]]></set-property>
+</add-item>
+
+<!-- Property view for all preferred vendors property -->
+<add-item item-descriptor="propertyView" id="aMgrPvAllPreferredVendors">
+  <set-property name="name"><![CDATA[DPS-UI property view for all preferred vendors]]></set-property>
+  <set-property name="description"><![CDATA[DPS-UI property view for all preferred vendors]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
+  <set-property name="type"><![CDATA[list]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.DefaultEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="attributes"><![CDATA[localValue=AmPvadSAllPreferredVendorsLV]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/unionEditor.jsp]]></set-property>
+</add-item>
+
+<!-- Attribute for allPreferredVendors pointing at the local value of the union -->
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadSAllPreferredVendorsLV">
+  <set-property name="defaultValue"><![CDATA[preferredVendors]]></set-property>
 </add-item>
 
 <!-- View mapping for external user's Orgs and Roles tab -->
 
 <add-item item-descriptor="itemViewMapping" id="aMgrIvmExtUserOrgsRoles">
-  <set-property name="name"><![CDATA[AssetManager External User Orgs and Roles View]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager external user orgs and roles view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI External User Orgs and Roles View]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI external user orgs and roles view]]></set-property>
   <set-property name="displayName"><![CDATA[aMgrIvmExtUserOrgsRoles.displayName]]></set-property>
   <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvExtUserOrgsRolesResourceBundle,categorizedGrouping=aMgrAvExtUserOrgsRolesCats,excludedProperties=aMgrAvExtUserOrgsRolesExc,additionalFragmentContext=aMgrFragUserEffectivePrincipalsCtx,additionalFragment=aMgrFragUserEffectivePrincipals]]></set-property>
   <set-property name="view"><![CDATA[aMgrIvRep]]></set-property>
@@ -762,8 +810,8 @@
 <!-- View mapping for external user's User Segments tab -->
 
 <add-item item-descriptor="itemViewMapping" id="aMgrIvmExtUserSeg">
-  <set-property name="name"><![CDATA[AssetManager External User Segments View]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager external user segments view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI External User Segments View]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI external user segments view]]></set-property>
   <set-property name="displayName"><![CDATA[aMgrIvmExtUserSegments.displayName]]></set-property>
   <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvExtUserSegmentsResourceBundle]]></set-property>
   <set-property name="view"><![CDATA[aMgrIvAssetGroups]]></set-property>
@@ -779,7 +827,7 @@
 
 <add-item item-descriptor="itemMapping" id="aMgrImViewExtRoleFolder">
   <set-property name="name"><![CDATA[AssetManager]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager read-only mapping for external role folder items]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI read-only mapping for external role folder items]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
   <set-property name="itemPath"><![CDATA[/atg/userprofiling/ProfileAdapterRepository]]></set-property>
   <set-property name="itemName"><![CDATA[roleFolder]]></set-property>
@@ -790,7 +838,7 @@
 
 <add-item item-descriptor="itemMapping" id="aMgrImEditExtRoleFolder">
   <set-property name="name"><![CDATA[AssetManager]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager editable mapping for external role folder items]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI editable mapping for external role folder items]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
   <set-property name="itemPath"><![CDATA[/atg/userprofiling/ProfileAdapterRepository]]></set-property>
   <set-property name="itemName"><![CDATA[roleFolder]]></set-property>
@@ -805,8 +853,8 @@
 
 <!-- View mapping for  role folder's only tab -->
 <add-item item-descriptor="itemViewMapping" id="aMgrIvmRoleFolder">
-  <set-property name="name"><![CDATA[AssetManager External Role Folder View]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager external role folders view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI External Role Folder View]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI external role folders view]]></set-property>
   <set-property name="displayName"><![CDATA[aMgrIvmRoleFolder.displayName]]></set-property>
   <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvRoleFolderResourceBundle,categorizedGrouping=aMgrAvRoleFolderCats]]></set-property>
   <set-property name="view"><![CDATA[aMgrIvRep]]></set-property>
@@ -826,7 +874,7 @@
 
 <add-item item-descriptor="itemMapping" id="aMgrImViewIntRoleFolder">
   <set-property name="name"><![CDATA[AssetManager]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager read-only mapping for internal role folder items]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI read-only mapping for internal role folder items]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
   <set-property name="itemPath"><![CDATA[/atg/userprofiling/InternalProfileRepository]]></set-property>
   <set-property name="itemName"><![CDATA[roleFolder]]></set-property>
@@ -837,7 +885,7 @@
 
 <add-item item-descriptor="itemMapping" id="aMgrImEditIntRoleFolder">
   <set-property name="name"><![CDATA[AssetManager]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager editable mapping for internal role folder items]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI editable mapping for internal role folder items]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
   <set-property name="itemPath"><![CDATA[/atg/userprofiling/InternalProfileRepository]]></set-property>
   <set-property name="itemName"><![CDATA[roleFolder]]></set-property>
@@ -858,7 +906,7 @@
 
 <add-item item-descriptor="itemMapping" id="aMgrImViewIntRole">
   <set-property name="name"><![CDATA[AssetManager]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager read-only mapping for internal role items]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI read-only mapping for internal role items]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
   <set-property name="itemPath"><![CDATA[/atg/userprofiling/InternalProfileRepository]]></set-property>
   <set-property name="itemName"><![CDATA[role]]></set-property>
@@ -869,7 +917,7 @@
 
 <add-item item-descriptor="itemMapping" id="aMgrImEditIntRole">
   <set-property name="name"><![CDATA[AssetManager]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager editable mapping for internal role items]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI editable mapping for internal role items]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
   <set-property name="itemPath"><![CDATA[/atg/userprofiling/InternalProfileRepository]]></set-property>
   <set-property name="itemName"><![CDATA[role]]></set-property>
@@ -884,8 +932,8 @@
 
 <!-- View mapping for internal role's basics tab -->
 <add-item item-descriptor="itemViewMapping" id="aMgrIvmIntRoleBasics">
-  <set-property name="name"><![CDATA[AssetManager Internal Role Basics View]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager internal roles basics view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI Internal Role Basics View]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI internal roles basics view]]></set-property>
   <set-property name="displayName"><![CDATA[aMgrIvmIntRoleBasics.displayName]]></set-property>
   <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvIntRoleBasicsResourceBundle,categorizedGrouping=aMgrAvIntRoleBasicsCats,excludedProperties=aMgrAvIntRoleBasicsExc,showNewProperties=aMgrAvIntRoleBasicsShowNew]]></set-property>
   <set-property name="view"><![CDATA[aMgrIvRep]]></set-property>
@@ -909,8 +957,8 @@
 
 <!-- View mapping for internal role's Access Rights tab -->
 <add-item item-descriptor="itemViewMapping" id="aMgrIvmIntRoleAccess">
-  <set-property name="name"><![CDATA[AssetManager Internal Role Access Rights View]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager internal role access rights view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI Internal Role Access Rights View]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI internal role access rights view]]></set-property>
   <set-property name="displayName"><![CDATA[aMgrIvmIntRoleAccessRights.displayName]]></set-property>
   <set-property name="attributeValues"><![CDATA[categorizedGrouping=aMgrAvIntRoleAccessRightsCats,resourceBundle=aMgrAvIntRoleAccessRightsResourceBundle,additionalFragmentContext=aMgrFragInheritedAccessRightsCtx,additionalFragment=aMgrFragInheritedAccessRights]]></set-property>
   <set-property name="view"><![CDATA[aMgrIvRep]]></set-property>
@@ -935,7 +983,7 @@
 
 <!-- Hide the add new button on the role.templateRoles property editor -->
 <add-item item-descriptor="propertyViewMapping" id="aMgrPvmERoleTemplRole">
-  <set-property name="description"><![CDATA[AssetManager Edit Mode AccessRight.templateRole editor with Add New button disabled ]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI Edit Mode AccessRight.templateRole editor with Add New button disabled ]]></set-property>
   <set-property name="attributeValues"><![CDATA[hideAddNew=aMgrAvRoleTemplRoleHideAddNew]]></set-property>
 </add-item>
 
@@ -945,8 +993,8 @@
 
 <!-- View mapping for role's members tab -->
 <add-item item-descriptor="itemViewMapping" id="aMgrIvmRoleMembers">
-  <set-property name="name"><![CDATA[AssetManager Role Members View]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager roles members view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI Role Members View]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI roles members view]]></set-property>
   <set-property name="displayName"><![CDATA[aMgrIvmRoleMembers.displayName]]></set-property>
   <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvRoleMembersResourceBundle]]></set-property>
   <set-property name="view"><![CDATA[aMgrIvRoleMembers]]></set-property>
@@ -957,8 +1005,8 @@
 </add-item>
 
 <add-item item-descriptor="itemView" id="aMgrIvRoleMembers">
-  <set-property name="name"><![CDATA[AssetManager Role Members view]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager role members view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI Role Members view]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI role members view]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
   <set-property name="applicationName"><![CDATA[DPS-UI]]></set-property>
   <set-property name="uri"><![CDATA[/assetEditor/tab/profile/roleMembers.jsp]]></set-property>
@@ -973,7 +1021,7 @@
 
 <add-item item-descriptor="itemMapping" id="aMgrImViewExtRole">
   <set-property name="name"><![CDATA[AssetManager]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager read-only mapping for external role items]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI read-only mapping for external role items]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
   <set-property name="itemPath"><![CDATA[/atg/userprofiling/ProfileAdapterRepository]]></set-property>
   <set-property name="itemName"><![CDATA[role]]></set-property>
@@ -984,7 +1032,7 @@
 
 <add-item item-descriptor="itemMapping" id="aMgrImEditExtRole">
   <set-property name="name"><![CDATA[AssetManager]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager editable mapping for external role items]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI editable mapping for external role items]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
   <set-property name="itemPath"><![CDATA[/atg/userprofiling/ProfileAdapterRepository]]></set-property>
   <set-property name="itemName"><![CDATA[role]]></set-property>
@@ -999,8 +1047,8 @@
 
 <!-- View mapping for external role's basics tab -->
 <add-item item-descriptor="itemViewMapping" id="aMgrIvmExtRoleBasics">
-  <set-property name="name"><![CDATA[AssetManager External Role Basics View]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager external roles basics view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI External Role Basics View]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI external roles basics view]]></set-property>
   <set-property name="displayName"><![CDATA[aMgrIvmExtRoleBasics.displayName]]></set-property>
   <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvExtRoleBasicsResourceBundle,categorizedGrouping=aMgrAvExtRoleBasicsCats,excludedProperties=aMgrAvExtRoleBasicsExc,showNewProperties=aMgrAvExtRoleBasicsShowNew]]></set-property>
   <set-property name="view"><![CDATA[aMgrIvRep]]></set-property>
@@ -1030,7 +1078,7 @@
 
 <add-item item-descriptor="itemMapping" id="aMgrImViewExtOrgRole">
   <set-property name="name"><![CDATA[AssetManager]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager read-only mapping for external organizationalRole items]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI read-only mapping for external organizationalRole items]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
   <set-property name="itemPath"><![CDATA[/atg/userprofiling/ProfileAdapterRepository]]></set-property>
   <set-property name="itemName"><![CDATA[organizationalRole]]></set-property>
@@ -1041,7 +1089,7 @@
 
 <add-item item-descriptor="itemMapping" id="aMgrImEditExtOrgRole">
   <set-property name="name"><![CDATA[AssetManager]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager editable mapping for external organizational role items]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI editable mapping for external organizational role items]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
   <set-property name="itemPath"><![CDATA[/atg/userprofiling/ProfileAdapterRepository]]></set-property>
   <set-property name="itemName"><![CDATA[organizationalRole]]></set-property>
@@ -1056,8 +1104,8 @@
 
 <!-- View mapping for external organizationalRole's basics tab -->
 <add-item item-descriptor="itemViewMapping" id="aMgrIvmExtOrgRoleBasics">
-  <set-property name="name"><![CDATA[AssetManager External OrganizationalRole Basics View]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager external organizationalRoles basics view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI External OrganizationalRole Basics View]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI external organizationalRoles basics view]]></set-property>
   <set-property name="displayName"><![CDATA[aMgrIvmExtRoleBasics.displayName]]></set-property>
   <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvExtOrgRoleBasicsResourceBundle,categorizedGrouping=aMgrAvExtOrgRoleBasicsCats,excludedProperties=aMgrAvExtOrgRoleBasicsExc,showNewProperties=aMgrAvExtOrgRoleBasicsShowNew]]></set-property>
   <set-property name="view"><![CDATA[aMgrIvRep]]></set-property>
@@ -1087,7 +1135,7 @@
 
 <add-item item-descriptor="itemMapping" id="aMgrImViewIntOrgRole">
   <set-property name="name"><![CDATA[AssetManager]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager read-only mapping for internal organizationalRole items]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI read-only mapping for internal organizationalRole items]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
   <set-property name="itemPath"><![CDATA[/atg/userprofiling/InternalProfileRepository]]></set-property>
   <set-property name="itemName"><![CDATA[organizationalRole]]></set-property>
@@ -1098,7 +1146,7 @@
 
 <add-item item-descriptor="itemMapping" id="aMgrImEditIntOrgRole">
   <set-property name="name"><![CDATA[AssetManager]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager editable mapping for internal organizational role items]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI editable mapping for internal organizational role items]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
   <set-property name="itemPath"><![CDATA[/atg/userprofiling/InternalProfileRepository]]></set-property>
   <set-property name="itemName"><![CDATA[organizationalRole]]></set-property>
@@ -1113,8 +1161,8 @@
 
 <!-- View mapping for internal organizationalRole's basics tab -->
 <add-item item-descriptor="itemViewMapping" id="aMgrIvmIntOrgRoleBasics">
-  <set-property name="name"><![CDATA[AssetManager Internal OrganizationalRole Basics View]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager internal organizationalRoles basics view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI Internal OrganizationalRole Basics View]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI internal organizationalRoles basics view]]></set-property>
   <set-property name="displayName"><![CDATA[aMgrIvmIntRoleBasics.displayName]]></set-property>
   <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvIntOrgRoleBasicsResourceBundle,categorizedGrouping=aMgrAvIntOrgRoleBasicsCats,excludedProperties=aMgrAvIntOrgRoleBasicsExc,showNewProperties=aMgrAvIntOrgRoleBasicsShowNew]]></set-property>
   <set-property name="view"><![CDATA[aMgrIvRep]]></set-property>
@@ -1145,7 +1193,7 @@
 
 <add-item item-descriptor="itemMapping" id="aMgrImViewIntOrg">
   <set-property name="name"><![CDATA[AssetManager]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager read-only mapping for internal organization items]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI read-only mapping for internal organization items]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
   <set-property name="itemPath"><![CDATA[/atg/userprofiling/InternalProfileRepository]]></set-property>
   <set-property name="itemName"><![CDATA[organization]]></set-property>
@@ -1156,7 +1204,7 @@
 
 <add-item item-descriptor="itemMapping" id="aMgrImEditIntOrg">
   <set-property name="name"><![CDATA[AssetManager]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager editable mapping for internal organization items]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI editable mapping for internal organization items]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
   <set-property name="itemPath"><![CDATA[/atg/userprofiling/InternalProfileRepository]]></set-property>
   <set-property name="itemName"><![CDATA[organization]]></set-property>
@@ -1175,9 +1223,10 @@
 
 <!-- View mapping for internal organization's basics tab -->
 <add-item item-descriptor="itemViewMapping" id="aMgrIvmIntOrgBasics">
-  <set-property name="name"><![CDATA[AssetManager Internal Organization Basics View]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager internal organization basics view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI Internal Organization Basics View]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI internal organization basics view]]></set-property>
   <set-property name="displayName"><![CDATA[aMgrIvmIntOrgBasics.displayName]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[allCreditCards=aMgrPvmAllCreditCards,allSecondaryAddresses=aMgrPvmAllSecondaryAddresses,allPreferredVendors=aMgrPvmAllPreferredVendors]]></set-property>
   <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvIntOrgBasicsResourceBundle,categorizedGrouping=aMgrAvIntOrgBasicsCats,excludedProperties=aMgrAvIntOrgBasicsExc,showNewProperties=aMgrAvIntOrgBasicsShowNew]]></set-property>
   <set-property name="view"><![CDATA[aMgrIvRep]]></set-property>
 </add-item>
@@ -1191,7 +1240,7 @@
 </add-item>
 
 <add-item item-descriptor="attributeValue" id="aMgrAvIntOrgBasicsExc">
-  <set-property name="value"><![CDATA[id]]></set-property>
+  <set-property name="value"><![CDATA[id,secondaryAddresses,creditCards,preferredVendors]]></set-property>
 </add-item>
 
 <add-item item-descriptor="attributeValue" id="aMgrAvIntOrgBasicsShowNew">
@@ -1200,8 +1249,8 @@
 
 <!-- View mapping for internal organization's auto-applied roles tab -->
 <add-item item-descriptor="itemViewMapping" id="aMgrIvmIntOrgAutoRoles">
-  <set-property name="name"><![CDATA[AssetManager Internal Organization Auto-Applied Roles View]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager internal organization auto-applied roles view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI Internal Organization Auto-Applied Roles View]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI internal organization auto-applied roles view]]></set-property>
   <set-property name="displayName"><![CDATA[aMgrIvmIntOrgAutoRoles.displayName]]></set-property>
   <set-property name="attributeValues"><![CDATA[specificProperties=aMgrAvIntOrgAutoRolesProps,resourceBundle=aMgrAvIntOrgAutoRolesResourceBundle]]></set-property>
   <set-property name="view"><![CDATA[aMgrIvRep]]></set-property>
@@ -1210,7 +1259,7 @@
 
 <!-- Hide the Create New button on the Org.roles property editor -->
 <add-item item-descriptor="propertyViewMapping" id="aMgrPvmEOrgAutoRoles">
-  <set-property name="description"><![CDATA[AssetManager Edit Mode Org.roles editor with Create New button disabled ]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI Edit Mode Org.roles editor with Create New button disabled ]]></set-property>
   <set-property name="attributeValues"><![CDATA[hideAddNew=aMgrAvOrgAutoRolesHideCreateNew]]></set-property>
 </add-item>
 
@@ -1228,8 +1277,8 @@
 
 <!-- View mapping for internal organization's organizational roles tab -->
 <add-item item-descriptor="itemViewMapping" id="aMgrIvmIntOrgRelativeRoles">
-  <set-property name="name"><![CDATA[AssetManager Internal Organization Organizational Roles View]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager internal organization organizational roles view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI Internal Organization Organizational Roles View]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI internal organization organizational roles view]]></set-property>
   <set-property name="displayName"><![CDATA[aMgrIvmIntOrgRelativeRoles.displayName]]></set-property>
   <set-property name="attributeValues"><![CDATA[specificProperties=aMgrAvIntOrgRelativeRolesProps,resourceBundle=aMgrAvIntOrgRelativeRolesResourceBundle]]></set-property>
   <set-property name="view"><![CDATA[aMgrIvRep]]></set-property>
@@ -1238,7 +1287,7 @@
 
 <!-- Hide the add existing button on the Org.relativeRoles property editor -->
 <add-item item-descriptor="propertyViewMapping" id="aMgrPvmEOrgRelRoles">
-  <set-property name="description"><![CDATA[AssetManager Edit Mode Org.relativeRoles editor with Add Existing button disabled ]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI Edit Mode Org.relativeRoles editor with Add Existing button disabled ]]></set-property>
   <set-property name="attributeValues"><![CDATA[hideAddExisting=aMgrAvOrgRelRolesHideAddExisting]]></set-property>
 </add-item>
 
@@ -1257,16 +1306,16 @@
 <!-- Read-only and editable view mappings for internal organization's members tab -->
 
 <add-item item-descriptor="itemViewMapping" id="aMgrIvmVIntOrgMembers">
-  <set-property name="name"><![CDATA[AssetManager Internal Organization Members Read-Only View]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager internal organization members read-only view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI Internal Organization Members Read-Only View]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI internal organization members read-only view]]></set-property>
   <set-property name="displayName"><![CDATA[aMgrIvmIntOrgMembers.displayName]]></set-property>
   <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvIntOrgMembersResourceBundle,specificProperties=aMgrAvIntOrgMembersProps]]></set-property>
   <set-property name="view"><![CDATA[aMgrIvRep]]></set-property>
 </add-item>
 
 <add-item item-descriptor="itemViewMapping" id="aMgrIvmEIntOrgMembers">
-  <set-property name="name"><![CDATA[AssetManager Internal Organization Members View]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager internal organization members view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI Internal Organization Members View]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI internal organization members view]]></set-property>
   <set-property name="displayName"><![CDATA[aMgrIvmIntOrgMembers.displayName]]></set-property>
   <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvIntOrgMembersResourceBundle,specificProperties=aMgrAvIntOrgMembersProps,additionalFragmentContext=aMgrFragOrgAllMembersCtx,additionalFragment=aMgrFragOrgAllMembers]]></set-property>
   <set-property name="view"><![CDATA[aMgrIvRep]]></set-property>
@@ -1290,8 +1339,8 @@
 
 <!-- View mapping for internal organization's ticketing tab -->
 <add-item item-descriptor="itemViewMapping" id="aMgrIvmVIntOrgTicketing">
-  <set-property name="name"><![CDATA[AssetManager Internal Organization Ticketing Read-Only View]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager internal organization ticketing read-only view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI Internal Organization Ticketing Read-Only View]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI internal organization ticketing read-only view]]></set-property>
   <set-property name="displayName"><![CDATA[aMgrIvmIntOrgTicketing.displayName]]></set-property>
   <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvIntOrgTicketingResourceBundle,specificProperties=aMgrAvIntOrgTicketingProps,atgItemViewMappingFilter=aMgrAvIntOrgTicketingFilter,requiredModule=aMgrAvIntOrgTicketingModule]]></set-property>
   <set-property name="view"><![CDATA[aMgrIvRep]]></set-property>
@@ -1299,8 +1348,8 @@
 </add-item>
 
 <add-item item-descriptor="itemViewMapping" id="aMgrIvmEIntOrgTicketing">
-  <set-property name="name"><![CDATA[AssetManager Internal Organization Ticketing View]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager internal organization ticketing view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI Internal Organization Ticketing View]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI internal organization ticketing view]]></set-property>
   <set-property name="displayName"><![CDATA[aMgrIvmIntOrgTicketing.displayName]]></set-property>
   <set-property name="attributeValues"><![CDATA[specificProperties=aMgrAvIntOrgTicketingProps,resourceBundle=aMgrAvIntOrgTicketingResourceBundle,atgItemViewMappingFilter=aMgrAvIntOrgTicketingFilter,requiredModule=aMgrAvIntOrgTicketingModule]]></set-property>
   <set-property name="view"><![CDATA[aMgrIvRep]]></set-property>
@@ -1325,16 +1374,16 @@
 
 <!-- View mapping for internal organization's solutions tab
 <add-item item-descriptor="itemViewMapping" id="aMgrIvmVIntOrgSolutions">
-  <set-property name="name"><![CDATA[AssetManager Internal Organization Solutions Read-Only View]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager internal organization solutions read-only view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI Internal Organization Solutions Read-Only View]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI internal organization solutions read-only view]]></set-property>
   <set-property name="displayName"><![CDATA[aMgrIvmIntOrgSolutions.displayName]]></set-property>
   <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvIntOrgSolutionsResourceBundle,specificProperties=aMgrAvIntOrgSolutionsProps]]></set-property>
   <set-property name="view"><![CDATA[aMgrIvRep]]></set-property>
 </add-item>
 
 <add-item item-descriptor="itemViewMapping" id="aMgrIvmEIntOrgSolutions">
-  <set-property name="name"><![CDATA[AssetManager Internal Organization Solutions View]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager internal organization solutions view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI Internal Organization Solutions View]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI internal organization solutions view]]></set-property>
   <set-property name="displayName"><![CDATA[aMgrIvmIntOrgSolutions.displayName]]></set-property>
   <set-property name="attributeValues"><![CDATA[specificProperties=aMgrAvIntOrgSolutionsProps,resourceBundle=aMgrAvIntOrgSolutionsResourceBundle]]></set-property>
   <set-property name="view"><![CDATA[aMgrIvRep]]></set-property>
@@ -1358,7 +1407,7 @@
 
 <add-item item-descriptor="itemMapping" id="aMgrImViewExtOrg">
   <set-property name="name"><![CDATA[AssetManager]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager read-only mapping for external organization items]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI read-only mapping for external organization items]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
   <set-property name="itemPath"><![CDATA[/atg/userprofiling/ProfileAdapterRepository]]></set-property>
   <set-property name="itemName"><![CDATA[organization]]></set-property>
@@ -1369,7 +1418,7 @@
 
 <add-item item-descriptor="itemMapping" id="aMgrImEditExtOrg">
   <set-property name="name"><![CDATA[AssetManager]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager editable mapping for external organization items]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI editable mapping for external organization items]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
   <set-property name="itemPath"><![CDATA[/atg/userprofiling/ProfileAdapterRepository]]></set-property>
   <set-property name="itemName"><![CDATA[organization]]></set-property>
@@ -1385,16 +1434,16 @@
 <!-- Read-only and editable view mappings for external organization's members tab -->
 
 <add-item item-descriptor="itemViewMapping" id="aMgrIvmVExtOrgMembers">
-  <set-property name="name"><![CDATA[AssetManager External Organization Members Read-Only View]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager external organization members read-only view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI External Organization Members Read-Only View]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI external organization members read-only view]]></set-property>
   <set-property name="displayName"><![CDATA[aMgrIvmExtOrgMembers.displayName]]></set-property>
   <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvExtOrgMembersResourceBundle,specificProperties=aMgrAvExtOrgMembersProps]]></set-property>
   <set-property name="view"><![CDATA[aMgrIvRep]]></set-property>
 </add-item>
 
 <add-item item-descriptor="itemViewMapping" id="aMgrIvmEExtOrgMembers">
-  <set-property name="name"><![CDATA[AssetManager External Organization Members View]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager external organization members view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI External Organization Members View]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI external organization members view]]></set-property>
   <set-property name="displayName"><![CDATA[aMgrIvmExtOrgMembers.displayName]]></set-property>
   <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvExtOrgMembersResourceBundle,specificProperties=aMgrAvExtOrgMembersProps,additionalFragmentContext=aMgrFragExtOrgAllMembersCtx,additionalFragment=aMgrFragExtOrgAllMembers]]></set-property>
   <set-property name="view"><![CDATA[aMgrIvRep]]></set-property>
@@ -1424,7 +1473,7 @@
 
 <add-item item-descriptor="itemMapping" id="aMgrImViewCreditCard">
   <set-property name="name"><![CDATA[AssetManager]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager read-only mapping for credit card items]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI read-only mapping for credit card items]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
   <set-property name="itemPath"><![CDATA[/atg/userprofiling/ProfileAdapterRepository]]></set-property>
   <set-property name="itemName"><![CDATA[credit-card]]></set-property>
@@ -1434,7 +1483,7 @@
 
 <add-item item-descriptor="itemMapping" id="aMgrImEditCreditCard">
   <set-property name="name"><![CDATA[AssetManager]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager editable mapping for credit card items]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI editable mapping for credit card items]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
   <set-property name="itemPath"><![CDATA[/atg/userprofiling/ProfileAdapterRepository]]></set-property>
   <set-property name="itemName"><![CDATA[credit-card]]></set-property>
@@ -1445,8 +1494,8 @@
 <!-- View mappings for only tab -->
 
 <add-item item-descriptor="itemViewMapping" id="aMgrIvmViewCreditCardAll">
-  <set-property name="name"><![CDATA[AssetManager credit card read-only view]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager credit card read-only view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI credit card read-only view]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI credit card read-only view]]></set-property>
   <set-property name="displayName"><![CDATA[aMgrIvmCreditCardAll.displayName]]></set-property>
   <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvCreditCardAllResourceBundle]]></set-property>
   <set-property name="view"><![CDATA[aMgrIvRep]]></set-property>
@@ -1454,8 +1503,8 @@
 </add-item>
 
 <add-item item-descriptor="itemViewMapping" id="aMgrIvmEditCreditCardAll">
-  <set-property name="name"><![CDATA[AssetManager credit card editable view]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager credit card editable view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI credit card editable view]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI credit card editable view]]></set-property>
   <set-property name="displayName"><![CDATA[aMgrIvmCreditCardAll.displayName]]></set-property>
   <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvCreditCardAllResourceBundle]]></set-property>
   <set-property name="view"><![CDATA[aMgrIvRep]]></set-property>
@@ -1469,13 +1518,13 @@
 <!-- Custom viewer for credit-card's creditCardNumber property -->
 
 <add-item item-descriptor="propertyViewMapping" id="aMgrPvmVCreditCardNumber">
-  <set-property name="description"><![CDATA[AssetManager credit card number read-only property view mapping]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI credit card number read-only property view mapping]]></set-property>
   <set-property name="propertyView"><![CDATA[aMgrPvVCreditCardNumber]]></set-property>
 </add-item>
 
 <add-item item-descriptor="propertyView" id="aMgrPvVCreditCardNumber">
-  <set-property name="name"><![CDATA[AssetManager credit card number viewer]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager credit card number viewer]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI credit card number viewer]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI credit card number viewer]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
   <set-property name="type"><![CDATA[string]]></set-property>
   <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
@@ -1487,13 +1536,13 @@
 <!-- Custom editor for credit-card's creditCardNumber property -->
 
 <add-item item-descriptor="propertyViewMapping" id="aMgrPvmECreditCardNumber">
-  <set-property name="description"><![CDATA[AssetManager credit card number editable property view mapping]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI credit card number editable property view mapping]]></set-property>
   <set-property name="propertyView"><![CDATA[aMgrPvECreditCardNumber]]></set-property>
 </add-item>
 
 <add-item item-descriptor="propertyView" id="aMgrPvECreditCardNumber">
-  <set-property name="name"><![CDATA[AssetManager credit card number editor]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager credit card number editor]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI credit card number editor]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI credit card number editor]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
   <set-property name="type"><![CDATA[string]]></set-property>
   <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
@@ -1525,7 +1574,7 @@
 
 <add-item item-descriptor="itemMapping" id="aMgrImViewTicketQueue">
   <set-property name="name"><![CDATA[AssetManager]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager read-only mapping for ticketQueue items]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI read-only mapping for ticketQueue items]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
   <set-property name="itemPath"><![CDATA[/atg/ticketing/TicketingRepository]]></set-property>
   <set-property name="itemName"><![CDATA[ticketQueue]]></set-property>
@@ -1535,7 +1584,7 @@
 
 <add-item item-descriptor="itemMapping" id="aMgrImEditTicketQueue">
   <set-property name="name"><![CDATA[AssetManager]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager editable mapping for ticketQueue items]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI editable mapping for ticketQueue items]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
   <set-property name="itemPath"><![CDATA[/atg/userprofiling/LogicalOrganizationRepository]]></set-property>
   <set-property name="itemName"><![CDATA[ticketQueue]]></set-property>
@@ -1546,8 +1595,8 @@
 <!-- View mapping for ticketQueue -->
 
 <add-item item-descriptor="itemViewMapping" id="aMgrIvmTicketQueueAll">
-  <set-property name="name"><![CDATA[AssetManager ticketQueue View]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager ticketQueue all view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI ticketQueue View]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI ticketQueue all view]]></set-property>
   <set-property name="displayName"><![CDATA[aMgrIvmTicketQueueAll.displayName]]></set-property>
   <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvTicketQueueAllResourceBundle,excludedProperties=aMgrAvTicketQueueAllExc]]></set-property>
   <set-property name="view"><![CDATA[aMgrIvRep]]></set-property>
@@ -1565,8 +1614,8 @@
 <!-- Form handler for ticketQueue items -->
 
 <add-item item-descriptor="formHandler" id="aMgrFhTicketQueue">
-  <set-property name="name"><![CDATA[AssetManager TicketQueueFormHandler]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager ticketQueue asset form handler]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI TicketQueueFormHandler]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI ticketQueue asset form handler]]></set-property>
   <set-property name="path"><![CDATA[/atg/web/assetmanager/editor/profile/TicketQueueRepositoryFormHandler]]></set-property>
   <set-property name="attributes"><![CDATA[atgFormValueDict=aMgrAvTicketQueueDict]]></set-property>
 </add-item>
@@ -1578,15 +1627,15 @@
 <!-- Custom editor for ticketQueue's escalationTicketQueues property -->
 
 <add-item item-descriptor="propertyViewMapping" id="aMgrPvmEEscalationQueues">
-  <set-property name="description"><![CDATA[AssetManager editable escalationTicketQueues property view mapping]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI editable escalationTicketQueues property view mapping]]></set-property>
   <set-property name="propertyView"><![CDATA[aMgrPvESet]]></set-property>
   <set-property name="componentPropertyView"><![CDATA[aMgrPvEEscalationQTicketQ]]></set-property>
   <set-property name="attributeValues"><![CDATA[renderHeaderInComponentEditor=aMgrAvEscalationQHeader]]></set-property>
 </add-item>
 
 <add-item item-descriptor="propertyView" id="aMgrPvEEscalationQTicketQ">
-  <set-property name="name"><![CDATA[AssetManager editable ticket queues editor]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager editable ticket queues]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI editable ticket queues editor]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI editable ticket queues]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
   <set-property name="type"><![CDATA[ticketQueue]]></set-property>
   <set-property name="applicationName"><![CDATA[DPS-UI]]></set-property>
@@ -1601,15 +1650,15 @@
 <!-- Custom editor for organizations's ticketQueues property -->
 
 <add-item item-descriptor="propertyViewMapping" id="aMgrPvmETicketQueues">
-  <set-property name="description"><![CDATA[AssetManager editable ticketQueues property view mapping]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI editable ticketQueues property view mapping]]></set-property>
   <set-property name="propertyView"><![CDATA[aMgrPvESet]]></set-property>
   <set-property name="componentPropertyView"><![CDATA[aMgrPvETicketQTicketQ]]></set-property>
   <set-property name="attributeValues"><![CDATA[hideAddExisting=aMgrAvTicketQHideAE,renderHeaderInComponentEditor=aMgrAvTicketQHeader]]></set-property>
 </add-item>
 
 <add-item item-descriptor="propertyView" id="aMgrPvETicketQTicketQ">
-  <set-property name="name"><![CDATA[AssetManager editable ticket queues editor]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager editable ticket queues]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI editable ticket queues editor]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI editable ticket queues]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
   <set-property name="type"><![CDATA[ticketQueue]]></set-property>
   <set-property name="applicationName"><![CDATA[DPS-UI]]></set-property>
@@ -1631,24 +1680,31 @@
 
 <!-- Read-only and editable item mappings for segment list; contain one view mapping per tab -->
 
+<add-item item-descriptor="formHandler" id="aMgrFhSegmentList">
+  <set-property name="name"><![CDATA[AssetManager UserSegmentsRepositoryFormHandler]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager default form handler for user segment list]]></set-property>
+  <set-property name="path"><![CDATA[/atg/web/assetmanager/editor/targeting/UserSegmentsRepositoryFormHandler]]></set-property>
+  <set-property name="attributes"><![CDATA[atgFormValueDict=aMgrAvValue]]></set-property>
+</add-item>
+
 <add-item item-descriptor="itemMapping" id="aMgrImViewSegmentList">
   <set-property name="name"><![CDATA[AssetManager]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager read-only mapping for segment list items]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI read-only mapping for segment list items]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
   <set-property name="itemPath"><![CDATA[/atg/userprofiling/PersonalizationRepository]]></set-property>
   <set-property name="itemName"><![CDATA[userSegmentList]]></set-property>
-  <set-property name="formHandler"><![CDATA[aMgrFhRep]]></set-property>
+  <set-property name="formHandler"><![CDATA[aMgrFhSegmentList]]></set-property>
   <set-property name="viewMappings"><![CDATA[aMgrIvmViewSegmentListGen]]></set-property>
   <set-property name="attributes"><![CDATA[disablePreview=aMgrSegListDisablePreview]]></set-property>
 </add-item>
 
 <add-item item-descriptor="itemMapping" id="aMgrImEditSegmentList">
   <set-property name="name"><![CDATA[AssetManager]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager editable mapping for segment list items]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI editable mapping for segment list items]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
   <set-property name="itemPath"><![CDATA[/atg/userprofiling/PersonalizationRepository]]></set-property>
   <set-property name="itemName"><![CDATA[userSegmentList]]></set-property>
-  <set-property name="formHandler"><![CDATA[aMgrFhRep]]></set-property>
+  <set-property name="formHandler"><![CDATA[aMgrFhSegmentList]]></set-property>
   <set-property name="viewMappings"><![CDATA[aMgrIvmEditSegmentListGen]]></set-property>
   <set-property name="attributes"><![CDATA[disablePreview=aMgrSegListDisablePreview]]></set-property>
 </add-item>
@@ -1660,8 +1716,8 @@
 <!-- Item View Mapping for editable segment list tab -->
 
 <add-item item-descriptor="itemViewMapping" id="aMgrIvmEditSegmentListGen">
-  <set-property name="name"><![CDATA[AssetManager editable segment list general view]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager editable segment list general view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI editable segment list general view]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI editable segment list general view]]></set-property>
   <set-property name="displayName"><![CDATA[aMgrIvmSegmentListGen.displayName]]></set-property>
   <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvSegmentListResourceBundle]]></set-property>
   <set-property name="propertyMappings"><![CDATA[groups=aMgrPvmESegmentListGroups]]></set-property>
@@ -1671,8 +1727,8 @@
 <!-- Item View Mapping for read-only segment list tab -->
 
 <add-item item-descriptor="itemViewMapping" id="aMgrIvmViewSegmentListGen">
-  <set-property name="name"><![CDATA[AssetManager read-only segment list General View]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager read-only segment general view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI read-only segment list General View]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI read-only segment general view]]></set-property>
   <set-property name="displayName"><![CDATA[aMgrIvmSegmentListGen.displayName]]></set-property>
   <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvSegmentListResourceBundle]]></set-property>
   <set-property name="propertyMappings"><![CDATA[groups=aMgrPvmVSegmentListGroups]]></set-property>
@@ -1688,8 +1744,8 @@
 <!-- Custom editable item view for segment list -->
 
 <add-item item-descriptor="itemView" id="aMgrIvEditSegmentList">
-  <set-property name="name"><![CDATA[AssetManager editable segment list general panel view]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager editable segment list general panel view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI editable segment list general panel view]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI editable segment list general panel view]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
   <set-property name="applicationName"><![CDATA[DPS-UI]]></set-property>
   <set-property name="uri"><![CDATA[/assetEditor/tab/segmentlist/segmentListGeneral.jsp]]></set-property>
@@ -1698,8 +1754,8 @@
 <!-- Custom read only item view for segment list -->
 
 <add-item item-descriptor="itemView" id="aMgrIvViewSegmentList">
-  <set-property name="name"><![CDATA[AssetManager read-only segment list general panel view]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager read-only segment list general panel view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI read-only segment list general panel view]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI read-only segment list general panel view]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
   <set-property name="applicationName"><![CDATA[DPS-UI]]></set-property>
   <set-property name="uri"><![CDATA[/assetEditor/tab/segmentlist/segmentListGeneral.jsp]]></set-property>
@@ -1708,7 +1764,7 @@
 <!-- Property View Mapping edit mode for segment list group property -->
 
 <add-item item-descriptor="propertyViewMapping" id="aMgrPvmESegmentListGroups">
-  <set-property name="description"><![CDATA[AssetManager editable segment list groups property view mapping]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI editable segment list groups property view mapping]]></set-property>
   <set-property name="propertyView"><![CDATA[aMgrPvEGroupsList]]></set-property>
   <set-property name="componentPropertyView"><![CDATA[aMgrPvEGroups]]></set-property>
 </add-item>
@@ -1716,15 +1772,15 @@
 <!-- Property View Mapping read-only mode for segment list group property -->
 
 <add-item item-descriptor="propertyViewMapping" id="aMgrPvmVSegmentListGroups">
-  <set-property name="description"><![CDATA[AssetManager read-only segment list groups property component editor]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI read-only segment list groups property component editor]]></set-property>
   <set-property name="propertyView"><![CDATA[aMgrPvVList]]></set-property>
 </add-item>
 
 <!-- Custom list editor for segment list group property -->
 
 <add-item item-descriptor="propertyView" id="aMgrPvEGroupsList">
-  <set-property name="name"><![CDATA[AssetManager editor for segment list groups]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager editor for segment list groups]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI editor for segment list groups]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI editor for segment list groups]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
   <set-property name="type"><![CDATA[list]]></set-property>
   <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
@@ -1737,8 +1793,8 @@
 <!-- Custom component editor for segment list group property -->
 
 <add-item item-descriptor="propertyView" id="aMgrPvEGroups">
-  <set-property name="name"><![CDATA[AssetManager editable segment list groups property editor]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager editable segment list groups property editor]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI editable segment list groups property editor]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI editable segment list groups property editor]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
   <set-property name="type"><![CDATA[list]]></set-property>
   <set-property name="applicationName"><![CDATA[DPS-UI]]></set-property>
@@ -1754,7 +1810,7 @@
 
 <add-item item-descriptor="itemMapping" id="aMgrImViewSegmentListFolder">
   <set-property name="name"><![CDATA[AssetManager]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager read-only mapping for segment list folder items]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI read-only mapping for segment list folder items]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
   <set-property name="itemPath"><![CDATA[/atg/userprofiling/PersonalizationRepository]]></set-property>
   <set-property name="itemName"><![CDATA[folder]]></set-property>
@@ -1765,7 +1821,7 @@
 
 <add-item item-descriptor="itemMapping" id="aMgrImEditSegmentListFolder">
   <set-property name="name"><![CDATA[AssetManager]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager editable mapping for segment list folder items]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI editable mapping for segment list folder items]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
   <set-property name="itemPath"><![CDATA[/atg/userprofiling/PersonalizationRepository]]></set-property>
   <set-property name="itemName"><![CDATA[folder]]></set-property>
@@ -1781,8 +1837,8 @@
 <!-- Item View mapping editable mode for segment list folder -->
 
 <add-item item-descriptor="itemViewMapping" id="aMgrIvmEditSegmentListFolderGen">
-  <set-property name="name"><![CDATA[AssetManager editable segment list folder general view]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager editable segment folder general view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI editable segment list folder general view]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI editable segment folder general view]]></set-property>
   <set-property name="displayName"><![CDATA[aMgrIvmSegmentListFolderGen.displayName]]></set-property>
   <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvSegmentListResourceBundle]]></set-property>
   <set-property name="view"><![CDATA[aMgrIvEditSegmentListFolder]]></set-property>
@@ -1791,8 +1847,8 @@
 <!-- Item View mapping read only mode for segment list folder -->
 
 <add-item item-descriptor="itemViewMapping" id="aMgrIvmViewSegmentListFolderGen">
-  <set-property name="name"><![CDATA[AssetManager read-only segment list General View]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager read-only segment general view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI read-only segment list General View]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI read-only segment general view]]></set-property>
   <set-property name="displayName"><![CDATA[aMgrIvmSegmentListFolderGen.displayName]]></set-property>
   <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvSegmentListResourceBundle]]></set-property>
   <set-property name="view"><![CDATA[aMgrIvViewSegmentListFolder]]></set-property>
@@ -1801,8 +1857,8 @@
 <!-- Custom edit view for segment list folder -->
 
 <add-item item-descriptor="itemView" id="aMgrIvEditSegmentListFolder">
-  <set-property name="name"><![CDATA[AssetManager segment list folder general panel view]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager segment list folder general panel view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI segment list folder general panel view]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI segment list folder general panel view]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
   <set-property name="applicationName"><![CDATA[DPS-UI]]></set-property>
   <set-property name="uri"><![CDATA[/assetEditor/tab/segmentlist/segmentListFolder.jsp]]></set-property>
@@ -1811,8 +1867,8 @@
 <!-- Custom read only view for segment list folder -->
 
 <add-item item-descriptor="itemView" id="aMgrIvViewSegmentListFolder">
-  <set-property name="name"><![CDATA[AssetManager segment list folder general panel view]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager segment list folder general panel view]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI segment list folder general panel view]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI segment list folder general panel view]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
   <set-property name="applicationName"><![CDATA[DPS-UI]]></set-property>
   <set-property name="uri"><![CDATA[/assetEditor/tab/segmentlist/segmentListFolder.jsp]]></set-property>
@@ -1823,8 +1879,8 @@
 <!-- ======================================================================= -->
 
 <add-item item-descriptor="formHandler" id="aMgrFhEprUser">
-  <set-property name="name"><![CDATA[AssetManager ExternalUserFormHandler]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager default form handler for external user items]]></set-property>
+  <set-property name="name"><![CDATA[JSP DPS-UI ExternalUserFormHandler]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI default form handler for external user items]]></set-property>
   <set-property name="path"><![CDATA[/atg/web/assetmanager/editor/externalprofile/ExternalUserFormHandler]]></set-property>
   <set-property name="attributes"><![CDATA[atgFormValueDict=aMgrAvValue]]></set-property>
 </add-item>
@@ -1833,23 +1889,23 @@
 
 <add-item item-descriptor="itemMapping" id="aMgrImViewEprUser">
   <set-property name="name"><![CDATA[AssetManager]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager read-only mapping for external user items]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI read-only mapping for external user items]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
   <set-property name="itemPath"><![CDATA[/atg/userprofiling/ExternalProfileRepository]]></set-property>
   <set-property name="itemName"><![CDATA[user]]></set-property>
   <set-property name="formHandler"><![CDATA[aMgrFhEprUser]]></set-property>
-  <set-property name="viewMappings"><![CDATA[aMgrIvmExtUserBasics,aMgrIvmExtUserCommerce,aMgrIvmExtUserB2B,aMgrIvmExtUserOrgsRoles,aMgrIvmExtUserSeg]]></set-property>
+  <set-property name="viewMappings"><![CDATA[aMgrIvmExtUserBasics,aMgrIvmExtUserCommerce,aMgrIvmExtUserOrgsRoles,aMgrIvmExtUserSeg]]></set-property>
   <set-property name="attributes"><![CDATA[disablePreview=aMgrPrUserDisablePreview]]></set-property>
 </add-item>
 
 <add-item item-descriptor="itemMapping" id="aMgrImEditEprUser">
   <set-property name="name"><![CDATA[AssetManager]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager editable mapping for external user items]]></set-property>
+  <set-property name="description"><![CDATA[JSP DPS-UI editable mapping for external user items]]></set-property>
   <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
   <set-property name="itemPath"><![CDATA[/atg/userprofiling/ExternalProfileRepository]]></set-property>
   <set-property name="itemName"><![CDATA[user]]></set-property>
   <set-property name="formHandler"><![CDATA[aMgrFhEprUser]]></set-property>
-  <set-property name="viewMappings"><![CDATA[aMgrIvmExtUserBasics,aMgrIvmExtUserCommerce,aMgrIvmExtUserB2B,aMgrIvmExtUserOrgsRoles,aMgrIvmExtUserSeg]]></set-property>
+  <set-property name="viewMappings"><![CDATA[aMgrIvmExtUserBasics,aMgrIvmExtUserCommerce,aMgrIvmExtUserOrgsRoles,aMgrIvmExtUserSeg]]></set-property>
   <set-property name="attributes"><![CDATA[disablePreview=aMgrPrUserDisablePreview]]></set-property>
 </add-item>
 
@@ -1859,4 +1915,4 @@
 
 </import-items>
 </gsa-template>
-<!-- @version $Id: //product/DPS-UI/version/10.0.2/src/install/data/viewmapping.xml#2 $$Change: 635969 $-->
+<!-- @version $Id: //product/DPS-UI/version/10.1.1/src/install/data/viewmapping.xml#1 $$Change: 690623 $-->
