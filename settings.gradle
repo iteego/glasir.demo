@@ -16,15 +16,30 @@ buildscript {
   configurations.classpath.each { file -> settings.classLoader.addURL(file.toURI().toURL()) }
 }
 
+def platformVersion = "10.1.2"
 new glasir.Build(this).with {
   setup {
     rootProjectName "glasir.commerce"
     cachePackagesFor 24, "hours"
-    dependencies {
+    dependencies {      
+      glasirpackage("com.iteego.glasir.pkg:atg-platform-10.1.1:1.0.0")
+      glasirpackage("com.iteego.glasir.pkg:atg-crs-10.1.1:1.0.1")
+      glasirpackage("com.iteego.glasir.pkg:atg-initializer-10.1.1:1.0.0")
+
+      /*
+      glasirpackage("com.iteego.glasir.pkg:atg-platform-10.1.2:1.0.0")
+      glasirpackage("com.iteego.glasir.pkg:atg-campaign-opt-10.1.2:1.0.0")
+      glasirpackage("com.iteego.glasir.pkg:atg-crs-10.1.2:1.0.0")
+      glasirpackage("com.iteego.glasir.pkg:atg-initializer-10.1.2:1.0.0")
+      */
+
+      /*
       glasirpackage("com.iteego.glasir.pkg:atg-10.0.2:1.1.5")
+      glasirpackage("com.iteego.glasir.pkg:atg-initializer-10.0.2:1.0.0")
+      */
+
       glasirpackage("com.iteego.glasir.pkg:jboss-eap-5.1.0:1.1.2")
       glasirpackage("com.iteego.glasir.pkg:glasir.db:1.1.4-SNAPSHOT")
-      glasirpackage("com.iteego.glasir.pkg:atg-initializer-10.0.2:1.0.0")
     }
     
     addAtgModules from: atgRoot
