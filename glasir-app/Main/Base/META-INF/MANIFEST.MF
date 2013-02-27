@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
-ATG-Required: Main.Data Main.Data.Properties Store.EStore
+ATG-Required: Main.Data Main.Data.Properties Store.EStore.International
 ATG-Config-Path: config
 ATG-Class-Path: lib/classes.jar
