@@ -605,3 +605,27 @@ public class CreateChangesets extends DefaultTask
   }
 }
 
+
+class InstanceTypeModification {
+  String modifiedInstanceTypeId
+}
+
+class AddServerInstanceId extends InstanceTypeModification {
+  String addedServerInstanceId
+}
+
+class RemoveServerInstanceId extends InstanceTypeModification {
+  String addedServerInstanceId
+}
+
+
+class AtgProductAddon {
+  String id
+  String title
+}
+
+class AtgProductAddonGroup {
+  String id
+  String title
+  List<String> requiredAddonIds = new ArrayList<String>()
+}
