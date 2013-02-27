@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+  <changeSet id="00148.versioned_process_data_ddl.sql.xml" author="glasir" context="all">
+    <preConditions>
+      <not>
+        <tableExists tableName="bogus_precondition_table_name" />
+      </not>
+    </preConditions>
+    <sql><![CDATA[
+
+
+--  @version $Id: //product/Publishing/version/10.1.1/pws/sql/xml/process_data_ddl.xml#1 $
+--     These tables are for the ProcessDataRepository  
+
+create table epub_process_data (
+	asset_version	number(19)	not null,
+	workspace_id	varchar2(40)	not null,
+	branch_id	varchar2(40)	not null,
+	is_head	number(1)	not null,
+	version_deleted	number(1)	not null,
+	version_editable	number(1)	not null,
+	pred_version	number(19)	null,
+	checkin_date	timestamp	null,
+	process_data_id	varchar2(40)	not null,
+	type	number(19)	not null
+,constraint process_data_pk primary key (process_data_id,asset_version));
+
+create index epub_process_d_wsx on epub_process_data (workspace_id);
+
+create index epub_process_d_cix on epub_process_data (checkin_date);
+]]>
+  </sql>
+    <rollback />
+  </changeSet>
+</databaseChangeLog>

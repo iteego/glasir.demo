@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gsa-template SYSTEM "dynamosystemresource:/atg/dtds/gsa/gsa_1.0.dtd">
+<gsa-template>
+  <import-items>
+    <!-- 2 items of type SEOTags -->
+    <add-item id="1100002" item-descriptor="SEOTags">
+      <set-property name="descriptionDefault"><![CDATA[Find New Styles at Great Prices. Shop and save on Women's Apparel, Footwear and more at atgstore.com.]]></set-property>
+      <set-property name="displayNameDefault"><![CDATA[Home]]></set-property>
+      <set-property name="keywordsDefault"><![CDATA[shoes, shirts, pants, dresses, skirts, shorts, jackets, accessories, women's shoes, men's shoes, dress shoes, casual shoes, athletic shoes, atgstore.com, shop atgstore.com]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Powered by ATG]]></set-property>
+      <set-property name="key"><![CDATA[/]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100002,de=de_xlate1100002]]></set-property>
+    </add-item>
+    <add-item id="1100003" item-descriptor="SEOTags">
+      <set-property name="descriptionDefault"><![CDATA[Find New Styles at Great Prices. Shop and save on Women's Apparel, Footwear and more at atgstore.com.]]></set-property>
+      <set-property name="displayNameDefault"><![CDATA[Home Page]]></set-property>
+      <set-property name="keywordsDefault"><![CDATA[shoes, shirts, pants, dresses, skirts, shorts, jackets, accessories, women's shoes, men's shoes, dress shoes, casual shoes, athletic shoes, atgstore.com, shop atgstore.com]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Powered by ATG]]></set-property>
+      <set-property name="key"><![CDATA[/index.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100003,de=de_xlate1100003]]></set-property>
+    </add-item>
+    <add-item id="1100019" item-descriptor="SEOTags">
+      <set-property name="descriptionDefault"><![CDATA[Find New Styles at Great Prices. Shop and save on Home Furnishings and more at atgstore.com.]]></set-property>
+      <set-property name="displayNameDefault"><![CDATA[Home]]></set-property>
+      <set-property name="keywordsDefault"><![CDATA[tables, seating, storage, display, towels, linens, home accessories, atgstore.com, shop atgstore.com]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store Home - Powered by ATG]]></set-property>
+      <set-property name="key"><![CDATA[/]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100019,de=de_xlate1100019]]></set-property>
+    </add-item>
+    <add-item id="1100020" item-descriptor="SEOTags">
+      <set-property name="descriptionDefault"><![CDATA[Find New Styles at Great Prices. Shop and save on Home Furnishings and more at atgstore.com.]]></set-property>
+      <set-property name="displayNameDefault"><![CDATA[Home Page]]></set-property>
+      <set-property name="keywordsDefault"><![CDATA[tables, seating, storage, display, towels, linens, home accessories, atgstore.com, shop atgstore.com]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store Home - Powered by ATG]]></set-property>
+      <set-property name="key"><![CDATA[/index.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100020,de=de_xlate1100020]]></set-property>
+    </add-item>
+    <add-item id="1100004" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Shopping Cart]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Shopping Cart]]></set-property>
+      <set-property name="key"><![CDATA[/cart/cart.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE,homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100004,de=de_xlate1100004]]></set-property>
+    </add-item>
+    <add-item id="1100005" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Checkout Login]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Checkout - Login]]></set-property>
+      <set-property name="key"><![CDATA[/checkout/login.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE,homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100005,de=de_xlate1100005]]></set-property>
+    </add-item>
+    <add-item id="1100006" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Checkout Shipping]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Checkout - Shipping]]></set-property>
+      <set-property name="key"><![CDATA[/checkout/shipping.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE,homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100006,de=de_xlate1100006]]></set-property>
+    </add-item>
+    <add-item id="1100007" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Checkout Billing]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Checkout - Billing]]></set-property>
+      <set-property name="key"><![CDATA[/checkout/billing.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE,homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100007,de=de_xlate1100007]]></set-property>
+    </add-item>
+    <add-item id="1100008" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Checkout Confirmation]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Checkout - Order Confirmation]]></set-property>
+      <set-property name="key"><![CDATA[/checkout/confirm.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE,homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100008,de=de_xlate1100008]]></set-property>
+    </add-item>
+    <add-item id="1100009" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Checkout Gift Message]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Checkout - Gift Message]]></set-property>
+      <set-property name="key"><![CDATA[/checkout/giftMessage.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE,homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100009,de=de_xlate1100009]]></set-property>
+    </add-item>
+    <add-item id="1100010" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Checkout Multiple Shipping]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Checkout - Shipping To Multiple Addresses]]></set-property>
+      <set-property name="key"><![CDATA[/checkout/shippingMultiple.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE,homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100010,de=de_xlate1100010]]></set-property>
+    </add-item>
+    <add-item id="1100011" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Checkout Confirmation]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Checkout - Order Confirmation]]></set-property>
+      <set-property name="key"><![CDATA[/checkout/confirm.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE,homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100011,de=de_xlate1100011]]></set-property>
+    </add-item>
+    <add-item id="1100012" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Checkout Add Shipping Address]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Checkout - Add Shipping Address]]></set-property>
+      <set-property name="key"><![CDATA[/checkout/shippingAddressAdd.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE,homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100012,de=de_xlate1100012]]></set-property>
+    </add-item>
+    <add-item id="1100013" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Checkout Edit Shipping Address]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Checkout - Edit Shipping Address]]></set-property>
+      <set-property name="key"><![CDATA[/checkout/shippingAddressEdit.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE,homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100013,de=de_xlate1100013]]></set-property>
+    </add-item>
+    <add-item id="1100014" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Checkout Edit Credit Card]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Checkout - Edit Credit Card]]></set-property>
+      <set-property name="key"><![CDATA[/checkout/creditCardEdit.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE,homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100014,de=de_xlate1100014]]></set-property>
+    </add-item>
+    <add-item id="1100016" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Checkout Order Not Placed]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Checkout - Order Not Placed]]></set-property>
+      <set-property name="key"><![CDATA[/cart/orderNotPlaced.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE,homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100016,de=de_xlate1100016]]></set-property>
+    </add-item>
+    <add-item id="1100017" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Checkout Edit Billing Address]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Checkout - Edit Billing Address]]></set-property>
+      <set-property name="key"><![CDATA[/checkout/billingAddressEdit.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE,homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100017,de=de_xlate1100017]]></set-property>
+    </add-item>
+    <add-item id="1100018" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Checkout Order Success]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Checkout - Order Success]]></set-property>
+      <set-property name="key"><![CDATA[/checkout/confirmResponse.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE,homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100018,de=de_xlate1100018]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100002" item-descriptor="SEOTranslation">
+      <set-property name="description"><![CDATA[Nuevos estilos a precios inmejorables. Compre y ahorre en moda, calzado para mujer y mucho más, en atgstore.com.]]></set-property>
+      <set-property name="keywords"><![CDATA[zapatos, camisas, pantalones, vestidos, faldas, pantalones cortos, chaquetas, accesorios, zapatos de mujer, zapatos de hombre, zapatos de vestir, calzado informal, deportivas, atgstore.com, compre en atgstore.com]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Con tecnología ATG]]></set-property>
+      <set-property name="displayName"><![CDATA[Inicio]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100003" item-descriptor="SEOTranslation">
+      <set-property name="description"><![CDATA[Nuevos estilos a precios inmejorables. Compre y ahorre en moda, calzado para mujer y mucho más, en atgstore.com.]]></set-property>
+      <set-property name="keywords"><![CDATA[zapatos, camisas, pantalones, vestidos, faldas, pantalones cortos, chaquetas, accesorios, zapatos de mujer, zapatos de hombre, zapatos de vestir, calzado informal, deportivas, atgstore.com, compre en atgstore.com]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Con tecnología ATG]]></set-property>
+      <set-property name="displayName"><![CDATA[Página inicial]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100019" item-descriptor="SEOTranslation">
+      <set-property name="description"><![CDATA[Nuevos estilos a precios inmejorables. Compre y ahorre en accesorios para el hogar y mucho más, en atgstore.com.]]></set-property>
+      <set-property name="keywords"><![CDATA[mesas, sillas, almacenamiento, exhibición, toallas, lencería, accesorios y detalles para el hogar, atgstore.com, compre en atgstore.com]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Con tecnología ATG]]></set-property>
+      <set-property name="displayName"><![CDATA[Inicio]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100020" item-descriptor="SEOTranslation">
+      <set-property name="description"><![CDATA[Nuevos estilos a precios inmejorables. Compre y ahorre en accesorios para el hogar y mucho más, en atgstore.com.]]></set-property>
+      <set-property name="keywords"><![CDATA[mesas, sillas, almacenamiento, exhibición, toallas, lencería, accesorios y detalles para el hogar, atgstore.com, compre en atgstore.com]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Con tecnología ATG]]></set-property>
+      <set-property name="displayName"><![CDATA[Página inicial]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100004" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Carro de compra]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Carro de compra]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100005" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Conexión de pago]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Pago - Conexión]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100006" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Envío tras pago]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Pago - Envío]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100007" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Facturación de pago]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Pago - Facturación]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100008" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Confirmación de pago]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Pago - Confirmación de orden]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100009" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Mensaje de regalo al pagar]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Pago - Mensaje de regalo]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100010" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Varios envíos tras pago]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Pago - Envío a varias direcciones]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100011" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Confirmación de pago]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Pago - Confirmación de orden]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100012" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Agregar dirección de envío en pago]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Pago - Agregación de dirección de envío]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100013" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Editar dirección de envío en pago]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Pago - Edición de dirección de envío]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100014" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Editar tarjeta de crédito en pago]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Pago - Edición de tarjeta de crédito]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100016" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Orden no realizada en pago]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Pago - Orden no realizada]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100017" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Editar dirección de facturación en pago]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Pago - Edición de dirección de facturación]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100018" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Orden realizada correctamente en pago]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Pago - Orden realizada]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100002" item-descriptor="SEOTranslation">
+      <set-property name="description"><![CDATA[Hier finden Sie die neueste Mode zu großartigen Preisen. Kaufen Sie bei uns ein, und profitieren Sie von unseren Rabatten für Damenbekleidung, Schuhe und mehr unter atgstore.com.]]></set-property>
+      <set-property name="keywords"><![CDATA[Schuhe, Hemden, Hosen, Kleider, Röcke, Shorts, Jacken, Accessoires, Damenschuhe, Herrenschuhe, Abendschuhe, Freizeitschuhe, Sportschuhe, atgstore.com, Einkaufen bei atgstore.com]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Powered by ATG]]></set-property>
+      <set-property name="displayName"><![CDATA[Home]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100003" item-descriptor="SEOTranslation">
+      <set-property name="description"><![CDATA[Hier finden Sie die neueste Mode zu großartigen Preisen. Kaufen Sie bei uns ein, und profitieren Sie von unseren Rabatten für Damenbekleidung, Schuhe und mehr unter atgstore.com.]]></set-property>
+      <set-property name="keywords"><![CDATA[Schuhe, Hemden, Hosen, Kleider, Röcke, Shorts, Jacken, Accessoires, Damenschuhe, Herrenschuhe, Abendschuhe, Freizeitschuhe, Sportschuhe, atgstore.com, Einkaufen bei atgstore.com]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Powered by ATG]]></set-property>
+      <set-property name="displayName"><![CDATA[Homepage]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100019" item-descriptor="SEOTranslation">
+      <set-property name="description"><![CDATA[Hier finden Sie die neuesten Stilrichtungen zu großartigen Preisen. Kaufen Sie bei uns ein, und profitieren Sie von unseren Rabatten für Heimtextilien und mehr unter atgstore.com.]]></set-property>
+      <set-property name="keywords"><![CDATA[Tische, Sitzmöbel, Aufbewahrungsmöbel, Handtücher, Bettwäsche, Dekorationsartikel, atgstore.com, Einkaufen bei atgstore.com]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store Home - Powered by ATG]]></set-property>
+      <set-property name="displayName"><![CDATA[Home]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100020" item-descriptor="SEOTranslation">
+      <set-property name="description"><![CDATA[Hier finden Sie die neuesten Stilrichtungen zu großartigen Preisen. Kaufen Sie bei uns ein, und profitieren Sie von unseren Rabatten für Heimtextilien und mehr unter atgstore.com.]]></set-property>
+      <set-property name="keywords"><![CDATA[Tische, Sitzmöbel, Aufbewahrungsmöbel, Handtücher, Bettwäsche, Dekorationsartikel, atgstore.com, Einkaufen bei atgstore.com]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store Home - Powered by ATG]]></set-property>
+      <set-property name="displayName"><![CDATA[Homepage]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100004" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Warenkorb]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Warenkorb]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100005" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Checkout Anmeldung]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Checkout - Anmeldung]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100006" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Checkout Versand]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Checkout - Versand]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100007" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Checkout Fakturierung]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Checkout - Fakturierung]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100008" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Checkout Bestätigung]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Checkout - Bestellbestätigung]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100009" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Checkout Geschenknachricht]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Checkout - Geschenknachricht]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100010" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Checkout Versand an mehrere Adressen]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Checkout - Versand an mehrere Adressen]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100011" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Checkout Bestätigung]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Checkout - Bestellbestätigung]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100012" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Checkout Versandadresse hinzufügen]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Checkout - Versandadresse hinzufügen]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100013" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Checkout Versandadresse bearbeiten]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Checkout - Versandadresse bearbeiten]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100014" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Checkout Kreditkarte bearbeiten]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Checkout - Kreditkarte bearbeiten]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100016" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Checkout Bestellung nicht erteilt]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Checkout - Bestellung nicht erteilt]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100017" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Checkout Rechnungsadresse bearbeiten]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Checkout - Rechnungsadresse bearbeiten]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100018" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Checkout Bestellung erfolgreich]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Checkout - Bestellung erfolgreich]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+  </import-items>
+</gsa-template>
+<!-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.1.1/Storefront/data/seotags-i18n.xml#1 $$Change: 690623 $-->

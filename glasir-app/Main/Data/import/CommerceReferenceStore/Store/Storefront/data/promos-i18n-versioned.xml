@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gsa-template SYSTEM "dynamosystemresource:/atg/dtds/gsa/gsa_1.0.dtd">
+<gsa-template>
+  <import-items>
+    <!-- promotions -->
+    <add-item id="promo20004" item-descriptor="Shipping Discount" no-checkin="false">
+      <set-property name="uses" add="false" remove="false"><![CDATA[1]]></set-property>
+      <set-property name="allowMultiple" add="false" remove="false"><![CDATA[false]]></set-property>
+      <set-property add="false" name="sites" remove="false"><![CDATA[homeSite,storeSiteUS]]></set-property>
+      <!-- export is false   <set-property name="version"><![CDATA[4]]></set-property>  -->
+      <set-property name="pmdlVersion" add="false" remove="false"><![CDATA[2]]></set-property>
+      <set-property name="creationDate" add="false" remove="false"><![CDATA[4/1/2010 15:57:00]]></set-property>
+      <set-property name="template" add="false" remove="false"><![CDATA[/shipping/getShippingDiscount.pmdt]]></set-property>
+      <set-property name="displayNameDefault" add="false" remove="false"><![CDATA[TENSHIP Coupon - Free Shipping]]></set-property>
+      <set-property name="media" add="false" remove="false"><![CDATA[large=promoCouponFreeShipping]]></set-property>
+      <set-property add="false" name="descriptionDefault" remove="false"><![CDATA[<span class="atg_store_promoTitle">Free shipping</span> with <span>TENSHIP</span> coupon code]]></set-property>
+      <set-property name="type" add="false" remove="false"><![CDATA[Shipping Discount]]></set-property>
+      <set-property name="pmdlRule" add="false" remove="false"><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+          <!DOCTYPE pricing-model  SYSTEM "dynamosystemresource:/atg/dtds/pmdl/pmdl_1.0.dtd">
+          <pricing-model>
+            <qualifier/>
+            <offer>
+              <discount-structure calculator-type="standard" 
+                                  discount-type="fixedPrice" 
+                                  adjuster="0"/>
+            </offer>
+          </pricing-model>]]></set-property>
+      <set-property name="templateValues" add="false" remove="false"><![CDATA[display-name-L3NoaXBwaW5nL2dldFNoaXBwaW=Get Shipping Discount,discount_type_value=fixedPrice,discount_value=0]]></set-property>
+      <set-property name="translations" add="false" remove="false"><![CDATA[es=es_xlatepromo20004,de=de_xlatepromo20004]]></set-property>
+      <set-property name="stackingRule" add="false" remove="false"><![CDATA[100002]]></set-property>
+    </add-item>
+    <add-item id="promo20011" item-descriptor="Order Discount" no-checkin="false">
+      <set-property name="uses" add="false" remove="false"><![CDATA[1]]></set-property>
+      <set-property name="allowMultiple" add="false" remove="false"><![CDATA[false]]></set-property>
+      <set-property add="false" name="sites" remove="false"><![CDATA[homeSite,storeSiteUS]]></set-property>
+      <set-property name="pmdlVersion" add="false" remove="false"><![CDATA[2]]></set-property>
+      <set-property name="creationDate" add="false" remove="false"><![CDATA[4/1/2010 17:21:05]]></set-property>
+      <set-property name="template" add="false" remove="false"><![CDATA[/order/getOrderDiscount.pmdt]]></set-property>
+      <set-property name="displayNameDefault" add="false" remove="false"><![CDATA[TENSHIP Coupon - 10% Off Order]]></set-property>
+      <set-property name="media" add="false" remove="false"><![CDATA[large=promoCoupon10PercentOff]]></set-property>
+      <set-property add="false" name="descriptionDefault" remove="false"><![CDATA[<span class="atg_store_promoTitle">10% Off</span> order with <span>TENSHIP</span> coupon code]]></set-property>
+      <set-property name="type" add="false" remove="false"><![CDATA[Order Discount]]></set-property>
+      <set-property name="pmdlRule" add="false" remove="false"><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+        <!DOCTYPE pricing-model  SYSTEM "dynamosystemresource:/atg/dtds/pmdl/pmdl_1.0.dtd">
+        <pricing-model>
+          <qualifier/>
+          <offer>
+            <discount-structure calculator-type="standard" 
+                                discount-type="percentOff" 
+                                adjuster="10"/>
+          </offer>
+        </pricing-model>]]></set-property>
+      <set-property name="templateValues" add="false" remove="false"><![CDATA[display-name-L29yZGVyL2dldE9yZGVyRGlzY2=Get Order Discount,discount_type_value=percentOff,discount_value=10]]></set-property>
+      <set-property name="translations" add="false" remove="false"><![CDATA[es=es_xlatepromo20011,de=de_xlatepromo20011]]></set-property>
+      <set-property name="stackingRule" add="false" remove="false"><![CDATA[100001]]></set-property>
+      <set-property name="includedPromotions" add="false" remove="false"><![CDATA[promo20004]]></set-property>
+    </add-item>
+    <add-item id="xpromo20017" item-descriptor="Shipping Discount" no-checkin="false">
+      <set-property name="uses" add="false" remove="false"><![CDATA[1]]></set-property>
+      <set-property name="allowMultiple" add="false" remove="false"><![CDATA[false]]></set-property>
+      <set-property add="false" name="sites" remove="false"><![CDATA[storeSiteDE]]></set-property>
+      <set-property name="pmdlVersion" add="false" remove="false"><![CDATA[2]]></set-property>
+      <set-property name="creationDate" add="false" remove="false"><![CDATA[4/1/2010 15:57:00]]></set-property>
+      <set-property name="template" add="false" remove="false"><![CDATA[/shipping/getShippingDiscount.pmdt]]></set-property>
+      <set-property name="displayNameDefault" add="false" remove="false"><![CDATA[10LIEFERUNG Coupon - Free Shipping]]></set-property>
+      <set-property name="media" add="false" remove="false"><![CDATA[large=promoCouponFreeShipping]]></set-property>
+      <set-property add="false" name="descriptionDefault" remove="false"><![CDATA[<span class="atg_store_promoTitle">FREE shipping</span> with <span>10LIEFERUNG</span> coupon code]]></set-property>
+      <set-property name="type" add="false" remove="false"><![CDATA[Shipping Discount]]></set-property>
+      <set-property name="pmdlRule" add="false" remove="false"><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+          <!DOCTYPE pricing-model  SYSTEM "dynamosystemresource:/atg/dtds/pmdl/pmdl_1.0.dtd">
+          <pricing-model>
+            <qualifier/>
+            <offer>
+              <discount-structure calculator-type="standard" 
+                                  discount-type="fixedPrice" 
+                                  adjuster="0"/>
+            </offer>
+          </pricing-model>]]></set-property>
+      <set-property name="templateValues" add="false" remove="false"><![CDATA[display-name-L3NoaXBwaW5nL2dldFNoaXBwaW=Get Shipping Discount,discount_type_value=fixedPrice,discount_value=0]]></set-property>
+      <set-property name="translations" add="false" remove="false"><![CDATA[es=es_xlatexpromo20017,de=de_xlatexpromo20017]]></set-property>
+      <set-property name="stackingRule" add="false" remove="false"><![CDATA[100002]]></set-property>
+    </add-item>
+    <add-item id="xpromo20016" item-descriptor="Order Discount" no-checkin="false">
+      <set-property name="uses" add="false" remove="false"><![CDATA[1]]></set-property>
+      <set-property name="allowMultiple" add="false" remove="false"><![CDATA[false]]></set-property>
+      <set-property add="false" name="sites" remove="false"><![CDATA[storeSiteDE]]></set-property>
+      <set-property name="pmdlVersion" add="false" remove="false"><![CDATA[2]]></set-property>
+      <set-property name="creationDate" add="false" remove="false"><![CDATA[4/1/2010 17:21:05]]></set-property>
+      <set-property name="template" add="false" remove="false"><![CDATA[/order/getOrderDiscount.pmdt]]></set-property>
+      <set-property name="displayNameDefault" add="false" remove="false"><![CDATA[10LIEFERUNG Coupon - 10% Off Order ]]></set-property>
+      <set-property name="media" add="false" remove="false"><![CDATA[large=promoCoupon10PercentOff]]></set-property>
+      <set-property add="false" name="descriptionDefault" remove="false"><![CDATA[<span class="atg_store_promoTitle">10% OFF</span> order with <span>10LIEFERUNG</span> coupon code]]></set-property>
+      <set-property name="type" add="false" remove="false"><![CDATA[Order Discount]]></set-property>
+      <set-property name="pmdlRule" add="false" remove="false"><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+        <!DOCTYPE pricing-model  SYSTEM "dynamosystemresource:/atg/dtds/pmdl/pmdl_1.0.dtd">
+        <pricing-model>
+          <qualifier/>
+          <offer>
+            <discount-structure calculator-type="standard" 
+                                discount-type="percentOff" 
+                                adjuster="10"/>
+          </offer>
+        </pricing-model>]]></set-property>
+      <set-property name="templateValues" add="false" remove="false"><![CDATA[display-name-L29yZGVyL2dldE9yZGVyRGlzY2=Get Order Discount,discount_type_value=percentOff,discount_value=10]]></set-property>
+      <set-property name="translations" add="false" remove="false"><![CDATA[es=es_xlatexpromo20016,de=de_xlatexpromo20016]]></set-property>
+      <set-property name="includedPromotions" add="false" remove="false"><![CDATA[xpromo20017]]></set-property>
+      <set-property name="stackingRule" add="false" remove="false"><![CDATA[100001]]></set-property>
+    </add-item>
+    <add-item id="promo10003" item-descriptor="Shipping Discount" no-checkin="false">
+      <set-property name="global" add="false" remove="false"><![CDATA[true]]></set-property>
+      <set-property name="descriptionDefault" add="false" remove="false"><![CDATA[<span class="atg_store_promoTitle">Free Shipping</span> with every order placed on ATG Home]]></set-property>
+      <set-property name="sites" add="false" remove="false"><![CDATA[homeSite]]></set-property>
+      <set-property name="priority" add="false" remove="false"><![CDATA[2]]></set-property>
+      <set-property name="media" add="false" remove="false"><![CDATA[targetLink=xmHomeTargetLink,large=promoFreeShipping]]></set-property>
+      <set-property name="uses" add="false" remove="false"><![CDATA[-1]]></set-property>
+      <set-property name="allowMultiple" add="false" remove="false"><![CDATA[true]]></set-property>
+      <set-property name="pmdlVersion" add="false" remove="false"><![CDATA[2]]></set-property>
+      <set-property name="creationDate" add="false" remove="false"><![CDATA[3/31/2010 16:44:34]]></set-property>
+      <set-property name="template" add="false" remove="false"><![CDATA[/shipping/getShippingDiscount.pmdt]]></set-property>
+      <set-property name="displayNameDefault" add="false" remove="false"><![CDATA[ATG Home - Free Shipping]]></set-property>
+      <set-property name="type" add="false" remove="false"><![CDATA[Shipping Discount]]></set-property>
+      <set-property name="pmdlRule" add="false" remove="false"><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+          <!DOCTYPE pricing-model  SYSTEM "dynamosystemresource:/atg/dtds/pmdl/pmdl_1.0.dtd">
+          <pricing-model>
+            <qualifier/>
+            <offer>
+              <discount-structure calculator-type="standard" 
+                                  discount-type="fixedPrice" 
+                                  adjuster="0"/>
+            </offer>
+          </pricing-model>]]></set-property>
+      <set-property name="templateValues" add="false" remove="false"><![CDATA[display-name-L3NoaXBwaW5nL2dldFNoaXBwaW=Get Shipping Discount,discount_type_value=fixedPrice,discount_value=0]]></set-property>
+      <set-property name="translations" add="false" remove="false"><![CDATA[es=es_xlatepromo10003,de=de_xlatepromo10003]]></set-property>
+      <set-property name="stackingRule" add="false" remove="false"><![CDATA[100002]]></set-property>
+    </add-item>
+    <add-item id="promo20009" item-descriptor="Item Discount" no-checkin="false">
+      <set-property name="global" add="false" remove="false"><![CDATA[true]]></set-property>
+      <set-property name="descriptionDefault" add="false" remove="false"><![CDATA[<span class="promoTitle">Hubbard Chairs</span><ul><li>Save 10% on 2</li><li>Save 15% on 4</li><li>Save 20% on 6</li></ul>]]></set-property>
+      <set-property name="sites" add="false" remove="false"><![CDATA[homeSite,storeSiteUS]]></set-property>
+      <set-property name="media" add="false" remove="false"><![CDATA[targetLink=xmHubbardChairLink,large=promoChair]]></set-property>
+      <set-property name="uses" add="false" remove="false"><![CDATA[-1]]></set-property>
+      <set-property name="allowMultiple" add="false" remove="false"><![CDATA[true]]></set-property>
+      <set-property name="pmdlVersion" add="false" remove="false"><![CDATA[2]]></set-property>
+      <set-property name="creationDate" add="false" remove="false"><![CDATA[4/1/2010 16:56:48]]></set-property>
+      <set-property name="template" add="false" remove="false"><![CDATA[/advanced/advancedItemDiscount.pmdt]]></set-property>
+      <set-property name="displayNameDefault" add="false" remove="false"><![CDATA[Hubbard Chair Tiered Price Break]]></set-property>
+      <set-property name="type" add="false" remove="false"><![CDATA[Item Discount]]></set-property>
+      <set-property name="pmdlRule" add="false" remove="false"><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+        <!DOCTYPE pricing-model  SYSTEM "dynamosystemresource:/atg/dtds/pmdl/pmdl_1.0.dtd">
+        <pricing-model>
+          <qualifier><at-least number="2"><collection-name>items</collection-name><element-name>item</element-name><aggregator name="quantity" operation="total"/><equals><value>item.auxiliaryData.productId</value><constant><data-type>java.lang.String</data-type><string-value>xprod2126</string-value></constant></equals></at-least></qualifier> 
+          <offer>
+            <discount-structure calculator-type="bulk" discount-type="percentOff"><discount-detail><attribute name="band" value="2"/><attribute name="adjuster" value="10"/></discount-detail><discount-detail><attribute name="band" value="4"/><attribute name="adjuster" value="15"/></discount-detail><discount-detail><attribute name="band" value="6"/><attribute name="adjuster" value="20"/></discount-detail>
+              <target>
+                <every>
+                  <collection-name>items</collection-name>
+                  <element-name>item</element-name>
+                  <equals>
+                    <value>item.auxiliaryData.productId</value>
+                    <constant>
+                      <data-type>java.lang.String</data-type>
+                      <string-value>xprod2126</string-value>
+                    </constant>
+                  </equals>
+                </every>
+              </target>
+            </discount-structure>
+          </offer>
+        </pricing-model>]]></set-property>
+      <set-property name="templateValues" add="false" remove="false"><![CDATA[evaluateTargetItemsFirstValue=false,discountStructure=<discount-structure calculator-type="bulk" discount-type="percentOff"><discount-detail><attribute name="band" value="2"/><attribute name="adjuster" value="10"/></discount-detail><discount-detail><attribute name="band" value="4"/><attribute name="adjuster" value="15"/></discount-detail><discount-detail><attribute name="band" value="6"/><attribute name="adjuster" value="20"/></discount-detail>,target=<target><every><collection-name>items</collection-name><element-name>item</element-name><equals><value>item.auxiliaryData.productId</value><constant><data-type>java.lang.String</data-type><string-value>xprod2126</string-value></constant></equals></every></target>,qualifier=<qualifier><at-least number="2"><collection-name>items</collection-name><element-name>item</element-name><aggregator name="quantity" operation="total"/><equals><value>item.auxiliaryData.productId</value><constant><data-type>java.lang.String</data-type><string-value>xprod2126</string-value></constant></equals></at-least></qualifier>,display-name-L2FkdmFuY2VkL2FkdmFuY2VkSX=Advanced Item Promotion,endDiscountStructure=</discount-structure>]]></set-property>
+      <set-property name="translations" add="false" remove="false"><![CDATA[es=es_xlatepromo20009,de=de_xlatepromo20009]]></set-property>
+      <set-property name="excludedPromotions" add="false" remove="false"><![CDATA[promo50012]]></set-property>
+      <set-property name="stackingRule" add="false" remove="false"><![CDATA[100004]]></set-property>
+    </add-item>
+    <add-item id="promo20010" item-descriptor="Item Discount" no-checkin="false">
+      <set-property name="global" add="false" remove="false"><![CDATA[true]]></set-property>
+      <set-property name="descriptionDefault" add="false" remove="false"><![CDATA[<span class="atg_store_promoTitle">Save 20%</span><span class="atg_store_promoText">on any ATG Home item </span>excluding Home Accents]]></set-property>
+      <set-property name="sites" add="false" remove="false"><![CDATA[homeSite,storeSiteUS]]></set-property>
+      <set-property name="priority" add="false" remove="false"><![CDATA[2]]></set-property>
+      <set-property name="media" add="false" remove="false"><![CDATA[targetLink=xmHomeTargetLink,large=promo20PercentOff]]></set-property>
+      <set-property name="uses" add="false" remove="false"><![CDATA[-1]]></set-property>
+      <set-property name="allowMultiple" add="false" remove="false"><![CDATA[true]]></set-property>
+      <set-property name="pmdlVersion" add="false" remove="false"><![CDATA[2]]></set-property>
+      <set-property name="creationDate" add="false" remove="false"><![CDATA[4/1/2010 17:19:21]]></set-property>
+      <set-property name="template" add="false" remove="false"><![CDATA[/item/getItemDiscount.pmdt]]></set-property>
+      <set-property name="displayNameDefault" add="false" remove="false"><![CDATA[Save 20% on any ATG Home item excluding Home Accents]]></set-property>
+      <set-property name="type" add="false" remove="false"><![CDATA[Item Discount]]></set-property>
+      <set-property name="pmdlRule" add="false" remove="false"><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+        <!DOCTYPE pricing-model  SYSTEM "dynamosystemresource:/atg/dtds/pmdl/pmdl_1.0.dtd">
+        <pricing-model>
+          <qualifier/>
+          <offer>
+            <discount-structure calculator-type="standard" 
+                                  discount-type="percentOff" 
+                                  adjuster="20">
+              <target>
+                <iterator name="up-to-and-including" number="1" sort-by="priceInfo.listPrice" sort-order="descending">
+                  <collection-name>items</collection-name>
+                  <element-name>item</element-name>
+                  <element-quantity-property>quantity</element-quantity-property>
+                  <operator name="and"><comparator name="includes"><value>item.auxiliaryData.catalogRef.siteIds</value><constant><data-type>java.lang.String</data-type><string-value>homeSite</string-value></constant></comparator><operator name="not"><operator name="or"><comparator name="equals"><value>item.auxiliaryData.productRef.id</value><constant><data-type>java.lang.String</data-type><string-value>xprod1015</string-value></constant></comparator><comparator name="includes"><value>item.auxiliaryData.productRef.ancestorCategoryIds</value><constant><data-type>java.lang.String</data-type><string-value>cat10016</string-value></constant></comparator></operator></operator></operator>
+                </iterator>              
+              </target>
+            </discount-structure>                                
+          </offer>
+        </pricing-model>]]></set-property>
+      <set-property name="templateValues" add="false" remove="false"><![CDATA[no_of_items_to_discount=1,display-name-L2l0ZW0vZ2V0SXRlbURpc2NvdW=Get Item Discount (by Product,, Category,, Brand,, etc.),discount_type_value=percentOff,discount_value=20,sort_order=descending,PSC_value=<operator name="and"><comparator name="includes"><value>item.auxiliaryData.catalogRef.siteIds</value><constant><data-type>java.lang.String</data-type><string-value>homeSite</string-value></constant></comparator><operator name="not"><operator name="or"><comparator name="equals"><value>item.auxiliaryData.productRef.id</value><constant><data-type>java.lang.String</data-type><string-value>xprod1015</string-value></constant></comparator><comparator name="includes"><value>item.auxiliaryData.productRef.ancestorCategoryIds</value><constant><data-type>java.lang.String</data-type><string-value>cat10016</string-value></constant></comparator></operator></operator></operator>]]></set-property>
+      <set-property name="translations" add="false" remove="false"><![CDATA[es=es_xlatepromo20010,de=de_xlatepromo20010]]></set-property>
+      <set-property name="stackingRule" add="false" remove="false"><![CDATA[100004]]></set-property>
+    </add-item>
+    <add-item id="abandonedOrderDiscount" item-descriptor="Order Discount" no-checkin="false">
+      <set-property name="relativeExpiration" add="false" remove="false"><![CDATA[true]]></set-property>
+      <set-property name="media" add="false" remove="false"><![CDATA[large=abandon10PercentOff]]></set-property>
+      <set-property name="descriptionDefault" add="false" remove="false"><![CDATA[<span class="atg_store_promoTitle">10% Off Your Next Order</span>]]></set-property>
+      <set-property name="creationDate" add="false" remove="false"><![CDATA[3/21/2006 14:06:46]]></set-property>
+      <set-property name="displayNameDefault" add="false" remove="false"><![CDATA[10% off Order]]></set-property>
+      <set-property name="type" add="false" remove="false"><![CDATA[Order Discount]]></set-property>
+      <set-property name="pmdlVersion" add="false" remove="false"><![CDATA[2]]></set-property>
+      <set-property name="template" add="false" remove="false"><![CDATA[/order/getOrderDiscount.pmdt]]></set-property>
+      <set-property name="pmdlRule" add="false" remove="false"><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+        <!DOCTYPE pricing-model  SYSTEM "dynamosystemresource:/atg/dtds/pmdl/pmdl_1.0.dtd">
+        <pricing-model>
+          <qualifier/>
+          <offer>
+            <discount-structure calculator-type="standard" 
+                                discount-type="percentOff" 
+                                adjuster="10"/>
+          </offer>
+        </pricing-model>]]></set-property>
+      <set-property name="templateValues" add="false" remove="false"><![CDATA[discount_type_value=percentOff,discount_value=10,display-name-L29yZGVyL2dldE9yZGVyRGlzY2=Get Order Discount]]></set-property>
+      <set-property name="translations" add="false" remove="false"><![CDATA[es=es_xlateabandonedOrderDiscount,de=de_xlateabandonedOrderDiscount]]></set-property>
+    </add-item>
+    <add-item id="promo50012" item-descriptor="Order Discount" no-checkin="false">
+      <set-property name="media" add="false" remove="false"><![CDATA[large=se-m1150424]]></set-property>
+      <set-property name="upsell" add="false" remove="false"><![CDATA[true]]></set-property>
+      <set-property name="priority" add="false" remove="false"><![CDATA[2]]></set-property>
+      <set-property add="false" name="closenessQualifiers" remove="false"><![CDATA[se-200005]]></set-property>
+      <set-property name="descriptionDefault" add="false" remove="false"><![CDATA[<span class="atg_store_promoTitle">Save $10</span> on all orders over $100]]></set-property>
+      <set-property name="pmdlVersion" add="false" remove="false"><![CDATA[2]]></set-property>
+      <set-property name="lastModified" add="false" remove="false"><![CDATA[5/31/2010 12:41:39]]></set-property>
+      <set-property name="creationDate" add="false" remove="false"><![CDATA[5/31/2010 12:41:39]]></set-property>
+      <set-property name="template" add="false" remove="false"><![CDATA[/order/spendYGetOrderDiscount.pmdt]]></set-property>
+      <!-- rdonly   <set-property name="id"><![CDATA[promo50012]]></set-property>  -->
+      <set-property name="displayNameDefault" add="false" remove="false"><![CDATA[$10 off Orders over $100]]></set-property>
+      <set-property name="type" add="false" remove="false"><![CDATA[Order Discount]]></set-property>
+      <set-property add="false" name="global" remove="false"><![CDATA[true]]></set-property>
+      <set-property name="uses" add="false" remove="false"><![CDATA[-1]]></set-property>
+      <set-property name="allowMultiple" add="false" remove="false"><![CDATA[true]]></set-property>
+      <set-property name="pmdlRule" add="false" remove="false"><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+      <!DOCTYPE pricing-model SYSTEM "dynamosystemresource:/atg/dtds/pmdl/pmdl_1.0.dtd">
+        <pricing-model>
+          <qualifier>
+            <comparator name="greater-than-or-equals">
+              <value>order.priceInfo.amount</value>
+              <constant>
+                <data-type>java.lang.Double</data-type>
+                <string-value>100</string-value>
+              </constant>
+          </comparator>
+        </qualifier>
+        <offer>
+          <discount-structure calculator-type="standard" 
+                              discount-type="amountOff" 
+                              adjuster="10"/>
+        </offer>
+      </pricing-model>]]></set-property>
+      <set-property name="templateValues" add="false" remove="false"><![CDATA[spend_close_value=80,cq_name=Save $10 on all orders over $100,display-name-L29yZGVyL3NwZW5kWUdldE9yZG=Spend Y Get Order Discount,discount_type_value=amountOff,discount_value=10,spend_value=100]]></set-property>
+      <set-property name="translations" add="false" remove="false"><![CDATA[es=es_xlatepromo50012,de=de_xlatepromo50012,en_DE=en_DE_xlatepromo50012,de_DE=de_DE_xlatepromo50012]]></set-property>
+      <set-property name="includedPromotions" add="false" remove="false"><![CDATA[promo10003]]></set-property>
+      <set-property name="stackingRule" add="false" remove="false"><![CDATA[100001]]></set-property>
+    </add-item>
+    <add-item id="se-promo230003" item-descriptor="Item Discount" no-checkin="false">
+      <set-property name="media" add="false" remove="false"><![CDATA[targetLink=xmHomeAccentsLink,homeSite=xmHomeAccentsLinkHome,storeSiteUS=xmHomeAccentsLinkStoreUS,storeSiteDE=xmHomeAccentsLinkStoreDE,large=se-m1150427]]></set-property>
+      <set-property name="descriptionDefault" add="false" remove="false"><![CDATA[<span class="atg_store_promoTitle">Registered Users - Save 15%</span> on Home Accents ]]></set-property>
+      <set-property name="uses" add="false" remove="false"><![CDATA[-1]]></set-property>
+      <set-property name="allowMultiple" add="false" remove="false"><![CDATA[false]]></set-property>
+      <set-property name="pmdlVersion" add="false" remove="false"><![CDATA[2]]></set-property>
+      <set-property name="creationDate" add="false" remove="false"><![CDATA[3/29/2006 09:46:35]]></set-property>
+      <set-property name="template" add="false" remove="false"><![CDATA[/item/getItemDiscount.pmdt]]></set-property>
+      <set-property name="giveToAnonymousProfiles" add="false" remove="false"><![CDATA[false]]></set-property>
+      <set-property name="displayNameDefault" add="false" remove="false"><![CDATA[15% Off Home Accents]]></set-property>
+      <set-property name="type" add="false" remove="false"><![CDATA[Item Discount]]></set-property>
+      <set-property name="pmdlRule" add="false" remove="false"><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+        <!DOCTYPE pricing-model  SYSTEM "dynamosystemresource:/atg/dtds/pmdl/pmdl_1.0.dtd">
+        <pricing-model>
+          <qualifier/>
+          <offer>
+            <discount-structure calculator-type="standard" 
+                                  discount-type="percentOff" 
+                                  adjuster="15">
+              <target>
+                <iterator name="up-to-and-including" number="-1" sort-by="priceInfo.listPrice" sort-order="ascending">
+                  <collection-name>items</collection-name>
+                  <element-name>item</element-name>
+                  <element-quantity-property>quantity</element-quantity-property>
+                  <comparator name="includes"><value>item.auxiliaryData.productRef.ancestorCategoryIds</value><constant><data-type>java.lang.String</data-type><string-value>cat10016</string-value></constant></comparator>
+                </iterator>              
+              </target>
+            </discount-structure>                                
+          </offer>
+        </pricing-model>]]></set-property>
+      <set-property name="templateValues" add="false" remove="false"><![CDATA[display-name-L2l0ZW0vZ2V0SXRlbURpc2NvdW=Get Item Discount (by Product,, Category,, Brand,, etc.),discount_type_value=percentOff,discount_value=15,no_of_items_to_discount=-1,PSC_value=<comparator name="includes"><value>item.auxiliaryData.productRef.ancestorCategoryIds</value><constant><data-type>java.lang.String</data-type><string-value>cat10016</string-value></constant></comparator>,sort_order=ascending]]></set-property>
+      <set-property name="translations" add="false" remove="false"><![CDATA[es=es_xlatese-promo230003,de=de_xlatese-promo230003]]></set-property>
+      <set-property name="stackingRule" add="false" remove="false"><![CDATA[100004]]></set-property>
+    </add-item>
+    <add-item id="se-promo240001" item-descriptor="Item Discount" no-checkin="false">
+      <set-property name="media" add="false" remove="false"><![CDATA[targetLink=xmWomenApparelLink,storeSiteUS=xmWomenApparelLinkUS,storeSiteDE=xmWomenApparelLinkDE,large=se-m1160427]]></set-property>
+      <set-property name="descriptionDefault" add="false" remove="false"><![CDATA[<span class="atg_store_promoTitle">Save 25%</span> On All Women's Apparel]]></set-property>
+      <set-property name="uses" add="false" remove="false"><![CDATA[-1]]></set-property>
+      <set-property name="priority" add="false" remove="false"><![CDATA[2]]></set-property>
+      <set-property name="allowMultiple" add="false" remove="false"><![CDATA[true]]></set-property>
+      <set-property name="template" add="false" remove="false"><![CDATA[/advanced/advancedItemDiscount.pmdt]]></set-property>
+      <set-property name="pmdlVersion" add="false" remove="false"><![CDATA[2]]></set-property>
+      <set-property name="creationDate" add="false" remove="false"><![CDATA[2/14/2008 13:41:32]]></set-property>
+      <set-property name="giveToAnonymousProfiles" add="false" remove="false"><![CDATA[false]]></set-property>
+      <set-property name="displayNameDefault" add="false" remove="false"><![CDATA[25% off Women's Apparel]]></set-property>
+      <set-property name="type" add="false" remove="false"><![CDATA[Item Discount]]></set-property>
+      <set-property name="pmdlRule" add="false" remove="false"><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+        <!DOCTYPE pricing-model  SYSTEM "dynamosystemresource:/atg/dtds/pmdl/pmdl_1.0.dtd">
+        <pricing-model>
+          <qualifier><and><equals><value>profile.gender</value><constant><data-type>java.lang.String</data-type><string-value>female</string-value></constant></equals><equals><value>profile.ThirtySomethings</value><constant><data-type>java.lang.Boolean</data-type><string-value>true</string-value></constant></equals></and></qualifier> 
+          <offer>
+            <discount-structure adjuster="25.0" calculator-type="standard" discount-type="percentOff">
+            <target><every><collection-name>items</collection-name><element-name>item</element-name><includes><value>item.auxiliaryData.productRef.ancestorCategoryIds</value><constant><data-type>java.lang.String</data-type><string-value>cat50001</string-value></constant></includes></every></target>
+            </discount-structure>
+          </offer>
+        </pricing-model>]]></set-property>
+      <set-property name="templateValues" add="false" remove="false"><![CDATA[evaluateTargetItemsFirstValue=false,discountStructure=<discount-structure adjuster="25.0" calculator-type="standard" discount-type="percentOff">,display-name-L2FkdmFuY2VkL2FkdmFuY2VkSX=Advanced Item Promotion,endDiscountStructure=</discount-structure>,qualifier=<qualifier><and><equals><value>profile.gender</value><constant><data-type>java.lang.String</data-type><string-value>female</string-value></constant></equals><equals><value>profile.ThirtySomethings</value><constant><data-type>java.lang.Boolean</data-type><string-value>true</string-value></constant></equals></and></qualifier>,target=<target><every><collection-name>items</collection-name><element-name>item</element-name><includes><value>item.auxiliaryData.productRef.ancestorCategoryIds</value><constant><data-type>java.lang.String</data-type><string-value>cat50001</string-value></constant></includes></every></target>]]></set-property>
+      <set-property name="translations" add="false" remove="false"><![CDATA[es=es_xlatese-promo240001,de=de_xlatese-promo240001]]></set-property>
+      <set-property name="stackingRule" add="false" remove="false"><![CDATA[100005]]></set-property>
+    </add-item>
+    <add-item id="promo70015" item-descriptor="Item Discount" no-checkin="false">
+      <set-property name="media" add="false" remove="false"><![CDATA[large=promoFreeScarf]]></set-property>
+      <set-property name="global" add="false" remove="false"><![CDATA[true]]></set-property>
+      <set-property name="descriptionDefault" add="false" remove="false"><![CDATA[<span class="atg_store_promoTitle">Free Scarf</span> with all orders over $200]]></set-property>
+      <set-property name="priority" add="false" remove="false"><![CDATA[3]]></set-property>
+      <set-property name="siteGroups" add="false" remove="false"><![CDATA[siteGroupUS]]></set-property>
+      <set-property name="sites" add="false" remove="false"><![CDATA[storeSiteDE]]></set-property>
+      <set-property name="pmdlVersion" add="false" remove="false"><![CDATA[2]]></set-property>
+      <set-property name="lastModified" add="false" remove="false"><![CDATA[6/30/2011 16:14:52]]></set-property>
+      <set-property name="translations" add="false" remove="false"><![CDATA[de=de_xlatepromo70015,en_DE=en_DE_xlatepromo70015,es=es_xlatepromo70015]]></set-property>
+      <set-property name="stackingRule" add="false" remove="false"><![CDATA[100003]]></set-property>
+      <set-property name="creationDate" add="false" remove="false"><![CDATA[4/7/2011 11:38:50]]></set-property>
+      <set-property name="template" add="false" remove="false"><![CDATA[/item/spendYGetGWP.pmdt]]></set-property>
+      <set-property name="displayNameDefault" add="false" remove="false"><![CDATA[Free Scarf with all orders over $200]]></set-property>
+      <set-property name="type" add="false" remove="false"><![CDATA[Item Discount]]></set-property>
+      <set-property name="pmdlRule" add="false" remove="false"><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+        <!DOCTYPE pricing-model SYSTEM "dynamosystemresource:/atg/dtds/pmdl/pmdl_1.0.dtd">
+          <pricing-model>
+            <qualifier>
+              <quantifier name="at-least" number="200">
+                <collection-name>items</collection-name>
+                <element-name>item</element-name>
+                <aggregator name="spendAmount" operation="total"/>
+                <not>
+                  <comparator name="equals"><value>item.auxiliaryData.catalogRef.id</value><constant><data-type>java.lang.String</data-type><string-value>xsku60325</string-value></constant></comparator>
+                </not>
+             </quantifier>
+            </qualifier>
+            <offer> 
+              <discount-structure calculator-type="gwp" discount-type="fixedPrice" adjuster="0" process-zero-targets="true">
+                <discount-detail name="gift"><attribute name="giftType" value="sku"/><attribute name="giftDetail" value="xsku60325"/><attribute name="quantity" value="1"/><attribute name="autoRemove" value="true"/></discount-detail>
+              <target>
+                <iterator name="up-to-and-including" number="1" sort-by="priceInfo.listPrice" sort-order="ascending">
+                  <collection-name>items</collection-name>
+                  <element-name>item</element-name>
+                  <element-quantity-property>quantity</element-quantity-property>
+                  <comparator name="equals"><value>item.auxiliaryData.catalogRef.id</value><constant><data-type>java.lang.String</data-type><string-value>xsku60325</string-value></constant></comparator>
+                </iterator>
+              </target>
+              </discount-structure>                      
+            </offer>
+          </pricing-model>]]></set-property>
+      <set-property name="templateValues" add="false" remove="false"><![CDATA[discountDetailPMDL=<discount-detail name="gift"><attribute name="giftType" value="sku"/><attribute name="giftDetail" value="xsku60325"/><attribute name="quantity" value="1"/><attribute name="autoRemove" value="true"/></discount-detail>,display-name-L2l0ZW0vc3BlbmRZR2V0R1dQLn=Spend Y Get GWP,comparatorPMDL=<comparator name="equals"><value>item.auxiliaryData.catalogRef.id</value><constant><data-type>java.lang.String</data-type><string-value>xsku60325</string-value></constant></comparator>,spend_value=200]]></set-property>
+    </add-item>
+    <add-item id="promo80017" item-descriptor="Item Discount" no-checkin="false">
+      <set-property name="global" add="false" remove="false"><![CDATA[true]]></set-property>
+      <set-property name="descriptionDefault" add="false" remove="false"><![CDATA[<span class="atg_store_promoTitle">Get 2 free gifts</span> with any Woman's Jacket]]></set-property>
+      <set-property name="uses" add="false" remove="false"><![CDATA[-1]]></set-property>
+      <set-property name="siteGroups" add="false" remove="false"><![CDATA[siteGroupUS]]></set-property>
+      <set-property name="sites" add="false" remove="false"><![CDATA[storeSiteDE]]></set-property>
+      <set-property name="allowMultiple" add="false" remove="false"><![CDATA[true]]></set-property>
+      <set-property name="media" add="false" remove="false"><![CDATA[targetLink=xmJacketsCategoryLink,storeSiteUS=xmJacketsCategoryLinkUS,storeSiteDE=xmJacketsCategoryLinkDE,large=promoSelectGifts]]></set-property>
+      <set-property name="pmdlVersion" add="false" remove="false"><![CDATA[2]]></set-property>
+      <set-property name="lastModified" add="false" remove="false"><![CDATA[4/7/2011 16:55:18]]></set-property>
+      <set-property name="creationDate" add="false" remove="false"><![CDATA[4/7/2011 12:08:07]]></set-property>
+      <set-property name="displayNameDefault" add="false" remove="false"><![CDATA[Get 2 free gifts with any Woman's Jacket]]></set-property>
+      <set-property name="type" add="false" remove="false"><![CDATA[Item Discount]]></set-property>
+      <set-property name="template" add="false" remove="false"><![CDATA[/advanced/advancedItemDiscount.pmdt]]></set-property>
+      <set-property name="pmdlRule" add="false" remove="false"><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+        <!DOCTYPE pricing-model  SYSTEM "dynamosystemresource:/atg/dtds/pmdl/pmdl_1.0.dtd">
+        <pricing-model>
+          <qualifier><at-least number="1"><collection-name>items</collection-name><element-name>item</element-name><aggregator name="quantity" operation="total"/><includes><value>item.auxiliaryData.productRef.ancestorCategoryIds</value><constant><data-type>java.lang.String</data-type><string-value>cat70012</string-value></constant></includes></at-least></qualifier> 
+          <offer>
+            <discount-structure adjuster="0.0" calculator-type="gwp" discount-type="fixedPrice" process-zero-targets="true"><discount-detail name="gift"><attribute name="giftType" value="category"/><attribute name="giftDetail" value="catBagsAndWallets"/><attribute name="quantity" value="2"/><attribute name="autoRemove" value="false"/></discount-detail>
+            <target><union><iterator name="up-to-and-including" number="2" sort-by="priceInfo.listPrice" sort-order="ascending"><collection-name>items</collection-name><element-name>item</element-name><element-quantity-property>quantity</element-quantity-property><comparator name="includes"><value>item.auxiliaryData.productRef.ancestorCategoryIds</value><constant><data-type>java.lang.String</data-type><string-value>catBagsAndWallets</string-value></constant></comparator></iterator></union></target>
+            </discount-structure>
+          </offer>
+        </pricing-model>]]></set-property>
+      <set-property name="templateValues" add="false" remove="false"><![CDATA[evaluateTargetItemsFirstValue=false,discountStructure=<discount-structure adjuster="0.0" calculator-type="gwp" discount-type="fixedPrice" process-zero-targets="true"><discount-detail name="gift"><attribute name="giftType" value="category"/><attribute name="giftDetail" value="catBagsAndWallets"/><attribute name="quantity" value="2"/><attribute name="autoRemove" value="false"/></discount-detail>,target=<target><union><iterator name="up-to-and-including" number="2" sort-by="priceInfo.listPrice" sort-order="ascending"><collection-name>items</collection-name><element-name>item</element-name><element-quantity-property>quantity</element-quantity-property><comparator name="includes"><value>item.auxiliaryData.productRef.ancestorCategoryIds</value><constant><data-type>java.lang.String</data-type><string-value>catBagsAndWallets</string-value></constant></comparator></iterator></union></target>,qualifier=<qualifier><at-least number="1"><collection-name>items</collection-name><element-name>item</element-name><aggregator name="quantity" operation="total"/><includes><value>item.auxiliaryData.productRef.ancestorCategoryIds</value><constant><data-type>java.lang.String</data-type><string-value>cat70012</string-value></constant></includes></at-least></qualifier>,display-name-L2FkdmFuY2VkL2FkdmFuY2VkSX=Advanced Item Promotion,endDiscountStructure=</discount-structure>]]></set-property>
+      <set-property name="translations" add="false" remove="false"><![CDATA[es=es_xlatepromo80017,de=de_xlatepromo80017]]></set-property>
+      <set-property name="stackingRule" add="false" remove="false"><![CDATA[100003]]></set-property>
+    </add-item>
+    <!-- closeness qualifier -->
+    <add-item id="se-200005" item-descriptor="closenessQualifier" no-checkin="false">
+      <set-property name="pmdlRule" add="false" remove="false"><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+            <!DOCTYPE pricing-model SYSTEM "dynamosystemresource:/atg/dtds/pmdl/pmdl_1.0.dtd">
+            <pricing-model>
+              <qualifier>
+                <comparator name="greater-than-or-equals">
+                  <value>order.priceInfo.amount</value>
+                  <constant>
+                    <data-type>java.lang.Double</data-type>
+                    <string-value>80</string-value>
+                  </constant>
+                </comparator>
+              </qualifier>
+            </pricing-model>]]></set-property>
+      <set-property name="nameDefault" add="false" remove="false"><![CDATA[Save $10 on all orders over $100]]></set-property>
+      <set-property name="translations" add="false" remove="false"><![CDATA[es=es_xlatese-200005,de=de_xlatese-200005,en_DE=en_DE_xlatese-200005,de_DE=de_DE_xlatese-200005]]></set-property>
+    </add-item>
+    <!-- Stacking rules -->
+    <add-item id="100001" item-descriptor="stackingRule" no-checkin="false">
+      <set-property name="displayName" add="false" remove="false"><![CDATA[Order Promotions]]></set-property>
+      <set-property name="orderLimits" add="false" remove="false"><![CDATA[1]]></set-property>
+      <set-property name="excludedStackingRules" add="false" remove="false"><![CDATA[100002]]></set-property>
+    </add-item>
+    <add-item id="100002" item-descriptor="stackingRule" no-checkin="false">
+      <set-property name="displayName" add="false" remove="false"><![CDATA[Shipping Promotions]]></set-property>
+      <set-property name="orderLimits" add="false" remove="false"><![CDATA[-1]]></set-property>
+      <set-property name="excludedStackingRules" add="false" remove="false"><![CDATA[100001]]></set-property>
+    </add-item>
+    <add-item id="100003" item-descriptor="stackingRule" no-checkin="false">
+      <set-property name="orderLimits" add="false" remove="false"><![CDATA[1]]></set-property>
+      <set-property name="displayName" add="false" remove="false"><![CDATA[GWP Promotions]]></set-property>
+      <set-property name="excludedStackingRules" add="false" remove="false"><![CDATA[100005]]></set-property>
+    </add-item>
+    <add-item id="100004" item-descriptor="stackingRule" no-checkin="false">
+      <set-property name="displayName" add="false" remove="false"><![CDATA[Item Promotions]]></set-property>
+      <set-property name="orderLimits" add="false" remove="false"><![CDATA[-1]]></set-property>
+    </add-item>
+    <add-item id="100005" item-descriptor="stackingRule" no-checkin="false">
+      <set-property name="displayName" add="false" remove="false"><![CDATA[Apparel Promotions]]></set-property>
+      <set-property name="orderLimits" add="false" remove="false"><![CDATA[-1]]></set-property>
+      <set-property name="excludedStackingRules" add="false" remove="false"><![CDATA[100003]]></set-property>
+    </add-item>
+    <!-- Translations -->
+    <add-item id="es_xlatepromo70015" item-descriptor="promotionTranslation" no-checkin="false">
+      <set-property name="displayName" add="false" remove="false"><![CDATA[Bufanda gratis con todos las órdenes superiores a 200 euros]]></set-property>
+      <set-property name="description" add="false" remove="false"><![CDATA[<span class="atg_store_promoTitle">Bufanda gratuita</span> con todas las órdenes superiores a $200]]></set-property>
+    </add-item>
+    <add-item id="de_xlatepromo70015" item-descriptor="promotionTranslation" no-checkin="false">
+      <set-property name="displayName" add="false" remove="false"><![CDATA[Bei Bestellungen ab 200 € erhalten Sie einen Schal gratis dazu]]></set-property>
+      <set-property name="description" add="false" remove="false"><![CDATA[<span class="atg_store_promoTitle">Gratis-Schal</span> bei allen Bestellungen ab 200 €]]></set-property>
+    </add-item>
+    <add-item id="en_DE_xlatepromo70015" item-descriptor="promotionTranslation" no-checkin="false">
+      <set-property name="displayName" add="false" remove="false"><![CDATA[Free Scarf with all orders over 200 &euro;]]></set-property>
+      <set-property name="description" add="false" remove="false"><![CDATA[<span class="atg_store_promoTitle">Free Scarf</span> with all orders over 200 &euro;]]></set-property>
+    </add-item>
+    <add-item id="es_xlatepromo80017" item-descriptor="promotionTranslation" no-checkin="false">
+      <set-property name="displayName" add="false" remove="false"><![CDATA[Consiga 2 obsequios con cualquier chaqueta de mujer]]></set-property>
+      <set-property name="description" add="false" remove="false"><![CDATA[<span class="atg_store_promoTitle">Consiga 2 obsequios</span> con cualquier chaqueta de mujer]]></set-property>
+    </add-item>
+    <add-item id="de_xlatepromo80017" item-descriptor="promotionTranslation" no-checkin="false">
+      <set-property name="displayName" add="false" remove="false"><![CDATA[Beim Kauf einer Damenjacke erhalten Sie 2 Geschenke gratis dazu]]></set-property>
+      <set-property name="description" add="false" remove="false"><![CDATA[<span class="atg_store_promoTitle">2 Gratis-Geschenke</span> beim Kauf einer Damenjacke]]></set-property>
+    </add-item>
+    <add-item id="en_DE_xlatese-200005" item-descriptor="closenessQualifierTranslation" no-checkin="false">
+      <set-property name="name" add="false" remove="false"><![CDATA[Save 10 &euro; on all orders over 100 &euro;]]></set-property>
+    </add-item>
+    <add-item id="de_DE_xlatese-200005" item-descriptor="closenessQualifierTranslation" no-checkin="false">
+      <set-property name="name" add="false" remove="false"><![CDATA[Sparen Sie 10 &euro; bei allen Bestellungen über 100 &euro;]]></set-property>
+    </add-item>
+    <add-item id="es_xlatepromo20004" item-descriptor="promotionTranslation" no-checkin="false">
+      <set-property name="displayName" add="false" remove="false"><![CDATA[Cupón TENSHIP - Envío gratuito]]></set-property>
+      <set-property name="description" add="false" remove="false"><![CDATA[<span class="atg_store_promoTitle">Envío gratuito</span> con el código de cupón <span>TENSHIP</span>]]></set-property>
+    </add-item>
+    <add-item id="es_xlatexpromo20017" item-descriptor="promotionTranslation" no-checkin="false">
+      <set-property name="displayName" add="false" remove="false"><![CDATA[Cupón 10LIEFERUNG - Envío gratuito]]></set-property>
+      <set-property name="description" add="false" remove="false"><![CDATA[<span class="atg_store_promoTitle">Envío GRATUITO</span> con el código de cupón <span>10LIEFERUNG</span>]]></set-property>
+    </add-item>
+    <add-item id="es_xlatepromo10003" item-descriptor="promotionTranslation" no-checkin="false">
+      <set-property name="displayName" add="false" remove="false"><![CDATA[ATG Home - Envío gratuito]]></set-property>
+      <set-property name="description" add="false" remove="false"><![CDATA[<span class="atg_store_promoTitle">Envío gratuito</span> con cada orden realizada en ATG Home]]></set-property>
+    </add-item>
+    <add-item id="es_xlatepromo20011" item-descriptor="promotionTranslation" no-checkin="false">
+      <set-property name="displayName" add="false" remove="false"><![CDATA[Cupón TENSHIP - 10% de descuento en la orden]]></set-property>
+      <set-property name="description" add="false" remove="false"><![CDATA[<span class="atg_store_promoTitle">10% de descuento</span> en la orden con el código de cupón <span>TENSHIP</span>]]></set-property>
+    </add-item>
+    <add-item id="es_xlatexpromo20016" item-descriptor="promotionTranslation" no-checkin="false">
+      <set-property name="displayName" add="false" remove="false"><![CDATA[Cupón 10LIEFERUNG - 10% de descuento en la orden ]]></set-property>
+      <set-property name="description" add="false" remove="false"><![CDATA[<span class="atg_store_promoTitle">10% de DESCUENTO</span> en la orden con el código de cupón <span>10LIEFERUNG</span>]]></set-property>
+    </add-item>
+    <add-item id="es_xlatepromo50012" item-descriptor="promotionTranslation" no-checkin="false">
+      <set-property name="displayName" add="false" remove="false"><![CDATA[Ahorre $10 en todas las órdenes superiores a $100]]></set-property>
+      <set-property name="description" add="false" remove="false"><![CDATA[<span class="atg_store_promoTitle">Ahorre $10</span> en todas las órdenes superiores a $100]]></set-property>
+    </add-item>
+    <add-item id="es_xlatepromo20009" item-descriptor="promotionTranslation" no-checkin="false">
+      <set-property name="displayName" add="false" remove="false"><![CDATA[Corte de precio por niveles de silla Hubbard]]></set-property>
+      <set-property name="description" add="false" remove="false"><![CDATA[<span class="promoTitle">Sillas Hubbard</span><ul><li>Ahorre 10% en 2</li><li>Ahorre 15% en 4</li><li>Ahorre 20% en 6</li></ul>]]></set-property>
+    </add-item>
+    <add-item id="es_xlatepromo20010" item-descriptor="promotionTranslation" no-checkin="false">
+      <set-property name="displayName" add="false" remove="false"><![CDATA[Ahorre 20% en cualquier artículo de ATG Home, excluidos adornos para el hogar]]></set-property>
+      <set-property name="description" add="false" remove="false"><![CDATA[<span class="atg_store_promoTitle">Ahorre un 20%</span><span class="atg_store_promoText">en cualquier artículo de ATG Home </span>excluidos adornos para el hogar]]></set-property>
+    </add-item>
+    <add-item id="es_xlateabandonedOrderDiscount" item-descriptor="promotionTranslation" no-checkin="false">
+      <set-property name="displayName" add="false" remove="false"><![CDATA[10% de descuento en la orden]]></set-property>
+      <set-property name="description" add="false" remove="false"><![CDATA[<span class="atg_store_promoTitle">10% de descuento en su próxima orden</span>]]></set-property>
+    </add-item>
+    <add-item id="es_xlatese-promo230003" item-descriptor="promotionTranslation" no-checkin="false">
+      <set-property name="displayName" add="false" remove="false"><![CDATA[15% de descuento en adornos para el hogar]]></set-property>
+      <set-property name="description" add="false" remove="false"><![CDATA[<span class="atg_store_promoTitle">Los usuarios registrados ahorran el 15%</span> en adornos para el hogar ]]></set-property>
+    </add-item>
+    <add-item id="es_xlatese-promo240001" item-descriptor="promotionTranslation" no-checkin="false">
+      <set-property name="displayName" add="false" remove="false"><![CDATA[25% de descuento en moda para la mujer]]></set-property>
+      <set-property name="description" add="false" remove="false"><![CDATA[<span class="atg_store_promoTitle">Ahorre un 25%</span> en toda la moda para mujer]]></set-property>
+    </add-item>
+    <add-item id="es_xlatese-200005" item-descriptor="closenessQualifierTranslation" no-checkin="false">
+      <set-property name="name" add="false" remove="false"><![CDATA[Ahorre $10 en todas las órdenes superiores a $100]]></set-property>
+    </add-item>
+    <add-item id="de_xlatepromo20004" item-descriptor="promotionTranslation" no-checkin="false">
+      <set-property name="displayName" add="false" remove="false"><![CDATA[TENSHIP-Coupon - kostenloser Versand]]></set-property>
+      <set-property name="description" add="false" remove="false"><![CDATA[<span class="atg_store_promoTitle">Kostenloser Versand</span> mit Couponcode <span>TENSHIP</span>]]></set-property>
+    </add-item>
+    <add-item id="de_xlatexpromo20017" item-descriptor="promotionTranslation" no-checkin="false">
+      <set-property name="displayName" add="false" remove="false"><![CDATA[10LIEFERUNG-Coupon - kostenloser Versand]]></set-property>
+      <set-property name="description" add="false" remove="false"><![CDATA[<span class="atg_store_promoTitle">KOSTENLOSER Versand</span> mit Couponcode <span>10LIEFERUNG</span>]]></set-property>
+    </add-item>
+    <add-item id="de_xlatepromo10003" item-descriptor="promotionTranslation" no-checkin="false">
+      <set-property name="displayName" add="false" remove="false"><![CDATA[ATG Home - kostenloser Versand]]></set-property>
+      <set-property name="description" add="false" remove="false"><![CDATA[<span class="atg_store_promoTitle">Kostenloser Versand</span> für jede Bestellung bei ATG Home]]></set-property>
+    </add-item>
+    <add-item id="de_xlatepromo20011" item-descriptor="promotionTranslation" no-checkin="false">
+      <set-property name="displayName" add="false" remove="false"><![CDATA[TENSHIP-Coupon - 10% Rabatt auf Ihre Bestellung]]></set-property>
+      <set-property name="description" add="false" remove="false"><![CDATA[<span class="atg_store_promoTitle">10% Rabatt</span> auf Ihre Bestellung mit dem Couponcode <span>TENSHIP</span>]]></set-property>
+    </add-item>
+    <add-item id="de_xlatexpromo20016" item-descriptor="promotionTranslation" no-checkin="false">
+      <set-property name="displayName" add="false" remove="false"><![CDATA[10LIEFERUNG-Coupon - 10% Rabatt auf Ihre Bestellung]]></set-property>
+      <set-property name="description" add="false" remove="false"><![CDATA[<span class="atg_store_promoTitle">10% Rabatt</span> auf Ihre Bestellung mit dem Couponcode <span>10LIEFERUNG</span>]]></set-property>
+    </add-item>
+    <add-item id="de_xlatepromo50012" item-descriptor="promotionTranslation" no-checkin="false">
+      <set-property name="displayName" add="false" remove="false"><![CDATA[10 € Rabatt bei Bestellungen ab 100 €]]></set-property>
+      <set-property name="description" add="false" remove="false"><![CDATA[<span class="atg_store_promoTitle">Sparen Sie 10 €</span> bei allen Bestellungen ab 100 €.]]></set-property>
+    </add-item>
+    <add-item id="de_DE_xlatepromo50012" item-descriptor="promotionTranslation" no-checkin="false">
+      <set-property name="displayName" add="false" remove="false"><![CDATA[10 &euro; Rabatt auf alle Bestellungen ab 100 &euro;]]></set-property>
+      <set-property name="description" add="false" remove="false"><![CDATA[<span class="atg_store_promoTitle">10 &euro; Rabatt</span> auf alle Bestellungen ab 100 &euro;]]></set-property>
+    </add-item>
+    <add-item id="en_DE_xlatepromo50012" item-descriptor="promotionTranslation" no-checkin="false">
+      <set-property name="displayName" add="false" remove="false"><![CDATA[Save 10 &euro; on all orders over 100 &euro;]]></set-property>
+      <set-property name="description" add="false" remove="false"><![CDATA[<span class="atg_store_promoTitle">Save 10 &euro;</span> on all orders over 100 &euro;]]></set-property>
+    </add-item>
+    <add-item id="de_xlatepromo20009" item-descriptor="promotionTranslation" no-checkin="false">
+      <set-property name="displayName" add="false" remove="false"><![CDATA[Abgestufte Preisstaffel für Hubbard-Stühle]]></set-property>
+      <set-property name="description" add="false" remove="false"><![CDATA[<span class="promoTitle">Hubbard-Stühle</span><ul><li>Sparen Sie 10% beim Kauf von 2</li><li>Sparen Sie 15% beim Kauf von 4</li><li>Sparen Sie 20% beim Kauf von 6</li></ul>]]></set-property>
+    </add-item>
+    <add-item id="de_xlatepromo20010" item-descriptor="promotionTranslation" no-checkin="false">
+      <set-property name="displayName" add="false" remove="false"><![CDATA[Sparen Sie 20% beim Kauf von ATG Home-Artikeln, außer Wohnakzente]]></set-property>
+      <set-property name="description" add="false" remove="false"><![CDATA[<span class="atg_store_PromoTitle">Sparen Sie 20%</span><span class="atg_store_promoText">bei allen ATG Home-Artikeln, </span>außer Wohnakzente]]></set-property>
+    </add-item>
+    <add-item id="de_xlateabandonedOrderDiscount" item-descriptor="promotionTranslation" no-checkin="false">
+      <set-property name="displayName" add="false" remove="false"><![CDATA[10% Rabatt]]></set-property>
+      <set-property name="description" add="false" remove="false"><![CDATA[<span class="atg_store_promoTitle">10% Rabatt für Ihre nächste Bestellung</span>]]></set-property>
+    </add-item>
+    <add-item id="de_xlatese-promo230003" item-descriptor="promotionTranslation" no-checkin="false">
+      <set-property name="displayName" add="false" remove="false"><![CDATA[15% Rabatt auf Wohnakzente]]></set-property>
+      <set-property name="description" add="false" remove="false"><![CDATA[<span class="atg_store_PromoTitle">Registrierte Benutzer Sparen 15%</span> bei Wohnakzenten]]></set-property>
+    </add-item>
+    <add-item id="de_xlatese-promo240001" item-descriptor="promotionTranslation" no-checkin="false">
+      <set-property name="displayName" add="false" remove="false"><![CDATA[25% Rabatt auf Damenbekleidung]]></set-property>
+      <set-property name="description" add="false" remove="false"><![CDATA[<span class="atg_store_promoTitle">25% Rabatt</span> auf alle Damenbekleidungen]]></set-property>
+    </add-item>
+    <add-item id="de_xlatese-200005" item-descriptor="closenessQualifierTranslation" no-checkin="false">
+      <set-property name="name" add="false" remove="false"><![CDATA[Sparen Sie 10 &euro; bei Bestellungen ab 100 &euro;]]></set-property>
+    </add-item>
+  </import-items>
+</gsa-template>
+<!-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.1.1/Storefront/data/promos-i18n.xml#2 $$Change: 690857 $-->
