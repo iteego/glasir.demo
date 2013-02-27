@@ -43,10 +43,11 @@ public class CreateChangesets extends DefaultTask
     Map<String, List<ImportAndModule>> importNodes = new HashMap<String, List<ImportAndModule>>()
     List<ImportAndModule> flatImportNodes = new ArrayList<ImportAndModule>()
 
-
+    List<groovy.util.Node> products = new ArrayList<Node>()
 
     println "Install Units: ${glasir.installUnits}"
     println "Top level module list: " + glasir.modules.collect({it.name}).join(",") + "\n"
+
 
     // Read product.xml files for products.
     //fullModuleList.findAll {
@@ -64,6 +65,7 @@ public class CreateChangesets extends DefaultTask
       if (root?.name() != "product" ) {
         println "Root element not recognized. Expected \"product\" Found \"${root.name()}\""
       } else {
+        products.add( root )
         def productId = root.@id
         def requiredAddonsForThisProduct = root.'requires-addon-id'
         def requiredProductsForThisProduct = root.'product-id-required'
@@ -87,14 +89,9 @@ public class CreateChangesets extends DefaultTask
       }
     }
 
-    println "__________________________________________"
-    println ""
-
-
     def fromDbType = "oracle" // Used when selecting ddl files for the sql import.
     def toDbType = "h2"
     println "From DB type '$fromDbType' to '$toDbType'."
-
 
     // We will be using these server instance types below.
     def myInstanceTypes = [
@@ -165,6 +162,9 @@ public class CreateChangesets extends DefaultTask
 
     println "Selected addons: ${selectedAddons.join(", ")}"
     println "Selected instance types: ${myInstanceTypes.join(", ")}"
+
+//    scanProductValues( products )
+//    System.exit(0)
 
     // Read dbinit.xml files for the modules.
     //glasir.modules.each { module ->
@@ -431,6 +431,22 @@ public class CreateChangesets extends DefaultTask
   }
 
 
+  void scanProductValues( ArrayList<Node> products ) {
+    List<AtgProduct> list = new ArrayList<AtgProduct>()
+
+    StringWriter w = new StringWriter()
+    products.each { product ->
+      AtgProduct ap = new AtgProduct()
+      ap.parse( product )
+      list.add( ap )
+      w.write("******************\n")
+      ap.print(w,0)
+    }
+    println ""
+    println w.toString()
+  }
+
+
   protected void scanDataImportElement( List<String> selectedAddons, com.iteego.glasir.build.api.AtgModule module, Node dataimport, Map<String, List<ImportAndModule>> importNodes, List<ImportAndModule> flatImportNodes, String datasourceId, File dbinit ) {
     def repoPath = dataimport.'repository-path'.text()
     def filePath = dataimport.'import-file-path'.text() // Relative to the ATG root, presumably.
@@ -606,26 +622,482 @@ public class CreateChangesets extends DefaultTask
 }
 
 
-class InstanceTypeModification {
-  String modifiedInstanceTypeId
+
+interface AtgXmlInterface {
+  AtgXmlInterface parse( groovy.util.Node node )
+  void print( java.io.Writer writer, int indentationLevel )
 }
 
-class AddServerInstanceId extends InstanceTypeModification {
-  String addedServerInstanceId
+class AtgXmlBase implements AtgXmlInterface {
+  public AtgXmlInterface parse( Node node ) {
+    throw new Exception( "Please implement parse for class ${this.class.name}" )
+  }
+
+  @Override public void print( java.io.Writer writer, int indentationLevel ) {
+    writer.write( " " * indentationLevel + this.class.simpleName + "\n" )
+  }
 }
 
-class RemoveServerInstanceId extends InstanceTypeModification {
-  String addedServerInstanceId
-}
-
-
-class AtgProductAddon {
+class AtgNamedDatasource extends AtgXmlBase {
   String id
   String title
+  String jndi
+
+  @Override
+  public AtgXmlInterface parse( Node node ) {
+    this.id = node.@id
+    this.title = node.title?.text()
+    this.jndi = node.jndi?.text()
+    return this
+  }
 }
 
-class AtgProductAddonGroup {
+class Modification extends AtgXmlBase {}
+
+class InstanceTypeModification extends Modification {
+  String modifiedInstanceTypeId
+
+  @Override public AtgXmlInterface parse( Node node ) {
+    modifiedInstanceTypeId = node.@id
+    node.children().each { Node child ->
+      switch( child.name().toLowerCase() ) {
+        case "add-server-instance":
+          return new AddServerInstance( addedServerInstanceId: child.@id )
+          break
+        case "remove-server-instance":
+          return new RemoveServerInstance( removedServerInstanceId: child.@id )
+          break
+        case "add-named-datasource":
+          return new AddNamedDatasource( addedDatasourceId: child.@id )
+          break
+        case "remove-named-datasource":
+          return new RemoveNamedDatasource( removedDatasourceId: child.@id )
+          break
+        case "append-module":
+          return new AppendModuleName( appendedModuleName: child.@name )
+          break
+        case "prepend-module":
+          return new PrependModuleName( prependedModuleName: child.@name )
+          break
+        case "remove-module":
+          return new RemoveModuleName( removedModuleName: child.@name )
+          break
+        default :
+          throw new Exception( "Unknown node: ${child.name()}" )
+      }
+    }
+    return this
+  }
+}
+
+class ServerInstanceModification extends Modification {
+  String modifiedServiceInstanceId
+
+  @Override public AtgXmlInterface parse( Node node ) {
+    modifiedServiceInstanceId = node.@id
+    node.children().each { Node child ->
+      switch( child.name().toLowerCase() ) {
+        case "add-appassembler-option":
+          // ignored
+          break
+        case "add-server-instance":
+          return new AddServerInstance( addedServerInstanceId: child.@id )
+          break
+        case "remove-server-instance":
+          return new RemoveServerInstance( removedServerInstanceId: child.@id )
+          break
+        case "add-named-datasource":
+          return new AddNamedDatasource( addedDatasourceId: child.@id )
+          break
+        case "remove-named-datasource":
+          return new RemoveNamedDatasource( removedDatasourceId: child.@id )
+          break
+        case "append-module":
+          return new AppendModuleName( appendedModuleName: child.@name )
+          break
+        case "prepend-module":
+          return new PrependModuleName( prependedModuleName: child.@name )
+          break
+        case "remove-module":
+          return new RemoveModuleName( removedModuleName: child.@name )
+          break
+        default :
+          throw new Exception( "Unknown node: ${child.name()}" )
+      }
+    }
+    return this
+  }
+}
+
+
+class AddServerInstance extends Modification {
+  String addedServerInstanceId
+
+  @Override public void print( java.io.Writer writer, int indentationLevel ) {
+    def i = " " * indentationLevel
+    writer.write( "${i}Add Server Instance: $addedServerInstanceId\n" )
+  }
+}
+class RemoveServerInstance extends Modification {
+  String removedServerInstanceId
+
+  @Override public void print( java.io.Writer writer, int indentationLevel ) {
+    def i = " " * indentationLevel
+    writer.write( "${i}Remove Server Instance: $removedServerInstanceId\n" )
+  }
+}
+
+class AppendModuleName extends Modification {
+  String appendedModuleName
+
+  @Override public void print( java.io.Writer writer, int indentationLevel ) {
+    def i = " " * indentationLevel
+    writer.write( "${i}Append Module Name: $appendedModuleName\n" )
+  }
+}
+class RemoveModuleName extends Modification {
+  String removedModuleName
+
+  @Override public void print( java.io.Writer writer, int indentationLevel ) {
+    def i = " " * indentationLevel
+    writer.write( "${i}Remove Module Name: $removedModuleName\n" )
+  }
+}
+class PrependModuleName extends Modification {
+  String prependedModuleName
+
+  @Override public void print( java.io.Writer writer, int indentationLevel ) {
+    def i = " " * indentationLevel
+    writer.write( "${i}Prepend Module Name: $prependedModuleName\n" )
+  }
+}
+
+class AddNamedDatasource extends Modification {
+  String addedDatasourceId
+
+  @Override public void print( java.io.Writer writer, int indentationLevel ) {
+    def i = " " * indentationLevel
+    writer.write( "${i}Add Named Data Source: $addedDatasourceId\n" )
+  }
+}
+class RemoveNamedDatasource extends Modification {
+  String removedDatasourceId
+
+  @Override public void print( java.io.Writer writer, int indentationLevel ) {
+    def i = " " * indentationLevel
+    writer.write( "${i}Remove Named Data Source: $removedDatasourceId\n" )
+  }
+}
+
+
+class AtgServerInstanceType extends AtgXmlBase {
+  String id
+  String detail
+  String title
+  String extendsInstanceType
+  List<Modification> modifications = new ArrayList<Modification>()
+  List<String> serverInstances = new ArrayList<String>()
+
+  @Override public AtgXmlInterface parse( Node node ) {
+    this.id = node.@id
+    node.children().each { Node child ->
+      switch( child.name().toLowerCase() ) {
+        case "detail":
+          detail = child.text()
+          break
+        case "add-server-instance":
+          serverInstances.add( child.@id )
+          break
+        case "append-module":
+          modifications.add( new AppendModuleName( appendedModuleName: child.@'name' as String ) )
+          break
+        case "add-named-datasource":
+          modifications.add( new AddNamedDatasource( addedDatasourceId: child.@id ) )
+          break
+        case "config-directory":
+          // todo: handle this
+          break
+        case "optional-config-directory":
+          // todo: handle or ignore
+          break
+        case "title":
+          title = child.text()
+          break
+        default :
+          throw new Exception( "Unknown node: ${child.name()}" )
+      }
+    }
+    return this
+  }
+}
+
+class AtgServerInstance extends AtgXmlBase {
+  String id
+  String type
+  String title
+  String detail
+  String earFileName
+  String serverInstanceName
+  List<Modification> modifications = new ArrayList<Modification>()
+
+  @Override public AtgXmlInterface parse( Node node ) {
+    this.id = node.@id
+    this.type = node.@type
+    node.children().each { Node child ->
+      switch( child.name().toLowerCase() ) {
+        case "config-directory":
+          // ignored
+          break
+        case "optional-config-directory":
+          // ignored
+          break
+        case "detail":
+          detail = child.text()
+          break
+        case "ear-file-name":
+          earFileName = child.text()
+          break
+        case "server-instance-name":
+          serverInstanceName = child.text()
+          break
+        case "title":
+          title = child.text()
+          break
+        case "append-module":
+          modifications.add( new AppendModuleName( appendedModuleName: child.@'name' as String ) )
+          break
+        case "add-named-datasource":
+          modifications.add( new AddNamedDatasource( addedDatasourceId: child.@id ) )
+          break
+        case "post-deployment-option":
+          //ignored
+          break
+        default :
+          throw new Exception( "Unknown node: ${child.name()}" )
+      }
+    }
+    return this
+  }
+}
+
+class AtgProduct extends AtgXmlBase {
+  String id
+  String title
+  String detail
+  List<String> incompatibleAddons = new ArrayList<String>()
+  List<String> requiredAddons = new ArrayList<String>()
+  List<String> requiredProducts = new ArrayList<String>()
+  List<String> incompatibleProducts = new ArrayList<String>()
+  List<AddNamedDatasource> namedDatasources = new ArrayList<AddNamedDatasource>()
+  List<AtgProductAddonGroup> productAddonGroups = new ArrayList<AtgProductAddonGroup>()
+  List<AtgProductAddonCombo> productAddonCombos = new ArrayList<AtgProductAddonCombo>()
+  List<AtgServerInstance> serverInstances = new ArrayList<AtgServerInstance>()
+  List<AtgServerInstanceType> serverInstanceTypes = new ArrayList<AtgServerInstanceType>()
+
+  @Override public void print( java.io.Writer writer, int indentationLevel ) {
+    def i = " " * indentationLevel
+    writer.write( "${i}PRODUCT: $id\n" )
+    if( title )
+      writer.write( "${i}  Title                : $title\n" )
+    if( detail )
+      writer.write( "${i}  Detail               : $detail\n" )
+    if( requiredProducts )
+      writer.write( "${i}  Required products    : $requiredProducts\n" )
+    if( incompatibleProducts)
+      writer.write( "${i}  Incompatible products: $incompatibleProducts\n" )
+    if( requiredAddons )
+      writer.write( "${i}  Required addons      : $requiredAddons\n" )
+    if( incompatibleAddons )
+      writer.write( "${i}  Incompatible addons  : $incompatibleAddons\n" )
+    if( namedDatasources )
+      writer.write( "${i}  Data Sources         : ${namedDatasources.collect {it.addedDatasourceId}.join(", ")}\n" )
+    if( productAddonGroups ) {
+      writer.write( "${i}  Addon Groups         : \n" )
+      productAddonGroups.each { it.print( writer, indentationLevel+4 ) }
+    }
+    if( productAddonCombos ) {
+      writer.write( "${i}  Addon Combos         : \n" )
+      productAddonCombos.each { it.print( writer, indentationLevel+4 ) }
+    }
+  }
+
+
+  @Override public AtgXmlInterface parse( Node product ) {
+    this.id = product.@id
+    product.children().each { Node child ->
+      switch( child.name().toLowerCase() ) {
+        case "detail":
+          detail = child.text()
+          break
+        case "named-datasource":
+          namedDatasources.add( new AddNamedDatasource( addedDatasourceId: child.@id ) )
+          break
+        case "product-addon-combo":
+          productAddonCombos.add( new AtgProductAddonCombo().parse( child ) as AtgProductAddonCombo )
+          break
+        case "product-addon-group":
+          productAddonGroups.add( new AtgProductAddonGroup().parse( child ) as AtgProductAddonGroup )
+          break
+        case "product-id-required":
+          requiredProducts.add( child.@id )
+          break
+        case "incompatible-product-id":
+          incompatibleProducts.add( child.@id )
+          break
+        case "incompatible-addon-id":
+          incompatibleAddons.add( child.@id )
+          break
+        case "requires-addon-id":
+          requiredAddons.add( child.@id )
+          break
+        case "server-instance":
+          serverInstances.add( new AtgServerInstance().parse( child ) as AtgServerInstance )
+          break
+        case "server-instance-type":
+          serverInstanceTypes.add( new AtgServerInstanceType().parse( child ) as AtgServerInstanceType )
+          break
+        case "title":
+          title = child.text()
+          break
+        default :
+          throw new Exception( "Unknown node: ${child.name()}" )
+      }
+    }
+    return this
+  }
+}
+
+class AtgProductAddon extends AtgXmlBase {
+  String id
+  String title
+  String detail
+  List<Modification> instanceTypeModifications = new ArrayList<Modification>()
+  List<Modification> instanceModifications = new ArrayList<Modification>()
+
+  @Override public void print( java.io.Writer writer, int indentationLevel ) {
+    def i = " " * indentationLevel
+    writer.write( "${i}Product Addon: $id\n" )
+    if( title ) writer.write( "${i}  Title  : $title\n" )
+    if( detail ) writer.write( "${i}  Detail : $detail\n" )
+    if( instanceTypeModifications ) {
+      writer.write( "${i}  Instance Type Modifications :\n" )
+      instanceTypeModifications.each { it.print( writer, indentationLevel+4 ) }
+    }
+  }
+
+
+  @Override public AtgXmlInterface parse( Node node ) {
+    this.id = node.@id
+    node.children().each { Node child ->
+      switch( child.name().toLowerCase() ) {
+        case "detail":
+          detail = child.text()
+          break
+        case "modify-server-instance-type":
+          instanceTypeModifications.add( (new InstanceTypeModification().parse( child )) as Modification )
+          break
+        case "modify-server-instance":
+          instanceModifications.add( new ServerInstanceModification().parse( child ) as Modification )
+          break
+        case "title":
+          title = child.text()
+          break
+        default :
+          throw new Exception( "Unknown node: ${child.name()}" )
+      }
+    }
+    return this
+  }
+}
+
+class AtgProductAddonGroup extends AtgXmlBase {
   String id
   String title
   List<String> requiredAddonIds = new ArrayList<String>()
+  List<String> requiredProductIds = new ArrayList<String>()
+  List<AtgProductAddon> addons = new ArrayList<AtgProductAddon>()
+
+  @Override public void print( java.io.Writer writer, int indentationLevel ) {
+    def i = " " * indentationLevel
+    writer.write( "${i}Product Addon Group: $id\n" )
+    if( title )
+      writer.write( "${i}  Title             : $title\n" )
+    if(requiredProductIds)
+      writer.write( "${i}  Required products : $requiredProductIds\n" )
+    if(requiredAddonIds)
+      writer.write( "${i}  Required addons   : $requiredAddonIds\n" )
+    if(addons) {
+      writer.write( "${i}  Product Addons    : \n" )
+      addons.each { it.print( writer, indentationLevel+4 ) }
+    }
+  }
+
+  @Override public AtgXmlInterface parse( Node node ) {
+    this.id = node.@id
+    node.children().each { Node child ->
+      switch( child.name().toLowerCase() ) {
+        case "product-addon":
+          addons.add( new AtgProductAddon().parse( child ) as AtgProductAddon )
+          break
+        case "product-id-required":
+          requiredProductIds.add( child.@id )
+          break
+        case "requires-product-addon":
+          requiredAddonIds.add( child.@id )
+          break
+        case "title":
+          title = child.text()
+          break
+        default :
+          throw new Exception( "Unknown node: ${child.name()}" )
+      }
+    }
+    return this
+  }
+
 }
+
+class AtgProductAddonCombo extends AtgXmlBase {
+  String id
+  List<String> addonCombinations = new ArrayList<String>()
+  List<Modification> instanceTypeModifications = new ArrayList<Modification>()
+
+  @Override public AtgXmlInterface parse( Node node ) {
+    this.id = node.@id
+    node.children().each { Node child ->
+      switch( child.name().toLowerCase() ) {
+        case "modify-server-instance-type":
+          instanceTypeModifications.add( new InstanceTypeModification().parse( child ) as Modification )
+          break
+        case "combo-product-addon":
+          addonCombinations.add( child.@id )
+          break
+        default :
+          throw new Exception( "Unknown node: ${child.name()}" )
+      }
+    }
+    return this
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
