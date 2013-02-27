@@ -155,12 +155,13 @@ public class CreateChangesets extends DefaultTask
      * Where .sql files go after they have been transformed into XML.
      */
     File outputDbDirectory = new File( outputMainDirectory, "db" )
+    outputDbDirectory.deleteDir()
 
     /**
      * Where .sdl and .properties and .xml files go for data-import and repository-loader.
      */
     File outputImportDirectory = new File( outputMainDirectory, "import" )
-
+    outputImportDirectory.deleteDir()
 
     println "Selected addons: ${selectedAddons.join(", ")}"
     println "Selected instance types: ${myInstanceTypes.join(", ")}"
