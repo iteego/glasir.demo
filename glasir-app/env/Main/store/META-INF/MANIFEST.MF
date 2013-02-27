@@ -1,3 +1,3 @@
 Manifest-Version: 1.0
-ATG-Required: env.Main DCS.PublishingAgent RL glasir.db
+ATG-Required: env.Main DCS.PublishingAgent RL glasir.db Store.Storefront.NoPublishing
 ATG-Config-Path: config
