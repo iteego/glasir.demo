@@ -24,7 +24,8 @@ task atgCoreSqlInstallationOrder << {
 }
 
 task assembleReleaseEar(type: AtgAssemblerTask, description: "Runs a build and assembles a release ear") {
-  dependsOn "build"
+  dependsOn "build", "syncAtgServers"
+  //dependsOn "build"
 
   modules = allEnvironmentModules
   outputFile = bigEar
@@ -47,7 +48,8 @@ task assembleReleaseEar(type: AtgAssemblerTask, description: "Runs a build and a
 }
 
 task assembleDevEar(type: AtgAssemblerTask, description: "Runs a build and assembles a development ear") {
-  dependsOn "build"
+  dependsOn "build", "syncAtgServers"
+  //dependsOn "build"
 
   modules = allEnvironmentModules
   outputFile = bigEar
@@ -133,7 +135,8 @@ task syncDocRoot(type: Copy) {
 
 task syncAtgServers(type: Copy) {
     from "${rootDir}/config/atg"
-    into "$jBossRoot/ATG-Data/servers"
+    into "$atgRoot/home/servers"
+    //into "$jBossRoot/ATG-Data/servers"
 
     // Make sure to first remove the existing server directories, so that the copy task does not try to write files
     // into any folder that contains symbolic links. If there would be any symbolic links in an already existing
@@ -141,8 +144,10 @@ task syncAtgServers(type: Copy) {
     // which in our case is the source tree. By removing the directories safely before starting the copy,
     // we avoid clobbering our source tree with build output files.
     doFirst {
-        glasir.deleteDir("$jBossRoot/ATG-Data/servers/$storeServerName")
-        glasir.deleteDir("$jBossRoot/ATG-Data/servers/$adminServerName")
+        glasir.deleteDir("$atgRoot/home/servers/$storeServerName")
+        glasir.deleteDir("$atgRoot/home/servers/$adminServerName")
+        //glasir.deleteDir("$jBossRoot/ATG-Data/servers/$storeServerName")
+        //glasir.deleteDir("$jBossRoot/ATG-Data/servers/$adminServerName")
     }
 }
 
@@ -153,6 +158,7 @@ task syncAdmin(dependsOn: [syncAdminEar])
 task devDeploy {
   description = "Compile, test, assemble, and deploys the dev ear to jboss"  
   dependsOn = [assembleDevEar, syncStore, syncAdmin, syncAtgServers]
+  //dependsOn = [assembleDevEar, syncStore, syncAdmin, syncAtgServers]
 }
 
 def atgServers() {

@@ -53,6 +53,7 @@ task startDevStoreTarget(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
     jBossHome     jBossRoot
     serverName    storeServerName
     modules       moduleWithFlavors("env.Main.store-target.dev")
+    glasirDevMode false
 
     doFirst {
         println "Starting dev store publishing target node with modules: ${modules}"
@@ -69,6 +70,7 @@ task startDevAdmin(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
   jBossHome     jBossRoot
   serverName    adminServerName
   modules       moduleWithFlavors("env.Main.admin.dev")
+  glasirDevMode false
   
   doFirst { 
     println "Starting dev admin node with modules: ${modules}"
