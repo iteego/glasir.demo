@@ -57,6 +57,7 @@ task assembleDevEar(type: AtgAssemblerTask, description: "Runs a build and assem
   liveConfig = false
   pack = false
   loggingDebug = false
+  glasirDevMode = true
   useInitializer = true
   
   //TODO: Figure out if there is a clean way of making the atg assembler find all the required stuff
