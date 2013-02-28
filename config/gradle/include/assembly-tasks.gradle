@@ -85,7 +85,6 @@ task copyStoreEar(type: Copy, description: "Copies the ear file into the deploy 
 }
 
 task linkStoreEar(description: "Creates a symbolic link from the store ear file to the big ear") << {
-  println "LINKSTOREEAR: BIGEAR -> '$bigEar'"
   def target = "$jBossRoot/server/$storeServerName/deploy/${bigEarName}"
   ant.symlink( link: target, resource: bigEar, overwrite: true)
 }
@@ -100,7 +99,6 @@ task copyAdminEar(type: Copy, description: "Copies the ear file into the deploy 
 }
 
 task linkAdminEar(description: "Copies the ear file into the deploy directory of the JBOSS server, if on Windows, otherwise use a symbolic link") << {
-  println "LINKADMINEAR: BIGEAR -> '$bigEar'"
   def target = "$jBossRoot/server/$adminServerName/deploy/$bigEarName"
   ant.symlink( link: target, resource: bigEar, overwrite: true)
 }
