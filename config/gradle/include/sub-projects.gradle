@@ -141,10 +141,11 @@ subprojects {
   //ATG-Required attribute values. Applies these dependencies to the configurations
   //given as the second argument
   glasir {
+    useGroovyInCompileClasspath true
     atgDependencies {
       applyToConfigurations "compile", "testCompile"      
       verbose false
-    }     
+    }
   }
 }
 
