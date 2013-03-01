@@ -4,6 +4,7 @@ import org.gradle.api.tasks.TaskAction
 import org.gradle.api.DefaultTask
 import groovy.xml.MarkupBuilder
 import org.gradle.api.logging.LogLevel
+import com.iteego.glasir.build.api.AtgModule
 
 
 
@@ -94,14 +95,22 @@ public class CreateChangesets extends DefaultTask
     println "From DB type '$fromDbType' to '$toDbType'."
 
     // We will be using these server instance types below.
-    def myInstanceTypes = [
+    def selectedInstanceTypes = [
       instanceType
     ]
 
     // Todo: parse product.xml files instead to see what datasources go where.
-    if(myInstanceTypes[0]=="management") {
+    if(selectedInstanceTypes[0]=="management") {
       namedDatasourceMap[ "all" ] = namedDatasourceMap[ "management" ]
     }
+
+    def selectedProducts = [
+        //"commerce"
+        //"endeca",
+        "platform",
+        //"siteadmin",
+        "store"
+    ]
 
     // Addons are important in the selection of data imports and repository loader actions.
     def selectedAddons = [
@@ -115,7 +124,8 @@ public class CreateChangesets extends DefaultTask
         //"storefront_no_publishing",
         "switchingdatasource"
       ]
-    // These are the addons: find /home/mwangel/jobb/iteego/glasir.demo/packages -print0|grep -zZ -i product\.xml|xargs -0 grep '<product\-addon id\='
+    // These are some addons. Availability of addons depends on product selection.
+    // (find glasir.demo/packages -print0|grep -zZ -i product\.xml|xargs -0 grep '<product\-addon id\=')
     //id="clicktoconnect"
     //id="cybersource"
     //id="dcs-csr"
@@ -144,9 +154,14 @@ public class CreateChangesets extends DefaultTask
     //id="switchingdatasource"
 
     /**
+     * Parsed from product.xml files.
+     */
+    List<String> requiredDataSources = calculateRequiredDatasources( glasir.project, products, mainModuleName, selectedAddons )
+
+    /**
      * This is where we put the resulting files that glasir.db will later consume.
      */
-    File outputMainDirectory = new File( "./importRootDir-$mainModuleName-${myInstanceTypes.join("_")}")
+    File outputMainDirectory = new File( "./importRootDir-$mainModuleName-${selectedInstanceTypes.join("_")}")
 
     /**
      * Where .sql files go after they have been transformed into XML.
@@ -161,10 +176,7 @@ public class CreateChangesets extends DefaultTask
     outputImportDirectory.deleteDir()
 
     println "Selected addons: ${selectedAddons.join(", ")}"
-    println "Selected instance types: ${myInstanceTypes.join(", ")}"
-
-//    scanProductValues( products )
-//    System.exit(0)
+    println "Selected instance types: ${selectedInstanceTypes.join(", ")}"
 
     // Read dbinit.xml files for the modules.
     //glasir.modules.each { module ->
@@ -195,18 +207,14 @@ public class CreateChangesets extends DefaultTask
               // This tag name is used in both dbinit.dtd and product.dtd but they are different tags.
               def serverInstanceTypes = root.'server-instance-type'
               serverInstanceTypes.each { serverInstanceType ->
-                if (myInstanceTypes.contains(serverInstanceType.@id)) {
+                if (selectedInstanceTypes.contains(serverInstanceType.@id)) {
                   println "Looking at server instance type \"${serverInstanceType.@id}\""
 
                   def dataSources = serverInstanceType.datasource
                   dataSources.each { datasource ->
                     String datasourceId = datasource.@id
-                    println "  For data source $datasourceId"
-                    if( datasourceId == "nonswitchingCore" ) {
-                      println "#########################################################"
-                      println " Skip data source id nonswitchingCore even though it is required"
-                      println "#########################################################"
-                    } else {
+                    if( requiredDataSources.contains( datasourceId ) ) {
+                      println "  For data source $datasourceId"
                       def requiredSchemas = datasource.schema
                       requiredSchemas.each { requiredSchema ->
                         def requiredSchemaId = requiredSchema.@id
@@ -252,6 +260,8 @@ public class CreateChangesets extends DefaultTask
                           println "ERROR! MISSING SCHEMA '$requiredSchemaId' FOR DATASOURCE '${datasource.@id}' IN SERVER INSTANCE TYPE '${serverInstanceType.@id}' IN FILE '$dbinit'."
                         }
                       } // if data source has schemas
+                    } else {
+                      logger.info "Skipping data source \"$datasourceId\"."
                     }
                   }//for each data source
                 } else {
@@ -431,19 +441,44 @@ public class CreateChangesets extends DefaultTask
   }
 
 
-  void scanProductValues( ArrayList<Node> products ) {
-    List<AtgProduct> list = new ArrayList<AtgProduct>()
+  public static List<File> findProductXmlFiles( project, List<AtgModule> modules ) {
+    List<File> result = new ArrayList<File>()
+    modules.findAll { module ->
+      project.file("${module.dir}/cim/product.xml").exists()
+    }.each { module ->
+      def file = new File("${module.dir}/cim/product.xml")
+      result.add( file )
+    }
+    return result
+  }
 
-    StringWriter w = new StringWriter()
-    products.each { product ->
+  public static List<groovy.util.Node> loadXmlFromProductFiles( project, List<File> productFiles ) {
+    List<groovy.util.Node> productNodes = new ArrayList<groovy.util.Node>()
+    productFiles.each { productxml ->
+      project.logger.info "Parsing XML from product file \"$productxml\""
+      def parser = new groovy.util.XmlParser(false, false)
+      // Set these two features to skip dtd verification.
+      parser.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
+      parser.setFeature("http://xml.org/sax/features/namespaces", false)
+      def root = parser.parse(productxml) // root should be the "database-initializer" node.
+
+      if (root?.name() != "product" ) {
+        println "Root element not recognized. Expected \"product\" Found \"${root.name()}\""
+      } else {
+        productNodes.add( root )
+      }
+    }
+    return productNodes
+  }
+
+  public static List<AtgProduct> scanProductValues( project, ArrayList<Node> productNodes ) {
+    List<AtgProduct> result = new ArrayList<AtgProduct>()
+    productNodes.each { product ->
       AtgProduct ap = new AtgProduct()
       ap.parse( product )
-      list.add( ap )
-      w.write("******************\n")
-      ap.print(w,0)
+      result.add( ap )
     }
-    println ""
-    println w.toString()
+    return result
   }
 
 
@@ -619,6 +654,181 @@ public class CreateChangesets extends DefaultTask
 
     tmp
   }
+
+  public static List<String> calculateRequiredDatasources( project, List<Node> productNodes, String mainModuleName, List<String> addonNames ) {
+    def products = CreateChangesets.scanProductValues( project, productNodes )
+
+    List<Modification> instanceModifications = []
+    List<Modification> instanceTypeModifications = []
+
+    products.each { product ->
+      // check addons
+      product.productAddonGroups.each { group ->
+        group.addons.each { addon ->
+          addon.each {
+            project.logger.debug( "product ${product.id}, group: ${group.id}, addon: ${addon.id}" )
+            if( addonNames.contains( addon.id ) ) {
+              addon.instanceModifications.each { instanceModifications.addAll( it.modifications ) }
+              addon.instanceTypeModifications.each { instanceTypeModifications.addAll( it.modifications ) }
+            }
+          }
+        }
+      }
+
+      // check combinations
+      product.productAddonCombos.each { combo ->
+        if( !combo.addonCombinations.any { !addonNames.contains(it) } ) {
+          combo.instanceTypeModifications.each { instanceTypeModifications.addAll( it.modifications ) }
+        }
+      }
+    }
+
+    List<String> result = []
+
+    println "Server Instance Modifications (${instanceModifications.size()})"
+    def dsMods = instanceModifications.findAll { it instanceof AddNamedDatasource || it instanceof RemoveNamedDatasource }
+    dsMods.each { dsmod ->
+      //println "  $dsmod"
+      if( dsmod instanceof AddNamedDatasource && !result.contains(dsmod.addedDatasourceId) ) {
+        result.add( dsmod.addedDatasourceId )
+      }
+      if( dsmod instanceof RemoveNamedDatasource && result.contains(dsmod.removedDatasourceId) ) {
+        result.remove( dsmod.removedDatasourceId )
+      }
+    }
+
+    println "Server Instance Type Modifications (${instanceTypeModifications.size()})"
+    dsMods = instanceTypeModifications.findAll { it instanceof AddNamedDatasource || it instanceof RemoveNamedDatasource }
+    dsMods.each { dsmod ->
+      //println "  $dsmod"
+      if( dsmod instanceof AddNamedDatasource && !result.contains(dsmod.addedDatasourceId) ) {
+        result.add( dsmod.addedDatasourceId )
+      }
+      if( dsmod instanceof RemoveNamedDatasource && result.contains(dsmod.removedDatasourceId) ) {
+        result.remove( dsmod.removedDatasourceId )
+      }
+    }
+
+    return result
+  }
+}
+
+
+public class ListAvailableProducts extends DefaultTask {
+  def glasir = project.glasir
+  boolean full = false
+
+  @TaskAction
+  public void run() {
+    def files = CreateChangesets.findProductXmlFiles( glasir.project, glasir.modules )
+    def nodes = CreateChangesets.loadXmlFromProductFiles( glasir.project, files )
+    def products = CreateChangesets.scanProductValues( glasir.project, nodes )
+
+    if( full ) {
+      products.each { product ->
+        StringWriter w = new StringWriter()
+        product.print( w, 0 )
+        println "************************************************"
+        println w.toString()
+        println ""
+      }
+    } else {
+      println "Products:\n${products.collect { p -> "${p.id} (${p.productAddonGroups.collect {it.id}.join(', ')})"}.join('\n') }"
+    }
+  }
+}
+
+
+public class ListAvailableAddons extends DefaultTask {
+  def glasir = project.glasir
+
+  @TaskAction
+  public void run() {
+    def files = CreateChangesets.findProductXmlFiles( glasir.project, glasir.modules )
+    def nodes = CreateChangesets.loadXmlFromProductFiles( glasir.project, files )
+    def products = CreateChangesets.scanProductValues( glasir.project, nodes )
+
+    println "product, addon-groups, addons"
+    println ""
+    products.each { product ->
+      println "${product.id}"
+      product.productAddonGroups.each { addonGroup ->
+        println "  ${addonGroup.id}"
+        addonGroup.addons.each { addon ->
+          println "    ${addon.id}"
+        }
+      }
+      println ""
+    }
+  }
+}
+
+
+public class ListDatasources extends DefaultTask {
+  def mainModuleName = "env.Main.store.dev.oracle"
+  def selectedAddons = [
+      "dcs-csr",
+      "international",
+      "merch",
+      "previewOnManagement",
+      "prodLock",
+      "queryConsoleOnManagement",
+      "storefront-full-setup",
+      //"storefront_no_publishing",
+      "switchingdatasource"
+    ]
+
+  def glasir = project.glasir
+  def fullModuleList = glasir.moduleMap[mainModuleName].fullBuildOrder
+
+  @TaskAction
+  public void run() {
+    def files = CreateChangesets.findProductXmlFiles( glasir.project, glasir.modules )
+    def nodes = CreateChangesets.loadXmlFromProductFiles( glasir.project, files )
+    def products = CreateChangesets.scanProductValues( glasir.project, nodes )
+
+    List<Modification> instanceModifications = []
+    List<Modification> instanceTypeModifications = []
+    def serverInstances = []
+    def serverInstanceTypes = []
+
+    products.each { product ->
+      // check addons
+      product.productAddonGroups.each { group ->
+        group.addons.each { addon ->
+          addon.each {
+            logger.debug( "product ${product.id}, group: ${group.id}, addon: ${addon.id}" )
+            if( selectedAddons.contains( addon.id ) ) {
+              addon.instanceModifications.each { instanceModifications.addAll( it.modifications ) }
+              addon.instanceTypeModifications.each { instanceTypeModifications.addAll( it.modifications ) }
+            }
+          }
+        }
+      }
+
+      // check combinations
+      product.productAddonCombos.each { combo ->
+        if( combo.addonCombinations.any { !selectedAddons.contains(it) } ) {
+          // skip it then
+        } else {
+          combo.instanceTypeModifications.each { instanceTypeModifications.addAll( it.modifications ) }
+        }
+      }
+    }
+
+    println "Server Instance Modifications (${instanceModifications.size()})"
+    def dsMods = instanceModifications.findAll { it instanceof AddNamedDatasource || it instanceof RemoveNamedDatasource }
+    dsMods.each { dsmod ->
+      println "  $dsmod"
+    }
+
+    println "Server Instance Type Modifications (${instanceTypeModifications.size()})"
+    dsMods = instanceTypeModifications.findAll { it instanceof AddNamedDatasource || it instanceof RemoveNamedDatasource }
+    dsMods.each { dsmod ->
+      println "  $dsmod"
+    }
+
+  }
 }
 
 
@@ -635,6 +845,12 @@ class AtgXmlBase implements AtgXmlInterface {
 
   @Override public void print( java.io.Writer writer, int indentationLevel ) {
     writer.write( " " * indentationLevel + this.class.simpleName + "\n" )
+  }
+
+  @Override public String toString() {
+    StringWriter w = new StringWriter()
+    print( w, 2 )
+    return w.toString()
   }
 }
 
@@ -654,79 +870,70 @@ class AtgNamedDatasource extends AtgXmlBase {
 
 class Modification extends AtgXmlBase {}
 
-class InstanceTypeModification extends Modification {
-  String modifiedInstanceTypeId
+class ModificationList extends AtgXmlBase {
+  /**
+   * "Server Instance Id" or "Service Instance Type Id"
+   */
+  String modifiedId
+
+  List< Modification > modifications = new ArrayList< Modification >()
 
   @Override public AtgXmlInterface parse( Node node ) {
-    modifiedInstanceTypeId = node.@id
+    modifiedId = node.@id
     node.children().each { Node child ->
       switch( child.name().toLowerCase() ) {
         case "add-server-instance":
-          return new AddServerInstance( addedServerInstanceId: child.@id )
+          modifications.add new AddServerInstance( addedServerInstanceId: child.@id )
           break
         case "remove-server-instance":
-          return new RemoveServerInstance( removedServerInstanceId: child.@id )
+          modifications.add new RemoveServerInstance( removedServerInstanceId: child.@id )
           break
         case "add-named-datasource":
-          return new AddNamedDatasource( addedDatasourceId: child.@id )
+          modifications.add new AddNamedDatasource( addedDatasourceId: child.@id )
           break
         case "remove-named-datasource":
-          return new RemoveNamedDatasource( removedDatasourceId: child.@id )
+          modifications.add new RemoveNamedDatasource( removedDatasourceId: child.@id )
           break
         case "append-module":
-          return new AppendModuleName( appendedModuleName: child.@name )
+          modifications.add new AppendModuleName( appendedModuleName: child.@name )
           break
         case "prepend-module":
-          return new PrependModuleName( prependedModuleName: child.@name )
+          modifications.add new PrependModuleName( prependedModuleName: child.@name )
           break
         case "remove-module":
-          return new RemoveModuleName( removedModuleName: child.@name )
+          modifications.add new RemoveModuleName( removedModuleName: child.@name )
+          break
+        case "add-appassembler-option":
+          // ignore
           break
         default :
-          throw new Exception( "Unknown node: ${child.name()}" )
+          throw new Exception( "Unknown node: '${child.name()}' parsing node '$node'" )
       }
     }
     return this
+  }
+
+}
+
+class InstanceTypeModification extends ModificationList {
+  @Override public void print( java.io.Writer writer, int indentationLevel ) {
+    def i = " " * indentationLevel
+    writer.write( "${i}Modifications (instance type \"$modifiedId\"):\n" )
+    modifications.each { mod ->
+      mod.print( writer, indentationLevel + 4 )
+    }
   }
 }
 
-class ServerInstanceModification extends Modification {
-  String modifiedServiceInstanceId
-
-  @Override public AtgXmlInterface parse( Node node ) {
-    modifiedServiceInstanceId = node.@id
-    node.children().each { Node child ->
-      switch( child.name().toLowerCase() ) {
-        case "add-appassembler-option":
-          // ignored
-          break
-        case "add-server-instance":
-          return new AddServerInstance( addedServerInstanceId: child.@id )
-          break
-        case "remove-server-instance":
-          return new RemoveServerInstance( removedServerInstanceId: child.@id )
-          break
-        case "add-named-datasource":
-          return new AddNamedDatasource( addedDatasourceId: child.@id )
-          break
-        case "remove-named-datasource":
-          return new RemoveNamedDatasource( removedDatasourceId: child.@id )
-          break
-        case "append-module":
-          return new AppendModuleName( appendedModuleName: child.@name )
-          break
-        case "prepend-module":
-          return new PrependModuleName( prependedModuleName: child.@name )
-          break
-        case "remove-module":
-          return new RemoveModuleName( removedModuleName: child.@name )
-          break
-        default :
-          throw new Exception( "Unknown node: ${child.name()}" )
-      }
+class ServerInstanceModification extends ModificationList {
+  @Override public void print( java.io.Writer writer, int indentationLevel ) {
+    def i = " " * indentationLevel
+    writer.write( "${i}Modifications (instance \"$modifiedId\"):\n" )
+    modifications.each { mod ->
+      mod.print( writer, indentationLevel + 4 )
     }
-    return this
   }
+
 }
 
 
@@ -896,7 +1103,7 @@ class AtgProduct extends AtgXmlBase {
 
   @Override public void print( java.io.Writer writer, int indentationLevel ) {
     def i = " " * indentationLevel
-    writer.write( "${i}PRODUCT: $id\n" )
+    writer.write( "${i}PRODUCT: \"$id\"\n" )
     if( title )
       writer.write( "${i}  Title                : $title\n" )
     if( detail )
@@ -912,11 +1119,11 @@ class AtgProduct extends AtgXmlBase {
     if( namedDatasources )
       writer.write( "${i}  Data Sources         : ${namedDatasources.collect {it.addedDatasourceId}.join(", ")}\n" )
     if( productAddonGroups ) {
-      writer.write( "${i}  Addon Groups         : \n" )
+      writer.write( "${i}  Addon Groups\n" )
       productAddonGroups.each { it.print( writer, indentationLevel+4 ) }
     }
     if( productAddonCombos ) {
-      writer.write( "${i}  Addon Combos         : \n" )
+      writer.write( "${i}  Addon Combos\n" )
       productAddonCombos.each { it.print( writer, indentationLevel+4 ) }
     }
   }
@@ -971,8 +1178,8 @@ class AtgProductAddon extends AtgXmlBase {
   String id
   String title
   String detail
-  List<Modification> instanceTypeModifications = new ArrayList<Modification>()
-  List<Modification> instanceModifications = new ArrayList<Modification>()
+  List<ModificationList> instanceTypeModifications = new ArrayList<ModificationList>()
+  List<ModificationList> instanceModifications = new ArrayList<ModificationList>()
 
   @Override public void print( java.io.Writer writer, int indentationLevel ) {
     def i = " " * indentationLevel
@@ -980,7 +1187,7 @@ class AtgProductAddon extends AtgXmlBase {
     if( title ) writer.write( "${i}  Title  : $title\n" )
     if( detail ) writer.write( "${i}  Detail : $detail\n" )
     if( instanceTypeModifications ) {
-      writer.write( "${i}  Instance Type Modifications :\n" )
+      writer.write( "${i}  Instance Type Modifications : \n" )
       instanceTypeModifications.each { it.print( writer, indentationLevel+4 ) }
     }
   }
@@ -994,10 +1201,10 @@ class AtgProductAddon extends AtgXmlBase {
           detail = child.text()
           break
         case "modify-server-instance-type":
-          instanceTypeModifications.add( (new InstanceTypeModification().parse( child )) as Modification )
+          instanceTypeModifications.add( new InstanceTypeModification().parse( child ) as ModificationList )
           break
         case "modify-server-instance":
-          instanceModifications.add( new ServerInstanceModification().parse( child ) as Modification )
+          instanceModifications.add( new ServerInstanceModification().parse( child ) as ModificationList )
           break
         case "title":
           title = child.text()
@@ -1019,7 +1226,7 @@ class AtgProductAddonGroup extends AtgXmlBase {
 
   @Override public void print( java.io.Writer writer, int indentationLevel ) {
     def i = " " * indentationLevel
-    writer.write( "${i}Product Addon Group: $id\n" )
+    writer.write( "${i}Product Addon Group: \"$id\"\n" )
     if( title )
       writer.write( "${i}  Title             : $title\n" )
     if(requiredProductIds)
@@ -1027,7 +1234,7 @@ class AtgProductAddonGroup extends AtgXmlBase {
     if(requiredAddonIds)
       writer.write( "${i}  Required addons   : $requiredAddonIds\n" )
     if(addons) {
-      writer.write( "${i}  Product Addons    : \n" )
+      writer.write( "${i}  Product Addons\n" )
       addons.each { it.print( writer, indentationLevel+4 ) }
     }
   }
@@ -1060,14 +1267,14 @@ class AtgProductAddonGroup extends AtgXmlBase {
 class AtgProductAddonCombo extends AtgXmlBase {
   String id
   List<String> addonCombinations = new ArrayList<String>()
-  List<Modification> instanceTypeModifications = new ArrayList<Modification>()
+  List<ModificationList> instanceTypeModifications = new ArrayList<ModificationList>()
 
   @Override public AtgXmlInterface parse( Node node ) {
     this.id = node.@id
     node.children().each { Node child ->
       switch( child.name().toLowerCase() ) {
         case "modify-server-instance-type":
-          instanceTypeModifications.add( new InstanceTypeModification().parse( child ) as Modification )
+          instanceTypeModifications.add( new InstanceTypeModification().parse( child ) as ModificationList )
           break
         case "combo-product-addon":
           addonCombinations.add( child.@id )
@@ -1078,6 +1285,18 @@ class AtgProductAddonCombo extends AtgXmlBase {
     }
     return this
   }
+
+  @Override public void print( java.io.Writer writer, int indentationLevel ) {
+    def i = " " * indentationLevel
+    writer.write( "${i}Product Addon Combo: \"$id\"\n" )
+    if( addonCombinations )
+      writer.write( "${i}  Combination : ${addonCombinations}\n" )
+    if( instanceTypeModifications ) {
+      writer.write( "${i}  Instance Type Modifications :\n" )
+      instanceTypeModifications.each { it.print( writer, indentationLevel+4 ) }
+    }
+  }
+
 }
 
 

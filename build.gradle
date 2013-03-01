@@ -96,10 +96,39 @@ task wrapper(type: Wrapper) {
 task createManagementChangesets(type:CreateChangesets) {
   mainModuleName = "env.Main.admin.dev.oracle"
   instanceType = "management"
+  selectedAddons = [
+    "dcs-csr",
+    "international",
+    "merch",
+    "previewOnManagement",
+    "prodLock",
+    "queryConsoleOnManagement",
+    "storefront-full-setup",
+    "switchingdatasource"
+  ]
 }
 
 task createProductionChangesets(type:CreateChangesets) {
   mainModuleName = "env.Main.store.dev.oracle"
   instanceType = "production"
+  selectedAddons = [
+    "dcs-csr",
+    "international",
+    "merch",
+    "previewOnManagement",
+    "prodLock",
+    "queryConsoleOnManagement",
+    "storefront-full-setup",
+    "switchingdatasource"
+  ]
 }
 
+task listAvailableAddons( type: ListAvailableAddons ) {}
+
+task listDatasources( type: ListDatasources ) {}
+
+task listAvailableProducts( type: ListAvailableProducts ) {}
+
+task listAllProductInformation( type: ListAvailableProducts ) {
+  full = true
+}
