@@ -235,21 +235,7 @@ public class CreateChangesets extends DefaultTask
                             else if (child.name() == "repository-loader") {
                               // DTD: <!ELEMENT repository-loader (requires-addon-id*,cleanup-src-module?,cleanup-file-path?,files+,file-mapping,folder-mapping)>
                               // DTD: <!ELEMENT files (src-module,(config-path|file-path),file-pattern)>
-                              def repoloader = child
-                              def missing = false
-                              if (repoloader.'requires-addon-id') {
-                                println "        ---==> Repository loader requires addons '${repoloader.'requires-addon-id'.collect {it.@id}}'"
-                                missing = repoloader.'requires-addon-id'.any { !selectedAddons.contains(it.@id) }
-                              }//if repository loader requires specific addons
-                              if( !missing ) {
-                                if( !importNodes.containsKey(datasourceId) ) {
-                                  importNodes[ datasourceId ] = new ArrayList<ImportAndModule>()
-                                }
-                                importNodes[ datasourceId ].add new ImportAndModule( node:repoloader, definingModule: module )
-
-                                // todo: check for duplicates before inserting
-                                flatImportNodes.add( new ImportAndModule( node:repoloader, definingModule: module ) )
-                              }//if !missing
+                              scanRepoLoaderElement
                             }
                             else {
                               println "ERROR! UNKNOWN SCHEMA CHILD NAME '${child.name()}'. EXPECTED sql, data-import or repository-loader."
@@ -482,16 +468,31 @@ public class CreateChangesets extends DefaultTask
   }
 
 
+  /**
+   * Create an entry in the imports list for data import (repository assets).
+   * The import will be run by glasir.db during ATG startup after repository components are started.
+   * @param selectedAddons The list of selected ATG addons.
+   * @param module The module under whose "cim" directory this dbinit.xml file was found.
+   * @param dataimport The current "repository-loader" XML node.
+   * @param importNodes Import nodes mapped by datasource ID.
+   * @param flatImportNodes Flat list of imports.
+   * @param datasourceId The ID of the current "datasource" XML node.
+   * @param dbinit The file we are reading XML from.
+   */
   protected void scanDataImportElement( List<String> selectedAddons, com.iteego.glasir.build.api.AtgModule module, Node dataimport, Map<String, List<ImportAndModule>> importNodes, List<ImportAndModule> flatImportNodes, String datasourceId, File dbinit ) {
     def repoPath = dataimport.'repository-path'.text()
     def filePath = dataimport.'import-file-path'.text() // Relative to the ATG root, presumably.
     def startups = dataimport.@'start-up-module'
 
     String s = "DataImport: Repository:$repoPath Path:$filePath Module:${startups} (defined in ${module.name})"
-//    if (dataimport.'requires-addon-id') println "       ---==> Data Import $filePath requires addons '${dataimport.'requires-addon-id'.collect {it.@id}}'"
-//    if (dataimport.'incompatible-addon-id') println "       ---==> Data Import $filePath is incompatible with addons '${dataimport.'incompatible-addon-id'.collect {it.@id}}'"
-//    if (dataimport.user) println "       ---==> Data Import $filePath requires user '${dataimport.user.text()}'"
-//    if (dataimport.workspace) println "       ---==> Data Import $filePath requires workspace '${dataimport.workspace.text()}'"
+    if (dataimport.'requires-addon-id')
+      logger.debug "  ---==> Data Import $filePath requires addons '${dataimport.'requires-addon-id'.collect {it.@id}}'"
+    if (dataimport.'incompatible-addon-id')
+      logger.debug "  ---==> Data Import $filePath is incompatible with addons '${dataimport.'incompatible-addon-id'.collect {it.@id}}'"
+    if (dataimport.user)
+      logger.debug "  ---==> Data Import $filePath requires user '${dataimport.user.text()}'"
+    if (dataimport.workspace)
+      logger.debug "  ---==> Data Import $filePath requires workspace '${dataimport.workspace.text()}'"
 
     def missing = false
     def blocked = false
@@ -511,20 +512,58 @@ public class CreateChangesets extends DefaultTask
       if( x == 0 ) {
         flatImportNodes.add( new ImportAndModule( node:dataimport, definingModule: module ) )
       } else {
-        println "************* duplicate!"
+        logger.info "  DataImport: Duplicate found in file '$dbinit'. Node: $dataimport"
       }
-      println ":::: data import : module.dir=${module.dir}, node=${dataimport.'import-file-path'.text()}"
+      logger.info "  DataImport: module.dir=${module.dir}, node=${dataimport.'import-file-path'.text()}"
     }
   }
 
+  /**
+   * Create an entry in the imports list for repository loader import (file assets).
+   * The import will be run by glasir.db during ATG startup after repository components are started.
+   * @param selectedAddons The list of selected ATG addons.
+   * @param module The module under whose "cim" directory this dbinit.xml file was found.
+   * @param repoloader The current "repository-loader" XML node.
+   * @param importNodes Import nodes mapped by datasource ID.
+   * @param flatImportNodes Flat list of imports.
+   * @param datasourceId The ID of the current "datasource" XML node.
+   * @param dbinit The file we are reading XML from.
+   */
+  protected void scanRepoLoaderElement( List<String> selectedAddons, com.iteego.glasir.build.api.AtgModule module, Node repoloader, Map<String, List<ImportAndModule>> importNodes, List<ImportAndModule> flatImportNodes, String datasourceId, File dbinit ) {
+    def missing = false
+    if (repoloader.'requires-addon-id') {
+      logger.info( "        ---==> Repository loader requires addons '${repoloader.'requires-addon-id'.collect {it.@id}}'" )
+      missing = repoloader.'requires-addon-id'.any { !selectedAddons.contains(it.@id) }
+    }//if repository loader requires specific addons
+    if( !missing ) {
+      if( !importNodes.containsKey(datasourceId) ) {
+        importNodes[ datasourceId ] = new ArrayList<ImportAndModule>()
+      }
+      importNodes[ datasourceId ].add new ImportAndModule( node:repoloader, definingModule: module )
 
+      // todo: check for duplicates before inserting
+      flatImportNodes.add( new ImportAndModule( node:repoloader, definingModule: module ) )
+    }//if !missing
+  }
+
+  /**
+   * Create a Liquibase-compatible file to be imported by glasir.db in ATG startup
+   * before repositories have been started.
+   * @param selectedAddons The list of selected ATG addons.
+   * @param namedDatasourceMap Mapping datasource names to JNDI names.
+   * @param module The module under whose "cim" directory this dbinit.xml file was found.
+   * @param child The current "sql" XML node.
+   * @param sqlFiles Map JNDI names to lists of sql imports.
+   * @param datasourceId The ID of the current "datasource" XML node.
+   * @param dbinit The file we are reading XML from.
+   */
   protected void scanSqlElement( List<String> selectedAddons, Map namedDatasourceMap, com.iteego.glasir.build.api.AtgModule module, Node child, Map<String, List<String>> sqlFiles, String datasourceId, File dbinit) {
     child.path.each { sqlPath ->
       def missing = false
       if (sqlPath.'requires-addon-id') {
-//        logger.debug "      Create SQL: ${sqlPath.create.text()}"
-//        logger.debug "      Drop SQL  : ${sqlPath.drop.text()}"
-//        logger.info "        ---==> Sql path '${sqlPath.create.text()}' requires addons '${sqlPath.'requires-addon-id'.collect {it.@id}}'"
+        logger.debug "  Create SQL: ${sqlPath.create.text()}"
+        logger.debug "  Drop SQL  : ${sqlPath.drop.text()}"
+        logger.info  "  ---==> Sql path '${sqlPath.create.text()}' requires addons '${sqlPath.'requires-addon-id'.collect {it.@id}}'"
         missing = sqlPath.'requires-addon-id'.any { !selectedAddons.contains(it.@id) }
       }//if repository loader requires specific addons
 
@@ -535,16 +574,17 @@ public class CreateChangesets extends DefaultTask
             sqlFiles[jndiName] = new ArrayList<String>()
           }
           def combinedPath = new File(module.dir as File, sqlPath.create.text() as String)
-//          println "  SQL: $combinedPath"
+          logger.debug "  SQL: $combinedPath"
           if (!sqlFiles[jndiName].contains(combinedPath.absolutePath)) {
             sqlFiles[jndiName].add(combinedPath.absolutePath)
           }
         } else {
-          println("WARNING: Found use of undefined datasource name: '$datasourceId' in file '$dbinit'.")
+          logger.warn("Found use of undefined datasource name: '$datasourceId' in file '$dbinit'.")
         }
       }//if not missing any required addons
     }
   }
+
 
   /**
   * Turn some sql into Liquibase change sets that can be run in some other database.
