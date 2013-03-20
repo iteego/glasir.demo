@@ -28,9 +28,37 @@ public class CreateChangesets extends DefaultTask
   def String mainModuleName = "env.Main.store.dev.oracle"
   def String instanceType = "production"
 
+  // We will be using these server instance types below.
+  def selectedInstanceTypes = [
+    instanceType
+  ]
+
+  def selectedProducts = [
+      //"commerce"
+      //"endeca",
+      "platform",
+      //"siteadmin",
+      "store"
+  ]
+
+
+  // Addons are important in the selection of data imports and repository loader actions.
+  def selectedAddons = [
+      "dcs-csr",
+      "international",
+      "merch",
+      "previewOnManagement",
+      "prodLock",
+      "queryConsoleOnManagement",
+      "storefront-full-setup",
+      //"storefront_no_publishing",
+      "switchingdatasource"
+    ]
+
   @TaskAction
   public void run() {
     logger.log( LogLevel.INFO, "Executing TaskAction for class CreateChangesets" )
+
     def glasir = project.glasir
     def fullModuleList = glasir.moduleMap[mainModuleName].fullBuildOrder
 
@@ -94,36 +122,11 @@ public class CreateChangesets extends DefaultTask
     def toDbType = "h2"
     println "From DB type '$fromDbType' to '$toDbType'."
 
-    // We will be using these server instance types below.
-    def selectedInstanceTypes = [
-      instanceType
-    ]
-
     // Todo: parse product.xml files instead to see what datasources go where.
     if(selectedInstanceTypes[0]=="management") {
       namedDatasourceMap[ "all" ] = namedDatasourceMap[ "management" ]
     }
 
-    def selectedProducts = [
-        //"commerce"
-        //"endeca",
-        "platform",
-        //"siteadmin",
-        "store"
-    ]
-
-    // Addons are important in the selection of data imports and repository loader actions.
-    def selectedAddons = [
-        "dcs-csr",
-        "international",
-        "merch",
-        "previewOnManagement",
-        "prodLock",
-        "queryConsoleOnManagement",
-        "storefront-full-setup",
-        //"storefront_no_publishing",
-        "switchingdatasource"
-      ]
     // These are some addons. Availability of addons depends on product selection.
     // (find glasir.demo/packages -print0|grep -zZ -i product\.xml|xargs -0 grep '<product\-addon id\=')
     //id="clicktoconnect"
@@ -806,6 +809,15 @@ public class ListAvailableAddons extends DefaultTask {
 
 public class ListDatasources extends DefaultTask {
   def mainModuleName = "env.Main.store.dev.oracle"
+
+  def selectedProducts = [
+      //"commerce"
+      //"endeca",
+      "platform",
+      //"siteadmin",
+      "store"
+  ]
+
   def selectedAddons = [
       "dcs-csr",
       "international",
@@ -821,52 +833,97 @@ public class ListDatasources extends DefaultTask {
   def glasir = project.glasir
   def fullModuleList = glasir.moduleMap[mainModuleName].fullBuildOrder
 
+  /**
+   * Use empty 'selectedProducts' list to include all products.
+   */
   @TaskAction
   public void run() {
+    logger.info "List Data Sources."
+    logger.info "  main module:     $mainModuleName"
+    logger.info "  selected addons: $selectedAddons"
     def files = CreateChangesets.findProductXmlFiles( glasir.project, glasir.modules )
     def nodes = CreateChangesets.loadXmlFromProductFiles( glasir.project, files )
     def products = CreateChangesets.scanProductValues( glasir.project, nodes )
 
-    List<Modification> instanceModifications = []
-    List<Modification> instanceTypeModifications = []
-    def serverInstances = []
-    def serverInstanceTypes = []
+    Map<String,List<ServerInstanceModification>> instanceModifications = [:]
+    Map<String,List<InstanceTypeModification>> instanceTypeModifications = [:]
 
-    products.each { product ->
-      // check addons
-      product.productAddonGroups.each { group ->
-        group.addons.each { addon ->
-          addon.each {
-            logger.debug( "product ${product.id}, group: ${group.id}, addon: ${addon.id}" )
-            if( selectedAddons.contains( addon.id ) ) {
-              addon.instanceModifications.each { instanceModifications.addAll( it.modifications ) }
-              addon.instanceTypeModifications.each { instanceTypeModifications.addAll( it.modifications ) }
+
+    products.each { product ->      
+      if( !selectedProducts || selectedProducts.contains( product.id ) ) {
+        println "Include product: ${product.id}"
+
+        // check addons
+        product.productAddonGroups.each { addonGroup ->
+          addonGroup.addons.each { addon ->
+            addon.each {
+              logger.info( "product ${product.id}, addonGroup: ${addonGroup.id}, addon: ${addon.id}" )
+              if( !selectedAddons || selectedAddons.contains( addon.id ) ) {
+                addon.instanceModifications.each { im ->
+                  def key = im.modifiedId
+                  if( !instanceModifications.containsKey(key) ) instanceModifications[key] = new ArrayList<ServerInstanceModification>()
+                  instanceModifications[key].add( im )
+                }
+
+                addon.instanceTypeModifications.each { itm ->
+                  def key = itm.modifiedId
+                  if( !instanceTypeModifications.containsKey(key) ) instanceTypeModifications[key] = new ArrayList<InstanceTypeModification>()
+                  instanceTypeModifications[key].add( itm )
+                }
+              }
             }
           }
         }
-      }
 
-      // check combinations
-      product.productAddonCombos.each { combo ->
-        if( combo.addonCombinations.any { !selectedAddons.contains(it) } ) {
-          // skip it then
-        } else {
-          combo.instanceTypeModifications.each { instanceTypeModifications.addAll( it.modifications ) }
+        // check combinations
+        product.productAddonCombos.each { combo ->
+          if( selectedAddons && (combo.addonCombinations.any{ !selectedAddons.contains(it) }) ) {
+            // Skip it if any of the addons in the combination is not in the list of selected addons.
+            logger.debug "Skip addon combination '${combo.id}', missing some addons."
+          } else {
+            logger.debug "Using addon combination '${combo.id}'."
+            combo.instanceTypeModifications.each { itm ->
+              def key = itm.modifiedId
+              if( !instanceTypeModifications.containsKey(key) ) instanceTypeModifications[key] = new ArrayList<InstanceTypeModification>()
+              instanceTypeModifications[key].add( itm )
+            }
+            //instanceTypeModifications.addAll combo.instanceTypeModifications
+            //combo.instanceTypeModifications.each { instanceTypeModifications.addAll( it.modifications ) }
+          }
         }
+      } else {
+        println "Skip product: ${product.id}"
       }
     }
 
-    println "Server Instance Modifications (${instanceModifications.size()})"
-    def dsMods = instanceModifications.findAll { it instanceof AddNamedDatasource || it instanceof RemoveNamedDatasource }
-    dsMods.each { dsmod ->
-      println "  $dsmod"
+    println ""
+    println "Server Instance Modifications (${instanceModifications.size()}) -----------------------"
+    instanceTypeModifications.each { key, list ->
+      println " Instance: '$key'"
+      def shownMod = []
+      list.each { mod ->
+        shownMod.addAll( mod.modifications.findAll { m -> m instanceof AddNamedDatasource || m instanceof RemoveNamedDatasource } )
+      }
+      if( shownMod ) {
+        println "  Data Source Modifications: "
+        println "  $shownMod"
+      }
     }
 
-    println "Server Instance Type Modifications (${instanceTypeModifications.size()})"
-    dsMods = instanceTypeModifications.findAll { it instanceof AddNamedDatasource || it instanceof RemoveNamedDatasource }
-    dsMods.each { dsmod ->
-      println "  $dsmod"
+    println ""
+    println "Server Instance Type Modifications (${instanceTypeModifications.size()}) -----------------------"
+    instanceTypeModifications.each { key, list ->
+      println " Instance Type: '$key'"
+      def shownMod = []
+      list.each { mod ->
+        shownMod.addAll( mod.modifications.findAll { m -> m instanceof AddNamedDatasource || m instanceof RemoveNamedDatasource } )
+      }
+      if( shownMod ) {
+        println "  Data Source Modifications: "
+        println "  $shownMod"
+      }
     }
+
 
   }
 }
