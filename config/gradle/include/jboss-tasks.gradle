@@ -39,10 +39,10 @@ To your "gradle startDevStore" command. Usually, module flavors are used for dif
   for example, use "gradle startDevStore -Pflavor=oracle" to bypass the default h2 database choice.
 */
 task startDevStore(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
-    jBossHome     jBossRoot
-    serverName    storeServerName
-    modules       moduleWithFlavors("env.Main.store.dev")
-    glasirDevMode true
+    jBossHome           jBossRoot
+    serverName          storeServerName
+    modules             moduleWithFlavors("env.Main.store.dev")
+    glasirDevMode       true
 
     doFirst {
         println "Starting dev store node with modules: ${modules}"
