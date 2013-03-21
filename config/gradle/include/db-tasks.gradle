@@ -1,0 +1,36 @@
+import com.iteego.glasir.build.api.tasks.*
+
+task createManagementChangesets(type: CreateChangesets) {
+  description = "Creates glasir.db change sets and import definition and extracts required file assets."
+
+  mainModuleName = "env.Main.admin.dev.oracle"
+  instanceType = "management"
+  selectedAddons = [
+    "dcs-csr",
+    "international",
+    "merch",
+    "previewOnManagement",
+    "prodLock",
+    "queryConsoleOnManagement",
+    "storefront-full-setup",
+    "switchingdatasource"
+  ]
+}
+
+task createProductionChangesets(type: CreateChangesets) {
+  description = "Like createManagementChangesets but with instance type \"production\" and another main module."
+
+  mainModuleName = "env.Main.store.dev.oracle"
+  instanceType = "production"
+  selectedAddons = [
+    "dcs-csr",
+    "international",
+    "merch",
+    "previewOnManagement",
+    "prodLock",
+    "queryConsoleOnManagement",
+    "storefront-full-setup",
+    "switchingdatasource"
+  ]
+}
+
