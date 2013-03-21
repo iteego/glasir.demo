@@ -41,6 +41,8 @@ To your "gradle startDevStore" command. Usually, module flavors are used for dif
 task startDevStore(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
     jBossHome           jBossRoot
     serverName          storeServerName
+    serverHome          "$rootDir/config/atg"
+
     modules             moduleWithFlavors("env.Main.store.dev")
     glasirDevMode       true
 
