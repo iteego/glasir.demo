@@ -41,7 +41,7 @@ To your "gradle startDevStore" command. Usually, module flavors are used for dif
 task startDevStore(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
     jBossHome           jBossRoot
     //note that ATG adds 'servers' to these two so that the resulting 
-    //server dir is "$serversHome/servers/$serverName"
+    //server dir is "$serverHome/servers/$serverName"
     serverName          storeServerName
     serverHome          "$rootDir/config/atg"
 
