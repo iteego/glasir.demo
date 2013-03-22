@@ -15,7 +15,7 @@ dependencies {
 }
 
 String getAllEnvironmentModules() {
-  glasir.modules.collect { it.name }.findAll { it.startsWith('env.') || it == 'env' }.sort().join(" ")
+  glasir.modules.collect { it.name }.findAll { it.startsWith('node.') || it == 'node' }.sort().join(" ")
 }
 
 task atgCoreSqlInstallationOrder << {
@@ -40,8 +40,7 @@ task assembleReleaseEar(type: AtgAssemblerTask, description: "Runs a build and a
   //but before the ear is packed
   doAfterAssembly {
     copy {
-      //TODO: Fix the config/atg dir structure for release ears
-      file("${rootDir}/config/atg").eachDir { from it }
+      file("${rootDir}/servers").eachDir { from new File(it,"atg") }
       into "${bigEar.canonicalPath}.exploded/atg_bootstrap.war/WEB-INF/ATG-INF/home/servers"
     }
   }
@@ -164,8 +163,8 @@ task devDeploy {
 
 def atgServers() {
   def servers = []
-  file("${rootDir}/config/atg").eachDir {
-    servers << it
+  file("${rootDir}/servers").eachDir {
+    servers << new File(it,"atg")
   }
   servers
 }
@@ -199,7 +198,7 @@ devDeploy << {
     // because when the nodes start up, they clobber those directories with ample run-time data
     // meaning we would get lots of runtime files into the source tree if we were to symlink instead of copy
     copy {
-      from file("${rootDir}/config/atg")
+      file("${rootDir}/servers").eachDir { from new File(it,"atg") }
       into file("$jBossRoot/ATG-Data/servers")
     }
   }

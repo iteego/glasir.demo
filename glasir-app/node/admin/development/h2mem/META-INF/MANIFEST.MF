@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
-ATG-Required: nodes.admin.dev
+ATG-Required: node.admin.development
 ATG-Config-Path: config
 

@@ -3,7 +3,7 @@ import com.iteego.glasir.build.api.tasks.*
 task createManagementChangesets(type: CreateChangesets) {
   description = "Creates glasir.db change sets and import definition and extracts required file assets."
 
-  mainModuleName = "node.admin.dev.oracle"
+  mainModuleName = "node.admin.development.oracle"
   instanceType = "management"
   selectedAddons = [
     "dcs-csr",
@@ -20,7 +20,7 @@ task createManagementChangesets(type: CreateChangesets) {
 task createProductionChangesets(type: CreateChangesets) {
   description = "Like createManagementChangesets but with instance type \"production\" and another main module."
 
-  mainModuleName = "node.store.dev.oracle"
+  mainModuleName = "node.store.development.oracle"
   instanceType = "production"
   selectedAddons = [
     "dcs-csr",
