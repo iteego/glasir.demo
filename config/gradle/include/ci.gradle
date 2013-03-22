@@ -39,7 +39,7 @@ gradle.taskGraph.whenReady {taskGraph ->
 task startCiStore(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
   jBossHome     jBossRoot
   serverName    storeServerName
-  modules       moduleWithFlavors("env.Main.store.dev")
+  modules       moduleWithFlavors("node.store.dev")
   async         true
   description = "Starts the Ci Store instance"
 }
@@ -55,7 +55,7 @@ task verifyCiStore(type: Tail, dependsOn: [startCiStore]) {
 task startCiAdmin(type: RunAtgOnJBoss, dependsOn: []) {
   jBossHome     jBossRoot
   serverName    adminServerName
-  modules       moduleWithFlavors("env.Main.admin.dev")
+  modules       moduleWithFlavors("node.admin.dev")
   async         true
   description = "Starts the Ci Admin instance"
 }

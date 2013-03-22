@@ -1,4 +1,0 @@
-Manifest-Version: 1.0
-ATG-Required: env.Main.store.dev
-ATG-Config-Path: config
-

@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
-ATG-Required: env.Main.store-target
+ATG-Required: node.store-target
 ATG-Config-Path: config
 
