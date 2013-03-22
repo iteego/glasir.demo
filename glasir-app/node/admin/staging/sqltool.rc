@@ -1,0 +1,19 @@
+urlid atg_core
+url jdbc:hsqldb:hsql://localhost:9001/atg_core;ifxeists=true;check_props=true
+username SA
+password
+
+urlid atg_cat_a
+url jdbc:hsqldb:hsql://localhost:9001/atg_cat_a;ifxeists=true;check_props=true
+username SA
+password
+
+urlid atg_cat_b
+url jdbc:hsqldb:hsql://localhost:9001/atg_cat_b;ifxeists=true;check_props=true
+username SA
+password
+
+urlid atg_pub
+url jdbc:hsqldb:hsql://localhost:9002/atg_pub;ifxeists=true;check_props=true
+username SA
+password

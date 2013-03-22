@@ -1,8 +1,0 @@
-Manifest-Version: 1.0
-ATG-Required: Main.Integrations Main.Base DCS.AbandonedOrderServices
-ATG-Config-Path: config
-ATG-Product: Main
-ATG-Web-Module: j2ee-apps/GlasirApplication/glasir.war j2ee-apps/Glasir
- Application/crs.war j2ee-apps/GlasirApplication/storedocroot.war 
- j2ee-apps/GlasirApplication/dcs-sample-catalog.war
-ATG-Class-Path: lib/classes.jar

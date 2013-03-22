@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+ATG-Required: nodes.admin.dev
+ATG-Config-Path: config
+

@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+ATG-Required: data Store.EStore
+ATG-Config-Path: config
+ATG-Class-Path: lib/classes.jar
+Glasir-Build-Is-Top-Module: true

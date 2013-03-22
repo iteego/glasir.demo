@@ -56,7 +56,7 @@ task startDevStore(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
 task startDevStoreTarget(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
     jBossHome     jBossRoot
     serverName    storeServerName
-    modules       moduleWithFlavors("env.Main.store-target.dev")
+    modules       moduleWithFlavors("node.store-target.dev")
     glasirDevMode false
 
     doFirst {
@@ -73,7 +73,7 @@ To your "gradle startDevStore" command. Usually, module flavors are used for dif
 task startDevAdmin(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
   jBossHome     jBossRoot
   serverName    adminServerName
-  modules       moduleWithFlavors("env.Main.admin.dev")
+  modules       moduleWithFlavors("node.admin.dev")
   glasirDevMode false
   
   doFirst { 

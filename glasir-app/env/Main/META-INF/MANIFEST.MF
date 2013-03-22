@@ -1,4 +1,0 @@
-Manifest-Version: 1.0
-ATG-Config-Path: config
-ATG-Required: env
-

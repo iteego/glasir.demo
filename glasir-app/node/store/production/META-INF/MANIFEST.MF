@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+ATG-Required: env.Main.store Main.Storefront.NoPublishing
+ATG-Config-Path: config
+
