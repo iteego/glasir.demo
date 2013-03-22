@@ -45,7 +45,7 @@ artifactoryPublish.dependsOn(generateEarPom)
 
 artifacts {
 	glasirEar(bigEar) { 
-	  name = "glasir.commerce"	
+	  name = "glasir.demo"	
 	}
 }
 

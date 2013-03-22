@@ -40,7 +40,7 @@ task assembleReleaseEar(type: AtgAssemblerTask, description: "Runs a build and a
   //but before the ear is packed
   doAfterAssembly {
     copy {
-      file("${rootDir}/servers").eachDir { from new File(it,"atg") }
+      file("${rootDir}/servers").eachDir { from new File( it, "atg" ) }
       into "${bigEar.canonicalPath}.exploded/atg_bootstrap.war/WEB-INF/ATG-INF/home/servers"
     }
   }
@@ -118,37 +118,45 @@ task syncAdminEar(description: "Copies the ear file into the deploy directory of
 
 task syncStoreJBossServer(type: Copy, description: "Creates a dev server setup in your jboss installation") {
   from("$jBossRoot/server/default")
-  from "$rootDir/config/jboss/store/dev"
+  from "$rootDir/servers/DevStore/jboss"
   into "$jBossRoot/server/$storeServerName"
 }
 
 task syncAdminJBossServer(type: Copy, description: "Creates a dev server setup in your jboss installation") {
   from "$jBossRoot/server/default"
-  from "$rootDir/config/jboss/admin/dev"
+  from "$rootDir/servers/DevAdmin/jboss"
   into "$jBossRoot/server/$adminServerName"
 }
 
 task syncDocRoot(type: Copy) {
-    from docRoot
-    into "$jBossRoot/server/${storeServerName}/deploy/ROOT.war"
+  from docRoot
+  into "$jBossRoot/server/${storeServerName}/deploy/ROOT.war"
 }
 
 task syncAtgServers(type: Copy) {
-    from "${rootDir}/config/atg"
-    into "$atgRoot/home/servers"
-    //into "$jBossRoot/ATG-Data/servers"
 
-    // Make sure to first remove the existing server directories, so that the copy task does not try to write files
-    // into any folder that contains symbolic links. If there would be any symbolic links in an already existing
-    // destination folder, the copy task would simply follow them and write into their target directory,
-    // which in our case is the source tree. By removing the directories safely before starting the copy,
-    // we avoid clobbering our source tree with build output files.
-    doFirst {
-        glasir.deleteDir("$atgRoot/home/servers/$storeServerName")
-        glasir.deleteDir("$atgRoot/home/servers/$adminServerName")
-        //glasir.deleteDir("$jBossRoot/ATG-Data/servers/$storeServerName")
-        //glasir.deleteDir("$jBossRoot/ATG-Data/servers/$adminServerName")
-    }
+  // FIXME: This tasks needs to copy the atg server directories,
+  // but rename the atg directory to the server name.
+  // Currently it does not do this - run ./gradlew syncAtgServers to verify (but remove your servers under DYNAMO_HOME/servers first)
+  from("${rootDir}/servers") {
+    include '**/atg/**'
+  }
+  into "$atgRoot/home/servers"
+  eachFile {
+    it.path = it.path - '/atg'
+  }
+
+  // Make sure to first remove the existing server directories, so that the copy task does not try to write files
+  // into any folder that contains symbolic links. If there would be any symbolic links in an already existing
+  // destination folder, the copy task would simply follow them and write into their target directory,
+  // which in our case is the source tree. By removing the directories safely before starting the copy,
+  // we avoid clobbering our source tree with build output files.
+  //doFirst {
+  //    glasir.deleteDir("$atgRoot/home/servers/$storeServerName")
+  //    glasir.deleteDir("$atgRoot/home/servers/$adminServerName")
+  //    //glasir.deleteDir("$jBossRoot/ATG-Data/servers/$storeServerName")
+  //    //glasir.deleteDir("$jBossRoot/ATG-Data/servers/$adminServerName")
+  //}
 }
 
 task syncStore(dependsOn: [syncStoreEar, syncDocRoot])
@@ -164,7 +172,7 @@ task devDeploy {
 def atgServers() {
   def servers = []
   file("${rootDir}/servers").eachDir {
-    servers << new File(it,"atg")
+    servers << new File( it, "atg" )
   }
   servers
 }
