@@ -4,7 +4,7 @@ task createManagementChangesets(type: CreateChangesets) {
   description = "Creates glasir.db change sets and import definition and extracts required file assets."
 
   mainModuleName = "node.admin.development.oracle"
-  instanceType = "management"
+  selectedInstanceTypes = ["management"]
   selectedAddons = [
     "dcs-csr",
     "international",
@@ -21,7 +21,7 @@ task createProductionChangesets(type: CreateChangesets) {
   description = "Like createManagementChangesets but with instance type \"production\" and another main module."
 
   mainModuleName = "node.store.development.oracle"
-  instanceType = "production"
+  selectedInstanceTypes = ["production"]
   selectedAddons = [
     "dcs-csr",
     "international",

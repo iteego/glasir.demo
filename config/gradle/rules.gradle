@@ -77,7 +77,7 @@ Pattern: checkManifest<AtgModuleName>: Checks the module MANIFEST.MF against the
   }
 }
 
-
+/*
 tasks.addRule("""\
 Pattern: graph<AtgModuleName>: draws a graphical dependency graph for the specified ATG module""") { String taskName ->
   if (taskName.startsWith("graph")) {
@@ -166,3 +166,4 @@ def createDotGraphNode(nodes, module) {
  
  nodes[module] = node
 }
+*/

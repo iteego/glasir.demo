@@ -148,60 +148,16 @@ subprojects {
   }
 }
 
-task aggregateTestReports(type: TestReportAggregator) {
-  def buildDir = file("$projectDir/build")
-  def reportsDir = file("$buildDir/reports")
-  reportsDir.mkdirs()
-  
-  //dependsOn getTasksByName('check', true)
+task aggregateTestReports(type: TestReport) {
+    destinationDir = file("$buildDir/reports/allTests")
+    reportOn subprojects.findAll { it.isBuildProject }.collect { it.test }
 
-  includeWebTests = false
-  testReportDir = file("${reportsDir}/tests")
-  testResultsDir = file("${buildDir}/test-results")
-  projects = subprojects
-  doLast {
-    if (didWork) {
-      println "> "
-      println "> Aggregated test report saved at $testReportDir/index.html"
-      println "> "
+    doLast { 
+      if (didWork) {
+        println "> "
+        println "> Aggregated test report saved at file://$destinationDir/index.html"
+        println "> "
+      }
     }
-  }    
 }
-build.dependsOn(aggregateTestReports)
-
-class TestReportAggregator extends Copy {
-  def projects
-  File testResultsDir
-  boolean includeWebTests = false
-  
-  @OutputDirectory
-  File testReportDir
-  
-  def TestReportAggregator() {
-    dependsOn { testTasks }
-    from { inputTestResultDirs }
-    into { testResultsDir }
-    outputs.upToDateWhen { 
-      //println "AGGREGATE DEPENDSUPTODATE: ${dependsOnTaskDidWork()}"
-      //println "INPUTS: ${inputTestResultDirs}"
-      !dependsOnTaskDidWork()
-    }
-  }
-
-  @TaskAction
-  def aggregate() {
-    def report = new org.gradle.api.internal.tasks.testing.junit.report.DefaultTestReport(testReportDir: testReportDir, testResultsDir: testResultsDir)
-    report.generateReport()
-  }
-
-  def getTestTasks() {
-    def testTasks = projects.collect { it.tasks.withType(Test) }.flatten()
-    
-    //exclude web tests from the 
-    includeWebTests ? testTasks : testTasks.findAll { !it.hasProperty('isWebTest') } 
-  }
-
-  def getInputTestResultDirs() {
-    testTasks*.testResultsDir
-  }
-}
+build.dependsOn aggregateTestReports
