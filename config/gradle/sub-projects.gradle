@@ -121,12 +121,25 @@ allprojects {
     exclude '**/*GebSpec.class'
   }
 
-  clean << {
-    delete file: 'lib/classes.jar'
-    if (!file('lib').listFiles()) {
-      glasir.deleteDir file('lib')
+  task deleteBuildJars(type: Delete) {
+    tasks.withType(Jar).each { jarTask ->
+      delete << jarTask.archivePath
     }
-  }  
+  }
+
+  task deleteLibDirIfEmpty(dependsOn: ['deleteBuildJars']) {
+    def dir = file('lib')
+
+    //only delete the lib dir if it doesn't contain any files after we delete the classes.jar and resources.jar
+    onlyIf { !dir.listFiles() && dir.isDirectory() }
+
+    doLast {
+      //symlink safe delete
+      glasir.deleteDir dir
+    }
+  }
+
+  clean.dependsOn 'deleteLibDirIfEmpty'
 }
 
 subprojects {
