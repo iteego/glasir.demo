@@ -9,17 +9,13 @@ repositories {
   }
 }
 
-List getAllEnvironmentModules() {
-  glasir.model.modules.findAll { it.name.startsWith('node.') }
-}
-
 configurations.add('entityresolver') 
 dependencies { 
   entityresolver 'com.iteego.glasir:glasir.entityresolver:1.0'
 }
 
 String getAllEnvironmentModules() {
-  glasir.modules.collect { it.name }.findAll { it.startsWith('node.') || it == 'node' }.sort().join(" ")
+  glasir.model.modules.collect { it.name }.findAll { it.startsWith('node.') || it == 'node' }.sort().join(" ")
 }
 
 task atgCoreSqlInstallationOrder << {
@@ -188,7 +184,7 @@ devDeploy << {
 
     // Link all top-level application modules from source tree
     def destinationDir = "$jBossRoot/server/${storeServerName}/deploy/${bigEarName}/atg_bootstrap.war/WEB-INF/ATG-INF"
-    glasir.topModules.each {
+    glasir.model.topModules.each {
       def linkName = "${destinationDir}/${it.name}"
       glasir.deleteDir(linkName)
       ant.symlink( link: linkName, resource: it.dir, overwrite: true)
@@ -196,7 +192,7 @@ devDeploy << {
 
     // Link all war webapp folders from source tree
     destinationDir = "$jBossRoot/server/${storeServerName}/deploy/${bigEarName}"
-    glasir.webModules.each { m ->
+    glasir.model.webModules.each { m ->
       m.manifest.atgWebModuleAsList.each {
         File moduleDir = file("${m.dir}/${it}")
         def linkName="$destinationDir/${moduleDir.name}"
