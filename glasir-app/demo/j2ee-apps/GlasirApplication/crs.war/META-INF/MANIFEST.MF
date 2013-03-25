@@ -1,3 +1,0 @@
-Manifest-Version: 1.0
-ATG-Module-Uri: crs.war
-ATG-Context-Root: crs
