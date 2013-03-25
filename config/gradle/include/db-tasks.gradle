@@ -4,7 +4,7 @@ task createManagementChangesets(type: CreateChangesets) {
   description = "Creates glasir.db change sets and import definition and extracts required file assets."
 
   mainModuleName = "env.Main.admin.dev.oracle"
-  instanceType = "management"
+  selectedInstanceTypes = ["management"]
   selectedAddons = [
     "dcs-csr",
     "international",
@@ -13,7 +13,10 @@ task createManagementChangesets(type: CreateChangesets) {
     "prodLock",
     "queryConsoleOnManagement",
     "storefront-full-setup",
-    "switchingdatasource"
+    "switchingdatasource",
+
+    "dcsui_siteadmin_versioned",
+    "storefront_demo"
   ]
 }
 
@@ -21,7 +24,7 @@ task createProductionChangesets(type: CreateChangesets) {
   description = "Like createManagementChangesets but with instance type \"production\" and another main module."
 
   mainModuleName = "env.Main.store.dev.oracle"
-  instanceType = "production"
+  selectedInstanceTypes = ["production"]
   selectedAddons = [
     "dcs-csr",
     "international",
@@ -34,3 +37,4 @@ task createProductionChangesets(type: CreateChangesets) {
   ]
 }
 
+task listAddons(type:ListAvailableAddons) {}
