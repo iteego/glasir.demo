@@ -4,10 +4,6 @@
 
 apply plugin: 'groovy'
 
-//make the clean task symlink-safe
-task clean(overwrite: true) << {
-  glasir.deleteDir "$rootDir/build"
-}
 def javaTasks = ['compileJava', 'jar','processResources','classes','compileTestJava','processTestResources',
  'testClasses', 'build', 'test','check', 'assemble']
  
@@ -160,6 +156,20 @@ subprojects {
     }
   }
 }
+
+//make the clean task symlink-safe
+//task clean(overwrite: true) << {
+clean {
+  dependsOn allprojects.findAll { 
+    it != rootProject && it.tasks.findByName('clean')
+  }.collect { 
+    it.clean 
+  }
+  doLast {
+    glasir.deleteDir "$rootDir/build"
+  }
+}
+
 
 task aggregateTestReports(type: TestReport) {
     destinationDir = file("$buildDir/reports/allTests")
