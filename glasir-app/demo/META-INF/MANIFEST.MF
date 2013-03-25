@@ -2,8 +2,8 @@ Manifest-Version: 1.0
 ATG-Required: base DCS.AbandonedOrderServices
 ATG-Config-Path: config
 ATG-Product: Glasir Demo
-ATG-Web-Module: j2ee-apps/GlasirApplication/glasir.war j2ee-apps/Glasir
- Application/crs.war j2ee-apps/GlasirApplication/storedocroot.war 
- j2ee-apps/GlasirApplication/dcs-sample-catalog.war
+ATG-Web-Module: j2ee-apps/GlasirApplication/glasir.war
+   j2ee-apps/GlasirApplication/dcs-sample-catalog.war
+app/Main/Storefront/META-INF/MANIFEST.MF
 ATG-Class-Path: lib/classes.jar
 Glasir-Build-Is-Top-Module: true
