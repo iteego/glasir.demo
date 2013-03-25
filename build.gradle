@@ -46,7 +46,6 @@ apply from: "config/gradle/sub-projects.gradle"
 apply from: "config/gradle/assembly-tasks.gradle"
 apply from: "config/gradle/artifactory.gradle"
 apply from: "config/gradle/jboss-tasks.gradle"
-apply from: "config/gradle/rules.gradle"
 apply from: "config/gradle/db-tasks.gradle"
 
 //apply from: "config/gradle/help.gradle"

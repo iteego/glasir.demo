@@ -9,6 +9,10 @@ repositories {
   }
 }
 
+List getAllEnvironmentModules() {
+  glasir.model.modules.findAll { it.name.startsWith('node.') }
+}
+
 configurations.add('entityresolver') 
 dependencies { 
   entityresolver 'com.iteego.glasir:glasir.entityresolver:1.0'
