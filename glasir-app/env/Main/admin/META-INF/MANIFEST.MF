@@ -1,5 +1,0 @@
-Manifest-Version: 1.0
-ATG-Required: env.Main Main.Integrations.Versioned SiteAdmin.Versioned
-  DCS-UI.Versioned PubPortlet RL glasir.db Store.Storefront
-ATG-Config-Path: config
-

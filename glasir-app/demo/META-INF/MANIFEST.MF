@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+ATG-Required: base DCS.AbandonedOrderServices Store.Storefront
+ATG-Config-Path: config
+ATG-Product: GlasirDemo
+ATG-Web-Module: j2ee-apps/GlasirApplication/glasir.war
+   j2ee-apps/GlasirApplication/dcs-sample-catalog.war
+ATG-Class-Path: lib/classes.jar
+Glasir-Build-Is-Top-Module: true

@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+ATG-Required: node SiteAdmin.Versioned DCS-UI.Versioned PubPortlet RL
+  glasir.db
+ATG-Config-Path: config
+

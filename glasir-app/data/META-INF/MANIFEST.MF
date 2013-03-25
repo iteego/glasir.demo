@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+ATG-Required: DAS
+ATG-Config-Path: config
+Glasir-Build-Is-Top-Module: true
+
+Name: db
+ATG-Assembler-Import-File: True
+
+Name: import
+ATG-Assembler-Import-File: True

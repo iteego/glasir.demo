@@ -1,3 +1,0 @@
-Manifest-Version: 1.0
-ATG-Required: Main.Integrations Main.Base.Versioned
-ATG-Config-Path: config
