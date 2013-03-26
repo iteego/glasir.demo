@@ -30,9 +30,11 @@ ext {
   adminServerName = "DevAdmin"
   
   databaseDir     = file("$jBossRoot/ATG-Data/h2.db")
+
+  atgDataDir      = file("$jBossRoot/ATG-Data")
   
   bigEarName      = "${rootProject.name}.ear"
-  bigEar          = file("$buildDir/$bigEarName")
+  bigEar          = file("$buildDir/deploy/$bigEarName")
   docRoot         = "$rootDir/glasir-app/Main/j2ee-apps/GlasirApplication/glasir.war/"
   isReleaseBuild  = false
 }
@@ -64,3 +66,14 @@ task wrapper(type: Wrapper) {
   jarFile = 'config/gradle/wrapper/gradle-wrapper.jar'
 }
 
+
+
+task olle << {
+  glasir.model.webModules.each { 
+    println ""
+    println "NAME:  ${it.uri}"
+    println "PATH:  ${it.dir}"
+    println "ISATG: ${it.isAtgCore}"
+  }
+
+}
