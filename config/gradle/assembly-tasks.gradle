@@ -24,7 +24,7 @@ task atgCoreSqlInstallationOrder << {
 }
 
 task assembleReleaseEar(type: AtgAssemblerTask, description: "Runs a build and assembles a release ear") {
-  dependsOn "build", "syncAtgServers"
+  dependsOn "build", "copyAtgServers"
   //dependsOn "build"
 
   modules = allEnvironmentModules
@@ -47,11 +47,12 @@ task assembleReleaseEar(type: AtgAssemblerTask, description: "Runs a build and a
 }
 
 task assembleDevEar(type: AtgAssemblerTask, description: "Runs a build and assembles a development ear") {
-  dependsOn "build", "syncAtgServers"
+  dependsOn "build", "copyAtgServers"
   //dependsOn "build"
 
   modules = allEnvironmentModules
   outputFile = bigEar
+  virtualEarFile = file("$rootDir/build/glasir-commerce-ear.vfslink.properties")
   standalone = false
   runInPlace = true
   
@@ -78,70 +79,37 @@ def getOnWindows () {
   System.properties['os.name'].toLowerCase().startsWith("windows")
 }
 
-task copyStoreEar(type: Copy, description: "Copies the ear file into the deploy directory of the JBOSS server") {
-  dependsOn "syncStoreJBossServer"
-  def target = "$jBossRoot/server/$storeServerName/deploy/${bigEarName}"
-  from bigEar
-  into target
-}
-
-task linkStoreEar(description: "Creates a symbolic link from the store ear file to the big ear") << {
-  def target = "$jBossRoot/server/$storeServerName/deploy/${bigEarName}"
-  ant.symlink( link: target, resource: bigEar, overwrite: true)
-}
-
-linkStoreEar.dependsOn "syncStoreJBossServer"
-
-task copyAdminEar(type: Copy, description: "Copies the ear file into the deploy directory of the JBOSS server, if on Windows, otherwise use a symbolic link") {
-  dependsOn "syncAdminJBossServer"
-  def target = "$jBossRoot/server/$adminServerName/deploy/$bigEarName"
-  from bigEar
-  into target
-}
-
-task linkAdminEar(description: "Copies the ear file into the deploy directory of the JBOSS server, if on Windows, otherwise use a symbolic link") << {
-  def target = "$jBossRoot/server/$adminServerName/deploy/$bigEarName"
-  ant.symlink( link: target, resource: bigEar, overwrite: true)
-}
-
-linkAdminEar.dependsOn "syncAdminJBossServer"
-
-task syncStoreEar(description: "Copies the ear file into the deploy directory of the JBOSS server, if on Windows, otherwise use a symbolic link") {
-  String action = (onWindows || isReleaseBuild) ? "copyStoreEar" : "linkStoreEar"
-  dependsOn action
-}
-
-task syncAdminEar(description: "Copies the ear file into the deploy directory of the JBOSS server, if on Windows, otherwise use a symbolic link") {
-  String action = (onWindows || isReleaseBuild) ? "copyAdminEar" : "linkAdminEar"
-  dependsOn action
-}
-
-task syncStoreJBossServer(type: Copy, description: "Creates a dev server setup in your jboss installation") {
-  from("$jBossRoot/server/default")
-  from "$rootDir/servers/DevStore/jboss"
-  into "$jBossRoot/server/$storeServerName"
-}
-
-task syncAdminJBossServer(type: Copy, description: "Creates a dev server setup in your jboss installation") {
-  from "$jBossRoot/server/default"
-  from "$rootDir/servers/DevAdmin/jboss"
-  into "$jBossRoot/server/$adminServerName"
-}
-
 task syncDocRoot(type: Copy) {
   from docRoot
   into "$jBossRoot/server/${storeServerName}/deploy/ROOT.war"
 }
 
-task syncAtgServers(type: Copy) {
+task copyJBossServers(type: Copy, description: "Creates a dev server setup in your jboss installation") {
+  file("$rootDir/servers").eachDir { nodeDir -> 
+    destinationDir = file("$jBossRoot/server")
+    into(nodeDir.name) {
+      from("$jBossRoot/server/default")
+      from("$nodeDir/jboss") 
+    }
+    into("${nodeDir.name}/deploy") {
+      from(assembleDevEar.virtualEarFile)
+    }
+    //doFirst {
+    //  glasir.deleteDir("$jBossRoot/server/$nodeDir.name")
+    //}
+  }
+}
+
+
+task copyAtgServers(type: Copy) {
   file("$rootDir/servers").eachDir { nodeDir -> 
     destinationDir = file("$jBossRoot/ATG-Data/servers")
     into(nodeDir.name) {
       from("$nodeDir/atg") 
     }
-    doFirst {
-      glasir.deleteDir("$jBossRoot/ATG-Data/servers/$nodeDir.name")
-    }
+    //doFirst {
+    //  glasir.deleteDir("$jBossRoot/ATG-Data/servers/$nodeDir.name")
+    //}
   }
 
   // Make sure to first remove the existing server directories, so that the copy task does not try to write files
@@ -157,14 +125,10 @@ task syncAtgServers(type: Copy) {
   //}
 }
 
-task syncStore(dependsOn: [syncStoreEar, syncDocRoot])
-
-task syncAdmin(dependsOn: [syncAdminEar])
-
 task devDeploy {
   description = "Compile, test, assemble, and deploys the dev ear to jboss"  
-  dependsOn = [assembleDevEar, syncStore, syncAdmin, syncAtgServers]
-  //dependsOn = [assembleDevEar, syncStore, syncAdmin, syncAtgServers]
+  dependsOn = [assembleDevEar, syncDocRoot, copyAtgServers, copyJBossServers]
+  //dependsOn = [assembleDevEar, syncStore, syncAdmin, copyAtgServers]
 }
 
 def atgServers() {
@@ -177,7 +141,7 @@ def atgServers() {
 
 devDeploy << {
 
-  if (!onWindows) {
+  if (!onWindows && false) {
     def mainAppDir = new File("${rootDir}/glasir-app")
 
     // Link all top-level application modules from source tree
