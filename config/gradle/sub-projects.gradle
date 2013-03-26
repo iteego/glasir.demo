@@ -158,13 +158,14 @@ subprojects {
 }
 
 //make the clean task symlink-safe
-//task clean(overwrite: true) << {
-clean {
+task clean(overwrite: true) {
+//clean {
   dependsOn allprojects.findAll { 
     it != rootProject && it.tasks.findByName('clean')
   }.collect { 
     it.clean 
   }
+  
   doLast {
     glasir.deleteDir "$rootDir/build"
   }
