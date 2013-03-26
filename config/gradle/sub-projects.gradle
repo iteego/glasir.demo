@@ -165,12 +165,11 @@ task clean(overwrite: true) {
   }.collect { 
     it.clean 
   }
-  
+
   doLast {
     glasir.deleteDir "$rootDir/build"
   }
 }
-
 
 task aggregateTestReports(type: TestReport) {
     destinationDir = file("$buildDir/reports/allTests")
