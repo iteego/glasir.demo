@@ -47,9 +47,28 @@ task createProductionChangesets(type: CreateChangesets) {
 
 task listAddons(type:ListAvailableAddons) {}
 
-task listDatasources(type:ListDatasources) {
-  mainModuleName = "node.store.development.oracle"
-  selectedInstanceTypes = ["production"]
+task listProducts(type:ListAvailableProducts) {
+  description = "List Installed ATG Products"
+}
+
+task listProductionDatasources(type:ListDatasources) {
+  mainModuleName = "node.store.development"
+
+  selectedAddons = [
+    "dcs-csr",
+    "international",
+    "merch",
+    "previewOnManagement",
+    "prodLock",
+    "queryConsoleOnManagement",
+    "storefront-full-setup",
+    "switchingdatasource"
+  ]
+}
+
+task listManagementDatasources(type:ListDatasources) {
+  mainModuleName = "node.admin.development"
+
   selectedAddons = [
     "dcs-csr",
     "international",
