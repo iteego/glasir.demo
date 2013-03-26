@@ -27,7 +27,7 @@ task createManagementChangesets(type: CreateChangesets) {
 task createProductionChangesets(type: CreateChangesets) {
   description = "Like createManagementChangesets but with instance type \"production\" and another main module."
 
-  mainModuleName = "node.store.development.oracle"
+  mainModuleName = "node.store.development"
 
   selectedInstanceTypes = ["production"]
 
