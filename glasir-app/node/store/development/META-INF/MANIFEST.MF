@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
-ATG-Required: node.store demo.NoPublishing
+ATG-Required: node.store demo.NoPublishing Store.EStore.International
 ATG-Config-Path: config
 
