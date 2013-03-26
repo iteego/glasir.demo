@@ -3,7 +3,7 @@ import com.iteego.glasir.build.api.tasks.*
 task createManagementChangesets(type: CreateChangesets) {
   description = "Creates glasir.db change sets and import definition and extracts required file assets."
 
-  mainModuleName = "node.admin.development.oracle"
+  mainModuleName = "node.admin.development"
 
   selectedInstanceTypes = ["management"]
 
