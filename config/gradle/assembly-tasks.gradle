@@ -79,10 +79,25 @@ def getOnWindows () {
   System.properties['os.name'].toLowerCase().startsWith("windows")
 }
 
-task syncDocRoot(type: Copy) {
+task copyDocRoot(type: Copy) {
   from docRoot
   into "$jBossRoot/server/${storeServerName}/deploy/ROOT.war"
 }
+
+task copyWars(type: Copy, description: "Copies the contents of all war applications into the dev ear file") {
+  destinationDir bigEar
+  glasir.model.webModules.findAll{!it.isAtgCore}.each { m ->
+    into( m.dir.name ) {
+      from m.dir
+    }
+  }
+}
+
+task sync {
+  description = "Sync dev assets (after devDeploy has been performed)"  
+  dependsOn = [copyDocRoot, copyWars]
+}
+
 
 task copyJBossServers(type: Copy, description: "Creates a dev server setup in your jboss installation") {
   file("$rootDir/servers").eachDir { nodeDir -> 
@@ -127,7 +142,7 @@ task copyAtgServers(type: Copy) {
 
 task devDeploy {
   description = "Compile, test, assemble, and deploys the dev ear to jboss"  
-  dependsOn = [assembleDevEar, syncDocRoot, copyAtgServers, copyJBossServers]
+  dependsOn = [assembleDevEar, copyDocRoot, copyAtgServers, copyJBossServers]
   //dependsOn = [assembleDevEar, syncStore, syncAdmin, copyAtgServers]
 }
 
