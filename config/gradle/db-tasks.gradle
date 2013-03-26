@@ -4,7 +4,11 @@ task createManagementChangesets(type: CreateChangesets) {
   description = "Creates glasir.db change sets and import definition and extracts required file assets."
 
   mainModuleName = "node.admin.development.oracle"
+
   selectedInstanceTypes = ["management"]
+
+  importFileName = "versioned-imports.txt"
+
   selectedAddons = [
     "dcs-csr",
     "international",
@@ -24,7 +28,11 @@ task createProductionChangesets(type: CreateChangesets) {
   description = "Like createManagementChangesets but with instance type \"production\" and another main module."
 
   mainModuleName = "node.store.development.oracle"
+
   selectedInstanceTypes = ["production"]
+
+  importFileName = "non-versioned-imports.txt"
+
   selectedAddons = [
     "dcs-csr",
     "international",
@@ -38,3 +46,18 @@ task createProductionChangesets(type: CreateChangesets) {
 }
 
 task listAddons(type:ListAvailableAddons) {}
+
+task listDatasources(type:ListDatasources) {
+  mainModuleName = "node.store.development.oracle"
+  selectedInstanceTypes = ["production"]
+  selectedAddons = [
+    "dcs-csr",
+    "international",
+    "merch",
+    "previewOnManagement",
+    "prodLock",
+    "queryConsoleOnManagement",
+    "storefront-full-setup",
+    "switchingdatasource"
+  ]
+}
