@@ -22,7 +22,7 @@ new glasir.Build(this).with {
     cachePackagesFor 2, "hours"
     dependencies {
       glasirpackage("com.iteego.glasir.pkg:atg-platform-10.1.1:1.0.0")
-      glasirpackage("com.iteego.glasir.pkg:atg-crs-10.1.1:1.0.0")
+      glasirpackage("com.iteego.glasir.pkg:atg-crs-10.1.1:1.0.1")
 
       glasirpackage("com.iteego.glasir.pkg:atg-initializer-10.1.1:1.0.4")
 

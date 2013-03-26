@@ -134,16 +134,14 @@ task syncDocRoot(type: Copy) {
 }
 
 task syncAtgServers(type: Copy) {
-
-  // FIXME: This tasks needs to copy the atg server directories,
-  // but rename the atg directory to the server name.
-  // Currently it does not do this - run ./gradlew syncAtgServers to verify (but remove your servers under DYNAMO_HOME/servers first)
-  from("${rootDir}/servers") {
-    include '**/atg/**'
-  }
-  into "$atgRoot/home/servers"
-  eachFile {
-    it.path = it.path - '/atg'
+  file("$rootDir/servers").eachDir { nodeDir -> 
+    destinationDir = file("$jBossRoot/ATG-Data/servers")
+    into(nodeDir.name) {
+      from("$nodeDir/atg") 
+    }
+    doFirst {
+      glasir.deleteDir("$jBossRoot/ATG-Data/servers/$nodeDir.name")
+    }
   }
 
   // Make sure to first remove the existing server directories, so that the copy task does not try to write files

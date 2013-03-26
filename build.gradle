@@ -26,8 +26,8 @@ group = "com.iteego.glasir"
 /* Some properties used in the build files  */
 
 ext { 
-  storeServerName = "dev-store"
-  adminServerName = "dev-admin"
+  storeServerName = "DevStore"
+  adminServerName = "DevAdmin"
   
   databaseDir     = file("$jBossRoot/ATG-Data/h2.db")
   
