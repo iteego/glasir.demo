@@ -43,7 +43,7 @@ task startDevStore(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
     //note that ATG adds 'servers' to these two so that the resulting 
     //server dir is "$serverHome/servers/$serverName"
     serverName          storeServerName
-    serverHome          "$rootDir/servers"
+    serverHome          "$jBossRoot/ATG-Data"
 
     modules             moduleWithFlavors("node.store.development")
     glasirDevMode       true
