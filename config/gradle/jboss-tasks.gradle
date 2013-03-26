@@ -17,7 +17,7 @@ jdbc:h2:tcp://localhost/glasir_pub
 import com.iteego.glasir.util.Chronograph
 
 
-task startDatabase(type: H2) {
+task startDatabase(type: H2, description: "Starts the embedded database (dev mode)") {
   baseDir databaseDir
   tcpAllowOthers true
   tcp true     //default, here for clarity. Starts the db server
@@ -28,7 +28,7 @@ task startDatabase(type: H2) {
   System.properties['h2.serverCachedObjects'] = '2048'
 }
 
-task startDbAndSleep( dependsOn: 'startDatabase') {
+task startDbAndSleep( dependsOn: 'startDatabase', description: "Starts the embedded database and sleeps (dev mode)") {
   doLast {sleep(1800000)}
  }
 
@@ -38,7 +38,7 @@ You can invoke any specific flavor of the "env.store.dev" module by adding the p
 To your "gradle startDevStore" command. Usually, module flavors are used for different database types,
   for example, use "gradle startDevStore -Pflavor=oracle" to bypass the default h2 database choice.
 */
-task startDevStore(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
+task startDevStore(type: RunAtgOnJBoss, dependsOn: [startDatabase], description: "Starts the development store node in NoPublishing (standalone) mode") {
     jBossHome           jBossRoot
     //note that ATG adds 'servers' to these two so that the resulting 
     //server dir is "$serverHome/servers/$serverName"
@@ -53,7 +53,7 @@ task startDevStore(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
     }
 }
 
-task startDevStoreTarget(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
+task startDevStoreTarget(type: RunAtgOnJBoss, dependsOn: [startDatabase], description: "Starts the development store node in publishing target mode") {
     jBossHome     jBossRoot
     serverName    storeServerName
     modules       moduleWithFlavors("node.store-target.dev")
@@ -70,7 +70,7 @@ You can invoke any specific flavor of the "env.admin.dev" module by adding the p
 To your "gradle startDevStore" command. Usually, module flavors are used for different database types,
   for example, use "gradle startDevAdmin -Pflavor=oracle" to bypass the default h2 database choice.
 */
-task startDevAdmin(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
+task startDevAdmin(type: RunAtgOnJBoss, dependsOn: [startDatabase], description: "Starts the development admin node") {
   jBossHome     jBossRoot
   serverName    adminServerName
   modules       moduleWithFlavors("node.admin.development")
@@ -82,7 +82,7 @@ task startDevAdmin(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
 }
 
 /* Ugly workaround to make stop tasks work */
-task stopStore << {
+task stopStore(description: "Stops the development store node") << {
     def shellScript = file("${jBossRoot}/bin/shutdown.sh")
     ant.chmod file: shellScript, perm: 'ug+xr'
 
@@ -90,7 +90,7 @@ task stopStore << {
     proc.waitFor()
 }
 
-task stopAdmin << {
+task stopAdmin(description: "Stops the development admin node") << {
     def shellScript = file("${jBossRoot}/bin/shutdown.sh")
     ant.chmod file: shellScript, perm: 'ug+xr'
 

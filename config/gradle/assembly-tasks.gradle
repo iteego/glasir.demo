@@ -14,12 +14,15 @@ dependencies {
   entityresolver 'com.iteego.glasir:glasir.entityresolver:1.0'
 }
 
+def getOnWindows () {
+  System.properties['os.name'].toLowerCase().startsWith("windows")
+}
+
 String getAllEnvironmentModules() {
   glasir.model.modules.collect { it.name }.findAll { it.startsWith('node.') || it == 'node' }.sort().join(" ")
 }
 
-task atgCoreSqlInstallationOrder << {
-  description = "Displays build/install/sql ordering for ATG core modules."
+task atgCoreSqlInstallationOrder(description: "Displays build/install/sql ordering for ATG core modules") << {
   printAtgCoreSqlInstallationOrder()
 }
 
@@ -67,7 +70,7 @@ task assembleDevEar(type: AtgAssemblerTask, description: "Runs a build and assem
   // that contains symbolic links. If there would be any symbolic links in an already existing ear file,
   // the assembler would simply follow them and write into their destination directory, which in our case is
   // the source tree. By removing the ear file safely before starting the assembler, we avoid clobbering our
-  // source tree with assembler output files.
+  // source tree with assembler output files. Note that symbolic linking is only done on non-windows environments.
   doFirst {
     if (!onWindows) {
       glasir.deleteDir(bigEar)
@@ -75,14 +78,12 @@ task assembleDevEar(type: AtgAssemblerTask, description: "Runs a build and assem
   }
 }
 
-def getOnWindows () {
-  System.properties['os.name'].toLowerCase().startsWith("windows")
-}
 
-task copyDocRoot(type: Copy) {
+task copyDocRoot(type: Copy, description: "Copies the contents of the document root into ROOT.war under JBOSS") {
   from docRoot
   into "$jBossRoot/server/${storeServerName}/deploy/ROOT.war"
 }
+
 
 task copyWars(type: Copy, description: "Copies the contents of all war applications into the dev ear file") {
   destinationDir bigEar
@@ -94,7 +95,7 @@ task copyWars(type: Copy, description: "Copies the contents of all war applicati
 }
 
 task sync {
-  description = "Sync dev assets (after devDeploy has been performed)"  
+  description = "Sync dev web assets (use this after devDeploy has been performed at least once)"  
   dependsOn = [copyDocRoot, copyWars]
 }
 
@@ -113,7 +114,7 @@ task copyJBossServers(type: Copy, description: "Creates a dev server setup in yo
 }
 
 
-task copyAtgServers(type: Copy) {
+task copyAtgServers(type: Copy, description: "Copies all atg server definitions into the ATG-Data/servers directory") {
   file("$rootDir/servers").eachDir { nodeDir -> 
     destinationDir = file("$jBossRoot/ATG-Data/servers")
     into(nodeDir.name) {
@@ -149,6 +150,6 @@ task cleanJbossServers(dependsOn: ['clean']) << {
   glasir.deleteDir("$jBossRoot/ATG-Data")
 }
 
-task cleanAll(dependsOn: ['clean','cleanJbossServers','cleanLocalDatabase']) << {
-  description = "Cleans out all the 'build' directories in the source tree, the jboss server dirs and the local database, if any"
-}
+task cleanAll(
+  dependsOn: ['clean','cleanJbossServers','cleanLocalDatabase'],
+  description: "Cleans out all the 'build' directories in the source tree, the jboss server dirs and the local database, if any") << {}
