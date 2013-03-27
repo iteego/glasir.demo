@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
-ATG-Required: node.store.development
+ATG-Required: node.store.dev
 ATG-Config-Path: config
 
