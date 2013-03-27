@@ -2,6 +2,7 @@
 .local.build.properties
 build/
 /data/
+/importRootDir-*
 packages/
 *~
 .idea/workspace.xml

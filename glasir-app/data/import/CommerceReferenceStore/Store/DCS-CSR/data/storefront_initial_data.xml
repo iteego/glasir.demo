@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE gsa-template SYSTEM "dynamosystemresource:/atg/dtds/gsa/gsa_1.0.dtd">
+<gsa-template>
+  <import-items>
+    <!--
+      QuickAccessCatalogs GlobalOption
+    -->
+    <add-item item-descriptor="GlobalOption" id="QuickAccessCatalogs">
+      <set-property name="name" value="QuickAccessCatalogs"/>
+      <set-property name="accessRight" value="serviceAdminDefaultRight"/>
+      <set-property name="multiValued" value="true"/>
+      <set-property name="dataType" value="String"/>
+      <set-property name="defaultValue" value="homeStoreCatalog,masterCatalog"/>
+    </add-item>
+
+    <!--
+      QuickAccessPriceLists GlobalOption
+    -->
+    <add-item item-descriptor="GlobalOption" id="QuickAccessPriceLists">
+      <set-property name="name" value="QuickAccessPriceLists"/>
+      <set-property name="accessRight" value="serviceAdminDefaultRight"/>
+      <set-property name="multiValued" value="true"/>
+      <set-property name="dataType" value="String"/>
+      <set-property name="defaultValue" value="listPrices,salePrices,plist3080002,plist3080003"/>
+    </add-item>
+  </import-items>
+</gsa-template>
+<!-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.1.1/DCS-CSR/data/storefront_initial_data.xml#1 $$Change: 690623 $-->

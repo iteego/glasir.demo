@@ -3,7 +3,7 @@
 <gsa-template>
 <import-items>
 
-<!-- ===================================================== -->	
+<!-- ===================================================== -->
 <!-- === BASE SITE CONFIGURATION TEMPLATE ITEM MAPPING === -->
 <!-- ===================================================== -->
 
@@ -32,9 +32,13 @@
   <set-property name="value"><![CDATA[atg.remote.multisite.Resources]]></set-property>
 </add-item>
 
+<add-item item-descriptor="propertyViewAttributeDefinition" id="SaPvResourceAttrDef">
+  <set-property name="defaultValue"><![CDATA[SiteAdminResources]]></set-property>
+</add-item>
+
 <add-item item-descriptor="itemViewMapping" id="SaIvmSiteConfigBase">
   <set-property name="name"><![CDATA[AssetManager base site configuration itemViewMapping]]></set-property>
-  <set-property name="displayName"><![CDATA[SaIvmSiteConfigBase.displayName]]></set-property>	
+  <set-property name="displayName"><![CDATA[SaIvmSiteConfigBase.displayName]]></set-property>
   <set-property name="view"><![CDATA[SaIvBaseSiteConfig]]></set-property>
   <set-property name="attributeValues"><![CDATA[resourceBundle=SaAvSiteBnd,includedProperties=SaAvCategory]]></set-property>
 </add-item>
@@ -60,8 +64,8 @@
 
  <!-- ============================= -->
  <!-- SITE CATEGORY UI ITEM MAPPING -->
- <!-- ============================= -->  
-  
+ <!-- ============================= -->
+
 <add-item item-descriptor="itemMapping" id="SaImCategory">
   <set-property name="name"><![CDATA[AssetManager]]></set-property>
   <set-property name="description"><![CDATA[Site  editor itemMapping]]></set-property>
@@ -74,7 +78,7 @@
 
 <add-item item-descriptor="itemViewMapping" id="SaIvmCategory">
   <set-property name="name"><![CDATA[Site  editor itemViewMapping]]></set-property>
-  <set-property name="displayName"><![CDATA[SaIvmCategory.displayName]]></set-property> 
+  <set-property name="displayName"><![CDATA[SaIvmCategory.displayName]]></set-property>
   <set-property name="view"><![CDATA[SaIvCategory]]></set-property>
   <set-property name="attributeValues"><![CDATA[resourceBundle=SaAvSiteBnd]]></set-property>
 </add-item>
@@ -87,7 +91,7 @@
   <set-property name="viewComponent"><![CDATA[atg.multisite.view.SiteAssetViewPanel]]></set-property>
   <set-property name="attributes"><![CDATA[]]></set-property>
 </add-item>
-  
+
 <!-- ================================ -->
 <!-- === TEMPLATE PROPERTY EDITOR === -->
 <!-- ================================ -->
@@ -115,8 +119,8 @@
 <add-item item-descriptor="propertyViewMapping" id="SaPvmSitePriority">
   <set-property name="propertyView"><![CDATA[SaPvSitePriority]]></set-property>
   <set-property name="description"><![CDATA[Site Priority PropertyViewMapping]]></set-property>
-</add-item>    
-  
+</add-item>
+
 <add-item item-descriptor="propertyView" id="SaPvSitePriority">
   <set-property name="name"><![CDATA[SiteAdmin site priority propertyView]]></set-property>
   <set-property name="description"><![CDATA[SiteAdmin site priority propertyView]]></set-property>
@@ -132,7 +136,7 @@
   <set-property name="defaultValue"><![CDATA[0-9]]></set-property>
   <set-property name="description"><![CDATA[Characters allowed in the input field]]></set-property>
 </add-item>
-  
+
 <!-- =========================================== -->
 <!-- === SITEADMIN TIMESTAMP PROPERTY EDITOR === -->
 <!-- =========================================== -->
@@ -152,11 +156,11 @@
   <set-property name="isDefault"><![CDATA[false]]></set-property>
   <set-property name="attributes"><![CDATA[customAssetPropertyService=SaPvAssetPropertyService]]></set-property>
 </add-item>
-  
+
 <!-- ======================= -->
 <!-- === SITE URL EDITOR === -->
-<!-- ======================= -->  
-  
+<!-- ======================= -->
+
 <add-item item-descriptor="propertyViewMapping" id="SaPvmSiteURL">
   <set-property name="propertyView"><![CDATA[SaPvSiteURL]]></set-property>
   <set-property name="description"><![CDATA[Site URL PropertyViewMapping]]></set-property>
@@ -173,7 +177,7 @@
   <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
   <set-property name="isDefault"><![CDATA[false]]></set-property>
   <set-property name="attributes"><![CDATA[customAssetPropertyService=SaPvAssetPropertyService,propertyValidators=SaAvURLPropertyValidator,inputFieldMaxlength=AmPvadIntInputFieldMaxLength,inputFieldMaxWidth=AmPvadIntInputFieldMaxWidth]]></set-property>
-</add-item>  
+</add-item>
 
 <!-- Custom SiteAdmin property service -->
 <add-item item-descriptor="propertyViewAttributeDefinition" id="SaPvAssetPropertyService">
@@ -187,7 +191,7 @@
 
 <!-- ========================================= -->
 <!-- === ALTERNATIVE URL COLLECTION EDITOR === -->
-<!-- ========================================= -->  
+<!-- ========================================= -->
 
 <add-item item-descriptor="propertyViewMapping" id="SaPvmAlternativeURL">
   <set-property name="propertyView"><![CDATA[SaPvAlternativeURL]]></set-property>
@@ -204,12 +208,12 @@
   <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
   <set-property name="isDefault"><![CDATA[false]]></set-property>
   <set-property name="attributes"><![CDATA[useColumnHeaders=AmPvadPrimArrayColumnHeaders,addItemsToTop=AmPvadPrimArrayAddToTop,customAssetPropertyService=SaPvAssetPropertyService]]></set-property>
-</add-item>  
+</add-item>
 
 <!-- ======================== -->
 <!-- === SITE NAME EDITOR === -->
-<!-- ======================== -->  
-  
+<!-- ======================== -->
+
 <add-item item-descriptor="propertyViewMapping" id="SaPvmSiteName">
   <set-property name="propertyView"><![CDATA[SaPvSiteName]]></set-property>
   <set-property name="description"><![CDATA[Site name PropertyViewMapping]]></set-property>
@@ -228,8 +232,8 @@
 
 <!-- ============================== -->
 <!-- === SITE GROUP NAME EDITOR === -->
-<!-- ============================== -->  
-  
+<!-- ============================== -->
+
 <add-item item-descriptor="propertyViewMapping" id="SaPvmSiteGroupName">
   <set-property name="propertyView"><![CDATA[SaPvSiteGroupName]]></set-property>
   <set-property name="description"><![CDATA[Site Group Name propertyViewMapping]]></set-property>
@@ -244,12 +248,12 @@
   <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
   <set-property name="isDefault"><![CDATA[false]]></set-property>
   <set-property name="attributes"><![CDATA[customAssetPropertyService=SaPvAssetPropertyService,inputFieldMaxlength=AmPvadIntInputFieldMaxLength,inputFieldMaxWidth=AmPvadIntInputFieldMaxWidth]]></set-property>
-</add-item>  
-  
+</add-item>
+
 <!-- ============================ -->
 <!-- === ENABLE STATUS EDITOR === -->
-<!-- ============================ -->  
-  
+<!-- ============================ -->
+
 <add-item item-descriptor="propertyViewMapping" id="SaPvmEnableStatus">
   <set-property name="propertyView"><![CDATA[SaPvEnableStatus]]></set-property>
   <set-property name="description"><![CDATA[Site Enable Status PropertyViewMapping]]></set-property>
@@ -265,16 +269,16 @@
   <set-property name="isDefault"><![CDATA[false]]></set-property>
   <set-property name="attributes"><![CDATA[customAssetPropertyService=SaPvAssetPropertyService]]></set-property>
 </add-item>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
+
 <!-- =============================== -->
 <!-- SITE TYPES PROPERTY EDITOR -->
 <!-- =============================== -->
@@ -294,7 +298,7 @@
   <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
   <set-property name="isDefault"><![CDATA[false]]></set-property>
 </add-item>
-  
+
 <!-- =============================== -->
 <!-- SHAREABLE TYPES PROPERTY EDITOR -->
 <!-- =============================== -->
@@ -333,11 +337,15 @@
   <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.collection.SiteGroupCollectionEditor]]></set-property>
   <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
   <set-property name="isDefault"><![CDATA[false]]></set-property>
-  <set-property name="attributes"><![CDATA[emptyCollectionMsg=SaPvNoSitesInGroupMessage,hideAddNew=SaPvTrueAttrDef,prohibitCollectionDuplicates=SaPvNoSiteDuplicates]]></set-property>
+  <set-property name="attributes"><![CDATA[resourceBundle=SaPvResourceAttrDef,emptyCollectionTitleKey=SaPvNoSitesInGroupTitle,emptyCollectionMsgKey=SaPvNoSitesInGroupMessage,hideAddNew=SaPvTrueAttrDef,prohibitCollectionDuplicates=SaPvNoSiteDuplicates]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="SaPvNoSitesInGroupTitle">
+  <set-property name="defaultValue"><![CDATA[noSitesInShareGroup]]></set-property>
 </add-item>
 
 <add-item item-descriptor="propertyViewAttributeDefinition" id="SaPvNoSitesInGroupMessage">
-  <set-property name="defaultValue"><![CDATA[No sites in sharing group. Click and drag sites into this list.]]></set-property>
+  <set-property name="defaultValue"><![CDATA[noSitesInShareGroupMessage]]></set-property>
 </add-item>
 
 <add-item item-descriptor="propertyViewAttributeDefinition" id="SaPvTrueAttrDef">
@@ -365,7 +373,7 @@
 
 <add-item item-descriptor="itemViewMapping" id="SaIvmSiteGroup">
   <set-property name="name"><![CDATA[AssetManager site group itemViewMapping]]></set-property>
-  <set-property name="displayName"><![CDATA[SaIvmSiteGroup.displayName]]></set-property>	
+  <set-property name="displayName"><![CDATA[SaIvmSiteGroup.displayName]]></set-property>
   <set-property name="view"><![CDATA[SaIvBaseSiteConfig]]></set-property>
   <set-property name="propertyMappings"><![CDATA[displayName=SaPvmSiteGroupName,shareableTypes=SaPvmShareableTypes,sites=SaPvmSiteGroup]]></set-property>
   <set-property name="attributeValues"><![CDATA[resourceBundle=SaAvSiteBnd,includedCategories=SaAvSiteGroupGenCat]]></set-property>
@@ -375,15 +383,15 @@
   <set-property name="value"><![CDATA[categoryBasics]]></set-property>
 </add-item>
 
-<!-- ======================================================== -->	
+<!-- ======================================================== -->
 <!-- === DEFAULT SITE CONFIGURATION CATEGORY ITEM MAPPING === -->
 <!-- ======================================================== -->
 
 <!-- ===================================================================== -->
-<!-- This item mapping will be used when the SiteRepository:siteTemplate   --> 
-<!-- itemViewMapping is set to SiteCategory:default                           -->
+<!-- This item mapping will be used when the SiteRepository:siteTemplate   -->
+<!-- itemViewMapping is set to SiteCategory:default                        -->
 <!-- ===================================================================== -->
-  
+
 <add-item item-descriptor="itemMapping" id="SaImSiteDefaultCategory">
   <set-property name="name"><![CDATA[SiteCategory:default]]></set-property>
   <set-property name="description"><![CDATA[AssetManager default site  itemMapping]]></set-property>
@@ -391,22 +399,75 @@
   <set-property name="itemPath"><![CDATA[/atg/multisite/SiteRepository]]></set-property>
   <set-property name="itemName"><![CDATA[siteConfiguration]]></set-property>
   <set-property name="formHandler"><![CDATA[SaFhSite]]></set-property>
-  <set-property name="viewMappings"><![CDATA[SaIvmSiteDefaultCategory]]></set-property>
+  <set-property name="viewMappings"><![CDATA[SaIvmSiteDefaultCategory,SaIvmSiteDefCatOps]]></set-property>
   <set-property name="attributes"><![CDATA[resourceBundle=SaAvSiteBnd,showCreationId=SaAvCatCreateId]]></set-property>
 </add-item>
 
 <add-item item-descriptor="itemViewMapping" id="SaIvmSiteDefaultCategory">
   <set-property name="name"><![CDATA[AssetManager default site  itemViewMapping]]></set-property>
-  <set-property name="displayName"><![CDATA[SaIvmSiteDefaultCategory.displayName]]></set-property>	
+  <set-property name="displayName"><![CDATA[SaIvmSiteDefaultCategory.displayName]]></set-property>
   <set-property name="view"><![CDATA[SaIvBaseSiteConfig]]></set-property>
   <set-property name="propertyMappings"><![CDATA[openDate=SaPvmTimeStamp,closingDate=SaPvmTimeStamp,name=SaPvmSiteName,contextRoot=SaPvmSiteURL,productionURL=SaPvmSiteURL,siteDownURL=SaPvmSiteURL,preOpeningURL=SaPvmSiteURL,postClosingURL=SaPvmSiteURL,additionalProductionURLs=SaPvmAlternativeURL,sitePriority=SaPvmSitePriority,siteTypes=SaPvmSiteTypes]]></set-property>
-  <set-property name="attributeValues"><![CDATA[resourceBundle=SaAvSiteBnd]]></set-property>
+  <set-property name="attributeValues"><![CDATA[resourceBundle=SaAvSiteBnd,includedCategories=SaAvDefCatIncludedCats,includeNewProperties=SaAvDefCatIncNewProps]]></set-property>
 </add-item>
 
-<!-- ===================================================== -->	
+<add-item item-descriptor="attributeValue" id="SaAvDefCatIncludedCats">
+   <set-property name="value"><![CDATA[categoryBasics,categoryLife,categoryHistory]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="SaAvDefCatIncNewProps">
+   <set-property name="value"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- Create the 'Operations' tab  -->
+<add-item item-descriptor="itemViewMapping" id="SaIvmSiteDefCatOps">
+  <set-property name="name"><![CDATA[AssetManager default site itemViewMapping ops]]></set-property>
+  <set-property name="displayName"><![CDATA[SaIvmSiteDefCatOps.displayName]]></set-property>
+  <set-property name="view"><![CDATA[SaIvBaseSiteConfig]]></set-property>
+  <set-property name="attributeValues"><![CDATA[resourceBundle=SaAvSiteBnd,includedCategories=SaAvDefCatIncCatsOps]]></set-property>
+</add-item>
+
+<!-- Empty 'Ops' included category list. The value attribute should be added to in other modules. -->
+<!-- 
+  Note the comma defined in this property's value ensures that no properties will be 
+	displayed in any itemViewMapping that uses it, unless specific categories are added. 
+-->
+<add-item item-descriptor="attributeValue" id="SaAvDefCatIncCatsOps">
+   <set-property name="value"><![CDATA[,]]></set-property>
+</add-item>
+
+<!-- Default site category duplicate item mapping -->
+<add-item item-descriptor="itemMapping" id="SaImDuplicateSiteDefaultCategory">
+  <set-property name="name"><![CDATA[SiteCategory:default]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager default duplicate site itemMapping]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmQuickEdit]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/multisite/SiteRepository]]></set-property>
+  <set-property name="itemName"><![CDATA[siteConfiguration]]></set-property>
+  <set-property name="formHandler"><![CDATA[SaFhSite]]></set-property>
+  <set-property name="viewMappings"><![CDATA[SaIvmDuplicateSiteDefaultCategory]]></set-property>
+  <set-property name="attributes"><![CDATA[resourceBundle=SaAvSiteBnd,showCreationId=SaAvCatCreateId]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewMapping" id="SaIvmDuplicateSiteDefaultCategory">
+  <set-property name="name"><![CDATA[AssetManager default duplicate site itemViewMapping]]></set-property>
+  <set-property name="displayName"><![CDATA[SaIvmSiteDefaultCategory.displayName]]></set-property>
+  <set-property name="view"><![CDATA[SaIvBaseSiteConfig]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[openDate=SaPvmTimeStamp,closingDate=SaPvmTimeStamp,name=SaPvmSiteName,contextRoot=SaPvmSiteURL,productionURL=SaPvmSiteURL,siteDownURL=SaPvmSiteURL,preOpeningURL=SaPvmSiteURL,postClosingURL=SaPvmSiteURL,additionalProductionURLs=SaPvmAlternativeURL,sitePriority=SaPvmSitePriority,siteTypes=SaPvmSiteTypes]]></set-property>
+  <set-property name="attributeValues"><![CDATA[resourceBundle=SaAvSiteBnd,includedProperties=SaAvDupDefCatIncludedProps,alwaysCategorize=SaAvDupDefCatAlwaysCategorize]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="SaAvDupDefCatIncludedProps">
+   <set-property name="value"><![CDATA[name,enabled,openDate,closingDate,productionURL,additionalProductionURLs]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="SaAvDupDefCatAlwaysCategorize">
+   <set-property name="value"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- ===================================================== -->
 <!-- === TEST SITE CONFIGURATION CATEGORY ITEM MAPPING === -->
 <!-- ===================================================== -->
-  
+
 <add-item item-descriptor="itemMapping" id="SaImSiteTestCategory1">
   <set-property name="name"><![CDATA[SiteCategory:category1]]></set-property>
   <set-property name="description"><![CDATA[AssetManager site test  itemMapping]]></set-property>
@@ -420,7 +481,7 @@
 
 <add-item item-descriptor="itemViewMapping" id="SaIvmSiteTestCategory1">
   <set-property name="name"><![CDATA[AssetManager site test  itemViewMapping]]></set-property>
-  <set-property name="displayName"><![CDATA[SaIvmSiteDefaultCategory.displayName]]></set-property>	
+  <set-property name="displayName"><![CDATA[SaIvmSiteDefaultCategory.displayName]]></set-property>
   <set-property name="view"><![CDATA[SaIvBaseSiteConfig]]></set-property>
   <set-property name="propertyMappings"><![CDATA[openDate=SaPvmTimeStamp,closingDate=SaPvmTimeStamp,name=SaPvmSiteName,contextRoot=SaPvmSiteURL,productionURL=SaPvmSiteURL,siteDownURL=SaPvmSiteURL,preOpeningURL=SaPvmSiteURL,postClosingURL=SaPvmSiteURL,additionalProductionURLs=SaPvmAlternativeURL,sitePriority=SaPvmSitePriority,siteTypes=SaPvmSiteTypes,enabled=SaPvmEnableStatus]]></set-property>
   <set-property name="attributeValues"><![CDATA[resourceBundle=SaAvSiteBnd]]></set-property>
@@ -430,7 +491,7 @@
 <add-item item-descriptor="attributeValue" id="SaAvCatCreateId">
   <set-property name="value"><![CDATA[true]]></set-property>
 </add-item>
-	
+
 <!-- ======================================================================= -->
 <!-- Customization for the JSP UI for all item types that should             -->
 <!--      be editable in the flex UI only.                                   -->
@@ -469,4 +530,4 @@
 </import-items>
 
 </gsa-template>
-<!-- @version $Id: //product/SiteAdmin/version/10.0.2/Versioned/src/install/data/viewmapping.xml#1 $$Change: 633540 $ -->
+<!-- @version $Id: //product/SiteAdmin/version/10.1.1/Versioned/src/install/data/viewmapping.xml#1 $$Change: 690623 $ -->

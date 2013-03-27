@@ -11,7 +11,8 @@
   <set-property name="roles"><![CDATA[epubUser,100004]]></set-property>
   <set-property name="locale"><![CDATA[en_US]]></set-property>
   <set-property name="email"><![CDATA[merchandising@example.com]]></set-property>
-  <set-property name="password"><![CDATA[06c707e64951fc6bb9ba7e6e26d252eb]]></set-property>
+  <set-property name="password"><![CDATA[${merchandisingPassword}]]></set-property>
+  <set-property name="passwordSalt"><![CDATA[merchandising]]></set-property>
   <set-property name="member"><![CDATA[true]]></set-property>
   <set-property name="login"><![CDATA[merchandising]]></set-property>
 </add-item>
@@ -19,4 +20,4 @@
 </import-items>
 
 </gsa-template>
-<!-- @version $Id: //product/DCS-UI/version/10.0.2/Versioned/src/install/data/users.xml#2 $$Change: 635969 $ -->
+<!-- @version $Id: //product/DCS-UI/version/10.1.1/Versioned/src/install/data/users.xml#1 $$Change: 690623 $ -->

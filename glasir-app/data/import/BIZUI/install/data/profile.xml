@@ -118,7 +118,8 @@
   <set-property name="parentOrganization" value="root"/> 
   <set-property name="ancestors" value="root"/>
   <set-property name="roles" value="$tag:portal-admin-role$,epubSuperAdmin"/>
-  <set-property name="password"><![CDATA[21232f297a57a5a743894a0e4a801fc3]]></set-property>
+  <set-property name="password"><![CDATA[${adminPublishingPassword}]]></set-property>
+  <set-property name="passwordSalt"><![CDATA[admin]]></set-property>
   <set-property name="member"><![CDATA[true]]></set-property>
   <set-property name="login"><![CDATA[admin]]></set-property>
 </add-item>
@@ -127,13 +128,9 @@
 
 <!-- all update-item tags must go outside of the import-items tag -->
 
-<update-item item-descriptor="user" id="19004">
-  <set-property name="roles"><![CDATA[epubSuperAdmin,100004]]></set-property>
-</update-item>
-
 <update-item item-descriptor="roleFolder" id="root">
   <set-property name="childFolders" add="true"><![CDATA[100001,100002]]></set-property>
 </update-item>
 
 </gsa-template>
-<!-- @version $Id: //product/BIZUI/version/10.0.2/data/profile.xml#2 $$Change: 635969 $-->
+<!-- @version $Id: //product/BIZUI/version/10.1.1/data/profile.xml#1 $$Change: 690623 $-->

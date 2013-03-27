@@ -1,18 +1,18 @@
-Datasource name: Non-Versioned
-Top level module list: DCS-UI.Versioned,BIZUI,PubPortlet,DafEar.Admin,SiteAdmin.Versioned,B2CCommerce.Versioned,DCS.Versioned,DCS-UI,Store.EStore.Versioned,Store.Storefront,Portal.paf,Store.Storefront
-#
-#catalog
-DataImport: Repository:/atg/commerce/catalog/ProductCatalog Path:/Store/Storefront/data/out-no18n-catalog.xml Module:Store.EStore
-DataImport: Repository:/atg/commerce/pricing/priceLists/PriceLists Path:/Store/Storefront/data/out-pricelists.xml Module:Store.EStore
-DataImport: Repository:/atg/store/stores/StoreRepository Path:/Store/Storefront/data/stores.xml Module:Store.EStore
-DataImport: Repository:/atg/multisite/SiteRepository Path:/Store/Storefront/data/sites.xml Module:Store.EStore
-DataImport: Repository:/atg/seo/SEORepository Path:/Store/Storefront/data/seo-tags.xml Module:Store.EStore
-DataImport: Repository:/atg/commerce/catalog/ProductCatalog Path:/Store/Storefront/data/promos.xml Module:Store.EStore
-DataImport: Repository:/atg/store/stores/StoreRepository Path:/Store/Storefront/data/storetext.xml Module:Store.EStore
-DataImport: Repository:/atg/commerce/claimable/ClaimableRepository Path:/Store/Storefront/data/claimable.xml Module:Store.EStore
-#
-#core
-DataImport: Repository:/atg/commerce/inventory/InventoryRepository Path:/Store/Storefront/data/out-inventory.xml Module:Store.EStore
-DataImport: Repository:/atg/userprofiling/ProfileAdapterRepository Path:/Store/Storefront/data/users.xml Module:Store.EStore
-DataImport: Repository:/atg/commerce/order/OrderRepository Path:/Store/Storefront/data/orders.xml Module:DCS.AbandonedOrderServices,Store.EStore
-DataImport: Repository:/atg/commerce/gifts/Giftlists Path:/Store/Storefront/data/wishlists.xml Module:Store.EStore
+Top level module list: node.store.development
+
+DataImport: Repository:/atg/commerce/pricing/priceLists/PriceLists Path:/CommerceReferenceStore/Store/Storefront/data/pricelists.xml Module:Store.EStore
+DataImport: Repository:/atg/store/stores/StoreRepository Path:/CommerceReferenceStore/Store/Storefront/data/stores.xml Module:Store.EStore
+DataImport: Repository:/atg/commerce/catalog/ProductCatalog Path:/CommerceReferenceStore/Store/Storefront/data/catalog-i18n.xml Module:Store.EStore.International
+DataImport: Repository:/atg/commerce/pricing/priceLists/PriceLists Path:/CommerceReferenceStore/Store/Storefront/data/pricelists-i18n.xml Module:Store.EStore,Store.EStore.International
+DataImport: Repository:/atg/multisite/SiteRepository Path:/CommerceReferenceStore/Store/Storefront/data/sites.xml Module:Store.EStore
+DataImport: Repository:/atg/seo/SEORepository Path:/CommerceReferenceStore/Store/Storefront/data/seotags-i18n.xml Module:Store.EStore.International
+DataImport: Repository:/atg/multisite/SiteRepository Path:/CommerceReferenceStore/Store/Storefront/data/sites-i18n.xml Module:Store.EStore.International
+DataImport: Repository:/atg/commerce/catalog/ProductCatalog Path:/CommerceReferenceStore/Store/Storefront/data/promos-i18n.xml Module:Store.EStore.International
+DataImport: Repository:/atg/commerce/inventory/InventoryRepository Path:/CommerceReferenceStore/Store/Storefront/data/inventory.xml Module:Store.EStore
+DataImport: Repository:/atg/commerce/gifts/Giftlists Path:/CommerceReferenceStore/Store/Storefront/data/wishlists.xml Module:Store.EStore
+DataImport: Repository:/atg/userprofiling/ProfileAdapterRepository Path:/CommerceReferenceStore/Store/Storefront/data/users.xml Module:Store.EStore
+DataImport: Repository:/atg/commerce/order/OrderRepository Path:/CommerceReferenceStore/Store/Storefront/data/orders.xml Module:DCS.AbandonedOrderServices,Store.EStore
+DataImport: Repository:/atg/commerce/order/OrderRepository Path:/CommerceReferenceStore/Store/Storefront/data/orders-i18n.xml Module:DCS.AbandonedOrderServices,Store.EStore
+DataImport: Repository:/atg/commerce/claimable/ClaimableRepository Path:/CommerceReferenceStore/Store/Storefront/data/claimable-i18n.xml Module:Store.EStore
+DataImport: Repository:/atg/store/stores/StoreRepository Path:/CommerceReferenceStore/Store/Storefront/data/storetext-i18n.xml Module:Store.EStore.International
+DataImport: Repository:/atg/svc/option/OptionRepository Path:/CommerceReferenceStore/Store/DCS-CSR/data/storefront_initial_data.xml Module:Service.Framework

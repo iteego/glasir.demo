@@ -1,3 +1,3 @@
 Manifest-Version: 1.0
-ATG-Required: node demo DCS.PublishingAgent RL glasir.db
+ATG-Required: node demo.NoPublishing
 ATG-Config-Path: config

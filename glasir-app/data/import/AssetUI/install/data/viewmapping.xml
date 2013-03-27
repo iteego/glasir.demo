@@ -15,89 +15,119 @@
 
 <add-item item-descriptor="itemViewAttributeDefinition" id="ap_01">
   <set-property name="defaultValue"><![CDATA[Browse]]></set-property>
-  <set-property name="description"><![CDATA[Asset Picker Repository Browse Tab Display Name]]></set-property>
+  <set-property name="description"><![CDATA[Asset Picker Repository Browse Tab Name]]></set-property>
 </add-item>
 
 <add-item item-descriptor="itemViewAttributeDefinition" id="ap_02">
   <set-property name="defaultValue"><![CDATA[Search]]></set-property>
-  <set-property name="description"><![CDATA[Asset Picker Repository Search Tab Display Name]]></set-property>
+  <set-property name="description"><![CDATA[Asset Picker Repository Search Tab Name]]></set-property>
 </add-item>
 
 <add-item item-descriptor="itemViewAttributeDefinition" id="ap_03">
   <set-property name="defaultValue"><![CDATA[Search]]></set-property>
-  <set-property name="description"><![CDATA[Asset Picker VFS Search Tab Display Name]]></set-property>
+  <set-property name="description"><![CDATA[Asset Picker VFS Search Tab Name]]></set-property>
 </add-item>
 
 <add-item item-descriptor="itemViewAttributeDefinition" id="ap_04">
   <set-property name="defaultValue"><![CDATA[Browse]]></set-property>
-  <set-property name="description"><![CDATA[Asset Picker VFS Browse Tab Display Name]]></set-property>
+  <set-property name="description"><![CDATA[Asset Picker VFS Browse Tab Name]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewAttributeDefinition" id="ap_repBrowseDisplayKey">
+  <set-property name="defaultValue"><![CDATA[assetPicker.tab.browse]]></set-property>
+  <set-property name="description"><![CDATA[Asset Picker Repository Browse Tab Display Name Key]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewAttributeDefinition" id="ap_repSearchDisplayKey">
+  <set-property name="defaultValue"><![CDATA[assetPicker.tab.search]]></set-property>
+  <set-property name="description"><![CDATA[Asset Picker Repository Search Tab Display Name Key]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewAttributeDefinition" id="ap_vfsSearchDisplayKey">
+  <set-property name="defaultValue"><![CDATA[assetPicker.tab.search]]></set-property>
+  <set-property name="description"><![CDATA[Asset Picker VFS Search Tab Display Name Key]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewAttributeDefinition" id="ap_vfsBrowseDisplayKey">
+  <set-property name="defaultValue"><![CDATA[assetPicker.tab.browse]]></set-property>
+  <set-property name="description"><![CDATA[Asset Picker VFS Browse Tab Display Name Key]]></set-property>
+</add-item>
+
+<!-- attributeValues -->
+
+<add-item item-descriptor="attributeValue" id="ap_resourceBundle">
+  <set-property name="value"><![CDATA[atg.assetui.WebAppResources]]></set-property>
 </add-item>
 
 <!-- itemViews -->
 
 <add-item item-descriptor="itemView" id="ap_05">
-  <set-property name="attributes"><![CDATA[tabDisplayName=ap_02]]></set-property>
+  <set-property name="attributes"><![CDATA[tabDisplayName=ap_02,tabDisplayNameKey=ap_repSearchDisplayKey]]></set-property>
   <set-property name="applicationName"><![CDATA[AssetUI]]></set-property>
   <set-property name="uri"><![CDATA[/assetPicker/plugins/repositorySearch.jsp]]></set-property>
   <set-property name="description"><![CDATA[Default Asset Picker Repository Item Search View]]></set-property>
-  <set-property name="name"><![CDATA[DefaultAssetPickerRepSearch]]></set-property>
+  <set-property name="name"><![CDATA[JSP AssetManager DefaultAssetPickerRepSearch]]></set-property>
   <set-property name="mode"><![CDATA[ap_pick]]></set-property>
 </add-item>
 
 <add-item item-descriptor="itemView" id="ap_06">
-  <set-property name="attributes"><![CDATA[tabDisplayName=ap_01]]></set-property>
+  <set-property name="attributes"><![CDATA[tabDisplayName=ap_01,tabDisplayNameKey=ap_repBrowseDisplayKey]]></set-property>
   <set-property name="applicationName"><![CDATA[AssetUI]]></set-property>
   <set-property name="uri"><![CDATA[/assetPicker/plugins/repositoryBrowse.jsp]]></set-property>
   <set-property name="description"><![CDATA[Default Asset Picker Repository Item Browse View]]></set-property>
-  <set-property name="name"><![CDATA[DefaultAssetPickerRepBrowse]]></set-property>
+  <set-property name="name"><![CDATA[JSP AssetManager DefaultAssetPickerRepBrowse]]></set-property>
   <set-property name="mode"><![CDATA[ap_pick]]></set-property>
 </add-item>
 
 <add-item item-descriptor="itemView" id="ap_07">
-  <set-property name="attributes"><![CDATA[tabDisplayName=ap_03]]></set-property>
+  <set-property name="attributes"><![CDATA[tabDisplayName=ap_03,tabDisplayNameKey=ap_vfsSearchDisplayKey]]></set-property>
   <set-property name="applicationName"><![CDATA[AssetUI]]></set-property>
   <set-property name="uri"><![CDATA[/assetPicker/plugins/vfsSearch.jsp]]></set-property>
   <set-property name="description"><![CDATA[Default Asset Picker VFS Search View]]></set-property>
-  <set-property name="name"><![CDATA[DefaultAssetPickerVFSSearch]]></set-property>
+  <set-property name="name"><![CDATA[JSP AssetManager DefaultAssetPickerVFSSearch]]></set-property>
   <set-property name="mode"><![CDATA[ap_pick]]></set-property>
 </add-item>
 
 <add-item item-descriptor="itemView" id="ap_08">
-  <set-property name="attributes"><![CDATA[tabDisplayName=ap_04]]></set-property>
+  <set-property name="attributes"><![CDATA[tabDisplayName=ap_04,tabDisplayNameKey=ap_vfsBrowseDisplayKey]]></set-property>
   <set-property name="applicationName"><![CDATA[AssetUI]]></set-property>
   <set-property name="uri"><![CDATA[/assetPicker/plugins/treeBrowse.jsp]]></set-property>
   <set-property name="description"><![CDATA[Default Asset Picker VFS Browse View]]></set-property>
-  <set-property name="name"><![CDATA[DefaultAssetPickerVFSBrowse]]></set-property>
+  <set-property name="name"><![CDATA[JSP AssetManager DefaultAssetPickerVFSBrowse]]></set-property>
   <set-property name="mode"><![CDATA[ap_pick]]></set-property>
 </add-item>
 
 <!-- itemViewMappings -->
 
 <add-item item-descriptor="itemViewMapping" id="ap_09">
-  <set-property name="displayName"><![CDATA[Browse]]></set-property>
+  <set-property name="displayName"><![CDATA[JSP AssetManager Browse]]></set-property>
   <set-property name="description"><![CDATA[Default Asset Picker Repository Item Browse View]]></set-property>
   <set-property name="name"><![CDATA[DefaultAssetPickerRepBrowse]]></set-property>
+  <set-property name="attributeValues"><![CDATA[resourceBundle=ap_resourceBundle]]></set-property>
   <set-property name="view"><![CDATA[ap_06]]></set-property>
 </add-item>
 
 <add-item item-descriptor="itemViewMapping" id="ap_10">
-  <set-property name="displayName"><![CDATA[Search]]></set-property>
+  <set-property name="displayName"><![CDATA[JSP AssetManager Search]]></set-property>
   <set-property name="description"><![CDATA[Default Asset Picker Repository Item Search View]]></set-property>
   <set-property name="name"><![CDATA[DefaultAssetPickerRepSearch]]></set-property>
+  <set-property name="attributeValues"><![CDATA[resourceBundle=ap_resourceBundle]]></set-property>
   <set-property name="view"><![CDATA[ap_05]]></set-property>
 </add-item>
 
 <add-item item-descriptor="itemViewMapping" id="ap_11">
-  <set-property name="displayName"><![CDATA[Browse]]></set-property>
+  <set-property name="displayName"><![CDATA[JSP AssetManager Browse]]></set-property>
   <set-property name="description"><![CDATA[Default Asset Picker VFS Browse View]]></set-property>
   <set-property name="name"><![CDATA[DefaultAssetPickerVFSBrowse]]></set-property>
+  <set-property name="attributeValues"><![CDATA[resourceBundle=ap_resourceBundle]]></set-property>
   <set-property name="view"><![CDATA[ap_08]]></set-property>
 </add-item>
 
 <add-item item-descriptor="itemViewMapping" id="ap_12">
-  <set-property name="displayName"><![CDATA[Search]]></set-property>
+  <set-property name="displayName"><![CDATA[JSP AssetManager Search]]></set-property>
   <set-property name="description"><![CDATA[Default Asset Picker VFS Search View]]></set-property>
   <set-property name="name"><![CDATA[DefaultAssetPickerVFSSearch]]></set-property>
+  <set-property name="attributeValues"><![CDATA[resourceBundle=ap_resourceBundle]]></set-property>
   <set-property name="view"><![CDATA[ap_07]]></set-property>
 </add-item>
 
@@ -107,7 +137,7 @@
   <set-property name="formHandler"><![CDATA[1]]></set-property>
   <set-property name="viewMappings"><![CDATA[ap_10]]></set-property>
   <set-property name="itemName"><![CDATA[*]]></set-property>
-  <set-property name="description"><![CDATA[Default Asset Picker Mapping for Repository Assets]]></set-property>
+  <set-property name="description"><![CDATA[JSP AssetManager Default Asset Picker Mapping for Repository Assets]]></set-property>
   <set-property name="name"><![CDATA[*]]></set-property>
   <set-property name="mode"><![CDATA[ap_pick]]></set-property>
   <set-property name="isReadOnly"><![CDATA[true]]></set-property>
@@ -119,7 +149,7 @@
   <set-property name="attributes"><![CDATA[treeComponent=ap_15]]></set-property>
   <set-property name="viewMappings"><![CDATA[ap_11,ap_12]]></set-property>
   <set-property name="itemName"><![CDATA[*]]></set-property>
-  <set-property name="description"><![CDATA[Default Asset Picker Mapping for ConfigFileSystem Assets]]></set-property>
+  <set-property name="description"><![CDATA[JSP AssetManager Default Asset Picker Mapping for ConfigFileSystem Assets]]></set-property>
   <set-property name="name"><![CDATA[*]]></set-property>
   <set-property name="mode"><![CDATA[ap_pick]]></set-property>
   <set-property name="isReadOnly"><![CDATA[true]]></set-property>
@@ -131,7 +161,7 @@
   <set-property name="attributes"><![CDATA[treeComponent=ap_18]]></set-property>
   <set-property name="viewMappings"><![CDATA[ap_11,ap_12]]></set-property>
   <set-property name="itemName"><![CDATA[*]]></set-property>
-  <set-property name="description"><![CDATA[Default Asset Picker Mapping for WWWFileSystem Assets]]></set-property>
+  <set-property name="description"><![CDATA[JSP AssetManager Default Asset Picker Mapping for WWWFileSystem Assets]]></set-property>
   <set-property name="name"><![CDATA[*]]></set-property>
   <set-property name="mode"><![CDATA[ap_pick]]></set-property>
   <set-property name="isReadOnly"><![CDATA[true]]></set-property>
@@ -142,7 +172,7 @@
   <set-property name="formHandler"><![CDATA[3]]></set-property>
   <set-property name="viewMappings"><![CDATA[ap_12]]></set-property>
   <set-property name="itemName"><![CDATA[*]]></set-property>
-  <set-property name="description"><![CDATA[Default Asset Picker Mapping for VFS Assets]]></set-property>
+  <set-property name="description"><![CDATA[JSP AssetManager Default Asset Picker Mapping for VFS Assets]]></set-property>
   <set-property name="name"><![CDATA[*]]></set-property>
   <set-property name="mode"><![CDATA[ap_pick]]></set-property>
   <set-property name="isReadOnly"><![CDATA[true]]></set-property>
@@ -154,7 +184,7 @@
   <set-property name="attributes"><![CDATA[treeComponent=ap_20]]></set-property>
   <set-property name="viewMappings"><![CDATA[ap_11,ap_12]]></set-property>
   <set-property name="itemName"><![CDATA[*]]></set-property>
-  <set-property name="description"><![CDATA[Default Asset Picker Mapping for WebAppRefFileSystem Assets]]></set-property>
+  <set-property name="description"><![CDATA[JSP AssetManager Default Asset Picker Mapping for WebAppRefFileSystem Assets]]></set-property>
   <set-property name="name"><![CDATA[*]]></set-property>
   <set-property name="mode"><![CDATA[ap_pick]]></set-property>
   <set-property name="isReadOnly"><![CDATA[true]]></set-property>
@@ -180,7 +210,7 @@
   <set-property name="formHandler"><![CDATA[segment_formhandler]]></set-property>
   <set-property name="viewMappings"><![CDATA[segment_edit_ivm]]></set-property>
   <set-property name="itemName"><![CDATA[segment]]></set-property>
-  <set-property name="description"><![CDATA[Segment Edit Item Mapping]]></set-property>
+  <set-property name="description"><![CDATA[JSP AssetManager Segment Edit Item Mapping]]></set-property>
   <set-property name="name"><![CDATA[*]]></set-property>
   <set-property name="mode"><![CDATA[2]]></set-property>
   <set-property name="isReadOnly"><![CDATA[false]]></set-property>
@@ -191,7 +221,7 @@
   <set-property name="formHandler"><![CDATA[segment_formhandler]]></set-property>
   <set-property name="viewMappings"><![CDATA[segment_browse_ivm]]></set-property>
   <set-property name="itemName"><![CDATA[segment]]></set-property>
-  <set-property name="description"><![CDATA[Segment Browse Item Mapping]]></set-property>
+  <set-property name="description"><![CDATA[JSP AssetManager Segment Browse Item Mapping]]></set-property>
   <set-property name="name"><![CDATA[*]]></set-property>
   <set-property name="mode"><![CDATA[1]]></set-property>
   <set-property name="isReadOnly"><![CDATA[false]]></set-property>
@@ -199,15 +229,16 @@
 </add-item>
 
 <add-item item-descriptor="itemViewMapping" id="segment_edit_ivm">
-  <set-property name="displayName"><![CDATA[Edit Segment]]></set-property>
+  <set-property name="displayName"><![CDATA[JSPAssetManagerEditSegment]]></set-property>
   <set-property name="description"><![CDATA[Segment Edit Item View Mapping]]></set-property>
   <set-property name="name"><![CDATA[segmentEditItemViewMap]]></set-property>
   <set-property name="view"><![CDATA[segment_edit_iv]]></set-property>
-  <set-property name="propertyMappings"><![CDATA[fileName=segment_edit_name_pvm,description=100046,targetingRules=segment_edit_expr_pvm,class=100061,parentFolderPath=100059]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[fileName=segment_edit_name_pvm,description=segment_edit_description_pvm,targetingRules=segment_edit_expr_pvm,class=100061,parentFolderPath=100059]]></set-property>
+  <set-property name="attributeValues"><![CDATA[resourceBundle=BizDefaultBundle]]></set-property>
 </add-item>
 
 <add-item item-descriptor="itemViewMapping" id="segment_browse_ivm">
-  <set-property name="displayName"><![CDATA[Browse Segment]]></set-property>
+  <set-property name="displayName"><![CDATA[JSP AssetManager Browse Segment]]></set-property>
   <set-property name="description"><![CDATA[Segment Browse Item View Mapping]]></set-property>
   <set-property name="name"><![CDATA[segmentBrowseItemViewMap]]></set-property>
   <set-property name="view"><![CDATA[segment_browse_iv]]></set-property>
@@ -219,7 +250,7 @@
   <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
   <set-property name="uri"><![CDATA[/html/views/item/file/edit.jsp]]></set-property>
   <set-property name="description"><![CDATA[Segment File Edit]]></set-property>
-  <set-property name="name"><![CDATA[SegmentFileEdit]]></set-property>
+  <set-property name="name"><![CDATA[JSP AssetManager SegmentFileEdit]]></set-property>
   <set-property name="mode"><![CDATA[2]]></set-property>
 </add-item>
 
@@ -227,7 +258,7 @@
   <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
   <set-property name="uri"><![CDATA[/html/views/item/file/view.jsp]]></set-property>
   <set-property name="description"><![CDATA[Segment File Browse]]></set-property>
-  <set-property name="name"><![CDATA[SegmentFileBrowse]]></set-property>
+  <set-property name="name"><![CDATA[JSP AssetManager SegmentFileBrowse]]></set-property>
   <set-property name="mode"><![CDATA[1]]></set-property>
 </add-item>
 
@@ -259,8 +290,13 @@
   <set-property name="propertyView"><![CDATA[segment_edit_name_pv]]></set-property>
   <set-property name="description"><![CDATA[Edit Segment Name Mapping]]></set-property>
 </add-item>
+  
+<add-item item-descriptor="propertyViewMapping" id="segment_edit_description_pvm">
+  <set-property name="propertyView"><![CDATA[segment_edit_description_pv]]></set-property>
+</add-item>
 
 <add-item item-descriptor="propertyView" id="segment_edit_expr_pv">
+  <set-property name="attributes"><![CDATA[titleRes=seg_edit_res1,resourceBundle=segment_edit_resources]]></set-property>
   <set-property name="type"><![CDATA[string]]></set-property>
   <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
   <set-property name="applicationName"><![CDATA[AssetUI]]></set-property>
@@ -278,21 +314,34 @@
   <set-property name="applicationName"><![CDATA[AssetUI]]></set-property>
   <set-property name="uri"><![CDATA[/views/property/segmentRules/browseRules.jsp]]></set-property>
   <set-property name="isDefault"><![CDATA[false]]></set-property>
-  <set-property name="description"><![CDATA[Expression based segment rule browse]]></set-property>
-  <set-property name="name"><![CDATA[Segment Rules Expression Browser]]></set-property>
+  <set-property name="description"><![CDATA[JSP AssetManager Expression based segment rule browse]]></set-property>
+  <set-property name="name"><![CDATA[JSP AssetManager Segment Rules Expression Browser]]></set-property>
   <set-property name="mode"><![CDATA[1]]></set-property>
   <set-property name="isReadOnly"><![CDATA[true]]></set-property>
 </add-item>
 
 <add-item item-descriptor="propertyView" id="segment_edit_name_pv">
-  <set-property name="attributes"><![CDATA[inputFieldMaxlength=segment_name_maxlength_pva,inputFieldSize=segment_name_inputsize_pva,required=segment_name_required_pva]]></set-property>
+  <set-property name="attributes"><![CDATA[inputFieldMaxlength=segment_name_maxlength_pva,inputFieldSize=segment_name_inputsize_pva,required=segment_name_required_pva,titleRes=seg_edit_res2,resourceBundle=segment_edit_resources]]></set-property>
   <set-property name="type"><![CDATA[string]]></set-property>
   <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
   <set-property name="applicationName"><![CDATA[AssetUI]]></set-property>
   <set-property name="uri"><![CDATA[/views/property/file/segmentNameEdit.jsp]]></set-property>
   <set-property name="isDefault"><![CDATA[false]]></set-property>
-  <set-property name="description"><![CDATA[Edit for segment names]]></set-property>
-  <set-property name="name"><![CDATA[Segment Name Editor]]></set-property>
+  <set-property name="description"><![CDATA[JSP AssetManager Edit for segment names]]></set-property>
+  <set-property name="name"><![CDATA[JSP AssetManager Segment Name Editor]]></set-property>
+  <set-property name="mode"><![CDATA[2]]></set-property>
+  <set-property name="isReadOnly"><![CDATA[true]]></set-property>
+</add-item>
+  
+<add-item item-descriptor="propertyView" id="segment_edit_description_pv">
+  <set-property name="attributes"><![CDATA[defaultValue=1100,textAboveField=1102,inputFieldMaxlength=1107,titleRes=seg_edit_res3,labelBeforeField=1104,textBelowField=1103,labelAfterField=1105,inputFieldSize=1106,spellCheck=1108,resourceBundle=segment_edit_resources]]></set-property>
+  <set-property name="type"><![CDATA[string]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="applicationName"><![CDATA[Publishing Portlets]]></set-property>
+  <set-property name="uri"><![CDATA[/html/views/property/string/simpleEdit.jsp]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[BIZUI Basic editor for string properties]]></set-property>
+  <set-property name="name"><![CDATA[BIZUI Basic String Editor]]></set-property>
   <set-property name="mode"><![CDATA[2]]></set-property>
   <set-property name="isReadOnly"><![CDATA[true]]></set-property>
 </add-item>
@@ -311,7 +360,31 @@
   <set-property name="defaultValue"><![CDATA[true]]></set-property>
   <set-property name="description"><![CDATA[Indicates required segment name]]></set-property>
 </add-item>
+  
+<add-item item-descriptor="propertyViewAttributeDefinition" id="segment_edit_resources">
+  <set-property name="defaultValue"><![CDATA[atg.epub.file.FileRepositoryResources]]></set-property>
+  <set-property name="description"><![CDATA[File system ResourceBundle]]></set-property>
+</add-item>
+  
+<add-item item-descriptor="attributeValue" id="BizDefaultBundle">
+  <set-property name="value"><![CDATA[atg.bizui.ui.ViewMappingResources]]></set-property>
+</add-item>
+  
+<add-item item-descriptor="propertyViewAttributeDefinition" id="seg_edit_res1">
+  <set-property name="defaultValue"><![CDATA[segmentCharacteristics]]></set-property>
+  <set-property name="description"><![CDATA[Segment characteristics title]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="seg_edit_res2">
+  <set-property name="defaultValue"><![CDATA[segmentName]]></set-property>
+  <set-property name="description"><![CDATA[Segment name title]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="seg_edit_res3">
+  <set-property name="defaultValue"><![CDATA[segmentDescription]]></set-property>
+  <set-property name="description"><![CDATA[Segment description title]]></set-property>
+</add-item>
 
 </import-items>
 </gsa-template>
-<!-- @version $Id: //product/AssetUI/version/10.0.2/src/install/data/viewmapping.xml#2 $$Change: 635969 $-->
+<!-- @version $Id: //product/AssetUI/version/10.1.1/src/install/data/viewmapping.xml#1 $$Change: 690623 $-->

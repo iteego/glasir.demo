@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gsa-template SYSTEM "dynamosystemresource:/atg/dtds/gsa/gsa_1.0.dtd">
+<gsa-template>
+  <import-items>
+    <!-- Add gift-items for Stuart's wisth-list -->
+    <add-item id="xgi10009" item-descriptor="gift-item">
+      <set-property name="description"><![CDATA[Cool sneaker for daily use.]]></set-property>
+      <set-property name="quantityPurchased"><![CDATA[0]]></set-property>
+      <set-property name="displayName"><![CDATA[Varsity trainer]]></set-property>
+      <set-property name="siteId"><![CDATA[storeSiteDE]]></set-property>
+      <set-property name="quantityDesired"><![CDATA[1]]></set-property>
+      <set-property name="catalogRefId"><![CDATA[xsku1224]]></set-property>
+      <set-property name="productId"><![CDATA[xprod1044]]></set-property>
+    </add-item>
+    <add-item id="xgi10010" item-descriptor="gift-item">
+      <set-property name="description"><![CDATA[Wonderfully comfortable choice for daily wear]]></set-property>
+      <set-property name="quantityPurchased"><![CDATA[0]]></set-property>
+      <set-property name="displayName"><![CDATA[Comfort Sneaker]]></set-property>
+      <set-property name="siteId"><![CDATA[storeSiteDE]]></set-property>
+      <set-property name="quantityDesired"><![CDATA[1]]></set-property>
+      <set-property name="catalogRefId"><![CDATA[xsku1191]]></set-property>
+      <set-property name="productId"><![CDATA[xprod1039]]></set-property>
+    </add-item>
+    <add-item id="xgi10011" item-descriptor="gift-item">
+      <set-property name="description"><![CDATA[Luxuriate in front of the game with this bean-bag for grownups.]]></set-property>
+      <set-property name="quantityPurchased"><![CDATA[0]]></set-property>
+      <set-property name="displayName"><![CDATA[Soccer Cushion Chair]]></set-property>
+      <set-property name="siteId"><![CDATA[storeSiteDE]]></set-property>
+      <set-property name="quantityDesired"><![CDATA[1]]></set-property>
+      <set-property name="catalogRefId"><![CDATA[xsku2041]]></set-property>
+      <set-property name="productId"><![CDATA[xprod2041]]></set-property>
+    </add-item>
+    
+    <!-- Add Stuart's wish-list -->
+    <add-item id="xgl10001" item-descriptor="gift-list">
+      <set-property name="giftlistItems"><![CDATA[xgi10009,xgi10010,xgi10011]]></set-property>
+      <set-property name="creationDate"><![CDATA[11/11/2009 13:01:20]]></set-property>
+    </add-item>
+    
+    <!-- Add Stuart's birthday gift-items -->
+    <add-item id="xgi30020" item-descriptor="gift-item">
+      <set-property name="description"><![CDATA[Formal repp ties in a variety of colors.]]></set-property>
+      <set-property name="quantityPurchased"><![CDATA[0]]></set-property>
+      <set-property name="displayName"><![CDATA[Dotted Repp Tie]]></set-property>
+      <set-property name="siteId"><![CDATA[storeSiteUS]]></set-property>
+      <set-property name="quantityDesired"><![CDATA[1]]></set-property>
+      <set-property name="catalogRefId"><![CDATA[xsku1003]]></set-property>
+      <set-property name="productId"><![CDATA[xprod1001]]></set-property>
+    </add-item>
+    <add-item id="xgi30021" item-descriptor="gift-item">
+      <set-property name="description"><![CDATA[Stylish universal leather belt.]]></set-property>
+      <set-property name="quantityPurchased"><![CDATA[0]]></set-property>
+      <set-property name="displayName"><![CDATA[Braided leather belt]]></set-property>
+      <set-property name="siteId"><![CDATA[storeSiteUS]]></set-property>
+      <set-property name="quantityDesired"><![CDATA[1]]></set-property>
+      <set-property name="catalogRefId"><![CDATA[xsku1026]]></set-property>
+      <set-property name="productId"><![CDATA[xprod1007]]></set-property>
+    </add-item>
+    <add-item id="xgi30022" item-descriptor="gift-item">
+      <set-property name="description"><![CDATA[Down Laptop Briefcase with Leather trim.]]></set-property>
+      <set-property name="quantityPurchased"><![CDATA[0]]></set-property>
+      <set-property name="displayName"><![CDATA[Laptop Briefcase]]></set-property>
+      <set-property name="siteId"><![CDATA[storeSiteUS]]></set-property>
+      <set-property name="quantityDesired"><![CDATA[1]]></set-property>
+      <set-property name="catalogRefId"><![CDATA[xsku1042]]></set-property>
+      <set-property name="productId"><![CDATA[xprod1014]]></set-property>
+    </add-item>
+    <add-item id="xgi30023" item-descriptor="gift-item">
+      <set-property name="description"><![CDATA[Italian leather Oxford.]]></set-property>
+      <set-property name="quantityPurchased"><![CDATA[0]]></set-property>
+      <set-property name="displayName"><![CDATA[Leather Oxford]]></set-property>
+      <set-property name="siteId"><![CDATA[storeSiteUS]]></set-property>
+      <set-property name="quantityDesired"><![CDATA[1]]></set-property>
+      <set-property name="catalogRefId"><![CDATA[xsku1244]]></set-property>
+      <set-property name="productId"><![CDATA[xprod1047]]></set-property>
+    </add-item>
+    <add-item id="xgi30024" item-descriptor="gift-item">
+      <set-property name="description"><![CDATA[Time for a little Parisienne]]></set-property>
+      <set-property name="quantityPurchased"><![CDATA[0]]></set-property>
+      <set-property name="displayName"><![CDATA[Paris Clock]]></set-property>
+      <set-property name="siteId"><![CDATA[storeSiteUS]]></set-property>
+      <set-property name="quantityDesired"><![CDATA[1]]></set-property>
+      <set-property name="catalogRefId"><![CDATA[xsku2032]]></set-property>
+      <set-property name="productId"><![CDATA[xprod2032]]></set-property>
+    </add-item>
+    <add-item id="xgi30025" item-descriptor="gift-item">
+      <set-property name="description"><![CDATA[Welcome door mat with soft rust fibers]]></set-property>
+      <set-property name="quantityPurchased"><![CDATA[0]]></set-property>
+      <set-property name="displayName"><![CDATA[Welcome Door Mat]]></set-property>
+      <set-property name="siteId"><![CDATA[homeSite]]></set-property>
+      <set-property name="quantityDesired"><![CDATA[1]]></set-property>
+      <set-property name="catalogRefId"><![CDATA[xsku2071]]></set-property>
+      <set-property name="productId"><![CDATA[xprod2071]]></set-property>
+    </add-item>
+    <add-item id="xgi30026" item-descriptor="gift-item">
+      <set-property name="description"><![CDATA[Pine wood 5-drawer dresser with metalshoe handles]]></set-property>
+      <set-property name="quantityPurchased"><![CDATA[0]]></set-property>
+      <set-property name="displayName"><![CDATA[Farmhouse Pine Dresser]]></set-property>
+      <set-property name="siteId"><![CDATA[homeSite]]></set-property>
+      <set-property name="quantityDesired"><![CDATA[1]]></set-property>
+      <set-property name="catalogRefId"><![CDATA[xsku2116_1]]></set-property>
+      <set-property name="productId"><![CDATA[xprod2116]]></set-property>
+    </add-item>
+    <add-item id="xgi30027" item-descriptor="gift-item">
+      <set-property name="description"><![CDATA[Locking chest for charming storage]]></set-property>
+      <set-property name="quantityPurchased"><![CDATA[0]]></set-property>
+      <set-property name="displayName"><![CDATA[Wood Lock Box]]></set-property>
+      <set-property name="siteId"><![CDATA[homeSite]]></set-property>
+      <set-property name="quantityDesired"><![CDATA[2]]></set-property>
+      <set-property name="catalogRefId"><![CDATA[xsku2138_4]]></set-property>
+      <set-property name="productId"><![CDATA[xprod2138]]></set-property>
+    </add-item>
+    
+    <!-- Add Stuart's birthday gift-list -->
+    <add-item id="xgl20004" item-descriptor="gift-list">
+      <set-property name="giftlistItems"><![CDATA[xgi30020,xgi30021,xgi30022,xgi30023,xgi30024,xgi30025,xgi30026,xgi30027]]></set-property>
+      <set-property name="description"><![CDATA[Upcoming birthday gifts.]]></set-property>
+      <set-property name="published"><![CDATA[true]]></set-property>
+      <set-property name="eventType"><![CDATA[Birthday]]></set-property>
+      <set-property name="eventName"><![CDATA[Birthday]]></set-property>
+      <set-property name="siteId"><![CDATA[storeSiteUS]]></set-property>
+      <set-property name="instructions"/>
+      <set-property name="creationDate"><![CDATA[4/26/2010 12:27:33]]></set-property>
+      <set-property name="public"><![CDATA[true]]></set-property>
+      <set-property name="eventDate"><![CDATA[12/8/2013 12:27:33]]></set-property>
+      <set-property name="lastModifiedDate"><![CDATA[4/26/2010 12:27:33]]></set-property>
+    </add-item>
+    
+    <!-- Add gift-items for Kim's wish-list -->
+    <add-item id="xgi10001" item-descriptor="gift-item">
+      <set-property name="description"><![CDATA[Formal repp ties in a variety of colors.]]></set-property>
+      <set-property name="quantityPurchased"><![CDATA[0]]></set-property>
+      <set-property name="displayName"><![CDATA[Dotted Repp Tie]]></set-property>
+      <set-property name="siteId"><![CDATA[storeSiteUS]]></set-property>
+      <set-property name="quantityDesired"><![CDATA[1]]></set-property>
+      <set-property name="catalogRefId"><![CDATA[xsku1003]]></set-property>
+      <set-property name="productId"><![CDATA[xprod1001]]></set-property>
+    </add-item>
+    <add-item id="xgi10002" item-descriptor="gift-item">
+      <set-property name="description"><![CDATA[Stylish universal leather belt.]]></set-property>
+      <set-property name="quantityPurchased"><![CDATA[0]]></set-property>
+      <set-property name="displayName"><![CDATA[Braided leather belt]]></set-property>
+      <set-property name="siteId"><![CDATA[storeSiteUS]]></set-property>
+      <set-property name="quantityDesired"><![CDATA[1]]></set-property>
+      <set-property name="catalogRefId"><![CDATA[xsku1026]]></set-property>
+      <set-property name="productId"><![CDATA[xprod1007]]></set-property>
+    </add-item>
+    <add-item id="xgi10003" item-descriptor="gift-item">
+      <set-property name="description"><![CDATA[Down Laptop Briefcase with Leather trim.]]></set-property>
+      <set-property name="quantityPurchased"><![CDATA[0]]></set-property>
+      <set-property name="displayName"><![CDATA[Laptop Briefcase]]></set-property>
+      <set-property name="siteId"><![CDATA[storeSiteUS]]></set-property>
+      <set-property name="quantityDesired"><![CDATA[1]]></set-property>
+      <set-property name="catalogRefId"><![CDATA[xsku1042]]></set-property>
+      <set-property name="productId"><![CDATA[xprod1014]]></set-property>
+    </add-item>
+    <add-item id="xgi10004" item-descriptor="gift-item">
+      <set-property name="description"><![CDATA[Italian leather Oxford.]]></set-property>
+      <set-property name="quantityPurchased"><![CDATA[0]]></set-property>
+      <set-property name="displayName"><![CDATA[Leather Oxford]]></set-property>
+      <set-property name="siteId"><![CDATA[storeSiteUS]]></set-property>
+      <set-property name="quantityDesired"><![CDATA[1]]></set-property>
+      <set-property name="catalogRefId"><![CDATA[xsku1244]]></set-property>
+      <set-property name="productId"><![CDATA[xprod1047]]></set-property>
+    </add-item>
+    <add-item id="xgi10005" item-descriptor="gift-item">
+      <set-property name="description"><![CDATA[Time for a little Parisienne]]></set-property>
+      <set-property name="quantityPurchased"><![CDATA[0]]></set-property>
+      <set-property name="displayName"><![CDATA[Paris Clock]]></set-property>
+      <set-property name="siteId"><![CDATA[storeSiteUS]]></set-property>
+      <set-property name="quantityDesired"><![CDATA[1]]></set-property>
+      <set-property name="catalogRefId"><![CDATA[xsku2032]]></set-property>
+      <set-property name="productId"><![CDATA[xprod2032]]></set-property>
+    </add-item>
+    <add-item id="xgi10006" item-descriptor="gift-item">
+      <set-property name="description"><![CDATA[Welcome door mat with soft rust fibers]]></set-property>
+      <set-property name="quantityPurchased"><![CDATA[0]]></set-property>
+      <set-property name="displayName"><![CDATA[Welcome Door Mat]]></set-property>
+      <set-property name="siteId"><![CDATA[homeSite]]></set-property>
+      <set-property name="quantityDesired"><![CDATA[1]]></set-property>
+      <set-property name="catalogRefId"><![CDATA[xsku2071]]></set-property>
+      <set-property name="productId"><![CDATA[xprod2071]]></set-property>
+    </add-item>
+    <add-item id="xgi10007" item-descriptor="gift-item">
+      <set-property name="description"><![CDATA[Pine wood 5-drawer dresser with metalshoe handles]]></set-property>
+      <set-property name="quantityPurchased"><![CDATA[0]]></set-property>
+      <set-property name="displayName"><![CDATA[Farmhouse Pine Dresser]]></set-property>
+      <set-property name="siteId"><![CDATA[homeSite]]></set-property>
+      <set-property name="quantityDesired"><![CDATA[1]]></set-property>
+      <set-property name="catalogRefId"><![CDATA[xsku2116]]></set-property>
+      <set-property name="productId"><![CDATA[xprod2116]]></set-property>
+    </add-item>
+    <add-item id="xgi10008" item-descriptor="gift-item">
+      <set-property name="description"><![CDATA[Locking chest for charming storage]]></set-property>
+      <set-property name="quantityPurchased"><![CDATA[0]]></set-property>
+      <set-property name="displayName"><![CDATA[Wood Lock Box]]></set-property>
+      <set-property name="siteId"><![CDATA[homeSite]]></set-property>
+      <set-property name="quantityDesired"><![CDATA[1]]></set-property>
+      <set-property name="catalogRefId"><![CDATA[xsku2138]]></set-property>
+      <set-property name="productId"><![CDATA[xprod2138]]></set-property>
+    </add-item>
+    
+    <!-- Add Kim's wish-list -->
+    <add-item id="xgl10002" item-descriptor="gift-list">
+      <set-property name="giftlistItems"><![CDATA[xgi10001,xgi10002,xgi10003,xgi10004,xgi10005,xgi10006,xgi10007,xgi10008]]></set-property>
+      <set-property name="creationDate"><![CDATA[11/11/2009 13:01:21]]></set-property>
+    </add-item>
+    
+    <!-- Add Kim's wedding gift-items -->
+    <add-item id="xgi30028" item-descriptor="gift-item">
+      <set-property name="description"><![CDATA[Traditional table with country kitchen style legs]]></set-property>
+      <set-property name="quantityPurchased"><![CDATA[0]]></set-property>
+      <set-property name="displayName"><![CDATA[Jersey Wood Table]]></set-property>
+      <set-property name="siteId"><![CDATA[homeSite]]></set-property>
+      <set-property name="quantityDesired"><![CDATA[1]]></set-property>
+      <set-property name="catalogRefId"><![CDATA[xsku2095_1]]></set-property>
+      <set-property name="productId"><![CDATA[xprod2095]]></set-property>
+    </add-item>
+    <add-item id="xgi30029" item-descriptor="gift-item">
+      <set-property name="description"><![CDATA[Fine crystal tumbler for highballs and other beverages]]></set-property>
+      <set-property name="quantityPurchased"><![CDATA[0]]></set-property>
+      <set-property name="displayName"><![CDATA[Jack and Jill Glass Tumbler]]></set-property>
+      <set-property name="siteId"><![CDATA[homeSite]]></set-property>
+      <set-property name="quantityDesired"><![CDATA[2]]></set-property>
+      <set-property name="catalogRefId"><![CDATA[xsku2074]]></set-property>
+      <set-property name="productId"><![CDATA[xprod2074]]></set-property>
+    </add-item>
+    <add-item id="xgi30030" item-descriptor="gift-item">
+      <set-property name="description"><![CDATA[Versatile and comfortable, the timeless chair.]]></set-property>
+      <set-property name="quantityPurchased"><![CDATA[0]]></set-property>
+      <set-property name="displayName"><![CDATA[Hubbard Chair]]></set-property>
+      <set-property name="siteId"><![CDATA[homeSite]]></set-property>
+      <set-property name="quantityDesired"><![CDATA[4]]></set-property>
+      <set-property name="catalogRefId"><![CDATA[xsku2126]]></set-property>
+      <set-property name="productId"><![CDATA[xprod2126]]></set-property>
+    </add-item>
+    <add-item id="xgi30031" item-descriptor="gift-item">
+      <set-property name="description"><![CDATA[Modern Leather Padded Chaise]]></set-property>
+      <set-property name="quantityPurchased"><![CDATA[0]]></set-property>
+      <set-property name="displayName"><![CDATA[Streamline Chaise]]></set-property>
+      <set-property name="siteId"><![CDATA[homeSite]]></set-property>
+      <set-property name="quantityDesired"><![CDATA[2]]></set-property>
+      <set-property name="catalogRefId"><![CDATA[xsku2101]]></set-property>
+      <set-property name="productId"><![CDATA[xprod2101]]></set-property>
+    </add-item>
+    <add-item id="xgi30032" item-descriptor="gift-item">
+      <set-property name="description"><![CDATA[Media storage, finely crafted in a sophisticated play of natural woods.]]></set-property>
+      <set-property name="quantityPurchased"><![CDATA[0]]></set-property>
+      <set-property name="displayName"><![CDATA[Itano Entertainment Center]]></set-property>
+      <set-property name="siteId"><![CDATA[homeSite]]></set-property>
+      <set-property name="quantityDesired"><![CDATA[1]]></set-property>
+      <set-property name="catalogRefId"><![CDATA[xsku2007_2]]></set-property>
+      <set-property name="productId"><![CDATA[xprod2007]]></set-property>
+    </add-item>
+    <add-item id="xgi30033" item-descriptor="gift-item">
+      <set-property name="description"><![CDATA[Pine wood 5-drawer dresser with metalshoe handles]]></set-property>
+      <set-property name="quantityPurchased"><![CDATA[0]]></set-property>
+      <set-property name="displayName"><![CDATA[Farmhouse Pine Dresser]]></set-property>
+      <set-property name="siteId"><![CDATA[homeSite]]></set-property>
+      <set-property name="quantityDesired"><![CDATA[1]]></set-property>
+      <set-property name="catalogRefId"><![CDATA[xsku2116_1]]></set-property>
+      <set-property name="productId"><![CDATA[xprod2116]]></set-property>
+    </add-item>
+    <add-item id="xgi30034" item-descriptor="gift-item">
+      <set-property name="description"><![CDATA[Cherry buffet-hutch china cabinet]]></set-property>
+      <set-property name="quantityPurchased"><![CDATA[0]]></set-property>
+      <set-property name="displayName"><![CDATA[Cherrywood China Cabinet]]></set-property>
+      <set-property name="siteId"><![CDATA[homeSite]]></set-property>
+      <set-property name="quantityDesired"><![CDATA[1]]></set-property>
+      <set-property name="catalogRefId"><![CDATA[xsku2096_1]]></set-property>
+      <set-property name="productId"><![CDATA[xprod2096]]></set-property>
+    </add-item>
+    <add-item id="xgi30035" item-descriptor="gift-item">
+      <set-property name="description"><![CDATA[Store and display your favorite dining accessories]]></set-property>
+      <set-property name="quantityPurchased"><![CDATA[0]]></set-property>
+      <set-property name="displayName"><![CDATA[Valencia Oak Sideboard]]></set-property>
+      <set-property name="siteId"><![CDATA[homeSite]]></set-property>
+      <set-property name="quantityDesired"><![CDATA[1]]></set-property>
+      <set-property name="catalogRefId"><![CDATA[xsku2128_2]]></set-property>
+      <set-property name="productId"><![CDATA[xprod2128]]></set-property>
+    </add-item>
+    <add-item id="xgi30036" item-descriptor="gift-item">
+      <set-property name="description"><![CDATA[This handsome clock is inspired by the classic "School Days" style of wall clock.]]></set-property>
+      <set-property name="quantityPurchased"><![CDATA[0]]></set-property>
+      <set-property name="displayName"><![CDATA[Elliot Classic Wall Clock]]></set-property>
+      <set-property name="siteId"><![CDATA[storeSiteUS]]></set-property>
+      <set-property name="quantityDesired"><![CDATA[1]]></set-property>
+      <set-property name="catalogRefId"><![CDATA[xsku2005]]></set-property>
+      <set-property name="productId"><![CDATA[xprod2005]]></set-property>
+    </add-item>
+    <add-item id="xgi30037" item-descriptor="gift-item">
+      <set-property name="description"><![CDATA[This is a fun lamp, 'not a real fishbowl']]></set-property>
+      <set-property name="quantityPurchased"><![CDATA[0]]></set-property>
+      <set-property name="displayName"><![CDATA[Something's Fishy Lamp]]></set-property>
+      <set-property name="siteId"><![CDATA[storeSiteUS]]></set-property>
+      <set-property name="quantityDesired"><![CDATA[1]]></set-property>
+      <set-property name="catalogRefId"><![CDATA[xsku2051]]></set-property>
+      <set-property name="productId"><![CDATA[xprod2051]]></set-property>
+    </add-item>
+    
+    <!--  Add Kim's wedding gift-list -->
+    <add-item id="xgl20006" item-descriptor="gift-list">
+      <set-property name="giftlistItems"><![CDATA[xgi30028,xgi30029,xgi30030,xgi30031,xgi30032,xgi30033,xgi30034,xgi30035,xgi30036,xgi30037]]></set-property>
+      <set-property name="description"><![CDATA[Upcoming wedding gifts.]]></set-property>
+      <set-property name="published"><![CDATA[true]]></set-property>
+      <set-property name="eventType"><![CDATA[Wedding]]></set-property>
+      <set-property name="eventName"><![CDATA[Wedding]]></set-property>
+      <set-property name="siteId"><![CDATA[homeSite]]></set-property>
+      <set-property name="instructions"/>
+      <set-property name="creationDate"><![CDATA[4/26/2010 12:34:32]]></set-property>
+      <set-property name="public"><![CDATA[true]]></set-property>
+      <set-property name="eventDate"><![CDATA[8/20/2011 12:34:32]]></set-property>
+      <set-property name="lastModifiedDate"><![CDATA[4/26/2010 12:34:32]]></set-property>
+    </add-item>
+
+    <add-item item-descriptor="gift-list" id="xgl10003">
+      <set-property name="creationDate"><![CDATA[10/31/2011 11:57:25]]></set-property>
+    </add-item>
+    
+    <add-item item-descriptor="gift-list" id="xgl10004">
+      <set-property name="creationDate"><![CDATA[10/31/2011 11:57:25]]></set-property>
+    </add-item>
+    
+    <add-item item-descriptor="gift-list" id="xgl10005">
+      <set-property name="creationDate"><![CDATA[10/31/2011 11:57:25]]></set-property>
+    </add-item>
+    
+    <add-item item-descriptor="gift-list" id="xgl10006">
+      <set-property name="creationDate"><![CDATA[10/31/2011 11:57:25]]></set-property>
+    </add-item>
+    
+    <add-item item-descriptor="gift-list" id="xgl10007">
+      <set-property name="creationDate"><![CDATA[10/31/2011 11:57:25]]></set-property>
+    </add-item>
+    
+    <add-item item-descriptor="gift-list" id="xgl10008">
+      <set-property name="creationDate"><![CDATA[10/31/2011 11:57:25]]></set-property>
+    </add-item>
+
+    <add-item item-descriptor="gift-list" id="xgl10009">
+      <set-property name="creationDate"><![CDATA[10/31/2011 11:57:25]]></set-property>
+    </add-item>
+
+    <add-item item-descriptor="gift-list" id="xgl10010">
+      <set-property name="creationDate"><![CDATA[10/31/2011 11:57:25]]></set-property>
+    </add-item>
+    
+    <add-item item-descriptor="gift-list" id="xgl10011">
+      <set-property name="creationDate"><![CDATA[10/31/2011 11:57:25]]></set-property>
+    </add-item>
+    
+    <add-item item-descriptor="gift-list" id="xgl10012">
+      <set-property name="creationDate"><![CDATA[10/31/2011 11:57:25]]></set-property>
+    </add-item>
+    
+    <add-item item-descriptor="gift-list" id="xgl10013">
+      <set-property name="creationDate"><![CDATA[10/31/2011 11:57:25]]></set-property>
+    </add-item>
+    
+    <add-item item-descriptor="gift-list" id="xgl10014">
+      <set-property name="creationDate"><![CDATA[10/31/2011 11:57:25]]></set-property>
+    </add-item>
+
+    <add-item item-descriptor="gift-list" id="xgl10015">
+      <set-property name="creationDate"><![CDATA[10/31/2011 11:57:25]]></set-property>
+    </add-item>
+
+    <add-item item-descriptor="gift-list" id="xgl10016">
+      <set-property name="creationDate"><![CDATA[10/31/2011 11:57:25]]></set-property>
+    </add-item>
+    
+    <add-item item-descriptor="gift-list" id="xgl10017">
+      <set-property name="creationDate"><![CDATA[10/31/2011 11:57:25]]></set-property>
+    </add-item>
+    
+    <add-item item-descriptor="gift-list" id="xgl10018">
+      <set-property name="creationDate"><![CDATA[10/31/2011 11:57:25]]></set-property>
+    </add-item>
+    
+    <add-item item-descriptor="gift-list" id="xgl10019">
+      <set-property name="creationDate"><![CDATA[10/31/2011 11:57:25]]></set-property>
+    </add-item>
+    
+    <add-item item-descriptor="gift-list" id="xgl10020">
+      <set-property name="creationDate"><![CDATA[10/31/2011 11:57:25]]></set-property>
+    </add-item>
+    
+     <add-item item-descriptor="gift-list" id="xgl10021">
+      <set-property name="creationDate"><![CDATA[10/31/2011 11:57:25]]></set-property>
+    </add-item>
+    
+    <add-item item-descriptor="gift-list" id="xgl10022">
+      <set-property name="creationDate"><![CDATA[10/31/2011 11:57:25]]></set-property>
+    </add-item>
+  </import-items>
+</gsa-template><!-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.1.1/Storefront/data/wishlists.xml#1 $$Change: 690623 $-->

@@ -25,6 +25,12 @@
   <set-property name="name"><![CDATA[AssetManager.reviewSuggest]]></set-property>
 </add-item>
 
+<add-item item-descriptor="mapMode" id="AmMmQuickEdit">
+  <set-property name="name"><![CDATA[AssetManager.quickedit]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager quickedit mode]]></set-property>
+  <set-property name="fallbackMode"><![CDATA[AmMmDef]]></set-property>
+</add-item>
+
 <!-- Default formHandler -->
 
 <add-item item-descriptor="formHandler" id="AmFhDef">
@@ -257,7 +263,7 @@
   <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.DefaultEditor]]></set-property>
   <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
   <set-property name="isDefault"><![CDATA[true]]></set-property>
-  <set-property name="attributes"><![CDATA[inputFieldMaxlength=AmPvadFloatInputFieldMaxLength,allowedChars=AmPvadFloatAllowedChars]]></set-property>
+  <set-property name="attributes"><![CDATA[inputFieldMaxlength=AmPvadFloatInputFieldMaxLength,allowedChars=AmPvadFloatAllowedChars,useDecimalSeparator=AmPvadFloatUseDecSep]]></set-property>
 </add-item>
 
 <add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadFloatInputFieldMaxLength">
@@ -271,8 +277,39 @@
 </add-item>
 
 <add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadFloatAllowedChars">
-  <set-property name="defaultValue"><![CDATA[0-9+\-.eEfF]]></set-property>
+  <set-property name="defaultValue"><![CDATA[0-9+\-eEfF]]></set-property>
   <set-property name="description"><![CDATA[Characters allowed in the input field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadFloatUseDecSep">
+  <set-property name="defaultValue"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Controls use of a decimal separator in the input field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="AmPvDouble">
+  <set-property name="name"><![CDATA[AssetManager double propertyView]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager double propertyView]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[double]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.DefaultEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="attributes"><![CDATA[inputFieldMaxlength=AmPvadDoubleInputFieldMaxLength,allowedChars=AmPvadDoubleAllowedChars,useDecimalSeparator=AmPvadDoubleUseDecSep]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadDoubleInputFieldMaxLength">
+  <set-property name="defaultValue"><![CDATA[254]]></set-property>
+  <set-property name="description"><![CDATA[Max number of characters in the input field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadDoubleAllowedChars">
+  <set-property name="defaultValue"><![CDATA[0-9+\-eEfF]]></set-property>
+  <set-property name="description"><![CDATA[Characters allowed in the input field]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadDoubleUseDecSep">
+  <set-property name="defaultValue"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[Controls use of a decimal separator in the input field]]></set-property>
 </add-item>
 
 <add-item item-descriptor="propertyView" id="AmPvBool">
@@ -433,22 +470,42 @@
   <set-property name="description"><![CDATA[Max height of the big text editor in pixels]]></set-property>
 </add-item>
 
-<add-item item-descriptor="propertyView" id="AmPvRepositoryItem">
-  <set-property name="name"><![CDATA[AssetManager repository item propertyView]]></set-property>
-  <set-property name="description"><![CDATA[AssetManager repository item propertyView]]></set-property>
-  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
-  <set-property name="type"><![CDATA[Repository Item]]></set-property>
-  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.RepositoryItemEditor]]></set-property>
-  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
-  <set-property name="isDefault"><![CDATA[true]]></set-property>
-</add-item>
-
 <add-item item-descriptor="propertyView" id="AmPvBinary">
   <set-property name="name"><![CDATA[AssetManager binary propertyView]]></set-property>
   <set-property name="description"><![CDATA[AssetManager binary propertyView]]></set-property>
   <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
   <set-property name="type"><![CDATA[binary]]></set-property>
   <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.ImageUploadEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="AmPvDBinary">
+  <set-property name="name"><![CDATA[AssetManager binary propertyView in diff mode]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager binary propertyView in diff mode]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDiff]]></set-property>
+  <set-property name="type"><![CDATA[binary]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.diff.view.property.ImageViewer]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="AmPvCBinary">
+  <set-property name="name"><![CDATA[AssetManager binary propertyView in conflict mode]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager binary propertyView in conflict mode]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmConflict]]></set-property>
+  <set-property name="type"><![CDATA[binary]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.diff.view.property.ImageViewer]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="AmPvRepositoryItem">
+  <set-property name="name"><![CDATA[AssetManager repository item propertyView]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager repository item propertyView]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[Repository Item]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.RepositoryItemEditor]]></set-property>
   <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
   <set-property name="isDefault"><![CDATA[true]]></set-property>
 </add-item>
@@ -626,7 +683,7 @@
   <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.collection.PrimitiveCollectionEditor]]></set-property>
   <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
   <set-property name="isDefault"><![CDATA[true]]></set-property>
-  <set-property name="attributes"><![CDATA[useColumnHeaders=AmPvadPrimListColumnHeaders,addItemsToTop=AmPvadPrimListAddToTop]]></set-property>
+  <set-property name="attributes"><![CDATA[useColumnHeaders=AmPvadPrimListColumnHeaders,addItemsToTop=AmPvadPrimListAddToTop,valueInputFieldMaxChars=AmPvadPrimListValueMaxChars]]></set-property>
   <set-property name="containerFamily"><![CDATA[CollectionEditor]]></set-property>
 </add-item>
 
@@ -638,6 +695,11 @@
 <add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadPrimListAddToTop">
   <set-property name="defaultValue"><![CDATA[false]]></set-property>
   <set-property name="description"><![CDATA[Indicates whether new values are added to the top]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadPrimListValueMaxChars">
+  <set-property name="defaultValue"><![CDATA[254]]></set-property>
+  <set-property name="description"><![CDATA[Max number of input characters for a value field]]></set-property>
 </add-item>
 
 <add-item item-descriptor="propertyView" id="AmPvRefArray">
@@ -671,7 +733,7 @@
   <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.collection.PrimitiveCollectionEditor]]></set-property>
   <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
   <set-property name="isDefault"><![CDATA[true]]></set-property>
-  <set-property name="attributes"><![CDATA[useColumnHeaders=AmPvadPrimArrayColumnHeaders,addItemsToTop=AmPvadPrimArrayAddToTop]]></set-property>
+  <set-property name="attributes"><![CDATA[useColumnHeaders=AmPvadPrimArrayColumnHeaders,addItemsToTop=AmPvadPrimArrayAddToTop,valueInputFieldMaxChars=AmPvadPrimArrayValueMaxChars]]></set-property>
   <set-property name="containerFamily"><![CDATA[CollectionEditor]]></set-property>
 </add-item>
 
@@ -683,6 +745,11 @@
 <add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadPrimArrayAddToTop">
   <set-property name="defaultValue"><![CDATA[false]]></set-property>
   <set-property name="description"><![CDATA[Indicates whether new values are added to the top]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadPrimArrayValueMaxChars">
+  <set-property name="defaultValue"><![CDATA[254]]></set-property>
+  <set-property name="description"><![CDATA[Max number of input characters for a value field]]></set-property>
 </add-item>
 
 <add-item item-descriptor="propertyView" id="AmPvRefSet">
@@ -721,7 +788,7 @@
   <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.collection.PrimitiveCollectionEditor]]></set-property>
   <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
   <set-property name="isDefault"><![CDATA[true]]></set-property>
-  <set-property name="attributes"><![CDATA[useColumnHeaders=AmPvadPrimSetColumnHeaders,addItemsToTop=AmPvadPrimSetAddToTop]]></set-property>
+  <set-property name="attributes"><![CDATA[useColumnHeaders=AmPvadPrimSetColumnHeaders,addItemsToTop=AmPvadPrimSetAddToTop,valueInputFieldMaxChars=AmPvadPrimSetValueMaxChars]]></set-property>
   <set-property name="containerFamily"><![CDATA[CollectionEditor]]></set-property>
 </add-item>
 
@@ -733,6 +800,11 @@
 <add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadPrimSetAddToTop">
   <set-property name="defaultValue"><![CDATA[false]]></set-property>
   <set-property name="description"><![CDATA[Indicates whether new values are added to the top]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadPrimSetValueMaxChars">
+  <set-property name="defaultValue"><![CDATA[254]]></set-property>
+  <set-property name="description"><![CDATA[Max number of input characters for a value field]]></set-property>
 </add-item>
 
 <add-item item-descriptor="propertyView" id="AmPvStrEnumSet">
@@ -778,7 +850,7 @@
   <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.collection.PrimitiveCollectionEditor]]></set-property>
   <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
   <set-property name="isDefault"><![CDATA[true]]></set-property>
-  <set-property name="attributes"><![CDATA[useColumnHeaders=AmPvadPrimMapColumnHeaders,addItemsToTop=AmPvadPrimMapAddToTop]]></set-property>
+  <set-property name="attributes"><![CDATA[useColumnHeaders=AmPvadPrimMapColumnHeaders,addItemsToTop=AmPvadPrimMapAddToTop,valueInputFieldMaxChars=AmPvadPrimMapValueMaxChars]]></set-property>
   <set-property name="containerFamily"><![CDATA[CollectionEditor]]></set-property>
 </add-item>
 
@@ -790,6 +862,11 @@
 <add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadPrimMapAddToTop">
   <set-property name="defaultValue"><![CDATA[false]]></set-property>
   <set-property name="description"><![CDATA[Indicates whether new entries are added to the top]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="AmPvadPrimMapValueMaxChars">
+  <set-property name="defaultValue"><![CDATA[254]]></set-property>
+  <set-property name="description"><![CDATA[Max number of input characters for a value field]]></set-property>
 </add-item>
 
 <!-- Content Group Path mappings -->
@@ -816,4 +893,4 @@
 </import-items>
 
 </gsa-template>
-<!-- @version $Id: //product/BCC/version/10.0.2/src/install/data/viewmapping.xml#2 $$Change: 635969 $ -->
+<!-- @version $Id: //product/BCC/version/10.1.1/src/install/data/viewmapping.xml#1 $$Change: 690623 $ -->

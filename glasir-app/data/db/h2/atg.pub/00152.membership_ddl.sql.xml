@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+  <changeSet id="00152.membership_ddl.sql.xml" author="glasir" context="all">
+    <preConditions>
+      <not>
+        <tableExists tableName="bogus_precondition_table_name" />
+      </not>
+    </preConditions>
+    <sql><![CDATA[
+
+
+--  @version $Id: //app/portal/version/10.1.1/paf/sql/membership_ddl.xml#1 $$Change: 690623 $
+
+create table mem_membership_req (
+	id	varchar2(40)	not null,
+	internal_version	number(10)	default 0 not null,
+	user_id	varchar2(40)	not null,
+	community_id	varchar2(40)	not null,
+	request_type	number(1,0)	not null,
+	creation_date	timestamp	not null
+,constraint mem_membershiprq_p primary key (id)
+,constraint mem_membershiprq_c check (request_type in (0,1)));
+]]>
+  </sql>
+    <rollback />
+  </changeSet>
+</databaseChangeLog>

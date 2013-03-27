@@ -1,0 +1,1667 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gsa-template SYSTEM "dynamosystemresource:/atg/dtds/gsa/gsa_1.0.dtd">
+<gsa-template>
+  <import-items>
+  
+    <!-- items of type promotionStatus -->
+    
+    
+    <add-item id="xpst10030" item-descriptor="promotionStatus">
+      <set-property name="profileId"><![CDATA[se-570030]]></set-property>
+      <set-property name="numUses"><![CDATA[-1]]></set-property>
+      <set-property name="promotion"><![CDATA[se-promo230003]]></set-property>
+    </add-item>
+    
+    <add-item id="xpst10031" item-descriptor="promotionStatus">
+      <set-property name="profileId"><![CDATA[se-570031]]></set-property>
+      <set-property name="numUses"><![CDATA[-1]]></set-property>
+      <set-property name="promotion"><![CDATA[se-promo230003]]></set-property>
+    </add-item>
+    
+    <add-item id="xpst10032" item-descriptor="promotionStatus">
+      <set-property name="profileId"><![CDATA[se-570031]]></set-property>
+      <set-property name="numUses"><![CDATA[-1]]></set-property>
+      <set-property name="promotion"><![CDATA[se-promo240001]]></set-property>
+    </add-item>
+    
+    <add-item id="xpst10033" item-descriptor="promotionStatus">
+      <set-property name="profileId"><![CDATA[se-570065]]></set-property>
+      <set-property name="numUses"><![CDATA[-1]]></set-property>
+      <set-property name="promotion"><![CDATA[se-promo240001]]></set-property>
+    </add-item>
+    
+    <add-item id="xpst10034" item-descriptor="promotionStatus">
+      <set-property name="profileId"><![CDATA[se-570075]]></set-property>
+      <set-property name="numUses"><![CDATA[-1]]></set-property>
+      <set-property name="promotion"><![CDATA[se-promo240001]]></set-property>
+    </add-item>
+    
+    <add-item id="xpst10035" item-descriptor="promotionStatus">
+      <set-property name="profileId"><![CDATA[se-570035]]></set-property>
+      <set-property name="numUses"><![CDATA[-1]]></set-property>
+      <set-property name="promotion"><![CDATA[se-promo230003]]></set-property>
+    </add-item>
+    <add-item id="xpst10036" item-descriptor="promotionStatus">
+      <set-property name="profileId"><![CDATA[se-570040]]></set-property>
+      <set-property name="numUses"><![CDATA[-1]]></set-property>
+      <set-property name="promotion"><![CDATA[se-promo230003]]></set-property>
+    </add-item>
+    <add-item id="xpst10037" item-descriptor="promotionStatus">
+      <set-property name="profileId"><![CDATA[se-570045]]></set-property>
+      <set-property name="numUses"><![CDATA[-1]]></set-property>
+      <set-property name="promotion"><![CDATA[se-promo230003]]></set-property>
+    </add-item>
+    <add-item id="xpst10038" item-descriptor="promotionStatus">
+      <set-property name="profileId"><![CDATA[se-570050]]></set-property>
+      <set-property name="numUses"><![CDATA[-1]]></set-property>
+      <set-property name="promotion"><![CDATA[se-promo230003]]></set-property>
+    </add-item>
+    <add-item id="xpst10039" item-descriptor="promotionStatus">
+      <set-property name="profileId"><![CDATA[se-570055]]></set-property>
+      <set-property name="numUses"><![CDATA[-1]]></set-property>
+      <set-property name="promotion"><![CDATA[se-promo230003]]></set-property>
+    </add-item>
+    <add-item id="xpst10040" item-descriptor="promotionStatus">
+      <set-property name="profileId"><![CDATA[se-570056]]></set-property>
+      <set-property name="numUses"><![CDATA[-1]]></set-property>
+      <set-property name="promotion"><![CDATA[se-promo230003]]></set-property>
+    </add-item>
+    <add-item id="xpst10041" item-descriptor="promotionStatus">
+      <set-property name="profileId"><![CDATA[se-570060]]></set-property>
+      <set-property name="numUses"><![CDATA[-1]]></set-property>
+      <set-property name="promotion"><![CDATA[se-promo230003]]></set-property>
+    </add-item>
+    <add-item id="xpst10042" item-descriptor="promotionStatus">
+      <set-property name="profileId"><![CDATA[se-570065]]></set-property>
+      <set-property name="numUses"><![CDATA[-1]]></set-property>
+      <set-property name="promotion"><![CDATA[se-promo230003]]></set-property>
+    </add-item>
+    <add-item id="xpst10043" item-descriptor="promotionStatus">
+      <set-property name="profileId"><![CDATA[se-570070]]></set-property>
+      <set-property name="numUses"><![CDATA[-1]]></set-property>
+      <set-property name="promotion"><![CDATA[se-promo230003]]></set-property>
+    </add-item>
+    <add-item id="xpst10044" item-descriptor="promotionStatus">
+      <set-property name="profileId"><![CDATA[se-570075]]></set-property>
+      <set-property name="numUses"><![CDATA[-1]]></set-property>
+      <set-property name="promotion"><![CDATA[se-promo230003]]></set-property>
+    </add-item>
+    <add-item id="xpst10045" item-descriptor="promotionStatus">
+      <set-property name="profileId"><![CDATA[se-570080]]></set-property>
+      <set-property name="numUses"><![CDATA[-1]]></set-property>
+      <set-property name="promotion"><![CDATA[se-promo230003]]></set-property>
+    </add-item>
+    <add-item id="xpst10046" item-descriptor="promotionStatus">
+      <set-property name="profileId"><![CDATA[se-570085]]></set-property>
+      <set-property name="numUses"><![CDATA[-1]]></set-property>
+      <set-property name="promotion"><![CDATA[se-promo230003]]></set-property>
+    </add-item>
+    <add-item id="xpst10047" item-descriptor="promotionStatus">
+      <set-property name="profileId"><![CDATA[se-570090]]></set-property>
+      <set-property name="numUses"><![CDATA[-1]]></set-property>
+      <set-property name="promotion"><![CDATA[se-promo230003]]></set-property>
+    </add-item>
+    <add-item id="xpst10048" item-descriptor="promotionStatus">
+      <set-property name="profileId"><![CDATA[se-570095]]></set-property>
+      <set-property name="numUses"><![CDATA[-1]]></set-property>
+      <set-property name="promotion"><![CDATA[se-promo230003]]></set-property>
+    </add-item>
+    <add-item id="xpst10049" item-descriptor="promotionStatus">
+      <set-property name="profileId"><![CDATA[se-570100]]></set-property>
+      <set-property name="numUses"><![CDATA[-1]]></set-property>
+      <set-property name="promotion"><![CDATA[se-promo230003]]></set-property>
+    </add-item>
+    <add-item id="xpst10050" item-descriptor="promotionStatus">
+      <set-property name="profileId"><![CDATA[se-570105]]></set-property>
+      <set-property name="numUses"><![CDATA[-1]]></set-property>
+      <set-property name="promotion"><![CDATA[se-promo230003]]></set-property>
+    </add-item>
+    <add-item id="xpst10051" item-descriptor="promotionStatus">
+      <set-property name="profileId"><![CDATA[se-570110]]></set-property>
+      <set-property name="numUses"><![CDATA[-1]]></set-property>
+      <set-property name="promotion"><![CDATA[se-promo230003]]></set-property>
+    </add-item>
+    <add-item id="xpst10052" item-descriptor="promotionStatus">
+      <set-property name="profileId"><![CDATA[se-570115]]></set-property>
+      <set-property name="numUses"><![CDATA[-1]]></set-property>
+      <set-property name="promotion"><![CDATA[se-promo230003]]></set-property>
+    </add-item>
+    <add-item id="xpst10053" item-descriptor="promotionStatus">
+      <set-property name="profileId"><![CDATA[se-570125]]></set-property>
+      <set-property name="numUses"><![CDATA[-1]]></set-property>
+      <set-property name="promotion"><![CDATA[se-promo230003]]></set-property>
+    </add-item>
+    <add-item id="xpst10054" item-descriptor="promotionStatus">
+      <set-property name="profileId"><![CDATA[se-570120]]></set-property>
+      <set-property name="numUses"><![CDATA[-1]]></set-property>
+      <set-property name="promotion"><![CDATA[se-promo230003]]></set-property>
+    </add-item>
+
+    <!-- Stuart Schmidt -->
+    
+    <add-item id="se-140011" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-1234]]></set-property>
+      <set-property name="postalCode"><![CDATA[03431]]></set-property>
+      <set-property name="city"><![CDATA[Keene]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="lastName"><![CDATA[Schmidt]]></set-property>
+      <set-property name="state"><![CDATA[NH]]></set-property>
+      <set-property name="address2"/>
+      <set-property name="address1"><![CDATA[12 Woodside Ave]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570030]]></set-property>
+      <set-property name="firstName"><![CDATA[Andreas]]></set-property>
+    </add-item>
+    
+    <add-item id="se-990030" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-1563]]></set-property>
+      <set-property name="firstName"><![CDATA[Stuart]]></set-property>
+      <set-property name="city"><![CDATA[Portsmouth]]></set-property>
+      <set-property name="postalCode"><![CDATA[03801]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[NH]]></set-property>
+      <set-property name="address2"/>
+      <set-property name="address1"><![CDATA[105 Lake St]]></set-property>
+      <set-property name="lastName"><![CDATA[Schmidt]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570030]]></set-property>
+    </add-item>
+
+    <add-item id="se-usercc110030" item-descriptor="credit-card">
+      <set-property name="expirationMonth"><![CDATA[1]]></set-property>
+      <set-property name="billingAddress"><![CDATA[se-990030]]></set-property>
+      <set-property name="creditCardType"><![CDATA[Visa]]></set-property>
+      <set-property name="expirationYear"><![CDATA[2017]]></set-property>
+      <set-property name="creditCardNumber"><![CDATA[4539082039396288]]></set-property>
+    </add-item>
+
+    
+    <add-item id="se-980030" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-6341]]></set-property>
+      <set-property name="firstName"><![CDATA[Stuart]]></set-property>
+      <set-property name="city"><![CDATA[Exeter]]></set-property>
+      <set-property name="postalCode"><![CDATA[03833]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[NH]]></set-property>
+      <set-property name="address2"/>
+      <set-property name="address1"><![CDATA[457 Main St]]></set-property>
+      <set-property name="lastName"><![CDATA[Schmidt]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570030]]></set-property>
+    </add-item>
+    
+    <add-item id="se-970030" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-1563]]></set-property>
+      <set-property name="firstName"><![CDATA[Stuart]]></set-property>
+      <set-property name="city"><![CDATA[Portsmouth]]></set-property>
+      <set-property name="postalCode"><![CDATA[03801]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[NH]]></set-property>
+      <set-property name="address2"/>
+      <set-property name="address1"><![CDATA[105 Lake St]]></set-property>
+      <set-property name="lastName"><![CDATA[Schmidt]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570030]]></set-property>
+    </add-item>
+    
+    <add-item id="se-960030" item-descriptor="contactInfo">  
+      <set-property name="postalCode"><![CDATA[03801]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570030]]></set-property>
+    </add-item>
+    
+     <add-item id="se-570030" item-descriptor="user">
+      <set-property name="secondaryAddresses"><![CDATA[Home=se-980030]]>,<![CDATA[Work=se-970030]]>,<![CDATA[Father's home=se-140011]]></set-property>
+      <set-property name="defaultCreditCard"><![CDATA[se-usercc110030]]></set-property>
+      <set-property name="firstName"><![CDATA[Stuart]]></set-property>
+      <set-property name="activePromotions"><![CDATA[xpst10030]]></set-property>
+      <set-property name="referralSource"><![CDATA[unknown]]></set-property>
+      <set-property name="gender"><![CDATA[male]]></set-property>
+      <set-property name="dateOfBirth"><![CDATA[1/3/1977]]></set-property>  
+      <set-property name="homeAddress"><![CDATA[se-960030]]></set-property>
+      <set-property name="locale"><![CDATA[en_US]]></set-property>
+      <set-property name="creditCards"><![CDATA[Visa=se-usercc110030]]></set-property>
+      <set-property name="lastName"><![CDATA[Schmidt]]></set-property>
+      <set-property name="description"/>
+      <set-property name="email"><![CDATA[stuart@example.com]]></set-property>
+      <set-property name="billingAddress"><![CDATA[se-990030]]></set-property>
+      <set-property name="password"><![CDATA[d6cf9b633a43e4a8db7a0f7d7e33874ec5fb2aa34dde8860a1fee9903c6b5200]]></set-property>
+      <set-property name="passwordSalt"><![CDATA[stuart@example.com]]></set-property>  
+      <set-property name="defaultCarrier"><![CDATA[Ground]]></set-property>
+      <set-property name="login"><![CDATA[stuart@example.com]]></set-property>  
+      <set-property name="shippingAddress"><![CDATA[se-980030]]></set-property>
+      <set-property name="wishlist"><![CDATA[xgl10001]]></set-property>
+      <set-property name="giftlists"><![CDATA[xgl20004]]></set-property>
+    </add-item>
+
+    <!-- Update Stuart's gift list's owner -->
+    <add-item id="xgl20004" item-descriptor="gift-list" repository="/atg/commerce/gifts/Giftlists">
+      <set-property name="owner"><![CDATA[se-570030]]></set-property>
+      <set-property name="shippingAddress"><![CDATA[se-980030]]></set-property>
+    </add-item>
+    
+    <!-- Kim Anderson -->
+    
+    <add-item id="se-140010" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-4321]]></set-property>
+      <set-property name="postalCode"><![CDATA[13214]]></set-property>
+      <set-property name="city"><![CDATA[Dewitt]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="lastName"><![CDATA[Anderson]]></set-property>
+      <set-property name="state"><![CDATA[NY]]></set-property>
+      <set-property name="address1"><![CDATA[41 Wexford Rd ]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570031]]></set-property>
+      <set-property name="firstName"><![CDATA[Dolores]]></set-property>
+    </add-item>
+    
+    <add-item id="se-990031" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-2150]]></set-property>
+      <set-property name="firstName"><![CDATA[Kim]]></set-property>
+      <set-property name="city"><![CDATA[Buffalo]]></set-property>
+      <set-property name="postalCode"><![CDATA[14201]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[NY]]></set-property>
+      <set-property name="address2"/>
+      <set-property name="address1"><![CDATA[451 Brooks Ave]]></set-property>
+      <set-property name="lastName"><![CDATA[Anderson]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570031]]></set-property>
+    </add-item>
+
+    <add-item id="se-usercc110031" item-descriptor="credit-card">
+      <set-property name="expirationMonth"><![CDATA[1]]></set-property>
+      <set-property name="billingAddress"><![CDATA[se-990031]]></set-property>
+      <set-property name="creditCardType"><![CDATA[Visa]]></set-property>
+      <set-property name="expirationYear"><![CDATA[2017]]></set-property>
+      <set-property name="creditCardNumber"><![CDATA[4539082039396288]]></set-property>
+    </add-item>
+
+    
+    <add-item id="se-980031" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-1977]]></set-property>
+      <set-property name="firstName"><![CDATA[Kim]]></set-property>
+      <set-property name="city"><![CDATA[Syracuse]]></set-property>
+      <set-property name="postalCode"><![CDATA[13202]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[NY]]></set-property>
+      <set-property name="address2"/>
+      <set-property name="address1"><![CDATA[21 Cedar Ave]]></set-property>
+      <set-property name="lastName"><![CDATA[Anderson]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570031]]></set-property>
+    </add-item>
+    
+    <add-item id="se-970031" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-2150]]></set-property>
+      <set-property name="firstName"><![CDATA[Kim]]></set-property>
+      <set-property name="city"><![CDATA[Buffalo]]></set-property>
+      <set-property name="postalCode"><![CDATA[14201]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[NY]]></set-property>
+      <set-property name="address2"/>
+      <set-property name="address1"><![CDATA[451 Brooks Ave]]></set-property>
+      <set-property name="lastName"><![CDATA[Anderson]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570031]]></set-property>
+    </add-item>
+    
+    <add-item id="se-960031" item-descriptor="contactInfo">
+      <set-property name="postalCode"><![CDATA[14201]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570031]]></set-property>
+    </add-item>
+    
+    <add-item id="se-570031" item-descriptor="user">
+      <set-property name="secondaryAddresses"><![CDATA[Home=se-980031]]>,<![CDATA[Work=se-970031]]>,<![CDATA[Mom' s house=se-140010]]></set-property>
+      <set-property name="defaultCreditCard"><![CDATA[se-usercc110031]]></set-property>
+      <set-property name="firstName"><![CDATA[Kim]]></set-property>
+      <set-property name="activePromotions"><![CDATA[xpst10031,xpst10032]]></set-property>
+      <set-property name="referralSource"><![CDATA[unknown]]></set-property>
+      <set-property name="gender"><![CDATA[female]]></set-property>
+      <set-property name="dateOfBirth"><![CDATA[2/3/1979]]></set-property>  
+      <set-property name="homeAddress"><![CDATA[se-960031]]></set-property>
+      <set-property name="locale"><![CDATA[en_US]]></set-property>
+      <set-property name="creditCards"><![CDATA[Visa=se-usercc110031]]></set-property>
+      <set-property name="lastName"><![CDATA[Anderson]]></set-property>
+      <set-property name="description"><![CDATA[FASHIONISTA]]></set-property>
+      <set-property name="email"><![CDATA[kim@example.com]]></set-property>
+      <set-property name="billingAddress"><![CDATA[se-990031]]></set-property>
+      <set-property name="password"><![CDATA[83c80c322c32888404c4d6eef2c54c9bdb260c739927593ace580677e9248478]]></set-property>
+      <set-property name="passwordSalt"><![CDATA[kim@example.com]]></set-property>
+      <set-property name="defaultCarrier"><![CDATA[Ground]]></set-property>
+      <set-property name="login"><![CDATA[kim@example.com]]></set-property>
+      <set-property name="shippingAddress"><![CDATA[se-980031]]></set-property>
+      <set-property name="wishlist"><![CDATA[xgl10002]]></set-property>
+      <set-property name="giftlists"><![CDATA[xgl20006]]></set-property>
+    </add-item>
+
+    <!-- Update Kim's gift list's owner -->
+    <add-item id="xgl20006" item-descriptor="gift-list" repository="/atg/commerce/gifts/Giftlists">
+      <set-property name="owner"><![CDATA[se-570031]]></set-property>
+      <set-property name="shippingAddress"><![CDATA[se-980031]]></set-property>
+    </add-item>
+    
+    <!-- Erica Clark -->
+    
+    <add-item id="se-990035" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-1563]]></set-property>
+      <set-property name="firstName"><![CDATA[Erica]]></set-property>
+      <set-property name="city"><![CDATA[Burlington]]></set-property>
+      <set-property name="postalCode"><![CDATA[05401]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[VT]]></set-property>
+      <set-property name="address2"/>
+      <set-property name="address1"><![CDATA[PO Box 105]]></set-property>
+      <set-property name="lastName"><![CDATA[Clark]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570035]]></set-property>
+    </add-item>
+
+    <add-item id="se-usercc110035" item-descriptor="credit-card">
+      <set-property name="expirationMonth"><![CDATA[1]]></set-property>
+      <set-property name="billingAddress"><![CDATA[se-990035]]></set-property>
+      <set-property name="creditCardType"><![CDATA[Visa]]></set-property>
+      <set-property name="expirationYear"><![CDATA[2017]]></set-property>
+      <set-property name="creditCardNumber"><![CDATA[4539082039396288]]></set-property>
+    </add-item>
+
+    
+    <add-item id="se-980035" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-8847]]></set-property>
+      <set-property name="firstName"><![CDATA[Erica]]></set-property>
+      <set-property name="city"><![CDATA[Burlington]]></set-property>
+      <set-property name="postalCode"><![CDATA[05401]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[VT]]></set-property>
+      <set-property name="address1"><![CDATA[9010 Jackson Street]]></set-property>
+      <set-property name="lastName"><![CDATA[Clark]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570035]]></set-property>
+    </add-item>
+    
+    <add-item id="se-970035" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-1563]]></set-property>
+      <set-property name="firstName"><![CDATA[Erica]]></set-property>
+      <set-property name="city"><![CDATA[Burlington]]></set-property>
+      <set-property name="postalCode"><![CDATA[05401]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[VT]]></set-property>
+      <set-property name="address2"/>
+      <set-property name="address1"><![CDATA[PO Box 105]]></set-property>
+      <set-property name="lastName"><![CDATA[Clark]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570035]]></set-property>
+    </add-item>
+    
+    <add-item id="se-960035" item-descriptor="contactInfo">  
+      <set-property name="postalCode"><![CDATA[05401]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570035]]></set-property>
+    </add-item>
+    
+    <add-item id="se-570035" item-descriptor="user">
+      <set-property name="secondaryAddresses"><![CDATA[Home=se-980035]]>,<![CDATA[Work=se-970035]]></set-property>
+      <set-property name="defaultCreditCard"><![CDATA[se-usercc110035]]></set-property>
+      <set-property name="firstName"><![CDATA[Erica]]></set-property>
+      <set-property name="referralSource"><![CDATA[unknown]]></set-property>
+      <set-property name="gender"><![CDATA[female]]></set-property>
+      <set-property name="dateOfBirth"><![CDATA[5/7/1982]]></set-property>  
+      <set-property name="homeAddress"><![CDATA[se-960035]]></set-property>
+      <set-property name="locale"><![CDATA[en_US]]></set-property>
+      <set-property name="creditCards"><![CDATA[Visa=se-usercc110035]]></set-property>
+      <set-property name="lastName"><![CDATA[Clark]]></set-property>
+      <set-property name="email"><![CDATA[erica@example.com]]></set-property>
+      <set-property name="billingAddress"><![CDATA[se-990035]]></set-property>
+      <set-property name="password"><![CDATA[bb29199220646ecba5066b0f2562ba260c186eb9c0e7f1d7b3192fe8ed142228]]></set-property>
+      <set-property name="passwordSalt"><![CDATA[erica@example.com]]></set-property>
+      <set-property name="defaultCarrier"><![CDATA[Ground]]></set-property>
+      <set-property name="login"><![CDATA[erica@example.com]]></set-property>
+      <set-property name="shippingAddress"><![CDATA[se-980035]]></set-property>
+      <set-property name="activePromotions"><![CDATA[xpst10035]]></set-property>
+      <set-property name="wishlist"><![CDATA[xgl10003]]></set-property>
+    </add-item>
+    
+    <!-- Andrew Wright -->
+    
+    <add-item id="se-990040" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-1540]]></set-property>
+      <set-property name="firstName"><![CDATA[Andrew]]></set-property>
+      <set-property name="city"><![CDATA[Sedona]]></set-property>
+      <set-property name="postalCode"><![CDATA[86336]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[AZ]]></set-property>
+      <set-property name="address2"/>
+      <set-property name="address1"><![CDATA[2231 Iris Avenue]]></set-property>
+      <set-property name="lastName"><![CDATA[Wright]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570040]]></set-property>
+    </add-item>
+
+    <add-item id="se-usercc110040" item-descriptor="credit-card">
+      <set-property name="expirationMonth"><![CDATA[1]]></set-property>
+      <set-property name="billingAddress"><![CDATA[se-990040]]></set-property>
+      <set-property name="creditCardType"><![CDATA[Visa]]></set-property>
+      <set-property name="expirationYear"><![CDATA[2017]]></set-property>
+      <set-property name="creditCardNumber"><![CDATA[4539082039396288]]></set-property>
+    </add-item>
+
+    
+    <add-item id="se-980040" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-1540]]></set-property>
+      <set-property name="firstName"><![CDATA[Andrew]]></set-property>
+      <set-property name="city"><![CDATA[Sedona]]></set-property>
+      <set-property name="postalCode"><![CDATA[86336]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[AZ]]></set-property>
+      <set-property name="address2"/>
+      <set-property name="address1"><![CDATA[2231 Iris Avenue]]></set-property>
+      <set-property name="lastName"><![CDATA[Wright]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570040]]></set-property>
+    </add-item>
+    
+    <add-item id="se-960040" item-descriptor="contactInfo">
+      <set-property name="postalCode"><![CDATA[86336]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570040]]></set-property>
+    </add-item>
+    
+     <add-item id="se-570040" item-descriptor="user">
+      <set-property name="secondaryAddresses"><![CDATA[Home=se-980040]]></set-property>
+      <set-property name="defaultCreditCard"><![CDATA[se-usercc110040]]></set-property>
+      <set-property name="firstName"><![CDATA[Andrew]]></set-property>
+      <set-property name="referralSource"><![CDATA[unknown]]></set-property>
+      <set-property name="gender"><![CDATA[male]]></set-property>
+      <set-property name="dateOfBirth"><![CDATA[6/1/1952]]></set-property>  
+      <set-property name="homeAddress"><![CDATA[se-960040]]></set-property>
+      <set-property name="locale"><![CDATA[en_US]]></set-property>
+      <set-property name="creditCards"><![CDATA[Visa=se-usercc110040]]></set-property>
+      <set-property name="lastName"><![CDATA[Wright]]></set-property>
+      <set-property name="email"><![CDATA[andrew@example.com]]></set-property>
+      <set-property name="billingAddress"><![CDATA[se-990040]]></set-property>
+      <set-property name="password"><![CDATA[e1f17da979a614605672b8881c1e80f7f5785ad2c43cc1e5a54dcbc4a62c7bc2]]></set-property>
+      <set-property name="passwordSalt"><![CDATA[andrew@example.com]]></set-property>
+      <set-property name="defaultCarrier"><![CDATA[Ground]]></set-property>
+      <set-property name="login"><![CDATA[andrew@example.com]]></set-property>
+      <set-property name="shippingAddress"><![CDATA[se-980040]]></set-property>
+      <set-property name="activePromotions"><![CDATA[xpst10036]]></set-property>
+      <set-property name="wishlist"><![CDATA[xgl10004]]></set-property>
+    </add-item>
+    
+    <!-- Anna Mitchell -->
+    
+    <add-item id="se-990045" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-8845]]></set-property>
+      <set-property name="firstName"><![CDATA[Anna]]></set-property>
+      <set-property name="city"><![CDATA[Provo]]></set-property>
+      <set-property name="postalCode"><![CDATA[84601]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[UT]]></set-property>
+      <set-property name="address1"><![CDATA[531 Ridge Road]]></set-property>
+      <set-property name="lastName"><![CDATA[Mitchell]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570045]]></set-property>
+    </add-item>
+
+    <add-item id="se-usercc110045" item-descriptor="credit-card">
+      <set-property name="expirationMonth"><![CDATA[1]]></set-property>
+      <set-property name="billingAddress"><![CDATA[se-990045]]></set-property>
+      <set-property name="creditCardType"><![CDATA[Visa]]></set-property>
+      <set-property name="expirationYear"><![CDATA[2017]]></set-property>
+      <set-property name="creditCardNumber"><![CDATA[4539082039396288]]></set-property>
+    </add-item>
+
+    
+    <add-item id="se-980045" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-8845]]></set-property>
+      <set-property name="firstName"><![CDATA[Anna]]></set-property>
+      <set-property name="city"><![CDATA[Provo]]></set-property>
+      <set-property name="postalCode"><![CDATA[84601]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[UT]]></set-property>
+      <set-property name="address1"><![CDATA[531 Ridge Road]]></set-property>
+      <set-property name="lastName"><![CDATA[Mitchell]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570045]]></set-property>
+    </add-item>
+    
+    <add-item id="se-960045" item-descriptor="contactInfo">
+      <set-property name="postalCode"><![CDATA[84601]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570045]]></set-property>
+    </add-item>
+    
+    <add-item id="se-570045" item-descriptor="user">
+      <set-property name="secondaryAddresses"><![CDATA[Home=se-980045]]></set-property>
+      <set-property name="defaultCreditCard"><![CDATA[se-usercc110045]]></set-property>
+      <set-property name="firstName"><![CDATA[Anna]]></set-property>
+      <set-property name="referralSource"><![CDATA[unknown]]></set-property>
+      <set-property name="gender"><![CDATA[female]]></set-property>
+      <set-property name="dateOfBirth"><![CDATA[12/21/1963]]></set-property>  
+      <set-property name="homeAddress"><![CDATA[se-960045]]></set-property>
+      <set-property name="locale"><![CDATA[en_US]]></set-property>
+      <set-property name="creditCards"><![CDATA[Visa=se-usercc110045]]></set-property>
+      <set-property name="lastName"><![CDATA[Mitchell]]></set-property>
+      <set-property name="email"><![CDATA[anna@example.com]]></set-property>
+      <set-property name="billingAddress"><![CDATA[se-990045]]></set-property>
+      <set-property name="password"><![CDATA[859fd7b79643b5ff94de5ca09bbe8652be69645853fc830d39ec9cd13bf67340]]></set-property>
+      <set-property name="passwordSalt"><![CDATA[anna@example.com]]></set-property>
+      <set-property name="defaultCarrier"><![CDATA[Ground]]></set-property>
+      <set-property name="login"><![CDATA[anna@example.com]]></set-property>
+      <set-property name="shippingAddress"><![CDATA[se-980045]]></set-property>
+      <set-property name="activePromotions"><![CDATA[xpst10037]]></set-property>
+      <set-property name="wishlist"><![CDATA[xgl10005]]></set-property>
+    </add-item>
+    
+    <!-- Brandon Johnson -->
+    
+    <add-item id="se-990050" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-1550]]></set-property>
+      <set-property name="firstName"><![CDATA[Brandon]]></set-property>
+      <set-property name="city"><![CDATA[Birmingham]]></set-property>
+      <set-property name="postalCode"><![CDATA[35203]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[AL]]></set-property>
+      <set-property name="address2"/>
+      <set-property name="address1"><![CDATA[PO Box 2255]]></set-property>
+      <set-property name="lastName"><![CDATA[Johnson]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570050]]></set-property>
+    </add-item>
+
+    <add-item id="se-usercc110050" item-descriptor="credit-card">
+      <set-property name="expirationMonth"><![CDATA[1]]></set-property>
+      <set-property name="billingAddress"><![CDATA[se-990050]]></set-property>
+      <set-property name="creditCardType"><![CDATA[Visa]]></set-property>
+      <set-property name="expirationYear"><![CDATA[2017]]></set-property>
+      <set-property name="creditCardNumber"><![CDATA[4539082039396288]]></set-property>
+    </add-item>
+
+    
+    <add-item id="se-980050" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-8847]]></set-property>
+      <set-property name="firstName"><![CDATA[Brandon]]></set-property>
+      <set-property name="city"><![CDATA[Birmingham]]></set-property>
+      <set-property name="postalCode"><![CDATA[35203]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[AL]]></set-property>
+      <set-property name="address1"><![CDATA[1263 Spruce Street]]></set-property>
+      <set-property name="address2"><![CDATA[Suite 100]]></set-property>
+      <set-property name="companyName"><![CDATA[Birmingham OfficeTemps]]></set-property>
+      <set-property name="lastName"><![CDATA[Johnson]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570050]]></set-property>
+    </add-item>
+    
+    <add-item id="se-970050" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-1550]]></set-property>
+      <set-property name="firstName"><![CDATA[Brandon]]></set-property>
+      <set-property name="city"><![CDATA[Birmingham]]></set-property>
+      <set-property name="postalCode"><![CDATA[35203]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[AL]]></set-property>
+      <set-property name="address2"/>
+      <set-property name="address1"><![CDATA[PO Box 2255]]></set-property>
+      <set-property name="lastName"><![CDATA[Johnson]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570050]]></set-property>
+    </add-item>
+    
+    <add-item id="se-960050" item-descriptor="contactInfo">
+      <set-property name="postalCode"><![CDATA[35203]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570050]]></set-property>
+    </add-item>
+    
+    <add-item id="se-570050" item-descriptor="user">
+      <set-property name="secondaryAddresses"><![CDATA[Home=se-980050]]>,<![CDATA[Work=se-970050]]></set-property>
+      <set-property name="defaultCreditCard"><![CDATA[se-usercc110050]]></set-property>
+      <set-property name="firstName"><![CDATA[Brandon]]></set-property>
+      <set-property name="referralSource"><![CDATA[unknown]]></set-property>
+      <set-property name="gender"><![CDATA[male]]></set-property>
+      <set-property name="dateOfBirth"><![CDATA[11/7/1984]]></set-property>  
+      <set-property name="homeAddress"><![CDATA[se-960050]]></set-property>
+      <set-property name="locale"><![CDATA[en_US]]></set-property>
+      <set-property name="description"/>
+      <set-property name="creditCards"><![CDATA[Visa=se-usercc110050]]></set-property>
+      <set-property name="lastName"><![CDATA[Johnson]]></set-property>
+      <set-property name="email"><![CDATA[brandon@example.com]]></set-property>
+      <set-property name="billingAddress"><![CDATA[se-990050]]></set-property>
+      <set-property name="password"><![CDATA[91771ee331a17bd0cfa4930284df259567bba975792229b15e207a584129ab68]]></set-property>
+      <set-property name="passwordSalt"><![CDATA[brandon@example.com]]></set-property>
+      <set-property name="defaultCarrier"><![CDATA[Ground]]></set-property>
+      <set-property name="login"><![CDATA[brandon@example.com]]></set-property>
+      <set-property name="shippingAddress"><![CDATA[se-980050]]></set-property>
+      <set-property name="activePromotions"><![CDATA[xpst10038]]></set-property>
+      <set-property name="wishlist"><![CDATA[xgl10006]]></set-property>
+    </add-item>
+    
+    <!-- Rachel Thomas -->
+    
+    <add-item id="se-990055" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-8855]]></set-property>
+      <set-property name="firstName"><![CDATA[Rachel]]></set-property>
+      <set-property name="city"><![CDATA[Brewster]]></set-property>
+      <set-property name="postalCode"><![CDATA[02631]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[MA]]></set-property>
+      <set-property name="address1"><![CDATA[1521 Marine Ave.]]></set-property>
+      <set-property name="lastName"><![CDATA[Thomas]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570055]]></set-property>
+    </add-item>
+
+    <add-item id="se-usercc110055" item-descriptor="credit-card">
+      <set-property name="expirationMonth"><![CDATA[1]]></set-property>
+      <set-property name="billingAddress"><![CDATA[se-990055]]></set-property>
+      <set-property name="creditCardType"><![CDATA[Visa]]></set-property>
+      <set-property name="expirationYear"><![CDATA[2017]]></set-property>
+      <set-property name="creditCardNumber"><![CDATA[4539082039396288]]></set-property>
+    </add-item>
+
+    
+    <add-item id="se-980055" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-8855]]></set-property>
+      <set-property name="firstName"><![CDATA[Rachel]]></set-property>
+      <set-property name="city"><![CDATA[Brewster]]></set-property>
+      <set-property name="postalCode"><![CDATA[02631]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[MA]]></set-property>
+      <set-property name="address1"><![CDATA[1521 Marine Ave.]]></set-property>
+      <set-property name="lastName"><![CDATA[Thomas]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570055]]></set-property>
+    </add-item>
+    
+    <add-item id="se-960055" item-descriptor="contactInfo">
+      <set-property name="postalCode"><![CDATA[02631]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570055]]></set-property>
+    </add-item>
+    
+     <add-item id="se-570055" item-descriptor="user">
+      <set-property name="secondaryAddresses"><![CDATA[Home=se-980055]]></set-property>
+      <set-property name="defaultCreditCard"><![CDATA[se-usercc110055]]></set-property>
+      <set-property name="firstName"><![CDATA[Rachel]]></set-property>
+      <set-property name="referralSource"><![CDATA[unknown]]></set-property>
+      <set-property name="gender"><![CDATA[female]]></set-property>
+      <set-property name="dateOfBirth"><![CDATA[2/1/1987]]></set-property>  
+      <set-property name="homeAddress"><![CDATA[se-960055]]></set-property>
+      <set-property name="locale"><![CDATA[en_US]]></set-property>
+      <set-property name="creditCards"><![CDATA[Visa=se-usercc110055]]></set-property>
+      <set-property name="lastName"><![CDATA[Thomas]]></set-property>
+      <set-property name="email"><![CDATA[rachel@example.com]]></set-property>
+      <set-property name="billingAddress"><![CDATA[se-990055]]></set-property>
+      <set-property name="password"><![CDATA[b57dd1327a9b685c909cfa2ffa8840c921ecb0c1424ab42ae0a095c5c0bbfd05]]></set-property>
+      <set-property name="passwordSalt"><![CDATA[rachel@example.com]]></set-property>
+      <set-property name="defaultCarrier"><![CDATA[Ground]]></set-property>
+      <set-property name="login"><![CDATA[rachel@example.com]]></set-property>
+      <set-property name="shippingAddress"><![CDATA[se-980055]]></set-property>
+      <set-property name="activePromotions"><![CDATA[xpst10039]]></set-property>
+      <set-property name="wishlist"><![CDATA[xgl10007]]></set-property>
+    </add-item>
+    
+    <!-- Juan Rodriguez -->
+    
+    <add-item id="se-990056" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-8855]]></set-property>
+      <set-property name="firstName"><![CDATA[Juan]]></set-property>
+      <set-property name="city"><![CDATA[Billings]]></set-property>
+      <set-property name="postalCode"><![CDATA[59101]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[MT]]></set-property>
+      <set-property name="address1"><![CDATA[111 Ridge Rd.]]></set-property>
+      <set-property name="lastName"><![CDATA[Rodriguez]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570056]]></set-property>
+    </add-item>
+    
+    <add-item id="se-usercc110056" item-descriptor="credit-card">
+      <set-property name="expirationMonth"><![CDATA[1]]></set-property>
+      <set-property name="billingAddress"><![CDATA[se-990056]]></set-property>
+      <set-property name="creditCardType"><![CDATA[Visa]]></set-property>
+      <set-property name="expirationYear"><![CDATA[2017]]></set-property>
+      <set-property name="creditCardNumber"><![CDATA[4539082039396288]]></set-property>
+    </add-item>
+
+    <add-item id="se-980056" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-8855]]></set-property>
+      <set-property name="firstName"><![CDATA[Juan]]></set-property>
+      <set-property name="city"><![CDATA[Billings]]></set-property>
+      <set-property name="postalCode"><![CDATA[59101]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[MT]]></set-property>
+      <set-property name="address1"><![CDATA[111 Ridge Rd.]]></set-property>
+      <set-property name="lastName"><![CDATA[Rodriguez]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570056]]></set-property>
+    </add-item>
+    
+    <add-item id="se-960056" item-descriptor="contactInfo">
+      <set-property name="postalCode"><![CDATA[59101]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570056]]></set-property>
+    </add-item>
+    
+    <add-item id="se-570056" item-descriptor="user">
+      <set-property name="secondaryAddresses"><![CDATA[Home=se-980056]]></set-property>
+      <set-property name="defaultCreditCard"><![CDATA[se-usercc110056]]></set-property>
+      <set-property name="firstName"><![CDATA[Juan]]></set-property>
+      <set-property name="referralSource"><![CDATA[unknown]]></set-property>
+      <set-property name="gender"><![CDATA[male]]></set-property>
+      <set-property name="dateOfBirth"><![CDATA[1/15/1980]]></set-property>  
+      <set-property name="homeAddress"><![CDATA[se-960056]]></set-property>
+      <set-property name="locale"><![CDATA[en_US]]></set-property>
+      <set-property name="creditCards"><![CDATA[Visa=se-usercc110056]]></set-property>
+      <set-property name="lastName"><![CDATA[Thomas]]></set-property>
+      <set-property name="email"><![CDATA[juan@example.com]]></set-property>
+      <set-property name="billingAddress"><![CDATA[se-990056]]></set-property>
+      <set-property name="password"><![CDATA[9c23b820a5e2a1534f107a1d2d621c5f72d499a82f6d0b4f1384a4391e46fb35]]></set-property>
+      <set-property name="passwordSalt"><![CDATA[juan@example.com]]></set-property>
+      <set-property name="defaultCarrier"><![CDATA[Ground]]></set-property>
+      <set-property name="login"><![CDATA[juan@example.com]]></set-property>
+      <set-property name="shippingAddress"><![CDATA[se-980056]]></set-property>
+      <set-property name="activePromotions"><![CDATA[xpst10040]]></set-property>
+      <set-property name="wishlist"><![CDATA[xgl10008]]></set-property>
+    </add-item>
+    
+    <!-- Alex Jackson -->
+    
+    <add-item id="se-990060" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-8860]]></set-property>
+      <set-property name="firstName"><![CDATA[Alex]]></set-property>
+      <set-property name="city"><![CDATA[Boulder]]></set-property>
+      <set-property name="postalCode"><![CDATA[80302]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[CO]]></set-property>
+      <set-property name="address1"><![CDATA[6 Willowbrook Circle]]></set-property>
+      <set-property name="lastName"><![CDATA[Jackson]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570060]]></set-property>
+    </add-item>
+
+    <add-item id="se-usercc110060" item-descriptor="credit-card">
+      <set-property name="expirationMonth"><![CDATA[1]]></set-property>
+      <set-property name="billingAddress"><![CDATA[se-990060]]></set-property>
+      <set-property name="creditCardType"><![CDATA[Visa]]></set-property>
+      <set-property name="expirationYear"><![CDATA[2017]]></set-property>
+      <set-property name="creditCardNumber"><![CDATA[4539082039396288]]></set-property>
+    </add-item>
+
+    
+    <add-item id="se-980060" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-8860]]></set-property>
+      <set-property name="firstName"><![CDATA[Alex]]></set-property>
+      <set-property name="city"><![CDATA[Boulder]]></set-property>
+      <set-property name="postalCode"><![CDATA[80302]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[CO]]></set-property>
+      <set-property name="address1"><![CDATA[6 Willowbrook Circle]]></set-property>
+      <set-property name="lastName"><![CDATA[Jackson]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570060]]></set-property>
+    </add-item>
+    
+    <add-item id="se-960060" item-descriptor="contactInfo">
+      <set-property name="postalCode"><![CDATA[80302]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570060]]></set-property>
+    </add-item>
+    
+    <add-item id="se-570060" item-descriptor="user">
+      <set-property name="secondaryAddresses"><![CDATA[Home=se-980060]]></set-property>
+      <set-property name="defaultCreditCard"><![CDATA[se-usercc110060]]></set-property>
+      <set-property name="firstName"><![CDATA[Alex]]></set-property>
+      <set-property name="referralSource"><![CDATA[unknown]]></set-property>
+      <set-property name="gender"><![CDATA[male]]></set-property>
+      <set-property name="dateOfBirth"><![CDATA[10/25/1977]]></set-property>  
+      <set-property name="homeAddress"><![CDATA[se-960060]]></set-property>
+      <set-property name="locale"><![CDATA[en_US]]></set-property>
+      <set-property name="creditCards"><![CDATA[Visa=se-usercc110060]]></set-property>
+      <set-property name="lastName"><![CDATA[Jackson]]></set-property>
+      <set-property name="email"><![CDATA[alex@example.com]]></set-property>
+      <set-property name="billingAddress"><![CDATA[se-990060]]></set-property>
+      <set-property name="password"><![CDATA[d35ce50d17fde4bb86eb600f4d589e9e0a412690e88a248012c5695a978ac562]]></set-property>
+      <set-property name="passwordSalt"><![CDATA[alex@example.com]]></set-property>
+      <set-property name="defaultCarrier"><![CDATA[Ground]]></set-property>
+      <set-property name="login"><![CDATA[alex@example.com]]></set-property>
+      <set-property name="shippingAddress"><![CDATA[se-980060]]></set-property>
+      <set-property name="activePromotions"><![CDATA[xpst10041]]></set-property>
+      <set-property name="wishlist"><![CDATA[xgl10009]]></set-property>
+    </add-item>
+    
+    <!-- Maria Lopez-->
+    
+    <add-item id="se-990065" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-8865]]></set-property>
+      <set-property name="firstName"><![CDATA[Maria]]></set-property>
+      <set-property name="city"><![CDATA[Fairport]]></set-property>
+      <set-property name="postalCode"><![CDATA[14450]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[NY]]></set-property>
+      <set-property name="address1"><![CDATA[15 Paris Road]]></set-property>
+      <set-property name="lastName"><![CDATA[Lopez]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570065]]></set-property>
+    </add-item>
+
+    <add-item id="se-usercc110065" item-descriptor="credit-card">
+      <set-property name="expirationMonth"><![CDATA[1]]></set-property>
+      <set-property name="billingAddress"><![CDATA[se-990065]]></set-property>
+      <set-property name="creditCardType"><![CDATA[Visa]]></set-property>
+      <set-property name="expirationYear"><![CDATA[2017]]></set-property>
+      <set-property name="creditCardNumber"><![CDATA[4539082039396288]]></set-property>
+    </add-item>
+
+    
+    <add-item id="se-980065" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-8865]]></set-property>
+      <set-property name="firstName"><![CDATA[Maria]]></set-property>
+      <set-property name="city"><![CDATA[Fairport]]></set-property>
+      <set-property name="postalCode"><![CDATA[14450]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[NY]]></set-property>
+      <set-property name="address1"><![CDATA[15 Paris Road]]></set-property>
+      <set-property name="lastName"><![CDATA[Lopez]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570065]]></set-property>
+    </add-item>
+    
+    <add-item id="se-960065" item-descriptor="contactInfo">
+      <set-property name="postalCode"><![CDATA[14450]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570065]]></set-property>
+    </add-item>
+    
+    <add-item id="se-570065" item-descriptor="user">
+      <set-property name="secondaryAddresses"><![CDATA[Home=se-980065]]></set-property>
+      <set-property name="defaultCreditCard"><![CDATA[se-usercc110065]]></set-property>
+      <set-property name="firstName"><![CDATA[Maria]]></set-property>
+      <set-property name="activePromotions"><![CDATA[xpst10033,xpst10042]]></set-property>
+      <set-property name="referralSource"><![CDATA[unknown]]></set-property>
+      <set-property name="gender"><![CDATA[female]]></set-property>
+      <set-property name="dateOfBirth"><![CDATA[8/5/1979]]></set-property>  
+      <set-property name="homeAddress"><![CDATA[se-960065]]></set-property>
+      <set-property name="locale"><![CDATA[en_US]]></set-property>
+      <set-property name="creditCards"><![CDATA[Visa=se-usercc110065]]></set-property>
+      <set-property name="lastName"><![CDATA[Lopez]]></set-property>
+      <set-property name="email"><![CDATA[maria@example.com]]></set-property>
+      <set-property name="billingAddress"><![CDATA[se-990065]]></set-property>
+      <set-property name="password"><![CDATA[ab0e392f42b3872b08fbe5e0c0dbf06faa401509702b0b60de22b20d44d2c5bf]]></set-property>
+      <set-property name="passwordSalt"><![CDATA[maria@example.com]]></set-property>
+      <set-property name="defaultCarrier"><![CDATA[Ground]]></set-property>
+      <set-property name="login"><![CDATA[maria@example.com]]></set-property>
+      <set-property name="shippingAddress"><![CDATA[se-980065]]></set-property>
+      <set-property name="wishlist"><![CDATA[xgl10010]]></set-property>
+    </add-item>
+    
+    <!-- Victoria Lewis -->
+    
+    <add-item id="se-990070" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-8870]]></set-property>
+      <set-property name="firstName"><![CDATA[Victoria]]></set-property>
+      <set-property name="city"><![CDATA[Seattle]]></set-property>
+      <set-property name="postalCode"><![CDATA[98101]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[WA]]></set-property>
+      <set-property name="address1"><![CDATA[87 Baseline Rd]]></set-property>
+      <set-property name="lastName"><![CDATA[Lewis]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570070]]></set-property>
+    </add-item>
+
+    <add-item id="se-usercc110070" item-descriptor="credit-card">
+      <set-property name="expirationMonth"><![CDATA[1]]></set-property>
+      <set-property name="billingAddress"><![CDATA[se-990070]]></set-property>
+      <set-property name="creditCardType"><![CDATA[Visa]]></set-property>
+      <set-property name="expirationYear"><![CDATA[2017]]></set-property>
+      <set-property name="creditCardNumber"><![CDATA[4539082039396288]]></set-property>
+    </add-item>
+
+    
+    <add-item id="se-980070" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-8870]]></set-property>
+      <set-property name="firstName"><![CDATA[Victoria]]></set-property>
+      <set-property name="city"><![CDATA[Seattle]]></set-property>
+      <set-property name="postalCode"><![CDATA[98101]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[WA]]></set-property>
+      <set-property name="address1"><![CDATA[87 Baseline Rd]]></set-property>
+      <set-property name="lastName"><![CDATA[Lewis]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570070]]></set-property>
+    </add-item>
+    
+    <add-item id="se-960070" item-descriptor="contactInfo">
+      <set-property name="postalCode"><![CDATA[98101]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570070]]></set-property>
+    </add-item>
+    
+     <add-item id="se-570070" item-descriptor="user">
+      <set-property name="secondaryAddresses"><![CDATA[Home=se-980070]]></set-property>
+      <set-property name="defaultCreditCard"><![CDATA[se-usercc110070]]></set-property>
+      <set-property name="firstName"><![CDATA[Victoria]]></set-property>
+      <set-property name="referralSource"><![CDATA[unknown]]></set-property>
+      <set-property name="gender"><![CDATA[female]]></set-property>
+      <set-property name="dateOfBirth"><![CDATA[5/1/1967]]></set-property>  
+      <set-property name="homeAddress"><![CDATA[se-960070]]></set-property>
+      <set-property name="locale"><![CDATA[en_US]]></set-property>
+      <set-property name="creditCards"><![CDATA[Visa=se-usercc110070]]></set-property>
+      <set-property name="lastName"><![CDATA[Lewis]]></set-property>
+      <set-property name="email"><![CDATA[victoria@example.com]]></set-property>
+      <set-property name="billingAddress"><![CDATA[se-990070]]></set-property>
+      <set-property name="password"><![CDATA[96f004d602488b2516c71aaf77566fb2169a9b20b2ca8d23fb0cab149e5a90d4]]></set-property>
+      <set-property name="passwordSalt"><![CDATA[victoria@example.com]]></set-property>
+      <set-property name="defaultCarrier"><![CDATA[Ground]]></set-property>
+      <set-property name="login"><![CDATA[victoria@example.com]]></set-property>
+      <set-property name="shippingAddress"><![CDATA[se-980070]]></set-property>
+      <set-property name="activePromotions"><![CDATA[xpst10043]]></set-property>
+      <set-property name="wishlist"><![CDATA[xgl10011]]></set-property>
+    </add-item>
+    
+    <!-- Vincent Lee -->
+    
+    <add-item id="se-990075" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-8875]]></set-property>
+      <set-property name="firstName"><![CDATA[Vincent]]></set-property>
+      <set-property name="city"><![CDATA[Cheyenne]]></set-property>
+      <set-property name="postalCode"><![CDATA[98101]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[WY]]></set-property>
+      <set-property name="address1"><![CDATA[53 East Hopkins Ave.]]></set-property>
+      <set-property name="lastName"><![CDATA[Lee]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570075]]></set-property>
+    </add-item>
+    
+
+    <add-item id="se-usercc110075" item-descriptor="credit-card">
+      <set-property name="expirationMonth"><![CDATA[1]]></set-property>
+      <set-property name="billingAddress"><![CDATA[se-990075]]></set-property>
+      <set-property name="creditCardType"><![CDATA[Visa]]></set-property>
+      <set-property name="expirationYear"><![CDATA[2017]]></set-property>
+      <set-property name="creditCardNumber"><![CDATA[4539082039396288]]></set-property>
+    </add-item>
+
+    <add-item id="se-980075" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-8875]]></set-property>
+      <set-property name="firstName"><![CDATA[Vincent]]></set-property>
+      <set-property name="city"><![CDATA[Cheyenne]]></set-property>
+      <set-property name="postalCode"><![CDATA[98101]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[WY]]></set-property>
+      <set-property name="address1"><![CDATA[53 East Hopkins Ave.]]></set-property>
+      <set-property name="lastName"><![CDATA[Lee]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570075]]></set-property>
+    </add-item>
+    
+    <add-item id="se-960075" item-descriptor="contactInfo">
+      <set-property name="postalCode"><![CDATA[98101]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570075]]></set-property>
+    </add-item>
+    
+     <add-item id="se-570075" item-descriptor="user">
+      <set-property name="secondaryAddresses"><![CDATA[Home=se-980075]]></set-property>
+      <set-property name="defaultCreditCard"><![CDATA[se-usercc110075]]></set-property>
+      <set-property name="firstName"><![CDATA[Vincent]]></set-property>
+      <set-property name="activePromotions"><![CDATA[xpst10034,xpst10044]]></set-property>
+      <set-property name="referralSource"><![CDATA[unknown]]></set-property>
+      <set-property name="gender"><![CDATA[male]]></set-property>
+      <set-property name="dateOfBirth"><![CDATA[6/21/1977]]></set-property>  
+      <set-property name="homeAddress"><![CDATA[se-960075]]></set-property>
+      <set-property name="locale"><![CDATA[en_US]]></set-property>
+      <set-property name="creditCards"><![CDATA[Visa=se-usercc110075]]></set-property>
+      <set-property name="lastName"><![CDATA[Lee]]></set-property>
+      <set-property name="email"><![CDATA[vincent@example.com]]></set-property>
+      <set-property name="billingAddress"><![CDATA[se-990075]]></set-property>
+      <set-property name="password"><![CDATA[276672d2bce7d552ec0ae556a14cbd11021b3c403d474969c5e88445826f84e8]]></set-property>
+      <set-property name="passwordSalt"><![CDATA[vincent@example.com]]></set-property>
+      <set-property name="defaultCarrier"><![CDATA[Ground]]></set-property>
+      <set-property name="login"><![CDATA[vincent@example.com]]></set-property>
+      <set-property name="shippingAddress"><![CDATA[se-980075]]></set-property>
+      <set-property name="description"/>
+      <set-property name="wishlist"><![CDATA[xgl10012]]></set-property>
+    </add-item>
+    
+    <!-- Peter Nelson -->
+        
+    <add-item id="se-990080" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-1580]]></set-property>
+      <set-property name="firstName"><![CDATA[Peter]]></set-property>
+      <set-property name="city"><![CDATA[Portland]]></set-property>
+      <set-property name="postalCode"><![CDATA[97086]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[OR]]></set-property>
+      <set-property name="address2"/>
+      <set-property name="address1"><![CDATA[357 Willowdale Ave]]></set-property>
+      <set-property name="lastName"><![CDATA[Nelson]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570080]]></set-property>
+    </add-item>
+
+    <add-item id="se-usercc110080" item-descriptor="credit-card">
+      <set-property name="expirationMonth"><![CDATA[1]]></set-property>
+      <set-property name="billingAddress"><![CDATA[se-990080]]></set-property>
+      <set-property name="creditCardType"><![CDATA[Visa]]></set-property>
+      <set-property name="expirationYear"><![CDATA[2017]]></set-property>
+      <set-property name="creditCardNumber"><![CDATA[4539082039396288]]></set-property>
+    </add-item>
+
+    
+    <add-item id="se-980080" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-8882]]></set-property>
+      <set-property name="firstName"><![CDATA[Peter]]></set-property>
+      <set-property name="city"><![CDATA[Portland]]></set-property>
+      <set-property name="postalCode"><![CDATA[97220]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[OR]]></set-property>
+      <set-property name="address1"><![CDATA[6629 NE 82nd Ave]]></set-property>
+      <set-property name="companyName"><![CDATA[Acme Company]]></set-property>
+      <set-property name="lastName"><![CDATA[Nelson]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570080]]></set-property>
+    </add-item>
+    
+    <add-item id="se-970080" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-1580]]></set-property>
+      <set-property name="firstName"><![CDATA[Peter]]></set-property>
+      <set-property name="city"><![CDATA[Portland]]></set-property>
+      <set-property name="postalCode"><![CDATA[97086]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[OR]]></set-property>
+      <set-property name="address2"/>
+      <set-property name="address1"><![CDATA[357 Willowdale Ave]]></set-property>
+      <set-property name="lastName"><![CDATA[Nelson]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570080]]></set-property>
+    </add-item>
+    
+    <add-item id="se-960080" item-descriptor="contactInfo">
+      <set-property name="postalCode"><![CDATA[97220]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570080]]></set-property>
+    </add-item>
+    
+    <add-item id="se-570080" item-descriptor="user">
+      <set-property name="secondaryAddresses"><![CDATA[Home=se-980080]]>,<![CDATA[Work=se-970080]]></set-property>
+      <set-property name="defaultCreditCard"><![CDATA[se-usercc110080]]></set-property>
+      <set-property name="firstName"><![CDATA[Peter]]></set-property>
+      <set-property name="referralSource"><![CDATA[unknown]]></set-property>
+      <set-property name="gender"><![CDATA[male]]></set-property>
+      <set-property name="dateOfBirth"><![CDATA[5/1/1976]]></set-property>  
+      <set-property name="homeAddress"><![CDATA[se-960080]]></set-property>
+      <set-property name="locale"><![CDATA[en_US]]></set-property>
+      <set-property name="creditCards"><![CDATA[Visa=se-usercc110080]]></set-property>
+      <set-property name="lastName"><![CDATA[Nelson]]></set-property>
+      <set-property name="email"><![CDATA[peter@example.com]]></set-property>
+      <set-property name="billingAddress"><![CDATA[se-990080]]></set-property>
+      <set-property name="password"><![CDATA[da01168ab74bddcdc233b4ed8ea7cb1f76b194dcaa2c91a29a5399cdcbab7384]]></set-property>
+      <set-property name="passwordSalt"><![CDATA[peter@example.com]]></set-property>
+      <set-property name="defaultCarrier"><![CDATA[Ground]]></set-property>
+      <set-property name="login"><![CDATA[peter@example.com]]></set-property>
+      <set-property name="shippingAddress"><![CDATA[se-980080]]></set-property>
+      <set-property name="activePromotions"><![CDATA[xpst10045]]></set-property>
+      <set-property name="wishlist"><![CDATA[xgl10013]]></set-property>
+    </add-item>
+    
+    <!-- Adrian Robinson  -->
+    
+    <add-item id="se-990085" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-8885]]></set-property>
+      <set-property name="firstName"><![CDATA[Adrian]]></set-property>
+      <set-property name="city"><![CDATA[Rochester]]></set-property>
+      <set-property name="postalCode"><![CDATA[14603]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[NY]]></set-property>
+      <set-property name="address1"><![CDATA[604 Red Mountain Road]]></set-property>
+      <set-property name="lastName"><![CDATA[Robinson]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570085]]></set-property>
+    </add-item>
+
+    <add-item id="se-usercc110085" item-descriptor="credit-card">
+      <set-property name="expirationMonth"><![CDATA[1]]></set-property>
+      <set-property name="billingAddress"><![CDATA[se-990085]]></set-property>
+      <set-property name="creditCardType"><![CDATA[Visa]]></set-property>
+      <set-property name="expirationYear"><![CDATA[2017]]></set-property>
+      <set-property name="creditCardNumber"><![CDATA[4539082039396288]]></set-property>
+    </add-item>
+
+    
+    <add-item id="se-980085" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-8885]]></set-property>
+      <set-property name="firstName"><![CDATA[Adrian]]></set-property>
+      <set-property name="city"><![CDATA[Rochester]]></set-property>
+      <set-property name="postalCode"><![CDATA[14603]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[NY]]></set-property>
+      <set-property name="address1"><![CDATA[604 Red Mountain Road]]></set-property>
+      <set-property name="lastName"><![CDATA[Robinson]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570085]]></set-property>
+    </add-item>
+    
+    <add-item id="se-960085" item-descriptor="contactInfo">
+      <set-property name="postalCode"><![CDATA[14603]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570085]]></set-property>
+    </add-item>
+    
+    <add-item id="se-570085" item-descriptor="user">
+      <set-property name="secondaryAddresses"><![CDATA[Home=se-980085]]></set-property>
+      <set-property name="defaultCreditCard"><![CDATA[se-usercc110085]]></set-property>
+      <set-property name="firstName"><![CDATA[Adrian]]></set-property>
+      <set-property name="referralSource"><![CDATA[unknown]]></set-property>
+      <set-property name="gender"><![CDATA[male]]></set-property>
+      <set-property name="dateOfBirth"><![CDATA[11/30/1975]]></set-property>  
+      <set-property name="homeAddress"><![CDATA[se-960085]]></set-property>
+      <set-property name="locale"><![CDATA[en_US]]></set-property>
+      <set-property name="creditCards"><![CDATA[Visa=se-usercc110085]]></set-property>
+      <set-property name="lastName"><![CDATA[Robinson]]></set-property>
+      <set-property name="email"><![CDATA[adrian@example.com]]></set-property>
+      <set-property name="billingAddress"><![CDATA[se-990085]]></set-property>
+      <set-property name="password"><![CDATA[5eef6b48224e342553ac48ff6b2cee5ab7d584b2a14c26c8c2f5f81b63b8a5c3]]></set-property>
+      <set-property name="passwordSalt"><![CDATA[adrian@example.com]]></set-property>
+      <set-property name="defaultCarrier"><![CDATA[Ground]]></set-property>
+      <set-property name="login"><![CDATA[adrian@example.com]]></set-property>
+      <set-property name="shippingAddress"><![CDATA[se-980085]]></set-property>
+      <set-property name="activePromotions"><![CDATA[xpst10046]]></set-property>
+      <set-property name="wishlist"><![CDATA[xgl10014]]></set-property>
+    </add-item>
+    
+    
+    <!-- Jacob Smith -->
+   
+    <add-item id="se-990090" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-8890]]></set-property>
+      <set-property name="firstName"><![CDATA[Jacob]]></set-property>
+      <set-property name="city"><![CDATA[Tempe]]></set-property>
+      <set-property name="postalCode"><![CDATA[85281]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[AZ]]></set-property>
+      <set-property name="address1"><![CDATA[1278 Winchester Avenue]]></set-property>
+      <set-property name="lastName"><![CDATA[Smith]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570090]]></set-property>
+    </add-item>
+
+    <add-item id="se-usercc110090" item-descriptor="credit-card">
+      <set-property name="expirationMonth"><![CDATA[1]]></set-property>
+      <set-property name="billingAddress"><![CDATA[se-990090]]></set-property>
+      <set-property name="creditCardType"><![CDATA[Visa]]></set-property>
+      <set-property name="expirationYear"><![CDATA[2017]]></set-property>
+      <set-property name="creditCardNumber"><![CDATA[4539082039396288]]></set-property>
+    </add-item>
+
+    
+    <add-item id="se-980090" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-8890]]></set-property>
+      <set-property name="firstName"><![CDATA[Jacob]]></set-property>
+      <set-property name="city"><![CDATA[Tempe]]></set-property>
+      <set-property name="postalCode"><![CDATA[85281]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[AZ]]></set-property>
+      <set-property name="address1"><![CDATA[1278 Winchester Avenue]]></set-property>
+      <set-property name="lastName"><![CDATA[Smith]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570090]]></set-property>
+    </add-item>
+    
+    <add-item id="se-960090" item-descriptor="contactInfo">
+      <set-property name="postalCode"><![CDATA[85281]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570090]]></set-property>
+    </add-item>
+    
+     <add-item id="se-570090" item-descriptor="user">
+      <set-property name="secondaryAddresses"><![CDATA[Home=se-980090]]></set-property>
+      <set-property name="defaultCreditCard"><![CDATA[se-usercc110090]]></set-property>
+      <set-property name="firstName"><![CDATA[Jacob]]></set-property>
+      <set-property name="referralSource"><![CDATA[unknown]]></set-property>
+      <set-property name="gender"><![CDATA[male]]></set-property>
+      <set-property name="dateOfBirth"><![CDATA[6/5/1974]]></set-property>  
+      <set-property name="homeAddress"><![CDATA[se-960090]]></set-property>
+      <set-property name="locale"><![CDATA[en_US]]></set-property>
+      <set-property name="creditCards"><![CDATA[Visa=se-usercc110090]]></set-property>
+      <set-property name="lastName"><![CDATA[Smith]]></set-property>
+      <set-property name="email"><![CDATA[jacob@example.com]]></set-property>
+      <set-property name="billingAddress"><![CDATA[se-990090]]></set-property>
+      <set-property name="password"><![CDATA[1ef078a348aeab6e7cdf307b3efb5d7923ba1274c8a4ba44f22372d49c2966d6]]></set-property>
+      <set-property name="passwordSalt"><![CDATA[jacob@example.com]]></set-property>
+      <set-property name="defaultCarrier"><![CDATA[Ground]]></set-property>
+      <set-property name="login"><![CDATA[jacob@example.com]]></set-property>
+      <set-property name="shippingAddress"><![CDATA[se-980090]]></set-property>
+      <set-property name="description"/>
+      <set-property name="activePromotions"><![CDATA[xpst10047]]></set-property>
+      <set-property name="wishlist"><![CDATA[xgl10015]]></set-property>
+    </add-item>
+        
+    <!-- Lindsay Moore -->
+    
+    <add-item id="se-990095" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-8895]]></set-property>
+      <set-property name="firstName"><![CDATA[Lindsay]]></set-property>
+      <set-property name="city"><![CDATA[San Francisco]]></set-property>
+      <set-property name="postalCode"><![CDATA[94102]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[CA]]></set-property>
+      <set-property name="address1"><![CDATA[10 Bridge Rd]]></set-property>
+      <set-property name="lastName"><![CDATA[Moore]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570095]]></set-property>
+    </add-item>
+
+    <add-item id="se-usercc110095" item-descriptor="credit-card">
+      <set-property name="expirationMonth"><![CDATA[1]]></set-property>
+      <set-property name="billingAddress"><![CDATA[se-990095]]></set-property>
+      <set-property name="creditCardType"><![CDATA[Visa]]></set-property>
+      <set-property name="expirationYear"><![CDATA[2017]]></set-property>
+      <set-property name="creditCardNumber"><![CDATA[4539082039396288]]></set-property>
+    </add-item>
+
+    
+    <add-item id="se-980095" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-8895]]></set-property>
+      <set-property name="firstName"><![CDATA[Lindsay]]></set-property>
+      <set-property name="city"><![CDATA[San Francisco]]></set-property>
+      <set-property name="postalCode"><![CDATA[94102]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[CA]]></set-property>
+      <set-property name="address1"><![CDATA[10 Bridge Rd]]></set-property>
+      <set-property name="lastName"><![CDATA[Moore]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570095]]></set-property>
+    </add-item>
+    
+    <add-item id="se-960095" item-descriptor="contactInfo">
+      <set-property name="postalCode"><![CDATA[94102]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570095]]></set-property>
+    </add-item>
+    
+    <add-item id="se-570095" item-descriptor="user">
+      <set-property name="secondaryAddresses"><![CDATA[Home=se-980095]]></set-property>
+      <set-property name="defaultCreditCard"><![CDATA[se-usercc110095]]></set-property>
+      <set-property name="firstName"><![CDATA[Lindsay]]></set-property>
+      <set-property name="referralSource"><![CDATA[unknown]]></set-property>
+      <set-property name="gender"><![CDATA[female]]></set-property>
+      <set-property name="dateOfBirth"><![CDATA[3/11/1991]]></set-property>  
+      <set-property name="homeAddress"><![CDATA[se-960095]]></set-property>
+      <set-property name="locale"><![CDATA[en_US]]></set-property>
+      <set-property name="creditCards"><![CDATA[Visa=se-usercc110095]]></set-property>
+      <set-property name="lastName"><![CDATA[Moore]]></set-property>
+      <set-property name="email"><![CDATA[lindsay@example.com]]></set-property>
+      <set-property name="billingAddress"><![CDATA[se-990090]]></set-property>
+      <set-property name="password"><![CDATA[9dd4786ebb9fc4df41da10c61db6d65ef0763838896382456a1ae3eee3d601d3]]></set-property>
+      <set-property name="passwordSalt"><![CDATA[lindsay@example.com]]></set-property>
+      <set-property name="defaultCarrier"><![CDATA[Ground]]></set-property>
+      <set-property name="login"><![CDATA[lindsay@example.com]]></set-property>
+      <set-property name="shippingAddress"><![CDATA[se-980095]]></set-property>
+      <set-property name="activePromotions"><![CDATA[xpst10048]]></set-property>
+      <set-property name="wishlist"><![CDATA[xgl10016]]></set-property>
+    </add-item>
+    
+    <!-- Lisa Moore -->
+        
+    <add-item id="se-990100" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-8100]]></set-property>
+      <set-property name="firstName"><![CDATA[Lisa]]></set-property>
+      <set-property name="city"><![CDATA[San Francisco]]></set-property>
+      <set-property name="postalCode"><![CDATA[94102]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[CA]]></set-property>
+      <set-property name="address1"><![CDATA[10 Bridge Rd]]></set-property>
+      <set-property name="lastName"><![CDATA[Moore]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570100]]></set-property>
+    </add-item>
+
+    <add-item id="se-usercc110100" item-descriptor="credit-card">
+      <set-property name="expirationMonth"><![CDATA[1]]></set-property>
+      <set-property name="billingAddress"><![CDATA[se-990100]]></set-property>
+      <set-property name="creditCardType"><![CDATA[Visa]]></set-property>
+      <set-property name="expirationYear"><![CDATA[2017]]></set-property>
+      <set-property name="creditCardNumber"><![CDATA[4539082039396288]]></set-property>
+    </add-item>
+
+    
+    <add-item id="se-980100" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-8100]]></set-property>
+      <set-property name="firstName"><![CDATA[Lisa]]></set-property>
+      <set-property name="city"><![CDATA[San Francisco]]></set-property>
+      <set-property name="postalCode"><![CDATA[94102]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[CA]]></set-property>
+      <set-property name="address1"><![CDATA[10 Bridge Rd]]></set-property>
+      <set-property name="lastName"><![CDATA[Moore]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570100]]></set-property>
+    </add-item>
+    
+    <add-item id="se-960100" item-descriptor="contactInfo">
+      <set-property name="postalCode"><![CDATA[94102]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570100]]></set-property>
+    </add-item>
+    
+    <add-item id="se-570100" item-descriptor="user">
+      <set-property name="secondaryAddresses"><![CDATA[Home=se-980100]]></set-property>
+      <set-property name="defaultCreditCard"><![CDATA[se-usercc110100]]></set-property>
+      <set-property name="firstName"><![CDATA[Lisa]]></set-property>
+      <set-property name="referralSource"><![CDATA[unknown]]></set-property>
+      <set-property name="gender"><![CDATA[female]]></set-property>
+      <set-property name="dateOfBirth"><![CDATA[9/1/1992]]></set-property>  
+      <set-property name="homeAddress"><![CDATA[se-960100]]></set-property>
+      <set-property name="locale"><![CDATA[en_US]]></set-property>
+      <set-property name="creditCards"><![CDATA[Visa=se-usercc110100]]></set-property>
+      <set-property name="lastName"><![CDATA[Moore]]></set-property>
+      <set-property name="email"><![CDATA[lisa@example.com]]></set-property>
+      <set-property name="billingAddress"><![CDATA[se-990100]]></set-property>
+      <set-property name="password"><![CDATA[6120f300cd644c5fd22eb6fc370dfb402330da41696aa22cc0e10ec9d60a6fef]]></set-property>
+      <set-property name="passwordSalt"><![CDATA[lisa@example.com]]></set-property>
+      <set-property name="defaultCarrier"><![CDATA[Ground]]></set-property>
+      <set-property name="login"><![CDATA[lisa@example.com]]></set-property>
+      <set-property name="shippingAddress"><![CDATA[se-980100]]></set-property>
+      <set-property name="activePromotions"><![CDATA[xpst10049]]></set-property>
+      <set-property name="wishlist"><![CDATA[xgl10017]]></set-property>
+    </add-item>    
+    
+    <!-- Chuck Taylor -->
+    
+    <add-item id="se-990105" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-8105]]></set-property>
+      <set-property name="firstName"><![CDATA[Chuck]]></set-property>
+      <set-property name="city"><![CDATA[Reno]]></set-property>
+      <set-property name="postalCode"><![CDATA[89501]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[NV]]></set-property>
+      <set-property name="address1"><![CDATA[99 Mill St]]></set-property>
+      <set-property name="lastName"><![CDATA[Taylor]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570105]]></set-property>
+    </add-item>
+
+    <add-item id="se-usercc110105" item-descriptor="credit-card">
+      <set-property name="expirationMonth"><![CDATA[1]]></set-property>
+      <set-property name="billingAddress"><![CDATA[se-990105]]></set-property>
+      <set-property name="creditCardType"><![CDATA[Visa]]></set-property>
+      <set-property name="expirationYear"><![CDATA[2017]]></set-property>
+      <set-property name="creditCardNumber"><![CDATA[4539082039396288]]></set-property>
+    </add-item>
+
+    
+    <add-item id="se-980105" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-8105]]></set-property>
+      <set-property name="firstName"><![CDATA[Chuck]]></set-property>
+      <set-property name="city"><![CDATA[Reno]]></set-property>
+      <set-property name="postalCode"><![CDATA[89501]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[NV]]></set-property>
+      <set-property name="address1"><![CDATA[99 Mill St]]></set-property>
+      <set-property name="lastName"><![CDATA[Taylor]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570105]]></set-property>
+    </add-item>
+    
+    <add-item id="se-960105" item-descriptor="contactInfo">
+      <set-property name="postalCode"><![CDATA[89501]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570105]]></set-property>
+    </add-item>
+    
+     <add-item id="se-570105" item-descriptor="user">
+      <set-property name="secondaryAddresses"><![CDATA[Home=se-980105]]></set-property>
+      <set-property name="defaultCreditCard"><![CDATA[se-usercc110105]]></set-property>
+      <set-property name="firstName"><![CDATA[Chuck]]></set-property>
+      <set-property name="referralSource"><![CDATA[unknown]]></set-property>
+      <set-property name="gender"><![CDATA[male]]></set-property>
+      <set-property name="dateOfBirth"><![CDATA[5/17/1966]]></set-property>  
+      <set-property name="homeAddress"><![CDATA[se-960105]]></set-property>
+      <set-property name="locale"><![CDATA[en_US]]></set-property>
+      <set-property name="creditCards"><![CDATA[Visa=se-usercc110105]]></set-property>
+      <set-property name="lastName"><![CDATA[Taylor]]></set-property>
+      <set-property name="email"><![CDATA[chuck@example.com]]></set-property>
+      <set-property name="billingAddress"><![CDATA[se-990105]]></set-property>
+      <set-property name="password"><![CDATA[d13678b7dd3d1b1f719018058b6ba2ebaf48dbcfff488bec4661daea3cd617fa]]></set-property>
+      <set-property name="passwordSalt"><![CDATA[chuck@example.com]]></set-property>
+      <set-property name="defaultCarrier"><![CDATA[Ground]]></set-property>
+      <set-property name="login"><![CDATA[chuck@example.com]]></set-property>
+      <set-property name="shippingAddress"><![CDATA[se-980105]]></set-property>
+      <set-property name="activePromotions"><![CDATA[xpst10050]]></set-property>
+      <set-property name="wishlist"><![CDATA[xgl10018]]></set-property>
+    </add-item>
+    
+    <!-- Elisabeth Robinson -->
+    
+    <add-item id="se-990110" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-8110]]></set-property>
+      <set-property name="firstName"><![CDATA[Elisabeth]]></set-property>
+      <set-property name="city"><![CDATA[Bend]]></set-property>
+      <set-property name="postalCode"><![CDATA[97701]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[OR]]></set-property>
+      <set-property name="address1"><![CDATA[105 Main St]]></set-property>
+      <set-property name="lastName"><![CDATA[Robinson]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570110]]></set-property>
+    </add-item>
+
+    <add-item id="se-usercc110110" item-descriptor="credit-card">
+      <set-property name="expirationMonth"><![CDATA[1]]></set-property>
+      <set-property name="billingAddress"><![CDATA[se-990110]]></set-property>
+      <set-property name="creditCardType"><![CDATA[Visa]]></set-property>
+      <set-property name="expirationYear"><![CDATA[2017]]></set-property>
+      <set-property name="creditCardNumber"><![CDATA[4539082039396288]]></set-property>
+    </add-item>
+
+    
+    <add-item id="se-980110" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-8110]]></set-property>
+      <set-property name="firstName"><![CDATA[Elisabeth]]></set-property>
+      <set-property name="city"><![CDATA[Bend]]></set-property>
+      <set-property name="postalCode"><![CDATA[97701]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[OR]]></set-property>
+      <set-property name="address1"><![CDATA[105 Main St]]></set-property>
+      <set-property name="lastName"><![CDATA[Robinson]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570110]]></set-property>
+    </add-item>
+    
+    <add-item id="se-960110" item-descriptor="contactInfo">
+      <set-property name="postalCode"><![CDATA[97701]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570110]]></set-property>
+    </add-item>
+    
+    <add-item id="se-570110" item-descriptor="user">
+      <set-property name="secondaryAddresses"><![CDATA[Home=se-980110]]></set-property>
+      <set-property name="defaultCreditCard"><![CDATA[se-usercc110110]]></set-property>
+      <set-property name="firstName"><![CDATA[Elisabeth]]></set-property>
+      <set-property name="referralSource"><![CDATA[unknown]]></set-property>
+      <set-property name="gender"><![CDATA[female]]></set-property>
+      <set-property name="dateOfBirth"><![CDATA[12/15/1987]]></set-property>  
+      <set-property name="homeAddress"><![CDATA[se-960110]]></set-property>
+      <set-property name="locale"><![CDATA[en_US]]></set-property>
+      <set-property name="creditCards"><![CDATA[Visa=se-usercc110110]]></set-property>
+      <set-property name="lastName"><![CDATA[Robinson]]></set-property>
+      <set-property name="email"><![CDATA[elisabeth@example.com]]></set-property>
+      <set-property name="billingAddress"><![CDATA[se-990110]]></set-property>
+      <set-property name="password"><![CDATA[7de47ed3c6a656978a7343667d9385b016bb812d36211d389a42567eb9f55a3e]]></set-property>
+      <set-property name="passwordSalt"><![CDATA[elisabeth@example.com]]></set-property>
+      <set-property name="defaultCarrier"><![CDATA[Ground]]></set-property>
+      <set-property name="login"><![CDATA[elisabeth@example.com]]></set-property>
+      <set-property name="shippingAddress"><![CDATA[se-980110]]></set-property>
+      <set-property name="activePromotions"><![CDATA[xpst10051]]></set-property>
+      <set-property name="wishlist"><![CDATA[xgl10019]]></set-property>
+    </add-item>
+    
+    <!-- Amy Scott -->
+    
+    <add-item id="se-990115" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-1115]]></set-property>
+      <set-property name="firstName"><![CDATA[Amy]]></set-property>
+      <set-property name="city"><![CDATA[Berkeley]]></set-property>
+      <set-property name="postalCode"><![CDATA[94702]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[CA]]></set-property>
+      <set-property name="address2"/>
+      <set-property name="address1"><![CDATA[934 Cottonwood Ave.]]></set-property>
+      <set-property name="lastName"><![CDATA[Scott]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570115]]></set-property>
+    </add-item>
+
+    <add-item id="se-usercc110115" item-descriptor="credit-card">
+      <set-property name="expirationMonth"><![CDATA[1]]></set-property>
+      <set-property name="billingAddress"><![CDATA[se-990115]]></set-property>
+      <set-property name="creditCardType"><![CDATA[Visa]]></set-property>
+      <set-property name="expirationYear"><![CDATA[2017]]></set-property>
+      <set-property name="creditCardNumber"><![CDATA[4539082039396288]]></set-property>
+    </add-item>
+
+    
+    <add-item id="se-980115" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-8117]]></set-property>
+      <set-property name="firstName"><![CDATA[Amy]]></set-property>
+      <set-property name="city"><![CDATA[Berkeley]]></set-property>
+      <set-property name="postalCode"><![CDATA[94720-4208]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[CA]]></set-property>
+      <set-property name="address1"><![CDATA[2130 Centre Street]]></set-property>
+      <set-property name="address2"><![CDATA[Suite 200]]></set-property>
+      <set-property name="companyName"><![CDATA[Berkeley University]]></set-property>
+      <set-property name="lastName"><![CDATA[Scott]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570115]]></set-property>
+    </add-item>
+    
+    <add-item id="se-970115" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-1115]]></set-property>
+      <set-property name="firstName"><![CDATA[Amy]]></set-property>
+      <set-property name="city"><![CDATA[Berkeley]]></set-property>
+      <set-property name="postalCode"><![CDATA[94702]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[CA]]></set-property>
+      <set-property name="address2"/>
+      <set-property name="address1"><![CDATA[934 Cottonwood Ave.]]></set-property>
+      <set-property name="lastName"><![CDATA[Scott]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570115]]></set-property>
+    </add-item>
+    
+    <add-item id="se-960115" item-descriptor="contactInfo">
+      <set-property name="postalCode"><![CDATA[94702]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570115]]></set-property>
+    </add-item>
+    
+     <add-item id="se-570115" item-descriptor="user">
+      <set-property name="secondaryAddresses"><![CDATA[Home=se-980115]]>,<![CDATA[Work=se-970115]]></set-property>
+      <set-property name="defaultCreditCard"><![CDATA[se-usercc110115]]></set-property>
+      <set-property name="firstName"><![CDATA[Amy]]></set-property>
+      <set-property name="referralSource"><![CDATA[unknown]]></set-property>
+      <set-property name="gender"><![CDATA[female]]></set-property>
+      <set-property name="dateOfBirth"><![CDATA[8/10/1985]]></set-property>  
+      <set-property name="homeAddress"><![CDATA[se-960115]]></set-property>
+      <set-property name="locale"><![CDATA[en_US]]></set-property>
+      <set-property name="creditCards"><![CDATA[Visa=se-usercc110115]]></set-property>
+      <set-property name="lastName"><![CDATA[Scott]]></set-property>
+      <set-property name="email"><![CDATA[amy@example.com]]></set-property>
+      <set-property name="billingAddress"><![CDATA[se-990115]]></set-property>
+      <set-property name="password"><![CDATA[904b32bfff2be29d27424db399ce26822064d24036d8a3d2cba5c2c4d706e510]]></set-property>
+      <set-property name="passwordSalt"><![CDATA[amy@example.com]]></set-property>
+      <set-property name="defaultCarrier"><![CDATA[Ground]]></set-property>
+      <set-property name="login"><![CDATA[amy@example.com]]></set-property>
+      <set-property name="shippingAddress"><![CDATA[se-980115]]></set-property>
+      <set-property name="activePromotions"><![CDATA[xpst10052]]></set-property>
+      <set-property name="wishlist"><![CDATA[xgl10020]]></set-property>
+    </add-item>
+    
+    <!-- Anna Parker -->
+    
+    <add-item id="se-990125" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-8125]]></set-property>
+      <set-property name="firstName"><![CDATA[Anna]]></set-property>
+      <set-property name="city"><![CDATA[Newburyport]]></set-property>
+      <set-property name="postalCode"><![CDATA[01950]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[MA]]></set-property>
+      <set-property name="address1"><![CDATA[49 Spring St]]></set-property>
+      <set-property name="lastName"><![CDATA[Parker]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570125]]></set-property>
+    </add-item>
+
+    <add-item id="se-usercc110125" item-descriptor="credit-card">
+      <set-property name="expirationMonth"><![CDATA[1]]></set-property>
+      <set-property name="billingAddress"><![CDATA[se-990125]]></set-property>
+      <set-property name="creditCardType"><![CDATA[Visa]]></set-property>
+      <set-property name="expirationYear"><![CDATA[2017]]></set-property>
+      <set-property name="creditCardNumber"><![CDATA[4539082039396288]]></set-property>
+    </add-item>
+
+    
+    <add-item id="se-980125" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-8125]]></set-property>
+      <set-property name="firstName"><![CDATA[Anna]]></set-property>
+      <set-property name="city"><![CDATA[Newburyport]]></set-property>
+      <set-property name="postalCode"><![CDATA[01950]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[MA]]></set-property>
+      <set-property name="address1"><![CDATA[49 Spring St]]></set-property>
+      <set-property name="lastName"><![CDATA[Parker]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570125]]></set-property>
+    </add-item>
+    
+    <add-item id="se-960125" item-descriptor="contactInfo">
+      <set-property name="postalCode"><![CDATA[01950]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570125]]></set-property>
+    </add-item>
+    
+     <add-item id="se-570125" item-descriptor="user">
+      <set-property name="secondaryAddresses"><![CDATA[Home=se-980125]]></set-property>
+      <set-property name="defaultCreditCard"><![CDATA[se-usercc110125]]></set-property>
+      <set-property name="firstName"><![CDATA[Anna]]></set-property>
+      <set-property name="referralSource"><![CDATA[unknown]]></set-property>
+      <set-property name="gender"><![CDATA[female]]></set-property>
+      <set-property name="dateOfBirth"><![CDATA[5/20/1983]]></set-property>  
+      <set-property name="homeAddress"><![CDATA[se-960125]]></set-property>
+      <set-property name="locale"><![CDATA[en_US]]></set-property>
+      <set-property name="creditCards"><![CDATA[Visa=se-usercc110125]]></set-property>
+      <set-property name="lastName"><![CDATA[Parker]]></set-property>
+      <set-property name="email"><![CDATA[annaparker@example.com]]></set-property>
+      <set-property name="billingAddress"><![CDATA[se-990125]]></set-property>
+      <set-property name="password"><![CDATA[f6973185630eda170c47e4c99529fe78269b02574a50581efc660a829c626b49]]></set-property>
+      <set-property name="passwordSalt"><![CDATA[annaparker@example.com]]></set-property>
+      <set-property name="defaultCarrier"><![CDATA[Ground]]></set-property>
+      <set-property name="login"><![CDATA[annaparker@example.com]]></set-property>
+      <set-property name="shippingAddress"><![CDATA[se-980125]]></set-property>
+      <set-property name="activePromotions"><![CDATA[xpst10053]]></set-property>
+      <set-property name="wishlist"><![CDATA[xgl10021]]></set-property>
+    </add-item>
+    
+    <!-- Eric Adams -->
+    
+    <add-item id="se-990120" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-8120]]></set-property>
+      <set-property name="firstName"><![CDATA[Eric]]></set-property>
+      <set-property name="city"><![CDATA[Newport]]></set-property>
+      <set-property name="postalCode"><![CDATA[02840]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[RI]]></set-property>
+      <set-property name="address1"><![CDATA[861 Pine St]]></set-property>
+      <set-property name="lastName"><![CDATA[Adams]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570120]]></set-property>
+    </add-item>
+
+    <add-item id="se-usercc110120" item-descriptor="credit-card">
+      <set-property name="expirationMonth"><![CDATA[1]]></set-property>
+      <set-property name="billingAddress"><![CDATA[se-990120]]></set-property>
+      <set-property name="creditCardType"><![CDATA[Visa]]></set-property>
+      <set-property name="expirationYear"><![CDATA[2017]]></set-property>
+      <set-property name="creditCardNumber"><![CDATA[4539082039396288]]></set-property>
+    </add-item>
+
+    
+    <add-item id="se-980120" item-descriptor="contactInfo">
+      <set-property name="phoneNumber"><![CDATA[212-555-8120]]></set-property>
+      <set-property name="firstName"><![CDATA[Eric]]></set-property>
+      <set-property name="city"><![CDATA[Newport]]></set-property>
+      <set-property name="postalCode"><![CDATA[02840]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="state"><![CDATA[RI]]></set-property>
+      <set-property name="address1"><![CDATA[861 Pine St]]></set-property>
+      <set-property name="lastName"><![CDATA[Adams]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570120]]></set-property>
+    </add-item>
+    
+    <add-item id="se-960120" item-descriptor="contactInfo">
+      <set-property name="postalCode"><![CDATA[02840]]></set-property>
+      <set-property name="country"><![CDATA[US]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570120]]></set-property>
+    </add-item>
+    
+    <add-item id="se-570120" item-descriptor="user">
+      <set-property name="secondaryAddresses"><![CDATA[Home=se-980120]]></set-property>
+      <set-property name="defaultCreditCard"><![CDATA[se-usercc110120]]></set-property>
+      <set-property name="firstName"><![CDATA[Eric]]></set-property>
+      <set-property name="referralSource"><![CDATA[unknown]]></set-property>
+      <set-property name="gender"><![CDATA[male]]></set-property>
+      <set-property name="dateOfBirth"><![CDATA[1/29/1983]]></set-property>  
+      <set-property name="homeAddress"><![CDATA[se-960120]]></set-property>
+      <set-property name="locale"><![CDATA[en_US]]></set-property>
+      <set-property name="creditCards"><![CDATA[Visa=se-usercc110120]]></set-property>
+      <set-property name="lastName"><![CDATA[Adams]]></set-property>
+      <set-property name="email"><![CDATA[eric@example.com]]></set-property>
+      <set-property name="billingAddress"><![CDATA[se-990120]]></set-property>
+      <set-property name="password"><![CDATA[865a7f03bb6da05c84e4a417837506ac1609cac493950f556c291ef76e1bbfa8]]></set-property>
+      <set-property name="passwordSalt"><![CDATA[eric@example.com]]></set-property>
+      <set-property name="defaultCarrier"><![CDATA[Ground]]></set-property>
+      <set-property name="login"><![CDATA[eric@example.com]]></set-property>
+      <set-property name="shippingAddress"><![CDATA[se-980120]]></set-property>
+      <set-property name="activePromotions"><![CDATA[xpst10054]]></set-property>
+      <set-property name="wishlist"><![CDATA[xgl10022]]></set-property>
+    </add-item>
+    
+   
+   
+  </import-items>
+  
+</gsa-template><!-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.1.1/Storefront/data/users.xml#1 $$Change: 690623 $-->

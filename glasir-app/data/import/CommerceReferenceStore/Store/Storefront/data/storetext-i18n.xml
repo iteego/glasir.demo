@@ -1,0 +1,1296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gsa-template SYSTEM "dynamosystemresource:/atg/dtds/gsa/gsa_1.0.dtd">
+<gsa-template>
+  <import-items>
+    <!--
+  Store repository text resource definitions.
+  Repository item ids ending with '0' refer to generic text resources
+                                  '1' refer to 'storeSiteUS' text resources
+                                  '2' refer to 'storeSiteDE' text resources
+                                  '3' refer to 'homeSite' text resources
+-->
+    <add-item id="txt10000" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[cart_giftWrapPopup.text]]></set-property>
+      <set-property name="textDefault"><![CDATA[Gift Wrap is available at a flat rate of {price} per order, which is applied during the checkout process. The Gift Wrap option includes a gift message that you can personalize during checkout. <p>Currently, the Gift Wrap option is only available for entire orders. Individual items within an order cannot be gift wrapped separately.]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10000,es=es_xlatetxt10000]]></set-property>
+    </add-item>
+    <add-item id="detxt10000" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Das Verpacken als Geschenk ist gegen eine Pauschale von {price} pro Bestellung möglich. Diese wird beim Checkout berechnet. Die Option "Geschenkverpackung" umfasst eine Geschenknachricht, die Sie beim Checkout personalisieren können. <p>Derzeit steht die Option "Geschenkverpackung" nur für ganze Bestellungen zur Verfügung. Einzelne Artikel innerhalb einer Bestellung können also nicht separat als Geschenk verpackt werden.]]></set-property>
+    </add-item>
+    <add-item id="txt10011" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[storeSiteUS.company.gadget.customer_service.byPhone]]></set-property>
+      <set-property name="textDefault"><![CDATA[1.555.555.5555 extension .5555<br/>1.888.555.5555 (TDD hearing impaired)]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10011,es=es_xlatetxt10011]]></set-property>
+    </add-item>
+    <add-item id="detxt10011" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[+1 555 555 5555 Durchwahl: -5555<br/>+1 888 555 5555 (Schreibtelefon für Gehörlose)]]></set-property>
+    </add-item>
+    <add-item id="txt10021" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[storeSiteUS.company.gadget.customer_service.byFax]]></set-property>
+      <set-property name="textDefault"><![CDATA[1.888.555.5555]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10021,es=es_xlatetxt10021]]></set-property>
+    </add-item>
+    <add-item id="detxt10021" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[1.888.555.5555]]></set-property>
+    </add-item>
+    <add-item id="txt10031" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[storeSiteUS.company.gadget.customer_service.byMail]]></set-property>
+      <set-property name="textDefault"><![CDATA[ATG Store Customer Services<br/>555 Main St.<br/>Any City, MA 5555-5555]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10031,es=es_xlatetxt10031]]></set-property>
+    </add-item>
+    <add-item id="detxt10031" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[ATG Store Customer Services<br/>555 Main St.<br/>Any City, MA 5555-5555]]></set-property>
+    </add-item>
+    <add-item id="txt10041" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[storeSiteUS.company.gadget.customer_service.byEmail]]></set-property>
+      <set-property name="textDefault"><![CDATA[To email an ATG Store customer service representative: <a href="mailto:service@atgstore.com">service@atgstore.com</a>.]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10041,es=es_xlatetxt10041]]></set-property>
+    </add-item>
+    <add-item id="detxt10041" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[E-Mail an den ATG Store Kundenservice: <a href="mailto:service@atgstore.com">service@atgstore.com</a>.]]></set-property>
+    </add-item>
+    <add-item id="txt10012" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[storeSiteDE.company.gadget.customer_service.byPhone]]></set-property>
+      <set-property name="textDefault"><![CDATA[+49 (0)89 555555-51<br/>+49 (0)89 555555-52 (TDD hearing impaired)]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10012,es=es_xlatetxt10012]]></set-property>
+    </add-item>
+    <add-item id="detxt10012" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[+49 (0)89 555555-51<br/>+49 (0)89 555555-52 (Schreibtelefon für Gehörlose)]]></set-property>
+    </add-item>
+    <add-item id="txt10022" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[storeSiteDE.company.gadget.customer_service.byFax]]></set-property>
+      <set-property name="textDefault"><![CDATA[+49 (0)89 555555-53]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10022,es=es_xlatetxt10022]]></set-property>
+    </add-item>
+    <add-item id="detxt10022" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[+49 (0)89 555555-53]]></set-property>
+    </add-item>
+    <add-item id="txt10032" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[storeSiteDE.company.gadget.customer_service.byMail]]></set-property>
+      <set-property name="textDefault"><![CDATA[ATG Store Customer Services<br/> Platzl 9,<br/>80331 Munich, Germany]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10032,es=es_xlatetxt10032]]></set-property>
+    </add-item>
+    <add-item id="detxt10032" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[ATG Store Kundenservice<br/>Platzl 9<br/>80331 München, Deutschland]]></set-property>
+    </add-item>
+    <add-item id="txt10042" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[storeSiteDE.company.gadget.customer_service.byEmail]]></set-property>
+      <set-property name="textDefault"><![CDATA[To email an ATG Store customer service representative: <a href="mailto:service@atgstore.de">service@atgstore.de</a>.]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10042,es=es_xlatetxt10042]]></set-property>
+    </add-item>
+    <add-item id="detxt10042" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[E-Mail an den ATG Store Kundenservice: <a href="mailto:service@atgstore.de">service@atgstore.de</a>.]]></set-property>
+    </add-item>
+    <add-item id="txt10013" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[homeSite.company.gadget.customer_service.byPhone]]></set-property>
+      <set-property name="textDefault"><![CDATA[1.555.555.555 ext.55<br/>1.888.555.5555 (TDD hearing impaired)]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10013,es=es_xlatetxt10013]]></set-property>
+    </add-item>
+    <add-item id="detxt10013" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[+1 555 555 5555 Durchwahl: -55<br/>+1 888 555 5555 (Schreibtelefon für Gehörlose)]]></set-property>
+    </add-item>
+    <add-item id="txt10023" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[homeSite.company.gadget.customer_service.byFax]]></set-property>
+      <set-property name="textDefault"><![CDATA[1.888.555.5555]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10023,es=es_xlatetxt10023]]></set-property>
+    </add-item>
+    <add-item id="detxt10023" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[1.888.555.5555]]></set-property>
+    </add-item>
+    <add-item id="txt10033" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[homeSite.company.gadget.customer_service.byMail]]></set-property>
+      <set-property name="textDefault"><![CDATA[ATG Home Customer Services<br/>555 Main St.<br/>Any City, MA 55555-5555]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10033,es=es_xlatetxt10033]]></set-property>
+    </add-item>
+    <add-item id="detxt10033" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[ATG Home Customer Services<br/>555 Main St.<br/>Any City, MA 55555-5555]]></set-property>
+    </add-item>
+    <add-item id="txt10043" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[homeSite.company.gadget.customer_service.byEmail]]></set-property>
+      <set-property name="textDefault"><![CDATA[To email an ATG Home customer service representative: <a href="mailto:service@atghome.com">service@atghome.com</a>.]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10043,es=es_xlatetxt10043]]></set-property>
+    </add-item>
+    <add-item id="detxt10043" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[E-Mail an den ATG Home Kundenservice: <a href="mailto:service@atghome.com">service@atghome.com</a>.]]></set-property>
+    </add-item>
+    <add-item id="txt10050" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[common.storeName]]></set-property>
+      <set-property name="textDefault"><![CDATA[ATG Store]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10050,es=es_xlatetxt10050]]></set-property>
+    </add-item>
+    <add-item id="detxt10050" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[ATG Store]]></set-property>
+    </add-item>
+    <add-item id="txt10053" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[homeSite.common.storeName]]></set-property>
+      <set-property name="textDefault"><![CDATA[ATG Home]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10053,es=es_xlatetxt10053]]></set-property>
+    </add-item>
+    <add-item id="detxt10053" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[ATG Home]]></set-property>
+    </add-item>
+    <add-item id="txt10060" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_help.question1]]></set-property>
+      <set-property name="textDefault"><![CDATA[Q: Why wasn't the store promotion on the website available at the {storeName} store at my local mall?]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10060,es=es_xlatetxt10060]]></set-property>
+    </add-item>
+    <add-item id="detxt10060" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[F: Warum wurde die Promotion-Aktion von der Website nicht im {storeName}-Geschäft in meinem Einkaufszentrum vor Ort angeboten?]]></set-property>
+    </add-item>
+    <add-item id="txt10070" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_help.answer1]]></set-property>
+      <set-property name="textDefault"><![CDATA[A: The promotions posted on our website are offered in most of our stores nationwide. However, as noted when the promotion is posted on our website, each {storeName} store is unique and promotions are not offered at all stores. If you want to make sure your {storeName} store is running a particular promotion, call the store. If they aren't running the promotion, they should be able to tell you which {storeName} store in your area is.]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10070,es=es_xlatetxt10070]]></set-property>
+    </add-item>
+    <add-item id="detxt10070" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[A: Die Promotion-Aktionen, die wir auf unserer Website veröffentlichen, werden in den meisten unserer Ladengeschäfte im ganzen Land angeboten. Jedes {storeName}-Geschäft ist aber einzigartig, und so kann es sein, dass eine Promotion zum Zeitpunkt ihrer Veröffentlichung auf unserer Website nicht in allen Geschäften angeboten wird. Wenn Sie sichergehen möchten, dass in Ihrem {storeName}-Geschäft eine bestimmte Promotion durchgeführt wird, rufen Sie am besten in diesem Geschäft an. Wird dort die Promotion nicht angeboten, sollten die Mitarbeiter auf jeden Fall in der Lage sein, Ihnen mitzuteilen, welches {storeName}-Geschäft in Ihrer Nähe die Promotion durchführt.]]></set-property>
+    </add-item>
+    <add-item id="txt10080" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_help.question2]]></set-property>
+      <set-property name="textDefault"><![CDATA[Q: What is your return policy?]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10080,es=es_xlatetxt10080]]></set-property>
+    </add-item>
+    <add-item id="detxt10080" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[F: Wie lauten Ihre Rückgabebedingungen?]]></set-property>
+    </add-item>
+    <add-item id="txt10090" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_help.answer2]]></set-property>
+      <set-property name="textDefault"><![CDATA[A: If you have your receipt or packing slip, you can return any unused or defective item <b>within 90 days</b> of the original purchase date for a full refund, minus shipping costs. If you do not have a receipt or packing slip, you will receive a merchandise credit for the item's current selling price. Returns are not accepted <b>after 90 days</b> from the purchase date.]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10090,es=es_xlatetxt10090]]></set-property>
+    </add-item>
+    <add-item id="detxt10090" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[A: Wenn Sie noch über die Quittung oder den Lieferschein verfügen, können Sie uns jeden ungenutzten oder defekten Artikel <b>innerhalb von 90 Tagen</b> ab Kaufdatum zurückschicken. Sie erhalten dann den vollen Kaufpreis abzüglich Versandkosten zurückerstattet. Haben Sie die Quittung oder den Lieferschein nicht mehr zur Hand, erhalten Sie eine Warengutschrift in Höhe des aktuellen Verkaufspreises des Artikels. Rücksendungen <b>nach 90 Tagen</b> ab Kaufdatum werden nicht akzeptiert.]]></set-property>
+    </add-item>
+    <add-item id="txt10110" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_help.question3]]></set-property>
+      <set-property name="textDefault"><![CDATA[Q: How do I update my email address?]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10110,es=es_xlatetxt10110]]></set-property>
+    </add-item>
+    <add-item id="detxt10110" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[F: Wie kann ich meine E-Mail-Adresse ändern?]]></set-property>
+    </add-item>
+    <add-item id="txt10120" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_help.answer3]]></set-property>
+      <set-property name="textDefault"><![CDATA[A: You can update your email address by logging in and selecting "My Profile." Make any changes you need to your profile, then scroll to the bottom of the page, and click "Submit" to save those changes.]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10120,es=es_xlatetxt10120]]></set-property>
+    </add-item>
+    <add-item id="detxt10120" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[A: Sie können Ihre E-Mail-Adresse ändern, indem Sie sich anmelden und "Mein Profil" auswählen. Nehmen Sie alle erforderlichen Änderungen an Ihrem Profil vor, führen Sie einen Bildlauf nach unten durch, und klicken Sie auf "Weiterleiten", um die Änderungen zu speichern.]]></set-property>
+    </add-item>
+    <add-item id="txt10130" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_help.question4]]></set-property>
+      <set-property name="textDefault"><![CDATA[Q: I created a Wish List on my last visit to the site. Where is it now?]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10130,es=es_xlatetxt10130]]></set-property>
+    </add-item>
+    <add-item id="detxt10130" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[F: Ich habe bei meinem letzten Besuch auf der Site einen Wunschzettel erstellt. Wo ist dieser Wunschzettel jetzt?]]></set-property>
+    </add-item>
+    <add-item id="txt10140" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_help.answer4]]></set-property>
+      <set-property name="textDefault"><![CDATA[A: You must be a registered member of {storeName} to save a Wish List for future access. Registered members can retrieve their Wish Lists by logging into their accounts and clicking Wish List at the top of any page on the website.]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10140,es=es_xlatetxt10140]]></set-property>
+    </add-item>
+    <add-item id="detxt10140" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[A: Sie müssen bei {storeName} registriert sein, um den Wunschzettel für eine spätere Verwendung speichern zu können. Registrierte Mitglieder können ihre Wunschzettel abrufen, indem sie sich bei ihrem Account anmelden und oben auf jeder Seite der Website auf "Wunschzettel" klicken.]]></set-property>
+    </add-item>
+    <add-item id="txt10150" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_help.question5]]></set-property>
+      <set-property name="textDefault"><![CDATA[Q: How can I unsubscribe from your email list?]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10150,es=es_xlatetxt10150]]></set-property>
+    </add-item>
+    <add-item id="detxt10150" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[F: Wie kann ich mich von Ihrer E-Mail-Liste abmelden?]]></set-property>
+    </add-item>
+    <add-item id="txt10160" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_help.answer5]]></set-property>
+      <set-property name="textDefault"><![CDATA[A: You can unsubscribe from {storeName} email by clicking the link at the bottom of marketing emails you receive from {storeName}. Please note, even if you elect not to receive email, or subsequently ask to be removed from the {storeName} email marketing list, you may still receive email confirmations for Gift Card purchases made on our website, confirmations of our receipt of questions submitted, and other operational emails. You can also login and edit your profile, then deselect the box for "Send me emails."]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10160,es=es_xlatetxt10160]]></set-property>
+    </add-item>
+    <add-item id="detxt10160" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[A: Sie können die E-Mails von {storeName} abbestellen, indem Sie auf den Link unten in den Marketing-E-Mails klicken, die Sie von {storeName} erhalten. Beachten Sie dabei Folgendes: Es kann sein, dass Sie trotz der Abbestellung von E-Mails oder Ihrer nachfolgenden Bitte, von der E-Mail-Marketingliste von {storeName} entfernt zu werden, dennoch E-Mail-Bestätigungen für Einkäufe mit Geschenkkarten auf unserer Website, Bestätigungen für den Eingang von Ihnen übermittelter Fragen oder andere vorgangsbedingte E-Mails erhalten. Sie haben auch die Möglichkeit, sich anzumelden, Ihr Profil zu bearbeiten, und das Kontrollkästchen für "E-Mails an mich senden" zu deaktivieren.]]></set-property>
+    </add-item>
+    <add-item id="txt10271" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[storeSiteUS.company_shipping.text]]></set-property>
+      <set-property name="textDefault"><![CDATA[<h3>Ground Shipping</h3><p>UPS will deliver items that are available for immediate shipment<br/>in 3-5 business days at the rates described below. Please note<br/>that delivery of merchandise that requires special handling<br/>will take approximately two additional weeks.<br/></p><p>For Orders up to $14.99 US the Shipping Rate is $4.75 US.<br/>For Orders from $15 - $49.99 US the Shipping Rate is $5.95 US.<br/>For Orders $50.00 US and up the Shipping Rate is $6.50 US.</p><p><h3>Two Day Shipping</h3></p><p>UPS will deliver items that are available for immediate shipment<br/>in two business days at a flat rate of $9.50 US.</p><p><h3>Next Day Shipping</h3></p><p>UPS will deliver items that are available for immediate shipment<br/>overnight at a flat rate of $18.95 US.</p>]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10271,es=es_xlatetxt10271]]></set-property>
+    </add-item>
+    <add-item id="detxt10271" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[<h3>Standardversand</h3><p>UPS liefert Artikel, die sofort versandfertig sind,<br/>in 3-5 Werktagen zu den untenstehenden Preisen. Beachten<br/>Sie, dass Lieferungen von Artikeln, die eine spezielle Bearbeitung erfordern,<br/>ungefähr zwei weitere Wochen benötigen.</p><p>Für Bestellungen bis zu  14.99 € beträgt der Versand 4,75 €.<br/>Für Bestellungen von 15 € - 49,99 € beträgt der Versand 5,95 €.<br/>Für Bestellungen ab 50,00 € beträgt der Versand 6,50 €.</p><p>Versand in zwei Tagen</h3></p><p>UPS liefert Artikel, die sofort versandfertig sind,<br/>in zwei Werktagen zu einem Festpreis von 9,50 €.</p><p><h3>Versand in einem Tag</h3></p><p>UPS liefert Artikel, die sofort versandfertig sind,<br/>über Nacht zu einem Festpreis von 18,95 €.</p>]]></set-property>
+    </add-item>
+    <add-item id="txt10272" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[storeSiteDE.company_shipping.text]]></set-property>
+      <set-property name="textDefault"><![CDATA[<h3>Ground Shipping</h3><p>UPS will deliver items that are available for immediate shipment<br/>in 3-5 business days at the rates described below. Please note<br/>that delivery of merchandise that requires any special handling<br/>will take approximately two additional weeks.<br/></p><p>For Orders up to 14.99 &euro; the Shipping Rate is 4.75 &euro;.<br/>For Orders from 15 &euro;- 49.99 &euro; the Shipping Rate is 5.95 &euro;.<br/>For Orders 50.00 &euro; and up the Shipping Rate is 6.50 &euro;.</p><p><h3>Two Day Shipping</h3></p><p>UPS will deliver items that are available for immediate shipment<br/>in two business days at a flat rate of 9.50 &euro;.</p><p><h3>Next Day Shipping</h3></p><p>UPS will deliver items that are available for immediate shipment<br/>overnight at a flat rate of 18.95 &euro;.</p>]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10272,es=es_xlatetxt10272]]></set-property>
+    </add-item>
+    <add-item id="detxt10272" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[<h3>Standardversand</h3><p>UPS liefert Artikel, die sofort versandfertig sind,<br/>in 3-5 Werktagen zu den untenstehenden Preisen. Beachten<br/>Sie, dass Lieferungen von Artikeln, die eine spezielle Bearbeitung erfordern,<br/>ungefähr zwei weitere Wochen benötigen.</p><p>Für Bestellungen bis zu 14.99 € beträgt der Versand 4,75 €.<br/>Für Bestellungen von 15-49,99 € beträgt der Versand 5,95 €.<br/>Für Bestellungen ab 50,00 € beträgt der Versand 6,50 €.</p><p><h3>Versand in zwei Tagen</h3></p><p>UPS liefert Artikel, die sofort versandfertig sind,<br/>in zwei Werktagen zu einem Festpreis von 9,50 €.</p><p><h3>Versand in einem Tag</h3></p><p>UPS liefert Artikel, die sofort versandfertig sind,<br/>über Nacht zu einem Festpreis von 18,95 €.</p>]]></set-property>
+    </add-item>
+    <add-item id="txt10273" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[homeSite.company_shipping.text]]></set-property>
+      <set-property name="textDefault"><![CDATA[<h3>Ground Shipping</h3><p>UPS will deliver items that are available for immediate shipment<br/>in 3-5 business days at the rates described below. Please note<br/>that delivery of merchandise that requires any special handling<br/>will take approximately two additional weeks.<br/></p><p>For Orders up to $14.99 US the Shipping Rate is $4.75 US.<br/>For Orders from $15- $49.99 the Shipping Rate is $5.95 US.<br/>For Orders $50.00 US and up the Shipping Rate is $6.50 US.</p><p><h3>Two Day Shipping</h3></p><p>UPS will deliver items that are available for immediate shipment<br/>in two business days at a flat rate of $9.50 US.</p><p><h3>Next Day Shipping</h3></p><p>UPS will deliver items that are available for immediate shipment<br/>overnight at a flat rate of $18.95 US.</p>]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10273,es=es_xlatetxt10273]]></set-property>
+    </add-item>
+    <add-item id="detxt10273" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[<h3>Standardversand</h3><p>UPS liefert Artikel, die sofort versandfertig sind,<br/>in 3-5 Werktagen zu den untenstehenden Preisen. Beachten<br/>Sie, dass Lieferungen von Artikeln, die eine spezielle Bearbeitung erfordern,<br/>ungefähr zwei weitere Wochen benötigen.</p><p>Für Bestellungen bis zu 14.99 € beträgt der Versand 4,75 €.<br/>Für Bestellungen von 15 € - 49,99 € beträgt der Versand 5,95 €.<br/>Für Bestellungen ab 50,00 € beträgt der Versand 6,50 €.</p><p>Versand in zwei Tagen</p><p>UPS liefert Artikel, die sofort versandfertig sind,<br/>in zwei Werktagen zu einem Festpreis von 9,50 €.</p><p>Versand in einem Tages</p><p>UPS liefert Artikel, die sofort versandfertig sind,<br/>über Nacht zu einem Festpreis von 18,95 €.</p>]]></set-property>
+    </add-item>
+    <add-item id="txt10180" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_returnPolicyPopup.text]]></set-property>
+      <set-property name="textDefault"><![CDATA[<p>If you have your receipt or packing slip, you can return any unused or defective item <b>within 90 days</b> of the original purchase date for a full refund, minus shipping costs. If you do not have a receipt or packing slip, you will receive a merchandise credit for the item's current selling price. Returns are not accepted <b>after 90 days</b> from the purchase date.</p>]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10180,es=es_xlatetxt10180]]></set-property>
+    </add-item>
+    <add-item id="detxt10180" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[<p>Wenn Sie über die Quittung oder den Lieferschein verfügen, können Sie uns jeden ungenutzten oder defekten Artikel <b>innerhalb von 90 Tagen</b> ab Kaufdatum zurückschicken. Für den Artikel erhalten Sie eine volle Rückerstattung  abzüglich der Versandkosten. Haben Sie die Quittung oder den Lieferschein nicht mehr zur Hand, erhalten Sie eine Warengutschrift in der Höhe des aktuellen ]]></set-property>
+    </add-item>
+    <add-item id="txt10190" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_aboutUs.title]]></set-property>
+      <set-property name="textDefault"><![CDATA[About Us]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10190,es=es_xlatetxt10190]]></set-property>
+    </add-item>
+    <add-item id="detxt10190" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Über uns]]></set-property>
+    </add-item>
+    <add-item id="txt10200" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_aboutUs.aboutUs]]></set-property>
+      <set-property name="textDefault"><![CDATA[{storeName} is the premier stylish, fashion brand for women and men, completely driven by original design. Each season, {storeName} develops carefully edited collections of high quality fashion, wear-to-work and casual wear for young men and women. From the product to the store experience, the {storeName} brand is a fashion leader.]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10200,es=es_xlatetxt10200]]></set-property>
+    </add-item>
+    <add-item id="txt10203" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[homeSite.company_aboutUs.aboutUs]]></set-property>
+      <set-property name="textDefault"><![CDATA[{storeName} is the premier source for quality home furniture and related products, completely driven by functional design. Each season, {storeName} carefully evaluates furniture manufacturers seeking the highest quality products available. From the kitchen to the living room, {storeName} is a leader in quality and exceptional value.]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlatetxt10203,de=de_xlatetxt10203]]></set-property>
+    </add-item>
+    <add-item id="detxt10200" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[{storeName} ist die erstklassige Modemarke mit dem richtigen Style für Frauen und Männer und geprägt von originellem Design. Jede Saison entwickelt {storeName} gut durchdachte Modekollektionen von höchster Qualität für Arbeits- und Freizeitkleidung für junge Männer und Frauen. Vom Produkt bis hin zum Einkaufserlebnis ist {storeName} führend auf dem Modemarkt.]]></set-property>
+    </add-item>
+    <add-item id="txt10210" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_emptyNewsRenderer.item1Header]]></set-property>
+      <set-property name="textDefault"><![CDATA[Introducing HOME!]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10210,es=es_xlatetxt10210]]></set-property>
+    </add-item>
+    <add-item id="detxt10210" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Willkommen bei HOME!]]></set-property>
+    </add-item>
+    <add-item id="txt10220" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_emptyNewsRenderer.item1Details]]></set-property>
+      <set-property name="textDefault"><![CDATA[Be the First to shop our new Home Collection, featuring the {storeName} styles you love, designed to fit your lifestyle perfectly! Make sure to sign up for our Email Newsletter to be informed of this and other new offerings and promotions!]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10220,es=es_xlatetxt10220]]></set-property>
+    </add-item>
+    <add-item id="detxt10220" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Gehören Sie zu den ersten Kunden unserer neuen Home-Kollektion. Hier finden Sie die {storeName}-Designs, die Sie lieben und die perfekt zu Ihrem Lifestyle passen! Sie sollten unbedingt unseren E-Mail-Newsletter abonnieren, um hierüber und über andere neue Angebote und Promotions stets auf dem Laufenden zu sein!]]></set-property>
+    </add-item>
+    <add-item id="txt10230" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_emptyNewsRenderer.item2Header]]></set-property>
+      <set-property name="textDefault"><![CDATA[{storeName} Names Jessica Zakszewski as Chief Marketing Officer]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10230,es=es_xlatetxt10230]]></set-property>
+    </add-item>
+    <add-item id="detxt10230" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[{storeName}: Jessica Zakszewski zur Marketingleiterin ernannt]]></set-property>
+    </add-item>
+    <add-item id="txt10250" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company.corp_site.clickToGoToCorpSite]]></set-property>
+      <set-property name="textDefault"><![CDATA[<a href="http://{corporateSiteLink}">Click here</a> to visit our corporate site.]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10250,es=es_xlatetxt10250]]></set-property>
+    </add-item>
+    <add-item id="detxt10250" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[<a href="http://{corporateSiteLink}">Klicken Sie hier</a>, um die Site unseres Unternehmens aufzurufen.]]></set-property>
+    </add-item>
+    <add-item id="txt10260" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_employment.welcome]]></set-property>
+      <set-property name="textDefault"><![CDATA[Welcome to the {storeName} Career Center!]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10260,es=es_xlatetxt10260]]></set-property>
+    </add-item>
+    <add-item id="detxt10260" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Willkommen auf den Karriereseiten von {storeName}!]]></set-property>
+    </add-item>
+    <add-item id="txt10270" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_employment.purpose]]></set-property>
+      <set-property name="textDefault"><![CDATA[{storeName} is looking for individuals to join our team. We want people like you: genuine, hard-working, and passionate about the {storeName} brand. {storeName} is an Equal Opportunity Employer.]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10270,es=es_xlatetxt10270]]></set-property>
+    </add-item>
+    <add-item id="detxt10270" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[{storeName} hält ständig Ausschau nach neuen Mitarbeitern, die unser Team ergänzen. Wir sind dabei auf der Suche nach Leuten wie Ihnen: Menschen, die authentisch, fleißig und von der Marke {storeName} begeistert sind. {storeName} ist ein Arbeitgeber, der die Chancengleichheit und Gleichbehandlung seiner Mitarbeiter fördert.]]></set-property>
+    </add-item>
+    <add-item id="txt10280" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_employment.purpose2]]></set-property>
+      <set-property name="textDefault"><![CDATA[{storeName} takes a people-first approach to our benefits program. We are proud to offer one of the most competitive benefits packages in the retail industry. Here's a quick overview of the benefits {storeName} employees receive:]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10280,es=es_xlatetxt10280]]></set-property>
+    </add-item>
+    <add-item id="detxt10280" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Bei den Sozialleistungen steht bei {storeName} der Mensch im Mittelpunkt. Wir sind sehr stolz, eines der attraktivsten Vergütungspakete im Einzelhandel anbieten zu können. Hier ein kurzer Überblick über die Leistungen, in deren Genuss Sie als {storeName}-Mitarbeiter kommen:]]></set-property>
+    </add-item>
+    <add-item id="txt10290" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_employment.medicalInsurance]]></set-property>
+      <set-property name="textDefault"><![CDATA[Medical and dental insurance]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10290,es=es_xlatetxt10290]]></set-property>
+    </add-item>
+    <add-item id="detxt10290" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Krankenversicherung (inkl. Zahnversicherung)]]></set-property>
+    </add-item>
+    <add-item id="txt10300" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_employment.lifeInsurance]]></set-property>
+      <set-property name="textDefault"><![CDATA[Life insurance]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10300,es=es_xlatetxt10300]]></set-property>
+    </add-item>
+    <add-item id="detxt10300" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Lebensversicherung]]></set-property>
+    </add-item>
+    <add-item id="txt10310" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_employment.termDisability]]></set-property>
+      <set-property name="textDefault"><![CDATA[Short and long term disability]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10310,es=es_xlatetxt10310]]></set-property>
+    </add-item>
+    <add-item id="detxt10310" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Absicherung gegen kurz- und langfristige Arbeitsunfähigkeit]]></set-property>
+    </add-item>
+    <add-item id="txt10320" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_employment.paidTimeOff]]></set-property>
+      <set-property name="textDefault"><![CDATA[Paid time off program]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10320,es=es_xlatetxt10320]]></set-property>
+    </add-item>
+    <add-item id="detxt10320" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Bezahlter Urlaub]]></set-property>
+    </add-item>
+    <add-item id="txt10330" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_employment.paidHolidays]]></set-property>
+      <set-property name="textDefault"><![CDATA[Six paid holidays]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10330,es=es_xlatetxt10330]]></set-property>
+    </add-item>
+    <add-item id="detxt10330" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Sechs bezahlte Feiertage]]></set-property>
+    </add-item>
+    <add-item id="txt10340" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_employment.merchandiseDiscount]]></set-property>
+      <set-property name="textDefault"><![CDATA[Great merchandise discount]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10340,es=es_xlatetxt10340]]></set-property>
+    </add-item>
+    <add-item id="detxt10340" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Interessante Warennachlässe]]></set-property>
+    </add-item>
+    <add-item id="txt10350" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_employment.matching401k]]></set-property>
+      <set-property name="textDefault"><![CDATA[401(k) with company match]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10350,es=es_xlatetxt10350]]></set-property>
+    </add-item>
+    <add-item id="detxt10350" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[401(k)-Plan mit Company Match]]></set-property>
+    </add-item>
+    <add-item id="txt10360" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_employment.profitSharing]]></set-property>
+      <set-property name="textDefault"><![CDATA[Profit sharing]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10360,es=es_xlatetxt10360]]></set-property>
+    </add-item>
+    <add-item id="detxt10360" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Erfolgsbeteiligung]]></set-property>
+    </add-item>
+    <add-item id="txt10370" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_employment.employeeStockPurchasePlan]]></set-property>
+      <set-property name="textDefault"><![CDATA[Employee stock purchase plan]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10370,es=es_xlatetxt10370]]></set-property>
+    </add-item>
+    <add-item id="detxt10370" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Aktienbezugsplan für Mitarbeiter]]></set-property>
+    </add-item>
+    <add-item id="txt10380" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_employment.benefitClosing]]></set-property>
+      <set-property name="textDefault"><![CDATA[All this, and countless other benefits, await you in your career with {storeName}!]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10380,es=es_xlatetxt10380]]></set-property>
+    </add-item>
+    <add-item id="detxt10380" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[All dies sowie zahlreiche weitere Leistungen warten auf Sie, wenn Sie sich für {storeName} als Arbeitgeber entscheiden!]]></set-property>
+    </add-item>
+    <add-item id="txt10390" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_employment.EOE]]></set-property>
+      <set-property name="textDefault"><![CDATA[EOE - M/F/V/D]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10390,es=es_xlatetxt10390]]></set-property>
+    </add-item>
+    <add-item id="detxt10390" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[EOE - M/F/V/D]]></set-property>
+    </add-item>
+    <add-item id="txt10400" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_terms.welcomeNote]]></set-property>
+      <set-property name="textDefault"><![CDATA[Welcome to the {storeName} Web Site ("Site"). Please review the following basic terms that govern your use of our Site. Please note that your use of our Site constitutes your agreement to follow and be bound by those terms (the "Agreement").]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10400,es=es_xlatetxt10400]]></set-property>
+    </add-item>
+    <add-item id="detxt10400" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Willkommen auf der Website von {storeName} ("Site"). Lesen Sie sich die folgenden Nutzungsbedingungen für die Site aufmerksam durch. Beachten Sie, dass Sie sich durch die Nutzung der Site automatisch mit den geltenden Nutzungsbedingungen einverstanden erklären ("Vereinbarung").]]></set-property>
+    </add-item>
+    <add-item id="txt10410" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_terms.siteContents]]></set-property>
+      <set-property name="textDefault"><![CDATA[Site Contents]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10410,es=es_xlatetxt10410]]></set-property>
+    </add-item>
+    <add-item id="detxt10410" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Inhalte der Site]]></set-property>
+    </add-item>
+    <add-item id="txt10420" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_terms.siteContentsInfo1]]></set-property>
+      <set-property name="textDefault"><![CDATA[Unless otherwise noted, all materials, including images, illustrations, designs, icons, photographs, video clips, and written and other materials that appear as part of this Site (collectively, the "Contents") are copyrights, trademarks, trade dress and/or other intellectual properties owned, controlled or licensed by {storeName}, and its subsidiaries and/or affiliates. The Site as a whole is protected by copyright and trade dress, all worldwide rights, titles and interests in and to which are owned by {storeName}, {storeName} Foundation and all other trademarks appearing at this Site are trademarks of {storeName}. and its subsidiaries.]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10420,es=es_xlatetxt10420]]></set-property>
+    </add-item>
+    <add-item id="detxt10420" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Sofern nicht anders angegeben, liegen die Urheberrechte, Rechte an Waren- oder Handelsnamen und/oder anderem geistigen Eigentum für alle Materialien, einschließlich Bilder, Illustrationen, Designs, Symbole, Fotos, Videos sowie Texte und andere Materialien, die auf dieser Site veröffentlicht werden (zusammen als "Inhalt" bezeichnet), bei {storeName} und seinen Tochter- und Zweiggesellschaften und werden von diesen Unternehmen kontrolliert und lizenziert. Die Site als Ganzes ist durch Urheber- und Handelsrechte geschützt. Alle weltweiten Rechte, Titel und Ansprüche liegen bei {storeName}. {storeName} Foundation und alle anderen Marken, die auf dieser Site erscheinen, sind Marken von {storeName} und seinen Tochtergesellschaften.]]></set-property>
+    </add-item>
+    <add-item id="txt10430" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_terms.siteContentsInfo2]]></set-property>
+      <set-property name="textDefault"><![CDATA[The Contents of our Site, and the Site as a whole, are intended solely for personal, noncommercial use by the users of our Site. You may download or copy the Contents and other downloadable materials displayed on the Site for your personal use only. No right, title or interest in any downloaded materials or software is transferred to you as a result of any such downloading or copying. You may not reproduce (except as noted above), publish, transmit, distribute, display, modify, create derivative works from, sell or participate in any sale of, or exploit in any way, in whole or in part, any of the Contents, the Site, or any related software.]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10430,es=es_xlatetxt10430]]></set-property>
+    </add-item>
+    <add-item id="detxt10430" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Der Inhalt auf unserer Site und die Site als Ganzes dienen lediglich der persönlichen, nicht-kommerziellen Nutzung durch die Benutzer unserer Site. Sie dürfen den Inhalt und andere herunterladbare Materialien, die auf der Site angezeigt werden, nur für Ihren persönlichen Gebrauch herunterladen oder kopieren. Durch das Herunterladen oder Kopieren werden Ihnen keine Rechte, Titel oder Ansprüche an heruntergeladenem Material oder Software übertragen. Sie dürfen den Inhalt auf der Site, die Site oder eine zugehörige Software weder ganz noch teilweise reproduzieren (außer im oben eingeräumten Umfang), veröffentlichen, übertragen, verteilen, anzeigen, ändern, zu anderen Werken verarbeiten, verkaufen noch sich an einem Verkauf oder einer Nutzung beteiligen.]]></set-property>
+    </add-item>
+    <add-item id="txt10440" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_terms.userComment]]></set-property>
+      <set-property name="textDefault"><![CDATA[User Comments, Feedback, Postcards and Other Submissions]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10440,es=es_xlatetxt10440]]></set-property>
+    </add-item>
+    <add-item id="detxt10440" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Benutzerkommentare, Feedback, Postkarten und andere übermittelte Daten]]></set-property>
+    </add-item>
+    <add-item id="txt10450" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_terms.userCommentInfo1]]></set-property>
+      <set-property name="textDefault"><![CDATA[All comments, feedback, postcards, suggestions, ideas, and other submissions disclosed, submitted or offered to {storeName} on or by this Site or otherwise disclosed, submitted or offered in connection with your use of this Site (collectively, "Comments") shall be and remain {storeName}''s property. Such disclosure, submission or offer of any Comments shall constitute an assignment to {storeName} of all worldwide rights, titles and interests in all copyrights and other intellectual properties in the Comments. Thus, {storeName} will own exclusively all such rights, titles and interests and shall not be limited in any way in its use, commercial or otherwise, of any Comments. {storeName} is and shall be under no obligation (1) to maintain any Comments in confidence; (2) to pay to user any compensation for any Comments; or (3) to respond to any user Comments.]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10450,es=es_xlatetxt10450]]></set-property>
+    </add-item>
+    <add-item id="detxt10450" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Alle Kommentare, Feedbackmeldungen, Postkarten, Anregungen, Ideen und anderen Daten, die im Zusammenhang mit Ihrer Nutzung dieser Site (zusammen als "Kommentare" bezeichnet) an {storeName} gesendet, übermittelt oder {storeName} angeboten werden, sind und bleiben Eigentum von {storeName}. Mit der Zusendung, Übermittlung oder dem Angebot solcher Kommentare übertragen Sie alle weltweiten Rechte, Titel und Ansprüche an allen Urheberrechten und anderem geistigen Eigentum an den Kommentaren an {storeName}. Folglich befinden sich alle derartigen Rechte, Titel und Ansprüche im Besitz von {storeName} und unterliegen hinsichtlich der Verwendung dieser Kommentare, ob kommerziell oder auf andere Weise, keinerlei Beschränkungen. {storeName} ist weder jetzt noch in der Zukunft verpflichtet, (1) Kommentare vertraulich zu behandeln, (2) dem Benutzer für Kommentare eine Vergütung zu bezahlen oder (3) auf Benutzerkommentare zu antworten.]]></set-property>
+    </add-item>
+    <add-item id="txt10460" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_terms.userCommentInfo2]]></set-property>
+      <set-property name="textDefault"><![CDATA[You agree that no Comments submitted by you to the Site will violate any right of any third party, including copyright, trademark, privacy or other personal or proprietary right(s). You further agree that no Comments submitted by you to the Site will be or contain libelous or otherwise unlawful, abusive or obscene material. You are and shall remain solely responsible for the content of any Comments you make.]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10460,es=es_xlatetxt10460]]></set-property>
+    </add-item>
+    <add-item id="detxt10460" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Sie erklären, dass durch keinen der Kommentare, die Sie an die Site übermitteln, Rechte Dritter, einschließlich Urheber- oder Markenschutzrechte, Datenschutzrechte oder andere persönliche oder Urheberrechte, verletzt werden. Sie erklären ferner, dass keine Kommentare, die von Ihnen an die Site übermittelt werden, verleumderisches oder anderweitig gesetzwidriges, beleidigendes oder obszönes Material enthalten. Sie sind und bleiben allein für den Inhalt jeglicher von Ihnen übermittelten Kommentare verantwortlich.]]></set-property>
+    </add-item>
+    <add-item id="txt10470" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_terms.revisions]]></set-property>
+      <set-property name="textDefault"><![CDATA[Revisions]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10470,es=es_xlatetxt10470]]></set-property>
+    </add-item>
+    <add-item id="detxt10470" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Revisionen]]></set-property>
+    </add-item>
+    <add-item id="txt10480" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_terms.revisionInfo]]></set-property>
+      <set-property name="textDefault"><![CDATA[We may from time to time change the terms that govern your use of our Site. Your use of our Site following any such change constitutes your agreement to follow and be bound by the terms as changed.]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10480,es=es_xlatetxt10480]]></set-property>
+    </add-item>
+    <add-item id="detxt10480" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Es kann sein, dass wir die Nutzungsbedingungen für unsere Site von Zeit zu Zeit ändern. Wenn Sie unsere Site nach einer solchen Änderung nutzen, erklären Sie sich dadurch automatisch einverstanden, dass ab sofort diese geänderten Bedingungen gelten und einzuhalten sind.]]></set-property>
+    </add-item>
+    <add-item id="txt10490" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_terms.revisionInfo1]]></set-property>
+      <set-property name="textDefault"><![CDATA[We may change, move or delete portions of, or may add to, our Site from time to time.]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10490,es=es_xlatetxt10490]]></set-property>
+    </add-item>
+    <add-item id="detxt10490" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Es kann sein, dass wir Teile unserer Site von Zeit zu Zeit ändern, verschieben, löschen oder ergänzen.]]></set-property>
+    </add-item>
+    <add-item id="txt10500" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_terms.inaccuracyDisclaimerInfo]]></set-property>
+      <set-property name="textDefault"><![CDATA[From time to time there may be information on {storeName} that contains typographical errors, inaccuracies, or omissions. We reserve the right to correct any errors, inaccuracies or omissions and to change or update information at any time without prior notice. We apologize for any inconvenience this may cause you.]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10500,es=es_xlatetxt10500]]></set-property>
+    </add-item>
+    <add-item id="detxt10500" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Gelegentlich kann es vorkommen, dass Informationen auf {storeName} Druckfehler, Ungenauigkeiten oder Auslassungen enthalten, Wir behalten uns das Recht vor, solche Fehler, Ungenauigkeiten oder Auslassungen jederzeit und ohne vorherige Ankündigung zu berichtigen und Informationen zu ändern oder zu aktualisieren. Wir entschuldigen uns für alle Unannehmlichkeiten, die daraus unter Umständen für Sie entstehen.]]></set-property>
+    </add-item>
+    <add-item id="txt10510" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_terms.linkToOtherWebSitesInfo]]></set-property>
+      <set-property name="textDefault"><![CDATA[To the extent that this Site contains links to outside services and resources, the availability and content of which {storeName} does not control, any concerns regarding any such service or resource, or any link thereto, should be directed to the particular outside service or resource.]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10510,es=es_xlatetxt10510]]></set-property>
+    </add-item>
+    <add-item id="detxt10510" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Sollte diese Site Links enthalten, die auf andere Services oder Ressourcen verweisen, auf deren Verfügbarkeit und Inhalt {storeName} keinen Einfluss hat, sollten jegliche Bedenken hinsichtlich dieser Services oder Ressourcen, oder jeder Link darauf, an diese externen Services oder Ressourcen gerichtet werden.]]></set-property>
+    </add-item>
+    <add-item id="txt10520" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_terms.disclaimerInfo]]></set-property>
+      <set-property name="textDefault"><![CDATA[This site and all contents of the site are provided on an "as is" basis without warranties of any kind, either expressed or implied, including without limitation warranties of title or implied warranties of merchantability or fitness for a particular purpose. You acknowledge, by your use of the site, that your use of the site is at your sole risk, that you assume full responsibility for all costs associated with all necessary servicing or repairs of any equipment you use in connection with your use of our site, and that {storeName} shall not be liable for any damages of any kind related to your use of this site.]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10520,es=es_xlatetxt10520]]></set-property>
+    </add-item>
+    <add-item id="detxt10520" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Diese Site und ihr gesamter Inhalt werden in der vorliegenden Form ohne jegliche implizite oder ausdrückliche Gewährleistung bereitgestellt; dazu zählen unter anderem jegliche Eigentumsgarantien oder implizite Gewährleistungen hinsichtlich der Marktgängigkeit oder Eignung für einen bestimmten Zweck. Durch die Nutzung dieser Site erklären Sie sich automatisch einverstanden, dass Ihre Nutzung der Site auf Ihr alleiniges Risiko geschieht und Sie die volle Verantwortung für alle Kosten im Zusammenhang mit allen notwendigen Wartungs- oder Reparaturarbeiten von Ausrüstungen, die Sie im Zusammenhang mit Ihrer Nutzung unserer Site verwenden, tragen. Sie erklären sich ferner einverstanden, dass {storeName} für keinerlei Schäden, welcher Art auch immer, haftbar gemacht werden kann, die im Zusammenhang mit Ihrer Nutzung dieser Site entstehen.]]></set-property>
+    </add-item>
+    <add-item id="txt10530" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_terms.jurisdictionInfo]]></set-property>
+      <set-property name="textDefault"><![CDATA[This Site is controlled and operated by {storeName} from its offices in Seattle, WA. This Agreement shall be construed in accordance with the laws of the State of Washington, without regard to any conflict of law provisions. Any dispute arising under this Agreement shall be resolved exclusively by the state and federal courts of the State of Washington.]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10530,es=es_xlatetxt10530]]></set-property>
+    </add-item>
+    <add-item id="detxt10530" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Diese Site wird von {storeName} von seinem Standort in Seattle, WA (USA), aus kontrolliert und betrieben. Diese Vereinbarung wird im Sinne der Gesetze des Bundesstaates Washington ausgelegt, ungeachtet jeglichen Gesetzeskonflikts. Alle Streitigkeiten, die sich aus dieser Vereinbarung ergeben, werden ausschließlich von den bundesstaatlichen und Bundesgerichten des Bundesstaates beigelegt.]]></set-property>
+    </add-item>
+    <add-item id="txt10540" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_terms.terminationInfo]]></set-property>
+      <set-property name="textDefault"><![CDATA[This Agreement is effective unless and until terminated by either you or {storeName}. You may terminate this Agreement at any time. {storeName} also may terminate this Agreement at any time and may do so immediately without notice, and accordingly deny you access to the Site, if in {storeName}''s sole discretion you fail to comply with any term or provision of this Agreement. Upon any termination of this Agreement by either you or {storeName}, you must promptly destroy all materials downloaded or otherwise obtained from this Site, as well as all copies of such materials, whether made under the terms of this Agreement or otherwise.]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10540,es=es_xlatetxt10540]]></set-property>
+    </add-item>
+    <add-item id="detxt10540" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Diese Vereinbarung ist so lange gültig, bis sie von Ihnen oder von {storeName} beendet wird. Sie können diese Vereinbarung jederzeit beenden. Auch {storeName} kann diese Vereinbarung jederzeit beenden, und zwar sofort und ohne vorherige Ankündigung. Entsprechend wird Ihnen der Zugriff auf die Site verwehrt, wenn Sie, nach alleinigem Ermessen von {storeName}, eine oder mehrere Bedingungen dieser Vereinbarung nicht einhalten. Nach Beendigung dieser Vereinbarung durch Sie oder durch {storeName} müssen Sie umgehend alle heruntergeladenen oder auf andere Weise von dieser Site erhaltenen Materialien vernichten. Dies gilt auch für sämtliche Kopien dieses Materials, und zwar unabhängig davon, ob sie im Rahmen dieser Vereinbarung angefertigt wurden oder nicht.]]></set-property>
+    </add-item>
+    <add-item id="txt10550" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_privacy.privacyPolicyInfo1]]></set-property>
+      <set-property name="textDefault"><![CDATA[At {storeName}, we respect the privacy of all visitors who access and use our Web site. The information we collect on this site is used to understand how we can enhance our site and improve your experience. This policy describes the limited circumstances in which we collect personal information, why we collect it, and how we use it. Our policy also describes the choices you can make about how we collect and use your information.]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10550,es=es_xlatetxt10550]]></set-property>
+    </add-item>
+    <add-item id="detxt10550" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Bei {storeName} achten wir auf den Schutz der Daten aller Besucher, die auf unsere Website zugreifen und diese verwenden. Die Daten, die wir auf dieser Site erheben, werden verwendet, um herauszufinden, wie wir unsere Site und Ihre Einkaufserfahrung verbessern können. In dieser Richtlinie werden die eingeschränkten Bedingungen beschrieben, unter denen wir personenbezogene Daten erheben, warum wir diese erheben und wie wir diese verwenden. In unserer Richtlinie wird auch beschrieben, welche Wahlmöglichkeiten Sie im Hinblick auf die Erhebung und Verwendung Ihrer Daten haben.]]></set-property>
+    </add-item>
+    <add-item id="txt10560" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_privacy.privacyPolicyInfo2]]></set-property>
+      <set-property name="textDefault"><![CDATA[If our information practices change in the future, we will post an updated policy on this Web site. You can tell if the policy has changed by checking the revision date that appears at the end of this policy.]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10560,es=es_xlatetxt10560]]></set-property>
+    </add-item>
+    <add-item id="detxt10560" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Ändern sich unsere Datenschutzbestimmungen künftig, werden wir auf dieser Website eine aktualisierte Richtlinie veröffentlichen. Ob die Richtlinie geändert wurde, können Sie dem Revisionsdatum entnehmen, das am Ende dieser Richtlinie angezeigt wird.]]></set-property>
+    </add-item>
+    <add-item id="txt10570" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company_privacy.privacyPolicyDate]]></set-property>
+      <set-property name="textDefault"><![CDATA[Revised - March, 2012]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10570,es=es_xlatetxt10570]]></set-property>
+    </add-item>
+    <add-item id="detxt10570" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Überarbeitet - März 2012]]></set-property>
+    </add-item>
+    <add-item id="txt10581" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[storeSiteUS.newsItem1]]></set-property>
+      <set-property name="tag"><![CDATA[storeSiteUS.news]]></set-property>
+      <set-property name="textDefault"><![CDATA[<h3>{storeName} Introduces Men's Apparel</h3><p>{storeName} announced that it has introduced a Men's Apparel category to its site. Be the first to shop the new Men's Apparel category, featuring the {storeName} styles you love, designed to fit your lifestyle perfectly!</p>]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10581,es=es_xlatetxt10581]]></set-property>
+    </add-item>
+    <add-item id="txt10582" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[storeSiteDE.newsItem1]]></set-property>
+      <set-property name="tag"><![CDATA[storeSiteDE.news]]></set-property>
+      <set-property name="textDefault"><![CDATA[<h3>{storeName} Introduces Men's Apparel</h3><p>{storeName} announced that it has introduced a Men's Apparel category to its site. Be the first to shop the new Men's Apparel Category, featuring the {storeName} styles you love, designed to fit your lifestyle perfectly!</p>]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10582,es=es_xlatetxt10582]]></set-property>
+    </add-item>
+    <add-item id="txt10583" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[homeSite.newsItem1]]></set-property>
+      <set-property name="tag"><![CDATA[homeSite.news]]></set-property>
+      <set-property name="textDefault"><![CDATA[<h3>Introducing Gift Ideas category!</h3><p>{storeName} announced that it has introduced a Gift Ideas category to its site. Be the first to shop the new Gift Ideas Category, featuring choice Electronics and Glassware products in the styles you love, designed to fit your lifestyle perfectly!</p>]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10583,es=es_xlatetxt10583]]></set-property>
+    </add-item>
+    <add-item id="detxt10581" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[<h3>{storeName} Neue Kategorie "Herrenbekleidung"</h3><p>{storeName} hat die Kategorie "Herrenbekleidung" zu dieser Site hinzugefügt. Gehören Sie zu den Ersten, die unter dieser neuen Kategorie einkaufen, denn bei {storeName} finden Sie Designs, die perfekt zu Ihrem Lifestyle passen>!</p>]]></set-property>
+    </add-item>
+    <add-item id="detxt10582" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[<h3>{storeName} Neue Kategorie "Herrenbekleidung"</h3><p>{storeName} hat die Kategorie "Herrenbekleidung" zu dieser Site hinzugefügt. Gehören Sie zu den Ersten, die unter dieser neuen Kategorie einkaufen, denn bei {storeName} finden Sie Designs, die perfekt zu Ihrem Lifestyle passen>!</p>]]></set-property>
+    </add-item>
+    <add-item id="detxt10583" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[<h3>Neue Kategorie "Geschenkideen!</h3><p>{storeName} hat die Kategorie "Geschenkideen" zu dieser Site hinzugefügt. Gehören Sie zu den Ersten, die unter dieser neuen Kategorie einkaufen. Hier finden Sie eine große Auswahl an Elektronikartikeln und Glaswaren in Ihren Lieblingsdesigns, die perfekt zu Ihrem Lifestyle passen>!</p>]]></set-property>
+    </add-item>
+    <add-item id="txt10591" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[storeSiteUS.newsItem2]]></set-property>
+      <set-property name="tag"><![CDATA[storeSiteUS.news]]></set-property>
+      <set-property name="textDefault"><![CDATA[<h3>{storeName} Names Jessica Zakszewski Chief Marketing Officer</h3><p>{storeName} announces the appointment of Jessica Zakszewski as Chief Marketing Officer. Zakszewski joins {storeName} with more than 18 years of marketing experience with various retailers.</p>]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10591,es=es_xlatetxt10591]]></set-property>
+    </add-item>
+    <add-item id="txt10592" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[storeSiteDE.newsItem2]]></set-property>
+      <set-property name="tag"><![CDATA[storeSiteDE.news]]></set-property>
+      <set-property name="textDefault"><![CDATA[<h3>{storeName} Names Jessica Zakszewski Chief Marketing Officer</h3><p>{storeName} announces the appointment of Jessica Zakszewski as Chief Marketing Officer. Zakszewski joins {storeName} with more than 18 years of marketing experience with various retailers.</p>]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10592,es=es_xlatetxt10592]]></set-property>
+    </add-item>
+    <add-item id="detxt10591" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[<h3>{storeName}: Jessica Zakszewski zur Marketingleiterin ernannt</h3><p>{storeName} gibt die Ernennung von Jessica Zakszewski als Leiterin der Marketingabteilung bekannt. Jessica Zakszewski kommt mit mehr als 18 Jahren Marketingerfahrung bei mehreren Einzelhandelsunternehmen zu {storeName} .</p>]]></set-property>
+    </add-item>
+    <add-item id="detxt10592" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[<h3>{storeName}: Jessica Zakszewski zur Marketingleiterin ernannt</h3><p>{storeName} gibt die Ernennung von Jessica Zakszewski als Leiterin der Marketingabteilung bekannt. Jessica Zakszewski kommt mit mehr als 18 Jahren Marketingerfahrung bei mehreren Einzelhandelsunternehmen zu {storeName} .</p>]]></set-property>
+    </add-item>
+    <add-item id="txt10600" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[company.news.noNews]]></set-property>
+      <set-property name="textDefault"><![CDATA[Please check back in the future for the latest news.]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt10600,es=es_xlatetxt10600]]></set-property>
+    </add-item>
+    <add-item id="detxt10600" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Schauen Sie in Zukunft wieder hier vorbei, um die neuesten Informationen zu erhalten.]]></set-property>
+    </add-item>
+    <add-item id="txt10610" item-descriptor="storeShortText">
+      <set-property name="key"><![CDATA[common.corporateSiteLink]]></set-property>
+      <set-property name="textDefault"><![CDATA[www.oracle.com/us/corporate/Acquisitions/atg/index.html]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlatetxt10610,de=de_xlatetxt10610]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10000" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[El envoltorio para regalo está disponible a un precio de {price} por orden, que se aplica durante el proceso de pago. La opción de envoltorio de regalo incluye un mensaje de regalo que puede personalizar durante el pago. <p>Actualmente, la opción de envoltorio de regalo sólo está disponible para órdenes completas. Los artículos individuales de una orden no se pueden envolver de forma separada.]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10011" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[1.555.555.5555 extensión .5555<br/>    1.888.555.5555 (DTS para personas con discapacidad auditiva)]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10021" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[1.888.555.5555]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10031" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Servicios al cliente ATG Store<br/>555 Calle mayor<br/>Cualquier ciudad, MA 5555-5555]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10041" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Para enviar correo electrónico al representante de servicios al cliente de ATG Store: <a href="mailto:service@atgstore.com">service@atgstore.com</a>.]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10012" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[+49 (0)89 555555-51<br/>+49 (0)89 555555-52 (DTS para personas con discapacidad auditiva)]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10022" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[+49 (0)89 555555-53]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10032" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Servicios al cliente ATG Store<br/> Platzl 9,<br/>80331 Munich, Alemania]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10042" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Para enviar correo electrónico al representante de servicios al cliente de ATG Store: <a href="mailto:service@atgstore.de">service@atgstore.de</a>.]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10013" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[1.555.555.555 ext.55<br/>1.888.555.5555 (DTS para personas con discapacidad auditiva)]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10023" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[1.888.555.5555]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10033" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Servicios al cliente ATG Store<br/>555 Calle mayor<br/>Cualquier ciudad, MA 55555-5555]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10043" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Para enviar correo electrónico al representante de servicios al cliente de ATG Home: <a href="mailto:service@atghome.com">service@atghome.com</a>.]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10050" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[ATG Store]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10053" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[ATG Home]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10060" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[P: ¿Por qué no estaba la promoción del sitio web disponible en la tienda {storeName} del centro comercial cercano a mi domicilio?]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10070" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[R: Las promociones publicadas en nuestro sitio web se ofrecen en la mayor parte de nuestras tiendas a nivel nacional. No obstante, según se indica al publicar la promoción en nuestro sitio web, cada tienda {storeName} es única y las promociones no se ofrecen en todas las tiendas. Si desea asegurar que {storeName} tiene una promoción concreta, llame a la tienda. Si no la tienen, podrán informarle qué tienda {storeName} de su área la tiene.]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10080" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[P: ¿Cuál es su política de devoluciones?]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10090" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[R: Si tiene el recibo o la nota de embalaje, puede devolver cualquier artículo no usado o defectuoso en un plazo <b>de 90 días</b> de la fecha de compra original para un reembolso completo, menos el costo de envío. Si no tiene recibo o nota de embalaje, recibirá un abono de mercancía por el precio de venta actual del artículo. Las devoluciones no se aceptan <b>una vez transcurridos 90 días</b> desde la fecha de compra.]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10110" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[P: ¿Cómo actualizo mi dirección de correo electrónico?]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10120" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[R: Puede actualizar su dirección de correo electrónico conectándose al sistema y seleccionando "Mi perfil". Haga los cambios necesarios a su perfil, desplácese a la parte inferior de la página y haga clic en "Enviar" para guardar los cambios.]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10130" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[P: Hice una lista de deseos en mi última visita al sitio web. ¿Dónde está ahora?]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10140" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[R: Debe ser un usuario registrado en {storeName} para guardar una lista de deseos de acceso futuro. Los miembros registrados pueden recuperar sus respectivas listas de deseos conectándose a sus cuentas y haciendo clic en la opción Lista de deseos de la parte superior de cualquier página del sitio.]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10150" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[P: ¿Cómo puedo anular mi suscripción a su lista de distribución de correo electrónico?]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10160" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[R: Para anular su suscripción a la lista de correos de {storeName}, haga clic en el enlace de la parte inferior de los mensajes de marketing que reciba desde {storeName}. Tenga en cuenta, que incluso si elige no recibir correos o pide la eliminación de su nombre de la lista de correos de marketing de {storeName}, podrá recibir confirmaciones de compras realizadas con tarjetas de regalo en nuestro sitio web, confirmaciones de recepción de preguntas enviadas u otros correos de gestión. También puede conectarse, editar su perfil y anular la selección de la casilla "Enviarme correos electrónicos".]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10271" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[<p>Envío por transporte terrestre</p><p>UPS entregará los artículos disponibles para su envío inmediato<br/>en un plazo de 3 a 5 días laborales, con las tarifas que se indican a continuación. Tenga en cuenta<br/>que la entrega de mercancía que requiera manipulación especial<br/>tardará aproximadamente dos semanas más.</p><p>Para órdenes por un importe máximo de $14,99, la tarifa de envío es de $4,75.<br/>Para órdenes por un importe entre 15 y $49,99, la tarifa de envío es de $5,95.<br/>Para órdenes por un importe mínimo de $50, la tarifa de envío es de $6,50.</p><p>Envío en 2 días</p><p>UPS entregará los artículos disponibles para su envío inmediato<br/>en un plazo de dos días laborables por una tarifa única de $9,50.</p><p>Envío al día siguiente</p><p>UPS entregará los artículos disponibles para su envío inmediato<br/>al día siguiente, por una tarifa única de $18,95.</p>]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10272" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[<p>Envío por transporte terrestre</p><p>UPS entregará los artículos disponibles para su envío inmediato<br/>en un plazo de 3 a 5 días laborales, con las tarifas que se indican a continuación. Tenga en cuenta<br/>que la entrega de mercancía que requiera manipulación especial<br/>tardará aproximadamente dos semanas más.</p><p>Para órdenes por un importe máximo de 14,99 euros, la tarifa de envío es de 4,75 euros.<br/>Para órdenes por un importe entre 15 y 49,99 euros, la tarifa de envío es de 5,95 euros.<br/>Para órdenes por un importe mínimo de 50 euros, la tarifa de envío es de 6,50 euros.</p><p>Envío en 2 días</p><p>UPS entregará los artículos disponibles para su envío inmediato<br/>en un plazo de dos días laborables por una tarifa única de 9,50 euros.</p><p>Envío al día siguiente</p><p>UPS entregará los artículos disponibles para su envío inmediato<br/>al día siguiente, por una tarifa única de 18,95 euros.</p>]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10273" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[<p>Envío por transporte terrestre</p><p>UPS entregará los artículos disponibles para su envío inmediato<br/>en un plazo de 3 a 5 días laborales, con las tarifas que se indican a continuación. Tenga en cuenta<br/>que la entrega de mercancía que requiera manipulación especial<br/>tardará aproximadamente dos semanas más.</p><p>Para órdenes por un importe máximo de $14,99, la tarifa de envío es de $4,75.<br/>Para órdenes por un importe entre 15 y $49,99, la tarifa de envío es de $5,95.<br/>Para órdenes por un importe mínimo de $50, la tarifa de envío es de $6,50.</p><p>Envío en 2 días</p><p>UPS entregará los artículos disponibles para su envío inmediato<br/>en un plazo de dos días laborables por una tarifa única de $9,50.</p><p>Envío al día siguiente</p><p>UPS entregará los artículos disponibles para su envío inmediato<br/>al día siguiente, por una tarifa única de $18,95.</p>]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10180" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[<p>Si tiene el recibo o la nota de embalaje, puede devolver cualquier artículo no usado o defectuoso en un plazo <b>de 90 días</b> de la fecha de compra original para un reembolso completo, menos el costo de envío. Si no tiene recibo o nota de embalaje, recibirá un abono de mercancía por el precio de venta actual del artículo. Las devoluciones no se aceptan <b>una vez transcurridos 90 días</b> desde la fecha de compra.</p>]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10190" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Acerca de nosotros]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10200" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[{storeName} es la marca líder de mayor elegancia en moda para el hombre y mujer, basada en la búsqueda constante del diseño más original. Cada temporada, {storeName} diseña colecciones meticulosamente creadas de moda juvenil de alta costura, ropa para el trabajo e informal. Del producto a la experiencia de tienda, la marca {storeName} es la creadora de tendencias actuales de la moda.]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10203" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[{storeName} es la marca líder de mobiliario de calidad y productos relacionados, basada por completo en el diseño más funcional. Cada temporada, {storeName} evalúa cuidadosamente a todos los fabricantes de muebles en busca de los productos de mayor calidad del mercado. De la cocina al salón, {storeName} es líder en calidad y valor excepcional.]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10210" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[¡Presentamos HOME!]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10220" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[¡Sea la primera en comprar productos de nuestra nueva colección de hogar, con los estilos {storeName} de su preferencia, que se ajustan perfectamente a su estilo de vida! ¡Suscríbase ya a nuestro boletín por correo electrónico para estar informada sobre esto y otras novedades, ofertas y promociones!]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10230" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[{storeName} nombra a Jessica Zakszewski como directora general de marketing]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10250" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[<a href="http://{corporateSiteLink}">Haga clic aquí</a> para visitar nuestro sitio web corporativo.]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10260" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[¡Bienvenido al centro de carreras de {storeName}!]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10270" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[{storeName} busca personas activas para incorporarse a nuestro equipo. Queremos contratar a gente como tú: genuinos, trabajadores y apasionados de la marca {storeName}. {storeName} es un empleador que ofrece igualdad de oportunidades para todos.]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10280" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[{storeName} pone a las personas como primera prioridad de su programa de compensación. Estamos orgullosos de ofrecer uno de los paquetes de beneficios sociales más competitivos del sector de venta minorista. A continuación ofrecemos una descripción general de los beneficios que reciben los empleados de {storeName}:]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10290" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Seguro médico y dental]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10300" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Seguro de vida]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10310" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Incapacidad laboral transitoria y permanente]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10320" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Programa de permisos retribuidos]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10330" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Seis festivos pagados]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10340" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Grandes descuentos en mercancía]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10350" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Planes 401(k) con aportaciones equivalentes de la compañía]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10360" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Reparto de utilidades]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10370" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Compra de acciones por parte de los empleados]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10380" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Todo esto e innumerables beneficios más te esperan si inicias tu carrera profesional con {storeName}!]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10390" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[EOE - M/F/V/D]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10400" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Bienvenido al sitio web de {storeName} ("Sitio"). Revise las condiciones básicas que rigen el uso de este Sitio. Tenga en cuenta que su utilización del Sitio constituye un acuerdo vinculante que se rige por dichos términos (el "Acuerdo").]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10410" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Contenido del sitio]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10420" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[A menos que se indique lo contrario, todos los materiales, incluidas imágenes, ilustraciones, diseños, iconos, fotografías, video clips, escritos u otros materiales que aparecen como parte de este Sitio (colectivamente, el "Contenido") son copyright, marcas registradas, imagen comercial y/o otra propiedad intelectual controlada o licenciada por {storeName}, y sus subsidiarias y/o filiales. El Sitio en su totalidad está protegido por leyes de copyright e imagen comercial, y todos los derechos mundiales, títulos e intereses de comercialización son propiedad de {storeName}, Fundación {storeName} y el resto de marcas comerciales que aparecen en el Sitio son marcas registradas de {storeName} y sus filiales.]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10430" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[El Contenido de nuestro Sitio, y éste como un todo, están destinados al uso exclusivo, personal y no comercial de los usuarios del mismo. Usted puede descargar o copiar el Contenido y otros materiales descargables mostrados en el Sitio para su uso personal únicamente. No se transfiere ningún derecho, título o interés de ningún material o software obtenido por dicha copia o descarga. No puede reproducir (excepto en lo previamente citado), publicar, transmitir, distribuir, exhibir, modificar, crear derivados de, vender o participar en una venta de, o explotar de forma o manera alguna, total o parcialmente, ninguno de los Contenidos, el Sitio o cualquier software relacionado.]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10440" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Comentarios de usuarios, opiniones, postales y otros envíos]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10450" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Todos los comentarios, opiniones, postales, sugerencias, ideas y otros envíos publicados, enviados y ofrecidos a {storeName} en o por el Sitio o publicada, enviada u ofrecida por otros medios, en relación al uso de este sitio (colectivamente en "Comentario") son propiedad de {storeName}. La publicación, envío u oferta de cualquier Comentario constituye una asignación a {storeName} de todos los derechos, títulos e intereses mundiales, de todos los copyright y otra propiedad intelectual en los Comentarios. Por tanto, {storeName} será el propietario exclusivo de tales derechos, títulos e intereses que no se limitarán de forma alguna a su uso, comercial u otros, de cualquier Comentario. {storeName} no tiene ninguna obligación (1) de respaldar ningún Comentario; (2) pagar al usuario cualquier compensación por cualquier Comentario; o (3) responder a cualquiera de los comentarios.]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10460" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Usted acepta que ningún Comentario enviado al Sitio violará ningún derecho de terceros, incluido el copyright, marcas registradas, confidencialidad u otros derechos personales. También acepta que ningún Comentario enviado por usted al Sitio difamará o contendrá material ilegal, abusivo u obsceno. Usted es y seguirá siendo el responsable del contenido de cualquier comentario que haga.]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10470" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Revisiones]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10480" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[De vez en cuando, podemos vernos en la necesidad de cambiar las condiciones que rigen el funcionamiento del sitio. Su utilización del Sitio tras dichos cambios constituye un acuerdo vinculante que se rige por los términos modificados.]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10490" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Podemos cambiar, mover, suprimir o agregar partes al Sitio periódicamente.]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10500" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Ocasionalmente, puede aparecer información en {storeName} con errores tipográficos, imprecisiones u omisiones. Nos reservamos todos los derechos de corregir cualquier error, imprecisión u omisión y cambiar o actualizar datos en cualquier momento y sin notificación previa. Pedimos disculpas anticipadas por cualquier inconveniente que esto pueda causar.]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10510" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[En la medida que este Sitio contiene enlaces a servicios y recursos externos, en los cuales {storeName} no controla la disponibilidad y contenido, cualquier duda relacionada con dichos servicios y recursos o sus respectivos enlaces, debe dirigirse al servicio o recurso externo en cuestión.]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10520" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Este sitio y sus respectivos contenidos se ofrecen "tal cual", sin garantías de ninguna clase, explícitas o implícitas, incluidas las garantías ilimitadas o garantías implícitas de comercialización o idoneidad para una finalidad concreta. Usted acepta que la utilización del sitio se hace a su propia cuenta y riesgo, y asume la total responsabilidad de todos los costos asociados con el servicio y reparación del equipo que utiliza para navegar en nuestro sitio, y que {storeName} no será responsable de ninguna clase de daños relacionados con la utilización de este sitio web.]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10530" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Este Sitio está controlado y gestionado por {storeName} desde sus oficinas en Seattle, WA. Este acuerdo se rige por la legislación del Estado de Washington, sin consideración alguna respecto de potenciales conflictos entre leyes. Cualquier discrepancia que pueda surgir en los términos del presente Acuerdo deberá resolverse exclusivamente en los tribunales estatales y federales del estado de Washington, Estados Unidos.]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10540" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Este Acuerdo permanecerá vigente, a menos que Usted o {storeName} lo rescindan. Usted puede finalizar este Acuerdo en cualquier momento. {storeName} también puede finalizarlo en cualquier momento, sin notificación previa, y denegarle el acceso al sitio, si {storeName} considera que usted no ha cumplido con alguna condición o disposición contemplada en dicho Acuerdo. Al rescindir este Acuerdo, bien sea por decisión suya o de {storeName}, deberá destruir todos los materiales descargados u obtenidos de este sitio, así como todas las copias de los mismos, aunque hayan sido realizadas según las condiciones del Acuerdo.]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10550" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[En {storeName} respetamos la privacidad de todos los visitantes que acceden a nuestro sitio web y hacen uso de él. La información que recopilamos en este sitio se utiliza para aprender a mejorar nuestro sitio y su experiencia de compra. Esta política describe las circunstancias limitadas en las que recopilamos información personal, por qué lo hacemos y cómo la utilizamos. Nuestra política también describe las opciones de que dispone acerca de la forma en que recopilamos y utilizamos su información.]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10560" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Si nuestras prácticas de información cambian en el futuro, publicaremos la versión actualizada en este sitio web. Para saber si la política ha cambiado, consulte la fecha de revisión que aparece al final de esta política.]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10570" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Revisión - Marzo de 2012]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10581" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[<h3>{storeName} lanza moda para el hombre</h3><p>{storeName} anuncia que ha incorporado una categoría de moda para el hombre en su sitio web. ¡Sea el primero en comprar en la categoría moda para el hombre, que incluye productos de {storeName} de su estilo preferido, perfectamente diseñados para su ritmo de vida!</p>]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10582" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[<h3>{storeName} lanza moda para el hombre</h3><p>{storeName} anuncia que ha incorporado una categoría de moda para el hombre en su sitio web. ¡Sea el primero en comprar en la categoría de moda para el hombre, que incluye productos de {storeName} de su estilo preferido, perfectamente diseñados para su ritmo de vida!</p>]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10583" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[<h3>¡Presentamos la categoría de ideas para regalo!</h3><p>{storeName} ha anunciado la incorporación de la categoría de ideas para regalo en su sitio web. ¡Sea el primero en comprar en la categoría de Ideas para regalo, que incluye productos de electrónica y cristalería de su estilo preferido, perfectamente diseñados para su ritmo de vida!</p>]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10591" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[<h3>{storeName} nombra a Jessica Zakszewski como directora general de marketing </h3><p>{storeName} anuncia el nombramiento de Jessica Zakszewski como directora general de marketing de la firma. Zakszewski se incorpora a {storeName} y aporta más de 18 años de experiencia acumulada en mercadotecnia, en varias empresas del sector minorista.</p>]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10592" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[<h3>{storeName} nombra a Jessica Zakszewski como directora general de marketing </h3><p>{storeName} anuncia el nombramiento de Jessica Zakszewski como directora general de marketing de la firma. Zakszewski se incorpora a {storeName} y aporta más de 18 años de experiencia acumulada en mercadotecnia, en varias empresas del sector minorista.</p>]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10600" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Vuelva a visitarnos para obtener las últimas noticias.]]></set-property>
+    </add-item>
+    <add-item id="es_xlatetxt10610" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[www.oracle.com/us/corporate/Acquisitions/atg/index.html]]></set-property>
+    </add-item>
+    <add-item id="de_xlatetxt10203" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[{storeName} ist eine erstklassige Bezugsquelle für hochwertige Möbel und Accessoires. Unsere Möbelkollektionen stehen unter dem Leitmotto des funktionalen Designs. Jede Saison werden die Möbelhersteller von {storeName} aufs Neue überprüft, um nur Produkte mit höchster Qualität zu beziehen. Von der Küche bis zum Wohnzimmer - {storeName} ist in Sachen Qualität und Wertigkeit führend.]]></set-property>
+    </add-item>
+    <add-item id="de_xlatetxt10610" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[www.oracle.com/us/corporate/Acquisitions/atg/index.html]]></set-property>
+    </add-item>
+    <add-item id="txt210617" item-descriptor="storeShortText">
+      <set-property name="textDefault"><![CDATA[Benefits]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt210603,es=detxt210605]]></set-property>
+      <set-property name="key"><![CDATA[myaccount_registration.benefits]]></set-property>
+      <set-property name="type"><![CDATA[shortText]]></set-property>
+    </add-item>
+    <add-item id="txt210633" item-descriptor="storeShortText">
+      <set-property name="textDefault"><![CDATA[Create Gift Lists]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt210635,es=detxt210637]]></set-property>
+      <set-property name="key"><![CDATA[myaccount_registration.benefitGiftList]]></set-property>
+      <set-property name="type"><![CDATA[shortText]]></set-property>
+    </add-item>
+    <add-item id="txt210631" item-descriptor="storeShortText">
+      <set-property name="textDefault"><![CDATA[Create Wish Lists]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt210631,es=detxt210633]]></set-property>
+      <set-property name="key"><![CDATA[myaccount_registration.benefitWishList]]></set-property>
+      <set-property name="type"><![CDATA[shortText]]></set-property>
+    </add-item>
+    <add-item id="txt210625" item-descriptor="storeShortText">
+      <set-property name="textDefault"><![CDATA[Faster Checkout]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt210619,es=detxt210621]]></set-property>
+      <set-property name="key"><![CDATA[myaccount_registration.benefitCheckout]]></set-property>
+      <set-property name="type"><![CDATA[shortText]]></set-property>
+    </add-item>
+    <add-item id="txt210619" item-descriptor="storeShortText">
+      <set-property name="textDefault"><![CDATA[Get Special Promotions]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt210607,es=detxt210609]]></set-property>
+      <set-property name="key"><![CDATA[myaccount_registration.benefitPromo]]></set-property>
+      <set-property name="type"><![CDATA[shortText]]></set-property>
+    </add-item>
+    <add-item id="txt210623" item-descriptor="storeShortText">
+      <set-property name="textDefault"><![CDATA[Re-Use Saved Address]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt210615,es=detxt210617]]></set-property>
+      <set-property name="key"><![CDATA[myaccount_registration.benefitAddress]]></set-property>
+      <set-property name="type"><![CDATA[shortText]]></set-property>
+    </add-item>
+    <add-item id="txt210621" item-descriptor="storeShortText">
+      <set-property name="textDefault"><![CDATA[Re-Use Saved Credit Cards]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt210611,es=detxt210613]]></set-property>
+      <set-property name="key"><![CDATA[myaccount_registration.benefitCard]]></set-property>
+      <set-property name="type"><![CDATA[shortText]]></set-property>
+    </add-item>
+    <add-item id="txt210635" item-descriptor="storeShortText">
+      <set-property name="textDefault"><![CDATA[Save your Shopping Cart]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt210639,es=detxt210641]]></set-property>
+      <set-property name="key"><![CDATA[myaccount_registration.benefitShoppingCart]]></set-property>
+      <set-property name="type"><![CDATA[shortText]]></set-property>
+    </add-item>
+    <add-item id="txt210627" item-descriptor="storeShortText">
+      <set-property name="textDefault"><![CDATA[Track Orders]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt210623,es=detxt210625]]></set-property>
+      <set-property name="key"><![CDATA[myaccount_registration.benefitTrackOrder]]></set-property>
+      <set-property name="type"><![CDATA[shortText]]></set-property>
+    </add-item>
+    <add-item id="txt210629" item-descriptor="storeShortText">
+      <set-property name="textDefault"><![CDATA[View Order History]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt210627,es=detxt210629]]></set-property>
+      <set-property name="key"><![CDATA[myaccount_registration.benefitOrderHistory]]></set-property>
+      <set-property name="type"><![CDATA[shortText]]></set-property>
+    </add-item>
+    <add-item id="detxt210603" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Leistungen]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt210605" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Beneficios]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt210635" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Geschenkelisten erstellen]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt210637" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Crear listas de regalos]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt210631" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Wunschzettel erstellen]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt210633" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Crear listas de deseos]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt210619" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Schnellerer Checkout]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt210621" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Pago rápido]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt210607" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Zu den Sonderaktionen]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt210609" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Obtenga promociones especiales]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt210611" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Gespeicherte Kreditkarten wiederverwenden]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt210613" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Reutilizar tarjetas de crédito guardadas]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt210615" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Gespeicherte Adresse wiederverwenden]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt210617" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Reutilizar dirección guardada]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt210627" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Bestellhistorie anzeigen]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt210629" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Ver historial de órdenes]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt210623" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Bestellungen verfolgen]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt210625" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Llevar seguimiento de órdenes]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt210639" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Warenkorb speichern]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt210641" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Guardar carro de compra]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="txt310612" item-descriptor="storeTextList">
+      <set-property name="tag"><![CDATA[benefits-list]]></set-property>
+      <set-property name="key"><![CDATA[benefitsList]]></set-property>
+      <set-property name="list"><![CDATA[txt210619,txt210621,txt210623,txt210625,txt210627,txt210629,txt210631,txt210633,txt210635]]></set-property>
+      <set-property name="type"><![CDATA[textList]]></set-property>
+    </add-item>
+    <add-item id="txt310614" item-descriptor="storeTextList">
+      <set-property name="key"><![CDATA[faq1]]></set-property>
+      <set-property name="list"><![CDATA[txt10060,txt10070]]></set-property>
+      <set-property name="type"><![CDATA[textList]]></set-property>
+    </add-item>
+    <add-item id="txt310616" item-descriptor="storeTextList">
+      <set-property name="key"><![CDATA[faq2]]></set-property>
+      <set-property name="list"><![CDATA[txt10080,txt10090]]></set-property>
+      <set-property name="type"><![CDATA[textList]]></set-property>
+    </add-item>
+    <add-item id="txt310618" item-descriptor="storeTextList">
+      <set-property name="key"><![CDATA[faq3]]></set-property>
+      <set-property name="list"><![CDATA[txt10110,txt10120]]></set-property>
+      <set-property name="type"><![CDATA[textList]]></set-property>
+    </add-item>
+    <add-item id="txt310620" item-descriptor="storeTextList">
+      <set-property name="key"><![CDATA[faq4]]></set-property>
+      <set-property name="list"><![CDATA[txt10130,txt10140]]></set-property>
+      <set-property name="type"><![CDATA[textList]]></set-property>
+    </add-item>
+    <add-item id="txt310622" item-descriptor="storeTextList">
+      <set-property name="key"><![CDATA[faq5]]></set-property>
+      <set-property name="list"><![CDATA[txt10150,txt10160]]></set-property>
+      <set-property name="type"><![CDATA[textList]]></set-property>
+    </add-item>
+    <add-item id="txt310624" item-descriptor="storeTextList">
+      <set-property name="key"><![CDATA[faq-list]]></set-property>
+      <set-property name="list"><![CDATA[txt310614,txt310616,txt310618,txt310620,txt310622]]></set-property>
+      <set-property name="type"><![CDATA[textList]]></set-property>
+    </add-item>
+    <add-item id="txt310626" item-descriptor="storeTextList">
+      <set-property name="key"><![CDATA[privacyPolicy]]></set-property>
+      <set-property name="list"><![CDATA[txt10550,txt10560,txt10570]]></set-property>
+      <set-property name="type"><![CDATA[textList]]></set-property>
+    </add-item>
+    <add-item id="txt310629" item-descriptor="storeTextList">
+      <set-property name="key"><![CDATA[homeSite.news]]></set-property>
+      <set-property name="list"><![CDATA[txt10583]]></set-property>
+      <set-property name="type"><![CDATA[textList]]></set-property>
+    </add-item>
+    <add-item id="txt310633" item-descriptor="storeTextList">
+      <set-property name="key"><![CDATA[storeSiteUS.news]]></set-property>
+      <set-property name="list"><![CDATA[txt10581,txt10591]]></set-property>
+      <set-property name="type"><![CDATA[textList]]></set-property>
+    </add-item>
+    <add-item id="txt310631" item-descriptor="storeTextList">
+      <set-property name="key"><![CDATA[storeSiteDE.news]]></set-property>
+      <set-property name="list"><![CDATA[txt10582,txt10592]]></set-property>
+      <set-property name="type"><![CDATA[textList]]></set-property>
+    </add-item>
+    <add-item id="txt510643" item-descriptor="storeTextList">
+      <set-property name="key"><![CDATA[companyTermsList]]></set-property>
+      <set-property name="list"><![CDATA[txt510636,txt510638,txt510640,txt510648,txt510653,txt510658,txt510660,txt510668]]></set-property>
+      <set-property name="type"><![CDATA[textList]]></set-property>
+    </add-item>
+    <add-item id="txt510668" item-descriptor="storeTextList">
+      <set-property name="key"><![CDATA[company_terms8]]></set-property>
+      <set-property name="list"><![CDATA[txt510667,txt10540]]></set-property>
+      <set-property name="type"><![CDATA[textList]]></set-property>
+    </add-item>
+    <add-item id="txt510653" item-descriptor="storeTextList">
+      <set-property name="key"><![CDATA[company_terms5]]></set-property>
+      <set-property name="list"><![CDATA[txt510652,txt10510]]></set-property>
+      <set-property name="type"><![CDATA[textList]]></set-property>
+    </add-item>
+    <add-item id="txt510658" item-descriptor="storeTextList">
+      <set-property name="key"><![CDATA[company_terms6]]></set-property>
+      <set-property name="list"><![CDATA[txt510657,txt10520]]></set-property>
+      <set-property name="type"><![CDATA[textList]]></set-property>
+    </add-item>
+    <add-item id="txt510648" item-descriptor="storeTextList">
+      <set-property name="key"><![CDATA[company_terms4]]></set-property>
+      <set-property name="list"><![CDATA[txt510647,txt10500]]></set-property>
+      <set-property name="type"><![CDATA[textList]]></set-property>
+    </add-item>
+    <add-item id="txt510660" item-descriptor="storeTextList">
+      <set-property name="key"><![CDATA[company_terms7]]></set-property>
+      <set-property name="list"><![CDATA[txt510663,txt10530]]></set-property>
+      <set-property name="type"><![CDATA[textList]]></set-property>
+    </add-item>
+    <add-item id="txt510636" item-descriptor="storeTextList">
+      <set-property name="key"><![CDATA[company_terms1]]></set-property>
+      <set-property name="list"><![CDATA[txt10410,txt10420,txt10430]]></set-property>
+      <set-property name="type"><![CDATA[textList]]></set-property>
+    </add-item>
+    <add-item id="txt510640" item-descriptor="storeTextList">
+      <set-property name="key"><![CDATA[company_terms3]]></set-property>
+      <set-property name="list"><![CDATA[txt10470,txt10480,txt10490]]></set-property>
+      <set-property name="type"><![CDATA[textList]]></set-property>
+    </add-item>
+    <add-item id="txt510638" item-descriptor="storeTextList">
+      <set-property name="key"><![CDATA[company_terms2]]></set-property>
+      <set-property name="list"><![CDATA[txt10440,txt10450,txt10460]]></set-property>
+      <set-property name="type"><![CDATA[textList]]></set-property>
+    </add-item>
+    <add-item id="txt510679" item-descriptor="storeTextList">
+      <set-property name="key"><![CDATA[employmentPurpose]]></set-property>
+      <set-property name="list"><![CDATA[txt10270,txt510676,txt10380,txt10390]]></set-property>
+      <set-property name="type"><![CDATA[textList]]></set-property>
+    </add-item>
+    <add-item id="txt510676" item-descriptor="storeTextList">
+      <set-property name="key"><![CDATA[employeeBenefits]]></set-property>
+      <set-property name="list"><![CDATA[txt10280,txt10290,txt10300,txt10310,txt10320,txt10330,txt10340,txt10350,txt10360,txt10370]]></set-property>
+      <set-property name="type"><![CDATA[textList]]></set-property>
+    </add-item>
+    <add-item id="txt510682" item-descriptor="storeTextList">
+      <set-property name="key"><![CDATA[storeSiteUS.customerService]]></set-property>
+      <set-property name="list"><![CDATA[txt510708,txt510711,txt510713,txt510715]]></set-property>
+      <set-property name="type"><![CDATA[textList]]></set-property>
+    </add-item>
+    <add-item id="txt510694" item-descriptor="storeTextList">
+      <set-property name="key"><![CDATA[storeSiteDE.customerService]]></set-property>
+      <set-property name="list"><![CDATA[txt510717,txt510719,txt510721,txt510723]]></set-property>
+      <set-property name="type"><![CDATA[textList]]></set-property>
+    </add-item>
+    <add-item id="txt510698" item-descriptor="storeTextList">
+      <set-property name="key"><![CDATA[homeSite.customerService]]></set-property>
+      <set-property name="list"><![CDATA[txt510700,txt510702,txt510704,txt510706]]></set-property>
+      <set-property name="type"><![CDATA[textList]]></set-property>
+    </add-item>
+    <add-item id="txt510708" item-descriptor="storeTextList">
+      <set-property name="key"><![CDATA[storeSiteUS.phone]]></set-property>
+      <set-property name="list"><![CDATA[txt510672,txt10011]]></set-property>
+      <set-property name="type"><![CDATA[textList]]></set-property>
+    </add-item>
+    <add-item id="txt510711" item-descriptor="storeTextList">
+      <set-property name="key"><![CDATA[storeSiteUS.fax]]></set-property>
+      <set-property name="list"><![CDATA[txt510685,txt10021]]></set-property>
+      <set-property name="type"><![CDATA[textList]]></set-property>
+    </add-item>
+    <add-item id="txt510713" item-descriptor="storeTextList">
+      <set-property name="key"><![CDATA[storeSiteUS.mail]]></set-property>
+      <set-property name="list"><![CDATA[txt510688,txt10031]]></set-property>
+      <set-property name="type"><![CDATA[textList]]></set-property>
+    </add-item>
+    <add-item id="txt510715" item-descriptor="storeTextList">
+      <set-property name="key"><![CDATA[storeSiteUS.email]]></set-property>
+      <set-property name="list"><![CDATA[txt510691,txt10041]]></set-property>
+      <set-property name="type"><![CDATA[textList]]></set-property>
+    </add-item>
+    <add-item id="txt510717" item-descriptor="storeTextList">
+      <set-property name="key"><![CDATA[storeSiteDE.phone]]></set-property>
+      <set-property name="list"><![CDATA[txt510672,txt10012]]></set-property>
+      <set-property name="type"><![CDATA[textList]]></set-property>
+    </add-item>
+    <add-item id="txt510719" item-descriptor="storeTextList">
+      <set-property name="key"><![CDATA[storeSiteDE.fax]]></set-property>
+      <set-property name="list"><![CDATA[txt510685,txt10022]]></set-property>
+      <set-property name="type"><![CDATA[textList]]></set-property>
+    </add-item>
+    <add-item id="txt510721" item-descriptor="storeTextList">
+      <set-property name="key"><![CDATA[storeSiteDE.mail]]></set-property>
+      <set-property name="list"><![CDATA[txt510688,txt10032]]></set-property>
+      <set-property name="type"><![CDATA[textList]]></set-property>
+    </add-item>
+    <add-item id="txt510723" item-descriptor="storeTextList">
+      <set-property name="key"><![CDATA[storeSiteDE.email]]></set-property>
+      <set-property name="list"><![CDATA[txt510691,txt10042]]></set-property>
+      <set-property name="type"><![CDATA[textList]]></set-property>
+    </add-item>
+    <add-item id="txt510700" item-descriptor="storeTextList">
+      <set-property name="key"><![CDATA[homeSite.phone]]></set-property>
+      <set-property name="list"><![CDATA[txt510672,txt10013]]></set-property>
+      <set-property name="type"><![CDATA[textList]]></set-property>
+    </add-item>
+    <add-item id="txt510702" item-descriptor="storeTextList">
+      <set-property name="key"><![CDATA[homeSite.fax]]></set-property>
+      <set-property name="list"><![CDATA[txt510685,txt10023]]></set-property>
+      <set-property name="type"><![CDATA[textList]]></set-property>
+    </add-item>
+    <add-item id="txt510704" item-descriptor="storeTextList">
+      <set-property name="key"><![CDATA[homeSite.mail]]></set-property>
+      <set-property name="list"><![CDATA[txt510688,txt10033]]></set-property>
+      <set-property name="type"><![CDATA[textList]]></set-property>
+    </add-item>
+    <add-item id="txt510706" item-descriptor="storeTextList">
+      <set-property name="key"><![CDATA[homeSite.email]]></set-property>
+      <set-property name="list"><![CDATA[txt510691,txt10043]]></set-property>
+      <set-property name="type"><![CDATA[textList]]></set-property>
+    </add-item>
+    <add-item id="txt510667" item-descriptor="storeShortText">
+      <set-property name="textDefault"><![CDATA[Termination]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt410659,es=detxt410661]]></set-property>
+      <set-property name="key"><![CDATA[company_terms.termination]]></set-property>
+      <set-property name="type"><![CDATA[shortText]]></set-property>
+    </add-item>
+    <add-item id="txt510652" item-descriptor="storeShortText">
+      <set-property name="textDefault"><![CDATA[Links to Other Web Sites and Services]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt410647,es=detxt410649]]></set-property>
+      <set-property name="key"><![CDATA[company_terms.linkToOtherWebSites]]></set-property>
+      <set-property name="type"><![CDATA[shortText]]></set-property>
+    </add-item>
+    <add-item id="txt510657" item-descriptor="storeShortText">
+      <set-property name="textDefault"><![CDATA[Disclaimer]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt410651,es=detxt410653]]></set-property>
+      <set-property name="key"><![CDATA[company_terms.disclaimer]]></set-property>
+      <set-property name="type"><![CDATA[shortText]]></set-property>
+    </add-item>
+    <add-item id="txt510647" item-descriptor="storeShortText">
+      <set-property name="textDefault"><![CDATA[Inaccuracy Disclaimer]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt410643,es=detxt410645]]></set-property>
+      <set-property name="key"><![CDATA[company_terms.inaccuracyDisclaimer]]></set-property>
+      <set-property name="type"><![CDATA[shortText]]></set-property>
+    </add-item>
+    <add-item id="txt510663" item-descriptor="storeShortText">
+      <set-property name="textDefault"><![CDATA[Jurisdiction]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt410655,es=detxt410657]]></set-property>
+      <set-property name="key"><![CDATA[company_terms.jurisdiction]]></set-property>
+      <set-property name="type"><![CDATA[shortText]]></set-property>
+    </add-item>
+    <add-item id="txt510672" item-descriptor="storeShortText">
+      <set-property name="textDefault"><![CDATA[Phone]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt410663,es=detxt410665]]></set-property>
+      <set-property name="key"><![CDATA[company.gadget.customer_service.byPhoneTitle]]></set-property>
+      <set-property name="type"><![CDATA[shortText]]></set-property>
+    </add-item>
+    <add-item id="txt510685" item-descriptor="storeShortText">
+      <set-property name="textDefault"><![CDATA[Fax]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt410667,es=detxt410669]]></set-property>
+      <set-property name="key"><![CDATA[company.gadget.customer_service.byFaxTitle]]></set-property>
+      <set-property name="type"><![CDATA[shortText]]></set-property>
+    </add-item>
+    <add-item id="txt510688" item-descriptor="storeShortText">
+      <set-property name="textDefault"><![CDATA[Mail]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt410671,es=detxt410673]]></set-property>
+      <set-property name="key"><![CDATA[company.gadget.customer_service.byMailTitle]]></set-property>
+      <set-property name="type"><![CDATA[shortText]]></set-property>
+    </add-item>
+    <add-item id="txt510691" item-descriptor="storeShortText">
+      <set-property name="textDefault"><![CDATA[Email]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt410675,es=detxt410677]]></set-property>
+      <set-property name="key"><![CDATA[company.gadget.customer_service.byEmailTitle]]></set-property>
+      <set-property name="type"><![CDATA[shortText]]></set-property>
+    </add-item>
+    <add-item id="detxt410659" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Kündigung]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt410661" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Terminación]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt410647" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Links zu anderen Websites und Services]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt410649" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Enlaces a otros sitios web y servicios]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt410651" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Haftungsausschluss]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt410653" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Renuncia de responsabilidad]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt410643" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Haftungsausschluss bei Ungenauigkeiten]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt410645" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Renuncia de responsabilidad por imprecisiones ]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt410655" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Gerichtsstand]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt410657" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Jurisdicción]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt410663" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Telefon]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt410665" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Teléfono]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt410667" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Fax]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt410669" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Fax]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt410671" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Post]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt410673" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Correo]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt410675" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[E-Mail]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt410677" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Correo electrónico]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+  </import-items>
+</gsa-template>
+<!-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.1.1/Storefront/data/storetext-i18n.xml#1 $$Change: 690623 $-->
