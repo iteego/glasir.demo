@@ -31,8 +31,8 @@ new glasir.Build(this).with {
     }
     
     addAtgModules from: atgRoot
-    addAtgModules from: "$settingsDir/packages/modules", isGlasirCore: true
-    addAtgModules from: "$settingsDir/packages/initializer", isGlasirCore: true
+    addAtgModules from: "$settingsDir/packages/modules"
+    addAtgModules from: "$settingsDir/packages/initializer"
     addAtgModules from: "$settingsDir/glasir-app", isAtgCore: false, 
                   excludes: ["**/*.war/", "Main/Data/db/", "Main/Data/import/", "**/build/", "**/config/", "**/src/", "**/lib/"]
   }
