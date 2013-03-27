@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
-ATG-Required: node data SiteAdmin.Versioned DCS-UI.Versioned PubPortlet Portal.paf  
+ATG-Required: node data SiteAdmin.Versioned DCS-UI.Versioned PubPortlet
 ATG-Config-Path: config
 
