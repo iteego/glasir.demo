@@ -3,7 +3,7 @@ import com.iteego.glasir.build.api.tasks.*
 task createManagementChangesets(type: CreateChangesets, description: "Creates database and data change sets for management node") {
   description = "Creates glasir.db change sets and import definition and extracts required file assets."
 
-  mainModuleName = "node.admin.development"
+  mainModuleName = "node.admin.dev"
 
   selectedInstanceTypes = ["management"]
 
@@ -27,7 +27,7 @@ task createManagementChangesets(type: CreateChangesets, description: "Creates da
 task createProductionChangesets(type: CreateChangesets, description: "Creates database and data change sets for production node") {
   description = "Like createManagementChangesets but with instance type \"production\" and another main module."
 
-  mainModuleName = "node.store.development"
+  mainModuleName = "node.store.dev"
 
   selectedInstanceTypes = ["production"]
 
@@ -52,7 +52,7 @@ task listProducts(type:ListAvailableProducts, description: "Lists available/inst
 }
 
 task listProductionDatasources(type: ListDatasources, description: "Lists data sources for production node type") {
-  mainModuleName = "node.store.development"
+  mainModuleName = "node.store.dev"
 
   selectedAddons = [
     "dcs-csr",
@@ -67,7 +67,7 @@ task listProductionDatasources(type: ListDatasources, description: "Lists data s
 }
 
 task listManagementDatasources(type: ListDatasources, description: "Lists data sources for management node type") {
-  mainModuleName = "node.admin.development"
+  mainModuleName = "node.admin.dev"
 
   selectedAddons = [
     "dcs-csr",
