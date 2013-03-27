@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE gsa-template SYSTEM "dynamosystemresource:/atg/dtds/gsa/gsa_1.0.dtd">
+<gsa-template>
+<import-items>
+
+<!-- ======================================================================= -->
+<!-- View mappings for the DCS-UI module                                     -->
+<!-- ======================================================================= -->
+
+<!-- ======================================================================= -->
+<!-- Mappings for Price Lists                                                -->
+<!-- ======================================================================= -->
+
+<!-- PriceListFormHandler -->
+
+<add-item item-descriptor="formHandler" id="aMgrFhPriceList">
+  <set-property name="name"><![CDATA[JSP DCS-UI ProductFormHandler]]></set-property>
+  <set-property name="description"><![CDATA[JSP DCS-UI specialized form handler for pricelists]]></set-property>
+  <set-property name="path"><![CDATA[/atg/commerce/web/assetmanager/ProdSkuPriceListFormHandler]]></set-property>
+  <set-property name="attributes"><![CDATA[atgFormValueDict=aMgrAvPlstDict]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="aMgrAvPlstDict">
+  <set-property name="value"><![CDATA[value]]></set-property>
+</add-item>
+
+<!-- Read-only and editable item mappings; contain one view mapping per tab -->
+
+<add-item item-descriptor="itemMapping" id="aMgrImViewPriceList">
+  <set-property name="name"><![CDATA[AssetManager]]></set-property>
+  <set-property name="description"><![CDATA[JSP DCS-UI read-only mapping for price list items]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/commerce/pricing/priceLists/PriceLists]]></set-property>
+  <set-property name="itemName"><![CDATA[priceList]]></set-property>
+  <set-property name="formHandler"><![CDATA[aMgrFhPriceList]]></set-property>
+  <set-property name="viewMappings"><![CDATA[aMgrIvmPlstGeneral,aMgrIvmPlstPr]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemMapping" id="aMgrImEditPriceList">
+  <set-property name="name"><![CDATA[AssetManager]]></set-property>
+  <set-property name="description"><![CDATA[JSP DCS-UI editable mapping for Price List items]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/commerce/pricing/priceLists/PriceLists]]></set-property>
+  <set-property name="itemName"><![CDATA[priceList]]></set-property>
+  <set-property name="formHandler"><![CDATA[aMgrFhPriceList]]></set-property>
+  <set-property name="viewMappings"><![CDATA[aMgrIvmPlstGeneral,aMgrIvmPlstPr]]></set-property>
+</add-item>
+
+<!-- View mapping for PriceList's General tab -->
+
+<add-item item-descriptor="itemViewMapping" id="aMgrIvmPlstGeneral">
+  <set-property name="name"><![CDATA[JSP DCS-UI Price List General view]]></set-property>
+  <set-property name="description"><![CDATA[JSP DCS-UI Price List General view]]></set-property>
+  <set-property name="displayName"><![CDATA[aMgrIvmPlstGeneral.displayName]]></set-property>
+  <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvPlstGeneralResourceBundle]]></set-property>
+  <set-property name="view"><![CDATA[aMgrIvRep]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="aMgrAvPlstGeneralResourceBundle">
+  <set-property name="value"><![CDATA[atg.commerce.web.WebAppResources]]></set-property>
+</add-item>
+
+
+<!-- View mapping for PriceList's Price Table tab -->
+
+<add-item item-descriptor="itemViewMapping" id="aMgrIvmPlstPr">
+  <set-property name="name"><![CDATA[PriceList Pricing View]]></set-property>
+  <set-property name="description"><![CDATA[PriceList pricing view]]></set-property>
+  <set-property name="displayName"><![CDATA[aMgrIvmPlstPr.displayName]]></set-property>
+  <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvPrdtPlstResourceBundle]]></set-property>
+  <set-property name="view"><![CDATA[aMgrIvPlstPr]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="aMgrAvPrdtPlstResourceBundle">
+  <set-property name="value"><![CDATA[atg.commerce.web.WebAppResources]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemView" id="aMgrIvPlstPr">
+  <set-property name="name"><![CDATA[pricelist pricing view]]></set-property>
+  <set-property name="description"><![CDATA[pricelist pricing view]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
+  <set-property name="applicationName"><![CDATA[ATG Commerce Management]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/priceList.jsp]]></set-property>
+  <set-property name="attributes"><![CDATA[atgItemViewMappingFilter=aMgrIvadPlstPr]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewAttributeDefinition" id="aMgrIvadPlstPr">
+  <set-property name="defaultValue"><![CDATA[/atg/commerce/web/assetmanager/PricingTabFilter]]></set-property>
+</add-item>
+
+<!-- ======================================================================= -->
+<!-- Customizations for pricelist folder items                                       -->
+<!-- ======================================================================= -->
+
+<!-- Read-only and editable item mappings;  -->
+
+<add-item item-descriptor="itemMapping" id="aMgrImViewPlstFldr">
+  <set-property name="name"><![CDATA[AssetManager]]></set-property>
+  <set-property name="description"><![CDATA[JSP DCS-UI read-only mapping for pricelist folder items]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/commerce/pricing/priceLists/PriceLists]]></set-property>
+  <set-property name="itemName"><![CDATA[priceListFolder]]></set-property>
+  <set-property name="formHandler"><![CDATA[aMgrFhRep]]></set-property>
+  <set-property name="viewMappings"><![CDATA[aMgrIvmPlstFldrAll]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemMapping" id="aMgrImEditPlstFldr">
+  <set-property name="name"><![CDATA[AssetManager]]></set-property>
+  <set-property name="description"><![CDATA[JSP DCS-UI editable mapping for pricelist folder items]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/commerce/pricing/priceLists/PriceLists]]></set-property>
+  <set-property name="itemName"><![CDATA[priceListFolder]]></set-property>
+  <set-property name="formHandler"><![CDATA[aMgrFhRep]]></set-property>
+  <set-property name="viewMappings"><![CDATA[aMgrIvmPlstFldrAll]]></set-property>
+</add-item>
+
+<!-- View mapping for single tab -->
+
+<add-item item-descriptor="itemViewMapping" id="aMgrIvmPlstFldrAll">
+  <set-property name="name"><![CDATA[JSP DCS-UI pricelistFolderAll]]></set-property>
+  <set-property name="description"><![CDATA[JSP DCS-UI pricelist folder view]]></set-property>
+  <set-property name="displayName"><![CDATA[aMgrIvmPlstFldrAll.displayName]]></set-property>
+  <set-property name="attributeValues"><![CDATA[excludedProperties=aMgrAvPlstFldrExc,resourceBundle=aMgrAvFolderResourceBundle]]></set-property>
+  <set-property name="view"><![CDATA[aMgrIvRep]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="aMgrAvPlstFldrExc">
+  <set-property name="value"><![CDATA[parent]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="aMgrAvFolderResourceBundle">
+  <set-property name="value"><![CDATA[atg.commerce.web.WebAppResources]]></set-property>
+</add-item>
+
+<!-- ======================================================================= -->
+<!-- Customizations for Grid property views                             -->
+<!-- ======================================================================= -->
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadGridShowIdColumn">
+  <set-property name="description"><![CDATA[Turn on display of the ID column]]></set-property>
+  <set-property name="defaultValue"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- Grid sku component viewer -->
+<add-item item-descriptor="propertyView" id="aMgrPvGridSkuCompView">
+  <set-property name="name"><![CDATA[JSP DCS-UI sku component viewer for Grid]]></set-property>
+  <set-property name="description"><![CDATA[JSP DCS-UI sku component viewer for Grid]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
+  <set-property name="type"><![CDATA[/atg/commerce/catalog/ProductCatalog:sku]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/grid/itemComponentEditor.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[true]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="containerFamily"><![CDATA[Grid]]></set-property>
+  <set-property name="attributes"><![CDATA[showIdColumn=aMgrPvadGridShowIdColumn]]></set-property>
+</add-item>
+
+<!-- Grid sku component editor -->
+<add-item item-descriptor="propertyView" id="aMgrPvGridSkuCompEdit">
+  <set-property name="name"><![CDATA[JSP DCS-UI sku component editor for Grid]]></set-property>
+  <set-property name="description"><![CDATA[JSP DCS-UI sku component editor for Grid]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
+  <set-property name="type"><![CDATA[/atg/commerce/catalog/ProductCatalog:sku]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/grid/itemComponentEditor.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[true]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="containerFamily"><![CDATA[Grid]]></set-property>
+  <set-property name="attributes"><![CDATA[showIdColumn=aMgrPvadGridShowIdColumn]]></set-property>
+</add-item>
+
+<!-- Grid product component viewer -->
+<add-item item-descriptor="propertyView" id="aMgrPvGridProdCompView">
+  <set-property name="name"><![CDATA[JSP DCS-UI product component viewer for Grid]]></set-property>
+  <set-property name="description"><![CDATA[JSP DCS-UI product component viewer for Grid]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
+  <set-property name="type"><![CDATA[/atg/commerce/catalog/ProductCatalog:product]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/grid/itemComponentEditor.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[true]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="containerFamily"><![CDATA[Grid]]></set-property>
+  <set-property name="attributes"><![CDATA[showIdColumn=aMgrPvadGridShowIdColumn]]></set-property>
+</add-item>
+
+<!-- Grid product component editor -->
+<add-item item-descriptor="propertyView" id="aMgrPvGridProdCompEdit">
+  <set-property name="name"><![CDATA[JSP DCS-UI product component editor for Grid]]></set-property>
+  <set-property name="description"><![CDATA[JSP DCS-UI product component editor for Grid]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
+  <set-property name="type"><![CDATA[/atg/commerce/catalog/ProductCatalog:product]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/grid/itemComponentEditor.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[true]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="containerFamily"><![CDATA[Grid]]></set-property>
+  <set-property name="attributes"><![CDATA[showIdColumn=aMgrPvadGridShowIdColumn]]></set-property>
+</add-item>
+
+<!-- ======================================================================= -->
+<!-- Customization for the JSP UI for all item types that should             -->
+<!--      be editable in the flex UI only.                                   -->
+<!-- ======================================================================= -->
+
+<add-item item-descriptor="itemMapping" id="aMgrImViewClaimable">
+  <set-property name="name"><![CDATA[AssetManager]]></set-property>
+  <set-property name="description"><![CDATA[JSP DCS-UI read-only mapping for claimable items]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/commerce/claimable/ClaimableRepository]]></set-property>
+  <set-property name="itemName"><![CDATA[*]]></set-property>
+  <set-property name="formHandler"><![CDATA[aMgrFhRep]]></set-property>
+  <set-property name="viewMappings"><![CDATA[wrongAppIvmNavigator]]></set-property>
+  <set-property name="attributes"><![CDATA[resourceBundle=MerchAvAppNameBnd,hideButtonBar=MerchAvNavigatorHideButtonBar,omitSecurityTab=MerchAvNavigatorOmitSecurityTab,application=MerchAvAppName]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemMapping" id="aMgrImEditClaimable">
+  <set-property name="name"><![CDATA[AssetManager]]></set-property>
+  <set-property name="description"><![CDATA[JSP DCS-UI editable mapping for claimable items]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/commerce/claimable/ClaimableRepository]]></set-property>
+  <set-property name="itemName"><![CDATA[*]]></set-property>
+  <set-property name="formHandler"><![CDATA[aMgrFhRep]]></set-property>
+  <set-property name="viewMappings"><![CDATA[wrongAppIvmNavigator]]></set-property>
+  <set-property name="attributes"><![CDATA[resourceBundle=MerchAvAppNameBnd,hideButtonBar=MerchAvNavigatorHideButtonBar,omitSecurityTab=MerchAvNavigatorOmitSecurityTab,application=MerchAvAppName]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemMapping" id="aMgrImViewPCatalog">
+  <set-property name="name"><![CDATA[AssetManager]]></set-property>
+  <set-property name="description"><![CDATA[JSP DCS-UI read-only mapping for product catalog items]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/commerce/catalog/ProductCatalog]]></set-property>
+  <set-property name="itemName"><![CDATA[*]]></set-property>
+  <set-property name="formHandler"><![CDATA[aMgrFhRep]]></set-property>
+  <set-property name="viewMappings"><![CDATA[wrongAppIvmNavigator]]></set-property>
+  <set-property name="attributes"><![CDATA[resourceBundle=MerchAvAppNameBnd,hideButtonBar=MerchAvNavigatorHideButtonBar,omitSecurityTab=MerchAvNavigatorOmitSecurityTab,application=MerchAvAppName]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemMapping" id="aMgrImEditPCatalog">
+  <set-property name="name"><![CDATA[AssetManager]]></set-property>
+  <set-property name="description"><![CDATA[JSP DCS-UI editable mapping for product catalog items]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/commerce/catalog/ProductCatalog]]></set-property>
+  <set-property name="itemName"><![CDATA[*]]></set-property>
+  <set-property name="formHandler"><![CDATA[aMgrFhRep]]></set-property>
+  <set-property name="viewMappings"><![CDATA[wrongAppIvmNavigator]]></set-property>
+  <set-property name="attributes"><![CDATA[resourceBundle=MerchAvAppNameBnd,hideButtonBar=MerchAvNavigatorHideButtonBar,omitSecurityTab=MerchAvNavigatorOmitSecurityTab,application=MerchAvAppName]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="MerchAvNavigatorHideButtonBar">
+  <set-property name="value"><![CDATA[true]]></set-property>
+</add-item>
+<add-item item-descriptor="attributeValue" id="MerchAvNavigatorOmitSecurityTab">
+  <set-property name="value"><![CDATA[true]]></set-property>
+</add-item>
+<add-item item-descriptor="attributeValue" id="MerchAvAppNameBnd">
+  <set-property name="value"><![CDATA[atg.remote.commerce.Resources]]></set-property>
+</add-item>
+<add-item item-descriptor="attributeValue" id="MerchAvAppName">
+  <set-property name="value"><![CDATA[merchandising.activitySource.displayName]]></set-property>
+</add-item>
+
+<!-- ======================================================================= -->
+<!-- Customizations diff promotion and closenessQualifier items              -->
+<!-- ======================================================================= -->
+
+<!-- diff formHandler -->
+<add-item item-descriptor="formHandler" id="AmFhDiffPromo">
+  <set-property name="name"><![CDATA[JSP DCS-UI diff formHandler]]></set-property>
+  <set-property name="path"><![CDATA[/atg/commerce/web/promotion/PromotionDiffAssetStateAssembler]]></set-property>
+</add-item>
+
+<!-- diff promotion items -->
+<add-item item-descriptor="itemMapping" id="AmImDiffPromo">
+  <set-property name="name"><![CDATA[AssetManager]]></set-property>
+  <set-property name="description"><![CDATA[JSP DCS-UI diff itemMapping for promotion items]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDiff]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/commerce/catalog/ProductCatalog]]></set-property>
+  <set-property name="itemName"><![CDATA[promotion]]></set-property>
+  <set-property name="formHandler"><![CDATA[AmFhDiffPromo]]></set-property>
+  <set-property name="viewMappings"><![CDATA[AmIvmDiffPromo]]></set-property>
+</add-item>
+<add-item item-descriptor="itemViewMapping" id="AmIvmDiffPromo">
+  <set-property name="name"><![CDATA[JSP DCS-UI promotion diff itemViewMapping]]></set-property>
+  <set-property name="displayName"><![CDATA[JSP DCS-UI promotion diff itemViewMapping]]></set-property>
+  <set-property name="view"><![CDATA[AmIvDiff]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[pmdlRule=AmPvmDiffPromoPmdl]]></set-property>
+</add-item>
+<add-item item-descriptor="propertyViewMapping" id="AmPvmDiffPromoPmdl">
+  <set-property name="description"><![CDATA[JSP DCS-UI promotion diff pmdlRule property view mapping]]></set-property>
+  <set-property name="propertyView"><![CDATA[AmPvDiffPromoPmdl]]></set-property>
+</add-item>
+<add-item item-descriptor="propertyView" id="AmPvDiffPromoPmdl">
+  <set-property name="name"><![CDATA[JSP DCS-UI promotion diff pmdlRule viewer]]></set-property>
+  <set-property name="description"><![CDATA[JSP DCS-UI promotion diff pmdlRule viewer]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDiff]]></set-property>
+  <set-property name="type"><![CDATA[string]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.diff.view.property.ConditionAndOfferViewer]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+</add-item>
+
+<!-- diff closenessQualifier items -->
+<add-item item-descriptor="itemMapping" id="AmImDiffQlfr">
+  <set-property name="name"><![CDATA[AssetManager]]></set-property>
+  <set-property name="description"><![CDATA[JSP DCS-UI diff itemMapping for closenessQualifier items]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDiff]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/commerce/catalog/ProductCatalog]]></set-property>
+  <set-property name="itemName"><![CDATA[closenessQualifier]]></set-property>
+  <set-property name="formHandler"><![CDATA[AmFhDiffPromo]]></set-property>
+  <set-property name="viewMappings"><![CDATA[AmIvmDiffQlfr]]></set-property>
+</add-item>
+<add-item item-descriptor="itemViewMapping" id="AmIvmDiffQlfr">
+  <set-property name="name"><![CDATA[JSP DCS-UI closenessQualifier diff itemViewMapping]]></set-property>
+  <set-property name="displayName"><![CDATA[JSP DCS-UI closenessQualifier diff itemViewMapping]]></set-property>
+  <set-property name="view"><![CDATA[AmIvDiff]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[pmdlRule=AmPvmDiffQlfrPmdl]]></set-property>
+</add-item>
+<add-item item-descriptor="propertyViewMapping" id="AmPvmDiffQlfrPmdl">
+  <set-property name="description"><![CDATA[JSP DCS-UI closenessQualifier diff pmdlRule property view mapping]]></set-property>
+  <set-property name="propertyView"><![CDATA[AmPvDiffQlfrPmdl]]></set-property>
+</add-item>
+<add-item item-descriptor="propertyView" id="AmPvDiffQlfrPmdl">
+  <set-property name="name"><![CDATA[JSP DCS-UI closenessQualifier diff pmdlRule viewer]]></set-property>
+  <set-property name="description"><![CDATA[JSP DCS-UI closenessQualifier diff pmdlRule viewer]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDiff]]></set-property>
+  <set-property name="type"><![CDATA[string]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.diff.view.property.ConditionViewer]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+</add-item>
+
+<!-- conflict promotion items -->
+<add-item item-descriptor="itemMapping" id="AmImConflictPromo">
+  <set-property name="name"><![CDATA[AssetManager]]></set-property>
+  <set-property name="description"><![CDATA[JSP DCS-UI conflict itemMapping for promotion items]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmConflict]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/commerce/catalog/ProductCatalog]]></set-property>
+  <set-property name="itemName"><![CDATA[promotion]]></set-property>
+  <set-property name="formHandler"><![CDATA[AmFhDiffPromo]]></set-property>
+  <set-property name="viewMappings"><![CDATA[AmIvmConflictPromo]]></set-property>
+</add-item>
+<add-item item-descriptor="itemViewMapping" id="AmIvmConflictPromo">
+  <set-property name="name"><![CDATA[JSP DCS-UI promotion conflict itemViewMapping]]></set-property>
+  <set-property name="displayName"><![CDATA[JSP DCS-UI promotion conflict itemViewMapping]]></set-property>
+  <set-property name="view"><![CDATA[AmIvConflict]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[pmdlRule=AmPvmConflictPromoPmdl]]></set-property>
+</add-item>
+<add-item item-descriptor="propertyViewMapping" id="AmPvmConflictPromoPmdl">
+  <set-property name="description"><![CDATA[JSP DCS-UI promotion conflict pmdlRule property view mapping]]></set-property>
+  <set-property name="propertyView"><![CDATA[AmPvConflictPromoPmdl]]></set-property>
+</add-item>
+<add-item item-descriptor="propertyView" id="AmPvConflictPromoPmdl">
+  <set-property name="name"><![CDATA[JSP DCS-UI promotion conflict pmdlRule viewer]]></set-property>
+  <set-property name="description"><![CDATA[JSP DCS-UI promotion conflict pmdlRule viewer]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmConflict]]></set-property>
+  <set-property name="type"><![CDATA[string]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.diff.view.property.ConditionAndOfferViewer]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+</add-item>
+
+<!-- conflict closenessQualifier items -->
+<add-item item-descriptor="itemMapping" id="AmImConflictQlfr">
+  <set-property name="name"><![CDATA[AssetManager]]></set-property>
+  <set-property name="description"><![CDATA[JSP DCS-UI conflict itemMapping for closenessQualifier items]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmConflict]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/commerce/catalog/ProductCatalog]]></set-property>
+  <set-property name="itemName"><![CDATA[closenessQualifier]]></set-property>
+  <set-property name="formHandler"><![CDATA[AmFhDiffPromo]]></set-property>
+  <set-property name="viewMappings"><![CDATA[AmIvmConflictQlfr]]></set-property>
+</add-item>
+<add-item item-descriptor="itemViewMapping" id="AmIvmConflictQlfr">
+  <set-property name="name"><![CDATA[JSP DCS-UI closenessQualifier conflict itemViewMapping]]></set-property>
+  <set-property name="displayName"><![CDATA[JSP DCS-UI closenessQualifier conflict itemViewMapping]]></set-property>
+  <set-property name="view"><![CDATA[AmIvConflict]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[pmdlRule=AmPvmConflictQlfrPmdl]]></set-property>
+</add-item>
+<add-item item-descriptor="propertyViewMapping" id="AmPvmConflictQlfrPmdl">
+  <set-property name="description"><![CDATA[JSP DCS-UI closenessQualifier conflict pmdlRule property view mapping]]></set-property>
+  <set-property name="propertyView"><![CDATA[AmPvConflictQlfrPmdl]]></set-property>
+</add-item>
+<add-item item-descriptor="propertyView" id="AmPvConflictQlfrPmdl">
+  <set-property name="name"><![CDATA[JSP DCS-UI closenessQualifier conflict pmdlRule viewer]]></set-property>
+  <set-property name="description"><![CDATA[JSP DCS-UI closenessQualifier conflict pmdlRule viewer]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmConflict]]></set-property>
+  <set-property name="type"><![CDATA[string]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.diff.view.property.ConditionViewer]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+</add-item>
+
+</import-items>
+</gsa-template>
+<!-- @version $Id: //product/DCS-UI/version/10.1.1/Versioned/src/install/data/viewmapping.xml#1 $$Change: 690623 $-->

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE gsa-template SYSTEM "dynamosystemresource:/atg/dtds/gsa/gsa_1.0.dtd">
+<gsa-template>
+<import-items>
+
+<!-- The root folder's acl property is overridden in Outreach...changes made
+     here need to be replicated there -->
+<add-item item-descriptor="fileFolder" id="root">
+  <set-property name="name"><![CDATA[root]]></set-property>
+  <set-property name="acl"><![CDATA[Profile$role$epubSuperAdmin:read,write,list,destroy,read_acl,write_acl;Profile$role$epubAdmin:read,write,list,destroy,read_acl,write_acl;Profile$role$epubManager:read,write,list,destroy,read_acl,write_acl;Profile$role$epubUser:read,write,list,destroy,read_acl,write_acl;Admin$role$administrators-group:read,write,list,destroy,read_acl,write_acl;Admin$role$everyone-group:read,list]]></set-property>
+</add-item>
+
+<add-item item-descriptor="fileFolder" id="ff1">
+  <set-property name="name"><![CDATA[atg]]></set-property>
+  <set-property name="parentFolder"><![CDATA[root]]></set-property>
+</add-item>
+
+<add-item item-descriptor="fileFolder" id="ff2">
+  <set-property name="name"><![CDATA[registry]]></set-property>
+  <set-property name="parentFolder"><![CDATA[ff1]]></set-property>
+</add-item>
+
+<add-item item-descriptor="fileFolder" id="ff3">
+  <set-property name="name"><![CDATA[RepositoryGroups]]></set-property>
+  <set-property name="parentFolder"><![CDATA[ff2]]></set-property>
+</add-item>
+
+<add-item item-descriptor="fileFolder" id="ff5">
+  <set-property name="name"><![CDATA[Slots]]></set-property>
+  <set-property name="parentFolder"><![CDATA[ff2]]></set-property>
+</add-item>
+
+<add-item item-descriptor="fileFolder" id="ff6">
+  <set-property name="name"><![CDATA[data]]></set-property>
+  <set-property name="parentFolder"><![CDATA[ff2]]></set-property>
+</add-item>
+
+<add-item item-descriptor="fileFolder" id="ff7">
+  <set-property name="name"><![CDATA[scenarios]]></set-property>
+  <set-property name="parentFolder"><![CDATA[ff6]]></set-property>
+</add-item>
+
+<add-item item-descriptor="fileFolder" id="ff8">
+  <set-property name="name"><![CDATA[RepositoryTargeters]]></set-property>
+  <set-property name="parentFolder"><![CDATA[ff2]]></set-property>
+</add-item>
+
+</import-items>
+
+</gsa-template>
+<!-- @version $Id: //product/Publishing/version/10.1.1/pws/install/epub-file-repository-data.xml#1 $$Change: 690623 $ -->

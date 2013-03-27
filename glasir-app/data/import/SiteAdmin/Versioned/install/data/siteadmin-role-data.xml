@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE gsa-template SYSTEM "dynamosystemresource:/atg/dtds/gsa/gsa_1.0.dtd">
+<gsa-template>
+<import-items>
+
+<!-- items of type role -->
+
+<add-item item-descriptor="role" id="siteAdminUser">
+  <set-property name="name"><![CDATA[SiteAdmin-User]]></set-property>
+  <set-property name="description"><![CDATA[This role allows access to create, edit, and preview sites in Site Admin]]></set-property>
+</add-item>
+
+<!-- items of type roleFolder -->
+
+<add-item item-descriptor="roleFolder" id="siteAdminRoleFolder">
+  <set-property name="name"><![CDATA[siteAdmin]]></set-property>
+  <set-property name="description"><![CDATA[The roles for SiteAdmin]]></set-property>
+  <set-property name="parent"><![CDATA[root]]></set-property>
+  <set-property name="childItems"><![CDATA[siteAdminUser]]></set-property>
+</add-item>
+
+</import-items>
+
+<!-- all update-item tags must go outside of the import-items tag -->
+
+<!-- items of type roleFolder -->
+
+<update-item item-descriptor="roleFolder" id="root">
+  <set-property name="childFolders" add="true"><![CDATA[siteAdminRoleFolder]]></set-property>
+</update-item>
+
+</gsa-template>
+<!-- @version $Id: //product/SiteAdmin/version/10.1.1/Versioned/src/install/data/siteadmin-role-data.xml#1 $$Change: 690623 $ -->

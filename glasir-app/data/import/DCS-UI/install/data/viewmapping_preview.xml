@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE gsa-template SYSTEM "dynamosystemresource:/atg/dtds/gsa/gsa_1.0.dtd">
+<gsa-template>
+<import-items>
+
+<!-- ======================================================================= -->
+<!-- View mappings for the VisualMerch light table -->
+<!-- ======================================================================= -->
+
+<!-- MapMode name for the VisualMerch light table -->
+<add-item item-descriptor="mapMode" id="VmMmLt">
+  <set-property name="name"><![CDATA[VisualMerch.lightTable]]></set-property>
+</add-item>
+
+<!-- Item mapping for category item -->
+
+<add-item item-descriptor="itemMapping" id="VmImLtCat">
+  <set-property name="name"><![CDATA[AssetManager]]></set-property>
+  <set-property name="description"><![CDATA[VisualMerch LightTable Category itemMapping]]></set-property>
+  <set-property name="mode"><![CDATA[VmMmLt]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/commerce/catalog/ProductCatalog]]></set-property>
+  <set-property name="itemName"><![CDATA[category]]></set-property>
+  <set-property name="formHandler"><![CDATA[AmFhDef]]></set-property>
+  <set-property name="viewMappings"><![CDATA[VmIvmCatLt]]></set-property>
+  <set-property name="attributes"><![CDATA[resourceBundle=AmAvDefBnd]]></set-property>
+</add-item>
+
+<!-- View mapping for category's -->
+
+<add-item item-descriptor="itemViewMapping" id="VmIvmCatLt">
+  <set-property name="name"><![CDATA[VisualMerch category itemViewMapping]]></set-property>
+  <set-property name="displayName"><![CDATA[AmIvmDef.displayName]]></set-property>
+  <set-property name="view"><![CDATA[VmIvLt]]></set-property>
+  <set-property name="attributeValues"><![CDATA[includedProperties=VmAvCatLt]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[fixedChildProducts=VmPvmEFixedChildCat]]></set-property>
+</add-item>
+
+<!-- ItemView -->
+
+<add-item item-descriptor="itemView" id="VmIvLt">
+  <set-property name="name"><![CDATA[VisualMerch LightTable itemView]]></set-property>
+  <set-property name="description"><![CDATA[VisualMerch LightTable itemView]]></set-property>
+  <set-property name="mode"><![CDATA[VmMmLt]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.lighttable.LightTableViewPanel]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="VmAvCatLt">
+  <set-property name="value"><![CDATA[fixedChildProducts]]></set-property>
+</add-item>
+
+<!-- Property mapping for category's fixedChildProduct property -->
+
+<add-item item-descriptor="propertyViewMapping" id="VmPvmEFixedChildCat">
+  <set-property name="description"><![CDATA[VisualMerch lightTable property edit]]></set-property>
+  <set-property name="propertyView"><![CDATA[VmPvEFixedChild]]></set-property>
+</add-item>
+
+<!-- Property view for category's fixedChildProduct property -->
+
+<add-item item-descriptor="propertyView" id="VmPvEFixedChild">
+  <set-property name="name"><![CDATA[VisualMerch Category's fixedChild LightTable Editor]]></set-property>
+  <set-property name="description"><![CDATA[VisualMerch Category's fixedChild LightTable Editor]]></set-property>
+  <set-property name="mode"><![CDATA[VmMmLt]]></set-property>
+  <set-property name="type"><![CDATA[list]]></set-property>
+  <set-property name="componentType"><![CDATA[Repository Item]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.lighttable.LightTableCollectionEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="attributes"><![CDATA[customAssetPropertyService=VmPvadFixedChildService,subPropertyColumns=VmPvadProdLtCols,minColumnsCount=VmPvadLtMinCol,maxColumnsCount=VmPvadLtMaxCol,defColumnsCount=VmPvadLtDefCol]]></set-property>
+  <set-property name="containerFamily"><![CDATA[CollectionEditor]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="VmPvadFixedChildService">
+  <set-property name="defaultValue"><![CDATA[/atg/remote/assetmanager/editor/lighttable/service/LightTableFixedChildProductsPropertyService]]></set-property> 
+  <set-property name="description"><![CDATA[Custom property service for the category's fixedChildProducts ]]></set-property>
+</add-item>  
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="VmPvadProdLtCols">
+  <set-property name="defaultValue"><![CDATA[$id,$displayName,smallImage.URL]]></set-property>
+  <set-property name="description"><![CDATA[Columns displayed for collections of products]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="VmPvadLtMinCol">
+  <set-property name="defaultValue"><![CDATA[1]]></set-property>
+  <set-property name="description"><![CDATA[A min value of the light table columns count ]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="VmPvadLtMaxCol">
+  <set-property name="defaultValue"><![CDATA[16]]></set-property>
+  <set-property name="description"><![CDATA[A max value of the light table columns count ]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="VmPvadLtDefCol">
+  <set-property name="defaultValue"><![CDATA[4]]></set-property>
+  <set-property name="description"><![CDATA[A default value of the light table columns count ]]></set-property>
+</add-item>
+
+</import-items>
+
+</gsa-template>
+<!-- @version $Id: //product/DCS-UI/version/10.1.1/src/install/data/viewmapping_preview.xml#1 $$Change: 690623 $ -->

@@ -1,0 +1,1730 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE gsa-template SYSTEM "dynamosystemresource:/atg/dtds/gsa/gsa_1.0.dtd">
+<gsa-template>
+<import-items>
+
+<!-- ======================================================================= -->
+<!-- AssetManager view mappings                                              -->
+<!-- ======================================================================= -->
+
+<!-- AssetManager mapModes -->
+
+<add-item item-descriptor="mapMode" id="aMgrMmView">
+  <set-property name="name"><![CDATA[AssetManager.view]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager view mode]]></set-property>
+</add-item>
+
+<add-item item-descriptor="mapMode" id="aMgrMmEdit">
+  <set-property name="name"><![CDATA[AssetManager.edit]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager edit mode]]></set-property>
+  <set-property name="fallbackMode"><![CDATA[aMgrMmView]]></set-property>
+</add-item>
+
+<add-item item-descriptor="mapMode" id="aMgrMmMultiEdit">
+  <set-property name="name"><![CDATA[AssetManager.multiEdit]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager multi-edit mode]]></set-property>
+  <set-property name="fallbackMode"><![CDATA[aMgrMmEdit]]></set-property>
+</add-item>
+
+<add-item item-descriptor="mapMode" id="aMgrMmCreate">
+  <set-property name="name"><![CDATA[AssetManager.create]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager create mode]]></set-property>
+</add-item>
+
+<add-item item-descriptor="mapMode" id="aMgrMmDiff">
+  <set-property name="name"><![CDATA[AssetManager.diff]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager diff mode]]></set-property>
+  <set-property name="fallbackMode"><![CDATA[aMgrMmView]]></set-property>
+</add-item>
+
+<add-item item-descriptor="mapMode" id="aMgrMmConflict">
+  <set-property name="name"><![CDATA[AssetManager.conflict]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager conflict mode]]></set-property>
+  <set-property name="fallbackMode"><![CDATA[aMgrMmView]]></set-property>
+</add-item>
+
+<add-item item-descriptor="mapMode" id="aMgrMmSuggest">
+  <set-property name="name"><![CDATA[AssetManager.suggest]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager auto suggest mode]]></set-property>
+  <set-property name="fallbackMode"><![CDATA[aMgrMmConflict]]></set-property>
+</add-item>
+
+<add-item item-descriptor="mapMode" id="aMgrMmPick">
+  <set-property name="name"><![CDATA[AssetManager.assetPicker]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager asset picker mode]]></set-property>
+  <set-property name="fallbackMode"><![CDATA[aMgrMmView]]></set-property>
+</add-item>
+
+<add-item item-descriptor="mapMode" id="aMgrMmPickSearch">
+  <set-property name="name"><![CDATA[AssetManager.assetPicker.search]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager asset picker mode for search]]></set-property>
+  <set-property name="fallbackMode"><![CDATA[aMgrMmView]]></set-property>
+</add-item>
+
+<add-item item-descriptor="mapMode" id="aMgrMmPickBrowse">
+  <set-property name="name"><![CDATA[AssetManager.assetPicker.browse]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager asset picker mode with browse tab only]]></set-property>
+  <set-property name="fallbackMode"><![CDATA[aMgrMmPick]]></set-property>
+</add-item>
+
+<!-- ======================================================================= -->
+<!-- Form handlers                                                           -->
+<!-- ======================================================================= -->
+
+<!-- AssetRepositoryFormHandler: the default form handler for repository items -->
+
+<add-item item-descriptor="formHandler" id="aMgrFhRep">
+  <set-property name="name"><![CDATA[AssetManager AssetRepositoryFormHandler]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager default repository asset form handler]]></set-property>
+  <set-property name="path"><![CDATA[/atg/web/assetmanager/editor/AssetRepositoryFormHandler]]></set-property>
+  <set-property name="attributes"><![CDATA[atgFormValueDict=aMgrAvValue]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="aMgrAvValue">
+  <set-property name="value"><![CDATA[value]]></set-property>
+</add-item>
+
+<!-- CreateAssetRepositoryFormHandler: the default creation form handler for repository items.
+     The containerPathProperty and assetTypeProperty attributes specify form handler property
+     names that indicate the asset container path and asset type -->
+
+<add-item item-descriptor="formHandler" id="aMgrFhRepCreate">
+  <set-property name="name"><![CDATA[AssetManager CreateAssetRepositoryFormHandler]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager default repository asset creation form handler]]></set-property>
+  <set-property name="path"><![CDATA[/atg/web/assetmanager/editor/CreateAssetRepositoryFormHandler]]></set-property>
+  <set-property name="attributes"><![CDATA[containerPathProperty=aMgrAvRepCreateCtr,assetTypeProperty=aMgrAvRepCreateType]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="aMgrAvRepCreateCtr">
+  <set-property name="value"><![CDATA[repositoryPathName]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="aMgrAvRepCreateType">
+  <set-property name="value"><![CDATA[itemDescriptorName]]></set-property>
+</add-item>
+
+<!-- Default asset diff form handler -->
+
+<add-item item-descriptor="formHandler" id="aMgrFhDiff">
+  <set-property name="name"><![CDATA[AssetManagerDiffFormHandler]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager diff formHandler]]></set-property>
+  <set-property name="path"><![CDATA[/atg/web/assetmanager/history/AssetDiffFormHandler]]></set-property>
+</add-item>
+
+<!-- ======================================================================= -->
+<!-- Default mappings                                                        -->
+<!-- ======================================================================= -->
+
+<!-- Default item mappings for repository items -->
+
+<add-item item-descriptor="itemMapping" id="aMgrImView">
+  <set-property name="name"><![CDATA[AssetManager]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager default read-only mapping for repository items]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
+  <set-property name="itemPath"><![CDATA[Repository Item]]></set-property>
+  <set-property name="itemName"><![CDATA[*]]></set-property>
+  <set-property name="formHandler"><![CDATA[aMgrFhRep]]></set-property>
+  <set-property name="viewMappings"><![CDATA[aMgrIvmRep]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemMapping" id="aMgrImEdit">
+  <set-property name="name"><![CDATA[AssetManager]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager default editable mapping for repository items]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
+  <set-property name="itemPath"><![CDATA[Repository Item]]></set-property>
+  <set-property name="itemName"><![CDATA[*]]></set-property>
+  <set-property name="formHandler"><![CDATA[aMgrFhRep]]></set-property>
+  <set-property name="viewMappings"><![CDATA[aMgrIvmRep]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemMapping" id="aMgrImCreate">
+  <set-property name="name"><![CDATA[AssetManager]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager default creation mapping for repository items]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmCreate]]></set-property>
+  <set-property name="itemPath"><![CDATA[Repository Item]]></set-property>
+  <set-property name="itemName"><![CDATA[*]]></set-property>
+  <set-property name="formHandler"><![CDATA[aMgrFhRepCreate]]></set-property>
+  <set-property name="viewMappings"><![CDATA[aMgrIvmRepCreate]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemMapping" id="aMgrImAPBrowse">
+  <set-property name="name"><![CDATA[*]]></set-property>
+  <set-property name="description"><![CDATA[Repository itemMapping for AssetManager asset picker with browse tab only]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmPickBrowse]]></set-property>
+  <set-property name="itemPath"><![CDATA[Repository Item]]></set-property>
+  <set-property name="itemName"><![CDATA[*]]></set-property>
+  <set-property name="formHandler"><![CDATA[aMgrFhRep]]></set-property>
+  <set-property name="viewMappings"><![CDATA[aMgrIvmAPBrowse]]></set-property>
+</add-item>
+
+<!-- ======================================================================= -->
+
+<!-- Default view mappings for repository items -->
+
+<add-item item-descriptor="itemViewMapping" id="aMgrIvmRep">
+  <set-property name="name"><![CDATA[AssetManager default item view mapping]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager default view mapping for repository items]]></set-property>
+  <set-property name="displayName"><![CDATA[aMgrIvmRep.displayName]]></set-property>
+  <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvRepResourceBundle]]></set-property>
+  <set-property name="view"><![CDATA[aMgrIvRep]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="aMgrAvRepResourceBundle">
+  <set-property name="value"><![CDATA[atg.web.assetmanager.WebAppResources]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewMapping" id="aMgrIvmRepCreate">
+  <set-property name="name"><![CDATA[AssetManager default item creation view mapping]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager default view mapping for creating repository items]]></set-property>
+  <set-property name="displayName"><![CDATA[properties]]></set-property>
+  <set-property name="view"><![CDATA[aMgrIvRepCreate]]></set-property>
+</add-item>
+
+
+<!-- View mapping for item types that can be viewed/edited in other applications -->
+
+<add-item item-descriptor="itemViewMapping" id="wrongAppIvmNavigator">
+  <set-property name="name"><![CDATA[AssetManager WrongApp]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager view mapping for items viewable in other applications]]></set-property>
+  <set-property name="displayName"><![CDATA[navigator]]></set-property>
+  <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvRepResourceBundle]]></set-property>
+  <set-property name="view"><![CDATA[wrongAppIvNavigator]]></set-property>
+</add-item>
+
+<!-- ======================================================================= -->
+
+<!-- The default view for repository items.  Note that the "mode" property is
+     required, even though it is not used. -->
+
+<add-item item-descriptor="itemView" id="aMgrIvRep">
+  <set-property name="name"><![CDATA[AssetManager item view]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager view for repository items]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/defaultTab.jsp]]></set-property>
+</add-item>
+
+<!-- The default creation view for repository items -->
+
+<add-item item-descriptor="itemView" id="aMgrIvRepCreate">
+  <set-property name="name"><![CDATA[AssetManager creation item view]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager creation view for repository items]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmCreate]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/createTransientAsset.jsp]]></set-property>
+</add-item>
+
+<!-- View for an item that is only viewable / editable in another application. -->
+
+<add-item item-descriptor="itemView" id="wrongAppIvNavigator">
+  <set-property name="name"><![CDATA[AssetManager wrong app view]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager view for items editable in other applications]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/navigator.jsp]]></set-property>
+</add-item>
+
+<!-- ======================================================================= -->
+<!-- Default property views                                                  -->
+<!-- ======================================================================= -->
+
+<!-- Viewer -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvVDef">
+  <set-property name="name"><![CDATA[AssetManager read-only property view]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager read-only property view]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
+  <set-property name="type"><![CDATA[?]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/defaultViewer.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- Editor -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvEDef">
+  <set-property name="name"><![CDATA[AssetManager editable property view]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager editable property view]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
+  <set-property name="type"><![CDATA[?]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/defaultEditor.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="attributes"><![CDATA[inputFieldSize=aMgrPvadEDefSize,inputFieldMaxlength=aMgrPvadEDefMaxlength]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadEDefSize">
+  <set-property name="description"><![CDATA[Size of input field, in characters]]></set-property>
+  <set-property name="defaultValue"><![CDATA[50]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadEDefMaxlength">
+  <set-property name="description"><![CDATA[Maximum length of the data in the field]]></set-property>
+  <set-property name="defaultValue"><![CDATA[254]]></set-property>
+</add-item>
+
+<!-- Component viewer -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvCVDef">
+  <set-property name="name"><![CDATA[AssetManager read-only component property view]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager read-only component property view]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
+  <set-property name="type"><![CDATA[?]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/defaultComponentViewer.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[true]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- Component editor -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvCEDef">
+  <set-property name="name"><![CDATA[AssetManager editable component property view]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager editable component property view]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
+  <set-property name="type"><![CDATA[?]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/defaultComponentEditor.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[true]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- Viewer for properties in diff mode -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvDDef">
+  <set-property name="name"><![CDATA[AssetManager diff property view]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager diff property view]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmDiff]]></set-property>
+  <set-property name="type"><![CDATA[?]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/diff/defaultViewer.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- Viewer for properties in conflict mode -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvCDef">
+  <set-property name="name"><![CDATA[AssetManager conflict property view]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager conflict property view]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmConflict]]></set-property>
+  <set-property name="type"><![CDATA[?]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/diff/defaultViewer.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- Component viewer for properties in diff mode -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvCDDef">
+  <set-property name="name"><![CDATA[AssetManager diff component property view]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager diff component property view]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmDiff]]></set-property>
+  <set-property name="type"><![CDATA[?]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/diff/defaultComponentViewer.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[true]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- Component viewer for properties in conflict mode -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvCCDef">
+  <set-property name="name"><![CDATA[AssetManager conflict component property view]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager conflict component property view]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmConflict]]></set-property>
+  <set-property name="type"><![CDATA[?]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/diff/defaultComponentViewer.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[true]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- ======================================================================= -->
+<!-- Views for array properties                                              -->
+<!-- ======================================================================= -->
+
+<!-- Viewer -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvVArray">
+  <set-property name="name"><![CDATA[AssetManager array viewer]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager array viewer]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
+  <set-property name="type"><![CDATA[array]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/listViewer.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="attributes"><![CDATA[fullWidth=aMgrPvadVArrayFull]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadVArrayFull">
+  <set-property name="description"><![CDATA[Indicates a full-width property editor]]></set-property>
+  <set-property name="defaultValue"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- Editor -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvEArray">
+  <set-property name="name"><![CDATA[AssetManager array editor]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager array editor]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
+  <set-property name="type"><![CDATA[array]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/collectionEditor.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="attributes"><![CDATA[useNumericSort=aMgrPvadEArraySort,fullWidth=aMgrPvadEArrayFull]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadEArraySort">
+  <set-property name="description"><![CDATA[Array editor numeric sort flag]]></set-property>
+  <set-property name="defaultValue"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadEArrayFull">
+  <set-property name="description"><![CDATA[Indicates a full-width property editor]]></set-property>
+  <set-property name="defaultValue"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- Viewer for properties in diff mode -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvDArray">
+  <set-property name="name"><![CDATA[AssetManager array diff viewer]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager array diff viewer]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmDiff]]></set-property>
+  <set-property name="type"><![CDATA[array]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/diff/listViewer.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- Viewer for properties in conflict mode -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvCArray">
+  <set-property name="name"><![CDATA[AssetManager array conflict viewer]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager array conflict viewer]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmConflict]]></set-property>
+  <set-property name="type"><![CDATA[array]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/diff/listViewer.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- Viewer for array properties in auto suggest mode -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvSArray">
+  <set-property name="name"><![CDATA[AssetManager array suggestion viewer]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager array suggestion viewer]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmSuggest]]></set-property>
+  <set-property name="type"><![CDATA[array]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/diff/suggestedListViewer.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- ======================================================================= -->
+<!-- Views for big-string properties                                         -->
+<!-- ======================================================================= -->
+
+<!-- Editor -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvEBigStr">
+  <set-property name="name"><![CDATA[AssetManager big-string editor]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager big-string editor]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
+  <set-property name="type"><![CDATA[big string]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/bigStringEditor.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="attributes"><![CDATA[rows=aMgrPvadEBStrRows,columns=aMgrPvadEBStrCols]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadEBStrRows">
+  <set-property name="description"><![CDATA[Number of rows]]></set-property>
+  <set-property name="defaultValue"><![CDATA[20]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadEBStrCols">
+  <set-property name="description"><![CDATA[Number of columns]]></set-property>
+  <set-property name="defaultValue"><![CDATA[50]]></set-property>
+</add-item>
+
+<!-- ======================================================================= -->
+<!-- Views for boolean properties                                            -->
+<!-- ======================================================================= -->
+
+<!-- Editor -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvEBool">
+  <set-property name="name"><![CDATA[AssetManager boolean editor]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager boolean editor]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
+  <set-property name="type"><![CDATA[boolean]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/booleanEditor.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- Component editor -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvCEBool">
+  <set-property name="name"><![CDATA[AssetManager boolean component editor]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager boolean component editor]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
+  <set-property name="type"><![CDATA[boolean]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/booleanComponentEditor.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[true]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- ======================================================================= -->
+<!-- Views for date properties                                               -->
+<!-- ======================================================================= -->
+
+<!-- Viewer -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvVDate">
+  <set-property name="name"><![CDATA[AssetManager date viewer]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager date viewer]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
+  <set-property name="type"><![CDATA[date]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/timestampViewer.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="attributes"><![CDATA[type=aMgrPvadVDateType,dateStyle=aMgrPvadVDateDStyle,timeStyle=aMgrPvadVDateTStyle]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadVDateType">
+  <set-property name="description"><![CDATA[JSTL fmt:fmtDate type attribute string (date|time|both)]]></set-property>
+  <set-property name="defaultValue"><![CDATA[date]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadVDateDStyle">
+  <set-property name="description"><![CDATA[JSTL fmt:fmtDate dateStyle string (full|long|medium|short|default)]]></set-property>
+  <set-property name="defaultValue"><![CDATA[full]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadVDateTStyle">
+  <set-property name="description"><![CDATA[JSTL fmt:fmtDate timeStyle string (full|long|medium|short|default)]]></set-property>
+  <set-property name="defaultValue"><![CDATA[full]]></set-property>
+</add-item>
+
+<!-- Editor -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvEDate">
+  <set-property name="name"><![CDATA[AssetManager date editor]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager date editor]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
+  <set-property name="type"><![CDATA[date]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/dateEditor.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="attributes"><![CDATA[inputFieldSize=aMgrPvadEDateSize,dateFormat=aMgrPvadEDateFormat]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadEDateSize">
+  <set-property name="description"><![CDATA[Size of input field, in characters]]></set-property>
+  <set-property name="defaultValue"><![CDATA[50]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadEDateFormat">
+  <set-property name="description"><![CDATA[Date format string]]></set-property>
+  <set-property name="defaultValue"><![CDATA[MM-DD-YY]]></set-property>
+</add-item>
+
+<!-- Component viewer -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvCVDate">
+  <set-property name="name"><![CDATA[AssetManager date component viewer]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager date component viewer]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
+  <set-property name="type"><![CDATA[date]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/timestampComponentViewer.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[true]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="attributes"><![CDATA[type=aMgrPvadCVDateType,dateStyle=aMgrPvadCVDateDStyle,timeStyle=aMgrPvadCVDateTStyle]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadCVDateType">
+  <set-property name="description"><![CDATA[JSTL fmt:fmtDate type attribute string (date|time|both)]]></set-property>
+  <set-property name="defaultValue"><![CDATA[both]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadCVDateDStyle">
+  <set-property name="description"><![CDATA[JSTL fmt:fmtDate dateStyle string (full|long|medium|short|default)]]></set-property>
+  <set-property name="defaultValue"><![CDATA[full]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadCVDateTStyle">
+  <set-property name="description"><![CDATA[JSTL fmt:fmtDate timeStyle string (full|long|medium|short|default)]]></set-property>
+  <set-property name="defaultValue"><![CDATA[full]]></set-property>
+</add-item>
+
+<!-- Component editor -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvCEDate">
+  <set-property name="name"><![CDATA[AssetManager date component editor]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager date component editor]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
+  <set-property name="type"><![CDATA[date]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/dateComponentEditor.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[true]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="attributes"><![CDATA[inputFieldSize=aMgrPvadCEDateSize,dateFormat=aMgrPvadCEDateFormat]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadCEDateSize">
+  <set-property name="description"><![CDATA[Size of input field, in characters]]></set-property>
+  <set-property name="defaultValue"><![CDATA[50]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadCEDateFormat">
+  <set-property name="description"><![CDATA[Date format string]]></set-property>
+  <set-property name="defaultValue"><![CDATA[MM-DD-YY]]></set-property>
+</add-item>
+
+<!-- ======================================================================= -->
+<!-- Views for enumerated properties                                         -->
+<!-- ======================================================================= -->
+
+<!-- Viewer -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvVEnum">
+  <set-property name="name"><![CDATA[AssetManager enumerated viewer]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager enumerated viewer]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
+  <set-property name="type"><![CDATA[enumerated]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/enumViewer.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- Editor -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvEEnum">
+  <set-property name="name"><![CDATA[AssetManager enumerated editor]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager enumerated editor]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
+  <set-property name="type"><![CDATA[enumerated]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/enumEditor.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- Component editor -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvCEEnum">
+  <set-property name="name"><![CDATA[AssetManager enumerated component editor]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager enumerated component editor]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
+  <set-property name="type"><![CDATA[enumerated]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/enumComponentEditor.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[true]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- ======================================================================= -->
+<!-- Views for list properties                                               -->
+<!-- ======================================================================= -->
+
+<!-- Viewer -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvVList">
+  <set-property name="name"><![CDATA[AssetManager list viewer]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager list viewer]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
+  <set-property name="type"><![CDATA[list]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/listViewer.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="attributes"><![CDATA[fullWidth=aMgrPvadVListFull]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadVListFull">
+  <set-property name="description"><![CDATA[Indicates a full-width property editor]]></set-property>
+  <set-property name="defaultValue"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- Editor -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvEList">
+  <set-property name="name"><![CDATA[AssetManager list editor]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager list editor]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
+  <set-property name="type"><![CDATA[list]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/collectionEditor.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="attributes"><![CDATA[useNumericSort=aMgrPvadEListSort,fullWidth=aMgrPvadEListFull]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadEListSort">
+  <set-property name="description"><![CDATA[List editor numeric sort flag]]></set-property>
+  <set-property name="defaultValue"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadEListFull">
+  <set-property name="description"><![CDATA[Indicates a full-width property editor]]></set-property>
+  <set-property name="defaultValue"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- Viewer for properties in diff mode -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvDList">
+  <set-property name="name"><![CDATA[AssetManager list diff viewer]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager list diff viewer]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmDiff]]></set-property>
+  <set-property name="type"><![CDATA[list]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/diff/listViewer.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- Viewer for properties in conflict mode -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvCList">
+  <set-property name="name"><![CDATA[AssetManager list conflict viewer]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager list conflict viewer]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmConflict]]></set-property>
+  <set-property name="type"><![CDATA[list]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/diff/listViewer.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- Viewer for list properties in auto suggest mode -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvSList">
+  <set-property name="name"><![CDATA[AssetManager list suggestion viewer]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager list suggestion viewer]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmSuggest]]></set-property>
+  <set-property name="type"><![CDATA[list]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/diff/suggestedListViewer.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- ======================================================================= -->
+<!-- Views for map properties                                                -->
+<!-- ======================================================================= -->
+
+<!-- Viewer -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvVMap">
+  <set-property name="name"><![CDATA[AssetManager map viewer]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager map viewer]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
+  <set-property name="type"><![CDATA[map]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/mapViewer.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="attributes"><![CDATA[horziontalKeyColumnAlign=aMgrPvadVMapKCA,horziontalValueColumnAlign=aMgrPvadVMapVCA,horziontalKeyColumnTitleAlign=aMgrPvadVMapKTA,horziontalValueColumnTitleAlign=aMgrPvadVMapVTA,fullWidth=aMgrPvadVMapFull]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadVMapKCA">
+  <set-property name="description"><![CDATA[Key Column Horizontal Alignment]]></set-property>
+  <set-property name="defaultValue"><![CDATA[left]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadVMapVCA">
+  <set-property name="description"><![CDATA[Value Column Horizontal Alignment]]></set-property>
+  <set-property name="defaultValue"><![CDATA[left]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadVMapKTA">
+  <set-property name="description"><![CDATA[Key Column Title Horizontal Alignment]]></set-property>
+  <set-property name="defaultValue"><![CDATA[left]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadVMapVTA">
+  <set-property name="description"><![CDATA[Value Column Title Horizontal Alignment]]></set-property>
+  <set-property name="defaultValue"><![CDATA[left]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadVMapFull">
+  <set-property name="description"><![CDATA[Indicates a full-width property editor]]></set-property>
+  <set-property name="defaultValue"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- Editor -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvEMap">
+  <set-property name="name"><![CDATA[AssetManager map editor]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager map editor]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
+  <set-property name="type"><![CDATA[map]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/collectionEditor.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="attributes"><![CDATA[fullWidth=aMgrPvadEMapFull]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadEMapFull">
+  <set-property name="description"><![CDATA[Indicates a full-width property editor]]></set-property>
+  <set-property name="defaultValue"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- Viewer for properties in diff mode -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvDMap">
+  <set-property name="name"><![CDATA[AssetManager map diff viewer]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager map diff viewer]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmDiff]]></set-property>
+  <set-property name="type"><![CDATA[map]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/diff/mapViewer.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- Viewer for properties in conflict mode -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvCMap">
+  <set-property name="name"><![CDATA[AssetManager map conflict viewer]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager map conflict viewer]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmConflict]]></set-property>
+  <set-property name="type"><![CDATA[map]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/diff/mapViewer.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- Viewer for map properties in auto suggest mode -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvSMap">
+  <set-property name="name"><![CDATA[AssetManager map suggestion viewer]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager map suggestion viewer]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmSuggest]]></set-property>
+  <set-property name="type"><![CDATA[map]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/diff/suggestedMapViewer.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- ======================================================================= -->
+<!-- Views for RepositoryItem properties                                     -->
+<!-- ======================================================================= -->
+
+<!-- Viewer -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvVItem">
+  <set-property name="name"><![CDATA[AssetManager RepositoryItem viewer]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager RepositoryItem viewer]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
+  <set-property name="type"><![CDATA[Repository Item]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/itemViewer.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- Editor -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvEItem">
+  <set-property name="name"><![CDATA[AssetManager RepositoryItem editor]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager RepositoryItem editor]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
+  <set-property name="type"><![CDATA[Repository Item]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/itemEditor.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="attributes"><![CDATA[inputFieldSize=aMgrPvadEItemSize,clearItemButtonText=aMgrPvadEItemClear]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadEItemSize">
+  <set-property name="description"><![CDATA[Size of input field, in characters]]></set-property>
+  <set-property name="defaultValue"><![CDATA[50]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadEItemClear">
+  <set-property name="description"><![CDATA[Text for Clear Item button]]></set-property>
+  <set-property name="defaultValue"><![CDATA[clear link]]></set-property>
+</add-item>
+
+<!-- Viewer in Edit Mode-->
+
+<add-item item-descriptor="propertyView" id="aMgrPvVEItem">
+  <set-property name="name"><![CDATA[AssetManager RepositoryItem viewer]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager RepositoryItem viewer]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
+  <set-property name="type"><![CDATA[Repository Item]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/itemViewer.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewMapping" id="aMgrPvmVEItem">
+  <set-property name="description"><![CDATA[AssetManager Edit Mode String Viewer]]></set-property>
+  <set-property name="propertyView"><![CDATA[aMgrPvVEItem]]></set-property>
+</add-item>
+
+
+<!-- Component viewer -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvCVItem">
+  <set-property name="name"><![CDATA[AssetManager RepositoryItem component viewer]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager RepositoryItem component viewer]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
+  <set-property name="type"><![CDATA[Repository Item]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/itemComponentViewer.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[true]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- Component editor -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvCEItem">
+  <set-property name="name"><![CDATA[AssetManager RepositoryItem component editor]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager RepositoryItem component editor]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
+  <set-property name="type"><![CDATA[Repository Item]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/itemComponentEditor.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[true]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- Viewer for properties in diff mode -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvDItem">
+  <set-property name="name"><![CDATA[AssetManager RepositoryItem diff viewer]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager RepositoryItem diff viewer]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmDiff]]></set-property>
+  <set-property name="type"><![CDATA[Repository Item]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/diff/itemViewer.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- Viewer for properties in conflict mode -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvCItem">
+  <set-property name="name"><![CDATA[AssetManager RepositoryItem conflict viewer]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager RepositoryItem conflict viewer]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmConflict]]></set-property>
+  <set-property name="type"><![CDATA[Repository Item]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/diff/itemViewer.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- Component viewer for properties in diff mode -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvCDItem">
+  <set-property name="name"><![CDATA[AssetManager RepositoryItem diff component viewer]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager RepositoryItem diff component viewer]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmDiff]]></set-property>
+  <set-property name="type"><![CDATA[Repository Item]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/diff/itemComponentViewer.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[true]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- Component viewer for properties in conflict mode -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvCCItem">
+  <set-property name="name"><![CDATA[AssetManager RepositoryItem conflict component viewer]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager RepositoryItem conflict component viewer]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmConflict]]></set-property>
+  <set-property name="type"><![CDATA[Repository Item]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/diff/itemComponentViewer.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[true]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- ======================================================================= -->
+<!-- Views for set properties                                                -->
+<!-- ======================================================================= -->
+
+<!-- Viewer -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvVSet">
+  <set-property name="name"><![CDATA[AssetManager set viewer]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager set viewer]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
+  <set-property name="type"><![CDATA[set]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/listViewer.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="attributes"><![CDATA[fullWidth=aMgrPvadVSetFull]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadVSetFull">
+  <set-property name="description"><![CDATA[Indicates a full-width property editor]]></set-property>
+  <set-property name="defaultValue"><![CDATA[true]]></set-property>
+</add-item>
+
+
+<!-- Editor -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvESet">
+  <set-property name="name"><![CDATA[AssetManager set editor]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager set editor]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
+  <set-property name="type"><![CDATA[set]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/collectionEditor.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="attributes"><![CDATA[fullWidth=aMgrPvadESetFull]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadESetFull">
+  <set-property name="description"><![CDATA[Indicates a full-width property editor]]></set-property>
+  <set-property name="defaultValue"><![CDATA[true]]></set-property>
+</add-item>
+
+
+<!-- Viewer for properties in diff mode -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvDSet">
+  <set-property name="name"><![CDATA[AssetManager set diff viewer]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager set diff viewer]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmDiff]]></set-property>
+  <set-property name="type"><![CDATA[set]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/diff/listViewer.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- Viewer for properties in conflict mode -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvCSet">
+  <set-property name="name"><![CDATA[AssetManager set conflict viewer]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager set conflict viewer]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmConflict]]></set-property>
+  <set-property name="type"><![CDATA[set]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/diff/listViewer.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- Viewer for set properties in auto suggest mode -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvSSet">
+  <set-property name="name"><![CDATA[AssetManager set suggestion viewer]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager set suggestion viewer]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmSuggest]]></set-property>
+  <set-property name="type"><![CDATA[set]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/diff/suggestedSetViewer.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- ======================================================================= -->
+<!-- Views for string properties                                             -->
+<!-- ======================================================================= -->
+
+<!-- Viewer in Edit Mode -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvVEStr">
+  <set-property name="name"><![CDATA[AssetManager string viewer in edit mode]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager string viewer in edit mode]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
+  <set-property name="type"><![CDATA[string]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/defaultViewer.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+</add-item>
+
+<!-- ======================================================================= -->
+<!-- Views for timestamp properties                                          -->
+<!-- ======================================================================= -->
+
+<!-- Viewer -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvVTStmp">
+  <set-property name="name"><![CDATA[AssetManager timestamp viewer]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager timestamp viewer]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
+  <set-property name="type"><![CDATA[timestamp]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/timestampViewer.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="attributes"><![CDATA[type=aMgrPvadVTStmpType,dateStyle=aMgrPvadVTStmpDStyle,timeStyle=aMgrPvadVTStmpTStyle]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadVTStmpType">
+  <set-property name="description"><![CDATA[JSTL fmt:fmtDate type attribute string (date|time|both)]]></set-property>
+  <set-property name="defaultValue"><![CDATA[both]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadVTStmpDStyle">
+  <set-property name="description"><![CDATA[JSTL fmt:fmtDate dateStyle string (full|long|medium|short|default)]]></set-property>
+  <set-property name="defaultValue"><![CDATA[full]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadVTStmpTStyle">
+  <set-property name="description"><![CDATA[JSTL fmt:fmtDate timeStyle string (full|long|medium|short|default)]]></set-property>
+  <set-property name="defaultValue"><![CDATA[full]]></set-property>
+</add-item>
+
+<!-- Editor -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvETStmp">
+  <set-property name="name"><![CDATA[AssetManager timestamp editor]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager timestamp editor]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
+  <set-property name="type"><![CDATA[timestamp]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/timestampEditor.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="attributes"><![CDATA[inputFieldSize=aMgrPvadETStmpSize,hourFormat=aMgrPvadETStmpFormat]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadETStmpSize">
+  <set-property name="description"><![CDATA[Size of input field, in characters]]></set-property>
+  <set-property name="defaultValue"><![CDATA[50]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadETStmpFormat">
+  <set-property name="description"><![CDATA[Date format string]]></set-property>
+  <set-property name="defaultValue"><![CDATA[12]]></set-property>
+</add-item>
+
+<!-- Component viewer -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvCVTStmp">
+  <set-property name="name"><![CDATA[AssetManager timestamp component viewer]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager timestamp component viewer]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
+  <set-property name="type"><![CDATA[timestamp]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/timestampComponentViewer.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[true]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+  <set-property name="attributes"><![CDATA[type=aMgrPvadCVTStmpType,dateStyle=aMgrPvadCVTStmpDStyle,timeStyle=aMgrPvadCVTStmpTStyle]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadCVTStmpType">
+  <set-property name="description"><![CDATA[JSTL fmt:fmtDate type attribute string (date|time|both)]]></set-property>
+  <set-property name="defaultValue"><![CDATA[both]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadCVTStmpDStyle">
+  <set-property name="description"><![CDATA[JSTL fmt:fmtDate dateStyle string (full|long|medium|short|default)]]></set-property>
+  <set-property name="defaultValue"><![CDATA[full]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadCVTStmpTStyle">
+  <set-property name="description"><![CDATA[JSTL fmt:fmtDate timeStyle string (full|long|medium|short|default)]]></set-property>
+  <set-property name="defaultValue"><![CDATA[full]]></set-property>
+</add-item>
+
+<!-- Component editor -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvCETStmp">
+  <set-property name="name"><![CDATA[AssetManager timestamp component editor]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager timestamp component editor]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
+  <set-property name="type"><![CDATA[timestamp]]></set-property>
+  <set-property name="applicationName"><![CDATA[ATG Commerce Management]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/defaultComponentEditor.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[true]]></set-property>
+  <set-property name="isDefault"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- ======================================================================= -->
+<!-- Views for Image Upload                                                  -->
+<!-- ======================================================================= -->
+
+<!-- Viewer -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvVImg">
+  <set-property name="name"><![CDATA[AssetManager Image Viewer]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager Image Viewer]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
+  <set-property name="type"><![CDATA[byte]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/image/viewImage.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+</add-item>
+
+<!-- Editor -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvEImg">
+  <set-property name="name"><![CDATA[AssetManager Upload Image Editor]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager Upload Image Editor]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
+  <set-property name="type"><![CDATA[byte]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/image/uploadImage.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+</add-item>
+
+<!-- Viewer for properties in diff mode -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvDImg">
+  <set-property name="name"><![CDATA[AssetManager image diff viewer]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager image diff viewer]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmDiff]]></set-property>
+  <set-property name="type"><![CDATA[byte]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/diff/imageViewer.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+</add-item>
+
+<!-- Viewer for properties in conflict mode -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvCImg">
+  <set-property name="name"><![CDATA[AssetManager image conflict viewer]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager image conflict viewer]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmConflict]]></set-property>
+  <set-property name="type"><![CDATA[byte]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/diff/imageViewer.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+</add-item>
+
+<!-- ======================================================================= -->
+<!-- Views for Image Link                                                    -->
+<!-- ======================================================================= -->
+
+<!-- Viewer -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvVImgLink">
+  <set-property name="name"><![CDATA[AssetManager Image Link Viewer]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager Image Link Viewer]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
+  <set-property name="type"><![CDATA[byte]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/image/imageLinkViewer.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="attributes"><![CDATA[fullWidth=aMgrPvadVImgLinkFull]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadVImgLinkFull">
+  <set-property name="description"><![CDATA[Indicates a full-width property editor]]></set-property>
+  <set-property name="defaultValue"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- Editor -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvEImgLink">
+  <set-property name="name"><![CDATA[AssetManager Image Link Editor]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager Image Link Editor]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
+  <set-property name="type"><![CDATA[byte]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/image/imageLinkEditor.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="attributes"><![CDATA[fullWidth=aMgrPvadEImgLinkFull]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadEImgLinkFull">
+  <set-property name="description"><![CDATA[Indicates a full-width property editor]]></set-property>
+  <set-property name="defaultValue"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- ======================================================================= -->
+<!-- Views for Content Group Path Editor                                     -->
+<!-- ======================================================================= -->
+
+<add-item item-descriptor="propertyView" id="aMgrPvEContGrp">
+  <set-property name="name"><![CDATA[AssetManager Content Group Path Editor]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager Content Group Path Editor]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
+  <set-property name="type"><![CDATA[string]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/property/contentGroupPathEditor.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+</add-item>
+
+<!-- ======================================================================= -->
+<!-- Support for the asset manager's diff page                               -->
+<!-- ======================================================================= -->
+
+<add-item item-descriptor="itemMapping" id="aMgrImDiff">
+  <set-property name="name"><![CDATA[AssetManager]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager diff itemMapping]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmDiff]]></set-property>
+  <set-property name="itemPath"><![CDATA[Repository Item]]></set-property>
+  <set-property name="itemName"><![CDATA[*]]></set-property>
+  <set-property name="formHandler"><![CDATA[aMgrFhDiff]]></set-property>
+  <set-property name="viewMappings"><![CDATA[aMgrIvmDiff]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemMapping" id="aMgrImConflict">
+  <set-property name="name"><![CDATA[AssetManager]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager conflict itemMapping]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmConflict]]></set-property>
+  <set-property name="itemPath"><![CDATA[Repository Item]]></set-property>
+  <set-property name="itemName"><![CDATA[*]]></set-property>
+  <set-property name="formHandler"><![CDATA[aMgrFhDiff]]></set-property>
+  <set-property name="viewMappings"><![CDATA[aMgrIvmConflict]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemMapping" id="aMgrImSuggest">
+  <set-property name="name"><![CDATA[AssetManager]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager suggest itemMapping]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmSuggest]]></set-property>
+  <set-property name="itemPath"><![CDATA[Repository Item]]></set-property>
+  <set-property name="itemName"><![CDATA[*]]></set-property>
+  <set-property name="formHandler"><![CDATA[aMgrFhDiff]]></set-property>
+  <set-property name="viewMappings"><![CDATA[aMgrIvmSuggest]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewMapping" id="aMgrIvmDiff">
+  <set-property name="name"><![CDATA[AssetManagerDiffItemViewMapping]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager diff itemViewMapping]]></set-property>
+  <set-property name="displayName"><![CDATA[AssetManager diff itemViewMapping]]></set-property>
+  <set-property name="view"><![CDATA[aMgrIvDiff]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewMapping" id="aMgrIvmConflict">
+  <set-property name="name"><![CDATA[AssetManagerConflictItemViewMapping]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager conflict itemViewMapping]]></set-property>
+  <set-property name="displayName"><![CDATA[AssetManager conflict itemViewMapping]]></set-property>
+  <set-property name="view"><![CDATA[aMgrIvConflict]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewMapping" id="aMgrIvmSuggest">
+  <set-property name="name"><![CDATA[AssetManagerSuggestItemViewMapping]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager suggest itemViewMapping]]></set-property>
+  <set-property name="displayName"><![CDATA[AssetManager suggest itemViewMapping]]></set-property>
+  <set-property name="view"><![CDATA[aMgrIvSuggest]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemView" id="aMgrIvDiff">
+  <set-property name="name"><![CDATA[AssetManagerDiffItemView]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager diff itemView]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmDiff]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/diff/propertyDiffs.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemView" id="aMgrIvConflict">
+  <set-property name="name"><![CDATA[AssetManagerConflictItemView]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager conflict itemView]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmConflict]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/diff/propertyConflicts.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemView" id="aMgrIvSuggest">
+  <set-property name="name"><![CDATA[AssetManagerSuggestItemView]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager suggest itemView]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmSuggest]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/diff/propertyConflicts.jsp]]></set-property>
+</add-item>
+
+
+<!-- ======================================================================= -->
+<!-- Support for the asset picker                                            -->
+<!-- ======================================================================= -->
+
+<!-- itemMappings -->
+
+<add-item item-descriptor="itemMapping" id="aMgrImAP">
+  <set-property name="name"><![CDATA[*]]></set-property>
+  <set-property name="description"><![CDATA[Repository itemMapping for AssetManager asset picker]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmPick]]></set-property>
+  <set-property name="itemPath"><![CDATA[Repository Item]]></set-property>
+  <set-property name="itemName"><![CDATA[*]]></set-property>
+  <set-property name="formHandler"><![CDATA[aMgrFhRep]]></set-property>
+  <set-property name="viewMappings"><![CDATA[aMgrIvmAPBrowse,aMgrIvmAPSearch]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemMapping" id="aMgrImAPSearch">
+  <set-property name="name"><![CDATA[*]]></set-property>
+  <set-property name="description"><![CDATA[Repository itemMapping for AssetManager asset picker for search]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmPickSearch]]></set-property>
+  <set-property name="itemPath"><![CDATA[Repository Item]]></set-property>
+  <set-property name="itemName"><![CDATA[*]]></set-property>
+  <set-property name="formHandler"><![CDATA[aMgrFhRep]]></set-property>
+  <set-property name="viewMappings"><![CDATA[aMgrIvmAPSearch]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemMapping" id="aMgrImAPFile">
+  <set-property name="name"><![CDATA[*]]></set-property>
+  <set-property name="description"><![CDATA[VFS itemMapping for AssetManager asset picker]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmPick]]></set-property>
+  <set-property name="itemPath"><![CDATA[File]]></set-property>
+  <set-property name="itemName"><![CDATA[*]]></set-property>
+  <set-property name="formHandler"><![CDATA[aMgrFhRep]]></set-property>
+  <set-property name="viewMappings"><![CDATA[aMgrIvmAPBrowse]]></set-property>
+</add-item>
+
+<!-- This mapping gives us the equivalent to aMgrImAPFile for PublishingFileRepository items  -->
+<add-item item-descriptor="itemMapping" id="aMgrImAPPubFileRep">
+  <set-property name="name"><![CDATA[*]]></set-property>
+  <set-property name="description"><![CDATA[Repository itemMapping for AssetManager asset picker]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmPick]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/epub/file/PublishingFileRepository]]></set-property>
+  <set-property name="itemName"><![CDATA[*]]></set-property>
+  <set-property name="formHandler"><![CDATA[aMgrFhRep]]></set-property>
+  <set-property name="viewMappings"><![CDATA[aMgrIvmAPBrowse]]></set-property>
+</add-item>
+
+<!-- Make a specific AP mapping for picking slots  -->
+<add-item item-descriptor="itemMapping" id="aMgrImAPPubFileRepSlot">
+  <set-property name="name"><![CDATA[*]]></set-property>
+  <set-property name="description"><![CDATA[Slot itemMapping for AssetManager asset picker]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmPick]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/epub/file/PublishingFileRepository]]></set-property>
+  <set-property name="itemName"><![CDATA[slot]]></set-property>
+  <set-property name="formHandler"><![CDATA[aMgrFhRep]]></set-property>
+  <set-property name="viewMappings"><![CDATA[aMgrIvmAPSearch]]></set-property>
+</add-item>
+
+<!-- itemViewMappings -->
+
+<add-item item-descriptor="itemViewMapping" id="aMgrIvmAPBrowse">
+  <set-property name="name"><![CDATA[Asset Picker Browse]]></set-property>
+  <set-property name="description"><![CDATA[Asset Picker Browse ItemViewMapping]]></set-property>
+  <set-property name="displayName"><![CDATA[Browse]]></set-property>
+  <set-property name="view"><![CDATA[aMgrIvAPBrowse]]></set-property>
+  <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvAPResourceBundle]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewMapping" id="aMgrIvmAPSearch">
+  <set-property name="name"><![CDATA[Asset Picker Search]]></set-property>
+  <set-property name="description"><![CDATA[Asset Picker Search ItemViewMapping]]></set-property>
+  <set-property name="displayName"><![CDATA[Search]]></set-property>
+  <set-property name="view"><![CDATA[aMgrIvAPSearch]]></set-property>
+  <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvAPResourceBundle]]></set-property>
+</add-item>
+
+<!-- itemViews -->
+
+<add-item item-descriptor="itemView" id="aMgrIvAPBrowse">
+  <set-property name="name"><![CDATA[Asset Picker Browse View]]></set-property>
+  <set-property name="description"><![CDATA[Asset Picker Browse View]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmPick]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/components/assetPickerTreeBrowse.jsp]]></set-property>
+  <set-property name="attributes"><![CDATA[tabDisplayName=aMgrIvadAPBrowse,tabDisplayNameKey=aMgrIvadAPBrowseNameKey]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemView" id="aMgrIvAPSearch">
+  <set-property name="name"><![CDATA[Asset Picker Search View]]></set-property>
+  <set-property name="description"><![CDATA[Asset Picker Search View]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmPick]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/components/assetPickerSearch.jsp]]></set-property>
+  <set-property name="attributes"><![CDATA[tabDisplayName=aMgrIvadAPSearch,tabDisplayNameKey=aMgrIvadAPSearchNameKey]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemView" id="aMgrIvAPList">
+  <set-property name="name"><![CDATA[Asset Picker Repository List View]]></set-property>
+  <set-property name="description"><![CDATA[Asset Picker Repository List View]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmPick]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/components/assetPickerRepositoryAssetList.jsp]]></set-property>
+  <set-property name="attributes"><![CDATA[tabDisplayName=aMgrIvadAPList,tabDisplayNameKey=aMgrIvadAPListNameKey]]></set-property>
+</add-item>
+
+<!-- itemViewAttributeDefinitions -->
+
+<add-item item-descriptor="itemViewAttributeDefinition" id="aMgrIvadAPBrowse">
+  <set-property name="description"><![CDATA[Asset Picker Browse Tab Name]]></set-property>
+  <set-property name="defaultValue"><![CDATA[Browse]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewAttributeDefinition" id="aMgrIvadAPBrowseNameKey">
+  <set-property name="description"><![CDATA[Asset Picker Browse Tab Display Name Key]]></set-property>
+  <set-property name="defaultValue"><![CDATA[assetPicker.tab.browse]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewAttributeDefinition" id="aMgrIvadAPSearch">
+  <set-property name="description"><![CDATA[Asset Picker Search Tab Name]]></set-property>
+  <set-property name="defaultValue"><![CDATA[Search]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewAttributeDefinition" id="aMgrIvadAPSearchNameKey">
+  <set-property name="description"><![CDATA[Asset Picker Search Tab Display Name Key]]></set-property>
+  <set-property name="defaultValue"><![CDATA[assetPicker.tab.search]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewAttributeDefinition" id="aMgrIvadAPList">
+  <set-property name="description"><![CDATA[Asset Picker List Tab Display Name]]></set-property>
+  <set-property name="defaultValue"><![CDATA[List]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewAttributeDefinition" id="aMgrIvadAPListNameKey">
+  <set-property name="description"><![CDATA[Asset Picker List Tab Display Name Key]]></set-property>
+  <set-property name="defaultValue"><![CDATA[assetPicker.tab.list]]></set-property>
+</add-item>
+
+<!-- attributeValues -->
+
+<add-item item-descriptor="attributeValue" id="aMgrAvAPResourceBundle">
+  <set-property name="value"><![CDATA[atg.web.assetmanager.WebAppResources]]></set-property>
+</add-item>
+
+<!-- ======================================================================= -->
+<!-- AssetManager view mappings for virtual files                            -->
+<!-- ======================================================================= -->
+
+<!-- Default file mappings -->
+
+<add-item item-descriptor="attributeValue" id="aMgrAvFileEditor">
+  <set-property name="value"><![CDATA[assetEditor]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewMapping" id="aMgrIvmFileGen">
+  <set-property name="displayName"><![CDATA[AssetManager file general item view mapping]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager file general item view mapping]]></set-property>
+  <set-property name="name"><![CDATA[AssetMgrFileGenIvm]]></set-property>
+  <set-property name="view"><![CDATA[aMgrIvFileGen]]></set-property>
+<!--
+<set-property name="propertyMappings"><![CDATA[fileName=segment_edit_name_pvm,description=100046]]></set-property>
+-->
+</add-item>
+
+<!-- Note that the "mode" property in the itemView is required, even though it is not used. -->
+
+<add-item item-descriptor="itemView" id="aMgrIvFileGen">
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/file/generalInfo.jsp]]></set-property>
+  <set-property name="description"><![CDATA[Asset Manager file general item view]]></set-property>
+  <set-property name="name"><![CDATA[AssetMgrFileGenIv]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
+</add-item>
+
+<!-- Segment mappings -->
+
+<!--
+<add-item item-descriptor="itemMapping" id="aMgrImEditSeg">
+  <set-property name="name"><![CDATA[AssetManager]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager editable mapping for user segments]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/epub/file/ConfigFileSystem]]></set-property>
+  <set-property name="itemName"><![CDATA[segment]]></set-property>
+  <set-property name="formHandler"><![CDATA[aMgrFhSeg]]></set-property>
+  <set-property name="viewMappings"><![CDATA[aMgrIvmFileGen]]></set-property>
+</add-item>
+-->
+
+<!--
+<add-item item-descriptor="formHandler" id="aMgrFhSeg">
+  <set-property name="name"><![CDATA[AssetManager SegmentExpressionFormHandler]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager segment form handler]]></set-property>
+  <set-property name="path"><![CDATA[/atg/web/targeting/SegmentExpressionFormHandler]]></set-property>
+  <set-property name="attributes"><![CDATA[atgFormValueDict=aMgrAvFileEditor]]></set-property>
+</add-item>
+-->
+
+<add-item item-descriptor="formHandler" id="aMgrFhFileFolder">
+  <set-property name="name"><![CDATA[AssetManager SegmentExpressionFormHandler]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager segment form handler]]></set-property>
+  <set-property name="path"><![CDATA[/atg/web/assetmanager/editor/FileFolderFormHandler]]></set-property>
+  <set-property name="attributes"><![CDATA[atgFormValueDict=aMgrAvValue]]></set-property>
+</add-item>
+
+<!-- ======================================================================= -->
+<!-- Customizations for fileFolder items                                     -->
+<!-- ======================================================================= -->
+
+<!-- Read-only and editable item mappings; contain one view mapping per tab -->
+
+<add-item item-descriptor="itemMapping" id="aMgrImViewFF">
+  <set-property name="name"><![CDATA[AssetManager]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager read-only mapping for fileFolder items]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/epub/file/PublishingFileRepository]]></set-property>
+  <set-property name="itemName"><![CDATA[fileFolder]]></set-property>
+  <set-property name="formHandler"><![CDATA[aMgrFhFileFolder]]></set-property>
+  <set-property name="viewMappings"><![CDATA[aMgrIvmFFAll]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemMapping" id="aMgrImEditFF">
+  <set-property name="name"><![CDATA[AssetManager]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager editable mapping for fileFolder items]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/epub/file/PublishingFileRepository]]></set-property>
+  <set-property name="itemName"><![CDATA[fileFolder]]></set-property>
+  <set-property name="formHandler"><![CDATA[aMgrFhFileFolder]]></set-property>
+  <set-property name="viewMappings"><![CDATA[aMgrIvmFFAll]]></set-property>
+</add-item>
+
+<!-- View mapping for fileFolder's single tab -->
+
+<add-item item-descriptor="itemViewMapping" id="aMgrIvmFFAll">
+  <set-property name="name"><![CDATA[AssetManager fileFolder view]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager fileFolder view]]></set-property>
+  <set-property name="displayName"><![CDATA[aMgrIvmFFAll.displayName]]></set-property>
+  <set-property name="attributeValues"><![CDATA[categorizedGrouping=aMgrAvFFAllCat,excludedProperties=aMgrAvFFAllExc,resourceBundle=aMgrAvFFAllResourceBundle]]></set-property>
+  <set-property name="view"><![CDATA[aMgrIvRep]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="aMgrAvFFAllResourceBundle">
+  <set-property name="value"><![CDATA[atg.web.assetmanager.WebAppResources]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="aMgrAvFFAllCat">
+  <set-property name="value"><![CDATA[categoryBasics]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="aMgrAvFFAllExc">
+  <set-property name="value"><![CDATA[parentFolder]]></set-property>
+</add-item>
+
+<!-- ======================================================================= -->
+<!--    Grid collection editors                                         -->
+<!-- ======================================================================= -->
+
+<!-- Grid editor for lists of repository items -->
+<add-item item-descriptor="propertyView" id="aMgrPvGridListRepItemEdit">
+  <set-property name="name"><![CDATA[AssetManager grid editor for repository item lists]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager grid editor for repository item lists]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
+  <set-property name="type"><![CDATA[list]]></set-property>
+  <set-property name="componentType"><![CDATA[Repository Item]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/grid/gridCollectionPropertyEditor.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="attributes"><![CDATA[fullWidth=aMgrPvadGridFull]]></set-property>
+  <set-property name="containerFamily"><![CDATA[Grid]]></set-property>
+</add-item>
+
+<!-- Grid viewer for lists of repository items -->
+<add-item item-descriptor="propertyView" id="aMgrPvGridListRepItemView">
+  <set-property name="name"><![CDATA[AssetManager grid viewer for repository item lists]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager grid viewer for repository item lists]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
+  <set-property name="type"><![CDATA[list]]></set-property>
+  <set-property name="componentType"><![CDATA[Repository Item]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/grid/gridCollectionPropertyEditor.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="attributes"><![CDATA[fullWidth=aMgrPvadGridFull]]></set-property>
+  <set-property name="containerFamily"><![CDATA[Grid]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvadGridFull">
+  <set-property name="description"><![CDATA[Indicates a full-width property editor]]></set-property>
+  <set-property name="defaultValue"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- Grid editor for sets of repository items -->
+<add-item item-descriptor="propertyView" id="aMgrPvGridSetRepItemEdit">
+  <set-property name="name"><![CDATA[AssetManager grid editor for repository item sets]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager grid editor for repository item sets]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
+  <set-property name="type"><![CDATA[set]]></set-property>
+  <set-property name="componentType"><![CDATA[Repository Item]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/grid/gridCollectionPropertyEditor.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="attributes"><![CDATA[fullWidth=aMgrPvadGridFull]]></set-property>
+  <set-property name="containerFamily"><![CDATA[Grid]]></set-property>
+</add-item>
+
+<!-- Grid viewer for sets of repository items -->
+<add-item item-descriptor="propertyView" id="aMgrPvGridSetRepItemView">
+  <set-property name="name"><![CDATA[AssetManager grid viewer for repository item sets]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager grid viewer for repository item sets]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
+  <set-property name="type"><![CDATA[set]]></set-property>
+  <set-property name="componentType"><![CDATA[Repository Item]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/grid/gridCollectionPropertyEditor.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="attributes"><![CDATA[fullWidth=aMgrPvadGridFull]]></set-property>
+  <set-property name="containerFamily"><![CDATA[Grid]]></set-property>
+</add-item>
+
+<!-- Grid editor for arrays of repository items -->
+<add-item item-descriptor="propertyView" id="aMgrPvGridArrayRepItemEdit">
+  <set-property name="name"><![CDATA[AssetManager grid editor for repository item arrays]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager grid editor for repository item arrays]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
+  <set-property name="type"><![CDATA[array]]></set-property>
+  <set-property name="componentType"><![CDATA[Repository Item]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/grid/gridCollectionPropertyEditor.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="attributes"><![CDATA[fullWidth=aMgrPvadGridFull]]></set-property>
+  <set-property name="containerFamily"><![CDATA[Grid]]></set-property>
+</add-item>
+
+<!-- Grid viewer for arrays of repository items -->
+<add-item item-descriptor="propertyView" id="aMgrPvGridArrayRepItemView">
+  <set-property name="name"><![CDATA[AssetManager grid viewer for repository item arrays]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager grid viewer for repository item arrays]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
+  <set-property name="type"><![CDATA[array]]></set-property>
+  <set-property name="componentType"><![CDATA[Repository Item]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/grid/gridCollectionPropertyEditor.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="attributes"><![CDATA[fullWidth=aMgrPvadGridFull]]></set-property>
+  <set-property name="containerFamily"><![CDATA[Grid]]></set-property>
+</add-item>
+
+<!-- Grid Repository Item component viewer -->
+<add-item item-descriptor="propertyView" id="aMgrPvGridRepItemCompView">
+  <set-property name="name"><![CDATA[AssetManager RepositoryItem component viewer for Grid]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager RepositoryItem component viewer for Grid]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmView]]></set-property>
+  <set-property name="type"><![CDATA[Repository Item]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/grid/itemComponentEditor.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[true]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="containerFamily"><![CDATA[Grid]]></set-property>
+</add-item>
+
+<!-- Grid Repository Item component editor -->
+<add-item item-descriptor="propertyView" id="aMgrPvGridRepItemCompEdit">
+  <set-property name="name"><![CDATA[AssetManager RepositoryItem component editor for Grid]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager RepositoryItem component editor for Grid]]></set-property>
+  <set-property name="mode"><![CDATA[aMgrMmEdit]]></set-property>
+  <set-property name="type"><![CDATA[Repository Item]]></set-property>
+  <set-property name="applicationName"><![CDATA[AssetManager]]></set-property>
+  <set-property name="uri"><![CDATA[/assetEditor/grid/itemComponentEditor.jsp]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[true]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="containerFamily"><![CDATA[Grid]]></set-property>
+</add-item>
+
+</import-items>
+
+</gsa-template>
+<!-- @version $Id: //product/AssetUI/version/10.1.1/src/install/data/assetManagerViews.xml#1 $$Change: 690623 $-->

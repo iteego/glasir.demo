@@ -1,0 +1,1811 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE gsa-template SYSTEM "dynamosystemresource:/atg/dtds/gsa/gsa_1.0.dtd">
+<gsa-template>
+<import-items>
+<!-- No items of type communityTemplatePageFolder -->
+
+<!-- 46 items of type displayModes -->
+
+<add-item item-descriptor="displayModes" id="200016">
+  <set-property name="shared"><![CDATA[200032]]></set-property>
+  <set-property name="full"><![CDATA[200031]]></set-property>
+</add-item>
+
+<add-item item-descriptor="displayModes" id="2300030">
+  <set-property name="shared"><![CDATA[2700061]]></set-property>
+</add-item>
+
+<add-item item-descriptor="displayModes" id="500019">
+  <set-property name="shared"><![CDATA[600038]]></set-property>
+  <set-property name="full"><![CDATA[600037]]></set-property>
+</add-item>
+
+<add-item item-descriptor="displayModes" id="200007">
+  <set-property name="shared"><![CDATA[200014]]></set-property>
+  <set-property name="full"><![CDATA[200013]]></set-property>
+</add-item>
+
+<add-item item-descriptor="displayModes" id="1300023">
+  <set-property name="shared"><![CDATA[1500046]]></set-property>
+  <set-property name="full"><![CDATA[1500045]]></set-property>
+</add-item>
+
+<add-item item-descriptor="displayModes" id="200012">
+  <set-property name="shared"><![CDATA[200024]]></set-property>
+  <set-property name="full"><![CDATA[200023]]></set-property>
+</add-item>
+
+<add-item item-descriptor="displayModes" id="200013">
+  <set-property name="shared"><![CDATA[200026]]></set-property>
+  <set-property name="full"><![CDATA[200025]]></set-property>
+</add-item>
+
+<add-item item-descriptor="displayModes" id="200014">
+  <set-property name="shared"><![CDATA[200028]]></set-property>
+  <set-property name="full"><![CDATA[200027]]></set-property>
+</add-item>
+
+<add-item item-descriptor="displayModes" id="300020">
+  <set-property name="shared"><![CDATA[1900051]]></set-property>
+  <set-property name="full"><![CDATA[1900052]]></set-property>
+</add-item>
+
+<add-item item-descriptor="displayModes" id="200003">
+  <set-property name="shared"><![CDATA[200006]]></set-property>
+  <set-property name="full"><![CDATA[200005]]></set-property>
+</add-item>
+
+<add-item item-descriptor="displayModes" id="100006">
+  <set-property name="shared"><![CDATA[100009]]></set-property>
+  <set-property name="full"><![CDATA[100008]]></set-property>
+</add-item>
+
+<add-item item-descriptor="displayModes" id="200008">
+  <set-property name="shared"><![CDATA[200016]]></set-property>
+  <set-property name="full"><![CDATA[200015]]></set-property>
+</add-item>
+
+<add-item item-descriptor="displayModes" id="200011">
+  <set-property name="shared"><![CDATA[200022]]></set-property>
+  <set-property name="full"><![CDATA[200021]]></set-property>
+</add-item>
+
+<add-item item-descriptor="displayModes" id="900018">
+  <set-property name="shared"><![CDATA[1000036]]></set-property>
+  <set-property name="full"><![CDATA[1000035]]></set-property>
+</add-item>
+
+<add-item item-descriptor="displayModes" id="100003">
+  <set-property name="shared"><![CDATA[100003]]></set-property>
+  <set-property name="full"><![CDATA[100005]]></set-property>
+</add-item>
+
+<add-item item-descriptor="displayModes" id="1100021">
+  <set-property name="shared"><![CDATA[1200042]]></set-property>
+  <set-property name="full"><![CDATA[1200041]]></set-property>
+</add-item>
+
+<add-item item-descriptor="displayModes" id="1100020">
+  <set-property name="shared"><![CDATA[1200040]]></set-property>
+  <set-property name="full"><![CDATA[1200039]]></set-property>
+</add-item>
+
+<add-item item-descriptor="displayModes" id="100008">
+  <set-property name="shared"><![CDATA[100013]]></set-property>
+  <set-property name="full"><![CDATA[100012]]></set-property>
+</add-item>
+
+<add-item item-descriptor="displayModes" id="600017">
+  <set-property name="shared"><![CDATA[700033]]></set-property>
+  <set-property name="full"><![CDATA[700034]]></set-property>
+</add-item>
+
+<add-item item-descriptor="displayModes" id="100007">
+  <set-property name="shared"><![CDATA[100011]]></set-property>
+  <set-property name="full"><![CDATA[100010]]></set-property>
+</add-item>
+
+<add-item item-descriptor="displayModes" id="200004">
+  <set-property name="shared"><![CDATA[200008]]></set-property>
+  <set-property name="full"><![CDATA[200007]]></set-property>
+</add-item>
+
+<add-item item-descriptor="displayModes" id="200010">
+  <set-property name="shared"><![CDATA[200019]]></set-property>
+  <set-property name="full"><![CDATA[200020]]></set-property>
+</add-item>
+
+<add-item item-descriptor="displayModes" id="1300024">
+  <set-property name="shared"><![CDATA[1500048]]></set-property>
+  <set-property name="full"><![CDATA[1500047]]></set-property>
+</add-item>
+
+<add-item item-descriptor="displayModes" id="100004">
+  <set-property name="shared"><![CDATA[100004]]></set-property>
+  <set-property name="full"><![CDATA[100005]]></set-property>
+</add-item>
+
+<add-item item-descriptor="displayModes" id="2800032">
+  <set-property name="shared"><![CDATA[3200065]]></set-property>
+  <set-property name="full"><![CDATA[3200064]]></set-property>
+</add-item>
+
+<add-item item-descriptor="displayModes" id="200015">
+  <set-property name="shared"><![CDATA[200030]]></set-property>
+  <set-property name="full"><![CDATA[200029]]></set-property>
+</add-item>
+
+<add-item item-descriptor="displayModes" id="200001">
+  <set-property name="shared"><![CDATA[200002]]></set-property>
+  <set-property name="full"><![CDATA[200001]]></set-property>
+</add-item>
+
+<add-item item-descriptor="displayModes" id="1900026">
+  <set-property name="shared"><![CDATA[2300056]]></set-property>
+  <set-property name="full"><![CDATA[2300055]]></set-property>
+</add-item>
+
+<add-item item-descriptor="displayModes" id="100001">
+  <set-property name="shared"><![CDATA[100006]]></set-property>
+  <set-property name="full"><![CDATA[100007]]></set-property>
+</add-item>
+
+<add-item item-descriptor="displayModes" id="200006">
+  <set-property name="shared"><![CDATA[200011]]></set-property>
+  <set-property name="full"><![CDATA[200012]]></set-property>
+</add-item>
+
+<add-item item-descriptor="displayModes" id="100005">
+  <set-property name="shared"><![CDATA[100001]]></set-property>
+  <set-property name="full"><![CDATA[100005]]></set-property>
+</add-item>
+
+<add-item item-descriptor="displayModes" id="500017">
+  <set-property name="shared"><![CDATA[600033]]></set-property>
+  <set-property name="full"><![CDATA[600034]]></set-property>
+</add-item>
+
+<add-item item-descriptor="displayModes" id="1100019">
+  <set-property name="shared"><![CDATA[1200038]]></set-property>
+  <set-property name="full"><![CDATA[1200037]]></set-property>
+</add-item>
+
+<add-item item-descriptor="displayModes" id="400017">
+  <set-property name="shared"><![CDATA[500033]]></set-property>
+  <set-property name="full"><![CDATA[500034]]></set-property>
+</add-item>
+
+<add-item item-descriptor="displayModes" id="1100022">
+  <set-property name="shared"><![CDATA[1200044]]></set-property>
+  <set-property name="full"><![CDATA[1200043]]></set-property>
+</add-item>
+
+<add-item item-descriptor="displayModes" id="200005">
+  <set-property name="shared"><![CDATA[200009]]></set-property>
+  <set-property name="full"><![CDATA[200010]]></set-property>
+</add-item>
+
+<add-item item-descriptor="displayModes" id="2900032">
+  <set-property name="shared"><![CDATA[3300065]]></set-property>
+  <set-property name="full"><![CDATA[3300064]]></set-property>
+</add-item>
+
+<add-item item-descriptor="displayModes" id="1500025">
+  <set-property name="shared"><![CDATA[1700049]]></set-property>
+  <set-property name="full"><![CDATA[1700050]]></set-property>
+</add-item>
+
+<add-item item-descriptor="displayModes" id="300019">
+  <set-property name="shared"><![CDATA[400037]]></set-property>
+  <set-property name="full"><![CDATA[400038]]></set-property>
+</add-item>
+
+<add-item item-descriptor="displayModes" id="300021">
+  <set-property name="shared"><![CDATA[1900053]]></set-property>
+  <set-property name="full"><![CDATA[1900054]]></set-property>
+</add-item>
+
+<add-item item-descriptor="displayModes" id="100002">
+  <set-property name="shared"><![CDATA[100002]]></set-property>
+  <set-property name="full"><![CDATA[100005]]></set-property>
+</add-item>
+
+<add-item item-descriptor="displayModes" id="200002">
+  <set-property name="shared"><![CDATA[200004]]></set-property>
+  <set-property name="full"><![CDATA[200003]]></set-property>
+</add-item>
+
+<add-item item-descriptor="displayModes" id="300018">
+  <set-property name="shared"><![CDATA[400036]]></set-property>
+  <set-property name="full"><![CDATA[400035]]></set-property>
+</add-item>
+
+<add-item item-descriptor="displayModes" id="200009">
+  <set-property name="shared"><![CDATA[200017]]></set-property>
+  <set-property name="full"><![CDATA[200018]]></set-property>
+</add-item>
+
+<!-- 10 items of type layoutTemplate -->
+
+<add-item item-descriptor="layoutTemplate" id="100001">
+  <set-property name="regionDefinitions"><![CDATA[100005,100006]]></set-property>
+  <set-property name="servletContext"><![CDATA[/portal]]></set-property>
+  <set-property name="smallImageURL"><![CDATA[/templates/layout/images/25_75.gif]]></set-property>
+  <set-property name="name"><![CDATA[Layout 25-75 Template]]></set-property>
+  <set-property name="displayModes"><![CDATA[100002]]></set-property>
+</add-item>
+
+<add-item item-descriptor="layoutTemplate" id="100002">
+  <set-property name="regionDefinitions"><![CDATA[100007,100008]]></set-property>
+  <set-property name="servletContext"><![CDATA[/portal]]></set-property>
+  <set-property name="smallImageURL"><![CDATA[/templates/layout/images/75_25.gif]]></set-property>
+  <set-property name="name"><![CDATA[Layout 75-25 Template]]></set-property>
+  <set-property name="displayModes"><![CDATA[100003]]></set-property>
+</add-item>
+
+<add-item item-descriptor="layoutTemplate" id="100003">
+  <set-property name="regionDefinitions"><![CDATA[100002,100003,100004]]></set-property>
+  <set-property name="servletContext"><![CDATA[/portal]]></set-property>
+  <set-property name="smallImageURL"><![CDATA[/templates/layout/images/25_50_25.gif]]></set-property>
+  <set-property name="name"><![CDATA[Layout 25-50-25 Template]]></set-property>
+  <set-property name="displayModes"><![CDATA[100004]]></set-property>
+</add-item>
+
+<add-item item-descriptor="layoutTemplate" id="100004">
+  <set-property name="regionDefinitions"><![CDATA[100001]]></set-property>
+  <set-property name="servletContext"><![CDATA[/portal]]></set-property>
+  <set-property name="smallImageURL"><![CDATA[/templates/layout/images/100.gif]]></set-property>
+  <set-property name="name"><![CDATA[Layout 100 Template]]></set-property>
+  <set-property name="displayModes"><![CDATA[100005]]></set-property>
+</add-item>
+
+<add-item item-descriptor="layoutTemplate" id="200001">
+  <set-property name="regionDefinitions"><![CDATA[100001]]></set-property>
+  <set-property name="servletContext"><![CDATA[/atg]]></set-property>
+  <set-property name="author"><![CDATA[BCC Layout 100 Template]]></set-property>
+  <set-property name="version"><![CDATA[]]></set-property>
+  <set-property name="description"><![CDATA[A layout with a single large region for BCC.]]></set-property>
+  <set-property name="smallImageURL"><![CDATA[/templates/layout/images/100.gif]]></set-property>
+  <set-property name="name"><![CDATA[BCC Layout 100 Template]]></set-property>
+  <set-property name="displayModes"><![CDATA[200004]]></set-property>
+</add-item>
+
+<add-item item-descriptor="layoutTemplate" id="200002">
+  <set-property name="regionDefinitions"><![CDATA[100006,100005]]></set-property>
+  <set-property name="servletContext"><![CDATA[/atg]]></set-property>
+  <set-property name="author"><![CDATA[BCC Layout 25-75 Template]]></set-property>
+  <set-property name="version"><![CDATA[]]></set-property>
+  <set-property name="description"><![CDATA[A layout with a two regions. One narrow on the left and one wide on the right for BCC.]]></set-property>
+  <set-property name="smallImageURL"><![CDATA[/templates/layout/images/25_75.gif]]></set-property>
+  <set-property name="name"><![CDATA[BCC Layout 25-75 Template]]></set-property>
+  <set-property name="displayModes"><![CDATA[200006]]></set-property>
+</add-item>
+
+<add-item item-descriptor="layoutTemplate" id="200003">
+  <set-property name="regionDefinitions"><![CDATA[100002,100003,100004]]></set-property>
+  <set-property name="servletContext"><![CDATA[/atg]]></set-property>
+  <set-property name="author"><![CDATA[BCC Layout 25-50-25 Template]]></set-property>
+  <set-property name="version"><![CDATA[]]></set-property>
+  <set-property name="description"><![CDATA[A layout with a three regions. Two narrow regions with a single wide region between them for BCC.]]></set-property>
+  <set-property name="smallImageURL"><![CDATA[/templates/layout/images/25_50_25.gif]]></set-property>
+  <set-property name="name"><![CDATA[BCC Layout 25-50-25 Template]]></set-property>
+  <set-property name="displayModes"><![CDATA[200008]]></set-property>
+</add-item>
+
+<add-item item-descriptor="layoutTemplate" id="200004">
+  <set-property name="regionDefinitions"><![CDATA[100007,100008]]></set-property>
+  <set-property name="servletContext"><![CDATA[/atg]]></set-property>
+  <set-property name="author"><![CDATA[BCC Layout 75-25 Template]]></set-property>
+  <set-property name="version"><![CDATA[]]></set-property>
+  <set-property name="description"><![CDATA[A layout with a two regions. One wide on the left and one narrow on the right for BCC.]]></set-property>
+  <set-property name="smallImageURL"><![CDATA[/templates/layout/images/75_25.gif]]></set-property>
+  <set-property name="name"><![CDATA[BCC Layout 75-25 Template]]></set-property>
+  <set-property name="displayModes"><![CDATA[200010]]></set-property>
+</add-item>
+
+<add-item item-descriptor="layoutTemplate" id="400005">
+  <set-property name="regionDefinitions"><![CDATA[200001,200002]]></set-property>
+  <set-property name="servletContext"><![CDATA[/atg]]></set-property>
+  <set-property name="author"><![CDATA[BCC Layout Template]]></set-property>
+  <set-property name="version"><![CDATA[]]></set-property>
+  <set-property name="description"><![CDATA[A 33/66 split.]]></set-property>
+  <set-property name="smallImageURL"><![CDATA[/templates/layout/images/25_75.gif]]></set-property>
+  <set-property name="name"><![CDATA[BCC Layout Template]]></set-property>
+  <set-property name="displayModes"><![CDATA[1100022]]></set-property>
+</add-item>
+
+<add-item item-descriptor="layoutTemplate" id="600008">
+  <set-property name="regionDefinitions"><![CDATA[100001]]></set-property>
+  <set-property name="servletContext"><![CDATA[/atg]]></set-property>
+  <set-property name="author"><![CDATA[BCC Layout 100 Template]]></set-property>
+  <set-property name="version"><![CDATA[]]></set-property>
+  <set-property name="description"><![CDATA[A layout with a single large region for BCC.]]></set-property>
+  <set-property name="smallImageURL"><![CDATA[/templates/layout/images/100.gif]]></set-property>
+  <set-property name="name"><![CDATA[BCC Process Layout 100]]></set-property>
+  <set-property name="displayModes"><![CDATA[2300030]]></set-property>
+</add-item>
+
+<!-- No items of type communityTemplatePage -->
+
+<!-- 1 items of type communityFolder -->
+
+<add-item item-descriptor="communityFolder" id="fld100001">
+  <set-property name="childItems"><![CDATA[100001,100002]]></set-property>
+  <set-property name="urlName"><![CDATA[root]]></set-property>
+  <set-property name="name"><![CDATA[BCC Community Folder]]></set-property>
+</add-item>
+
+<!-- 1 items of type style -->
+
+<add-item item-descriptor="style" id="100001">
+  <set-property name="cssURL"><![CDATA[/templates/style/css/style.jsp]]></set-property>
+  <set-property name="servletContext"><![CDATA[/atg]]></set-property>
+  <set-property name="author"><![CDATA[]]></set-property>
+  <set-property name="version"><![CDATA[]]></set-property>
+  <set-property name="description"><![CDATA[The default CSS for BCC.]]></set-property>
+  <set-property name="name"><![CDATA[BCC Default CSS]]></set-property>
+</add-item>
+
+<!-- 2 items of type gearTitleTemplate -->
+
+<add-item item-descriptor="gearTitleTemplate" id="100001">
+  <set-property name="templateDisplayModes"><![CDATA[100006]]></set-property>
+  <set-property name="postTemplateDisplayModes"><![CDATA[100008]]></set-property>
+  <set-property name="servletContext"><![CDATA[/portal]]></set-property>
+  <set-property name="author"><![CDATA[ATG Portal Team]]></set-property>
+  <set-property name="version"><![CDATA[1.0]]></set-property>
+  <set-property name="name"><![CDATA[Default Gear Title Template]]></set-property>
+  <set-property name="preTemplateDisplayModes"><![CDATA[100007]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearTitleTemplate" id="200001">
+  <set-property name="templateDisplayModes"><![CDATA[200012]]></set-property>
+  <set-property name="postTemplateDisplayModes"><![CDATA[200011]]></set-property>
+  <set-property name="servletContext"><![CDATA[/atg]]></set-property>
+  <set-property name="author"><![CDATA[]]></set-property>
+  <set-property name="version"><![CDATA[]]></set-property>
+  <set-property name="description"><![CDATA[The default titlebar template for BCC.]]></set-property>
+  <set-property name="name"><![CDATA[BCC Default Gear Title Template]]></set-property>
+  <set-property name="preTemplateDisplayModes"><![CDATA[200013]]></set-property>
+</add-item>
+
+<!-- 3 items of type pageTemplate -->
+
+<add-item item-descriptor="pageTemplate" id="100001">
+  <set-property name="servletContext"><![CDATA[/portal]]></set-property>
+  <set-property name="name"><![CDATA[Default Page Template]]></set-property>
+  <set-property name="displayModes"><![CDATA[100001]]></set-property>
+</add-item>
+
+<add-item item-descriptor="pageTemplate" id="200001">
+  <set-property name="servletContext"><![CDATA[/atg]]></set-property>
+  <set-property name="author"><![CDATA[]]></set-property>
+  <set-property name="version"><![CDATA[]]></set-property>
+  <set-property name="description"><![CDATA[The default page template for BCC.]]></set-property>
+  <set-property name="name"><![CDATA[BCC Default Page Template]]></set-property>
+  <set-property name="displayModes"><![CDATA[200001]]></set-property>
+</add-item>
+
+<add-item item-descriptor="pageTemplate" id="400002">
+  <set-property name="servletContext"><![CDATA[/atg]]></set-property>
+  <set-property name="author"><![CDATA[]]></set-property>
+  <set-property name="version"><![CDATA[]]></set-property>
+  <set-property name="description"><![CDATA[The default page template.]]></set-property>
+  <set-property name="name"><![CDATA[BCC Page Template]]></set-property>
+  <set-property name="displayModes"><![CDATA[1100019]]></set-property>
+</add-item>
+
+<!-- No items of type communityTemplate -->
+
+<!-- 10 items of type regionDefinition -->
+
+<add-item item-descriptor="regionDefinition" id="100001">
+  <set-property name="width"><![CDATA[wide]]></set-property>
+  <set-property name="height"><![CDATA[short]]></set-property>
+  <set-property name="name"><![CDATA[100_Middle]]></set-property>
+</add-item>
+
+<add-item item-descriptor="regionDefinition" id="100002">
+  <set-property name="width"><![CDATA[narrow]]></set-property>
+  <set-property name="height"><![CDATA[short]]></set-property>
+  <set-property name="name"><![CDATA[25_50_25_Left]]></set-property>
+</add-item>
+
+<add-item item-descriptor="regionDefinition" id="100003">
+  <set-property name="width"><![CDATA[wide]]></set-property>
+  <set-property name="height"><![CDATA[short]]></set-property>
+  <set-property name="name"><![CDATA[25_50_25_Middle]]></set-property>
+</add-item>
+
+<add-item item-descriptor="regionDefinition" id="100004">
+  <set-property name="width"><![CDATA[narrow]]></set-property>
+  <set-property name="height"><![CDATA[short]]></set-property>
+  <set-property name="name"><![CDATA[25_50_25_Right]]></set-property>
+</add-item>
+
+<add-item item-descriptor="regionDefinition" id="100005">
+  <set-property name="width"><![CDATA[narrow]]></set-property>
+  <set-property name="height"><![CDATA[tall]]></set-property>
+  <set-property name="name"><![CDATA[25_75_Left]]></set-property>
+</add-item>
+
+<add-item item-descriptor="regionDefinition" id="100006">
+  <set-property name="width"><![CDATA[wide]]></set-property>
+  <set-property name="height"><![CDATA[tall]]></set-property>
+  <set-property name="name"><![CDATA[25_75_Right]]></set-property>
+</add-item>
+
+<add-item item-descriptor="regionDefinition" id="100007">
+  <set-property name="width"><![CDATA[wide]]></set-property>
+  <set-property name="height"><![CDATA[tall]]></set-property>
+  <set-property name="name"><![CDATA[75_25_Left]]></set-property>
+</add-item>
+
+<add-item item-descriptor="regionDefinition" id="100008">
+  <set-property name="width"><![CDATA[narrow]]></set-property>
+  <set-property name="height"><![CDATA[tall]]></set-property>
+  <set-property name="name"><![CDATA[75_25_Right]]></set-property>
+</add-item>
+
+<add-item item-descriptor="regionDefinition" id="200001">
+  <set-property name="width"><![CDATA[wide]]></set-property>
+  <set-property name="height"><![CDATA[tall]]></set-property>
+  <set-property name="name"><![CDATA[BCC_Right]]></set-property>
+</add-item>
+
+<add-item item-descriptor="regionDefinition" id="200002">
+  <set-property name="width"><![CDATA[narrow]]></set-property>
+  <set-property name="height"><![CDATA[tall]]></set-property>
+  <set-property name="name"><![CDATA[BCC_Left]]></set-property>
+</add-item>
+
+<!-- No items of type communityTemplateRegion -->
+
+<!-- 1 items of type gearDefinitionFolder -->
+
+<add-item item-descriptor="gearDefinitionFolder" id="fld200002">
+  <set-property name="childItems"><![CDATA[100002,100003,200001,300002,200002,600002,600003,800004,1100007,1800010,1900010]]></set-property>
+  <set-property name="urlName"><![CDATA[root]]></set-property>
+  <set-property name="name"><![CDATA[Default Gear Folder]]></set-property>
+</add-item>
+
+<!-- 25 items of type gearModes -->
+
+<add-item item-descriptor="gearModes" id="400001">
+  <set-property name="content"><![CDATA[600017]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearModes" id="2600010">
+  <set-property name="content"><![CDATA[2900032]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearModes" id="300003">
+  <set-property name="content"><![CDATA[500019]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearModes" id="200001">
+  <set-property name="content"><![CDATA[400017]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearModes" id="1000004">
+  <set-property name="content"><![CDATA[1300024]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearModes" id="100001">
+</add-item>
+
+<add-item item-descriptor="gearModes" id="1700007">
+</add-item>
+
+<add-item item-descriptor="gearModes" id="1600008">
+</add-item>
+
+<add-item item-descriptor="gearModes" id="300001">
+  <set-property name="content"><![CDATA[500017]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearModes" id="1000003">
+  <set-property name="content"><![CDATA[1300023]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearModes" id="1200005">
+  <set-property name="content"><![CDATA[1500025]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearModes" id="1800007">
+  <set-property name="content"><![CDATA[1900026]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearModes" id="1600007">
+</add-item>
+
+<add-item item-descriptor="gearModes" id="300002">
+</add-item>
+
+<add-item item-descriptor="gearModes" id="900003">
+</add-item>
+
+<add-item item-descriptor="gearModes" id="100003">
+  <set-property name="content"><![CDATA[300020]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearModes" id="1400006">
+  <set-property name="content"><![CDATA[300021]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearModes" id="2400010">
+</add-item>
+
+<add-item item-descriptor="gearModes" id="700002">
+  <set-property name="content"><![CDATA[900018]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearModes" id="100002">
+  <set-property name="content"><![CDATA[300018]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearModes" id="200002">
+</add-item>
+
+<add-item item-descriptor="gearModes" id="500001">
+</add-item>
+
+<add-item item-descriptor="gearModes" id="2500010">
+  <set-property name="content"><![CDATA[2800032]]></set-property>
+</add-item>
+
+<!-- 14 items of type gearDefinition -->
+
+<add-item item-descriptor="gearDefinition" id="1000005">
+  <set-property name="width"><![CDATA[narrow]]></set-property>
+  <set-property name="gearModes"><![CDATA[1400006]]></set-property>
+  <set-property name="servletContext"><![CDATA[/PubPortlets]]></set-property>
+  <set-property name="instanceParams"><![CDATA[deploymentUIPageIndex=1300023,atg.portlet-class=1300021,path=1300022]]></set-property>
+  <set-property name="author"><![CDATA[ATG Portlet Deploy Tool]]></set-property>
+  <set-property name="version"><![CDATA[1.0]]></set-property>
+  <set-property name="description"><![CDATA[Deployment UI menu portlet.]]></set-property>
+  <set-property name="name"><![CDATA[DeploymentMenuPortlet]]></set-property>
+  <set-property name="parentFolder"><![CDATA[fld200002]]></set-property>
+  <set-property name="portletGUID"><![CDATA[portlets.war.DeploymentMenuPortlet]]></set-property>
+  <set-property name="jsr168"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearDefinition" id="100002">
+  <set-property name="width"><![CDATA[narrow]]></set-property>
+  <set-property name="gearModes"><![CDATA[100002]]></set-property>
+  <set-property name="servletContext"><![CDATA[/PubPortlets]]></set-property>
+  <set-property name="instanceParams"><![CDATA[atg.portlet-class=100006,path=100007,testPortletParam=100005]]></set-property>
+  <set-property name="author"><![CDATA[ATG Portlet Deploy Tool]]></set-property>
+  <set-property name="userParams"><![CDATA[testPref=100004]]></set-property>
+  <set-property name="version"><![CDATA[1.0]]></set-property>
+  <set-property name="description"><![CDATA[A portlet which demonstrates integration with ATG Relationship Management.]]></set-property>
+  <set-property name="name"><![CDATA[OtherPubPortlet]]></set-property>
+  <set-property name="parentFolder"><![CDATA[fld200002]]></set-property>
+  <set-property name="portletGUID"><![CDATA[portlets.war.OtherPubPortlet]]></set-property>
+  <set-property name="jsr168"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearDefinition" id="100003">
+  <set-property name="width"><![CDATA[narrow]]></set-property>
+  <set-property name="gearModes"><![CDATA[100003]]></set-property>
+  <set-property name="servletContext"><![CDATA[/PubPortlets]]></set-property>
+  <set-property name="instanceParams"><![CDATA[atg.portlet-class=100008,path=100009]]></set-property>
+  <set-property name="author"><![CDATA[ATG Portlet Deploy Tool]]></set-property>
+  <set-property name="version"><![CDATA[1.0]]></set-property>
+  <set-property name="description"><![CDATA[A portlet which demonstrates integration with ATG Relationship Management.]]></set-property>
+  <set-property name="name"><![CDATA[HelloPubPortlet]]></set-property>
+  <set-property name="parentFolder"><![CDATA[fld200002]]></set-property>
+  <set-property name="portletGUID"><![CDATA[portlets.war.HelloPubPortlet]]></set-property>
+  <set-property name="jsr168"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearDefinition" id="1100007">
+  <set-property name="width"><![CDATA[narrow]]></set-property>
+  <set-property name="gearModes"><![CDATA[1800007]]></set-property>
+  <set-property name="servletContext"><![CDATA[/PubPortlets]]></set-property>
+  <set-property name="instanceParams"><![CDATA[atg.portlet-class=1700025,projectPageId=1700027,projectCommunityId=1700024,path=1700026]]></set-property>
+  <set-property name="author"><![CDATA[ATG Portlet Deploy Tool]]></set-property>
+  <set-property name="version"><![CDATA[1.0]]></set-property>
+  <set-property name="name"><![CDATA[ProjectHistoryPortlet]]></set-property>
+  <set-property name="parentFolder"><![CDATA[fld200002]]></set-property>
+  <set-property name="portletGUID"><![CDATA[portlets.war.ProjectHistoryPortlet]]></set-property>
+  <set-property name="jsr168"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearDefinition" id="1800010">
+  <set-property name="width"><![CDATA[narrow]]></set-property>
+  <set-property name="gearModes"><![CDATA[2500010]]></set-property>
+  <set-property name="servletContext"><![CDATA[/atg]]></set-property>
+  <set-property name="instanceParams"><![CDATA[atg.portlet-class=2400038,projectPageId=2400035,projectCommunityId=2400037,path=2400036]]></set-property>
+  <set-property name="author"><![CDATA[ATG Portlet Deploy Tool]]></set-property>
+  <set-property name="version"><![CDATA[1.0]]></set-property>
+  <set-property name="description"><![CDATA[A portlet which renders projects and tasks for the current user.]]></set-property>
+  <set-property name="name"><![CDATA[ProjectTodoPortlet]]></set-property>
+  <set-property name="parentFolder"><![CDATA[fld200002]]></set-property>
+  <set-property name="portletGUID"><![CDATA[ProjectTodoPortlet]]></set-property>
+  <set-property name="jsr168"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearDefinition" id="1900010">
+  <set-property name="width"><![CDATA[narrow]]></set-property>
+  <set-property name="gearModes"><![CDATA[2600010]]></set-property>
+  <set-property name="servletContext"><![CDATA[/atg]]></set-property>
+  <set-property name="instanceParams"><![CDATA[atg.portlet-class=2500037,projectPageId=2500036,projectCommunityId=2500035,path=2500039]]></set-property>
+  <set-property name="author"><![CDATA[ATG Portlet Deploy Tool]]></set-property>
+  <set-property name="version"><![CDATA[1.0]]></set-property>
+  <set-property name="description"><![CDATA[A portlet to list all the activities available to the current user.]]></set-property>
+  <set-property name="name"><![CDATA[ActivitiesPortlet]]></set-property>
+  <set-property name="parentFolder"><![CDATA[fld200002]]></set-property>
+  <set-property name="portletGUID"><![CDATA[ActivitiesPortlet]]></set-property>
+  <set-property name="jsr168"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearDefinition" id="200001">
+  <set-property name="width"><![CDATA[narrow]]></set-property>
+  <set-property name="gearModes"><![CDATA[200001]]></set-property>
+  <set-property name="servletContext"><![CDATA[/PubPortlets]]></set-property>
+  <set-property name="instanceParams"><![CDATA[atg.portlet-class=200001,projectPageId=900020,projectCommunityId=900019,path=200002]]></set-property>
+  <set-property name="author"><![CDATA[ATG Portlet Deploy Tool]]></set-property>
+  <set-property name="version"><![CDATA[1.0]]></set-property>
+  <set-property name="description"><![CDATA[Assets portlet for ATG BCC.]]></set-property>
+  <set-property name="name"><![CDATA[AssetsPortlet]]></set-property>
+  <set-property name="parentFolder"><![CDATA[fld200002]]></set-property>
+  <set-property name="portletGUID"><![CDATA[portlets.war.AssetsPortlet]]></set-property>
+  <set-property name="jsr168"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearDefinition" id="200002">
+  <set-property name="width"><![CDATA[narrow]]></set-property>
+  <set-property name="gearModes"><![CDATA[700002]]></set-property>
+  <set-property name="servletContext"><![CDATA[/PubPortlets]]></set-property>
+  <set-property name="instanceParams"><![CDATA[atg.portlet-class=600006,assetPageURL=600005,path=600004]]></set-property>
+  <set-property name="author"><![CDATA[ATG Portlet Deploy Tool]]></set-property>
+  <set-property name="version"><![CDATA[1.0]]></set-property>
+  <set-property name="description"><![CDATA[Process portlet for ATG BCC.]]></set-property>
+  <set-property name="name"><![CDATA[ProjectsPortlet]]></set-property>
+  <set-property name="parentFolder"><![CDATA[fld200002]]></set-property>
+  <set-property name="portletGUID"><![CDATA[portlets.war.ProjectsPortlet]]></set-property>
+  <set-property name="jsr168"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearDefinition" id="300002">
+  <set-property name="width"><![CDATA[narrow]]></set-property>
+  <set-property name="gearModes"><![CDATA[400001]]></set-property>
+  <set-property name="servletContext"><![CDATA[/PubPortlets]]></set-property>
+  <set-property name="instanceParams"><![CDATA[atg.portlet-class=400001,path=400002]]></set-property>
+  <set-property name="author"><![CDATA[ATG Portlet Deploy Tool]]></set-property>
+  <set-property name="version"><![CDATA[1.0]]></set-property>
+  <set-property name="description"><![CDATA[Outstanding Requests portlet for ATG BCC.]]></set-property>
+  <set-property name="name"><![CDATA[OutstandingRequestsPortlet]]></set-property>
+  <set-property name="parentFolder"><![CDATA[fld200002]]></set-property>
+  <set-property name="portletGUID"><![CDATA[portlets.war.OutstandingRequestsPortlet]]></set-property>
+  <set-property name="jsr168"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearDefinition" id="600002">
+  <set-property name="width"><![CDATA[narrow]]></set-property>
+  <set-property name="gearModes"><![CDATA[1000003]]></set-property>
+  <set-property name="servletContext"><![CDATA[/PubPortlets]]></set-property>
+  <set-property name="instanceParams"><![CDATA[showTaskPool=900010,atg.portlet-class=900009,projectPageId=900008,projectCommunityId=900018,taskCountShared=900007,path=900011]]></set-property>
+  <set-property name="author"><![CDATA[ATG Portlet Deploy Tool]]></set-property>
+  <set-property name="version"><![CDATA[1.0]]></set-property>
+  <set-property name="description"><![CDATA[A portlet to list either the current user's tasks or the task pool.]]></set-property>
+  <set-property name="name"><![CDATA[MyTasksPortlet]]></set-property>
+  <set-property name="parentFolder"><![CDATA[fld200002]]></set-property>
+  <set-property name="portletGUID"><![CDATA[portlets.war.MyTasksPortlet]]></set-property>
+  <set-property name="jsr168"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearDefinition" id="600003">
+  <set-property name="width"><![CDATA[narrow]]></set-property>
+  <set-property name="gearModes"><![CDATA[1000004]]></set-property>
+  <set-property name="servletContext"><![CDATA[/PubPortlets]]></set-property>
+  <set-property name="instanceParams"><![CDATA[showTaskPool=900013,atg.portlet-class=900012,projectPageId=900015,projectCommunityId=900017,taskCountShared=900014,path=900016]]></set-property>
+  <set-property name="author"><![CDATA[ATG Portlet Deploy Tool]]></set-property>
+  <set-property name="version"><![CDATA[1.0]]></set-property>
+  <set-property name="description"><![CDATA[A portlet to list either the current user's tasks or the task pool.]]></set-property>
+  <set-property name="name"><![CDATA[AllTasksPortlet]]></set-property>
+  <set-property name="parentFolder"><![CDATA[fld200002]]></set-property>
+  <set-property name="portletGUID"><![CDATA[portlets.war.AllTasksPortlet]]></set-property>
+  <set-property name="jsr168"><![CDATA[true]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearDefinition" id="800004">
+  <set-property name="width"><![CDATA[wide]]></set-property>
+  <set-property name="gearModes"><![CDATA[1200005]]></set-property>
+  <set-property name="servletContext"><![CDATA[/PubPortlets]]></set-property>
+  <set-property name="instanceParams"><![CDATA[atg.portlet-class=1100017,projectPageId=1100019,projectCommunityId=1100020,path=1100018]]></set-property>
+  <set-property name="author"><![CDATA[ATG Portlet Deploy Tool]]></set-property>
+  <set-property name="version"><![CDATA[1.0]]></set-property>
+  <set-property name="description"><![CDATA[Deployment Portlet.]]></set-property>
+  <set-property name="name"><![CDATA[DeploymentPortlet]]></set-property>
+  <set-property name="parentFolder"><![CDATA[fld200002]]></set-property>
+  <set-property name="portletGUID"><![CDATA[portlets.war.DeploymentPortlet]]></set-property>
+  <set-property name="jsr168"><![CDATA[true]]></set-property>
+</add-item>
+
+<!-- No items of type communityTemplateGear -->
+
+<!-- No items of type communityTemplateAlertGear -->
+
+<!-- 8 items of type defaultCommunityRole -->
+
+<add-item item-descriptor="defaultCommunityRole" id="100001">
+  <set-property name="roleName"><![CDATA[portal-admin]]></set-property>
+  <set-property name="category"><![CDATA[access]]></set-property>
+</add-item>
+
+<add-item item-descriptor="defaultCommunityRole" id="100002">
+  <set-property name="roleName"><![CDATA[leader]]></set-property>
+  <set-property name="category"><![CDATA[access]]></set-property>
+</add-item>
+
+<add-item item-descriptor="defaultCommunityRole" id="100003">
+  <set-property name="roleName"><![CDATA[member]]></set-property>
+  <set-property name="category"><![CDATA[access]]></set-property>
+</add-item>
+
+<add-item item-descriptor="defaultCommunityRole" id="100004">
+  <set-property name="roleName"><![CDATA[guest]]></set-property>
+  <set-property name="category"><![CDATA[access]]></set-property>
+</add-item>
+
+<add-item item-descriptor="defaultCommunityRole" id="100005">
+  <set-property name="roleName"><![CDATA[settings-manager]]></set-property>
+  <set-property name="category"><![CDATA[admin]]></set-property>
+</add-item>
+
+<add-item item-descriptor="defaultCommunityRole" id="100006">
+  <set-property name="roleName"><![CDATA[user-manager]]></set-property>
+  <set-property name="category"><![CDATA[admin]]></set-property>
+</add-item>
+
+<add-item item-descriptor="defaultCommunityRole" id="100007">
+  <set-property name="roleName"><![CDATA[page-manager]]></set-property>
+  <set-property name="category"><![CDATA[admin]]></set-property>
+</add-item>
+
+<add-item item-descriptor="defaultCommunityRole" id="100008">
+  <set-property name="roleName"><![CDATA[gear-manager]]></set-property>
+  <set-property name="category"><![CDATA[admin]]></set-property>
+</add-item>
+
+<!-- 6 items of type colorPalette -->
+
+<add-item item-descriptor="colorPalette" id="100001">
+  <set-property name="pageLinkColor"><![CDATA[6666FF]]></set-property>
+  <set-property name="gearTitleTextColor"><![CDATA[CCCCCC]]></set-property>
+  <set-property name="servletContext"><![CDATA[/atg]]></set-property>
+  <set-property name="highlightBackgroundColor"><![CDATA[CCCCCC]]></set-property>
+  <set-property name="author"><![CDATA[]]></set-property>
+  <set-property name="pageTextColor"><![CDATA[333333]]></set-property>
+  <set-property name="pageActionLinkColor"><![CDATA[996633]]></set-property>
+  <set-property name="gearTextColor"><![CDATA[333333]]></set-property>
+  <set-property name="version"><![CDATA[]]></set-property>
+  <set-property name="description"><![CDATA[The BCC Chrome color template.]]></set-property>
+  <set-property name="gearBackgroundColor"><![CDATA[CCCCCC]]></set-property>
+  <set-property name="smallImageURL"><![CDATA[/templates/color/images/chrome.gif]]></set-property>
+  <set-property name="name"><![CDATA[BCC Chrome]]></set-property>
+  <set-property name="pageBackgroundColor"><![CDATA[999999]]></set-property>
+  <set-property name="gearTitleBackgroundColor"><![CDATA[333333]]></set-property>
+  <set-property name="highlightTextColor"><![CDATA[000000]]></set-property>
+  <set-property name="pageVisitedLinkColor"><![CDATA[336699]]></set-property>
+</add-item>
+
+<add-item item-descriptor="colorPalette" id="100002">
+  <set-property name="pageLinkColor"><![CDATA[0033FF]]></set-property>
+  <set-property name="gearTitleTextColor"><![CDATA[000000]]></set-property>
+  <set-property name="servletContext"><![CDATA[/atg]]></set-property>
+  <set-property name="highlightBackgroundColor"><![CDATA[CCCCCC]]></set-property>
+  <set-property name="author"><![CDATA[]]></set-property>
+  <set-property name="pageTextColor"><![CDATA[003333]]></set-property>
+  <set-property name="gearTextColor"><![CDATA[000000]]></set-property>
+  <set-property name="version"><![CDATA[]]></set-property>
+  <set-property name="description"><![CDATA[The BCC Copper color template.]]></set-property>
+  <set-property name="gearBackgroundColor"><![CDATA[FFCC99]]></set-property>
+  <set-property name="smallImageURL"><![CDATA[/templates/color/images/copper.gif]]></set-property>
+  <set-property name="name"><![CDATA[BCC Copper]]></set-property>
+  <set-property name="pageBackgroundColor"><![CDATA[CC6633]]></set-property>
+  <set-property name="gearTitleBackgroundColor"><![CDATA[CC9900]]></set-property>
+  <set-property name="highlightTextColor"><![CDATA[000000]]></set-property>
+  <set-property name="pageVisitedLinkColor"><![CDATA[0033FF]]></set-property>
+</add-item>
+
+<add-item item-descriptor="colorPalette" id="100003">
+  <set-property name="pageLinkColor"><![CDATA[336699]]></set-property>
+  <set-property name="gearTitleTextColor"><![CDATA[FFFFFF]]></set-property>
+  <set-property name="servletContext"><![CDATA[/atg]]></set-property>
+  <set-property name="highlightBackgroundColor"><![CDATA[CCCCCC]]></set-property>
+  <set-property name="author"><![CDATA[]]></set-property>
+  <set-property name="pageTextColor"><![CDATA[000000]]></set-property>
+  <set-property name="pageActionLinkColor"><![CDATA[336699]]></set-property>
+  <set-property name="gearTextColor"><![CDATA[666666]]></set-property>
+  <set-property name="version"><![CDATA[]]></set-property>
+  <set-property name="description"><![CDATA[The BCC Classic color template.]]></set-property>
+  <set-property name="gearBackgroundColor"><![CDATA[FFFFFF]]></set-property>
+  <set-property name="smallImageURL"><![CDATA[/templates/color/images/classic.gif]]></set-property>
+  <set-property name="name"><![CDATA[BCC Classic]]></set-property>
+  <set-property name="pageBackgroundColor"><![CDATA[FFFFFF]]></set-property>
+  <set-property name="gearTitleBackgroundColor"><![CDATA[006666]]></set-property>
+  <set-property name="highlightTextColor"><![CDATA[000000]]></set-property>
+  <set-property name="pageVisitedLinkColor"><![CDATA[006666]]></set-property>
+</add-item>
+
+<add-item item-descriptor="colorPalette" id="Chrome">
+  <set-property name="pageLinkColor"><![CDATA[6666ff]]></set-property>
+  <set-property name="gearTitleTextColor"><![CDATA[cccccc]]></set-property>
+  <set-property name="servletContext"><![CDATA[/portal]]></set-property>
+  <set-property name="highlightBackgroundColor"><![CDATA[CCCCCC]]></set-property>
+  <set-property name="author"><![CDATA[ATG Portal Team]]></set-property>
+  <set-property name="pageTextColor"><![CDATA[333333]]></set-property>
+  <set-property name="pageActionLinkColor"><![CDATA[996633]]></set-property>
+  <set-property name="gearTextColor"><![CDATA[333333]]></set-property>
+  <set-property name="gearBackgroundColor"><![CDATA[cccccc]]></set-property>
+  <set-property name="smallImageURL"><![CDATA[/templates/color/images/chrome.gif]]></set-property>
+  <set-property name="name"><![CDATA[Chrome]]></set-property>
+  <set-property name="pageBackgroundColor"><![CDATA[999999]]></set-property>
+  <set-property name="gearTitleBackgroundColor"><![CDATA[333333]]></set-property>
+  <set-property name="highlightTextColor"><![CDATA[000000]]></set-property>
+  <set-property name="pageVisitedLinkColor"><![CDATA[336699]]></set-property>
+</add-item>
+
+<add-item item-descriptor="colorPalette" id="Classic">
+  <set-property name="pageLinkColor"><![CDATA[336699]]></set-property>
+  <set-property name="gearTitleTextColor"><![CDATA[FFFFFF]]></set-property>
+  <set-property name="servletContext"><![CDATA[/portal]]></set-property>
+  <set-property name="highlightBackgroundColor"><![CDATA[CCCCCC]]></set-property>
+  <set-property name="pageBackgroundImageURL"><![CDATA[/templates/color/images/bg_colorscheme_classic.gif]]></set-property>
+  <set-property name="pageTextColor"><![CDATA[000000]]></set-property>
+  <set-property name="pageActionLinkColor"><![CDATA[336699]]></set-property>
+  <set-property name="gearTextColor"><![CDATA[666666]]></set-property>
+  <set-property name="gearBackgroundColor"><![CDATA[FFFFFF]]></set-property>
+  <set-property name="smallImageURL"><![CDATA[/templates/color/images/classic.gif]]></set-property>
+  <set-property name="name"><![CDATA[Classic]]></set-property>
+  <set-property name="pageBackgroundColor"><![CDATA[FFFFFF]]></set-property>
+  <set-property name="gearTitleBackgroundColor"><![CDATA[006666]]></set-property>
+  <set-property name="highlightTextColor"><![CDATA[000000]]></set-property>
+  <set-property name="pageVisitedLinkColor"><![CDATA[006666]]></set-property>
+</add-item>
+
+<add-item item-descriptor="colorPalette" id="Copper">
+  <set-property name="pageLinkColor"><![CDATA[0033ff]]></set-property>
+  <set-property name="gearTitleTextColor"><![CDATA[000000]]></set-property>
+  <set-property name="servletContext"><![CDATA[/portal]]></set-property>
+  <set-property name="highlightBackgroundColor"><![CDATA[CCCCCC]]></set-property>
+  <set-property name="author"><![CDATA[ATG Portal Team]]></set-property>
+  <set-property name="pageTextColor"><![CDATA[003333]]></set-property>
+  <set-property name="gearTextColor"><![CDATA[000000]]></set-property>
+  <set-property name="gearBackgroundColor"><![CDATA[ffcc99]]></set-property>
+  <set-property name="smallImageURL"><![CDATA[/templates/color/images/copper.gif]]></set-property>
+  <set-property name="name"><![CDATA[Copper]]></set-property>
+  <set-property name="pageBackgroundColor"><![CDATA[cc6633]]></set-property>
+  <set-property name="gearTitleBackgroundColor"><![CDATA[CC9900]]></set-property>
+  <set-property name="highlightTextColor"><![CDATA[000000]]></set-property>
+  <set-property name="pageVisitedLinkColor"><![CDATA[0033ff]]></set-property>
+</add-item>
+
+<!-- 3 items of type pageFolder -->
+
+<add-item item-descriptor="pageFolder" id="fld200003">
+  <set-property name="urlName"><![CDATA[root]]></set-property>
+  <set-property name="name"><![CDATA[Default Page Folder]]></set-property>
+</add-item>
+
+<add-item item-descriptor="pageFolder" id="fld300003">
+  <set-property name="childItems"><![CDATA[100001,100003,100004,100005]]></set-property>
+  <set-property name="urlName"><![CDATA[ATG_Biz_UI_PF]]></set-property>
+  <set-property name="name"><![CDATA[ATG BCC PF]]></set-property>
+</add-item>
+
+<add-item item-descriptor="pageFolder" id="fld300004">
+  <set-property name="childItems"><![CDATA[100002]]></set-property>
+  <set-property name="urlName"><![CDATA[ATG_Admin_PF]]></set-property>
+  <set-property name="name"><![CDATA[ATG Admin PF]]></set-property>
+</add-item>
+
+<!-- 2 items of type community -->
+
+<add-item item-descriptor="community" id="100001">
+  <set-property name="enabled"><![CDATA[true]]></set-property>
+  <set-property name="roles"><![CDATA[settings-manager=100007,user-manager=100008,leader=100003,page-manager=100005,portal-admin=100006,gear-manager=100001,member=100004,guest=100002]]></set-property>
+  <set-property name="gears"><![CDATA[200001,200002,100003,100002,800004,2000012,1300009,300002,800005,2100012]]></set-property>
+  <set-property name="urlName"><![CDATA[bcc]]></set-property>
+  <set-property name="pageTemplate"><![CDATA[400002]]></set-property>
+  <set-property name="membershipRequest"><![CDATA[disallow]]></set-property>
+  <set-property name="description"><![CDATA[]]></set-property>
+  <set-property name="name"><![CDATA[ATG BCC]]></set-property>
+  <set-property name="accessLevel"><![CDATA[3]]></set-property>
+  <set-property name="parentFolder"><![CDATA[fld100001]]></set-property>
+  <set-property name="pageFolder"><![CDATA[fld300003]]></set-property>
+  <set-property name="acl"><![CDATA[Profile$role$epubUser:read,,list;Profile$role$epubAdmin:read,,list;Profile$role$epubSuperAdmin:read,,list;Profile$role$epubManager:read,,list]]></set-property>
+  <set-property name="gearTitleTemplate"><![CDATA[200001]]></set-property>
+  <set-property name="style"><![CDATA[100001]]></set-property>
+  <set-property name="defaultPage"><![CDATA[100001]]></set-property>
+  <set-property name="personalization"><![CDATA[none]]></set-property>
+</add-item>
+
+<add-item item-descriptor="community" id="100002">
+  <set-property name="enabled"><![CDATA[true]]></set-property>
+  <set-property name="roles"><![CDATA[settings-manager=100015,user-manager=100016,leader=100011,page-manager=100013,portal-admin=100014,gear-manager=100009,member=100012,guest=100010]]></set-property>
+  <set-property name="gears"><![CDATA[1000006,1100007]]></set-property>
+  <set-property name="urlName"><![CDATA[atgadmin]]></set-property>
+  <set-property name="pageTemplate"><![CDATA[400002]]></set-property>
+  <set-property name="membershipRequest"><![CDATA[disallow]]></set-property>
+  <set-property name="description"><![CDATA[]]></set-property>
+  <set-property name="name"><![CDATA[ATG Admin]]></set-property>
+  <set-property name="parentFolder"><![CDATA[fld100001]]></set-property>
+  <set-property name="pageFolder"><![CDATA[fld300004]]></set-property>
+  <set-property name="acl"><![CDATA[Profile$role$epubSuperAdmin:read,,list;Profile$role$epubAdmin:read,,list]]></set-property>
+  <set-property name="gearTitleTemplate"><![CDATA[200001]]></set-property>
+  <set-property name="style"><![CDATA[100001]]></set-property>
+  <set-property name="defaultPage"><![CDATA[100002]]></set-property>
+  <set-property name="personalization"><![CDATA[none]]></set-property>
+</add-item>
+
+<!-- 6 items of type page -->
+
+<add-item item-descriptor="page" id="100001">
+  <set-property name="urlName"><![CDATA[home]]></set-property>
+  <set-property name="description"><![CDATA[]]></set-property>
+  <set-property name="regions"><![CDATA[BCC_Left=700022,BCC_Right=700021]]></set-property>
+  <set-property name="colorPalette"><![CDATA[100003]]></set-property>
+  <set-property name="name"><![CDATA[Home]]></set-property>
+  <set-property name="accessLevel"><![CDATA[2]]></set-property>
+  <set-property name="parentFolder"><![CDATA[fld300003]]></set-property>
+  <set-property name="layoutTemplate"><![CDATA[400005]]></set-property>
+  <set-property name="parentCommunity"><![CDATA[100001]]></set-property>
+</add-item>
+
+<add-item item-descriptor="page" id="100002">
+  <set-property name="urlName"><![CDATA[home]]></set-property>
+  <set-property name="fixed"><![CDATA[true]]></set-property>
+  <set-property name="regions"><![CDATA[25_75_Left=900024,25_75_Right=900023]]></set-property>
+  <set-property name="colorPalette"><![CDATA[100003]]></set-property>
+  <set-property name="name"><![CDATA[ATG Admin Home]]></set-property>
+  <set-property name="parentFolder"><![CDATA[fld300004]]></set-property>
+  <set-property name="layoutTemplate"><![CDATA[200002]]></set-property>
+  <set-property name="parentCommunity"><![CDATA[100002]]></set-property>
+</add-item>
+
+<add-item item-descriptor="page" id="100003">
+  <set-property name="urlName"><![CDATA[assets]]></set-property>
+  <set-property name="fixed"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[]]></set-property>
+  <set-property name="regions"><![CDATA[100_Middle=300011]]></set-property>
+  <set-property name="colorPalette"><![CDATA[100003]]></set-property>
+  <set-property name="name"><![CDATA[Assets]]></set-property>
+  <set-property name="accessLevel"><![CDATA[2]]></set-property>
+  <set-property name="parentFolder"><![CDATA[fld300003]]></set-property>
+  <set-property name="layoutTemplate"><![CDATA[200001]]></set-property>
+  <set-property name="parentCommunity"><![CDATA[100001]]></set-property>
+</add-item>
+
+<add-item item-descriptor="page" id="100004">
+  <set-property name="urlName"><![CDATA[process]]></set-property>
+  <set-property name="fixed"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[]]></set-property>
+  <set-property name="regions"><![CDATA[100_Middle=1200028]]></set-property>
+  <set-property name="colorPalette"><![CDATA[100003]]></set-property>
+  <set-property name="name"><![CDATA[Process]]></set-property>
+  <set-property name="accessLevel"><![CDATA[2]]></set-property>
+  <set-property name="parentFolder"><![CDATA[fld300003]]></set-property>
+  <set-property name="layoutTemplate"><![CDATA[600008]]></set-property>
+  <set-property name="parentCommunity"><![CDATA[100001]]></set-property>
+</add-item>
+
+<add-item item-descriptor="page" id="100005">
+  <set-property name="urlName"><![CDATA[test]]></set-property>
+  <set-property name="fixed"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[]]></set-property>
+  <set-property name="regions"><![CDATA[BCC_Left=500018,BCC_Right=500017]]></set-property>
+  <set-property name="colorPalette"><![CDATA[100003]]></set-property>
+  <set-property name="name"><![CDATA[Test]]></set-property>
+  <set-property name="parentFolder"><![CDATA[fld300003]]></set-property>
+  <set-property name="layoutTemplate"><![CDATA[400005]]></set-property>
+  <set-property name="parentCommunity"><![CDATA[100001]]></set-property>
+</add-item>
+
+<!-- 9 items of type region -->
+
+<add-item item-descriptor="region" id="1200028">
+  <set-property name="gears"><![CDATA[200002]]></set-property>
+  <set-property name="parentPage"><![CDATA[100004]]></set-property>
+  <set-property name="regionDefinition"><![CDATA[100001]]></set-property>
+</add-item>
+
+<add-item item-descriptor="region" id="300011">
+  <set-property name="gears"><![CDATA[200001]]></set-property>
+  <set-property name="parentPage"><![CDATA[100003]]></set-property>
+  <set-property name="regionDefinition"><![CDATA[100001]]></set-property>
+</add-item>
+
+<add-item item-descriptor="region" id="500017">
+  <set-property name="gears"><![CDATA[100002]]></set-property>
+  <set-property name="parentPage"><![CDATA[100005]]></set-property>
+  <set-property name="regionDefinition"><![CDATA[200001]]></set-property>
+</add-item>
+
+<add-item item-descriptor="region" id="500018">
+  <set-property name="gears"><![CDATA[100003]]></set-property>
+  <set-property name="parentPage"><![CDATA[100005]]></set-property>
+  <set-property name="regionDefinition"><![CDATA[200002]]></set-property>
+</add-item>
+
+<add-item item-descriptor="region" id="700021">
+  <set-property name="gears"><![CDATA[2000012]]></set-property>
+  <set-property name="parentPage"><![CDATA[100001]]></set-property>
+  <set-property name="regionDefinition"><![CDATA[200001]]></set-property>
+</add-item>
+
+<add-item item-descriptor="region" id="700022">
+  <set-property name="gears"><![CDATA[2100012]]></set-property>
+  <set-property name="parentPage"><![CDATA[100001]]></set-property>
+  <set-property name="regionDefinition"><![CDATA[200002]]></set-property>
+</add-item>
+
+<add-item item-descriptor="region" id="900023">
+  <set-property name="gears"><![CDATA[1000006]]></set-property>
+  <set-property name="parentPage"><![CDATA[100002]]></set-property>
+  <set-property name="regionDefinition"><![CDATA[100006]]></set-property>
+</add-item>
+
+<add-item item-descriptor="region" id="900024">
+  <set-property name="gears"><![CDATA[1100007]]></set-property>
+  <set-property name="parentPage"><![CDATA[100002]]></set-property>
+  <set-property name="regionDefinition"><![CDATA[100005]]></set-property>
+</add-item>
+
+<!-- 14 items of type gear -->
+
+<add-item item-descriptor="gear" id="1000006">
+  <set-property name="overrideName"><![CDATA[DeploymentPortlet]]></set-property>
+  <set-property name="gearDefinition"><![CDATA[800004]]></set-property>
+  <!-- derived   <set-property name="description"><![CDATA[Deployment Portlet.]]></set-property>  -->
+  <!-- derived   <set-property name="name"><![CDATA[DeploymentPortlet]]></set-property>  -->
+  <set-property name="accessLevel"><![CDATA[4]]></set-property>
+  <set-property name="overrideDescription"><![CDATA[Deployment Portlet.]]></set-property>
+  <set-property name="acl"><![CDATA[Profile$role$epubSuperAdmin:read,,list;Profile$role$epubAdmin:read,,list]]></set-property>
+  <set-property name="parentCommunity"><![CDATA[100002]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gear" id="100002">
+  <set-property name="overrideName"><![CDATA[HelloPubPortlet]]></set-property>
+  <set-property name="gearDefinition"><![CDATA[100003]]></set-property>
+  <!-- derived   <set-property name="description"><![CDATA[A portlet which demonstrates integration with ATG Relationship Management.]]></set-property>  -->
+  <!-- derived   <set-property name="name"><![CDATA[HelloPubPortlet]]></set-property>  -->
+  <set-property name="overrideDescription"><![CDATA[A portlet which demonstrates integration with ATG Relationship Management.]]></set-property>
+  <set-property name="parentCommunity"><![CDATA[100001]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gear" id="100003">
+  <set-property name="overrideName"><![CDATA[OtherPubPortlet]]></set-property>
+  <set-property name="gearDefinition"><![CDATA[100002]]></set-property>
+  <!-- derived   <set-property name="description"><![CDATA[A portlet which demonstrates integration with ATG Relationship Management.]]></set-property>  -->
+  <!-- derived   <set-property name="name"><![CDATA[OtherPubPortlet]]></set-property>  -->
+  <set-property name="overrideDescription"><![CDATA[A portlet which demonstrates integration with ATG Relationship Management.]]></set-property>
+  <set-property name="parentCommunity"><![CDATA[100001]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gear" id="1100007">
+  <set-property name="overrideName"><![CDATA[DeploymentMenuPortlet]]></set-property>
+  <set-property name="gearDefinition"><![CDATA[1000005]]></set-property>
+  <!-- derived   <set-property name="description"><![CDATA[Deployment UI menu portlet.]]></set-property>  -->
+  <!-- derived   <set-property name="name"><![CDATA[DeploymentMenuPortlet]]></set-property>  -->
+  <set-property name="overrideDescription"><![CDATA[Deployment UI menu portlet.]]></set-property>
+  <set-property name="parentCommunity"><![CDATA[100002]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gear" id="1300009">
+  <set-property name="overrideName"><![CDATA[ProjectHistoryPortlet]]></set-property>
+  <set-property name="gearDefinition"><![CDATA[1100007]]></set-property>
+  <!-- derived   <set-property name="description"><![CDATA[]]></set-property>  -->
+  <!-- derived   <set-property name="name"><![CDATA[ProjectHistoryPortlet]]></set-property>  -->
+  <set-property name="accessLevel"><![CDATA[4]]></set-property>
+  <set-property name="overrideDescription"><![CDATA[]]></set-property>
+  <set-property name="acl"><![CDATA[Profile$role$epubUser:read,,list;Profile$role$epubAdmin:read,,list;Profile$role$epubSuperAdmin:read,,list;Profile$role$epubManager:read,,list]]></set-property>
+  <set-property name="parentCommunity"><![CDATA[100001]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gear" id="200001">
+  <set-property name="overrideName"><![CDATA[Assets Portlet]]></set-property>
+  <set-property name="gearDefinition"><![CDATA[200001]]></set-property>
+  <!-- derived   <set-property name="description"><![CDATA[Assets portlet for ATG BCC.]]></set-property>  -->
+  <!-- derived   <set-property name="name"><![CDATA[Assets Portlet]]></set-property>  -->
+  <set-property name="accessLevel"><![CDATA[1]]></set-property>
+  <set-property name="overrideDescription"><![CDATA[Assets portlet for ATG BCC.]]></set-property>
+  <set-property name="parentCommunity"><![CDATA[100001]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gear" id="2000012">
+  <set-property name="overrideName"><![CDATA[ProjectTodoPortlet]]></set-property>
+  <set-property name="gearDefinition"><![CDATA[1800010]]></set-property>
+  <!-- derived   <set-property name="description"><![CDATA[A portlet which renders projects and tasks for the current user.]]></set-property>  -->
+  <!-- derived   <set-property name="name"><![CDATA[ProjectTodoPortlet]]></set-property>  -->
+  <set-property name="overrideDescription"><![CDATA[A portlet which renders projects and tasks for the current user.]]></set-property>
+  <set-property name="parentCommunity"><![CDATA[100001]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gear" id="200002">
+  <set-property name="overrideName"><![CDATA[Process Portlet]]></set-property>
+  <set-property name="gearDefinition"><![CDATA[200002]]></set-property>
+  <!-- derived   <set-property name="description"><![CDATA[Process portlet for ATG BCC.]]></set-property>  -->
+  <!-- derived   <set-property name="name"><![CDATA[Process Portlet]]></set-property>  -->
+  <set-property name="overrideDescription"><![CDATA[Process portlet for ATG BCC.]]></set-property>
+  <set-property name="parentCommunity"><![CDATA[100001]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gear" id="2100012">
+  <set-property name="overrideName"><![CDATA[ActivitiesPortlet]]></set-property>
+  <set-property name="gearDefinition"><![CDATA[1900010]]></set-property>
+  <!-- derived   <set-property name="description"><![CDATA[A portlet to list all the activities available to the current user.]]></set-property>  -->
+  <!-- derived   <set-property name="name"><![CDATA[ActivitiesPortlet]]></set-property>  -->
+  <set-property name="overrideDescription"><![CDATA[A portlet to list all the activities available to the current user.]]></set-property>
+  <set-property name="parentCommunity"><![CDATA[100001]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gear" id="300002">
+  <set-property name="overrideName"><![CDATA[Outstanding Requests]]></set-property>
+  <set-property name="gearDefinition"><![CDATA[300002]]></set-property>
+  <!-- derived   <set-property name="description"><![CDATA[Outstanding Requests portlet for ATG BCC.]]></set-property>  -->
+  <!-- derived   <set-property name="name"><![CDATA[Outstanding Requests]]></set-property>  -->
+  <set-property name="accessLevel"><![CDATA[1]]></set-property>
+  <set-property name="overrideDescription"><![CDATA[Outstanding Requests portlet for ATG BCC.]]></set-property>
+  <set-property name="parentCommunity"><![CDATA[100001]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gear" id="800004">
+  <set-property name="overrideName"><![CDATA[All Tasks]]></set-property>
+  <set-property name="gearDefinition"><![CDATA[600003]]></set-property>
+  <!-- derived   <set-property name="description"><![CDATA[A portlet to list either the current user's tasks or the task pool.]]></set-property>  -->
+  <!-- derived   <set-property name="name"><![CDATA[All Tasks]]></set-property>  -->
+  <set-property name="overrideDescription"><![CDATA[A portlet to list either the current user's tasks or the task pool.]]></set-property>
+  <set-property name="parentCommunity"><![CDATA[100001]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gear" id="800005">
+  <set-property name="overrideName"><![CDATA[My Tasks]]></set-property>
+  <set-property name="gearDefinition"><![CDATA[600002]]></set-property>
+  <!-- derived   <set-property name="description"><![CDATA[A portlet to list either the current user's tasks or the task pool.]]></set-property>  -->
+  <!-- derived   <set-property name="name"><![CDATA[My Tasks]]></set-property>  -->
+  <set-property name="overrideDescription"><![CDATA[A portlet to list either the current user's tasks or the task pool.]]></set-property>
+  <set-property name="parentCommunity"><![CDATA[100001]]></set-property>
+</add-item>
+
+<!-- 59 items of type gearParameter -->
+
+<add-item item-descriptor="gearParameter" id="2500039">
+  <set-property name="paramValues"><![CDATA[/portlets/ActivitiesPortlet/index.jsp]]></set-property>
+  <set-property name="description"><![CDATA[path]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="900017">
+  <set-property name="paramValues"><![CDATA[100001]]></set-property>
+  <set-property name="description"><![CDATA[projectCommunityId]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="900014">
+  <set-property name="paramValues"><![CDATA[10]]></set-property>
+  <set-property name="description"><![CDATA[taskCountShared]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="1300023">
+  <set-property name="paramValues"><![CDATA[1]]></set-property>
+  <set-property name="description"><![CDATA[The index of the Deployment UI portal page in the ATG admin community.]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="2400037">
+  <set-property name="paramValues"><![CDATA[100001]]></set-property>
+  <set-property name="description"><![CDATA[projectCommunityId]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="900019">
+  <set-property name="paramValues"><![CDATA[100001]]></set-property>
+  <set-property name="description"><![CDATA[projectCommunityId]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="900012">
+  <set-property name="paramValues"><![CDATA[atg.portlet.DispatchPortlet]]></set-property>
+  <set-property name="description"><![CDATA[atg.portlet-class]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="900009">
+  <set-property name="paramValues"><![CDATA[atg.portlet.DispatchPortlet]]></set-property>
+  <set-property name="description"><![CDATA[atg.portlet-class]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="2400038">
+  <set-property name="paramValues"><![CDATA[atg.portlet.DispatchPortlet]]></set-property>
+  <set-property name="description"><![CDATA[atg.portlet-class]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="100006">
+  <set-property name="paramValues"><![CDATA[atg.epub.portlet.OtherPubPortlet.OtherPubPortlet]]></set-property>
+  <set-property name="description"><![CDATA[atg.portlet-class]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="300001">
+  <set-property name="paramValues"><![CDATA[atg.portlet.DispatchPortlet]]></set-property>
+  <set-property name="description"><![CDATA[atg.portlet-class]]></set-property>
+</add-item>
+
+
+<add-item item-descriptor="gearParameter" id="900018">
+  <set-property name="paramValues"><![CDATA[100001]]></set-property>
+  <set-property name="description"><![CDATA[projectCommunityId]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="900015">
+  <set-property name="paramValues"><![CDATA[100004]]></set-property>
+  <set-property name="description"><![CDATA[projectPageId]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="100009">
+  <set-property name="paramValues"><![CDATA[/html/HelloPubPortlet/index.jsp]]></set-property>
+  <set-property name="description"><![CDATA[path]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="1100017">
+  <set-property name="paramValues"><![CDATA[atg.portlet.DispatchPortlet]]></set-property>
+  <set-property name="description"><![CDATA[atg.portlet-class]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="1300022">
+  <set-property name="paramValues"><![CDATA[/html/DeploymentMenuPortlet/index.jsp]]></set-property>
+  <set-property name="description"><![CDATA[path]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="1100020">
+  <set-property name="paramValues"><![CDATA[100001]]></set-property>
+  <set-property name="description"><![CDATA[projectCommunityId]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="900008">
+  <set-property name="paramValues"><![CDATA[100004]]></set-property>
+  <set-property name="description"><![CDATA[projectPageId]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="2500037">
+  <set-property name="paramValues"><![CDATA[atg.portlet.DispatchPortlet]]></set-property>
+  <set-property name="description"><![CDATA[atg.portlet-class]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="1700027">
+  <set-property name="paramValues"><![CDATA[100004]]></set-property>
+  <set-property name="description"><![CDATA[projectPageId]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="100008">
+  <set-property name="paramValues"><![CDATA[atg.portlet.DispatchPortlet]]></set-property>
+  <set-property name="description"><![CDATA[atg.portlet-class]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="2500038">
+  <set-property name="paramValues"><![CDATA[false]]></set-property>
+  <set-property name="description"><![CDATA[loggingError]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="600006">
+  <set-property name="paramValues"><![CDATA[atg.epub.portlet.ProjectsPortlet.ProjectsPortlet]]></set-property>
+  <set-property name="description"><![CDATA[atg.portlet-class]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="400001">
+  <set-property name="paramValues"><![CDATA[atg.portlet.DispatchPortlet]]></set-property>
+  <set-property name="description"><![CDATA[atg.portlet-class]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="100007">
+  <set-property name="paramValues"><![CDATA[/html/OtherPubPortlet/index.jsp]]></set-property>
+  <set-property name="description"><![CDATA[path]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="1700025">
+  <set-property name="paramValues"><![CDATA[atg.portlet.DispatchPortlet]]></set-property>
+  <set-property name="description"><![CDATA[atg.portlet-class]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="100004">
+  <set-property name="paramValues"><![CDATA[75]]></set-property>
+  <set-property name="description"><![CDATA[testPref]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="900007">
+  <set-property name="paramValues"><![CDATA[10]]></set-property>
+  <set-property name="description"><![CDATA[taskCountShared]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="1700026">
+  <set-property name="paramValues"><![CDATA[/html/ProjectHistoryPortlet/index.jsp]]></set-property>
+  <set-property name="description"><![CDATA[path]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="2500036">
+  <set-property name="paramValues"><![CDATA[100004]]></set-property>
+  <set-property name="description"><![CDATA[projectPageId]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="600004">
+  <set-property name="paramValues"><![CDATA[/html/ProjectsPortlet/projectBrowse.jsp]]></set-property>
+  <set-property name="description"><![CDATA[path]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="900011">
+  <set-property name="paramValues"><![CDATA[/html/ToDoPortlet/tasksShared.jsp]]></set-property>
+  <set-property name="description"><![CDATA[path]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="200001">
+  <set-property name="paramValues"><![CDATA[atg.portlet.DispatchPortlet]]></set-property>
+  <set-property name="description"><![CDATA[atg.portlet-class]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="300006">
+  <set-property name="paramValues"><![CDATA[/html/WebsiteStatusPortlet/index.jsp]]></set-property>
+  <set-property name="description"><![CDATA[path]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="2500035">
+  <set-property name="paramValues"><![CDATA[100001]]></set-property>
+  <set-property name="description"><![CDATA[projectCommunityId]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="400002">
+  <set-property name="paramValues"><![CDATA[/html/OutstandingRequestsPortlet/index.jsp]]></set-property>
+  <set-property name="description"><![CDATA[path]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="1100018">
+  <set-property name="paramValues"><![CDATA[/html/DeploymentPortlet/index.jsp]]></set-property>
+  <set-property name="description"><![CDATA[path]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="2400035">
+  <set-property name="paramValues"><![CDATA[100004]]></set-property>
+  <set-property name="description"><![CDATA[projectPageId]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="100005">
+  <set-property name="paramValues"><![CDATA[42]]></set-property>
+  <set-property name="description"><![CDATA[testPortletParam]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="1100019">
+  <set-property name="paramValues"><![CDATA[100004]]></set-property>
+  <set-property name="description"><![CDATA[projectPageId]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="900013">
+  <set-property name="paramValues"><![CDATA[true]]></set-property>
+  <set-property name="description"><![CDATA[showTaskPool]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="900016">
+  <set-property name="paramValues"><![CDATA[/html/ToDoPortlet/tasksShared.jsp]]></set-property>
+  <set-property name="description"><![CDATA[path]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="900020">
+  <set-property name="paramValues"><![CDATA[100004]]></set-property>
+  <set-property name="description"><![CDATA[projectPageId]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="600005">
+  <set-property name="paramValues"><![CDATA[/atg/bcc/assets]]></set-property>
+  <set-property name="description"><![CDATA[assetPageURL]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="300002">
+  <set-property name="paramValues"><![CDATA[/html/CustomerSegmentsPortlet/index.jsp]]></set-property>
+  <set-property name="description"><![CDATA[path]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="2400036">
+  <set-property name="paramValues"><![CDATA[/portlets/ProjectTodoPortlet/index.jsp]]></set-property>
+  <set-property name="description"><![CDATA[path]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="300005">
+  <set-property name="paramValues"><![CDATA[atg.portlet.DispatchPortlet]]></set-property>
+  <set-property name="description"><![CDATA[atg.portlet-class]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="500002">
+  <set-property name="paramValues"><![CDATA[10]]></set-property>
+  <set-property name="description"><![CDATA[taskCountShared]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="900010">
+  <set-property name="paramValues"><![CDATA[false]]></set-property>
+  <set-property name="description"><![CDATA[showTaskPool]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="200002">
+  <set-property name="paramValues"><![CDATA[/html/AssetsPortlet/index.jsp]]></set-property>
+  <set-property name="description"><![CDATA[path]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="1700024">
+  <set-property name="paramValues"><![CDATA[100001]]></set-property>
+  <set-property name="description"><![CDATA[projectCommunityId]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearParameter" id="1300021">
+  <set-property name="paramValues"><![CDATA[atg.portlet.DispatchPortlet]]></set-property>
+  <set-property name="description"><![CDATA[atg.portlet-class]]></set-property>
+</add-item>
+
+<!-- 88 items of type deviceOutputs -->
+
+<add-item item-descriptor="deviceOutputs" id="500033">
+  <set-property name="types"><![CDATA[htmlURL=/AssetsPortlet]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="200016">
+  <set-property name="types"><![CDATA[htmlURL=/templates/layout/html/25_50_25.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="700033">
+  <set-property name="types"><![CDATA[htmlURL=/OutstandingRequestsPortlet]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="600037">
+  <set-property name="types"><![CDATA[htmlURL=/WebsiteStatusPortlet]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="200026">
+  <set-property name="types"><![CDATA[htmlURL=/templates/titlebar/html/titlebar-pre.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="200007">
+  <set-property name="types"><![CDATA[htmlURL=/templates/layout/html/full.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="200012">
+  <set-property name="types"><![CDATA[htmlURL=/templates/layout/html/full.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="1900051">
+  <set-property name="types"><![CDATA[htmlURL=/HelloWorldPortlet]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="3300065">
+  <set-property name="types"><![CDATA[htmlURL=/ActivitiesPortlet]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="200013">
+  <set-property name="types"><![CDATA[htmlURL=/templates/layout/html/full.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="1200041">
+  <set-property name="types"><![CDATA[htmlURL=/templates/layout/html/BizUILayout.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="100012">
+  <set-property name="types"><![CDATA[htmlURL=/templates/titlebar/html/titlebar-post.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="1200044">
+  <set-property name="types"><![CDATA[htmlURL=/templates/layout/html/BizUILayout.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="1200040">
+  <set-property name="types"><![CDATA[htmlURL=/templates/page/html/BizUIPageTemplate.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="200027">
+  <set-property name="types"><![CDATA[htmlURL=/templates/titlebar/html/titlebar-post.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="200008">
+  <set-property name="types"><![CDATA[htmlURL=/templates/layout/html/100.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="1200043">
+  <set-property name="types"><![CDATA[htmlURL=/templates/layout/html/BizUILayout.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="200011">
+  <set-property name="types"><![CDATA[htmlURL=/templates/layout/html/25_75.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="200022">
+  <set-property name="types"><![CDATA[htmlURL=/templates/titlebar/html/titlebar-post.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="100009">
+  <set-property name="types"><![CDATA[htmlURL=/templates/titlebar/html/titlebar.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="100008">
+  <set-property name="types"><![CDATA[htmlURL=/templates/titlebar/html/titlebar.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="700034">
+  <set-property name="types"><![CDATA[htmlURL=/OutstandingRequestsPortlet]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="200017">
+  <set-property name="types"><![CDATA[htmlURL=/templates/layout/html/75_25.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="1900054">
+  <set-property name="types"><![CDATA[htmlURL=/DeploymentMenuPortlet]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="1900053">
+  <set-property name="types"><![CDATA[htmlURL=/DeploymentMenuPortlet]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="100007">
+  <set-property name="types"><![CDATA[wmlURL=/templates/page/wml/full.jsp,htmlURL=/templates/page/html/full.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="200004">
+  <set-property name="types"><![CDATA[wmlURL=/templates/page/wml/shared.jsp,htmlURL=/templates/page/html/shared.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="100004">
+  <set-property name="types"><![CDATA[htmlURL=/templates/layout/html/25_50_25.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="400037">
+  <set-property name="types"><![CDATA[htmlURL=/HelloPubPortlet]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="1000036">
+  <set-property name="types"><![CDATA[htmlURL=/ProjectsPortlet]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="200029">
+  <set-property name="types"><![CDATA[htmlURL=/templates/titlebar/html/titlebar.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="200023">
+  <set-property name="types"><![CDATA[htmlURL=/templates/titlebar/html/titlebar.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="200018">
+  <set-property name="types"><![CDATA[htmlURL=/templates/layout/html/full.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="400036">
+  <set-property name="types"><![CDATA[htmlURL=/OtherPubPortlet]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="200025">
+  <set-property name="types"><![CDATA[htmlURL=/templates/titlebar/html/titlebar-pre.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="200028">
+  <set-property name="types"><![CDATA[htmlURL=/templates/titlebar/html/titlebar-post.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="100001">
+  <set-property name="types"><![CDATA[htmlURL=/templates/layout/html/100.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="100005">
+  <set-property name="types"><![CDATA[htmlURL=/templates/layout/html/full.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="1700050">
+  <set-property name="types"><![CDATA[htmlURL=/DeploymentPortlet]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="200019">
+  <set-property name="types"><![CDATA[htmlURL=/templates/layout/html/75_25.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="1200039">
+  <set-property name="types"><![CDATA[htmlURL=/templates/page/html/BizUIPageTemplate.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="2300055">
+  <set-property name="types"><![CDATA[htmlURL=/ProjectHistoryPortlet]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="1700049">
+  <set-property name="types"><![CDATA[htmlURL=/DeploymentPortlet]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="1200042">
+  <set-property name="types"><![CDATA[htmlURL=/templates/layout/html/BizUILayout.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="500034">
+  <set-property name="types"><![CDATA[htmlURL=/AssetsPortlet]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="200009">
+  <set-property name="types"><![CDATA[htmlURL=/templates/layout/html/25_75.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="200032">
+  <set-property name="types"><![CDATA[htmlURL=/templates/titlebar/html/titlebar-pre.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="600034">
+  <set-property name="types"><![CDATA[htmlURL=/CustomerSegmentsPortlet]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="200014">
+  <set-property name="types"><![CDATA[htmlURL=/templates/layout/html/25_50_25.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="100013">
+  <set-property name="types"><![CDATA[htmlURL=/templates/titlebar/html/titlebar-post.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="3200065">
+  <set-property name="types"><![CDATA[htmlURL=/ProjectTodoPortlet]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="200003">
+  <set-property name="types"><![CDATA[wmlURL=/templates/page/wml/full.jsp,htmlURL=/templates/page/html/full.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="100006">
+  <set-property name="types"><![CDATA[wmlURL=/templates/page/wml/shared.jsp,htmlURL=/templates/page/html/shared.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="600033">
+  <set-property name="types"><![CDATA[htmlURL=/CustomerSegmentsPortlet]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="1200038">
+  <set-property name="types"><![CDATA[htmlURL=/templates/page/html/BizUIPageTemplate.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="100003">
+  <set-property name="types"><![CDATA[htmlURL=/templates/layout/html/75_25.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="1900052">
+  <set-property name="types"><![CDATA[htmlURL=/DeploymentMenuPortlet]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="200024">
+  <set-property name="types"><![CDATA[htmlURL=/templates/titlebar/html/titlebar.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="1200037">
+  <set-property name="types"><![CDATA[htmlURL=/templates/page/html/BizUIPageTemplate.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="600038">
+  <set-property name="types"><![CDATA[htmlURL=/WebsiteStatusPortlet]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="1000035">
+  <set-property name="types"><![CDATA[htmlURL=/ProjectsPortlet]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="200010">
+  <set-property name="types"><![CDATA[htmlURL=/templates/layout/html/full.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="200015">
+  <set-property name="types"><![CDATA[htmlURL=/templates/layout/html/full.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="200001">
+  <set-property name="types"><![CDATA[wmlURL=/templates/page/wml/full.jsp,htmlURL=/templates/page/html/full.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="3200064">
+  <set-property name="types"><![CDATA[htmlURL=/ProjectTodoPortlet]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="400035">
+  <set-property name="types"><![CDATA[htmlURL=/OtherPubPortlet]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="200020">
+  <set-property name="types"><![CDATA[htmlURL=/templates/layout/html/full.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="200006">
+  <set-property name="types"><![CDATA[htmlURL=/templates/layout/html/100.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="400038">
+  <set-property name="types"><![CDATA[htmlURL=/HelloPubPortlet]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="1500046">
+  <set-property name="types"><![CDATA[htmlURL=/MyTasksPortlet]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="200021">
+  <set-property name="types"><![CDATA[htmlURL=/templates/titlebar/html/titlebar-post.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="200005">
+  <set-property name="types"><![CDATA[htmlURL=/templates/layout/html/full.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="100010">
+  <set-property name="types"><![CDATA[htmlURL=/templates/titlebar/html/titlebar-pre.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="1500047">
+  <set-property name="types"><![CDATA[htmlURL=/AllTasksPortlet]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="2300056">
+  <set-property name="types"><![CDATA[htmlURL=/ProjectHistoryPortlet]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="3300064">
+  <set-property name="types"><![CDATA[htmlURL=/ActivitiesPortlet]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="200030">
+  <set-property name="types"><![CDATA[htmlURL=/templates/titlebar/html/titlebar.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="1500048">
+  <set-property name="types"><![CDATA[htmlURL=/AllTasksPortlet]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="100011">
+  <set-property name="types"><![CDATA[htmlURL=/templates/titlebar/html/titlebar-pre.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="2700061">
+  <set-property name="types"><![CDATA[htmlURL=/templates/layout/html/process100.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="200031">
+  <set-property name="types"><![CDATA[htmlURL=/templates/titlebar/html/titlebar-pre.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="100002">
+  <set-property name="types"><![CDATA[htmlURL=/templates/layout/html/25_75.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="200002">
+  <set-property name="types"><![CDATA[wmlURL=/templates/page/wml/shared.jsp,htmlURL=/templates/page/html/shared.jsp]]></set-property>
+</add-item>
+
+<add-item item-descriptor="deviceOutputs" id="1500045">
+  <set-property name="types"><![CDATA[htmlURL=/MyTasksPortlet]]></set-property>
+</add-item>
+
+<!-- No items of type template -->
+
+<!-- 5 items of type folder -->
+
+<add-item item-descriptor="communityFolder" id="fld100001">
+  <set-property name="childItems"><![CDATA[100001,100002]]></set-property>
+  <set-property name="urlName"><![CDATA[root]]></set-property>
+  <set-property name="name"><![CDATA[BCC Community Folder]]></set-property>
+</add-item>
+
+<add-item item-descriptor="gearDefinitionFolder" id="fld200002">
+  <set-property name="childItems"><![CDATA[100002,100003,200001,300002,200002,600002,600003,800004,1100007,1800010,1900010]]></set-property>
+  <set-property name="urlName"><![CDATA[root]]></set-property>
+  <set-property name="name"><![CDATA[Default Gear Folder]]></set-property>
+</add-item>
+
+<add-item item-descriptor="pageFolder" id="fld200003">
+  <set-property name="urlName"><![CDATA[root]]></set-property>
+  <set-property name="name"><![CDATA[Default Page Folder]]></set-property>
+</add-item>
+
+<add-item item-descriptor="pageFolder" id="fld300003">
+  <set-property name="childItems"><![CDATA[100001,100003,100004,100005]]></set-property>
+  <set-property name="urlName"><![CDATA[ATG_Biz_UI_PF]]></set-property>
+  <set-property name="name"><![CDATA[ATG BCC PF]]></set-property>
+</add-item>
+
+<add-item item-descriptor="pageFolder" id="fld300004">
+  <set-property name="childItems"><![CDATA[100002]]></set-property>
+  <set-property name="urlName"><![CDATA[ATG_Admin_PF]]></set-property>
+  <set-property name="name"><![CDATA[ATG Admin PF]]></set-property>
+</add-item>
+
+</import-items>
+
+</gsa-template>
+<!-- @version $Id: //product/BIZUI/version/10.1.1/data/portal.xml#1 $$Change: 690623 $-->
