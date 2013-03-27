@@ -61,19 +61,7 @@ if (System.env['BUILD_NUMBER']) {
  * A gradle custom task for generating gradle install scripts so that the user
  * of the repo does not need to install gradle
 */
-task wrapper(type: Wrapper) {
+task wrapper(type: Wrapper, description: "Generates gradle wrapper scripts") {
   gradleVersion = '1.4'
   jarFile = 'config/gradle/wrapper/gradle-wrapper.jar'
-}
-
-
-
-task olle << {
-  glasir.model.webModules.each { 
-    println ""
-    println "NAME:  ${it.uri}"
-    println "PATH:  ${it.dir}"
-    println "ISATG: ${it.isAtgCore}"
-  }
-
 }

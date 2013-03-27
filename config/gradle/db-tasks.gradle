@@ -1,6 +1,6 @@
 import com.iteego.glasir.build.api.tasks.*
 
-task createManagementChangesets(type: CreateChangesets) {
+task createManagementChangesets(type: CreateChangesets, description: "Creates database and data change sets for management node") {
   description = "Creates glasir.db change sets and import definition and extracts required file assets."
 
   mainModuleName = "node.admin.development"
@@ -24,7 +24,7 @@ task createManagementChangesets(type: CreateChangesets) {
   ]
 }
 
-task createProductionChangesets(type: CreateChangesets) {
+task createProductionChangesets(type: CreateChangesets, description: "Creates database and data change sets for production node") {
   description = "Like createManagementChangesets but with instance type \"production\" and another main module."
 
   mainModuleName = "node.store.development"
@@ -45,13 +45,13 @@ task createProductionChangesets(type: CreateChangesets) {
   ]
 }
 
-task listAddons(type:ListAvailableAddons) {}
+task listAddons(type:ListAvailableAddons, description: "Lists available/installed ATG addons") {}
 
-task listProducts(type:ListAvailableProducts) {
+task listProducts(type:ListAvailableProducts, description: "Lists available/installed ATG products") {
   description = "List Installed ATG Products"
 }
 
-task listProductionDatasources(type:ListDatasources) {
+task listProductionDatasources(type: ListDatasources, description: "Lists data sources for production node type") {
   mainModuleName = "node.store.development"
 
   selectedAddons = [
@@ -66,7 +66,7 @@ task listProductionDatasources(type:ListDatasources) {
   ]
 }
 
-task listManagementDatasources(type:ListDatasources) {
+task listManagementDatasources(type: ListDatasources, description: "Lists data sources for management node type") {
   mainModuleName = "node.admin.development"
 
   selectedAddons = [
