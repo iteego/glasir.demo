@@ -22,6 +22,8 @@ task createManagementChangesets(type: CreateChangesets, description: "Creates da
     "dcsui_siteadmin_versioned",
     "storefront_demo"
   ]
+
+  substitutions = ["merchandisingPassword":"merchandising", "adminPublishingPassword":"admin"]  
 }
 
 task createProductionChangesets(type: CreateChangesets, description: "Creates database and data change sets for production node") {
