@@ -5,22 +5,18 @@ task createManagementChangesets(type: CreateChangesets, description: "Creates da
 
   mainModuleName = "node.admin.dev"
 
-  selectedInstanceTypes = ["management"]
+  selectedInstanceTypes = ["management","production"]
 
   importFileName = "versioned-imports.txt"
 
   selectedAddons = [
-    "dcs-csr",
     "international",
     "merch",
     "previewOnManagement",
     "prodLock",
     "queryConsoleOnManagement",
-    "storefront-full-setup",
     "switchingdatasource",
-
-    "dcsui_siteadmin_versioned",
-    "storefront_demo"
+    "dcsui_siteadmin_versioned"
   ]
 
   substitutions = ["merchandisingPassword":"merchandising", "adminPublishingPassword":"admin"]  
@@ -36,12 +32,10 @@ task createProductionChangesets(type: CreateChangesets, description: "Creates da
   importFileName = "non-versioned-imports.txt"
 
   selectedAddons = [
-    "dcs-csr",
     "international",
     "merch",
-    "previewOnManagement",
     "prodLock",
-    "queryConsoleOnManagement",
+    "storefront_demo",
     "storefront-full-setup",
     "switchingdatasource"
   ]
@@ -57,12 +51,10 @@ task listProductionDatasources(type: ListDatasources, description: "Lists data s
   mainModuleName = "node.store.dev"
 
   selectedAddons = [
-    "dcs-csr",
     "international",
     "merch",
-    "previewOnManagement",
     "prodLock",
-    "queryConsoleOnManagement",
+    "storefront_demo",
     "storefront-full-setup",
     "switchingdatasource"
   ]
@@ -72,13 +64,12 @@ task listManagementDatasources(type: ListDatasources, description: "Lists data s
   mainModuleName = "node.admin.dev"
 
   selectedAddons = [
-    "dcs-csr",
     "international",
     "merch",
     "previewOnManagement",
     "prodLock",
     "queryConsoleOnManagement",
-    "storefront-full-setup",
-    "switchingdatasource"
+    "switchingdatasource",
+    "dcsui_siteadmin_versioned"
   ]
 }
