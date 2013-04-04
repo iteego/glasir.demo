@@ -12,12 +12,23 @@ DataImport: Repository:/atg/web/viewmapping/ViewMappingRepository Path:/AssetUI/
 DataImport: Repository:/atg/web/viewmapping/ViewMappingRepository Path:/DPS-UI/install/data/viewmapping.xml Module:DPS-UI
 DataImport: Repository:/atg/web/viewmapping/ViewMappingRepository Path:/DPS-UI/install/data/examples.xml Module:DPS-UI
 DataImport: Repository:/atg/userprofiling/PersonalizationRepository Path:/DCS/install/data/initial-segment-lists.xml Module:DPS.Versioned
-DataImport: Repository:/atg/multisite/SiteRepository Path:/CommerceReferenceStore/Store/EStore/Versioned/install/data/international-sites-templates.xml Module:Store.EStore.Versioned,Store.EStore.International
+DataImport: Repository:/atg/commerce/pricing/priceLists/PriceLists Path:/CommerceReferenceStore/Store/Storefront/data/pricelists.xml Module:Store.EStore.Versioned
+DataImport: Repository:/atg/store/stores/StoreRepository Path:/CommerceReferenceStore/Store/Storefront/data/stores.xml Module:Store.EStore.Versioned
+DataImport: Repository:/atg/commerce/catalog/ProductCatalog Path:/CommerceReferenceStore/Store/Storefront/data/catalog-i18n.xml Module:Store.EStore.International.Versioned
+DataImport: Repository:/atg/commerce/pricing/priceLists/PriceLists Path:/CommerceReferenceStore/Store/Storefront/data/pricelists-i18n.xml Module:Store.EStore,Store.EStore.International.Versioned
+DataImport: Repository:/atg/multisite/SiteRepository Path:/CommerceReferenceStore/Store/Storefront/data/sites.xml Module:Store.EStore.Versioned
+DataImport: Repository:/atg/seo/SEORepository Path:/CommerceReferenceStore/Store/Storefront/data/seotags-i18n.xml Module:Store.EStore.International.Versioned
+DataImport: Repository:/atg/multisite/SiteRepository Path:/CommerceReferenceStore/Store/Storefront/data/sites-i18n.xml Module:Store.EStore.International.Versioned
+DataImport: Repository:/atg/commerce/catalog/ProductCatalog Path:/CommerceReferenceStore/Store/Storefront/data/promos-i18n.xml Module:Store.EStore.International.Versioned
+DataImport: Repository:/atg/commerce/inventory/InventoryRepository Path:/CommerceReferenceStore/Store/Storefront/data/inventory.xml Module:Store.EStore.Versioned
+DataImport: Repository:/atg/commerce/gifts/Giftlists Path:/CommerceReferenceStore/Store/Storefront/data/wishlists.xml Module:Store.EStore.Versioned
+DataImport: Repository:/atg/commerce/claimable/ClaimableRepository Path:/CommerceReferenceStore/Store/Storefront/data/claimable-i18n.xml Module:Store.EStore.Versioned
+DataImport: Repository:/atg/store/stores/StoreRepository Path:/CommerceReferenceStore/Store/Storefront/data/storetext-i18n.xml Module:Store.EStore.International.VersionedDataImport: Repository:/atg/multisite/SiteRepository Path:/CommerceReferenceStore/Store/EStore/Versioned/install/data/international-sites-templates.xml Module:Store.EStore.Versioned,Store.EStore.International
 DataImport: Repository:/atg/web/viewmapping/ViewMappingRepository Path:/CommerceReferenceStore/Store/EStore/Versioned/install/data/viewmapping.xml Module:Store.EStore.Versioned,DCS-UI
-DataImport: Repository:/atg/web/viewmapping/ViewMappingRepository Path:/CommerceReferenceStore/Store/EStore/Versioned/install/data/site-template-viewmapping.xml Module:SiteAdmin.Versioned,Store.EStore.Versioned
 DataImport: Repository:/atg/web/viewmapping/ViewMappingRepository Path:/CommerceReferenceStore/Store/EStore/International/Versioned/install/data/viewmapping.xml Module:Store.EStore.International.Versioned,DCS-UI
 DataImport: Repository:/atg/userprofiling/InternalProfileRepository Path:/SiteAdmin/Versioned/install/data/siteadmin-role-data.xml Module:DSS.InternalUsers
 DataImport: Repository:/atg/web/viewmapping/ViewMappingRepository Path:/SiteAdmin/Versioned/install/data/viewmapping.xml Module:SiteAdmin.Versioned
+DataImport: Repository:/atg/web/viewmapping/ViewMappingRepository Path:/CommerceReferenceStore/Store/EStore/Versioned/install/data/site-template-viewmapping.xml Module:SiteAdmin.Versioned,Store.EStore.Versioned
 DataImport: Repository:/atg/multisite/SiteRepository Path:/SiteAdmin/Versioned/install/data/templates.xml Module:SiteAdmin.Versioned
 DataImport: Repository:/atg/web/viewmapping/ViewMappingRepository Path:/DCS-UI/install/data/viewmapping.xml Module:DCS-UI
 DataImport: Repository:/atg/web/viewmapping/ViewMappingRepository Path:/DCS-UI/install/data/viewmapping_preview.xml Module:DCS-UI
