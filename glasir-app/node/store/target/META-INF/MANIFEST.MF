@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+ATG-Required: node.store DCS.PublishingAgent
+ATG-Config-Path: config
+

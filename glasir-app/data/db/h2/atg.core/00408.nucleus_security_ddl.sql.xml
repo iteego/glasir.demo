@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+  <changeSet id="00408.nucleus_security_ddl.sql.xml" author="glasir" context="all">
+    <preConditions>
+      <not>
+        <tableExists tableName="bogus_precondition_table_name" />
+      </not>
+    </preConditions>
+    <sql><![CDATA[
+
+
+--  @version $Id: //product/DAS/version/10.1.1/templates/DAS/sql/nucleus_security_ddl.xml#1 $$Change: 690623 $
+
+create table das_nucl_sec (
+	func_name	varchar2(254)	not null,
+	policy	varchar2(254)	not null
+,constraint func_name_pk primary key (func_name));
+
+create table das_ns_acls (
+	id	varchar2(254)	not null,
+	index_num	number(10)	not null,
+	acl	varchar2(254)	not null
+,constraint id_index_pk primary key (id,index_num));
+]]>
+  </sql>
+    <rollback />
+  </changeSet>
+</databaseChangeLog>

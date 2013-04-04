@@ -1,4 +1,4 @@
-Top level module list: node.admin.development
+Top level module list: node.admin.dev
 
 DataImport: Repository:/atg/web/viewmapping/ViewMappingRepository Path:/BCC/install/data/viewmapping.xml Module:BCC
 DataImport: Repository:/atg/userprofiling/InternalProfileRepository Path:/Publishing/base/install/epub-role-data.xml Module:DSS.InternalUsers

@@ -11,7 +11,7 @@
   <set-property name="roles"><![CDATA[epubUser,100004]]></set-property>
   <set-property name="locale"><![CDATA[en_US]]></set-property>
   <set-property name="email"><![CDATA[merchandising@example.com]]></set-property>
-  <set-property name="password"><![CDATA[${merchandisingPassword}]]></set-property>
+  <set-property name="password"><![CDATA[merchandising]]></set-property>
   <set-property name="passwordSalt"><![CDATA[merchandising]]></set-property>
   <set-property name="member"><![CDATA[true]]></set-property>
   <set-property name="login"><![CDATA[merchandising]]></set-property>

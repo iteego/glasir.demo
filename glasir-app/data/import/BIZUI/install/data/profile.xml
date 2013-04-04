@@ -118,7 +118,7 @@
   <set-property name="parentOrganization" value="root"/> 
   <set-property name="ancestors" value="root"/>
   <set-property name="roles" value="$tag:portal-admin-role$,epubSuperAdmin"/>
-  <set-property name="password"><![CDATA[${adminPublishingPassword}]]></set-property>
+  <set-property name="password"><![CDATA[admin]]></set-property>
   <set-property name="passwordSalt"><![CDATA[admin]]></set-property>
   <set-property name="member"><![CDATA[true]]></set-property>
   <set-property name="login"><![CDATA[admin]]></set-property>

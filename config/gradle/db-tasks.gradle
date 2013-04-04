@@ -5,7 +5,7 @@ task createManagementChangesets(type: CreateChangesets, description: "Creates da
 
   mainModuleName = "node.admin.dev"
 
-  selectedInstanceTypes = ["management","production"]
+  selectedInstanceTypes = ["management"]
 
   importFileName = "versioned-imports.txt"
 
@@ -16,7 +16,9 @@ task createManagementChangesets(type: CreateChangesets, description: "Creates da
     "prodLock",
     "queryConsoleOnManagement",
     "switchingdatasource",
-    "dcsui_siteadmin_versioned"
+    "dcsui_siteadmin_versioned",
+    "storefront_demo",
+    "storefront-full-setup"
   ]
 
   substitutions = ["merchandisingPassword":"merchandising", "adminPublishingPassword":"admin"]  

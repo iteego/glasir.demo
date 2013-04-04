@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+  <changeSet id="00531.workflow_ddl.sql.xml" author="glasir" context="all">
+    <preConditions>
+      <not>
+        <tableExists tableName="bogus_precondition_table_name" />
+      </not>
+    </preConditions>
+    <sql><![CDATA[
+
+
+--  @version $Id: //product/Publishing/version/10.1.1/pws/sql/xml/workflow_ddl.xml#1 $
+--     Collective workflow process instances.  These instances represent  
+--     all subjects (processes) going through the workflow process.  
+
+create table epub_coll_workflow (
+	id	varchar2(40)	not null,
+	workflow_name	varchar2(255)	null,
+	modification_time	number(19)	null,
+	segment_name	varchar2(255)	null,
+	creator_id	varchar2(40)	null,
+	state	varchar2(16)	null,
+	num_retries	number(10)	null
+,constraint epub_coll_wf_pkey primary key (id));
+
+--     Individual workflow process instances.  Each of these instances  
+--     represents a single subject (process) going through the workflow  
+--     process.  
+
+create table epub_ind_workflow (
+	id	varchar2(40)	not null,
+	workflow_name	varchar2(255)	null,
+	modification_time	number(19)	null,
+	segment_name	varchar2(255)	null,
+	creator_id	varchar2(40)	null,
+	state	varchar2(16)	null,
+	process_id	varchar2(40)	not null,
+	num_retries	number(10)	null
+,constraint epub_ind_wf_pkey primary key (id)
+,constraint epub_ind_wf_fkey foreign key (process_id) references epub_process (process_id));
+
+create index epub_indworkflow_x on epub_ind_workflow (process_id);
+
+--     Indices are needed on these tables to prevent table locks from being  
+--     acquired.  The primary key indices do not prevent this since they  
+--     are on multiple keys.  
+-- 
+--     String context variables associated with individual workflow  
+--     process instances.  
+
+create table epub_workflow_strs (
+	id	varchar2(40)	not null,
+	tag	varchar2(25)	not null,
+	context_str	varchar2(255)	null
+,constraint epub_wf_str_pkey primary key (id,tag)
+,constraint epub_wf_str_fkey foreign key (id) references epub_ind_workflow (id));
+
+--     Boolean context variables associated with individual workflow  
+--     process instances.  
+
+create table epub_workflow_bls (
+	id	varchar2(40)	not null,
+	tag	varchar2(25)	not null,
+	context_bool	number(1)	null
+,constraint epub_wf_bl_pkey primary key (id,tag)
+,constraint epub_wf_bl_fkey foreign key (id) references epub_ind_workflow (id));
+
+--     Long context variables associated with individual workflow process  
+--     instances.  
+
+create table epub_workflow_lngs (
+	id	varchar2(40)	not null,
+	tag	varchar2(25)	not null,
+	context_long	number(19)	null
+,constraint epub_wf_lng_pkey primary key (id,tag)
+,constraint epub_wf_lng_fkey foreign key (id) references epub_ind_workflow (id));
+
+--     Double context variables associated with individual workflow  
+--     process instances.  
+
+create table epub_workflow_dbls (
+	id	varchar2(40)	not null,
+	tag	varchar2(25)	not null,
+	context_dbl	number(15,4)	null
+,constraint epub_wf_dbl_pkey primary key (id,tag)
+,constraint epub_wf_dbl_fkey foreign key (id) references epub_ind_workflow (id));
+
+--     Date context variables associated with individual workflow process  
+--     instances.  
+
+create table epub_workflow_dats (
+	id	varchar2(40)	not null,
+	tag	varchar2(25)	not null,
+	context_date	date	null
+,constraint epub_wf_dat_pkey primary key (id,tag)
+,constraint epub_wf_dat_fkey foreign key (id) references epub_ind_workflow (id));
+
+--     Repository item context variables associated with individual   
+--     workflow process instances.  
+
+create table epub_workflow_ris (
+	id	varchar2(40)	not null,
+	tag	varchar2(255)	not null,
+	context_item	varchar2(255)	null
+,constraint epub_wf_ri_pkey primary key (id,tag)
+,constraint epub_wf_ri_fkey foreign key (id) references epub_ind_workflow (id));
+
+--     Virtual file context variables associated with individual   
+--     workflow process instances.  
+
+create table epub_workflow_vfs (
+	id	varchar2(40)	not null,
+	tag	varchar2(25)	not null,
+	context_file	varchar2(255)	null
+,constraint epub_wf_vf_pkey primary key (id,tag)
+,constraint epub_wf_vf_fkey foreign key (id) references epub_ind_workflow (id));
+
+--     Workflow infos.  Each of these infos corresponds to a workflow  
+--     process definition created via the ACC UI.  
+
+create table epub_workflow_info (
+	id	varchar2(40)	not null,
+	workflow_name	varchar2(255)	null,
+	workflow_status	number(10)	null,
+	modification_time	number(19)	null,
+	creation_time	number(19)	null,
+	author	varchar2(254)	null,
+	last_modified_by	varchar2(254)	null,
+	psm_version	number(10)	null,
+	wdl	blob	null
+,constraint epub_wf_info_pkey primary key (id));
+
+create table epub_wf_mig_info (
+	id	varchar2(40)	not null,
+	workflow_info_id	varchar2(40)	not null,
+	workflow_name	varchar2(255)	null,
+	modification_time	number(19)	null,
+	psm_version	number(10)	null,
+	migration_status	number(10)	null,
+	wdl	blob	null
+,constraint epub_wf_mig_inf_pk primary key (id)
+,constraint epub_wf_mig_inf_fk foreign key (workflow_info_id) references epub_workflow_info (id));
+
+create index epub_wf_mig_info_x on epub_wf_mig_info (workflow_info_id);
+
+create table epub_wf_mg_inf_seg (
+	id	varchar2(40)	not null,
+	idx	number(10)	not null,
+	segment_name	varchar2(255)	null
+,constraint epub_wf_mginfs_pk primary key (id,idx)
+,constraint epub_wf_mginfs_fk foreign key (id) references epub_wf_mig_info (id));
+
+--     Workflow template infos.  Each of these infos corresponds to a  
+--     workflow template process definition created via the ACC UI.  
+
+create table epub_wf_templ_info (
+	id	varchar2(40)	not null,
+	template_name	varchar2(255)	null,
+	modification_time	number(19)	null,
+	creation_time	number(19)	null,
+	author	varchar2(254)	null,
+	last_modified_by	varchar2(254)	null,
+	wdl	blob	null
+,constraint epub_tl_info_pkey primary key (id));
+
+--     Pending collective transitions associated with workflow processes.  
+
+create table epub_wf_coll_trans (
+	id	varchar2(40)	not null,
+	workflow_name	varchar2(255)	null,
+	modification_time	number(19)	null,
+	server_id	varchar2(40)	null,
+	event_type	varchar2(255)	null,
+	segment_name	varchar2(255)	null,
+	state	varchar2(16)	null,
+	coll_workflow_id	varchar2(40)	null,
+	step	number(10)	null,
+	current_count	number(10)	null,
+	last_query_id	varchar2(40)	null,
+	message_bean	blob	null
+,constraint epub_wf_ctran_pkey primary key (id)
+,constraint epub_wf_ctran_fkey foreign key (coll_workflow_id) references epub_coll_workflow (id));
+
+create index epub_wfcolltrans_x on epub_wf_coll_trans (coll_workflow_id);
+
+--     Pending individual transitions associated with workflow processes.  
+
+create table epub_wf_ind_trans (
+	id	varchar2(40)	not null,
+	workflow_name	varchar2(255)	null,
+	modification_time	number(19)	null,
+	server_id	varchar2(40)	null,
+	event_type	varchar2(255)	null,
+	segment_name	varchar2(255)	null,
+	state	varchar2(16)	null,
+	last_query_id	varchar2(40)	null,
+	message_bean	blob	null
+,constraint epub_wf_itran_pkey primary key (id));
+
+--     Pending deletions associated with workflow processes.  
+
+create table epub_wf_deletion (
+	id	varchar2(40)	not null,
+	workflow_name	varchar2(255)	null,
+	modification_time	number(19)	null
+,constraint epub_wf_del_pkey primary key (id));
+
+create table epub_wf_del_segs (
+	id	varchar2(40)	not null,
+	idx	number(10)	not null,
+	segment_name	varchar2(255)	null
+,constraint epub_wf_delsg_pkey primary key (id,idx)
+,constraint epub_wf_delsg_fkey foreign key (id) references epub_wf_deletion (id));
+
+--     Pending migrations associated with workflow processes.  
+
+create table epub_wf_migration (
+	id	varchar2(40)	not null,
+	workflow_name	varchar2(255)	null,
+	old_mod_time	number(19)	null,
+	new_mod_time	number(19)	null,
+	migration_info_id	varchar2(40)	null
+,constraint epub_wf_mig_pkey primary key (id));
+
+create table epub_wf_mig_segs (
+	id	varchar2(40)	not null,
+	idx	number(10)	not null,
+	segment_name	varchar2(255)	null
+,constraint epub_wf_migsg_pkey primary key (id,idx)
+,constraint epub_wf_migsg_fkey foreign key (id) references epub_wf_migration (id));
+
+--     Table that keeps track of how the various workflow process manager  
+--     servers are classified.  
+
+create table epub_wf_server_id (
+	server_id	varchar2(40)	not null,
+	server_type	number(10)	not null
+,constraint epub_wf_server_pk primary key (server_id));
+]]>
+  </sql>
+    <rollback />
+  </changeSet>
+</databaseChangeLog>

@@ -1,4 +1,4 @@
-Top level module list: node.store.development
+Top level module list: node.store.dev
 
 DataImport: Repository:/atg/commerce/pricing/priceLists/PriceLists Path:/CommerceReferenceStore/Store/Storefront/data/pricelists.xml Module:Store.EStore
 DataImport: Repository:/atg/store/stores/StoreRepository Path:/CommerceReferenceStore/Store/Storefront/data/stores.xml Module:Store.EStore
@@ -15,4 +15,3 @@ DataImport: Repository:/atg/commerce/order/OrderRepository Path:/CommerceReferen
 DataImport: Repository:/atg/commerce/order/OrderRepository Path:/CommerceReferenceStore/Store/Storefront/data/orders-i18n.xml Module:DCS.AbandonedOrderServices,Store.EStore
 DataImport: Repository:/atg/commerce/claimable/ClaimableRepository Path:/CommerceReferenceStore/Store/Storefront/data/claimable-i18n.xml Module:Store.EStore
 DataImport: Repository:/atg/store/stores/StoreRepository Path:/CommerceReferenceStore/Store/Storefront/data/storetext-i18n.xml Module:Store.EStore.International
-DataImport: Repository:/atg/svc/option/OptionRepository Path:/CommerceReferenceStore/Store/DCS-CSR/data/storefront_initial_data.xml Module:Service.Framework
