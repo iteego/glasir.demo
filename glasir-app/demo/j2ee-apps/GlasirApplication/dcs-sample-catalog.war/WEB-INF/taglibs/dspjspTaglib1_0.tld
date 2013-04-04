@@ -62,6 +62,27 @@
     </attribute>
   </tag>
 
+
+  <!-- renderContentItem tag -->
+  <tag>
+    <name>renderContentItem</name>
+    <tag-class>atg.taglib.dspjsp.RenderContentItemProxy</tag-class>
+    <body-content>JSP</body-content>
+
+    <attribute>
+      <name>contentItem</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+
+    <attribute>
+      <name>webapp</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+
 <!-- importbean tag -->
   <tag>
     <name>importbean</name>
@@ -5875,46 +5896,148 @@
   </tag>
 
 
-  <tag>
-    <name>layerBundle</name>
-    <tag-class>atg.taglib.dspjsp.LayerBundleTag</tag-class>
-    <body-content>empty</body-content>
-    <description>
-        Loads a resource bundle and stores it in the named scoped variable or
-        the bundle configuration variable
+	<tag>
+		<name>layerBundle</name>
+		<tag-class>atg.taglib.dspjsp.SetLayeredBundleTag</tag-class>
+		<body-content>empty</body-content>
+		<description>
+			Loads a resource bundle and stores it in the named scoped variable or
+			the bundle configuration variable
     </description>
-    <attribute>
-        <name>basename</name>
-        <required>true</required>
-        <rtexprvalue>true</rtexprvalue>
-        <description>
-Resource bundle base name. This is the bundle's
-fully-qualified resource name, which has the same
-form as a fully-qualified class name, that is, it uses
-"." as the package component separator and does not
-have any file type (such as ".class" or ".properties")
-suffix.
+		<attribute>
+			<name>basename</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				Resource bundle base name. This is the bundle's
+				fully-qualified resource name, which has the same
+				form as a fully-qualified class name, that is, it uses
+				"." as the package component separator and does not
+				have any file type (such as ".class" or ".properties")
+				suffix.
         </description>
-    </attribute>
-    <attribute>
-        <name>var</name>
-        <required>false</required>
-        <rtexprvalue>false</rtexprvalue>
-        <description>
-Name of the exported scoped variable which stores
-the i18n localization context of type
-javax.servlet.jsp.jstl.fmt.LocalizationC
-ontext.
+		</attribute>
+		<attribute>
+			<name>var</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<description>
+				Name of the exported scoped variable which stores
+				the i18n localization context of type
+				javax.servlet.jsp.jstl.fmt.LocalizationC
+				ontext.
         </description>
-    </attribute>
-    <attribute>
-        <name>scope</name>
-        <required>false</required>
-        <rtexprvalue>false</rtexprvalue>
-        <description>
-Scope of var or the localization context
-configuration variable.
+		</attribute>
+		<attribute>
+			<name>scope</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<description>
+				Scope of var or the localization context
+				configuration variable.
         </description>
-    </attribute>
-  </tag>
+		</attribute>
+		<attribute>
+			<name>locale</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				Locale string is expected to be one of a few
+				formats: an ISO Language Code or an ISO Language Code and an ISO
+				Country Code speparated by an underbar '_' or a dash '-' or ISO
+				Language Code, an ISO Country Code, and a Variant Code all
+				separated by an underbar or a dash.
+        </description>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>setLayeredBundle</name>
+		<tag-class>atg.taglib.dspjsp.SetLayeredBundleTag</tag-class>
+		<body-content>empty</body-content>
+		<description>
+			Loads a resource bundle and stores it in the named scoped variable or
+			the bundle configuration variable
+    </description>
+		<attribute>
+			<name>basename</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				Resource bundle base name. This is the bundle's
+				fully-qualified resource name, which has the same
+				form as a fully-qualified class name, that is, it uses
+				"." as the package component separator and does not
+				have any file type (such as ".class" or ".properties")
+				suffix.
+        </description>
+		</attribute>
+		<attribute>
+			<name>var</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<description>
+				Name of the exported scoped variable which stores
+				the i18n localization context of type
+				javax.servlet.jsp.jstl.fmt.LocalizationC
+				ontext.
+        </description>
+		</attribute>
+		<attribute>
+			<name>scope</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<description>
+				Scope of var or the localization context
+				configuration variable.
+        </description>
+		</attribute>
+		<attribute>
+			<name>locale</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				Locale string is expected to be one of a few
+				formats: an ISO Language Code or an ISO Language Code and an ISO
+				Country Code speparated by an underbar '_' or a dash '-' or ISO
+				Language Code, an ISO Country Code, and a Variant Code all
+				separated by an underbar or a dash.
+        </description>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>layeredBundle</name>
+		<tag-class>atg.taglib.dspjsp.LayeredBundleTag</tag-class>
+		<body-content>JSP</body-content>
+		<description>
+			Loads a resource bundle to be used by its tag body
+    </description>
+		<attribute>
+			<name>basename</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				Resource bundle base name. This is the bundle's
+				fully-qualified resource name, which has the same
+				form as a fully-qualified class name, that is, it uses
+				"." as the package component separator and does not
+				have any file type (such as ".class" or ".properties")
+				suffix.
+        </description>
+		</attribute>
+		<attribute>
+			<name>locale</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				Locale string is expected to be one of a few
+				formats: an ISO Language Code or an ISO Language Code and an ISO
+				Country Code speparated by an underbar '_' or a dash '-' or ISO
+				Language Code, an ISO Country Code, and a Variant Code all
+				separated by an underbar or a dash.
+        </description>
+		</attribute>
+	</tag>
+  
 </taglib>
