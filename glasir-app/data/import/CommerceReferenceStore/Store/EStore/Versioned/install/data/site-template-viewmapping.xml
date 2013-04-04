@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE gsa-template SYSTEM "dynamosystemresource:/atg/dtds/gsa/gsa_1.0.dtd">
+<gsa-template>
+<import-items>
+
+<!-- ============================== -->
+<!-- ===     SITE ID EDITOR     === -->
+<!-- ============================== -->
+
+<add-item item-descriptor="propertyViewMapping" id="SaPvmTwoCharEditor">
+  <set-property name="propertyView"><![CDATA[SaPvTwoCharEditor]]></set-property>
+  <set-property name="description"><![CDATA[Site Group Name propertyViewMapping]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="SaPvTwoCharEditor">
+  <set-property name="name"><![CDATA[Property View which allows a maximum of 2 chars]]></set-property>
+  <set-property name="description"><![CDATA[DefaultEditor with a 2 char max]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[string]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.DefaultEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="attributes"><![CDATA[inputFieldMaxlength=SaPvadTwoCharInputFieldMaxLength,inputFieldMaxWidth=AmPvadIntInputFieldMaxWidth]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyViewAttributeDefinition" id="SaPvadTwoCharInputFieldMaxLength">
+  <set-property name="defaultValue"><![CDATA[2]]></set-property>
+  <set-property name="description"><![CDATA[Max number of two characters in the input field]]></set-property>
+</add-item>
+
+<!-- Create the default category CRS tab -->
+<add-item item-descriptor="itemViewMapping" id="SaIvmSiteDefaultCategoryCRS">
+  <set-property name="name"><![CDATA[AssetManager default site itemViewMapping]]></set-property>
+  <set-property name="displayName"><![CDATA[SaIvmSiteDefaultCategoryCRS.displayName]]></set-property>  
+  <set-property name="view"><![CDATA[SaIvBaseSiteConfig]]></set-property>
+  <set-property name="propertyMappings" add="true"><![CDATA[defaultCountry=SaPvmTwoCharEditor,defaultLanguage=SaPvmTwoCharEditor]]></set-property>
+  <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvCrsResourceBundle,includedCategories=SaAvDefCatIncludedCatsCRS]]></set-property>
+</add-item>
+
+<add-item item-descriptor="attributeValue" id="SaAvDefCatIncludedCatsCRS">
+  <set-property name="value"><![CDATA[categoryPresentation,categoryAppearance]]></set-property>
+</add-item>
+
+</import-items>
+
+<!-- Update the default site category itemMapping with its own tab. -->
+<update-item item-descriptor="itemMapping" id="SaImSiteDefaultCategory">
+  <set-property name="viewMappings" add="true"><![CDATA[SaIvmSiteDefaultCategoryCRS]]></set-property>
+</update-item>
+
+<!-- Update the default site category 'Ops' itemViewMapping's includedCategories value. -->
+<update-item item-descriptor="attributeValue" id="SaAvDefCatIncCatsOps" skip-update="true">
+  <set-property name="value" add="true" value=",categoryLocalization,categoryEmail"></set-property>
+</update-item>
+
+</gsa-template>
+<!-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.1.1/EStore/Versioned/install/data/site-template-viewmapping.xml#1 $$Change: 690623 $ -->

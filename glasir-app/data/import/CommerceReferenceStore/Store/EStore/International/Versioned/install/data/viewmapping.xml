@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE gsa-template SYSTEM "dynamosystemresource:/atg/dtds/gsa/gsa_1.0.dtd">
+<gsa-template>
+<import-items>
+
+<!-- ======================================================================= -->
+<!-- View mappings for the store.estore.international.Versioned module       -->
+<!-- ======================================================================= -->
+
+<!-- ======================================================================= -->
+<!-- Customization for storeText item in StoreRepository to specify the      -->
+<!-- text field length.                                                      -->
+<!-- ======================================================================= -->
+	
+<add-item item-descriptor="itemMapping" id="aMgrImEditTextTemplate">
+  <set-property name="name"><![CDATA[AssetManager]]></set-property>
+  <set-property name="description"><![CDATA[Commerce Reference Store mapping]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/store/stores/StoreRepository]]></set-property>
+  <set-property name="itemName"><![CDATA[storeText]]></set-property>
+  <set-property name="formHandler"><![CDATA[crsAmFh]]></set-property>
+  <set-property name="viewMappings"><![CDATA[aMgrIvmEditCRSText]]></set-property>
+  <set-property name="attributes"><![CDATA[resourceBundle=aMgrAvCrsResourceBundle]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewMapping" id="aMgrIvmEditCRSText">
+  <set-property name="name"><![CDATA[Commerce Reference Store repository text editor]]></set-property>
+  <set-property name="description"><![CDATA[Commerce Reference Store repository text editor]]></set-property>
+  <set-property name="displayName"><![CDATA[aMgrIvmCRSText.displayName]]></set-property>	
+  <set-property name="view"><![CDATA[aMgrIvCRSText]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[defaultText=aMgrPvmEditCRSTextTemplate]]></set-property>
+  <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvCrsResourceBundle]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemView" id="aMgrIvCRSText">
+  <set-property name="name"><![CDATA[Commerce Reference Store]]></set-property>
+  <set-property name="description"><![CDATA[Commerce Reference Store itemView]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="applicationName"><![CDATA[Commerce Reference Store]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.DefaultAssetViewPanel]]></set-property>
+</add-item>
+
+<!-- ======================================================================= -->
+<!-- Customization for storeTextTranslation item in StoreRepository to       -->
+<!-- specify displayName and key fields length.                              -->
+<!-- ======================================================================= -->
+	
+<add-item item-descriptor="itemMapping" id="aMgrImEditStoreTextTranslationTemplate">
+  <set-property name="name"><![CDATA[AssetManager]]></set-property>
+  <set-property name="description"><![CDATA[Commerce Reference StoreTextTranslation mapping]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="itemPath"><![CDATA[/atg/store/stores/StoreRepository]]></set-property>
+  <set-property name="itemName"><![CDATA[storeTextTranslation]]></set-property>
+  <set-property name="formHandler"><![CDATA[crsAmFh]]></set-property>
+  <set-property name="viewMappings"><![CDATA[aMgrIvmEditCRSStoreTextTranslation]]></set-property>
+  <set-property name="attributes"><![CDATA[resourceBundle=aMgrAvCrsResourceBundle]]></set-property>
+</add-item>
+
+<add-item item-descriptor="itemViewMapping" id="aMgrIvmEditCRSStoreTextTranslation">
+  <set-property name="name"><![CDATA[CRS repository store text translation editor]]></set-property>
+  <set-property name="description"><![CDATA[Commerce Reference Store repository store text translation editor]]></set-property>
+  <set-property name="displayName"><![CDATA[aMgrIvmCRSTranslationText.displayName]]></set-property>    
+  <set-property name="view"><![CDATA[aMgrIvCRSText]]></set-property>
+  <set-property name="propertyMappings"><![CDATA[text=aMgrPvmEditCRSTextTemplate]]></set-property>
+  <set-property name="attributeValues"><![CDATA[resourceBundle=aMgrAvCrsResourceBundle]]></set-property>
+</add-item>	
+	
+	
+<!-- =============================== -->
+<!--  TRANSLATIONS PROPERTY MAPPINGS -->
+<!-- =============================== -->
+	
+<add-item item-descriptor="propertyViewMapping" id="aMgrPvmTranslations">
+  <set-property name="propertyView"><![CDATA[aMgrPvTranslations]]></set-property>
+  <set-property name="description"><![CDATA[Translations PropertyViewMapping]]></set-property>
+</add-item>
+
+<add-item item-descriptor="propertyView" id="aMgrPvTranslations">
+  <set-property name="name"><![CDATA[AssetManager Translations propertyView]]></set-property>
+  <set-property name="description"><![CDATA[AssetManager Translations propertyView]]></set-property>
+  <set-property name="mode"><![CDATA[AmMmDef]]></set-property>
+  <set-property name="type"><![CDATA[map]]></set-property>
+  <set-property name="viewComponent"><![CDATA[atg.assetmanager.editor.view.property.collection.ReferenceCollectionEditor]]></set-property>
+  <set-property name="isComponentPropertyView"><![CDATA[false]]></set-property>
+  <set-property name="isDefault"><![CDATA[false]]></set-property>
+  <set-property name="attributes"><![CDATA[useColumnHeaders=AmPvadRefMapColumnHeaders,addItemsToTop=AmPvadRefMapAddToTop,customAssetPropertyService=aMgrPvCatalogAssetPropServ]]></set-property>
+  <set-property name="containerFamily"><![CDATA[CollectionEditor]]></set-property>
+</add-item>
+
+<!-- Custom catalog property service -->
+<add-item item-descriptor="propertyViewAttributeDefinition" id="aMgrPvCatalogAssetPropServ">
+  <set-property name="defaultValue"><![CDATA[atg/remote/multisite/service/InternationalStoreCatalogAssetPropertyService]]></set-property>
+</add-item>
+
+</import-items>
+
+<!-- Update a category's advanced itemViewMapping propertyMappings attribute with a custom propertyViewMapping -->
+<update-item item-descriptor="itemViewMapping" id="AmIvmCatAdv">
+  <set-property name="propertyMappings" add="true"><![CDATA[translations=aMgrPvmTranslations]]></set-property>
+</update-item>
+
+<!-- Update the product's advanced itemViewMapping propertyMappings attribute with a custom propertyViewMapping -->
+<update-item item-descriptor="itemViewMapping" id="AmIvmPrdtAdv">
+  <set-property name="propertyMappings" add="true"><![CDATA[translations=aMgrPvmTranslations]]></set-property>
+</update-item>
+
+<!-- Update the sku advanced itemViewMapping propertyMappings attribute with a custom propertyViewMapping -->
+<update-item item-descriptor="itemViewMapping" id="AmIvmSkuAdv">
+  <set-property name="propertyMappings" add="true"><![CDATA[translations=aMgrPvmTranslations]]></set-property>
+</update-item>
+
+</gsa-template>
+<!-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.1.1/EStore/International/Versioned/install/data/viewmapping.xml#1 $$Change: 690623 $-->
+
