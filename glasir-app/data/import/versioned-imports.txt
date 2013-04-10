@@ -2,6 +2,35 @@ Top level module list: node.admin.development
 
 DataImport: Repository:/atg/web/viewmapping/ViewMappingRepository Path:/BCC/install/data/viewmapping.xml Module:BCC
 DataImport: Repository:/atg/userprofiling/InternalProfileRepository Path:/Publishing/base/install/epub-role-data.xml Module:DSS.InternalUsers
+
+
+# gammalt
+# DataImport: Repository:/atg/commerce/catalog/ProductCatalog Path:/Store/Storefront/data/out-versioned-no18n-catalog.xml Module:Store.EStore.Versioned
+# DataImport: Repository:/atg/commerce/pricing/priceLists/PriceLists Path:/Store/Storefront/data/out-versioned-pricelists.xml Module:Store.EStore.Versioned
+# DataImport: Repository:/atg/store/stores/StoreRepository Path:/Store/Storefront/data/versioned-stores.xml Module:Store.EStore.Versioned
+
+# från importStoreManagement.sh
+# $DYNAMO_HOME/bin/startSQLRepository -m Store.EStore.Versioned -m Store.EStore.International -repository /atg/commerce/catalog/ProductCatalog -import $DYNAMO_HOME/../CommerceReferenceStore/Store/Storefront/data/catalog-i18n-versioned.xml -workspace initiali18nCatalog -comment initiali18nCtlg -user publishing
+# $DYNAMO_HOME/bin/startSQLRepository -m Store.EStore.Versioned -repository /atg/commerce/pricing/priceLists/PriceLists -import $DYNAMO_HOME/../CommerceReferenceStore/Store/Storefront/data/pricelists.xml -workspace initialPriceList -comment initialPriceList -user publishing
+# $DYNAMO_HOME/bin/startSQLRepository -m Store.EStore.Versioned -repository /atg/store/stores/StoreRepository -import $DYNAMO_HOME/../CommerceReferenceStore/Store/Storefront/data/stores.xml -workspace initialpStore -comment initialStore -user publishing
+# $DYNAMO_HOME/bin/startSQLRepository -m DCS-UI -m Store.EStore.Versioned -repository /atg/web/viewmapping/ViewMappingRepository -import $DYNAMO_HOME/../CommerceReferenceStore/Store/EStore/Versioned/install/data/viewmapping.xml -workspace initialVwMapping -comment initialVwMapping -user publishing
+# $DYNAMO_HOME/bin/startSQLRepository -m DAS.Versioned -m Store.EStore.Versioned -repository /atg/seo/SEORepository -import $DYNAMO_HOME/../CommerceReferenceStore/Store/Storefront/data/seotags.xml -workspace initialSEOTags -comment initialSEOTags -user publishing
+
+# nytt
+DataImport: Repository:/atg/commerce/catalog/ProductCatalog Path:/CommerceReferenceStore/Store/Storefront/data/catalog-i18n-versioned.xml Module:Store.EStore.Versioned,Store.EStore.International 
+DataImport: Repository:/atg/commerce/pricing/priceLists/PriceLists Path:/CommerceReferenceStore/Store/Storefront/data/pricelists.xml Module:Store.EStore.Versioned
+DataImport: Repository:/atg/store/stores/StoreRepository Path:/CommerceReferenceStore/Store/Storefront/data/stores.xml Module:Store.EStore.Versioned
+DataImport: Repository:/atg/web/viewmapping/ViewMappingRepository Path:/CommerceReferenceStore/Store/EStore/Versioned/install/data/viewmapping.xml Module:DCS-UI,Store.EStore.Versioned
+DataImport: Repository:/atg/seo/SEORepository Path:/CommerceReferenceStore/Store/Storefront/data/seotags.xml Module:DAS.Versioned,Store.EStore.Versioned
+
+
+# FILER MÅSTE KOPIERAS MANUELLT TILL data/import/ från atg root:
+# /CommerceReferenceStore/Store/Storefront/data/catalog-i18n-versioned.xml
+# /CommerceReferenceStore/Store/EStore/Versioned/install/data/viewmapping.xml
+# /CommerceReferenceStore/Store/Storefront/data/seotags.xml
+
+
+# genererat
 DataImport: Repository:/atg/epub/file/PublishingFileRepository Path:/Publishing/base/install/epub-file-repository-data.xml Module:Publishing.base
 RepoLoader:files="DSS/atg/registry/data/scenarios/DSS/*.sdl & DSS/atg/registry/data/scenarios/recorders/*.sdl" fileMapping="/atg/epub/file/typemappers/ScenarioTypeMapping" folderMapping="/atg/epub/file/typemappers/FileFolderTypeMapping"
 DataImport: Repository:/atg/portal/framework/PortalRepository Path:/BIZUI/install/data/portal.xml Module:BIZUI

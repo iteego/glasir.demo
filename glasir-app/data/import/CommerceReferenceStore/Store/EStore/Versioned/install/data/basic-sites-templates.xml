@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE gsa-template SYSTEM "dynamosystemresource:/atg/dtds/gsa/gsa_1.0.dtd">
+<gsa-template>
+  <update-item item-descriptor="siteConfiguration" id="basicSite">
+    <set-property name="siteTemplate"><![CDATA[sa_default_category]]></set-property>
+  </update-item>
+</gsa-template>
+<!-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.1.1/EStore/Versioned/install/data/basic-sites-templates.xml#1 $$Change: 690623 $-->
