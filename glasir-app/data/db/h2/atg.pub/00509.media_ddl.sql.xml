@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+  <changeSet id="00509.media_ddl.sql.xml" author="glasir" context="all">
+    <preConditions>
+      <not>
+        <tableExists tableName="bogus_precondition_table_name" />
+      </not>
+    </preConditions>
+    <sql><![CDATA[
+
+
+--     @version $Id: //product/DAS/version/10.1.1/templates/DAS/sql/media_ddl.xml#1 $$Change: 690623 $  
+--     media content repository tables.  
+
+create table media_folder (
+	folder_id	varchar2(40)	not null,
+	version	integer	not null,
+	creation_date	date	null,
+	description	varchar2(254)	null,
+	name	varchar2(254)	not null,
+	path	varchar2(254)	not null,
+	parent_folder_id	varchar2(40)	null
+,constraint md_folder_p primary key (folder_id)
+,constraint md_foldparnt_fl_f foreign key (parent_folder_id) references media_folder (folder_id));
+
+create index fldr_mfldrid_idx on media_folder (parent_folder_id);
+
+create index md_fldr_path_idx on media_folder (path);
+
+create table media_base (
+	media_id	varchar2(40)	not null,
+	version	integer	not null,
+	creation_date	date	null,
+	description	varchar2(254)	null,
+	name	varchar2(254)	not null,
+	path	varchar2(254)	not null,
+	parent_folder_id	varchar2(40)	not null,
+	media_type	integer	null
+,constraint media_p primary key (media_id)
+,constraint medparnt_fl_f foreign key (parent_folder_id) references media_folder (folder_id));
+
+create index med_mfldrid_idx on media_base (parent_folder_id);
+
+create index media_path_idx on media_base (path);
+
+create index media_type_idx on media_base (media_type);
+
+create table media_ext (
+	media_id	varchar2(40)	not null,
+	url	varchar2(254)	not null
+,constraint media_ext_p primary key (media_id)
+,constraint medxtmed_d_f foreign key (media_id) references media_base (media_id));
+
+create table media_bin (
+	media_id	varchar2(40)	not null,
+	length	integer	not null,
+	last_modified	date	not null,
+	data	blob	not null
+,constraint media_bin_p primary key (media_id)
+,constraint medbnmed_d_f foreign key (media_id) references media_base (media_id));
+
+create table media_txt (
+	media_id	varchar2(40)	not null,
+	length	integer	not null,
+	last_modified	date	not null,
+	data	clob	not null
+,constraint media_txt_p primary key (media_id)
+,constraint medtxtmed_d_f foreign key (media_id) references media_base (media_id));
+]]>
+  </sql>
+    <rollback />
+  </changeSet>
+</databaseChangeLog>

@@ -1,4 +1,0 @@
-Manifest-Version: 1.0
-ATG-Required: node.store-target
-ATG-Config-Path: config
-

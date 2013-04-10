@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+  <changeSet id="00530.internal_user_profile_ddl.sql.xml" author="glasir" context="all">
+    <preConditions>
+      <not>
+        <tableExists tableName="bogus_precondition_table_name" />
+      </not>
+    </preConditions>
+    <sql><![CDATA[
+
+
+--  @version $Id: //product/Publishing/version/10.1.1/pws/sql/xml/internal_user_profile_ddl.xml#1 $
+--     The tables here are for the user profile extensions needed by EPublishing.  
+
+create table epub_int_user (
+	user_id	varchar2(40)	not null,
+	title	varchar2(255)	null,
+	expert	number(1)	null,
+	def_listing	number(19)	null,
+	allow_applets	number(1)	null
+,constraint epub_int_user_pk primary key (user_id));
+
+create table epub_int_prj_hist (
+	user_id	varchar2(40)	not null,
+	sequence_num	number(19)	not null,
+	project_id	varchar2(40)	not null
+,constraint user_i_prj_hist_pk primary key (user_id,sequence_num)
+,constraint user_i_prj_hist_fk foreign key (user_id) references dpi_user (id));
+]]>
+  </sql>
+    <rollback />
+  </changeSet>
+</databaseChangeLog>

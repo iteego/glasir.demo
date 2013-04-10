@@ -1,3 +1,0 @@
-Manifest-Version: 1.0
-ATG-Required: node demo DCS.PublishingAgent
-ATG-Config-Path: config

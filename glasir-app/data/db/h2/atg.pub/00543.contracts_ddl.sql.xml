@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+  <changeSet id="00543.contracts_ddl.sql.xml" author="glasir" context="all">
+    <preConditions>
+      <not>
+        <tableExists tableName="bogus_precondition_table_name" />
+      </not>
+    </preConditions>
+    <sql><![CDATA[
+
+
+--  @version $Id: //product/DCS/version/10.1.1/templates/DCS/sql/contracts_ddl.xml#1 $$Change: 690623 $
+-- Normally, catalog_id and price_list_id would reference the appropriate table it is possible not to use those tables though, which is why the reference is not included
+
+create table dbc_contract (
+	contract_id	varchar2(40)	not null,
+	display_name	varchar2(254)	null,
+	creation_date	timestamp	null,
+	start_date	timestamp	null,
+	end_date	timestamp	null,
+	creator_id	varchar2(40)	null,
+	negotiator_info	varchar2(40)	null,
+	price_list_id	varchar2(40)	null,
+	catalog_id	varchar2(40)	null,
+	term_id	varchar2(40)	null,
+	comments	varchar2(254)	null
+,constraint dbc_contract_p primary key (contract_id));
+
+create table dbc_contract_term (
+	terms_id	varchar2(40)	not null,
+	terms	clob	null,
+	disc_percent	number(19,7)	null,
+	disc_days	integer	null,
+	net_days	integer	null
+,constraint dbc_contract_ter_p primary key (terms_id));
+]]>
+  </sql>
+    <rollback />
+  </changeSet>
+</databaseChangeLog>

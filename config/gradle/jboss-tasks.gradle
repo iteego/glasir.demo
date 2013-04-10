@@ -39,29 +39,33 @@ To your "gradle startDevStore" command. Usually, module flavors are used for dif
   for example, use "gradle startDevStore -Pflavor=oracle" to bypass the default h2 database choice.
 */
 task startDevStore(type: RunAtgOnJBoss, dependsOn: [startDatabase], description: "Starts the development store node in NoPublishing (standalone) mode") {
-    jBossHome           jBossRoot
-    //note that ATG adds 'servers' to these two so that the resulting 
-    //server dir is "$serverHome/servers/$serverName"
-    serverName          storeServerName
-    serverHome          "$jBossRoot/ATG-Data"
+  jBossHome           jBossRoot
+  //note that ATG adds 'servers' to these two so that the resulting 
+  //server dir is "$serverHome/servers/$serverName"
+  serverName          storeServerName
+  serverHome          "$jBossRoot/ATG-Data"
 
-    modules             moduleWithFlavors("node.store.dev")
-    glasirDevMode       true
+  modules             moduleWithFlavors("node.store.dev")
+  glasirDevMode       true
 
-    doFirst {
-        println "Starting dev store node with modules: ${modules}"
-    }
+  doFirst {
+      println "Starting dev store node with modules: ${modules}"
+  }
 }
 
 task startDevStoreTarget(type: RunAtgOnJBoss, dependsOn: [startDatabase], description: "Starts the development store node in publishing target mode") {
-    jBossHome     jBossRoot
-    serverName    storeServerName
-    modules       moduleWithFlavors("node.store-target.dev")
-    glasirDevMode false
+  jBossHome           jBossRoot
+  //note that ATG adds 'servers' to these two so that the resulting 
+  //server dir is "$serverHome/servers/$serverName"
+  serverName          storeServerName
+  serverHome          "$jBossRoot/ATG-Data"
 
-    doFirst {
-        println "Starting dev store publishing target node with modules: ${modules}"
-    }
+  modules             moduleWithFlavors("node.store.target")
+  glasirDevMode       true
+
+  doFirst {
+      println "Starting dev store publishing target node with modules: ${modules}"
+  }
 }
 
 /*
@@ -71,10 +75,14 @@ To your "gradle startDevStore" command. Usually, module flavors are used for dif
   for example, use "gradle startDevAdmin -Pflavor=oracle" to bypass the default h2 database choice.
 */
 task startDevAdmin(type: RunAtgOnJBoss, dependsOn: [startDatabase], description: "Starts the development admin node") {
-  jBossHome     jBossRoot
-  serverName    adminServerName
-  modules       moduleWithFlavors("node.admin.dev")
-  glasirDevMode false
+  jBossHome           jBossRoot
+  //note that ATG adds 'servers' to these two so that the resulting 
+  //server dir is "$serverHome/servers/$serverName"
+  serverName          adminServerName
+  serverHome          "$jBossRoot/ATG-Data"
+
+  modules             moduleWithFlavors("node.admin.dev")
+  glasirDevMode       true
   
   doFirst { 
     println "Starting dev admin node with modules: ${modules}"
@@ -107,10 +115,5 @@ task stopAdmin(type: StopJBossInstance, dependsOn: []) {
 */
 
 def moduleWithFlavors(String module) {
-  String result = module
-  if (project.hasProperty('flavor')) {
-    result += ".${project.flavor}"      
-  }
-  
-  result
+  project.hasProperty('flavor') ? "${module}.${project.flavor}" : module     
 }
