@@ -9,8 +9,17 @@ task createManagementChangesets(type: CreateChangesets, description: "Creates da
 
   importFileName = "versioned-imports.txt"
 
+//Unique addon IDs: [abandoned_orders, switchingdatasource, storefront_demo, international, 
+//                   fulfillment, storefront_no_publishing, storefront-full-setup, merch]
+//FORCE ADDON dcsui_siteadmin_versioned "Add commerce data to SiteAdmin" from group siteadmin "SiteAdmin Addons :"
+//FORCE ADDON fulfillment_using_atg "Fulfillment using ATG Platform" from group store_fufillment "Choose ATG Commerce Reference Store Fulfillment AddOns :"
+
   selectedAddons = [
-    "international",
+"abandoned_orders", "switchingdatasource", "storefront_demo", "international", 
+"fulfillment", "storefront_no_publishing", "storefront-full-setup", "merch",
+"dcsui_siteadmin_versioned", "fulfillment_using_atg"
+
+/*    "international",
     "merch",
     "previewOnManagement",
     "prodLock",
@@ -18,10 +27,12 @@ task createManagementChangesets(type: CreateChangesets, description: "Creates da
     "switchingdatasource",
     "dcsui_siteadmin_versioned",
     "storefront_demo",
-    "storefront-full-setup"
+    "storefront-full-setup" */
   ]
 
   substitutions = ["merchandisingPassword":"merchandising", "adminPublishingPassword":"admin"]  
+
+  useXml = false
 }
 
 task createProductionChangesets(type: CreateChangesets, description: "Creates database and data change sets for production node") {
