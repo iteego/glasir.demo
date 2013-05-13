@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE gsa-template SYSTEM "dynamosystemresource:/atg/dtds/gsa/gsa_1.0.dtd">
+<gsa-template>
+
+<!-- Update the default site category 'Ops' itemViewMapping's includedCategories value. -->
+<update-item item-descriptor="attributeValue" id="SaAvDefCatIncCatsOps" skip-update="true">
+  <set-property name="value" add="true" value=",categoryCommerce"></set-property>
+</update-item>
+
+</gsa-template>
+<!-- @version $Id: //product/DCS-UI/version/10.1.1/SiteAdmin/Versioned/src/install/data/viewmapping.xml#1 $$Change: 690623 $ -->

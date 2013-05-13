@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+  <changeSet id="00418.DSS.das_mappers.sql.xml" author="glasir" context="all">
+    <preConditions>
+      <not>
+        <tableExists tableName="bogus_precondition_table_name" />
+      </not>
+    </preConditions>
+    <sql><![CDATA[
+
+
+--  @version $Id: //product/DSS/version/10.1.1/templates/DSS/sql/das_mappers.xml#1 $$Change: 690623 $
+
+create table dss_das_event (
+	id	varchar2(32)	not null,
+	timestamp	date	null,
+	sessionid	varchar2(100)	null,
+	parentsessionid	varchar2(100)	null);
+
+create table dss_das_form (
+	id	varchar2(32)	not null,
+	clocktime	date	null,
+	sessionid	varchar2(100)	null,
+	parentsessionid	varchar2(100)	null,
+	formname	varchar2(254)	null);
+]]>
+  </sql>
+    <rollback />
+  </changeSet>
+</databaseChangeLog>

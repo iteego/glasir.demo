@@ -14,4 +14,4 @@ packages/
 *.iml
 *.ipr
 *.iws
-
+/glasir-app/data/backup/

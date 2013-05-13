@@ -45,6 +45,11 @@ task createProductionChangesets(type: CreateChangesets, description: "Creates da
   importFileName = "non-versioned-imports.txt"
 
   selectedAddons = [
+"abandoned_orders", "switchingdatasource", "storefront_demo", "international", 
+"fulfillment", "storefront_no_publishing", "storefront-full-setup", "merch",
+"dcsui_siteadmin_versioned", "fulfillment_using_atg" ]
+
+/*  selectedAddons = [
     "international",
     "merch",
     "prodLock",
@@ -52,6 +57,9 @@ task createProductionChangesets(type: CreateChangesets, description: "Creates da
     "storefront-full-setup",
     "switchingdatasource"
   ]
+*/
+
+  useXml = false
 }
 
 task listAddons(type:ListAvailableAddons, description: "Lists available/installed ATG addons") {}
