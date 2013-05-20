@@ -3,6 +3,14 @@ import com.iteego.glasir.build.api.tasks.*
 task createManagementChangesets(type: CreateChangesets, description: "Creates database and data change sets for management node") {
   description = "Creates glasir.db change sets and import definition and extracts required file assets."
 
+  selectedProducts = [
+      //"commerce"
+      //"endeca",
+      "platform",
+      //"siteadmin",
+      "store"
+  ]
+
   mainModuleName = "node.admin.dev"
 
   selectedInstanceTypes = ["management"]
@@ -37,6 +45,14 @@ task createManagementChangesets(type: CreateChangesets, description: "Creates da
 
 task createProductionChangesets(type: CreateChangesets, description: "Creates database and data change sets for production node") {
   description = "Like createManagementChangesets but with instance type \"production\" and another main module."
+
+  selectedProducts = [
+      //"commerce"
+      //"endeca",
+      "platform",
+      //"siteadmin",
+      "store"
+  ]
 
   mainModuleName = "node.store.dev"
 
