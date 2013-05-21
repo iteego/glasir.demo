@@ -9,7 +9,7 @@
     <sql><![CDATA[
 
 
---  @version $Id: //product/DCS/version/10.1.1/templates/DCS/sql/product_catalog_ddl.xml#1 $$Change: 690623 $
+--  @version $Id: //product/DCS/version/10.2/templates/DCS/sql/product_catalog_ddl.xml#2 $$Change: 788278 $
 
 create table dcs_folder (
 	folder_id	varchar2(40)	not null,
@@ -120,12 +120,15 @@ create table dcs_product (
 	product_type	integer	null,
 	admin_display	varchar2(254)	null,
 	nonreturnable	number(1,0)	null,
+	discountable	number(1)	null,
 	brand	varchar2(254)	null,
 	disallow_recommend	number(1,0)	null,
-	manufacturer	varchar2(40)	null
+	manufacturer	varchar2(40)	null,
+	online_only	number(1,0)	null
 ,constraint dcs_product_p primary key (product_id)
 ,constraint dcs_product_c check (nonreturnable in (0,1))
-,constraint dcs_product1_c check (disallow_recommend in (0,1)));
+,constraint dcs_product1_c check (disallow_recommend in (0,1))
+,constraint dcs_product2_c check (online_only in (0,1)));
 
 create index prd_end_dte_idx on dcs_product (end_date);
 
@@ -157,10 +160,13 @@ create table dcs_sku (
 	fulfiller	integer	null,
 	item_acl	varchar2(1024)	null,
 	nonreturnable	number(1,0)	null,
-	manuf_part_num	varchar2(254)	null
+	discountable	number(1)	null,
+	manuf_part_num	varchar2(254)	null,
+	online_only	number(1,0)	null
 ,constraint dcs_sku_p primary key (sku_id)
 ,constraint dcs_sku_c check (on_sale in (0,1))
-,constraint dcs_sku1_c check (nonreturnable in (0,1)));
+,constraint dcs_sku1_c check (nonreturnable in (0,1))
+,constraint dcs_sku2_c check (online_only in (0,1)));
 
 create index sku_end_dte_idx on dcs_sku (end_date);
 

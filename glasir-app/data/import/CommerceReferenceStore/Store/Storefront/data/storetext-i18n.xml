@@ -151,15 +151,15 @@
       <set-property name="translations"><![CDATA[de=detxt10080,es=es_xlatetxt10080]]></set-property>
     </add-item>
     <add-item id="detxt10080" item-descriptor="storeShortTextTranslation">
-      <set-property name="text"><![CDATA[F: Wie lauten Ihre Rückgabebedingungen?]]></set-property>
+      <set-property name="text"><![CDATA[F: Wie lauten Ihre Rücksendungsbedingungen?]]></set-property>
     </add-item>
     <add-item id="txt10090" item-descriptor="storeShortText">
       <set-property name="key"><![CDATA[company_help.answer2]]></set-property>
-      <set-property name="textDefault"><![CDATA[A: If you have your receipt or packing slip, you can return any unused or defective item <b>within 90 days</b> of the original purchase date for a full refund, minus shipping costs. If you do not have a receipt or packing slip, you will receive a merchandise credit for the item's current selling price. Returns are not accepted <b>after 90 days</b> from the purchase date.]]></set-property>
+      <set-property name="textDefault"><![CDATA[A: If you have your receipt or packing slip, you can return any unused or defective item <b>within 90 days</b> of the original purchase date for a refund. Returns are not accepted <b>after 90 days</b> from the purchase date.]]></set-property>
       <set-property name="translations"><![CDATA[de=detxt10090,es=es_xlatetxt10090]]></set-property>
     </add-item>
     <add-item id="detxt10090" item-descriptor="storeShortTextTranslation">
-      <set-property name="text"><![CDATA[A: Wenn Sie noch über die Quittung oder den Lieferschein verfügen, können Sie uns jeden ungenutzten oder defekten Artikel <b>innerhalb von 90 Tagen</b> ab Kaufdatum zurückschicken. Sie erhalten dann den vollen Kaufpreis abzüglich Versandkosten zurückerstattet. Haben Sie die Quittung oder den Lieferschein nicht mehr zur Hand, erhalten Sie eine Warengutschrift in Höhe des aktuellen Verkaufspreises des Artikels. Rücksendungen <b>nach 90 Tagen</b> ab Kaufdatum werden nicht akzeptiert.]]></set-property>
+      <set-property name="text"><![CDATA[A: Wenn Sie noch über die Quittung oder den Lieferschein verfügen, können Sie uns jeden unbenutzten oder defekten Artikel <b>innerhalb von 90 Tagen</b> ab Kaufdatum zurückschicken. Sie erhalten dann eine Rückerstattung. Rücksendungen <b>nach 90 Tagen</b> ab Kaufdatum werden nicht akzeptiert.]]></set-property>
     </add-item>
     <add-item id="txt10110" item-descriptor="storeShortText">
       <set-property name="key"><![CDATA[company_help.question3]]></set-property>
@@ -235,11 +235,11 @@
     </add-item>
     <add-item id="txt10180" item-descriptor="storeShortText">
       <set-property name="key"><![CDATA[company_returnPolicyPopup.text]]></set-property>
-      <set-property name="textDefault"><![CDATA[<p>If you have your receipt or packing slip, you can return any unused or defective item <b>within 90 days</b> of the original purchase date for a full refund, minus shipping costs. If you do not have a receipt or packing slip, you will receive a merchandise credit for the item's current selling price. Returns are not accepted <b>after 90 days</b> from the purchase date.</p>]]></set-property>
+      <set-property name="textDefault"><![CDATA[<p>If you have your receipt or packing slip, you can return any unused or defective item <b>within 90 days</b> of the original purchase date for a refund. Returns are not accepted <b>after 90 days</b> from the purchase date.</p>]]></set-property>
       <set-property name="translations"><![CDATA[de=detxt10180,es=es_xlatetxt10180]]></set-property>
     </add-item>
     <add-item id="detxt10180" item-descriptor="storeShortTextTranslation">
-      <set-property name="text"><![CDATA[<p>Wenn Sie über die Quittung oder den Lieferschein verfügen, können Sie uns jeden ungenutzten oder defekten Artikel <b>innerhalb von 90 Tagen</b> ab Kaufdatum zurückschicken. Für den Artikel erhalten Sie eine volle Rückerstattung  abzüglich der Versandkosten. Haben Sie die Quittung oder den Lieferschein nicht mehr zur Hand, erhalten Sie eine Warengutschrift in der Höhe des aktuellen ]]></set-property>
+      <set-property name="text"><![CDATA[<p> Wenn Sie noch über die Quittung oder den Lieferschein verfügen, können Sie uns jeden unbenutzten oder defekten Artikel <b>innerhalb von 90 Tagen</b> ab Kaufdatum zurückschicken. Sie erhalten dann eine Rückerstattung. Rücksendungen <b>nach 90 Tagen</b> ab Kaufdatum werden nicht akzeptiert.</p>]]></set-property>
     </add-item>
     <add-item id="txt10190" item-descriptor="storeShortText">
       <set-property name="key"><![CDATA[company_aboutUs.title]]></set-property>
@@ -663,7 +663,7 @@
       <set-property name="text"><![CDATA[P: ¿Cuál es su política de devoluciones?]]></set-property>
     </add-item>
     <add-item id="es_xlatetxt10090" item-descriptor="storeShortTextTranslation">
-      <set-property name="text"><![CDATA[R: Si tiene el recibo o la nota de embalaje, puede devolver cualquier artículo no usado o defectuoso en un plazo <b>de 90 días</b> de la fecha de compra original para un reembolso completo, menos el costo de envío. Si no tiene recibo o nota de embalaje, recibirá un abono de mercancía por el precio de venta actual del artículo. Las devoluciones no se aceptan <b>una vez transcurridos 90 días</b> desde la fecha de compra.]]></set-property>
+      <set-property name="text"><![CDATA[R: Si tiene el recibo o la nota de embalaje, puede devolver cualquier artículo no usado o defectuoso <b>en un plazo de 90 días</b> a partir de la fecha de compra original y se le reembolsará su importe. No se aceptan devoluciones <b>una vez transcurridos 90 días</b> desde la fecha de compra.]]></set-property>
     </add-item>
     <add-item id="es_xlatetxt10110" item-descriptor="storeShortTextTranslation">
       <set-property name="text"><![CDATA[P: ¿Cómo actualizo mi dirección de correo electrónico?]]></set-property>
@@ -684,22 +684,22 @@
       <set-property name="text"><![CDATA[R: Para anular su suscripción a la lista de correos de {storeName}, haga clic en el enlace de la parte inferior de los mensajes de marketing que reciba desde {storeName}. Tenga en cuenta, que incluso si elige no recibir correos o pide la eliminación de su nombre de la lista de correos de marketing de {storeName}, podrá recibir confirmaciones de compras realizadas con tarjetas de regalo en nuestro sitio web, confirmaciones de recepción de preguntas enviadas u otros correos de gestión. También puede conectarse, editar su perfil y anular la selección de la casilla "Enviarme correos electrónicos".]]></set-property>
     </add-item>
     <add-item id="es_xlatetxt10271" item-descriptor="storeShortTextTranslation">
-      <set-property name="text"><![CDATA[<p>Envío por transporte terrestre</p><p>UPS entregará los artículos disponibles para su envío inmediato<br/>en un plazo de 3 a 5 días laborales, con las tarifas que se indican a continuación. Tenga en cuenta<br/>que la entrega de mercancía que requiera manipulación especial<br/>tardará aproximadamente dos semanas más.</p><p>Para órdenes por un importe máximo de $14,99, la tarifa de envío es de $4,75.<br/>Para órdenes por un importe entre 15 y $49,99, la tarifa de envío es de $5,95.<br/>Para órdenes por un importe mínimo de $50, la tarifa de envío es de $6,50.</p><p>Envío en 2 días</p><p>UPS entregará los artículos disponibles para su envío inmediato<br/>en un plazo de dos días laborables por una tarifa única de $9,50.</p><p>Envío al día siguiente</p><p>UPS entregará los artículos disponibles para su envío inmediato<br/>al día siguiente, por una tarifa única de $18,95.</p>]]></set-property>
+      <set-property name="text"><![CDATA[<h3>Envío por transporte terrestre</h3><p>UPS entregará los artículos disponibles para su envío inmediato<br/>en un plazo de 3 a 5 días laborales, con las tarifas que se indican a continuación. Tenga en cuenta<br/>que la entrega de mercancía que requiera manipulación especial<br/>tardará aproximadamente dos semanas más.</p><p>Para órdenes por un importe máximo de $14,99, la tarifa de envío es de $4,75.<br/>Para órdenes por un importe entre 15 y $49,99, la tarifa de envío es de $5,95.<br/>Para órdenes por un importe mínimo de $50, la tarifa de envío es de $6,50.</p><h3>Envío en 2 días</h3><p>UPS entregará los artículos disponibles para su envío inmediato<br/>en un plazo de dos días laborables por una tarifa única de $9,50.</p><h3>Envío al día siguiente</h3><p>UPS entregará los artículos disponibles para su envío inmediato<br/>al día siguiente, por una tarifa única de $18,95.</p>]]></set-property>
     </add-item>
     <add-item id="es_xlatetxt10272" item-descriptor="storeShortTextTranslation">
-      <set-property name="text"><![CDATA[<p>Envío por transporte terrestre</p><p>UPS entregará los artículos disponibles para su envío inmediato<br/>en un plazo de 3 a 5 días laborales, con las tarifas que se indican a continuación. Tenga en cuenta<br/>que la entrega de mercancía que requiera manipulación especial<br/>tardará aproximadamente dos semanas más.</p><p>Para órdenes por un importe máximo de 14,99 euros, la tarifa de envío es de 4,75 euros.<br/>Para órdenes por un importe entre 15 y 49,99 euros, la tarifa de envío es de 5,95 euros.<br/>Para órdenes por un importe mínimo de 50 euros, la tarifa de envío es de 6,50 euros.</p><p>Envío en 2 días</p><p>UPS entregará los artículos disponibles para su envío inmediato<br/>en un plazo de dos días laborables por una tarifa única de 9,50 euros.</p><p>Envío al día siguiente</p><p>UPS entregará los artículos disponibles para su envío inmediato<br/>al día siguiente, por una tarifa única de 18,95 euros.</p>]]></set-property>
+      <set-property name="text"><![CDATA[<h3>Envío por transporte terrestre</h3><p>UPS entregará los artículos disponibles para su envío inmediato<br/>en un plazo de 3 a 5 días laborales, con las tarifas que se indican a continuación. Tenga en cuenta<br/>que la entrega de mercancía que requiera manipulación especial<br/>tardará aproximadamente dos semanas más.</p><p>Para órdenes por un importe máximo de 14,99 euros, la tarifa de envío es de 4,75 euros.<br/>Para órdenes por un importe entre 15 y 49,99 euros, la tarifa de envío es de 5,95 euros.<br/>Para órdenes por un importe mínimo de 50 euros, la tarifa de envío es de 6,50 euros.</p><h3>Envío en 2 días</h3><p>UPS entregará los artículos disponibles para su envío inmediato<br/>en un plazo de dos días laborables por una tarifa única de 9,50 euros.</p><h3>Envío al día siguiente</h3><p>UPS entregará los artículos disponibles para su envío inmediato<br/>al día siguiente, por una tarifa única de 18,95 euros.</p>]]></set-property>
     </add-item>
     <add-item id="es_xlatetxt10273" item-descriptor="storeShortTextTranslation">
-      <set-property name="text"><![CDATA[<p>Envío por transporte terrestre</p><p>UPS entregará los artículos disponibles para su envío inmediato<br/>en un plazo de 3 a 5 días laborales, con las tarifas que se indican a continuación. Tenga en cuenta<br/>que la entrega de mercancía que requiera manipulación especial<br/>tardará aproximadamente dos semanas más.</p><p>Para órdenes por un importe máximo de $14,99, la tarifa de envío es de $4,75.<br/>Para órdenes por un importe entre 15 y $49,99, la tarifa de envío es de $5,95.<br/>Para órdenes por un importe mínimo de $50, la tarifa de envío es de $6,50.</p><p>Envío en 2 días</p><p>UPS entregará los artículos disponibles para su envío inmediato<br/>en un plazo de dos días laborables por una tarifa única de $9,50.</p><p>Envío al día siguiente</p><p>UPS entregará los artículos disponibles para su envío inmediato<br/>al día siguiente, por una tarifa única de $18,95.</p>]]></set-property>
+      <set-property name="text"><![CDATA[<h3>Envío por transporte terrestre</h3><p>UPS entregará los artículos disponibles para su envío inmediato<br/>en un plazo de 3 a 5 días laborales, con las tarifas que se indican a continuación. Tenga en cuenta<br/>que la entrega de mercancía que requiera manipulación especial<br/>tardará aproximadamente dos semanas más.</p><p>Para órdenes por un importe máximo de $14,99, la tarifa de envío es de $4,75.<br/>Para órdenes por un importe entre 15 y $49,99, la tarifa de envío es de $5,95.<br/>Para órdenes por un importe mínimo de $50, la tarifa de envío es de $6,50.</p><h3>Envío en 2 días</h3><p>UPS entregará los artículos disponibles para su envío inmediato<br/>en un plazo de dos días laborables por una tarifa única de $9,50.</p><h3>Envío al día siguiente</h3><p>UPS entregará los artículos disponibles para su envío inmediato<br/>al día siguiente, por una tarifa única de $18,95.</p>]]></set-property>
     </add-item>
     <add-item id="es_xlatetxt10180" item-descriptor="storeShortTextTranslation">
-      <set-property name="text"><![CDATA[<p>Si tiene el recibo o la nota de embalaje, puede devolver cualquier artículo no usado o defectuoso en un plazo <b>de 90 días</b> de la fecha de compra original para un reembolso completo, menos el costo de envío. Si no tiene recibo o nota de embalaje, recibirá un abono de mercancía por el precio de venta actual del artículo. Las devoluciones no se aceptan <b>una vez transcurridos 90 días</b> desde la fecha de compra.</p>]]></set-property>
+      <set-property name="text"><![CDATA[<p>Si tiene el recibo o la nota de embalaje, puede devolver cualquier artículo no usado o defectuoso <b>en un plazo de 90 días</b> a partir de la fecha de compra original y se le reembolsará su importe. No se aceptan devoluciones <b>una vez transcurridos 90 días</b> desde la fecha de compra.</p>]]></set-property>
     </add-item>
     <add-item id="es_xlatetxt10190" item-descriptor="storeShortTextTranslation">
       <set-property name="text"><![CDATA[Acerca de nosotros]]></set-property>
     </add-item>
     <add-item id="es_xlatetxt10200" item-descriptor="storeShortTextTranslation">
-      <set-property name="text"><![CDATA[{storeName} es la marca líder de mayor elegancia en moda para el hombre y mujer, basada en la búsqueda constante del diseño más original. Cada temporada, {storeName} diseña colecciones meticulosamente creadas de moda juvenil de alta costura, ropa para el trabajo e informal. Del producto a la experiencia de tienda, la marca {storeName} es la creadora de tendencias actuales de la moda.]]></set-property>
+      <set-property name="text"><![CDATA[{storeName} es la marca líder de mayor elegancia en moda para el hombre y la mujer, basada en la búsqueda constante del diseño más original. Cada temporada, {storeName} diseña colecciones meticulosamente creadas de moda juvenil de alta calidad, ropa para el trabajo e informal. Del producto a la experiencia de tienda, la marca {storeName} es la creadora de tendencias actuales de la moda.]]></set-property>
     </add-item>
     <add-item id="es_xlatetxt10203" item-descriptor="storeShortTextTranslation">
       <set-property name="text"><![CDATA[{storeName} es la marca líder de mobiliario de calidad y productos relacionados, basada por completo en el diseño más funcional. Cada temporada, {storeName} evalúa cuidadosamente a todos los fabricantes de muebles en busca de los productos de mayor calidad del mercado. De la cocina al salón, {storeName} es líder en calidad y valor excepcional.]]></set-property>
@@ -1219,6 +1219,36 @@
       <set-property name="key"><![CDATA[company.gadget.customer_service.byEmailTitle]]></set-property>
       <set-property name="type"><![CDATA[shortText]]></set-property>
     </add-item>
+    <add-item id="txt510692" item-descriptor="storeShortText">
+      <set-property name="textDefault"><![CDATA[Featured Items]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt410676,es=detxt410678]]></set-property>
+      <set-property name="key"><![CDATA[horizontal_record_spotlightTitle]]></set-property>
+      <set-property name="type"><![CDATA[shortText]]></set-property>
+    </add-item>
+    <add-item id="txt510693" item-descriptor="storeShortText">
+      <set-property name="textDefault"><![CDATA[Related Items]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt410679,es=detxt410680]]></set-property>
+      <set-property name="key"><![CDATA[product_spotlight_categoryRelatedProductsTitle]]></set-property>
+      <set-property name="type"><![CDATA[shortText]]></set-property>
+    </add-item>
+    <add-item id="txt520694" item-descriptor="storeShortText">
+      <set-property name="textDefault"><![CDATA[Recommended Items]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt410683,es=detxt410684]]></set-property>
+      <set-property name="key"><![CDATA[product_spotlight_categoryRecommendedProductsTitle]]></set-property>
+      <set-property name="type"><![CDATA[shortText]]></set-property>
+    </add-item>
+    <add-item id="txt510695" item-descriptor="storeShortText">
+      <set-property name="textDefault"><![CDATA[See All]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt410681,es=detxt410682]]></set-property>
+      <set-property name="key"><![CDATA[horizontal_record_spotlightSeeAllText]]></set-property>
+      <set-property name="type"><![CDATA[shortText]]></set-property>
+    </add-item>
+    <add-item id="txt510696" item-descriptor="storeShortText">
+      <set-property name="textDefault"><![CDATA[Featured Items]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt410685,es=detxt410686]]></set-property>
+      <set-property name="key"><![CDATA[productTargeter_spotlightTitle]]></set-property>
+      <set-property name="type"><![CDATA[shortText]]></set-property>
+    </add-item>
     <add-item id="detxt410659" item-descriptor="storeShortTextTranslation">
       <set-property name="text"><![CDATA[Kündigung]]></set-property>
       <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
@@ -1291,6 +1321,158 @@
       <set-property name="text"><![CDATA[Correo electrónico]]></set-property>
       <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
     </add-item>
+    <add-item id="detxt410676" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Ausgewählte Artikel]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt410678" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Artículos destacados]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt410679" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Zugehörige Artikel]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt410680" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Artículos relacionados]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt410681" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Alle anzeigen]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt410682" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Ver todo]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt410683" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Empfohlene Artikel]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt410684" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Artículos recomendados]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt410685" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Ausgewählte Artikel]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt410686" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Artículos destacados]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="txt510800" item-descriptor="storeShortText">
+      <set-property name="textDefault"><![CDATA[<b>Find answers</b> in our Knowledge Base.]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt410700,es=detxt410701]]></set-property>
+      <set-property name="key"><![CDATA[knowledgeBase.linkText]]></set-property>
+      <set-property name="type"><![CDATA[shortText]]></set-property>
+    </add-item>
+        <add-item id="detxt410700" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[<b>Antworten suchen</b> in unserer Knowledge Base.]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt410701" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[<b>Busque respuestas</b> en nuestra base de conocimientos.]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="txt510801" item-descriptor="storeShortText">
+      <set-property name="textDefault"><![CDATA[Did You Mean:]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt410702,es=detxt410703]]></set-property>
+      <set-property name="key"><![CDATA[knowledgeBase.labelCorrection]]></set-property>
+      <set-property name="type"><![CDATA[shortText]]></set-property>
+    </add-item>
+        <add-item id="detxt410702" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Meinten Sie:]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt410703" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Quería decir:]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="txt510802" item-descriptor="storeShortText">
+      <set-property name="textDefault"><![CDATA[Recommended Documents]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt410704,es=detxt410705]]></set-property>
+      <set-property name="key"><![CDATA[knowledgeBase.labelDocuments]]></set-property>
+      <set-property name="type"><![CDATA[shortText]]></set-property>
+    </add-item>
+        <add-item id="detxt410704" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Empfohlene Dokumente]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt410705" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Documentos recomendados]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="txt510803" item-descriptor="storeShortText">
+      <set-property name="textDefault"><![CDATA[More Results]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt410706,es=detxt410707]]></set-property>
+      <set-property name="key"><![CDATA[knowledgeBase.labelMoreResults]]></set-property>
+      <set-property name="type"><![CDATA[shortText]]></set-property>
+    </add-item>
+        <add-item id="detxt410706" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Weitere Ergebnisse]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt410707" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Más resultados]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="txt510804" item-descriptor="storeShortText">
+      <set-property name="textDefault"><![CDATA[No Results Found]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt410708,es=detxt410709]]></set-property>
+      <set-property name="key"><![CDATA[knowledgeBase.labelNoResults]]></set-property>
+      <set-property name="type"><![CDATA[shortText]]></set-property>
+    </add-item>
+    <add-item id="detxt410708" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Keine Ergebnisse gefunden]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt410709" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[No se ha encontrado ningún resultado]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="txt510805" item-descriptor="storeShortText">
+      <set-property name="textDefault"><![CDATA[Other Suggested Searches:]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt410710,es=detxt410711]]></set-property>
+      <set-property name="key"><![CDATA[knowledgeBase.labelRelated]]></set-property>
+      <set-property name="type"><![CDATA[shortText]]></set-property>
+    </add-item>
+    <add-item id="detxt410710" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Andere vorgeschlagene Suchen:]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt410711" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Otras sugerencias de búsqueda:]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="txt510806" item-descriptor="storeShortText">
+      <set-property name="textDefault"><![CDATA[Find]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt410712,es=detxt410713]]></set-property>
+      <set-property name="key"><![CDATA[knowledgeBase.labelSearch]]></set-property>
+      <set-property name="type"><![CDATA[shortText]]></set-property>
+    </add-item>
+    <add-item id="detxt410712" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Suchen]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt410713" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[Buscar]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="txt510807" item-descriptor="storeShortText">
+      <set-property name="textDefault"><![CDATA[Find in KnowledgeBase?]]></set-property>
+      <set-property name="translations"><![CDATA[de=detxt410714,es=detxt410715]]></set-property>
+      <set-property name="key"><![CDATA[knowledgeBase.labelQuery]]></set-property>
+      <set-property name="type"><![CDATA[shortText]]></set-property>
+    </add-item>
+    <add-item id="detxt410714" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[In Knowledge Base suchen?]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
+    <add-item id="detxt410715" item-descriptor="storeShortTextTranslation">
+      <set-property name="text"><![CDATA[¿Desea buscar en KnowledgeBase?]]></set-property>
+      <set-property name="type"><![CDATA[shortTextXlate]]></set-property>
+    </add-item>
   </import-items>
 </gsa-template>
-<!-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.1.1/Storefront/data/storetext-i18n.xml#1 $$Change: 690623 $-->
+<!-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.2/Storefront/data/storetext-i18n.xml#6 $$Change: 797502 $-->

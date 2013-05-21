@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+  <changeSet id="00300.DAS.id_generator.sql.xml" author="glasir" context="all">
+    <preConditions>
+      <not>
+        <tableExists tableName="bogus_precondition_table_name" />
+      </not>
+    </preConditions>
+    <sql><![CDATA[
+
+
+--  @version $Id: //product/DAS/version/10.1.1/templates/DAS/sql/id_generator.xml#1 $$Change: 690623 $
+
+create table das_id_generator (
+	id_space_name	varchar2(60)	not null,
+	seed	number(19,0)	not null,
+	batch_size	integer	not null,
+	prefix	varchar2(10)	null,
+	suffix	varchar2(10)	null
+,constraint das_id_generator_p primary key (id_space_name));
+
+create table das_secure_id_gen (
+	id_space_name	varchar2(60)	not null,
+	seed	number(19,0)	not null,
+	batch_size	integer	not null,
+	ids_per_batch	integer	null,
+	prefix	varchar2(10)	null,
+	suffix	varchar2(10)	null
+,constraint das_secure_id_ge_p primary key (id_space_name));
+]]>
+  </sql>
+    <rollback />
+  </changeSet>
+</databaseChangeLog>

@@ -9,7 +9,7 @@
     <sql><![CDATA[
 
 
---  @version $Id: //product/DCS/version/10.1.1/templates/DCS/sql/custom_catalog_ddl.xml#1 $$Change: 690623 $
+--  @version $Id: //product/DCS/version/10.2/templates/DCS/sql/custom_catalog_ddl.xml#1 $$Change: 735822 $
 
 create table dcs_catalog (
 	catalog_id	varchar2(40)	not null,

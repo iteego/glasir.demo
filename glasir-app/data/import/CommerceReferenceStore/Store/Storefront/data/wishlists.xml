@@ -2,7 +2,7 @@
 <!DOCTYPE gsa-template SYSTEM "dynamosystemresource:/atg/dtds/gsa/gsa_1.0.dtd">
 <gsa-template>
   <import-items>
-    <!-- Add gift-items for Stuart's wisth-list -->
+    <!-- Add gift-items for Stuart's wish-list -->
     <add-item id="xgi10009" item-descriptor="gift-item">
       <set-property name="description"><![CDATA[Cool sneaker for daily use.]]></set-property>
       <set-property name="quantityPurchased"><![CDATA[0]]></set-property>
@@ -393,4 +393,4 @@
       <set-property name="creationDate"><![CDATA[10/31/2011 11:57:25]]></set-property>
     </add-item>
   </import-items>
-</gsa-template><!-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.1.1/Storefront/data/wishlists.xml#1 $$Change: 690623 $-->
+</gsa-template><!-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.2/Storefront/data/wishlists.xml#2 $$Change: 788278 $-->

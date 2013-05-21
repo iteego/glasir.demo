@@ -1,20 +1,27 @@
 # DB init for "production", data source "switchingA"
+DataImport: Repository:/atg/commerce/custsvc/CsrRepository Path:/DCS/install/data/returnData.xml Module:DCS
 DataImport: Repository:/atg/commerce/pricing/priceLists/PriceLists Path:/CommerceReferenceStore/Store/Storefront/data/pricelists.xml Module:Store.EStore
-DataImport: Repository:/atg/store/stores/StoreRepository Path:/CommerceReferenceStore/Store/Storefront/data/stores.xml Module:Store.EStore
 DataImport: Repository:/atg/commerce/catalog/ProductCatalog Path:/CommerceReferenceStore/Store/Storefront/data/catalog-i18n.xml Module:Store.EStore.International
 DataImport: Repository:/atg/commerce/pricing/priceLists/PriceLists Path:/CommerceReferenceStore/Store/Storefront/data/pricelists-i18n.xml Module:Store.EStore, Store.EStore.International
 DataImport: Repository:/atg/multisite/SiteRepository Path:/CommerceReferenceStore/Store/Storefront/data/sites.xml Module:Store.EStore
-DataImport: Repository:/atg/seo/SEORepository Path:/CommerceReferenceStore/Store/Storefront/data/seotags-i18n.xml Module:Store.EStore.International
 DataImport: Repository:/atg/multisite/SiteRepository Path:/CommerceReferenceStore/Store/Storefront/data/sites-i18n.xml Module:Store.EStore.International
+DataImport: Repository:/atg/commerce/locations/LocationRepository Path:/CommerceReferenceStore/Store/Storefront/data/stores.xml Module:Store.EStore
+DataImport: Repository:/atg/commerce/locations/LocationRepository Path:/CommerceReferenceStore/Store/Storefront/data/stores-i18n.xml Module:Store.EStore.International
+DataImport: Repository:/atg/seo/SEORepository Path:/CommerceReferenceStore/Store/Storefront/data/seotags-i18n.xml Module:Store.EStore.International
 DataImport: Repository:/atg/commerce/catalog/ProductCatalog Path:/CommerceReferenceStore/Store/Storefront/data/promos-i18n.xml Module:Store.EStore.International
 DataImport: Repository:/atg/commerce/inventory/InventoryRepository Path:/CommerceReferenceStore/Store/Storefront/data/inventory.xml Module:Store.EStore
 DataImport: Repository:/atg/commerce/gifts/Giftlists Path:/CommerceReferenceStore/Store/Storefront/data/wishlists.xml Module:Store.EStore
 DataImport: Repository:/atg/userprofiling/ProfileAdapterRepository Path:/CommerceReferenceStore/Store/Storefront/data/users.xml Module:Store.EStore
+DataImport: Repository:/atg/commerce/gifts/Giftlists Path:/CommerceReferenceStore/Store/Storefront/data/giftlists-updates.xml Module:Store.EStore
 DataImport: Repository:/atg/commerce/order/OrderRepository Path:/CommerceReferenceStore/Store/Storefront/data/orders.xml Module:DCS.AbandonedOrderServices,Store.EStore
 DataImport: Repository:/atg/commerce/order/OrderRepository Path:/CommerceReferenceStore/Store/Storefront/data/orders-i18n.xml Module:DCS.AbandonedOrderServices,Store.EStore
+DataImport: Repository:/atg/commerce/custsvc/CsrRepository Path:/CommerceReferenceStore/Store/Storefront/data/returns.xml Module:Store.EStore
+DataImport: Repository:/atg/commerce/custsvc/CsrRepository Path:/CommerceReferenceStore/Store/Storefront/data/returns-i18n.xml Module:Store.EStore
 DataImport: Repository:/atg/commerce/claimable/ClaimableRepository Path:/CommerceReferenceStore/Store/Storefront/data/claimable-i18n.xml Module:Store.EStore
-DataImport: Repository:/atg/store/stores/StoreRepository Path:/CommerceReferenceStore/Store/Storefront/data/storetext-i18n.xml Module:Store.EStore.International
+DataImport: Repository:/atg/store/stores/StoreTextRepository Path:/CommerceReferenceStore/Store/Storefront/data/storetext-i18n.xml Module:Store.EStore.International
 
 # DB init for "production", data source "switchingB"
 
 # DB init for "production", data source "switchingCore"
+DataImport: Repository:/atg/dynamo/security/AdminSqlRepository Path:/DAS/install/data/dynAdminRepo.xml Module:DAS
+DataImport: Repository:/atg/userprofiling/ProfileAdapterRepository Path:/WebUI/install/data/external_profile.xml Module:DPS

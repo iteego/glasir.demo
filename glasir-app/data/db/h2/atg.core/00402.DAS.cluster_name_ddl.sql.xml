@@ -9,7 +9,7 @@
     <sql><![CDATA[
 
 
---  @version $Id: //product/DAS/version/10.1.1/templates/DAS/sql/cluster_name_ddl.xml#1 $$Change: 690623 $
+--  @version $Id: //product/DAS/version/10.2/templates/DAS/sql/cluster_name_ddl.xml#1 $$Change: 735822 $
 
 create table das_cluster_name (
 	cluster_name	varchar2(255)	not null,

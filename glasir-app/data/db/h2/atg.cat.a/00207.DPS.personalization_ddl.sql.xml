@@ -9,7 +9,7 @@
     <sql><![CDATA[
 
 
---  @version $Id: //product/DPS/version/10.1.1/templates/DPS/sql/personalization_ddl.xml#1 $$Change: 690623 $
+--  @version $Id: //product/DPS/version/10.2/templates/DPS/sql/personalization_ddl.xml#1 $$Change: 735822 $
 -- This file contains create table statements needed to configure your database for personzalization assets.This script will create tables and indexes associated with the user segment list manager.
 
 create table dps_seg_list (

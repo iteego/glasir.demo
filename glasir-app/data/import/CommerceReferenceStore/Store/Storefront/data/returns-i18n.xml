@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE gsa-template SYSTEM "dynamosystemresource:/atg/dtds/gsa/gsa_1.0.dtd">
+<gsa-template>
+  <import-items>
+
+    <add-item item-descriptor="itemCostAdjustment" id="xc100012">
+      <set-property name="orderDiscountShareAdjustment"><![CDATA[-3.78]]></set-property>
+      <set-property name="quantityAdjusted"><![CDATA[1]]></set-property>
+      <set-property name="commerceItemId"><![CDATA[xci1000064]]></set-property>
+      <set-property name="amountAdjustment"><![CDATA[56.0]]></set-property>
+      <set-property name="shippingGroupId"><![CDATA[xcsg20109]]></set-property>
+    </add-item>
+    
+    
+    <add-item item-descriptor="itemCostAdjustment" id="xc100010">
+      <set-property name="orderDiscountShareAdjustment"><![CDATA[-0.14]]></set-property>
+      <set-property name="quantityAdjusted"><![CDATA[1]]></set-property>
+      <set-property name="commerceItemId"><![CDATA[xci1000065]]></set-property>
+      <set-property name="shippingGroupId"><![CDATA[xcsg20101]]></set-property>
+    </add-item>
+    
+    
+    <add-item item-descriptor="itemCostAdjustment" id="xc100011">
+      <set-property name="orderDiscountShareAdjustment"><![CDATA[-5.27]]></set-property>
+      <set-property name="quantityAdjusted"><![CDATA[1]]></set-property>
+      <set-property name="commerceItemId"><![CDATA[xci1000063]]></set-property>
+      <set-property name="amountAdjustment"><![CDATA[78.0]]></set-property>
+      <set-property name="shippingGroupId"><![CDATA[xcsg20101]]></set-property>
+    </add-item>
+    
+    
+    <add-item item-descriptor="itemCostAdjustment" id="xc100004">
+      <set-property name="orderDiscountShareAdjustment"><![CDATA[-0.72]]></set-property>
+      <set-property name="quantityAdjusted"><![CDATA[1]]></set-property>
+      <set-property name="commerceItemId"><![CDATA[xci1000022]]></set-property>
+      <set-property name="shippingGroupId"><![CDATA[xcsg20037]]></set-property>
+    </add-item>
+    
+    <add-item item-descriptor="itemCostAdjustment" id="xc100003">
+      <set-property name="orderDiscountShareAdjustment"><![CDATA[-0.43]]></set-property>
+      <set-property name="quantityAdjusted"><![CDATA[1]]></set-property>
+      <set-property name="commerceItemId"><![CDATA[xci1000021]]></set-property>
+      <set-property name="shippingGroupId"><![CDATA[xcsg20037]]></set-property>
+    </add-item>
+    
+    <add-item item-descriptor="itemCostAdjustment" id="xc100002">
+      <set-property name="orderDiscountShareAdjustment"><![CDATA[-2.23]]></set-property>
+      <set-property name="quantityAdjusted"><![CDATA[1]]></set-property>
+      <set-property name="commerceItemId"><![CDATA[xci1000024]]></set-property>
+      <set-property name="amountAdjustment"><![CDATA[56.0]]></set-property>
+      <set-property name="shippingGroupId"><![CDATA[xcsg20037]]></set-property>
+    </add-item>
+    
+    <add-item item-descriptor="itemCostAdjustment" id="xc100001">
+      <set-property name="orderDiscountShareAdjustment"><![CDATA[-3.11]]></set-property>
+      <set-property name="quantityAdjusted"><![CDATA[1]]></set-property>
+      <set-property name="commerceItemId"><![CDATA[xci1000023]]></set-property>
+      <set-property name="amountAdjustment"><![CDATA[78.0]]></set-property>
+      <set-property name="shippingGroupId"><![CDATA[xcsg20037]]></set-property>
+    </add-item>
+    
+    
+    <add-item item-descriptor="creditCard" id="xc100001">
+      <set-property name="amount"><![CDATA[61.72]]></set-property>
+      <set-property name="paymentGroupId"><![CDATA[xcpg20016]]></set-property>
+      <set-property name="methodType"><![CDATA[creditCard]]></set-property>
+    </add-item>
+    
+    <add-item item-descriptor="storeCredit" id="xc100002">
+      <set-property name="amount"><![CDATA[22.92]]></set-property>
+      <set-property name="methodType"><![CDATA[storeCredit]]></set-property>
+      <set-property name="storeCreditNumber"><![CDATA[sc35ce7]]></set-property>
+    </add-item>
+    
+    <add-item item-descriptor="storeCredit" id="xc100009">
+      <set-property name="amount"><![CDATA[28.65]]></set-property>
+      <set-property name="methodType"><![CDATA[storeCredit]]></set-property>
+      <set-property name="storeCreditNumber"><![CDATA[sc3c5b0]]></set-property>
+    </add-item>
+    
+    
+    <add-item item-descriptor="returnItem" id="xc100002">
+      <set-property name="state"><![CDATA[RETURNED]]></set-property>
+      <set-property name="commerceItemId"><![CDATA[xci1000020]]></set-property>
+      <set-property name="disposition"><![CDATA[defective]]></set-property>
+      <set-property name="actualShippingRefund"><![CDATA[1.08]]></set-property>
+      <set-property name="quantityToReturn"><![CDATA[1]]></set-property>
+      <set-property name="returnRequired"><![CDATA[true]]></set-property>
+      <set-property name="quantityReceived"><![CDATA[1]]></set-property>
+      <set-property name="reason"><![CDATA[defective]]></set-property>
+      <set-property name="returnRef"><![CDATA[xc100001]]></set-property>
+      <set-property name="quantityToExchange"><![CDATA[0]]></set-property>
+      <set-property name="refundAmount"><![CDATA[55.28]]></set-property>
+      <set-property name="suggestedShippingRefund"><![CDATA[1.08]]></set-property>
+      <set-property name="shippingGroupId"><![CDATA[xcsg20037]]></set-property>
+    </add-item>
+    
+    <add-item item-descriptor="returnItem" id="xc100001">
+      <set-property name="state"><![CDATA[AWAITING_RETURN]]></set-property>
+      <set-property name="commerceItemId"><![CDATA[xci1000019]]></set-property>
+      <set-property name="actualShippingRefund"><![CDATA[1.08]]></set-property>
+      <set-property name="quantityToReturn"><![CDATA[1]]></set-property>
+      <set-property name="returnRequired"><![CDATA[true]]></set-property>
+      <set-property name="quantityReceived"><![CDATA[0]]></set-property>
+      <set-property name="reason"><![CDATA[incorrectSize]]></set-property>
+      <set-property name="returnRef"><![CDATA[xc100001]]></set-property>
+      <set-property name="quantityToExchange"><![CDATA[0]]></set-property>
+      <set-property name="refundAmount"><![CDATA[154.71]]></set-property>
+      <set-property name="suggestedShippingRefund"><![CDATA[1.08]]></set-property>
+      <set-property name="shippingGroupId"><![CDATA[xcsg20037]]></set-property>
+    </add-item>
+    
+    <add-item item-descriptor="returnItem" id="xc100013">
+      <set-property name="state"><![CDATA[RETURNED]]></set-property>
+      <set-property name="commerceItemId"><![CDATA[xci1000062]]></set-property>
+      <set-property name="disposition"><![CDATA[incorrectColor]]></set-property>
+      <set-property name="actualShippingRefund"><![CDATA[3.16]]></set-property>
+      <set-property name="quantityToReturn"><![CDATA[1]]></set-property>
+      <set-property name="returnRequired"><![CDATA[true]]></set-property>
+      <set-property name="quantityReceived"><![CDATA[1]]></set-property>
+      <set-property name="reason"><![CDATA[incorrectColor]]></set-property>
+      <set-property name="returnRef"><![CDATA[xc100008]]></set-property>
+      <set-property name="quantityToExchange"><![CDATA[0]]></set-property>
+      <set-property name="refundAmount"><![CDATA[150.3]]></set-property>
+      <set-property name="suggestedShippingRefund"><![CDATA[3.16]]></set-property>
+      <set-property name="shippingGroupId"><![CDATA[xcsg20101]]></set-property>
+    </add-item>
+    
+    
+    <add-item item-descriptor="returnRequest" id="xc100001">
+      <set-property name="suggestedTaxRefund"><![CDATA[0.0]]></set-property>
+      <set-property name="state"><![CDATA[PARTIAL_RETURN]]></set-property>
+      <set-property name="createdDate"><![CDATA[6/27/2012 03:19:02]]></set-property>
+      <set-property name="actualShippingRefund"><![CDATA[2.16]]></set-property>
+      <set-property name="processImmediately"><![CDATA[false]]></set-property>
+      <set-property name="otherRefund"><![CDATA[0.0]]></set-property>
+      <set-property name="processed"><![CDATA[false]]></set-property>
+      <set-property name="methods"><![CDATA[xc100001,xc100002]]></set-property>
+      <set-property name="returnFee"><![CDATA[0.0]]></set-property>
+      <set-property name="actualTaxRefund"><![CDATA[0.0]]></set-property>
+      <set-property name="suggestedShippingRefund"><![CDATA[2.16]]></set-property>
+      <set-property name="nonReturnItemCostAdjustments"><![CDATA[xc100003,xc100002,xc100001,xc100004]]></set-property>
+      <set-property name="orderId"><![CDATA[xco30081]]></set-property>
+      <set-property name="rma"><![CDATA[xc100001]]></set-property>
+      <set-property name="items"><![CDATA[xc100002,xc100001]]></set-property>
+      <set-property name="orderPromotions"><![CDATA[promo50012]]></set-property>
+      <set-property name="promotionValueAdjustments"><![CDATA[promo80017=134.0]]></set-property>
+    </add-item>
+    
+    <add-item item-descriptor="returnRequest" id="xc100008">
+      <set-property name="suggestedTaxRefund"><![CDATA[0.0]]></set-property>
+      <set-property name="state"><![CDATA[FULL_RETURN]]></set-property>
+      <set-property name="createdDate"><![CDATA[6/27/2012 03:33:38]]></set-property>
+      <set-property name="actualShippingRefund"><![CDATA[3.16]]></set-property>
+      <set-property name="processImmediately"><![CDATA[false]]></set-property>
+      <set-property name="otherRefund"><![CDATA[0.0]]></set-property>
+      <set-property name="processed"><![CDATA[false]]></set-property>
+      <set-property name="methods"><![CDATA[xc100009]]></set-property>
+      <set-property name="returnFee"><![CDATA[0.0]]></set-property>
+      <set-property name="actualTaxRefund"><![CDATA[0.0]]></set-property>
+      <set-property name="suggestedShippingRefund"><![CDATA[3.16]]></set-property>
+      <set-property name="nonReturnItemCostAdjustments"><![CDATA[xc100012,xc100011,xc100010]]></set-property>
+      <set-property name="orderId"><![CDATA[xco20036]]></set-property>
+      <set-property name="rma"><![CDATA[xc100008]]></set-property>
+      <set-property name="items"><![CDATA[xc100013]]></set-property>
+      <set-property name="orderPromotions"><![CDATA[promo50012]]></set-property>
+      <set-property name="promotionValueAdjustments"><![CDATA[promo80017=134.0]]></set-property>
+    </add-item>
+
+  </import-items>
+
+</gsa-template>
+<!-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.2/Storefront/data/returns-i18n.xml#1 $$Change: 788278 $-->

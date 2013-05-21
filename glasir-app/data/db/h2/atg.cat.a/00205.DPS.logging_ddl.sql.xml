@@ -9,7 +9,7 @@
     <sql><![CDATA[
 
 
---  @version $Id: //product/DPS/version/10.1.1/templates/DPS/sql/logging_ddl.xml#1 $$Change: 690623 $
+--  @version $Id: //product/DPS/version/10.2/templates/DPS/sql/logging_ddl.xml#1 $$Change: 735822 $
 -- This file contains create table statements needed to configure your database for use with the DPS logging/reporting subsystem.This script will create tables and indexes associated with the newlogging and reporting subsystem. To initialize these tables run thelogging_init.sql script.
 -- Tables for storing logging data for reports
 

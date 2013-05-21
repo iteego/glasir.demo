@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE gsa-template SYSTEM "dynamosystemresource:/atg/dtds/gsa/gsa_1.0.dtd">
+<gsa-template>
+<import-items>
+
+<add-item item-descriptor="organization" id="root">
+  <set-property name="name"><![CDATA[Root Organization]]></set-property>
+</add-item>
+
+
+</import-items>
+
+</gsa-template>
+<!-- @version $Id: //product/WebUI/version/10.2/data/external_profile.xml#1 $$Change: 788278 $-->

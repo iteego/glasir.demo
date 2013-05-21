@@ -3,6 +3,10 @@
 <gsa-template>
   <import-items>
     <!-- 2 items of type SEOTags -->
+    
+    <!-- =========================================== -->
+    <!--                   SEO TAGS                  -->
+    <!-- =========================================== -->
     <add-item id="1100002" item-descriptor="SEOTags">
       <set-property name="descriptionDefault"><![CDATA[Find New Styles at Great Prices. Shop and save on Women's Apparel, Footwear and more at atgstore.com.]]></set-property>
       <set-property name="displayNameDefault"><![CDATA[Home]]></set-property>
@@ -21,122 +25,821 @@
       <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
       <set-property name="translations"><![CDATA[es=es_xlate1100003,de=de_xlate1100003]]></set-property>
     </add-item>
-    <add-item id="1100019" item-descriptor="SEOTags">
+    <add-item id="1100032" item-descriptor="SEOTags">
       <set-property name="descriptionDefault"><![CDATA[Find New Styles at Great Prices. Shop and save on Home Furnishings and more at atgstore.com.]]></set-property>
       <set-property name="displayNameDefault"><![CDATA[Home]]></set-property>
       <set-property name="keywordsDefault"><![CDATA[tables, seating, storage, display, towels, linens, home accessories, atgstore.com, shop atgstore.com]]></set-property>
-      <set-property name="titleDefault"><![CDATA[ATG Store Home - Powered by ATG]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - Powered by ATG]]></set-property>
       <set-property name="key"><![CDATA[/]]></set-property>
       <set-property name="sites"><![CDATA[homeSite]]></set-property>
-      <set-property name="translations"><![CDATA[es=es_xlate1100019,de=de_xlate1100019]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100032,de=de_xlate1100032]]></set-property>
     </add-item>
-    <add-item id="1100020" item-descriptor="SEOTags">
+    <add-item id="1100033" item-descriptor="SEOTags">
       <set-property name="descriptionDefault"><![CDATA[Find New Styles at Great Prices. Shop and save on Home Furnishings and more at atgstore.com.]]></set-property>
       <set-property name="displayNameDefault"><![CDATA[Home Page]]></set-property>
       <set-property name="keywordsDefault"><![CDATA[tables, seating, storage, display, towels, linens, home accessories, atgstore.com, shop atgstore.com]]></set-property>
-      <set-property name="titleDefault"><![CDATA[ATG Store Home - Powered by ATG]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - Powered by ATG]]></set-property>
       <set-property name="key"><![CDATA[/index.jsp]]></set-property>
       <set-property name="sites"><![CDATA[homeSite]]></set-property>
-      <set-property name="translations"><![CDATA[es=es_xlate1100020,de=de_xlate1100020]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100033,de=de_xlate1100033]]></set-property>
     </add-item>
+  
+    <!-- /cart/cart.jsp -->
     <add-item id="1100004" item-descriptor="SEOTags">
       <set-property name="displayNameDefault"><![CDATA[Shopping Cart]]></set-property>
       <set-property name="titleDefault"><![CDATA[ATG Store - Shopping Cart]]></set-property>
       <set-property name="key"><![CDATA[/cart/cart.jsp]]></set-property>
-      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE,homeSite]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
       <set-property name="translations"><![CDATA[es=es_xlate1100004,de=de_xlate1100004]]></set-property>
     </add-item>
     <add-item id="1100005" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Shopping Cart]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - Shopping Cart]]></set-property>
+      <set-property name="key"><![CDATA[/cart/cart.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100005,de=de_xlate1100005]]></set-property>
+    </add-item>
+    
+    <!-- /checkout/login.jsp -->
+    <add-item id="1100006" item-descriptor="SEOTags">
       <set-property name="displayNameDefault"><![CDATA[Checkout Login]]></set-property>
       <set-property name="titleDefault"><![CDATA[ATG Store - Checkout - Login]]></set-property>
       <set-property name="key"><![CDATA[/checkout/login.jsp]]></set-property>
-      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE,homeSite]]></set-property>
-      <set-property name="translations"><![CDATA[es=es_xlate1100005,de=de_xlate1100005]]></set-property>
-    </add-item>
-    <add-item id="1100006" item-descriptor="SEOTags">
-      <set-property name="displayNameDefault"><![CDATA[Checkout Shipping]]></set-property>
-      <set-property name="titleDefault"><![CDATA[ATG Store - Checkout - Shipping]]></set-property>
-      <set-property name="key"><![CDATA[/checkout/shipping.jsp]]></set-property>
-      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE,homeSite]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
       <set-property name="translations"><![CDATA[es=es_xlate1100006,de=de_xlate1100006]]></set-property>
     </add-item>
     <add-item id="1100007" item-descriptor="SEOTags">
-      <set-property name="displayNameDefault"><![CDATA[Checkout Billing]]></set-property>
-      <set-property name="titleDefault"><![CDATA[ATG Store - Checkout - Billing]]></set-property>
-      <set-property name="key"><![CDATA[/checkout/billing.jsp]]></set-property>
-      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE,homeSite]]></set-property>
+      <set-property name="displayNameDefault"><![CDATA[Checkout Login]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - Checkout - Login]]></set-property>
+      <set-property name="key"><![CDATA[/checkout/login.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
       <set-property name="translations"><![CDATA[es=es_xlate1100007,de=de_xlate1100007]]></set-property>
     </add-item>
+    
+    <!-- /checkout/shipping.jsp -->
     <add-item id="1100008" item-descriptor="SEOTags">
-      <set-property name="displayNameDefault"><![CDATA[Checkout Confirmation]]></set-property>
-      <set-property name="titleDefault"><![CDATA[ATG Store - Checkout - Order Confirmation]]></set-property>
-      <set-property name="key"><![CDATA[/checkout/confirm.jsp]]></set-property>
-      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE,homeSite]]></set-property>
+      <set-property name="displayNameDefault"><![CDATA[Checkout Shipping]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Checkout - Shipping]]></set-property>
+      <set-property name="key"><![CDATA[/checkout/shipping.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
       <set-property name="translations"><![CDATA[es=es_xlate1100008,de=de_xlate1100008]]></set-property>
     </add-item>
     <add-item id="1100009" item-descriptor="SEOTags">
-      <set-property name="displayNameDefault"><![CDATA[Checkout Gift Message]]></set-property>
-      <set-property name="titleDefault"><![CDATA[ATG Store - Checkout - Gift Message]]></set-property>
-      <set-property name="key"><![CDATA[/checkout/giftMessage.jsp]]></set-property>
-      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE,homeSite]]></set-property>
+      <set-property name="displayNameDefault"><![CDATA[Checkout Shipping]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - Checkout - Shipping]]></set-property>
+      <set-property name="key"><![CDATA[/checkout/shipping.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
       <set-property name="translations"><![CDATA[es=es_xlate1100009,de=de_xlate1100009]]></set-property>
     </add-item>
+    
+    <!-- /checkout/billing.jsp -->
     <add-item id="1100010" item-descriptor="SEOTags">
-      <set-property name="displayNameDefault"><![CDATA[Checkout Multiple Shipping]]></set-property>
-      <set-property name="titleDefault"><![CDATA[ATG Store - Checkout - Shipping To Multiple Addresses]]></set-property>
-      <set-property name="key"><![CDATA[/checkout/shippingMultiple.jsp]]></set-property>
-      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE,homeSite]]></set-property>
+      <set-property name="displayNameDefault"><![CDATA[Checkout Billing]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Checkout - Billing]]></set-property>
+      <set-property name="key"><![CDATA[/checkout/billing.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
       <set-property name="translations"><![CDATA[es=es_xlate1100010,de=de_xlate1100010]]></set-property>
     </add-item>
     <add-item id="1100011" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Checkout Billing]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - Checkout - Billing]]></set-property>
+      <set-property name="key"><![CDATA[/checkout/billing.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100011,de=de_xlate1100011]]></set-property>
+    </add-item>
+    
+    <!-- /checkout/confirm.jsp -->
+    <add-item id="1100012" item-descriptor="SEOTags">
       <set-property name="displayNameDefault"><![CDATA[Checkout Confirmation]]></set-property>
       <set-property name="titleDefault"><![CDATA[ATG Store - Checkout - Order Confirmation]]></set-property>
       <set-property name="key"><![CDATA[/checkout/confirm.jsp]]></set-property>
-      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE,homeSite]]></set-property>
-      <set-property name="translations"><![CDATA[es=es_xlate1100011,de=de_xlate1100011]]></set-property>
-    </add-item>
-    <add-item id="1100012" item-descriptor="SEOTags">
-      <set-property name="displayNameDefault"><![CDATA[Checkout Add Shipping Address]]></set-property>
-      <set-property name="titleDefault"><![CDATA[ATG Store - Checkout - Add Shipping Address]]></set-property>
-      <set-property name="key"><![CDATA[/checkout/shippingAddressAdd.jsp]]></set-property>
-      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE,homeSite]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
       <set-property name="translations"><![CDATA[es=es_xlate1100012,de=de_xlate1100012]]></set-property>
     </add-item>
     <add-item id="1100013" item-descriptor="SEOTags">
-      <set-property name="displayNameDefault"><![CDATA[Checkout Edit Shipping Address]]></set-property>
-      <set-property name="titleDefault"><![CDATA[ATG Store - Checkout - Edit Shipping Address]]></set-property>
-      <set-property name="key"><![CDATA[/checkout/shippingAddressEdit.jsp]]></set-property>
-      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE,homeSite]]></set-property>
+      <set-property name="displayNameDefault"><![CDATA[Checkout Confirmation]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - Checkout - Order Confirmation]]></set-property>
+      <set-property name="key"><![CDATA[/checkout/confirm.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
       <set-property name="translations"><![CDATA[es=es_xlate1100013,de=de_xlate1100013]]></set-property>
     </add-item>
+    
+    <!-- /checkout/giftMessage.jsp -->
     <add-item id="1100014" item-descriptor="SEOTags">
-      <set-property name="displayNameDefault"><![CDATA[Checkout Edit Credit Card]]></set-property>
-      <set-property name="titleDefault"><![CDATA[ATG Store - Checkout - Edit Credit Card]]></set-property>
-      <set-property name="key"><![CDATA[/checkout/creditCardEdit.jsp]]></set-property>
-      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE,homeSite]]></set-property>
+      <set-property name="displayNameDefault"><![CDATA[Checkout Gift Message]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Checkout - Gift Message]]></set-property>
+      <set-property name="key"><![CDATA[/checkout/giftMessage.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
       <set-property name="translations"><![CDATA[es=es_xlate1100014,de=de_xlate1100014]]></set-property>
     </add-item>
+    <add-item id="1100015" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Checkout Gift Message]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - Checkout - Gift Message]]></set-property>
+      <set-property name="key"><![CDATA[/checkout/giftMessage.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100015,de=de_xlate1100015]]></set-property>
+    </add-item>
+    
+    <!-- /checkout/shippingMultiple.jsp -->
     <add-item id="1100016" item-descriptor="SEOTags">
-      <set-property name="displayNameDefault"><![CDATA[Checkout Order Not Placed]]></set-property>
-      <set-property name="titleDefault"><![CDATA[ATG Store - Checkout - Order Not Placed]]></set-property>
-      <set-property name="key"><![CDATA[/cart/orderNotPlaced.jsp]]></set-property>
-      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE,homeSite]]></set-property>
+      <set-property name="displayNameDefault"><![CDATA[Checkout Multiple Shipping]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Checkout - Shipping To Multiple Addresses]]></set-property>
+      <set-property name="key"><![CDATA[/checkout/shippingMultiple.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
       <set-property name="translations"><![CDATA[es=es_xlate1100016,de=de_xlate1100016]]></set-property>
     </add-item>
     <add-item id="1100017" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Checkout Multiple Shipping]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - Checkout - Shipping To Multiple Addresses]]></set-property>
+      <set-property name="key"><![CDATA[/checkout/shippingMultiple.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100017,de=de_xlate1100017]]></set-property>
+    </add-item>
+    
+    <!-- /checkout/shippingAddressAdd.jsp -->
+    <add-item id="1100020" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Checkout Add Shipping Address]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Checkout - Add Shipping Address]]></set-property>
+      <set-property name="key"><![CDATA[/checkout/shippingAddressAdd.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100020,de=de_xlate1100020]]></set-property>
+    </add-item>
+    <add-item id="1100021" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Checkout Add Shipping Address]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - Checkout - Add Shipping Address]]></set-property>
+      <set-property name="key"><![CDATA[/checkout/shippingAddressAdd.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100021,de=de_xlate1100021]]></set-property>
+    </add-item>
+    
+    <!-- /checkout/shippingAddressAdd.jsp -->
+    <add-item id="1100022" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Checkout Edit Shipping Address]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Checkout - Edit Shipping Address]]></set-property>
+      <set-property name="key"><![CDATA[/checkout/shippingAddressEdit.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100022,de=de_xlate1100022]]></set-property>
+    </add-item>
+    <add-item id="1100023" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Checkout Edit Shipping Address]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - Checkout - Edit Shipping Address]]></set-property>
+      <set-property name="key"><![CDATA[/checkout/shippingAddressEdit.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100023,de=de_xlate1100023]]></set-property>
+    </add-item>
+    
+    <!-- /checkout/creditCardEdit.jsp -->
+    <add-item id="1100024" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Checkout Edit Credit Card]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Checkout - Edit Credit Card]]></set-property>
+      <set-property name="key"><![CDATA[/checkout/creditCardEdit.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100024,de=de_xlate1100024]]></set-property>
+    </add-item>
+    <add-item id="1100025" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Checkout Edit Credit Card]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - Checkout - Edit Credit Card]]></set-property>
+      <set-property name="key"><![CDATA[/checkout/creditCardEdit.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100025,de=de_xlate1100025]]></set-property>
+    </add-item>
+    
+    <!-- /cart/orderNotPlaced.jsp -->
+    <add-item id="1100026" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Checkout Order Not Placed]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Checkout - Order Not Placed]]></set-property>
+      <set-property name="key"><![CDATA[/cart/orderNotPlaced.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100026,de=de_xlate1100016]]></set-property>
+    </add-item>
+    <add-item id="1100027" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Checkout Order Not Placed]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - Checkout - Order Not Placed]]></set-property>
+      <set-property name="key"><![CDATA[/cart/orderNotPlaced.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100027,de=de_xlate1100016]]></set-property>
+    </add-item>
+    
+    <!-- /checkout/billingAddressEdit.jsp -->
+    <add-item id="1100028" item-descriptor="SEOTags">
       <set-property name="displayNameDefault"><![CDATA[Checkout Edit Billing Address]]></set-property>
       <set-property name="titleDefault"><![CDATA[ATG Store - Checkout - Edit Billing Address]]></set-property>
       <set-property name="key"><![CDATA[/checkout/billingAddressEdit.jsp]]></set-property>
-      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE,homeSite]]></set-property>
-      <set-property name="translations"><![CDATA[es=es_xlate1100017,de=de_xlate1100017]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100028,de=de_xlate1100028]]></set-property>
     </add-item>
-    <add-item id="1100018" item-descriptor="SEOTags">
+    <add-item id="1100029" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Checkout Edit Billing Address]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - Checkout - Edit Billing Address]]></set-property>
+      <set-property name="key"><![CDATA[/checkout/billingAddressEdit.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100029,de=de_xlate1100029]]></set-property>
+    </add-item>
+    
+    <!-- /checkout/confirmResponse.jsp -->
+    <!-- 
+      NOTE: The German translation hasn't been done for this tag. It is currently 
+            using the confirmation page tags (de_xlate1100018 and de_xlate1100019) 
+    -->
+    <add-item id="1100030" item-descriptor="SEOTags">
       <set-property name="displayNameDefault"><![CDATA[Checkout Order Success]]></set-property>
       <set-property name="titleDefault"><![CDATA[ATG Store - Checkout - Order Success]]></set-property>
       <set-property name="key"><![CDATA[/checkout/confirmResponse.jsp]]></set-property>
-      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE,homeSite]]></set-property>
-      <set-property name="translations"><![CDATA[es=es_xlate1100018,de=de_xlate1100018]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100030,de=de_xlate1100018]]></set-property>
     </add-item>
+    <add-item id="1100031" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Checkout Order Success]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - Checkout - Order Success]]></set-property>
+      <set-property name="key"><![CDATA[/checkout/confirmResponse.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100031,de=de_xlate1100019]]></set-property>
+    </add-item>
+    
+    <!-- /company/aboutUs.jsp -->
+    <add-item id="1100034" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[About Us]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - About Us]]></set-property>
+      <set-property name="key"><![CDATA[/company/aboutUs.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100034,de=de_xlate1100034]]></set-property>
+    </add-item>
+    <add-item id="1100035" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[About Us]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - About Us]]></set-property>
+      <set-property name="key"><![CDATA[/company/aboutUs.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100035,de=de_xlate1100035]]></set-property>
+    </add-item>
+    
+    <!-- /company/stores.jsp -->
+    <add-item id="1100036" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Store Locator]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Store Locator]]></set-property>
+      <set-property name="key"><![CDATA[/company/stores.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100036,de=de_xlate1100036]]></set-property>
+    </add-item>
+    <add-item id="1100037" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Store Locator]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - Store Locator]]></set-property>
+      <set-property name="key"><![CDATA[/company/stores.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100037,de=de_xlate1100037]]></set-property>
+    </add-item>
+
+    <!-- /company/corporateSite.jsp -->
+    <add-item id="1100038" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Corporate Site]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Corporate Site]]></set-property>
+      <set-property name="key"><![CDATA[/company/corporateSite.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100038,de=de_xlate1100038]]></set-property>
+    </add-item>
+    <add-item id="1100039" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Corporate Site]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - Corporate Site]]></set-property>
+      <set-property name="key"><![CDATA[/company/corporateSite.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100039,de=de_xlate1100039]]></set-property>
+    </add-item>
+
+    <!-- /company/employment.jsp -->
+    <add-item id="1100040" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Employment]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Employment]]></set-property>
+      <set-property name="key"><![CDATA[/company/employment.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100040,de=de_xlate1100040]]></set-property>
+    </add-item>
+    <add-item id="1100041" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Employment]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - Employment]]></set-property>
+      <set-property name="key"><![CDATA[/company/employment.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100041,de=de_xlate1100041]]></set-property>
+    </add-item>
+
+    <!-- /company/news.jsp -->
+    <add-item id="1100042" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[News]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - News]]></set-property>
+      <set-property name="key"><![CDATA[/company/news.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100042,de=de_xlate1100042]]></set-property>
+    </add-item>
+    <add-item id="1100043" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[News]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - News]]></set-property>
+      <set-property name="key"><![CDATA[/company/news.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100043,de=de_xlate1100043]]></set-property>
+    </add-item>
+
+    <!-- /browse/asSeenIn.jsp -->
+    <add-item id="1100044" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[As Seen In...]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - As Seen In...]]></set-property>
+      <set-property name="key"><![CDATA[/browse/asSeenIn.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100044,de=de_xlate1100044]]></set-property>
+    </add-item>
+    <add-item id="1100045" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[As Seen In...]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - As Seen In...]]></set-property>
+      <set-property name="key"><![CDATA[/browse/asSeenIn.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100045,de=de_xlate1100045]]></set-property>
+    </add-item>
+
+    <!-- /company/faq.jsp -->
+    <add-item id="1100046" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[FAQs]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - FAQs]]></set-property>
+      <set-property name="key"><![CDATA[/company/faq.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100046,de=de_xlate1100046]]></set-property>
+    </add-item>
+    <add-item id="1100047" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[FAQs]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - FAQs]]></set-property>
+      <set-property name="key"><![CDATA[/company/faq.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100047,de=de_xlate1100047]]></set-property>
+    </add-item>
+
+    <!-- /company/privacy.jsp -->
+    <add-item id="1100048" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Privacy Policy]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Privacy Policy]]></set-property>
+      <set-property name="key"><![CDATA[/company/privacy.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100048,de=de_xlate1100048]]></set-property>
+    </add-item>
+    <add-item id="1100049" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Privacy Policy]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - Privacy Policy]]></set-property>
+      <set-property name="key"><![CDATA[/company/privacy.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100049,de=de_xlate1100049]]></set-property>
+    </add-item>
+    
+    <!-- /company/terms.jsp -->
+    <add-item id="1100050" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Terms & Conditions]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Terms & Conditions]]></set-property>
+      <set-property name="key"><![CDATA[/company/terms.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100050,de=de_xlate1100050]]></set-property>
+    </add-item>
+    <add-item id="1100051" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Terms & Conditions]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - Terms & Conditions]]></set-property>
+      <set-property name="key"><![CDATA[/company/terms.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100051,de=de_xlate1100051]]></set-property>
+    </add-item>
+
+    <!-- /company/shipping.jsp -->
+    <add-item id="1100052" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Shipping & Handling]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Shipping & Handling]]></set-property>
+      <set-property name="key"><![CDATA[/company/shipping.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100052,de=de_xlate1100052]]></set-property>
+    </add-item>
+    <add-item id="1100053" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Shipping & Handling]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - Shipping & Handling]]></set-property>
+      <set-property name="key"><![CDATA[/company/shipping.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100053,de=de_xlate1100053]]></set-property>
+    </add-item>
+
+    <!-- /company/returns.jsp -->
+    <add-item id="1100054" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Return Policy]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Return Policy]]></set-property>
+      <set-property name="key"><![CDATA[/company/returns.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100054,de=de_xlate1100054]]></set-property>
+    </add-item>
+    <add-item id="1100055" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Return Policy]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - Return Policy]]></set-property>
+      <set-property name="key"><![CDATA[/company/returns.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100055,de=de_xlate1100055]]></set-property>
+    </add-item>
+
+    <!-- /company/customerService.jsp -->
+    <add-item id="1100056" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Contact Us]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Contact Us]]></set-property>
+      <set-property name="key"><![CDATA[/company/customerService.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100056,de=de_xlate1100056]]></set-property>
+    </add-item>
+    <add-item id="1100057" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Contact Us]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - Contact Us]]></set-property>
+      <set-property name="key"><![CDATA[/company/customerService.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100057,de=de_xlate1100057]]></set-property>
+    </add-item>
+
+    <!-- /myaccount/myOrders.jsp -->
+    <add-item id="1100058" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Orders]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Orders]]></set-property>
+      <set-property name="key"><![CDATA[/myaccount/myOrders.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100058,de=de_xlate1100058]]></set-property>
+    </add-item>
+    <add-item id="1100059" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Orders]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - Orders]]></set-property>
+      <set-property name="key"><![CDATA[/myaccount/myOrders.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100059,de=de_xlate1100059]]></set-property>
+    </add-item>
+    
+    <!-- /myaccount/orderDetail.jsp -->
+    <add-item id="1100060" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Order]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Order]]></set-property>
+      <set-property name="key"><![CDATA[/myaccount/orderDetail.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100060,de=de_xlate1100060]]></set-property>
+    </add-item>
+    <add-item id="1100061" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Order]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - Order]]></set-property>
+      <set-property name="key"><![CDATA[/myaccount/orderDetail.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100061,de=de_xlate1100061]]></set-property>
+    </add-item>
+
+    <!-- /myaccount/profile.jsp -->
+    <add-item id="1100062" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Profile]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Profile]]></set-property>
+      <set-property name="key"><![CDATA[/myaccount/profile.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100062,de=de_xlate1100062]]></set-property>
+    </add-item>
+    <add-item id="1100063" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Profile]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - Profile]]></set-property>
+      <set-property name="key"><![CDATA[/myaccount/profile.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100063,de=de_xlate1100063]]></set-property>
+    </add-item>
+
+    <!-- /myaccount/accountProfileEdit.jsp -->
+    <add-item id="1100064" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Edit Your Personal Info]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Edit Your Personal Info]]></set-property>
+      <set-property name="key"><![CDATA[/myaccount/accountProfileEdit.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100064,de=de_xlate1100064]]></set-property>
+    </add-item>
+    <add-item id="1100065" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Edit Your Personal Info]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - Edit Your Personal Info]]></set-property>
+      <set-property name="key"><![CDATA[/myaccount/accountProfileEdit.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100065,de=de_xlate1100065]]></set-property>
+    </add-item>
+
+    <!-- /myaccount/profilePasswordEdit.jsp -->
+    <add-item id="1100066" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Edit Your Password]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Edit Your Password]]></set-property>
+      <set-property name="key"><![CDATA[/myaccount/profilePasswordEdit.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100066,de=de_xlate1100066]]></set-property>
+    </add-item>
+    <add-item id="1100067" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Edit Your Password]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - Edit Your Password]]></set-property>
+      <set-property name="key"><![CDATA[/myaccount/profilePasswordEdit.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100067,de=de_xlate1100067]]></set-property>
+    </add-item>
+
+    <!-- /myaccount/profileDefaults.jsp -->
+    <add-item id="1100068" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Checkout Defaults]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Checkout Defaults]]></set-property>
+      <set-property name="key"><![CDATA[/myaccount/profileDefaults.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100068,de=de_xlate1100068]]></set-property>
+    </add-item>
+    <add-item id="1100069" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Checkout Defaults]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - Checkout Defaults]]></set-property>
+      <set-property name="key"><![CDATA[/myaccount/profileDefaults.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100069,de=de_xlate1100069]]></set-property>
+    </add-item>
+
+    <!-- /myaccount/paymentInfo.jsp -->
+    <add-item id="1100070" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Payment Info]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Payment Info]]></set-property>
+      <set-property name="key"><![CDATA[/myaccount/paymentInfo.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100070,de=de_xlate1100070]]></set-property>
+    </add-item>
+    <add-item id="1100071" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Payment Info]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - Payment Info]]></set-property>
+      <set-property name="key"><![CDATA[/myaccount/paymentInfo.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100071,de=de_xlate1100071]]></set-property>
+    </add-item>
+
+    <!-- /myaccount/accountCardEdit.jsp -->
+    <add-item id="1100072" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Edit Credit Card]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Edit Credit Card]]></set-property>
+      <set-property name="key"><![CDATA[/myaccount/accountCardEdit.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100072,de=de_xlate1100072]]></set-property>
+    </add-item>
+    <add-item id="1100073" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Edit Credit Card]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - Edit Credit Card]]></set-property>
+      <set-property name="key"><![CDATA[/myaccount/accountCardEdit.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100073,de=de_xlate1100073]]></set-property>
+    </add-item>
+
+    <!-- /myaccount/newCreditCard.jsp -->
+    <add-item id="1100074" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Add a New Credit Card]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Add a New Credit Card]]></set-property>
+      <set-property name="key"><![CDATA[/myaccount/newCreditCard.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100074,de=de_xlate1100074]]></set-property>
+    </add-item>
+    <add-item id="1100075" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Add a New Credit Card]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - Add a New Credit Card]]></set-property>
+      <set-property name="key"><![CDATA[/myaccount/newCreditCard.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100075,de=de_xlate1100075]]></set-property>
+    </add-item>
+
+    <!-- /myaccount/accountAddressEdit.jsp -->
+    <add-item id="1100076" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Profile Address]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Profile Address]]></set-property>
+      <set-property name="key"><![CDATA[/myaccount/accountAddressEdit.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100076,de=de_xlate1100076]]></set-property>
+    </add-item>
+    <add-item id="1100077" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Profile Address]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - Profile Address]]></set-property>
+      <set-property name="key"><![CDATA[/myaccount/accountAddressEdit.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100077,de=de_xlate1100077]]></set-property>
+    </add-item>
+
+    <!-- /myaccount/addressBook.jsp -->
+    <add-item id="1100078" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Address Book]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Address Book]]></set-property>
+      <set-property name="key"><![CDATA[/myaccount/addressBook.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100078,de=de_xlate1100078]]></set-property>
+    </add-item>
+    <add-item id="1100079" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Address Book]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - Address Book]]></set-property>
+      <set-property name="key"><![CDATA[/myaccount/addressBook.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100079,de=de_xlate1100079]]></set-property>
+    </add-item>
+
+    <!-- /myaccount/myReturns.jsp -->
+    <add-item id="1100080" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Returns History]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Returns History]]></set-property>
+      <set-property name="key"><![CDATA[/myaccount/myReturns.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100080,de=de_xlate1100080]]></set-property>
+    </add-item>
+    <add-item id="1100081" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Returns History]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - Returns History]]></set-property>
+      <set-property name="key"><![CDATA[/myaccount/myReturns.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100081,de=de_xlate1100081]]></set-property>
+    </add-item>
+
+    <!-- /myaccount/myWishList.jsp -->
+    <add-item id="1100082" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Wish List]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Wish List]]></set-property>
+      <set-property name="key"><![CDATA[/myaccount/myWishList.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100082,de=de_xlate1100082]]></set-property>
+    </add-item>
+    <add-item id="1100083" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Wish List]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - Wish List]]></set-property>
+      <set-property name="key"><![CDATA[/myaccount/myWishList.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100083,de=de_xlate1100083]]></set-property>
+    </add-item>
+
+    <!-- /myaccount/giftListHome.jsp -->
+    <add-item id="1100084" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[My Gift Lists]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - My Gift Lists]]></set-property>
+      <set-property name="key"><![CDATA[/myaccount/giftListHome.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100084,de=de_xlate1100084]]></set-property>
+    </add-item>
+    <add-item id="1100085" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[My Gift Lists]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - My Gift Lists]]></set-property>
+      <set-property name="key"><![CDATA[/myaccount/giftListHome.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100085,de=de_xlate1100085]]></set-property>
+    </add-item>
+
+    <!-- /giftlists/giftListSearch.jsp -->
+    <add-item id="1100086" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Find a Gift List]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Find a Gift List]]></set-property>
+      <set-property name="key"><![CDATA[/giftlists/giftListSearch.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100086,de=de_xlate1100086]]></set-property>
+    </add-item>
+    <add-item id="1100087" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Find a Gift List]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - Find a Gift List]]></set-property>
+      <set-property name="key"><![CDATA[/giftlists/giftListSearch.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100087,de=de_xlate1100087]]></set-property>
+    </add-item>
+
+    <!-- /promo/promotions.jsp -->
+    <add-item id="1100088" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Promotions]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Promotions]]></set-property>
+      <set-property name="key"><![CDATA[/promo/promotions.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100088,de=de_xlate1100088]]></set-property>
+    </add-item>
+    <add-item id="1100089" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Promotions]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - Promotions]]></set-property>
+      <set-property name="key"><![CDATA[/promo/promotions.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100089,de=de_xlate1100089]]></set-property>
+    </add-item>
+
+    <!-- /comparisons/productComparisons.jsp -->
+    <add-item id="1100090" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Comparisons]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Comparisons]]></set-property>
+      <set-property name="key"><![CDATA[/comparisons/productComparisons.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100090,de=de_xlate1100090]]></set-property>
+    </add-item>
+    <add-item id="1100091" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Comparisons]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - Comparisons]]></set-property>
+      <set-property name="key"><![CDATA[/comparisons/productComparisons.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100091,de=de_xlate1100091]]></set-property>
+    </add-item>
+
+    <!-- /myaccount/login.jsp -->
+    <add-item id="1100092" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Login]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Login]]></set-property>
+      <set-property name="key"><![CDATA[/myaccount/login.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100092,de=de_xlate1100092]]></set-property>
+    </add-item>
+    <add-item id="1100093" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Login]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - Login]]></set-property>
+      <set-property name="key"><![CDATA[/myaccount/login.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100093,de=de_xlate1100093]]></set-property>
+    </add-item>
+
+    <!-- /checkout/shippingMethod.jsp -->
+    <add-item id="1100094" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Checkout Shipping Method]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Checkout - Shipping Method]]></set-property>
+      <set-property name="key"><![CDATA[/checkout/shippingMethod.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100094,de=de_xlate1100094]]></set-property>
+    </add-item>
+    <add-item id="1100095" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Checkout Shipping Method]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - Checkout - Shipping Method]]></set-property>
+      <set-property name="key"><![CDATA[/checkout/shippingMethod.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100095,de=de_xlate1100095]]></set-property>
+    </add-item>
+
+    <!-- /browse/newItems.jsp -->
+    <add-item id="1100096" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[New Items]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - New Items]]></set-property>
+      <set-property name="key"><![CDATA[/browse/newItems.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100096,de=de_xlate1100096]]></set-property>
+    </add-item>
+    <add-item id="1100097" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[New Items]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - New Items]]></set-property>
+      <set-property name="key"><![CDATA[/browse/newItems.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100097,de=de_xlate1100097]]></set-property>
+    </add-item>
+
+    <!-- /myaccount/returnItemsSelection.jsp -->
+    <add-item id="1100098" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Order Return]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Order Return]]></set-property>
+      <set-property name="key"><![CDATA[/myaccount/returnItemsSelection.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100098,de=de_xlate1100098]]></set-property>
+    </add-item>
+    <add-item id="1100099" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Order Return]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - Order Return]]></set-property>
+      <set-property name="key"><![CDATA[/myaccount/returnItemsSelection.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100099,de=de_xlate1100099]]></set-property>
+    </add-item>
+
+    <!-- /myaccount/confirmReturn.jsp -->
+    <add-item id="1100100" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Order Return Confirmation]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Order Return Confirmation]]></set-property>
+      <set-property name="key"><![CDATA[/myaccount/confirmReturn.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100100,de=de_xlate1100100]]></set-property>
+    </add-item>
+    <add-item id="1100101" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Order Return Confirmation]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - Order Return Confirmation]]></set-property>
+      <set-property name="key"><![CDATA[/myaccount/confirmReturn.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100101,de=de_xlate1100101]]></set-property>
+    </add-item>
+
+    <!-- /myaccount/confirmReturnResponse.jsp -->
+    <add-item id="1100102" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Order Return Placed]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Order Return Placed]]></set-property>
+      <set-property name="key"><![CDATA[/myaccount/confirmReturnResponse.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100102,de=de_xlate1100102]]></set-property>
+    </add-item>
+    <add-item id="1100103" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Order Return Placed]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - Order Return Placed]]></set-property>
+      <set-property name="key"><![CDATA[/myaccount/confirmReturnResponse.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100103,de=de_xlate1100103]]></set-property>
+    </add-item>
+
+    <!-- /myaccount/gadgets/returnPromotionAmendmentsPopup.jsp -->
+    <add-item id="1100104" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Pricing & Promotion Adjustments]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Store - Pricing & Promotion Adjustments]]></set-property>
+      <set-property name="key"><![CDATA[/myaccount/gadgets/returnPromotionAmendmentsPopup.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[storeSiteUS,storeSiteDE]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100104,de=de_xlate1100104]]></set-property>
+    </add-item>
+    <add-item id="1100105" item-descriptor="SEOTags">
+      <set-property name="displayNameDefault"><![CDATA[Pricing & Promotion Adjustments]]></set-property>
+      <set-property name="titleDefault"><![CDATA[ATG Home - Pricing & Promotion Adjustments]]></set-property>
+      <set-property name="key"><![CDATA[/myaccount/gadgets/returnPromotionAmendmentsPopup.jsp]]></set-property>
+      <set-property name="sites"><![CDATA[homeSite]]></set-property>
+      <set-property name="translations"><![CDATA[es=es_xlate1100105,de=de_xlate1100105]]></set-property>
+    </add-item>
+
+    <!-- =========================================== -->
+    <!--             SEO TAGS TRANSLATIONS           -->
+    <!-- =========================================== -->
+    
+    <!-- ============================ -->
+    <!--     SPANISH TRANSLATIONS     -->
+    <!-- ============================ -->
+    
     <add-item id="es_xlate1100002" item-descriptor="SEOTranslation">
       <set-property name="description"><![CDATA[Nuevos estilos a precios inmejorables. Compre y ahorre en moda, calzado para mujer y mucho más, en atgstore.com.]]></set-property>
       <set-property name="keywords"><![CDATA[zapatos, camisas, pantalones, vestidos, faldas, pantalones cortos, chaquetas, accesorios, zapatos de mujer, zapatos de hombre, zapatos de vestir, calzado informal, deportivas, atgstore.com, compre en atgstore.com]]></set-property>
@@ -149,18 +852,20 @@
       <set-property name="title"><![CDATA[ATG Store - Con tecnología ATG]]></set-property>
       <set-property name="displayName"><![CDATA[Página inicial]]></set-property>
     </add-item>
-    <add-item id="es_xlate1100019" item-descriptor="SEOTranslation">
+    <add-item id="es_xlate1100032" item-descriptor="SEOTranslation">
       <set-property name="description"><![CDATA[Nuevos estilos a precios inmejorables. Compre y ahorre en accesorios para el hogar y mucho más, en atgstore.com.]]></set-property>
       <set-property name="keywords"><![CDATA[mesas, sillas, almacenamiento, exhibición, toallas, lencería, accesorios y detalles para el hogar, atgstore.com, compre en atgstore.com]]></set-property>
-      <set-property name="title"><![CDATA[ATG Store - Con tecnología ATG]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Con tecnología ATG]]></set-property>
       <set-property name="displayName"><![CDATA[Inicio]]></set-property>
     </add-item>
-    <add-item id="es_xlate1100020" item-descriptor="SEOTranslation">
+    <add-item id="es_xlate1100033" item-descriptor="SEOTranslation">
       <set-property name="description"><![CDATA[Nuevos estilos a precios inmejorables. Compre y ahorre en accesorios para el hogar y mucho más, en atgstore.com.]]></set-property>
       <set-property name="keywords"><![CDATA[mesas, sillas, almacenamiento, exhibición, toallas, lencería, accesorios y detalles para el hogar, atgstore.com, compre en atgstore.com]]></set-property>
-      <set-property name="title"><![CDATA[ATG Store - Con tecnología ATG]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Con tecnología ATG]]></set-property>
       <set-property name="displayName"><![CDATA[Página inicial]]></set-property>
     </add-item>
+    
+    <!--  /cart/cart.jsp -->
     <add-item id="es_xlate1100004" item-descriptor="SEOTranslation">
       <set-property name="displayName"><![CDATA[Carro de compra]]></set-property>
       <set-property name="title"><![CDATA[ATG Store - Carro de compra]]></set-property>
@@ -168,83 +873,702 @@
       <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
     </add-item>
     <add-item id="es_xlate1100005" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Carro de compra]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Carro de compra]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    
+    <!--  /checkout/login.jsp -->
+    <add-item id="es_xlate1100006" item-descriptor="SEOTranslation">
       <set-property name="displayName"><![CDATA[Conexión de pago]]></set-property>
       <set-property name="title"><![CDATA[ATG Store - Pago - Conexión]]></set-property>
       <set-property name="description"><![CDATA[__NULL__]]></set-property>
       <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
     </add-item>
-    <add-item id="es_xlate1100006" item-descriptor="SEOTranslation">
+    <add-item id="es_xlate1100007" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Conexión de pago]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Pago - Conexión]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    
+    <!--  /checkout/shipping.jsp -->
+    <add-item id="es_xlate1100008" item-descriptor="SEOTranslation">
       <set-property name="displayName"><![CDATA[Envío tras pago]]></set-property>
       <set-property name="title"><![CDATA[ATG Store - Pago - Envío]]></set-property>
       <set-property name="description"><![CDATA[__NULL__]]></set-property>
       <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
     </add-item>
-    <add-item id="es_xlate1100007" item-descriptor="SEOTranslation">
+    <add-item id="es_xlate1100009" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Envío tras pago]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Pago - Envío]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    
+    <!--  /checkout/billing.jsp -->
+    <add-item id="es_xlate1100010" item-descriptor="SEOTranslation">
       <set-property name="displayName"><![CDATA[Facturación de pago]]></set-property>
       <set-property name="title"><![CDATA[ATG Store - Pago - Facturación]]></set-property>
       <set-property name="description"><![CDATA[__NULL__]]></set-property>
       <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
     </add-item>
-    <add-item id="es_xlate1100008" item-descriptor="SEOTranslation">
+    <add-item id="es_xlate1100011" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Facturación de pago]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Pago - Facturación]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    
+    <!-- /checkout/confirm.jsp -->
+    <add-item id="es_xlate1100012" item-descriptor="SEOTranslation">
       <set-property name="displayName"><![CDATA[Confirmación de pago]]></set-property>
       <set-property name="title"><![CDATA[ATG Store - Pago - Confirmación de orden]]></set-property>
       <set-property name="description"><![CDATA[__NULL__]]></set-property>
       <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
     </add-item>
-    <add-item id="es_xlate1100009" item-descriptor="SEOTranslation">
+    <add-item id="es_xlate1100013" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Confirmación de pago]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Pago - Confirmación de orden]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    
+    <!-- /checkout/giftMessage.jsp -->
+    <add-item id="es_xlate1100014" item-descriptor="SEOTranslation">
       <set-property name="displayName"><![CDATA[Mensaje de regalo al pagar]]></set-property>
       <set-property name="title"><![CDATA[ATG Store - Pago - Mensaje de regalo]]></set-property>
       <set-property name="description"><![CDATA[__NULL__]]></set-property>
       <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
     </add-item>
-    <add-item id="es_xlate1100010" item-descriptor="SEOTranslation">
+    <add-item id="es_xlate1100015" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Mensaje de regalo al pagar]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Pago - Dedicatoria]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    
+    <!-- /checkout/shippingMultiple.jsp -->
+    <add-item id="es_xlate1100016" item-descriptor="SEOTranslation">
       <set-property name="displayName"><![CDATA[Varios envíos tras pago]]></set-property>
       <set-property name="title"><![CDATA[ATG Store - Pago - Envío a varias direcciones]]></set-property>
       <set-property name="description"><![CDATA[__NULL__]]></set-property>
       <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
     </add-item>
-    <add-item id="es_xlate1100011" item-descriptor="SEOTranslation">
-      <set-property name="displayName"><![CDATA[Confirmación de pago]]></set-property>
-      <set-property name="title"><![CDATA[ATG Store - Pago - Confirmación de orden]]></set-property>
-      <set-property name="description"><![CDATA[__NULL__]]></set-property>
-      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
-    </add-item>
-    <add-item id="es_xlate1100012" item-descriptor="SEOTranslation">
-      <set-property name="displayName"><![CDATA[Agregar dirección de envío en pago]]></set-property>
-      <set-property name="title"><![CDATA[ATG Store - Pago - Agregación de dirección de envío]]></set-property>
-      <set-property name="description"><![CDATA[__NULL__]]></set-property>
-      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
-    </add-item>
-    <add-item id="es_xlate1100013" item-descriptor="SEOTranslation">
-      <set-property name="displayName"><![CDATA[Editar dirección de envío en pago]]></set-property>
-      <set-property name="title"><![CDATA[ATG Store - Pago - Edición de dirección de envío]]></set-property>
-      <set-property name="description"><![CDATA[__NULL__]]></set-property>
-      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
-    </add-item>
-    <add-item id="es_xlate1100014" item-descriptor="SEOTranslation">
-      <set-property name="displayName"><![CDATA[Editar tarjeta de crédito en pago]]></set-property>
-      <set-property name="title"><![CDATA[ATG Store - Pago - Edición de tarjeta de crédito]]></set-property>
-      <set-property name="description"><![CDATA[__NULL__]]></set-property>
-      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
-    </add-item>
-    <add-item id="es_xlate1100016" item-descriptor="SEOTranslation">
-      <set-property name="displayName"><![CDATA[Orden no realizada en pago]]></set-property>
-      <set-property name="title"><![CDATA[ATG Store - Pago - Orden no realizada]]></set-property>
-      <set-property name="description"><![CDATA[__NULL__]]></set-property>
-      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
-    </add-item>
     <add-item id="es_xlate1100017" item-descriptor="SEOTranslation">
-      <set-property name="displayName"><![CDATA[Editar dirección de facturación en pago]]></set-property>
-      <set-property name="title"><![CDATA[ATG Store - Pago - Edición de dirección de facturación]]></set-property>
+      <set-property name="displayName"><![CDATA[Varios envíos tras pago]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Pago - Envío a varias direcciones]]></set-property>
       <set-property name="description"><![CDATA[__NULL__]]></set-property>
       <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
     </add-item>
-    <add-item id="es_xlate1100018" item-descriptor="SEOTranslation">
+    
+    <!-- /checkout/confirm.jsp -->
+    <add-item id="es_xlate1100030" item-descriptor="SEOTranslation">
       <set-property name="displayName"><![CDATA[Orden realizada correctamente en pago]]></set-property>
       <set-property name="title"><![CDATA[ATG Store - Pago - Orden realizada]]></set-property>
       <set-property name="description"><![CDATA[__NULL__]]></set-property>
       <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
     </add-item>
+    <add-item id="es_xlate1100031" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Orden realizada correctamente en pago]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Pago - Orden realizada]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    
+    <!-- /checkout/shippingAddressAdd.jsp -->
+    <add-item id="es_xlate1100020" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Agregar dirección de envío en pago]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Pago - Agregación de dirección de envío]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100021" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Agregar dirección de envío en pago]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Pago - Agregar dirección de envío]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    
+    <!-- /checkout/shippingAddressAdd.jsp -->
+    <add-item id="es_xlate1100022" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Editar dirección de envío en pago]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Pago - Edición de dirección de envío]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100023" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Editar dirección de envío en pago]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Pago - Editar dirección de envío]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    
+    <!-- /checkout/creditCardEdit.jsp -->
+    <add-item id="es_xlate1100024" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Editar tarjeta de crédito en pago]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Pago - Edición de tarjeta de crédito]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100025" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Editar tarjeta de crédito en pago]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Pago - Editar tarjeta de crédito]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    
+    <!-- /cart/orderNotPlaced.jsp -->
+    <add-item id="es_xlate1100026" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Orden no realizada en pago]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Pago - Orden no realizada]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100027" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Orden no realizada en pago]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Pago - Orden no realizada]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    
+    <!-- /checkout/billingAddressEdit.jsp -->
+    <add-item id="es_xlate1100028" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Editar dirección de facturación en pago]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Pago - Edición de dirección de facturación]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100029" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Editar dirección de facturación en pago]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Pago - Editar dirección de facturación]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    
+    <!-- /checkout/confirmResponse.jsp -->
+    <add-item id="es_xlate1100030" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Orden realizada correctamente en pago]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Pago - Orden realizada]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100031" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Orden realizada correctamente en pago]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Pago - Orden realizada]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    
+    <!-- /company/aboutUs.jsp -->
+    <add-item id="es_xlate1100034" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Acerca de nosotros]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Acerca de nosotros]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100035" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Acerca de nosotros]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Acerca de nosotros]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    
+    <!-- /company/stores.jsp -->
+    <add-item id="es_xlate1100036" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Localizador de tiendas]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Localizador de tiendas]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100037" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Localizador de tiendas]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Localizador de tiendas]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    
+    <!-- /company/corporateSite.jsp -->
+    <add-item id="es_xlate1100038" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Sitio corporativo]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Sitio corporativo]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100039" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Sitio corporativo]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Sitio corporativo]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    
+    <!-- /company/employment.jsp -->
+    <add-item id="es_xlate1100040" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Empleo]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Empleo]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100041" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Empleo]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Empleo]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    
+    <!-- /company/news.jsp -->
+    <add-item id="es_xlate1100042" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Noticias]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Noticias]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100043" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Noticias]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Noticias]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    
+    <!-- /browse/asSeenIn.jsp -->
+    <add-item id="es_xlate1100044" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Visto en...]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Visto en...]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100045" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Visto en...]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Visto en...]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    
+    <!-- /company/faq.jsp -->
+    <add-item id="es_xlate1100046" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Preguntas frecuentes]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Preguntas frecuentes]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100047" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Preguntas frecuentes]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Preguntas frecuentes]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+
+    <!-- /company/privacy.jsp -->
+    <add-item id="es_xlate1100048" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Política de privacidad]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Política de privacidad]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100049" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Política de privacidad]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Política de privacidad]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    
+    <!-- /company/terms.jsp -->
+    <add-item id="es_xlate1100050" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Condiciones]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Condiciones]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100051" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Condiciones]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Condiciones]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    
+    <!-- /company/shipping.jsp -->
+    <add-item id="es_xlate1100052" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Envío y manipulación]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Envío y manipulación]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100053" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Envío y manipulación]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Envío y manipulación]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+        
+    <!-- /company/returns.jsp -->
+    <add-item id="es_xlate1100054" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Política de devoluciones]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Política de devoluciones]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100055" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Política de devoluciones]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Política de devoluciones]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    
+    <!-- /company/customerService.jsp -->
+    <add-item id="es_xlate1100056" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Contacto]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Contacto]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100057" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Contacto]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Contacto]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+  
+    <!-- /myaccount/myOrders.jsp -->
+    <add-item id="es_xlate1100058" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Órdenes]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Órdenes]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100059" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Órdenes]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Órdenes]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+     
+    <!-- /myaccount/orderDetail.jsp -->
+    <add-item id="es_xlate1100060" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Orden]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Orden]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100061" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Orden]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Orden]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+
+    <!-- /myaccount/profile.jsp -->
+    <add-item id="es_xlate1100062" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Perfil]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Perfil]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100063" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Perfil]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Perfil]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+
+    <!-- /myaccount/accountProfileEdit.jsp -->
+    <add-item id="es_xlate1100064" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Editar información personal]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Editar información personal]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100065" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Editar información personal]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Editar información personal]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+
+    <!-- /myaccount/profilePasswordEdit.jsp -->
+    <add-item id="es_xlate1100066" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Editar contraseña]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Editar contraseña]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100067" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Editar contraseña]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Editar contraseña]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+
+    <!--  /myaccount/profileDefaults.jsp -->
+    <add-item id="es_xlate1100068" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Valores por defecto de pago]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Valores por defecto de pago]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100069" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Valores por defecto de pago]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Valores por defecto de pago]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+
+    <!-- /myaccount/paymentInfo.jsp -->
+    <add-item id="es_xlate1100070" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Información de pago]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Información de pago]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100071" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Información de pago]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Información de pago]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+
+    <!-- /myaccount/accountCardEdit.jsp -->
+    <add-item id="es_xlate1100072" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Editar tarjeta de crédito]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Editar tarjeta de crédito]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100073" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Editar tarjeta de crédito]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Editar tarjeta de crédito]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+
+    <!-- /myaccount/newCreditCard.jsp -->
+    <add-item id="es_xlate1100074" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Agregar nueva tarjeta de crédito]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Agregar nueva tarjeta de crédito]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100075" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Agregar nueva tarjeta de crédito]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Agregar nueva tarjeta de crédito]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+
+    <!-- /myaccount/accountAddressEdit.jsp -->
+    <add-item id="es_xlate1100076" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Dirección de perfil]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Dirección de perfil]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100077" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Dirección de perfil]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Dirección de perfil]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+
+    <!-- /myaccount/addressBook.jsp -->
+    <add-item id="es_xlate1100078" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Libreta de direcciones]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Libreta de direcciones]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100079" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Libreta de direcciones]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Libreta de direcciones]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+
+    <!-- /myaccount/myReturns.jsp -->
+    <add-item id="es_xlate1100080" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Historial de devoluciones]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Historial de devoluciones]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100081" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Historial de devoluciones]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Historial de devoluciones]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+
+    <!-- /myaccount/myWishList.jsp -->
+    <add-item id="es_xlate1100082" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Lista de deseos]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Lista de deseos]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100083" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Lista de deseos]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Lista de deseos]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+
+    <!-- /myaccount/giftListHome.jsp -->
+    <add-item id="es_xlate1100084" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Mis listas de regalos]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Mis listas de regalos]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100085" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Mis listas de regalos]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Mis listas de regalos]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+
+    <!-- /giftlists/giftListSearch.jsp -->
+    <add-item id="es_xlate1100086" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Buscar lista de regalos]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Buscar lista de regalos]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100087" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Buscar lista de regalos]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Buscar lista de regalos]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+
+    <!-- /promo/promotions.jsp -->
+    <add-item id="es_xlate1100088" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Promociones]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Promociones]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100089" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Promociones]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Promociones]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+
+    <!-- /comparisons/productComparisons.jsp -->
+    <add-item id="es_xlate1100090" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Comparaciones]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Comparaciones]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100091" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Comparaciones]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Comparaciones]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    
+    <!-- /myaccount/login.jsp -->
+    <add-item id="es_xlate1100092" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Conexión]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Conexión]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100093" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Conexión]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Conexión]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    
+    <!-- /checkout/shippingMethod.jsp -->
+    <add-item id="es_xlate1100094" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Pago - Método de envío]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Pago - Método de envío]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100095" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Pago - Método de envío]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Pago - Método de envío]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+
+    <!-- /browse/newItems.jsp -->
+    <add-item id="es_xlate1100096" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Nuevos artículos]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Nuevos artículos]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100097" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Nuevos artículos]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Nuevos artículos]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+
+    <!--  /myaccount/returnItemsSelection.js -->
+    <add-item id="es_xlate1100098" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Devolución de orden]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Devolución de orden]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100099" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Devolución de orden]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Devolución de orden]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+
+    <!-- /myaccount/confirmReturn. -->
+    <add-item id="es_xlate1100100" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Confirmación de devolución de orden]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Confirmación de devolución de orden]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100101" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Confirmación de devolución de orden]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Confirmación de devolución de orden]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+
+    <!-- /myaccount/confirmReturnResponse.jsp -->
+    <add-item id="es_xlate1100102" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Devolución de orden realizada]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Devolución de orden realizada]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100103" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Devolución de orden realizada]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Devolución de orden realizada]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+
+    <!-- /myaccount/gadgets/returnPromotionAmendmentsPopup.jsp -->
+    <add-item id="es_xlate1100104" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Ajustes de precios y promociones]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Ajustes de precios y promociones]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="es_xlate1100105" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Ajustes de precios y promociones]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Ajustes de precios y promociones]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+                                                                                                 
+    <!-- =========================== -->
+    <!--     GERMAN TRANSLATIONS     -->
+    <!-- =========================== -->
+    
     <add-item id="de_xlate1100002" item-descriptor="SEOTranslation">
       <set-property name="description"><![CDATA[Hier finden Sie die neueste Mode zu großartigen Preisen. Kaufen Sie bei uns ein, und profitieren Sie von unseren Rabatten für Damenbekleidung, Schuhe und mehr unter atgstore.com.]]></set-property>
       <set-property name="keywords"><![CDATA[Schuhe, Hemden, Hosen, Kleider, Röcke, Shorts, Jacken, Accessoires, Damenschuhe, Herrenschuhe, Abendschuhe, Freizeitschuhe, Sportschuhe, atgstore.com, Einkaufen bei atgstore.com]]></set-property>
@@ -257,18 +1581,20 @@
       <set-property name="title"><![CDATA[ATG Store - Powered by ATG]]></set-property>
       <set-property name="displayName"><![CDATA[Homepage]]></set-property>
     </add-item>
-    <add-item id="de_xlate1100019" item-descriptor="SEOTranslation">
+    <add-item id="de_xlate1100032" item-descriptor="SEOTranslation">
       <set-property name="description"><![CDATA[Hier finden Sie die neuesten Stilrichtungen zu großartigen Preisen. Kaufen Sie bei uns ein, und profitieren Sie von unseren Rabatten für Heimtextilien und mehr unter atgstore.com.]]></set-property>
       <set-property name="keywords"><![CDATA[Tische, Sitzmöbel, Aufbewahrungsmöbel, Handtücher, Bettwäsche, Dekorationsartikel, atgstore.com, Einkaufen bei atgstore.com]]></set-property>
-      <set-property name="title"><![CDATA[ATG Store Home - Powered by ATG]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Powered by ATG]]></set-property>
       <set-property name="displayName"><![CDATA[Home]]></set-property>
     </add-item>
-    <add-item id="de_xlate1100020" item-descriptor="SEOTranslation">
+    <add-item id="de_xlate1100033" item-descriptor="SEOTranslation">
       <set-property name="description"><![CDATA[Hier finden Sie die neuesten Stilrichtungen zu großartigen Preisen. Kaufen Sie bei uns ein, und profitieren Sie von unseren Rabatten für Heimtextilien und mehr unter atgstore.com.]]></set-property>
       <set-property name="keywords"><![CDATA[Tische, Sitzmöbel, Aufbewahrungsmöbel, Handtücher, Bettwäsche, Dekorationsartikel, atgstore.com, Einkaufen bei atgstore.com]]></set-property>
-      <set-property name="title"><![CDATA[ATG Store Home - Powered by ATG]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Powered by ATG]]></set-property>
       <set-property name="displayName"><![CDATA[Homepage]]></set-property>
     </add-item>
+    
+    <!--  /cart/cart.jsp -->
     <add-item id="de_xlate1100004" item-descriptor="SEOTranslation">
       <set-property name="displayName"><![CDATA[Warenkorb]]></set-property>
       <set-property name="title"><![CDATA[ATG Store - Warenkorb]]></set-property>
@@ -276,65 +1602,83 @@
       <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
     </add-item>
     <add-item id="de_xlate1100005" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Warenkorb]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Warenkorb]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    
+    <!--  /checkout/login.jsp -->    
+    <add-item id="de_xlate1100006" item-descriptor="SEOTranslation">
       <set-property name="displayName"><![CDATA[Checkout Anmeldung]]></set-property>
       <set-property name="title"><![CDATA[ATG Store - Checkout - Anmeldung]]></set-property>
       <set-property name="description"><![CDATA[__NULL__]]></set-property>
       <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
     </add-item>
-    <add-item id="de_xlate1100006" item-descriptor="SEOTranslation">
+    <add-item id="de_xlate1100007" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Checkout Anmeldung]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Checkout - Anmeldung]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    
+    <!--  /checkout/shipping.jsp -->
+    <add-item id="de_xlate1100008" item-descriptor="SEOTranslation">
       <set-property name="displayName"><![CDATA[Checkout Versand]]></set-property>
       <set-property name="title"><![CDATA[ATG Store - Checkout - Versand]]></set-property>
       <set-property name="description"><![CDATA[__NULL__]]></set-property>
       <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
     </add-item>
-    <add-item id="de_xlate1100007" item-descriptor="SEOTranslation">
+    <add-item id="de_xlate1100009" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Checkout Versand]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Checkout - Versand]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    
+    <!--  /checkout/billing.jsp -->
+    <add-item id="de_xlate1100010" item-descriptor="SEOTranslation">
       <set-property name="displayName"><![CDATA[Checkout Fakturierung]]></set-property>
       <set-property name="title"><![CDATA[ATG Store - Checkout - Fakturierung]]></set-property>
       <set-property name="description"><![CDATA[__NULL__]]></set-property>
       <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
     </add-item>
-    <add-item id="de_xlate1100008" item-descriptor="SEOTranslation">
+    <add-item id="de_xlate1100011" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Checkout Fakturierung]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Checkout - Fakturierung]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    
+    <!-- /checkout/confirm.jsp -->
+    <add-item id="de_xlate1100012" item-descriptor="SEOTranslation">
       <set-property name="displayName"><![CDATA[Checkout Bestätigung]]></set-property>
       <set-property name="title"><![CDATA[ATG Store - Checkout - Bestellbestätigung]]></set-property>
       <set-property name="description"><![CDATA[__NULL__]]></set-property>
       <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
     </add-item>
-    <add-item id="de_xlate1100009" item-descriptor="SEOTranslation">
+    <add-item id="de_xlate1100013" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Checkout Bestätigung]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Checkout - Bestellbestätigung]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    
+    <!-- /checkout/giftMessage.jsp -->
+    <add-item id="de_xlate1100014" item-descriptor="SEOTranslation">
       <set-property name="displayName"><![CDATA[Checkout Geschenknachricht]]></set-property>
       <set-property name="title"><![CDATA[ATG Store - Checkout - Geschenknachricht]]></set-property>
       <set-property name="description"><![CDATA[__NULL__]]></set-property>
       <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
     </add-item>
-    <add-item id="de_xlate1100010" item-descriptor="SEOTranslation">
-      <set-property name="displayName"><![CDATA[Checkout Versand an mehrere Adressen]]></set-property>
-      <set-property name="title"><![CDATA[ATG Store - Checkout - Versand an mehrere Adressen]]></set-property>
+    <add-item id="de_xlate1100015" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Checkout Geschenknachricht]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Checkout - Geschenknachricht]]></set-property>
       <set-property name="description"><![CDATA[__NULL__]]></set-property>
       <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
     </add-item>
-    <add-item id="de_xlate1100011" item-descriptor="SEOTranslation">
-      <set-property name="displayName"><![CDATA[Checkout Bestätigung]]></set-property>
-      <set-property name="title"><![CDATA[ATG Store - Checkout - Bestellbestätigung]]></set-property>
-      <set-property name="description"><![CDATA[__NULL__]]></set-property>
-      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
-    </add-item>
-    <add-item id="de_xlate1100012" item-descriptor="SEOTranslation">
-      <set-property name="displayName"><![CDATA[Checkout Versandadresse hinzufügen]]></set-property>
-      <set-property name="title"><![CDATA[ATG Store - Checkout - Versandadresse hinzufügen]]></set-property>
-      <set-property name="description"><![CDATA[__NULL__]]></set-property>
-      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
-    </add-item>
-    <add-item id="de_xlate1100013" item-descriptor="SEOTranslation">
-      <set-property name="displayName"><![CDATA[Checkout Versandadresse bearbeiten]]></set-property>
-      <set-property name="title"><![CDATA[ATG Store - Checkout - Versandadresse bearbeiten]]></set-property>
-      <set-property name="description"><![CDATA[__NULL__]]></set-property>
-      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
-    </add-item>
-    <add-item id="de_xlate1100014" item-descriptor="SEOTranslation">
-      <set-property name="displayName"><![CDATA[Checkout Kreditkarte bearbeiten]]></set-property>
-      <set-property name="title"><![CDATA[ATG Store - Checkout - Kreditkarte bearbeiten]]></set-property>
-      <set-property name="description"><![CDATA[__NULL__]]></set-property>
-      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
-    </add-item>
+    
+    <!-- /checkout/shippingMultiple.jsp -->
     <add-item id="de_xlate1100016" item-descriptor="SEOTranslation">
       <set-property name="displayName"><![CDATA[Checkout Bestellung nicht erteilt]]></set-property>
       <set-property name="title"><![CDATA[ATG Store - Checkout - Bestellung nicht erteilt]]></set-property>
@@ -342,17 +1686,600 @@
       <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
     </add-item>
     <add-item id="de_xlate1100017" item-descriptor="SEOTranslation">
-      <set-property name="displayName"><![CDATA[Checkout Rechnungsadresse bearbeiten]]></set-property>
-      <set-property name="title"><![CDATA[ATG Store - Checkout - Rechnungsadresse bearbeiten]]></set-property>
+      <set-property name="displayName"><![CDATA[Checkout Versand an mehrere Adressen]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Checkout - Versand an mehrere Adressen]]></set-property>
       <set-property name="description"><![CDATA[__NULL__]]></set-property>
       <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
     </add-item>
+    
+    <!-- /checkout/confirm.jsp -->
     <add-item id="de_xlate1100018" item-descriptor="SEOTranslation">
       <set-property name="displayName"><![CDATA[Checkout Bestellung erfolgreich]]></set-property>
       <set-property name="title"><![CDATA[ATG Store - Checkout - Bestellung erfolgreich]]></set-property>
       <set-property name="description"><![CDATA[__NULL__]]></set-property>
       <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
     </add-item>
+    <add-item id="de_xlate1100019" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Checkout Bestellung erfolgreich]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Checkout - Bestellung erfolgreich]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+
+    <!-- /checkout/shippingAddressAdd.jsp -->
+    <add-item id="de_xlate1100020" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Checkout Versandadresse hinzufügen]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Checkout - Versandadresse hinzufügen]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100021" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Checkout Versandadresse hinzufügen]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Checkout - Versandadresse hinzufügen]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    
+    <!-- /checkout/shippingAddressAdd.jsp -->
+    <add-item id="de_xlate1100022" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Checkout Versandadresse bearbeiten]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Checkout - Versandadresse bearbeiten]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100023" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Checkout Versandadresse bearbeiten]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Checkout - Versandadresse bearbeiten]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    
+    <!-- /checkout/creditCardEdit.jsp -->
+    <add-item id="de_xlate1100024" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Checkout Kreditkarte bearbeiten]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Checkout - Kreditkarte bearbeiten]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100025" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Checkout Kreditkarte bearbeiten]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Checkout - Kreditkarte bearbeiten]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    
+    <!-- /cart/orderNotPlaced.jsp -->
+    <add-item id="de_xlate1100026" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Checkout Bestellung nicht erteilt]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Checkout - Bestellung nicht erteilt]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100027" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Checkout Bestellung nicht erteilt]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Checkout - Bestellung nicht erteilt]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    
+    <!-- /checkout/billingAddressEdit.jsp -->
+    <add-item id="de_xlate1100028" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Checkout Rechnungsadresse bearbeiten]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Checkout - Rechnungsadresse bearbeiten]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100029" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Checkout Rechnungsadresse bearbeiten]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Checkout - Rechnungsadresse bearbeiten]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    
+    <!-- /company/aboutUs.jsp -->
+    <add-item id="de_xlate1100034" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Über uns]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Über uns]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100035" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Über uns]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Über uns]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    
+    <!-- /company/stores.jsp -->
+    <add-item id="de_xlate1100036" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Shopsuche]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Shopsuche]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100037" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Shopsuche]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Shopsuche]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+
+    <!-- /company/corporateSite.jsp -->
+    <add-item id="de_xlate1100038" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Firmensite]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Firmensite]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100039" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Firmensite]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Firmensite]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    
+    <!-- /company/employment.jsp -->
+    <add-item id="de_xlate1100040" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Jobs]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Jobs]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100041" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Jobs]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Jobs]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    
+    <!-- /company/news.jsp -->
+    <add-item id="de_xlate1100042" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Neuigkeiten]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Neuigkeiten]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100043" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Neuigkeiten]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Neuigkeiten]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    
+    <!-- /browse/asSeenIn.jsp -->
+    <add-item id="de_xlate1100044" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Fundort...]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Fundort...]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100045" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Fundort...]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Fundort...]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+
+    <!-- /company/faq.jsp -->
+    <add-item id="de_xlate1100046" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[FAQs]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - FAQs]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100047" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[FAQs]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - FAQs]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    
+    <!-- /company/privacy.jsp -->
+    <add-item id="de_xlate1100048" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Datenschutzrichtlinie]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Datenschutzrichtlinie]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100049" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Datenschutzrichtlinie]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Datenschutzrichtlinie]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    
+    <!-- /company/terms.jsp -->
+    <add-item id="de_xlate1100050" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Allgemeine Geschäftsbedingungen]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Allgemeine Geschäftsbedingungen]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100051" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Allgemeine Geschäftsbedingungen]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Allgemeine Geschäftsbedingungen]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+
+    <!-- /company/shipping.jsp -->
+    <add-item id="de_xlate1100052" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Versand/Bearbeitung]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Versand/Bearbeitung]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100053" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Versand/Bearbeitung]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Versand/Bearbeitung]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    
+    <!-- /company/returns.jsp -->
+    <add-item id="de_xlate1100054" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Rücksendungsbedingungen]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Rücksendungsbedingungen]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100055" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Rücksendungsbedingungen]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Rücksendungsbedingungen]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+   
+    <!-- /company/customerService.jsp -->
+    <add-item id="de_xlate1100056" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Kontakt]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Kontakt]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100057" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Kontakt]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Kontakt]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    
+    <!-- /myaccount/myOrders.jsp -->
+    <add-item id="de_xlate1100058" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Bestellungen]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Bestellungen]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100059" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Bestellungen]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Bestellungen]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>    
+
+    <!-- /myaccount/orderDetail.jsp -->
+    <add-item id="de_xlate1100060" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Bestellung]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Bestellung]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100061" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Bestellung]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Bestellung]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+
+    <!-- /myaccount/profile.jsp -->
+    <add-item id="de_xlate1100062" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Profil]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Profil]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100063" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Profil]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Profil]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+
+    <!-- /myaccount/accountProfileEdit.jsp -->
+    <add-item id="de_xlate1100064" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Persönliche Informationen bearbeiten]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Persönliche Informationen bearbeiten]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100065" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Persönliche Informationen bearbeiten]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Persönliche Informationen bearbeiten]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+
+    <!-- /myaccount/profilePasswordEdit.jsp -->
+    <add-item id="de_xlate1100066" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Kennwort bearbeiten]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Kennwort bearbeiten]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100067" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Kennwort bearbeiten]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Kennwort bearbeiten]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+
+    <!-- /myaccount/profileDefaults.jsp -->
+    <add-item id="de_xlate1100068" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Checkout-Standardwerte]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Checkout-Standardwerte]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100069" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Checkout-Standardwerte]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Checkout-Standardwerte]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    
+    <!-- /myaccount/paymentInfo.jsp -->
+    <add-item id="de_xlate1100070" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Zahlungsinformationen]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Zahlungsinformationen]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100071" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Zahlungsinformationen]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Zahlungsinformationen]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+
+   <!-- /myaccount/accountCardEdit.jsp -->
+    <add-item id="de_xlate1100072" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Kreditkarte bearbeiten]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Kreditkarte bearbeiten]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100073" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Kreditkarte bearbeiten]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Kreditkarte bearbeiten]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+
+    <!-- /myaccount/newCreditCard.jsp -->
+    <add-item id="de_xlate1100074" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Neue Kreditkarte hinzufügen]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Neue Kreditkarte hinzufügen]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100075" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Neue Kreditkarte hinzufügen]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Neue Kreditkarte hinzufügen]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+
+    <!-- /myaccount/accountAddressEdit.jsp -->
+    <add-item id="de_xlate1100076" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Profiladresse]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Profiladresse]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100077" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Profiladresse]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Profiladresse]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+
+    <!-- /myaccount/addressBook.jsp -->
+    <add-item id="de_xlate1100078" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Adressbuch]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Adressbuch]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100079" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Adressbuch]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Adressbuch]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+
+    <!-- /myaccount/myReturns.jsp -->
+    <add-item id="de_xlate1100080" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Rücksendehistorie]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Rücksendehistorie]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100081" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Rücksendehistorie]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Rücksendehistorie]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+
+    <!-- /myaccount/myWishList.jsp -->
+    <add-item id="de_xlate1100082" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Wunschzettel]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Wunschzettel]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100083" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Wunschzettel]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Wunschzettel]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+
+    <!-- /myaccount/giftListHome.jsp -->
+    <add-item id="de_xlate1100084" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Meine Geschenkelisten]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Meine Geschenkelisten]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100085" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Meine Geschenkelisten]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Meine Geschenkelisten]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+
+    <!-- /giftlists/giftListSearch.jsp -->
+    <add-item id="de_xlate1100086" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Eine Geschenkeliste suchen]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Eine Geschenkeliste suchen]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100087" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Eine Geschenkeliste suchen]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Eine Geschenkeliste suchen]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+
+    <!-- /promo/promotions.jsp -->
+    <add-item id="de_xlate1100088" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Promotions]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Promotions]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100089" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Promotions]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Promotions]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+
+    <!-- /comparisons/productComparisons.jsp -->
+    <add-item id="de_xlate1100090" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Vergleiche]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Vergleiche]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100091" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Vergleiche]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Vergleiche]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+
+    <!-- /myaccount/login.jsp -->
+    <add-item id="de_xlate1100092" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Anmeldung]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Anmeldung]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100093" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Anmeldung]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Anmeldung]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+
+    <!-- /checkout/shippingMethod.jsp -->
+    <add-item id="de_xlate1100094" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Checkout Versandart]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Checkout - Versandart]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100095" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Checkout Versandart]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Checkout - Versandart]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+
+    <!-- /browse/newItems.jsp -->
+    <add-item id="de_xlate1100096" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Neue Artikel]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Neue Artikel]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100097" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Neue Artikel]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Neue Artikel]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+
+    <!-- /myaccount/returnItemsSelection.jsp -->
+    <add-item id="de_xlate1100098" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Rücksendung der Bestellung]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Rücksendung der Bestellung]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100099" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Rücksendung der Bestellung]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Rücksendung der Bestellung]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+
+    <!-- /myaccount/confirmReturn.jsp -->
+    <add-item id="de_xlate1100100" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Rücksendebestätigung für Bestellung]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Rücksendebestätigung für Bestellung]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100101" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Rücksendebestätigung für Bestellung]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Rücksendebestätigung für Bestellung]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+
+    <!--  /myaccount/confirmReturnResponse.jsp -->
+    <add-item id="de_xlate1100102" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Rücksendung der Bestellung veranlasst]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Rücksendung der Bestellung veranlasst]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100103" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Rücksendung der Bestellung veranlasst]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Rücksendung der Bestellung veranlasst]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+
+    <!-- /myaccount/gadgets/returnPromotionAmendmentsPopup.jsp -->
+    <add-item id="de_xlate1100104" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Preisfindungs- und Promotionanpassungen]]></set-property>
+      <set-property name="title"><![CDATA[ATG Store - Preisfindungs- und Promotionanpassungen]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+    <add-item id="de_xlate1100105" item-descriptor="SEOTranslation">
+      <set-property name="displayName"><![CDATA[Preisfindungs- und Promotionanpassungen]]></set-property>
+      <set-property name="title"><![CDATA[ATG Home - Preisfindungs- und Promotionanpassungen]]></set-property>
+      <set-property name="description"><![CDATA[__NULL__]]></set-property>
+      <set-property name="keywords"><![CDATA[__NULL__]]></set-property>
+    </add-item>
+                                                                                             
   </import-items>
 </gsa-template>
-<!-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.1.1/Storefront/data/seotags-i18n.xml#1 $$Change: 690623 $-->
+<!-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.2/Storefront/data/seotags-i18n.xml#5 $$Change: 797502 $-->

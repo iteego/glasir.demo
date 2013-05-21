@@ -9,7 +9,7 @@
     <sql><![CDATA[
 
 
--- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.1.1/EStore/sql/ddlgen/multisite_ddl.xml#1 $$Change: 690623 $
+--  @version $Id: //hosting-blueprint/B2CBlueprint/version/10.2/EStore/sql/ddlgen/multisite_ddl.xml#3 $$Change: 788809 $
 
 create table crs_site_attribute (
 	id	varchar2(40)	not null,
@@ -21,12 +21,15 @@ create table crs_site_attribute (
 	default_country_code	varchar2(2)	null,
 	emailafriend	number(1)	null,
 	backinstock_addr	varchar2(254)	null,
-	newpass_addr	varchar2(50)	null,
-	orderconfirm_addr	varchar2(50)	null,
-	ordershipped_addr	varchar2(50)	null,
-	changepass_addr	varchar2(50)	null,
-	registereduser_addr	varchar2(50)	null,
-	promo_addr	varchar2(50)	null
+	newpass_addr	varchar2(254)	null,
+	orderconfirm_addr	varchar2(254)	null,
+	ordershipped_addr	varchar2(254)	null,
+	changepass_addr	varchar2(254)	null,
+	registereduser_addr	varchar2(254)	null,
+	promo_addr	varchar2(254)	null,
+	price_slider_min	number(10)	null,
+	price_slider_max	number(10)	null,
+	channel	varchar2(254)	null
 ,constraint crs_site_attr_p primary key (id));
 
 create table crs_bill_codes (

@@ -53,6 +53,9 @@
   <set-property name="favicon"><![CDATA[/crsdocroot/content/images/storefront/site/storeDE/favicon.png]]></set-property>
   <set-property name="contextRoot"><![CDATA[/crs]]></set-property>
   <set-property name="productionURL"><![CDATA[/crs/storede]]></set-property>
+  <set-property name="priceSliderMinimumValue"><![CDATA[0]]></set-property>
+  <set-property name="priceSliderMaximumValue"><![CDATA[1400]]></set-property>
+  <set-property name="channel"><![CDATA[desktop]]></set-property>
 </add-item>
 
 <add-item item-descriptor="siteConfiguration" id="storeSiteUS">
@@ -70,4 +73,4 @@
 </import-items>
 
 </gsa-template>
-<!-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.1.1/Storefront/data/sites-i18n.xml#1 $$Change: 690623 $-->
+<!-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.2/Storefront/data/sites-i18n.xml#2 $$Change: 742374 $-->

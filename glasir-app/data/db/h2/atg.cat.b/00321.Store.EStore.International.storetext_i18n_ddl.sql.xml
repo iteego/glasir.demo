@@ -9,7 +9,7 @@
     <sql><![CDATA[
 
 
--- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.1.1/EStore/International/sql/ddlgen/storetext_i18n_ddl.xml#1 $$Change: 690623 $
+--  @version $Id: //hosting-blueprint/B2CBlueprint/version/10.2/EStore/International/sql/ddlgen/storetext_i18n_ddl.xml#1 $$Change: 735822 $
 
 create table crs_short_txt_xlate (
 	translation_id	varchar2(254)	not null,

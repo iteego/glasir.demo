@@ -9,7 +9,7 @@
     <sql><![CDATA[
 
 
---  @version $Id: //product/DPS/version/10.1.1/templates/DPS/sql/user_ddl.xml#1 $$Change: 690623 $
+--  @version $Id: //product/DPS/version/10.2/templates/DPS/sql/user_ddl.xml#2 $$Change: 788278 $
 -- This file contains create table statements, which will configure your database for use with the new DPS schema.
 -- Add the organization definition.  It's out of place, but since dps_user references it, it's got to be defined up here
 
@@ -32,6 +32,7 @@ create table dps_user (
 	auto_login	number(1,0)	null,
 	password	varchar2(70)	null,
 	password_salt	varchar2(40)	null,
+	realm_id	varchar2(40)	null,
 	member	number(1,0)	null,
 	first_name	varchar2(40)	null,
 	middle_name	varchar2(40)	null,
@@ -51,9 +52,10 @@ create table dps_user (
 	securityStatus	integer	null,
 	description	varchar2(254)	null
 ,constraint dps_user_p primary key (id)
-,constraint dps_user_u unique (login)
 ,constraint dps_user1_c check (auto_login in (0,1))
 ,constraint dps_user2_c check (member in (0,1)));
+
+create unique index dps_user_u on dps_user (login,realm_id);
 
 create table dps_contact_info (
 	id	varchar2(40)	not null,
@@ -300,6 +302,12 @@ create table dps_user_prevpwd (
 	prevpwd	varchar2(70)	null
 ,constraint dps_prevpwd_p primary key (id,seq_num)
 ,constraint dps_prvpwd_d_f foreign key (id) references dps_user (id));
+
+create table dps_profile_realm (
+	id	varchar2(40)	not null,
+	name	varchar2(255)	null,
+	description	varchar2(255)	null
+,constraint dps_prfl_rlm_p primary key (id));
 ]]>
   </sql>
     <rollback />

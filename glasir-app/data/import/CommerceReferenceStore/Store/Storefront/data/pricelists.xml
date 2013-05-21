@@ -91,7 +91,7 @@
 
 <add-item item-descriptor="price" id="lpxsku60325">
 	<set-property name="priceList"><![CDATA[listPrices]]></set-property>
-	<set-property name="listPrice"><![CDATA[10.0]]></set-property>
+	<set-property name="listPrice"><![CDATA[0.0]]></set-property>
 	<set-property name="skuId"><![CDATA[xsku60325]]></set-property>
 </add-item>
 
@@ -1747,7 +1747,7 @@
 
 <add-item item-descriptor="price" id="lpsku40228">
 	<set-property name="priceList"><![CDATA[listPrices]]></set-property>
-	<set-property name="listPrice"><![CDATA[11999.99]]></set-property>
+	<set-property name="listPrice"><![CDATA[137.0]]></set-property>
 	<set-property name="skuId"><![CDATA[sku40228]]></set-property>
 </add-item>
 
@@ -2112,21 +2112,21 @@
 
 <add-item item-descriptor="price" id="lpxsku2099">
   <set-property name="priceList"><![CDATA[listPrices]]></set-property>
-  <set-property name="listPrice"><![CDATA[4799.0]]></set-property>
+  <set-property name="listPrice"><![CDATA[2499.0]]></set-property>
   <!-- export is false   <set-property name="version"><![CDATA[1]]></set-property>  -->
   <set-property name="skuId"><![CDATA[xsku2099]]></set-property>
 </add-item>
 
 <add-item item-descriptor="price" id="lpsku10001">
   <set-property name="priceList"><![CDATA[listPrices]]></set-property>
-  <set-property name="listPrice"><![CDATA[4299.0]]></set-property>
+  <set-property name="listPrice"><![CDATA[1999.0]]></set-property>
   <!-- export is false   <set-property name="version"><![CDATA[1]]></set-property>  -->
   <set-property name="skuId"><![CDATA[sku10001]]></set-property>
 </add-item>
 
 <add-item item-descriptor="price" id="lpsku10002">
   <set-property name="priceList"><![CDATA[listPrices]]></set-property>
-  <set-property name="listPrice"><![CDATA[3799.0]]></set-property>
+  <set-property name="listPrice"><![CDATA[1499.0]]></set-property>
   <!-- export is false   <set-property name="version"><![CDATA[1]]></set-property>  -->
   <set-property name="skuId"><![CDATA[sku10002]]></set-property>
 </add-item>
@@ -10465,7 +10465,7 @@
 
 <add-item item-descriptor="price" id="lpxsku5014">
   <set-property name="priceList"><![CDATA[listPrices]]></set-property>
-  <set-property name="listPrice"><![CDATA[839.0]]></set-property>
+  <set-property name="listPrice"><![CDATA[495.0]]></set-property>
   <!-- export is false   <set-property name="version"><![CDATA[1]]></set-property>  -->
   <set-property name="skuId"><![CDATA[xsku5014]]></set-property>
 </add-item>
@@ -13267,7 +13267,7 @@
 
 <add-item item-descriptor="price" id="lpxsku2135">
   <set-property name="priceList"><![CDATA[listPrices]]></set-property>
-  <set-property name="listPrice"><![CDATA[3199.0]]></set-property>
+  <set-property name="listPrice"><![CDATA[2099.0]]></set-property>
   <!-- export is false   <set-property name="version"><![CDATA[1]]></set-property>  -->
   <set-property name="skuId"><![CDATA[xsku2135]]></set-property>
 </add-item>
@@ -14786,4 +14786,4 @@
 </import-items>
 
 </gsa-template>
-<!-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.1.1/Storefront/data/pricelists.xml#2 $$Change: 690857 $-->
+<!-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.2/Storefront/data/pricelists.xml#3 $$Change: 788278 $-->

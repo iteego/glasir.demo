@@ -9,7 +9,7 @@
     <sql><![CDATA[
 
 
--- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.1.1/EStore/sql/ddlgen/storetext_ddl.xml#1 $$Change: 690623 $
+--  @version $Id: //hosting-blueprint/B2CBlueprint/version/10.2/EStore/sql/ddlgen/storetext_ddl.xml#1 $$Change: 735822 $
 
 create table crs_store_text (
 	text_id	varchar2(40)	not null,

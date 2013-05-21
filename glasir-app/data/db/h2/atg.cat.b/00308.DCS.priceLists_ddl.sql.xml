@@ -9,7 +9,7 @@
     <sql><![CDATA[
 
 
---  @version $Id: //product/DCS/version/10.1.1/templates/DCS/sql/priceLists_ddl.xml#1 $$Change: 690623 $
+--  @version $Id: //product/DCS/version/10.2/templates/DCS/sql/priceLists_ddl.xml#1 $$Change: 735822 $
 
 create table dcs_price_list (
 	price_list_id	varchar2(40)	not null,

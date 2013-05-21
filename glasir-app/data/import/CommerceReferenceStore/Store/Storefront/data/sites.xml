@@ -44,6 +44,9 @@
   <set-property name="favicon"><![CDATA[/crsdocroot/content/images/storefront/site/home/favicon.png]]></set-property>
   <set-property name="contextRoot"><![CDATA[/crs]]></set-property>
   <set-property name="productionURL"><![CDATA[/crs/homeus]]></set-property>
+  <set-property name="priceSliderMinimumValue"><![CDATA[0]]></set-property>
+  <set-property name="priceSliderMaximumValue"><![CDATA[2500]]></set-property>
+  <set-property name="channel"><![CDATA[desktop]]></set-property>
 </add-item>
 
 <add-item item-descriptor="siteConfiguration" id="storeSiteUS">
@@ -86,6 +89,9 @@
   <set-property name="favicon"><![CDATA[/crsdocroot/content/images/storefront/site/storeUS/favicon.png]]></set-property>
   <set-property name="contextRoot"><![CDATA[/crs]]></set-property>
   <set-property name="productionURL"><![CDATA[/crs/storeus]]></set-property>
+  <set-property name="priceSliderMinimumValue"><![CDATA[0]]></set-property>
+  <set-property name="priceSliderMaximumValue"><![CDATA[500]]></set-property>
+  <set-property name="channel"><![CDATA[desktop]]></set-property>
 </add-item>
 
 <!-- 1 items of type siteGroup -->
@@ -99,4 +105,4 @@
 </import-items>
 
 </gsa-template>
-<!-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.1.1/Storefront/data/sites.xml#1 $$Change: 690623 $-->
+<!-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.2/Storefront/data/sites.xml#2 $$Change: 742374 $-->

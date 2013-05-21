@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE gsa-template SYSTEM "dynamosystemresource:/atg/dtds/gsa/gsa_1.0.dtd">
+<gsa-template>
+<import-items>
+
+<!-- 6 items of type returnReasons -->
+
+<add-item item-descriptor="returnReasons" repository="/atg/commerce/custsvc/CsrRepository" id="incorrectItem">
+  <set-property name="description"><![CDATA[incorrectItem]]></set-property>
+</add-item>
+
+<add-item item-descriptor="returnReasons" repository="/atg/commerce/custsvc/CsrRepository" id="incorrectSize">
+  <set-property name="description"><![CDATA[incorrectSize]]></set-property>
+</add-item>
+
+<add-item item-descriptor="returnReasons" repository="/atg/commerce/custsvc/CsrRepository" id="didNotLike">
+  <set-property name="description"><![CDATA[didNotLike]]></set-property>
+</add-item>
+
+<add-item item-descriptor="returnReasons" repository="/atg/commerce/custsvc/CsrRepository" id="defective">
+  <set-property name="description"><![CDATA[defective]]></set-property>
+</add-item>
+
+<add-item item-descriptor="returnReasons" repository="/atg/commerce/custsvc/CsrRepository" id="incorrectColor">
+  <set-property name="description"><![CDATA[incorrectColor]]></set-property>
+</add-item>
+
+<add-item item-descriptor="returnReasons" repository="/atg/commerce/custsvc/CsrRepository" id="didNotMeetExpectations">
+  <set-property name="description"><![CDATA[didNotMeetExpectations]]></set-property>
+</add-item>
+
+<!-- 6 items of type returnItemDisposition -->
+
+<add-item item-descriptor="returnItemDisposition" repository="/atg/commerce/custsvc/CsrRepository" id="incorrectItem">
+  <set-property name="description"><![CDATA[incorrectItem]]></set-property>
+  <set-property name="updateInventory"><![CDATA[false]]></set-property>
+</add-item>
+
+<add-item item-descriptor="returnItemDisposition" repository="/atg/commerce/custsvc/CsrRepository" id="incorrectSize">
+  <set-property name="description"><![CDATA[incorrectSize]]></set-property>
+  <set-property name="updateInventory"><![CDATA[false]]></set-property>
+</add-item>
+
+<add-item item-descriptor="returnItemDisposition" repository="/atg/commerce/custsvc/CsrRepository" id="didNotLike">
+  <set-property name="description"><![CDATA[didNotLike]]></set-property>
+  <set-property name="updateInventory"><![CDATA[false]]></set-property>
+</add-item>
+
+<add-item item-descriptor="returnItemDisposition" repository="/atg/commerce/custsvc/CsrRepository" id="defective">
+  <set-property name="description"><![CDATA[defective]]></set-property>
+  <set-property name="updateInventory"><![CDATA[false]]></set-property>
+</add-item>
+
+<add-item item-descriptor="returnItemDisposition" repository="/atg/commerce/custsvc/CsrRepository" id="incorrectColor">
+  <set-property name="description"><![CDATA[incorrectColor]]></set-property>
+  <set-property name="updateInventory"><![CDATA[false]]></set-property>
+</add-item>
+
+<add-item item-descriptor="returnItemDisposition" repository="/atg/commerce/custsvc/CsrRepository"
+          id="didNotMeetExpectation">
+  <set-property name="description"><![CDATA[didNotMeetExpectations]]></set-property>
+  <set-property name="updateInventory"><![CDATA[false]]></set-property>
+</add-item>
+
+</import-items>
+
+</gsa-template>
+<!-- @version $Id: //product/DCS/version/10.2/templates/DCS/install/data/returnData.xml#1 $$Change: 788278 $-->

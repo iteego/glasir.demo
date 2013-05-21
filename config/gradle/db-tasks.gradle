@@ -76,6 +76,7 @@ task createProductionChangesets(type: CreateChangesets, description: "Creates da
 */
 
   useXml = false
+  substitutions = ["dynAdminPassword":"9dad8966bceb832d502d9feb60888f189908876176306f69fa02f01835c488fb"]  
 }
 
 task listAddons(type:ListAvailableAddons, description: "Lists available/installed ATG addons") {}

@@ -5,7 +5,6 @@
   
     <!-- items of type promotionStatus -->
     
-    
     <add-item id="xpst10030" item-descriptor="promotionStatus">
       <set-property name="profileId"><![CDATA[se-570030]]></set-property>
       <set-property name="numUses"><![CDATA[-1]]></set-property>
@@ -168,7 +167,7 @@
     <add-item id="se-usercc110030" item-descriptor="credit-card">
       <set-property name="expirationMonth"><![CDATA[1]]></set-property>
       <set-property name="billingAddress"><![CDATA[se-990030]]></set-property>
-      <set-property name="creditCardType"><![CDATA[Visa]]></set-property>
+      <set-property name="creditCardType"><![CDATA[visa]]></set-property>
       <set-property name="expirationYear"><![CDATA[2017]]></set-property>
       <set-property name="creditCardNumber"><![CDATA[4539082039396288]]></set-property>
     </add-item>
@@ -230,12 +229,6 @@
       <set-property name="giftlists"><![CDATA[xgl20004]]></set-property>
     </add-item>
 
-    <!-- Update Stuart's gift list's owner -->
-    <add-item id="xgl20004" item-descriptor="gift-list" repository="/atg/commerce/gifts/Giftlists">
-      <set-property name="owner"><![CDATA[se-570030]]></set-property>
-      <set-property name="shippingAddress"><![CDATA[se-980030]]></set-property>
-    </add-item>
-    
     <!-- Kim Anderson -->
     
     <add-item id="se-140010" item-descriptor="contactInfo">
@@ -266,7 +259,7 @@
     <add-item id="se-usercc110031" item-descriptor="credit-card">
       <set-property name="expirationMonth"><![CDATA[1]]></set-property>
       <set-property name="billingAddress"><![CDATA[se-990031]]></set-property>
-      <set-property name="creditCardType"><![CDATA[Visa]]></set-property>
+      <set-property name="creditCardType"><![CDATA[visa]]></set-property>
       <set-property name="expirationYear"><![CDATA[2017]]></set-property>
       <set-property name="creditCardNumber"><![CDATA[4539082039396288]]></set-property>
     </add-item>
@@ -328,12 +321,6 @@
       <set-property name="giftlists"><![CDATA[xgl20006]]></set-property>
     </add-item>
 
-    <!-- Update Kim's gift list's owner -->
-    <add-item id="xgl20006" item-descriptor="gift-list" repository="/atg/commerce/gifts/Giftlists">
-      <set-property name="owner"><![CDATA[se-570031]]></set-property>
-      <set-property name="shippingAddress"><![CDATA[se-980031]]></set-property>
-    </add-item>
-    
     <!-- Erica Clark -->
     
     <add-item id="se-990035" item-descriptor="contactInfo">
@@ -352,7 +339,7 @@
     <add-item id="se-usercc110035" item-descriptor="credit-card">
       <set-property name="expirationMonth"><![CDATA[1]]></set-property>
       <set-property name="billingAddress"><![CDATA[se-990035]]></set-property>
-      <set-property name="creditCardType"><![CDATA[Visa]]></set-property>
+      <set-property name="creditCardType"><![CDATA[visa]]></set-property>
       <set-property name="expirationYear"><![CDATA[2017]]></set-property>
       <set-property name="creditCardNumber"><![CDATA[4539082039396288]]></set-property>
     </add-item>
@@ -429,7 +416,7 @@
     <add-item id="se-usercc110040" item-descriptor="credit-card">
       <set-property name="expirationMonth"><![CDATA[1]]></set-property>
       <set-property name="billingAddress"><![CDATA[se-990040]]></set-property>
-      <set-property name="creditCardType"><![CDATA[Visa]]></set-property>
+      <set-property name="creditCardType"><![CDATA[visa]]></set-property>
       <set-property name="expirationYear"><![CDATA[2017]]></set-property>
       <set-property name="creditCardNumber"><![CDATA[4539082039396288]]></set-property>
     </add-item>
@@ -493,7 +480,7 @@
     <add-item id="se-usercc110045" item-descriptor="credit-card">
       <set-property name="expirationMonth"><![CDATA[1]]></set-property>
       <set-property name="billingAddress"><![CDATA[se-990045]]></set-property>
-      <set-property name="creditCardType"><![CDATA[Visa]]></set-property>
+      <set-property name="creditCardType"><![CDATA[visa]]></set-property>
       <set-property name="expirationYear"><![CDATA[2017]]></set-property>
       <set-property name="creditCardNumber"><![CDATA[4539082039396288]]></set-property>
     </add-item>
@@ -557,7 +544,7 @@
     <add-item id="se-usercc110050" item-descriptor="credit-card">
       <set-property name="expirationMonth"><![CDATA[1]]></set-property>
       <set-property name="billingAddress"><![CDATA[se-990050]]></set-property>
-      <set-property name="creditCardType"><![CDATA[Visa]]></set-property>
+      <set-property name="creditCardType"><![CDATA[visa]]></set-property>
       <set-property name="expirationYear"><![CDATA[2017]]></set-property>
       <set-property name="creditCardNumber"><![CDATA[4539082039396288]]></set-property>
     </add-item>
@@ -636,7 +623,7 @@
     <add-item id="se-usercc110055" item-descriptor="credit-card">
       <set-property name="expirationMonth"><![CDATA[1]]></set-property>
       <set-property name="billingAddress"><![CDATA[se-990055]]></set-property>
-      <set-property name="creditCardType"><![CDATA[Visa]]></set-property>
+      <set-property name="creditCardType"><![CDATA[visa]]></set-property>
       <set-property name="expirationYear"><![CDATA[2017]]></set-property>
       <set-property name="creditCardNumber"><![CDATA[4539082039396288]]></set-property>
     </add-item>
@@ -699,7 +686,7 @@
     <add-item id="se-usercc110056" item-descriptor="credit-card">
       <set-property name="expirationMonth"><![CDATA[1]]></set-property>
       <set-property name="billingAddress"><![CDATA[se-990056]]></set-property>
-      <set-property name="creditCardType"><![CDATA[Visa]]></set-property>
+      <set-property name="creditCardType"><![CDATA[visa]]></set-property>
       <set-property name="expirationYear"><![CDATA[2017]]></set-property>
       <set-property name="creditCardNumber"><![CDATA[4539082039396288]]></set-property>
     </add-item>
@@ -761,7 +748,7 @@
     <add-item id="se-usercc110060" item-descriptor="credit-card">
       <set-property name="expirationMonth"><![CDATA[1]]></set-property>
       <set-property name="billingAddress"><![CDATA[se-990060]]></set-property>
-      <set-property name="creditCardType"><![CDATA[Visa]]></set-property>
+      <set-property name="creditCardType"><![CDATA[visa]]></set-property>
       <set-property name="expirationYear"><![CDATA[2017]]></set-property>
       <set-property name="creditCardNumber"><![CDATA[4539082039396288]]></set-property>
     </add-item>
@@ -824,7 +811,7 @@
     <add-item id="se-usercc110065" item-descriptor="credit-card">
       <set-property name="expirationMonth"><![CDATA[1]]></set-property>
       <set-property name="billingAddress"><![CDATA[se-990065]]></set-property>
-      <set-property name="creditCardType"><![CDATA[Visa]]></set-property>
+      <set-property name="creditCardType"><![CDATA[visa]]></set-property>
       <set-property name="expirationYear"><![CDATA[2017]]></set-property>
       <set-property name="creditCardNumber"><![CDATA[4539082039396288]]></set-property>
     </add-item>
@@ -887,7 +874,7 @@
     <add-item id="se-usercc110070" item-descriptor="credit-card">
       <set-property name="expirationMonth"><![CDATA[1]]></set-property>
       <set-property name="billingAddress"><![CDATA[se-990070]]></set-property>
-      <set-property name="creditCardType"><![CDATA[Visa]]></set-property>
+      <set-property name="creditCardType"><![CDATA[visa]]></set-property>
       <set-property name="expirationYear"><![CDATA[2017]]></set-property>
       <set-property name="creditCardNumber"><![CDATA[4539082039396288]]></set-property>
     </add-item>
@@ -951,7 +938,7 @@
     <add-item id="se-usercc110075" item-descriptor="credit-card">
       <set-property name="expirationMonth"><![CDATA[1]]></set-property>
       <set-property name="billingAddress"><![CDATA[se-990075]]></set-property>
-      <set-property name="creditCardType"><![CDATA[Visa]]></set-property>
+      <set-property name="creditCardType"><![CDATA[visa]]></set-property>
       <set-property name="expirationYear"><![CDATA[2017]]></set-property>
       <set-property name="creditCardNumber"><![CDATA[4539082039396288]]></set-property>
     </add-item>
@@ -1015,7 +1002,7 @@
     <add-item id="se-usercc110080" item-descriptor="credit-card">
       <set-property name="expirationMonth"><![CDATA[1]]></set-property>
       <set-property name="billingAddress"><![CDATA[se-990080]]></set-property>
-      <set-property name="creditCardType"><![CDATA[Visa]]></set-property>
+      <set-property name="creditCardType"><![CDATA[visa]]></set-property>
       <set-property name="expirationYear"><![CDATA[2017]]></set-property>
       <set-property name="creditCardNumber"><![CDATA[4539082039396288]]></set-property>
     </add-item>
@@ -1092,7 +1079,7 @@
     <add-item id="se-usercc110085" item-descriptor="credit-card">
       <set-property name="expirationMonth"><![CDATA[1]]></set-property>
       <set-property name="billingAddress"><![CDATA[se-990085]]></set-property>
-      <set-property name="creditCardType"><![CDATA[Visa]]></set-property>
+      <set-property name="creditCardType"><![CDATA[visa]]></set-property>
       <set-property name="expirationYear"><![CDATA[2017]]></set-property>
       <set-property name="creditCardNumber"><![CDATA[4539082039396288]]></set-property>
     </add-item>
@@ -1156,7 +1143,7 @@
     <add-item id="se-usercc110090" item-descriptor="credit-card">
       <set-property name="expirationMonth"><![CDATA[1]]></set-property>
       <set-property name="billingAddress"><![CDATA[se-990090]]></set-property>
-      <set-property name="creditCardType"><![CDATA[Visa]]></set-property>
+      <set-property name="creditCardType"><![CDATA[visa]]></set-property>
       <set-property name="expirationYear"><![CDATA[2017]]></set-property>
       <set-property name="creditCardNumber"><![CDATA[4539082039396288]]></set-property>
     </add-item>
@@ -1220,7 +1207,7 @@
     <add-item id="se-usercc110095" item-descriptor="credit-card">
       <set-property name="expirationMonth"><![CDATA[1]]></set-property>
       <set-property name="billingAddress"><![CDATA[se-990095]]></set-property>
-      <set-property name="creditCardType"><![CDATA[Visa]]></set-property>
+      <set-property name="creditCardType"><![CDATA[visa]]></set-property>
       <set-property name="expirationYear"><![CDATA[2017]]></set-property>
       <set-property name="creditCardNumber"><![CDATA[4539082039396288]]></set-property>
     </add-item>
@@ -1283,7 +1270,7 @@
     <add-item id="se-usercc110100" item-descriptor="credit-card">
       <set-property name="expirationMonth"><![CDATA[1]]></set-property>
       <set-property name="billingAddress"><![CDATA[se-990100]]></set-property>
-      <set-property name="creditCardType"><![CDATA[Visa]]></set-property>
+      <set-property name="creditCardType"><![CDATA[visa]]></set-property>
       <set-property name="expirationYear"><![CDATA[2017]]></set-property>
       <set-property name="creditCardNumber"><![CDATA[4539082039396288]]></set-property>
     </add-item>
@@ -1346,7 +1333,7 @@
     <add-item id="se-usercc110105" item-descriptor="credit-card">
       <set-property name="expirationMonth"><![CDATA[1]]></set-property>
       <set-property name="billingAddress"><![CDATA[se-990105]]></set-property>
-      <set-property name="creditCardType"><![CDATA[Visa]]></set-property>
+      <set-property name="creditCardType"><![CDATA[visa]]></set-property>
       <set-property name="expirationYear"><![CDATA[2017]]></set-property>
       <set-property name="creditCardNumber"><![CDATA[4539082039396288]]></set-property>
     </add-item>
@@ -1409,7 +1396,7 @@
     <add-item id="se-usercc110110" item-descriptor="credit-card">
       <set-property name="expirationMonth"><![CDATA[1]]></set-property>
       <set-property name="billingAddress"><![CDATA[se-990110]]></set-property>
-      <set-property name="creditCardType"><![CDATA[Visa]]></set-property>
+      <set-property name="creditCardType"><![CDATA[visa]]></set-property>
       <set-property name="expirationYear"><![CDATA[2017]]></set-property>
       <set-property name="creditCardNumber"><![CDATA[4539082039396288]]></set-property>
     </add-item>
@@ -1473,7 +1460,7 @@
     <add-item id="se-usercc110115" item-descriptor="credit-card">
       <set-property name="expirationMonth"><![CDATA[1]]></set-property>
       <set-property name="billingAddress"><![CDATA[se-990115]]></set-property>
-      <set-property name="creditCardType"><![CDATA[Visa]]></set-property>
+      <set-property name="creditCardType"><![CDATA[visa]]></set-property>
       <set-property name="expirationYear"><![CDATA[2017]]></set-property>
       <set-property name="creditCardNumber"><![CDATA[4539082039396288]]></set-property>
     </add-item>
@@ -1551,7 +1538,7 @@
     <add-item id="se-usercc110125" item-descriptor="credit-card">
       <set-property name="expirationMonth"><![CDATA[1]]></set-property>
       <set-property name="billingAddress"><![CDATA[se-990125]]></set-property>
-      <set-property name="creditCardType"><![CDATA[Visa]]></set-property>
+      <set-property name="creditCardType"><![CDATA[visa]]></set-property>
       <set-property name="expirationYear"><![CDATA[2017]]></set-property>
       <set-property name="creditCardNumber"><![CDATA[4539082039396288]]></set-property>
     </add-item>
@@ -1614,7 +1601,7 @@
     <add-item id="se-usercc110120" item-descriptor="credit-card">
       <set-property name="expirationMonth"><![CDATA[1]]></set-property>
       <set-property name="billingAddress"><![CDATA[se-990120]]></set-property>
-      <set-property name="creditCardType"><![CDATA[Visa]]></set-property>
+      <set-property name="creditCardType"><![CDATA[visa]]></set-property>
       <set-property name="expirationYear"><![CDATA[2017]]></set-property>
       <set-property name="creditCardNumber"><![CDATA[4539082039396288]]></set-property>
     </add-item>
@@ -1664,4 +1651,4 @@
    
   </import-items>
   
-</gsa-template><!-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.1.1/Storefront/data/users.xml#1 $$Change: 690623 $-->
+</gsa-template><!-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.2/Storefront/data/users.xml#3 $$Change: 788842 $-->

@@ -9,7 +9,7 @@
     <sql><![CDATA[
 
 
---  @version $Id: //product/DCS/version/10.1.1/templates/DCS/sql/promotion_ddl.xml#1 $$Change: 690623 $
+--  @version $Id: //product/DCS/version/10.2/templates/DCS/sql/promotion_ddl.xml#2 $$Change: 788278 $
 -- Add the DCS_PRM_FOLDER table, promotionFolder
 
 create table dcs_prm_folder (
@@ -64,7 +64,19 @@ create table dcs_promotion (
 	pmdl_version	integer	null,
 	eval_target_items_first	number(1)	null,
 	qualifier	varchar2(254)	null,
-	stacking_rule	varchar2(40)	null
+	stacking_rule	varchar2(40)	null,
+	fil_Qual_Discounted_By_Any	number(1)	null,
+	fil_Qual_Discounted_By_Current	number(1)	null,
+	fil_Qual_On_Sale	number(1)	null,
+	fil_Qual_Zero_Prices	number(1)	null,
+	fil_Qual_Neg_Prices	number(1)	null,
+	fil_Tar_Acted_As_Qual	number(1)	null,
+	fil_Tar_Discounted_By_Current	number(1)	null,
+	fil_Tar_Discounted_By_Any	number(1)	null,
+	fil_Target_On_Sale	number(1)	null,
+	fil_Tar_Zero_Prices	number(1)	null,
+	fil_Tar_Neg_Prices	number(1)	null,
+	fil_Tar_Price_LTOET_Prm_Price	number(1)	null
 ,constraint dcs_promotion_p primary key (promotion_id)
 ,constraint dcs_prm_fol_f foreign key (parent_folder) references dcs_prm_folder (folder_id)
 ,constraint dcs_sta_rule_f foreign key (stacking_rule) references dcs_stacking_rule (stacking_rule_id)
@@ -126,7 +138,7 @@ create table dcs_upsell_action (
 create table dcs_close_qualif (
 	close_qualif_id	varchar2(40)	not null,
 	version	number(10)	not null,
-	name	varchar2(40)	not null,
+	name	varchar2(254)	not null,
 	priority	number(10)	null,
 	qualifier	clob	null,
 	upsell_media	varchar2(40)	null,

@@ -9,7 +9,7 @@
     <sql><![CDATA[
 
 
---     @version $Id: //product/DAS/version/10.1.1/templates/DAS/sql/seo_ddl.xml#1 $  
+--     @version $Id: //product/DAS/version/10.2/templates/DAS/sql/seo_ddl.xml#1 $  
 -- Table for seo-tag repository item
 
 create table das_seo_tag (

@@ -9,7 +9,7 @@
     <sql><![CDATA[
 
 
---  @version $Id: //product/DPS/version/10.1.1/templates/DPS/sql/logging_init.xml#1 $$Change: 690623 $
+--  @version $Id: //product/DPS/version/10.2/templates/DPS/sql/logging_init.xml#1 $$Change: 735822 $
 -- This file contains SQL statements which will initialize theDPS logging/reporting tables.
 -- Set names of the default user event types, and initialize the log entry id counters
 

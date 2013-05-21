@@ -9,7 +9,7 @@
     <sql><![CDATA[
 
 
---  @version $Id: //product/DAS/version/10.1.1/templates/DAS/sql/create_sql_jms_ddl.xml#1 $$Change: 690623 $
+--  @version $Id: //product/DAS/version/10.2/templates/DAS/sql/create_sql_jms_ddl.xml#1 $$Change: 735822 $
 
 create table dms_client (
 	client_name	varchar2(250)	not null,

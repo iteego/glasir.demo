@@ -9,7 +9,7 @@
     <sql><![CDATA[
 
 
---  @version $Id: //product/DAS/version/10.1.1/templates/DAS/sql/dms_limbo_ddl.xml#1 $$Change: 690623 $
+--  @version $Id: //product/DAS/version/10.2/templates/DAS/sql/dms_limbo_ddl.xml#1 $$Change: 735822 $
 -- This table is where limbo instance/clients identify themselves. --There should only be one entry in this table for each Dynamo running PatchBay with message delays enabled.
 
 create table dms_limbo (

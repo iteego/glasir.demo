@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE gsa-template SYSTEM "dynamosystemresource:/atg/dtds/gsa/gsa_1.0.dtd">
+<gsa-template>
+<import-items>
+<!-- 32 items of type account -->
+
+<add-item item-descriptor="account" id="pages-privilege">
+  <set-property name="description"><![CDATA[Pages and Components: Pages]]></set-property>
+  <set-property name="lastPasswordUpdate"><![CDATA[12/7/2011 08:42:27]]></set-property>
+  <set-property name="type"><![CDATA[4]]></set-property>
+</add-item>
+
+<add-item item-descriptor="account" id="analysis-datasets-privilege">
+  <set-property name="description"><![CDATA[Analysis: Datasets]]></set-property>
+  <set-property name="lastPasswordUpdate"><![CDATA[12/7/2011 08:42:27]]></set-property>
+  <set-property name="type"><![CDATA[4]]></set-property>
+</add-item>
+
+<add-item item-descriptor="account" id="tools-server-activity-privilege">
+  <set-property name="description"><![CDATA[Tools: Server Activity]]></set-property>
+  <set-property name="lastPasswordUpdate"><![CDATA[12/7/2011 08:42:27]]></set-property>
+  <set-property name="type"><![CDATA[4]]></set-property>
+</add-item>
+
+<add-item item-descriptor="account" id="support-knowledge-base-privilege">
+  <set-property name="description"><![CDATA[Support: Knowledge Base]]></set-property>
+  <set-property name="lastPasswordUpdate"><![CDATA[12/7/2011 08:42:27]]></set-property>
+  <set-property name="type"><![CDATA[4]]></set-property>
+</add-item>
+
+<add-item item-descriptor="account" id="admin-users-privilege">
+  <set-property name="description"><![CDATA[User Admin: Users]]></set-property>
+  <set-property name="lastPasswordUpdate"><![CDATA[12/7/2011 08:42:27]]></set-property>
+  <set-property name="type"><![CDATA[4]]></set-property>
+</add-item>
+
+<add-item item-descriptor="account" id="support-cases-privilege">
+  <set-property name="description"><![CDATA[Tools: Submit a Support Request]]></set-property>
+  <set-property name="lastPasswordUpdate"><![CDATA[12/7/2011 08:42:27]]></set-property>
+  <set-property name="type"><![CDATA[4]]></set-property>
+</add-item>
+
+<add-item item-descriptor="account" id="server-shutdown-privilege">
+  <set-property name="description"><![CDATA[Server Shutdown]]></set-property>
+  <set-property name="lastPasswordUpdate"><![CDATA[12/7/2011 08:42:27]]></set-property>
+  <set-property name="type"><![CDATA[4]]></set-property>
+</add-item>
+
+<add-item item-descriptor="account" id="tools-integrations-privilege">
+  <set-property name="description"><![CDATA[Tools: Integrations]]></set-property>
+  <set-property name="lastPasswordUpdate"><![CDATA[12/7/2011 08:42:27]]></set-property>
+  <set-property name="type"><![CDATA[4]]></set-property>
+</add-item>
+
+<add-item item-descriptor="account" id="components-path-privilege">
+  <set-property name="description"><![CDATA[Pages and Components: Components By Path]]></set-property>
+  <set-property name="lastPasswordUpdate"><![CDATA[12/7/2011 08:42:27]]></set-property>
+  <set-property name="type"><![CDATA[4]]></set-property>
+</add-item>
+
+<add-item item-descriptor="account" id="scenarios-templates-privilege">
+  <set-property name="description"><![CDATA[Scenarios: Scenario Templates]]></set-property>
+  <set-property name="lastPasswordUpdate"><![CDATA[12/7/2011 08:42:27]]></set-property>
+  <set-property name="type"><![CDATA[4]]></set-property>
+</add-item>
+
+<add-item item-descriptor="account" id="analysis-chart-templates-privilege">
+  <set-property name="description"><![CDATA[Analysis: Chart Templates]]></set-property>
+  <set-property name="lastPasswordUpdate"><![CDATA[12/7/2011 08:42:27]]></set-property>
+  <set-property name="type"><![CDATA[4]]></set-property>
+</add-item>
+
+<add-item item-descriptor="account" id="content-repositories-user-group">
+  <set-property name="description"><![CDATA[Content Repositories User]]></set-property>
+  <set-property name="lastPasswordUpdate"><![CDATA[12/7/2011 08:42:27]]></set-property>
+  <set-property name="type"><![CDATA[2]]></set-property>
+</add-item>
+
+<add-item item-descriptor="account" id="scenarios-slots-privilege">
+  <set-property name="description"><![CDATA[Scenarios: Slots]]></set-property>
+  <set-property name="lastPasswordUpdate"><![CDATA[12/7/2011 08:42:27]]></set-property>
+  <set-property name="type"><![CDATA[4]]></set-property>
+</add-item>
+
+<add-item item-descriptor="account" id="developers-group">
+  <set-property name="description"><![CDATA[Developers]]></set-property>
+  <set-property name="groups"><![CDATA[support-cases-privilege,server-restart-privilege,tools-pipeline-editor-privilege,tools-server-activity-privilege,components-path-privilege,support-knowledge-base-privilege,components-module-privilege,tools-j2ee-deploy-privilege]]></set-property>
+  <set-property name="lastPasswordUpdate"><![CDATA[12/7/2011 08:42:27]]></set-property>
+  <set-property name="type"><![CDATA[2]]></set-property>
+</add-item>
+
+<add-item item-descriptor="account" id="analysis-charts-privilege">
+  <set-property name="description"><![CDATA[Analysis: Charts]]></set-property>
+  <set-property name="lastPasswordUpdate"><![CDATA[12/7/2011 08:42:27]]></set-property>
+  <set-property name="type"><![CDATA[4]]></set-property>
+</add-item>
+
+<add-item item-descriptor="account" id="targeting-preview-privilege">
+  <set-property name="description"><![CDATA[Targeting: Preview]]></set-property>
+  <set-property name="lastPasswordUpdate"><![CDATA[12/7/2011 08:42:27]]></set-property>
+  <set-property name="type"><![CDATA[4]]></set-property>
+</add-item>
+
+<add-item item-descriptor="account" id="components-module-privilege">
+  <set-property name="description"><![CDATA[Pages and Components: Components By Module]]></set-property>
+  <set-property name="lastPasswordUpdate"><![CDATA[12/7/2011 08:42:27]]></set-property>
+  <set-property name="type"><![CDATA[4]]></set-property>
+</add-item>
+
+<add-item item-descriptor="account" id="designers-group">
+  <set-property name="description"><![CDATA[Designers]]></set-property>
+  <set-property name="groups"><![CDATA[support-knowledge-base-privilege,support-cases-privilege,pages-privilege]]></set-property>
+  <set-property name="lastPasswordUpdate"><![CDATA[12/7/2011 08:42:27]]></set-property>
+  <set-property name="type"><![CDATA[2]]></set-property>
+</add-item>
+
+<add-item item-descriptor="account" id="marketing-group">
+  <set-property name="description"><![CDATA[Marketing People]]></set-property>
+  <set-property name="groups"><![CDATA[targeting-preview-privilege,scenarios-slots-privilege,scenarios-privilege,analysis-datasets-privilege,targeting-groups-privilege,analysis-charts-privilege,scenarios-templates-privilege,analysis-chart-templates-privilege,targeting-targeted-content-privilege]]></set-property>
+  <set-property name="lastPasswordUpdate"><![CDATA[12/7/2011 08:42:27]]></set-property>
+  <set-property name="type"><![CDATA[2]]></set-property>
+</add-item>
+
+<add-item item-descriptor="account" id="administrators-group">
+  <set-property name="description"><![CDATA[System Administrators]]></set-property>
+  <set-property name="groups"><![CDATA[scenarios-slots-privilege,pages-privilege,tools-pipeline-editor-privilege,analysis-datasets-privilege,tools-server-activity-privilege,admin-roles-privilege,support-knowledge-base-privilege,targeting-groups-privilege,analysis-charts-privilege,targeting-preview-privilege,admin-users-privilege,support-cases-privilege,server-restart-privilege,server-shutdown-privilege,scenarios-privilege,components-path-privilege,scenarios-templates-privilege,components-module-privilege,tools-j2ee-deploy-privilege,analysis-chart-templates-privilege,targeting-targeted-content-privilege]]></set-property>
+  <set-property name="lastPasswordUpdate"><![CDATA[12/7/2011 08:42:27]]></set-property>
+  <set-property name="type"><![CDATA[2]]></set-property>
+</add-item>
+
+<add-item item-descriptor="account" id="everyone-group">
+  <set-property name="description"><![CDATA[All Users]]></set-property>
+  <set-property name="lastPasswordUpdate"><![CDATA[12/7/2011 08:42:27]]></set-property>
+  <set-property name="type"><![CDATA[2]]></set-property>
+</add-item>
+
+<add-item item-descriptor="account" id="commerce-repositories-user-group">
+  <set-property name="description"><![CDATA[Commerce Repositories User]]></set-property>
+  <set-property name="lastPasswordUpdate"><![CDATA[12/7/2011 08:42:27]]></set-property>
+  <set-property name="type"><![CDATA[2]]></set-property>
+</add-item>
+
+<add-item item-descriptor="account" id="tools-j2ee-deploy-privilege">
+  <set-property name="description"><![CDATA[Tools: J2EE Deploy]]></set-property>
+  <set-property name="lastPasswordUpdate"><![CDATA[12/7/2011 08:42:27]]></set-property>
+  <set-property name="type"><![CDATA[4]]></set-property>
+</add-item>
+
+<add-item item-descriptor="account" id="targeting-tracking-sensors-privilege">
+  <set-property name="description"><![CDATA[Targeting: Tracking Sensors]]></set-property>
+  <set-property name="lastPasswordUpdate"><![CDATA[12/7/2011 08:42:27]]></set-property>
+  <set-property name="type"><![CDATA[4]]></set-property>
+</add-item>
+
+<add-item item-descriptor="account" id="tools-pipeline-editor-privilege">
+  <set-property name="description"><![CDATA[Tools: Pipeline Editor]]></set-property>
+  <set-property name="lastPasswordUpdate"><![CDATA[12/7/2011 08:42:27]]></set-property>
+  <set-property name="type"><![CDATA[4]]></set-property>
+</add-item>
+
+<add-item item-descriptor="account" id="admin-roles-privilege">
+  <set-property name="description"><![CDATA[User Admin: Groups]]></set-property>
+  <set-property name="lastPasswordUpdate"><![CDATA[12/7/2011 08:42:27]]></set-property>
+  <set-property name="type"><![CDATA[4]]></set-property>
+</add-item>
+
+<add-item item-descriptor="account" id="targeting-groups-privilege">
+  <set-property name="description"><![CDATA[Targeting: Profile and Content Groups]]></set-property>
+  <set-property name="lastPasswordUpdate"><![CDATA[12/7/2011 08:42:27]]></set-property>
+  <set-property name="type"><![CDATA[4]]></set-property>
+</add-item>
+
+<add-item item-descriptor="account" id="server-restart-privilege">
+  <set-property name="description"><![CDATA[Server Restart]]></set-property>
+  <set-property name="lastPasswordUpdate"><![CDATA[12/7/2011 08:42:27]]></set-property>
+  <set-property name="type"><![CDATA[4]]></set-property>
+</add-item>
+
+<add-item item-descriptor="account" id="scenarios-privilege">
+  <set-property name="description"><![CDATA[Scenarios: Scenarios]]></set-property>
+  <set-property name="lastPasswordUpdate"><![CDATA[12/7/2011 08:42:27]]></set-property>
+  <set-property name="type"><![CDATA[4]]></set-property>
+</add-item>
+<!--
+<add-item item-descriptor="account" id="admin">
+  <set-property name="groups"><![CDATA[everyone-group,commerce-repositories-user-group,administrators-group,content-repositories-user-group]]></set-property>
+  <set-property name="password"><![CDATA[8C6976E5B5410415BDE908BD4DEE15DFB167A9C873FC4BB8A81F6F2AB448A918]]></set-property>
+  <set-property name="lastName"><![CDATA[Administrator]]></set-property>
+  <set-property name="lastPasswordUpdate"><![CDATA[12/7/2011 08:53:54]]></set-property>
+  <set-property name="firstName"><![CDATA[Andy]]></set-property>
+  <set-property name="type"><![CDATA[1]]></set-property>
+</add-item>
+-->
+<add-item item-descriptor="account" id="managers-group">
+  <set-property name="description"><![CDATA[Managers]]></set-property>
+  <set-property name="groups"><![CDATA[support-knowledge-base-privilege,support-cases-privilege,admin-roles-privilege,admin-users-privilege]]></set-property>
+  <set-property name="lastPasswordUpdate"><![CDATA[12/7/2011 08:42:27]]></set-property>
+  <set-property name="type"><![CDATA[2]]></set-property>
+</add-item>
+
+<add-item item-descriptor="account" id="targeting-targeted-content-privilege">
+  <set-property name="description"><![CDATA[Targeting: Content Targeters]]></set-property>
+  <set-property name="lastPasswordUpdate"><![CDATA[12/7/2011 08:42:27]]></set-property>
+  <set-property name="type"><![CDATA[4]]></set-property>
+</add-item>
+
+</import-items>
+
+</gsa-template>
+<!-- @version $Id: //product/DAS/version/10.2/release/DAS/install/data/dynAdminRepo.xml#2 $$Change: 791340 $-->

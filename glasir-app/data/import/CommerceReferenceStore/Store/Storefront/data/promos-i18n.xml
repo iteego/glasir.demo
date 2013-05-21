@@ -87,7 +87,7 @@
       <set-property name="pmdlVersion"><![CDATA[2]]></set-property>
       <set-property name="creationDate"><![CDATA[4/1/2010 17:21:05]]></set-property>
       <set-property name="template"><![CDATA[/order/getOrderDiscount.pmdt]]></set-property>
-      <set-property name="displayNameDefault"><![CDATA[10LIEFERUNG Coupon - 10% Off Order ]]></set-property>
+      <set-property name="displayNameDefault"><![CDATA[10LIEFERUNG Coupon - 10% Off Order]]></set-property>
       <set-property name="media"><![CDATA[large=promoCoupon10PercentOff]]></set-property>
       <set-property add="false" name="descriptionDefault" remove="false"><![CDATA[<span class="atg_store_promoTitle">10% OFF</span> order with <span>10LIEFERUNG</span> coupon code]]></set-property>
       <set-property name="type"><![CDATA[Order Discount]]></set-property>
@@ -174,7 +174,7 @@
     </add-item>
     <add-item id="promo20010" item-descriptor="Item Discount">
       <set-property name="global"><![CDATA[true]]></set-property>
-      <set-property name="descriptionDefault"><![CDATA[<span class="atg_store_promoTitle">Save 20%</span><span class="atg_store_promoText">on any ATG Home item </span>excluding Home Accents]]></set-property>
+      <set-property name="descriptionDefault"><![CDATA[<span class="atg_store_promoTitle">Save 20% </span><span class="atg_store_promoText">on any ATG Home item </span>excluding Home Accents]]></set-property>
       <set-property name="sites"><![CDATA[homeSite,storeSiteUS]]></set-property>
       <set-property name="priority"><![CDATA[2]]></set-property>
       <set-property name="media"><![CDATA[targetLink=xmHomeTargetLink,large=promo20PercentOff]]></set-property>
@@ -341,6 +341,7 @@
       <set-property name="translations"><![CDATA[de=de_xlatepromo70015,en_DE=en_DE_xlatepromo70015,es=es_xlatepromo70015]]></set-property>
       <set-property name="stackingRule"><![CDATA[100003]]></set-property>
       <set-property name="creationDate"><![CDATA[4/7/2011 11:38:50]]></set-property>
+      <set-property name="filterForTargetZeroPrices"><![CDATA[false]]></set-property>
       <set-property name="template"><![CDATA[/item/spendYGetGWP.pmdt]]></set-property>
       <set-property name="displayNameDefault"><![CDATA[Free Scarf with all orders over $200]]></set-property>
       <set-property name="type"><![CDATA[Item Discount]]></set-property>
@@ -384,6 +385,7 @@
       <set-property name="pmdlVersion"><![CDATA[2]]></set-property>
       <set-property name="lastModified"><![CDATA[4/7/2011 16:55:18]]></set-property>
       <set-property name="creationDate"><![CDATA[4/7/2011 12:08:07]]></set-property>
+      <set-property name="filterForTargetZeroPrices"><![CDATA[false]]></set-property>
       <set-property name="displayNameDefault"><![CDATA[Get 2 free gifts with any Woman's Jacket]]></set-property>
       <set-property name="type"><![CDATA[Item Discount]]></set-property>
       <set-property name="template"><![CDATA[/advanced/advancedItemDiscount.pmdt]]></set-property>
@@ -488,12 +490,12 @@
       <set-property name="description"><![CDATA[<span class="atg_store_promoTitle">10% de descuento</span> en la orden con el código de cupón <span>TENSHIP</span>]]></set-property>
     </add-item>
     <add-item id="es_xlatexpromo20016" item-descriptor="promotionTranslation">
-      <set-property name="displayName"><![CDATA[Cupón 10LIEFERUNG - 10% de descuento en la orden ]]></set-property>
+      <set-property name="displayName"><![CDATA[Cupón 10LIEFERUNG - 10% de descuento en la orden]]></set-property>
       <set-property name="description"><![CDATA[<span class="atg_store_promoTitle">10% de DESCUENTO</span> en la orden con el código de cupón <span>10LIEFERUNG</span>]]></set-property>
     </add-item>
     <add-item id="es_xlatepromo50012" item-descriptor="promotionTranslation">
-      <set-property name="displayName"><![CDATA[Ahorre $10 en todas las órdenes superiores a $100]]></set-property>
-      <set-property name="description"><![CDATA[<span class="atg_store_promoTitle">Ahorre $10</span> en todas las órdenes superiores a $100]]></set-property>
+      <set-property name="displayName"><![CDATA[$10 de descuento en las órdenes superiores a $100]]></set-property>
+      <set-property name="description"><![CDATA[<span class="atg_store_promoTitle">Ahorre $10</span> en órdenes superiores a $100]]></set-property>
     </add-item>
     <add-item id="es_xlatepromo20009" item-descriptor="promotionTranslation">
       <set-property name="displayName"><![CDATA[Corte de precio por niveles de silla Hubbard]]></set-property>
@@ -501,7 +503,7 @@
     </add-item>
     <add-item id="es_xlatepromo20010" item-descriptor="promotionTranslation">
       <set-property name="displayName"><![CDATA[Ahorre 20% en cualquier artículo de ATG Home, excluidos adornos para el hogar]]></set-property>
-      <set-property name="description"><![CDATA[<span class="atg_store_promoTitle">Ahorre un 20%</span><span class="atg_store_promoText">en cualquier artículo de ATG Home </span>excluidos adornos para el hogar]]></set-property>
+      <set-property name="description"><![CDATA[<span class="atg_store_promoTitle">Ahorre 20%</span><span class="atg_store_promoText">en cualquier artículo de ATG Home</span>, excluidos adornos para el hogar]]></set-property>
     </add-item>
     <add-item id="es_xlateabandonedOrderDiscount" item-descriptor="promotionTranslation">
       <set-property name="displayName"><![CDATA[10% de descuento en la orden]]></set-property>
@@ -509,11 +511,11 @@
     </add-item>
     <add-item id="es_xlatese-promo230003" item-descriptor="promotionTranslation">
       <set-property name="displayName"><![CDATA[15% de descuento en adornos para el hogar]]></set-property>
-      <set-property name="description"><![CDATA[<span class="atg_store_promoTitle">Los usuarios registrados ahorran el 15%</span> en adornos para el hogar ]]></set-property>
+      <set-property name="description"><![CDATA[<span class="atg_store_promoTitle">Usuarios registrados: Ahorro del 15%</span> en adornos para el hogar ]]></set-property>
     </add-item>
     <add-item id="es_xlatese-promo240001" item-descriptor="promotionTranslation">
       <set-property name="displayName"><![CDATA[25% de descuento en moda para la mujer]]></set-property>
-      <set-property name="description"><![CDATA[<span class="atg_store_promoTitle">Ahorre un 25%</span> en toda la moda para mujer]]></set-property>
+      <set-property name="description"><![CDATA[<span class="atg_store_promoTitle">Ahorre 25%</span> en toda la moda para mujer]]></set-property>
     </add-item>
     <add-item id="es_xlatese-200005" item-descriptor="closenessQualifierTranslation">
       <set-property name="name"><![CDATA[Ahorre $10 en todas las órdenes superiores a $100]]></set-property>
@@ -540,15 +542,15 @@
     </add-item>
     <add-item id="de_xlatepromo50012" item-descriptor="promotionTranslation">
       <set-property name="displayName"><![CDATA[10 € Rabatt bei Bestellungen ab 100 €]]></set-property>
-      <set-property name="description"><![CDATA[<span class="atg_store_promoTitle">Sparen Sie 10 €</span> bei allen Bestellungen ab 100 €.]]></set-property>
+      <set-property name="description"><![CDATA[<span class="atg_store_promoTitle">Sparen Sie <span class="atg_store_euroAmount">10 €</span></span> bei allen Bestellungen ab <span class="atg_store_euroAmount">100 €</span>.]]></set-property>
     </add-item>
     <add-item id="de_DE_xlatepromo50012" item-descriptor="promotionTranslation">
       <set-property name="displayName"><![CDATA[10 &euro; Rabatt auf alle Bestellungen ab 100 &euro;]]></set-property>
-      <set-property name="description"><![CDATA[<span class="atg_store_promoTitle">10 &euro; Rabatt</span> auf alle Bestellungen ab 100 &euro;]]></set-property>
+      <set-property name="description"><![CDATA[<span class="atg_store_promoTitle"><span class="atg_store_euroAmount">10 &euro;</span> Rabatt</span> auf alle Bestellungen ab <span class="atg_store_euroAmount">100 &euro;</span>]]></set-property>
     </add-item>
     <add-item id="en_DE_xlatepromo50012" item-descriptor="promotionTranslation">
       <set-property name="displayName"><![CDATA[Save 10 &euro; on all orders over 100 &euro;]]></set-property>
-      <set-property name="description"><![CDATA[<span class="atg_store_promoTitle">Save 10 &euro;</span> on all orders over 100 &euro;]]></set-property>
+      <set-property name="description"><![CDATA[<span class="atg_store_promoTitle">Save <span class="atg_store_euroAmount">10 &euro;</span></span> on all orders over <span class="atg_store_euroAmount">100 &euro;</span>]]></set-property>
     </add-item>
     <add-item id="de_xlatepromo20009" item-descriptor="promotionTranslation">
       <set-property name="displayName"><![CDATA[Abgestufte Preisstaffel für Hubbard-Stühle]]></set-property>
@@ -556,7 +558,7 @@
     </add-item>
     <add-item id="de_xlatepromo20010" item-descriptor="promotionTranslation">
       <set-property name="displayName"><![CDATA[Sparen Sie 20% beim Kauf von ATG Home-Artikeln, außer Wohnakzente]]></set-property>
-      <set-property name="description"><![CDATA[<span class="atg_store_PromoTitle">Sparen Sie 20%</span><span class="atg_store_promoText">bei allen ATG Home-Artikeln, </span>außer Wohnakzente]]></set-property>
+      <set-property name="description"><![CDATA[<span class="atg_store_promoTitle">Sparen Sie 20% </span><span class="atg_store_promoText">beim Kauf von ATG Home-Artikeln</span>, außer Wohnakzente]]></set-property>
     </add-item>
     <add-item id="de_xlateabandonedOrderDiscount" item-descriptor="promotionTranslation">
       <set-property name="displayName"><![CDATA[10% Rabatt]]></set-property>
@@ -564,7 +566,7 @@
     </add-item>
     <add-item id="de_xlatese-promo230003" item-descriptor="promotionTranslation">
       <set-property name="displayName"><![CDATA[15% Rabatt auf Wohnakzente]]></set-property>
-      <set-property name="description"><![CDATA[<span class="atg_store_PromoTitle">Registrierte Benutzer Sparen 15%</span> bei Wohnakzenten]]></set-property>
+      <set-property name="description"><![CDATA[<span class="atg_store_PromoTitle">Registrierte Benutzer - Sparen Sie 15%</span> bei Wohnakzenten]]></set-property>
     </add-item>
     <add-item id="de_xlatese-promo240001" item-descriptor="promotionTranslation">
       <set-property name="displayName"><![CDATA[25% Rabatt auf Damenbekleidung]]></set-property>
@@ -575,4 +577,4 @@
     </add-item>
   </import-items>
 </gsa-template>
-<!-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.1.1/Storefront/data/promos-i18n.xml#2 $$Change: 690857 $-->
+<!-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.2/Storefront/data/promos-i18n.xml#6 $$Change: 797502 $-->

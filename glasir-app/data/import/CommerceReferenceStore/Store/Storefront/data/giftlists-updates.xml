@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gsa-template SYSTEM "dynamosystemresource:/atg/dtds/gsa/gsa_1.0.dtd">
+<gsa-template>
+  <!--
+    This import file contains updates to giftlist items in order to set owner and shippingAddress
+    properties. The updates are put into the separate import file in order to guarantee that they are imported
+    in a separate transaction from users creation.
+  -->
+
+  <!-- Update Stuart's gift list's owner -->
+  <update-item id="xgl20004" item-descriptor="gift-list">
+    <set-property name="owner"><![CDATA[se-570030]]></set-property>
+    <set-property name="shippingAddress"><![CDATA[se-980030]]></set-property>
+  </update-item>
+    
+  <!-- Update Kim's gift list's owner -->
+  <update-item id="xgl20006" item-descriptor="gift-list">
+    <set-property name="owner"><![CDATA[se-570031]]></set-property>
+    <set-property name="shippingAddress"><![CDATA[se-980031]]></set-property>
+  </update-item>
+
+</gsa-template><!-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.2/Storefront/data/giftlists-updates.xml#1 $$Change: 788278 $-->

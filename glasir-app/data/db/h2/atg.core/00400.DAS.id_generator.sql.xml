@@ -9,7 +9,7 @@
     <sql><![CDATA[
 
 
---  @version $Id: //product/DAS/version/10.1.1/templates/DAS/sql/id_generator.xml#1 $$Change: 690623 $
+--  @version $Id: //product/DAS/version/10.2/templates/DAS/sql/id_generator.xml#1 $$Change: 735822 $
 
 create table das_id_generator (
 	id_space_name	varchar2(60)	not null,

@@ -16,7 +16,8 @@ create table crs_sku (
 	ship_exempt	number(1)	null,
 	gift_wrap_el	number(1)	null,
 	admin_display	varchar2(254)	null,
-	max_quantity	integer	null
+	max_quantity	integer	null,
+	margin	number(19,7)	null
 ,constraint crs_sku_p primary key (sku_id)
 ,constraint crs_sku_f foreign key (sku_id) references dcs_sku (sku_id)
 ,constraint crs_sku_c check (ship_exempt in (0,1))
@@ -127,6 +128,7 @@ create table crs_product (
 	brief_description	varchar2(254)	null,
 	full_image_id	varchar2(40)	null,
 	medium_image_id	varchar2(40)	null,
+	average_customer_rating	number(10)	null,
 	usage_instructions	varchar2(4000)	null,
 	as_seen_in	varchar2(40)	null,
 	preorderable	number(1)	null,

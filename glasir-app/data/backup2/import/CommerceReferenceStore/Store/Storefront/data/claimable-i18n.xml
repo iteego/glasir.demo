@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!DOCTYPE gsa-template SYSTEM "dynamosystemresource:/atg/dtds/gsa/gsa_1.0.dtd">
+
+<gsa-template>
+
+  <import-items>
+
+    <!-- 3 items of type StoreCreditClaimable -->
+
+    <add-item item-descriptor="StoreCreditClaimable" id="sc100">
+      <set-property name="amount"><![CDATA[100.0]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570030]]></set-property>
+      <set-property name="lastModified"><![CDATA[3/22/2010 17:22:03]]></set-property>
+      <set-property name="amountRemaining"><![CDATA[100.0]]></set-property>
+      <set-property name="type"><![CDATA[StoreCreditClaimable]]></set-property>
+    </add-item>
+
+    <add-item item-descriptor="StoreCreditClaimable" id="sc350">
+      <set-property name="amount"><![CDATA[350.49]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570031]]></set-property>
+      <set-property name="lastModified"><![CDATA[3/22/2010 17:21:59]]></set-property>
+      <set-property name="amountRemaining"><![CDATA[350.49]]></set-property>
+      <set-property name="type"><![CDATA[StoreCreditClaimable]]></set-property>
+    </add-item>
+
+    <add-item item-descriptor="StoreCreditClaimable" id="sc6">
+      <set-property name="amount"><![CDATA[5.99]]></set-property>
+      <set-property name="ownerId"><![CDATA[se-570030]]></set-property>
+      <set-property name="lastModified"><![CDATA[3/22/2010 17:22:07]]></set-property>
+      <set-property name="amountRemaining"><![CDATA[5.99]]></set-property>
+      <set-property name="type"><![CDATA[StoreCreditClaimable]]></set-property>
+    </add-item>
+    
+    <!-- 2 items of type PromotionClaimable -->
+
+    <add-item item-descriptor="DeployablePromotionClaimable" id="TENSHIP">
+      <set-property name="displayName"><![CDATA[TENSHIP]]></set-property>
+      <set-property name="lastModified"><![CDATA[4/2/2010 10:10:13]]></set-property>
+      <set-property name="promotions"><![CDATA[promo20004,promo20011]]></set-property>
+      <set-property name="type"><![CDATA[DeployablePromotionClaimable]]></set-property>
+      <set-property name="redeemableOnPromotionSites"><![CDATA[true]]></set-property>
+    </add-item>
+    
+    <add-item item-descriptor="DeployablePromotionClaimable" id="10LIEFERUNG">
+      <set-property name="displayName"><![CDATA[10LIEFERUNG]]></set-property>
+      <set-property name="lastModified"><![CDATA[4/2/2010 10:10:13]]></set-property>
+      <set-property name="promotions"><![CDATA[xpromo20016,xpromo20017]]></set-property>
+      <set-property name="type"><![CDATA[DeployablePromotionClaimable]]></set-property>
+      <set-property name="redeemableOnPromotionSites"><![CDATA[true]]></set-property>
+    </add-item>
+
+  </import-items>
+
+</gsa-template>
+  <!-- @version $Id: //hosting-blueprint/B2CBlueprint/version/10.1.1/Storefront/data/claimable-i18n.xml#1 $$Change: 690623 $-->

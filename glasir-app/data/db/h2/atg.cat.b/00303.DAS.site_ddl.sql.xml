@@ -9,7 +9,7 @@
     <sql><![CDATA[
 
 
---  @version $Id: //product/DAS/version/10.1.1/templates/DAS/sql/site_ddl.xml#1 $$Change: 690623 $
+--  @version $Id: //product/DAS/version/10.2/templates/DAS/sql/site_ddl.xml#2 $$Change: 788278 $
 -- This file contains create table statements, which will configureyour database for use MultiSite
 
 create table site_template (
@@ -38,7 +38,9 @@ create table site_configuration (
 	site_icon	varchar2(254)	null,
 	favicon	varchar2(254)	null,
 	site_priority	number(10)	null,
-	context_root	varchar2(254)	null
+	context_root	varchar2(254)	null,
+	access_level	number(10)	null,
+	realm_id	varchar2(40)	null
 ,constraint site_configurat1_p primary key (id));
 
 create table site_additional_urls (
