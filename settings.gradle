@@ -21,7 +21,7 @@ new glasir.Build(this).with {
     rootProjectName "glasir.commerce"
     cachePackagesFor 2, "minutes"
     dependencies {
-      glasirpackage("com.iteego.glasir.pkg:atg-platform-10.2:1.0.1")
+      glasirpackage("com.iteego.glasir.pkg:atg-platform-10.2:1.0.2")
       glasirpackage("com.iteego.glasir.pkg:atg-crs-10.2:1.0.0")
       glasirpackage("com.iteego.glasir.pkg:atg-initializer-10.2:1.0.4")
       glasirpackage("com.iteego.glasir.pkg:endeca-mdex-engine-6.4.1:1.0.1")
