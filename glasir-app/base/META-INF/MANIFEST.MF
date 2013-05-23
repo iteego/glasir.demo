@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
-ATG-Required: data Store.EStore.International
+ATG-Required: data Store.EStore.International FlexUI
 ATG-Config-Path: config
 ATG-Class-Path: lib/classes.jar
