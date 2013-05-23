@@ -34,7 +34,7 @@
     </xa-datasource>
 
     <!-- oracle  -->
-    <xa-datasource>
+    <!--xa-datasource>
         <jndi-name>GlasirProductionDS-oracle</jndi-name>
         <isSameRM-override-value>false</isSameRM-override-value>
         <min-pool-size>5</min-pool-size>
@@ -54,7 +54,7 @@
         <exception-sorter-class-name>
             org.jboss.resource.adapter.jdbc.vendor.OracleExceptionSorter
         </exception-sorter-class-name>
-    </xa-datasource>
+    </xa-datasource-->
 
 
     <!-- cat a  -->
@@ -90,7 +90,7 @@
     </xa-datasource>
 
     <!-- oracle  -->
-    <xa-datasource>
+    <!--xa-datasource>
         <jndi-name>GlasirSwitchingDS_A-oracle</jndi-name>
         <isSameRM-override-value>false</isSameRM-override-value>
         <min-pool-size>5</min-pool-size>
@@ -110,7 +110,7 @@
         <exception-sorter-class-name>
             org.jboss.resource.adapter.jdbc.vendor.OracleExceptionSorter
         </exception-sorter-class-name>
-    </xa-datasource>
+    </xa-datasource-->
 
 
     <!-- cat b  -->
@@ -146,7 +146,7 @@
     </xa-datasource>
 
     <!-- oracle  -->
-    <xa-datasource>
+    <!--xa-datasource>
         <jndi-name>GlasirSwitchingDS_B-oracle</jndi-name>
         <isSameRM-override-value>false</isSameRM-override-value>
         <min-pool-size>5</min-pool-size>
@@ -166,7 +166,7 @@
         <exception-sorter-class-name>
             org.jboss.resource.adapter.jdbc.vendor.OracleExceptionSorter
         </exception-sorter-class-name>
-    </xa-datasource>
+    </xa-datasource-->
 
 
     <!-- pub -->
@@ -202,7 +202,7 @@
     </xa-datasource>
 
     <!-- oracle  -->
-    <xa-datasource>
+    <!--xa-datasource>
         <jndi-name>GlasirPublishingDS-oracle</jndi-name>
         <isSameRM-override-value>false</isSameRM-override-value>
         <min-pool-size>10</min-pool-size>
@@ -222,6 +222,6 @@
         <exception-sorter-class-name>
             org.jboss.resource.adapter.jdbc.vendor.OracleExceptionSorter
         </exception-sorter-class-name>
-    </xa-datasource>
+    </xa-datasource-->
 
 </datasources>
