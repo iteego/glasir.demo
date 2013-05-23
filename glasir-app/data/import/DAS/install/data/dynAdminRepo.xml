@@ -181,16 +181,16 @@
   <set-property name="lastPasswordUpdate"><![CDATA[12/7/2011 08:42:27]]></set-property>
   <set-property name="type"><![CDATA[4]]></set-property>
 </add-item>
-<!--
+
 <add-item item-descriptor="account" id="admin">
   <set-property name="groups"><![CDATA[everyone-group,commerce-repositories-user-group,administrators-group,content-repositories-user-group]]></set-property>
-  <set-property name="password"><![CDATA[8C6976E5B5410415BDE908BD4DEE15DFB167A9C873FC4BB8A81F6F2AB448A918]]></set-property>
+  <set-property name="password"><![CDATA[9dad8966bceb832d502d9feb60888f189908876176306f69fa02f01835c488fb]]></set-property>
   <set-property name="lastName"><![CDATA[Administrator]]></set-property>
-  <set-property name="lastPasswordUpdate"><![CDATA[12/7/2011 08:53:54]]></set-property>
+  <set-property name="lastPasswordUpdate"><![CDATA[12/7/2111 08:53:54]]></set-property>
   <set-property name="firstName"><![CDATA[Andy]]></set-property>
   <set-property name="type"><![CDATA[1]]></set-property>
 </add-item>
--->
+
 <add-item item-descriptor="account" id="managers-group">
   <set-property name="description"><![CDATA[Managers]]></set-property>
   <set-property name="groups"><![CDATA[support-knowledge-base-privilege,support-cases-privilege,admin-roles-privilege,admin-users-privilege]]></set-property>
