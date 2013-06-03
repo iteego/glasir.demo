@@ -186,7 +186,7 @@
   <set-property name="groups"><![CDATA[everyone-group,commerce-repositories-user-group,administrators-group,content-repositories-user-group]]></set-property>
   <set-property name="password"><![CDATA[9dad8966bceb832d502d9feb60888f189908876176306f69fa02f01835c488fb]]></set-property>
   <set-property name="lastName"><![CDATA[Administrator]]></set-property>
-  <set-property name="lastPasswordUpdate"><![CDATA[12/7/2111 08:53:54]]></set-property>
+  <set-property name="lastPasswordUpdate"><![CDATA[12/7/2011 08:53:54]]></set-property>
   <set-property name="firstName"><![CDATA[Andy]]></set-property>
   <set-property name="type"><![CDATA[1]]></set-property>
 </add-item>

@@ -65,3 +65,20 @@ task wrapper(type: Wrapper, description: "Generates gradle wrapper scripts") {
   gradleVersion = '1.4'
   jarFile = 'config/gradle/wrapper/gradle-wrapper.jar'
 }
+
+task testPkgMgr << {
+  def list = glasir.packageManager.allPackages.findAll{ glasirPackage -> glasirPackage.version.name.toLowerCase().startsWith("endeca-mdex-engine") }
+  println "Results: $list"
+  def p = list.first()
+  println p.extractDir
+  println p.glasirDir
+  println p.installOrder
+  println p.version
+  println p.version.group
+  //println p.version.module.group
+  //println p.version.module.name
+  println p.version.name
+  println p.version.version
+  println p.properties
+  println p.properties.packageDir
+}

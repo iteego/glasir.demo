@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
 ATG-Config-Path: config
-ATG-Required: DafEar.Admin glasir.db
+ATG-Required: DafEar.Admin DCS.Endeca.Index glasir.db
 Glasir-Build-Is-Top-Module: true

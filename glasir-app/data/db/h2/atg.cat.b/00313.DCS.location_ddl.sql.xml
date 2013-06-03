@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+  <changeSet id="00313.DCS.location_ddl.sql.xml" author="glasir" context="all">
+    <preConditions>
+      <not>
+        <tableExists tableName="bogus_precondition_table_name" />
+      </not>
+    </preConditions>
+    <sql><![CDATA[
+
+
+--  @version $Id: //product/DCS/version/10.2/templates/DCS/sql/location_ddl.xml#2 $$Change: 791340 $
+
+create table dcs_location (
+	location_id	varchar2(40)	not null,
+	ext_loc_id	varchar2(40)	null,
+	type	number(10)	not null,
+	version	number(10)	not null,
+	name	varchar2(254)	null,
+	start_date	date	null,
+	end_date	date	null,
+	latitude	number(19,7)	not null,
+	longitude	number(19,7)	not null
+,constraint dcs_location_p primary key (location_id));
+
+create table dcs_location_sites (
+	location_id	varchar2(40)	not null,
+	site_id	varchar2(40)	not null
+,constraint dcs_location_sites_pk primary key (location_id,site_id));
+
+create index location_site_id_idx on dcs_location_sites (site_id);
+
+create table dcs_loc_site_grps (
+	location_id	varchar2(40)	not null,
+	site_group_id	varchar2(40)	not null
+,constraint dcs_loc_sgrps_pk primary key (location_id,site_group_id)
+,constraint dcs_loc_sgrps1_d_f foreign key (location_id) references dcs_location (location_id)
+,constraint dcs_loc_sgrps2_d_f foreign key (site_group_id) references site_group (id));
+
+create index dcs_loc_sgrps2_x on dcs_loc_site_grps (site_group_id);
+
+create table dcs_location_store (
+	location_id	varchar2(40)	not null,
+	hours	varchar2(64)	null
+,constraint dcs_loc_store_p primary key (location_id));
+
+create table dcs_location_addr (
+	location_id	varchar2(40)	not null,
+	address_1	varchar2(50)	null,
+	address_2	varchar2(50)	null,
+	address_3	varchar2(50)	null,
+	city	varchar2(40)	null,
+	county	varchar2(40)	null,
+	state_addr	varchar2(40)	null,
+	postal_code	varchar2(10)	null,
+	country	varchar2(40)	null,
+	phone_number	varchar2(40)	null,
+	fax_number	varchar2(40)	null,
+	email	varchar2(255)	null
+,constraint dcspp_loc_addr_p primary key (location_id)
+,constraint dcspp_loc_addr_f foreign key (location_id) references dcs_location (location_id));
+]]>
+  </sql>
+    <rollback />
+  </changeSet>
+</databaseChangeLog>
