@@ -62,6 +62,13 @@ if (System.env['BUILD_NUMBER']) {
  * of the repo does not need to install gradle
 */
 task wrapper(type: Wrapper, description: "Generates gradle wrapper scripts") {
-  gradleVersion = '1.4'
+  gradleVersion = '1.6'
   jarFile = 'config/gradle/wrapper/gradle-wrapper.jar'
+}
+
+
+task olle << { 
+  glasir.packageManager.allPackages.each { pkg -> 
+    println "$pkg"
+  }
 }

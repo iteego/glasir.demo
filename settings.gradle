@@ -8,29 +8,47 @@ buildscript {
   }
   
   dependencies {
-    classpath "com.iteego.glasir:glasir.build:1.2.18-SNAPSHOT"
-    classpath "org.jfrog.buildinfo:build-info-extractor-gradle:2.0.12"
+    classpath "com.iteego.glasir:glasir.build:1.2.20-SNAPSHOT"
+    classpath "org.jfrog.buildinfo:build-info-extractor-gradle:2.0.17"
   }
 
-  configurations.classpath.resolutionStrategy.cacheChangingModulesFor 0, 'hours'    
-  configurations.classpath.each { file -> settings.classLoader.addURL(file.toURI().toURL()) }
+  //configurations.classpath.resolutionStrategy.cacheChangingModulesFor 0, 'hours'    
+  //configurations.classpath.each { file -> settings.classLoader.addURL(file.toURI().toURL()) }
 }
 
+gradle.allprojects { 
+  buildscript { 
+    repositories {
+      maven {
+        credentials.username artifactoryReader
+        credentials.password artifactoryReaderPwd
+        url "$artifactoryReaderUrl/glasir"
+      }
+    }
+    
+    dependencies {
+      classpath "com.iteego.glasir:glasir.build:1.2.20-SNAPSHOT"
+      classpath "org.jfrog.buildinfo:build-info-extractor-gradle:2.0.17"
+    }
+
+  }
+}
+
+//apply plugin: 'glasir.build'
+
 new glasir.Build(this).with {
+//glasir {
   setup {
     rootProjectName "glasir.commerce"
     cachePackagesFor 2, "minutes"
+
     dependencies {
       glasirpackage("com.iteego.glasir.pkg:atg-platform-10.2:1.0.2")
       glasirpackage("com.iteego.glasir.pkg:atg-crs-10.2:1.0.0")
       glasirpackage("com.iteego.glasir.pkg:atg-initializer-10.2:1.0.4")
+
       glasirpackage("com.iteego.glasir.pkg:endeca-mdex-engine-6.4.1:1.0.1")
 
-//      glasirpackage("com.iteego.glasir.pkg:atg-platform-10.1.1:1.0.1")
-//      glasirpackage("com.iteego.glasir.pkg:atg-crs-10.1.1:1.0.1")
-//      glasirpackage("com.iteego.glasir.pkg:atg-initializer-10.1.1:1.0.4")
-
-//      glasirpackage("com.iteego.glasir.pkg:jboss-eap-5.1.2:1.0.1")
       glasirpackage("com.iteego.glasir.pkg:jboss-eap-5.1.2:1.0.1")
       glasirpackage("com.iteego.glasir.pkg:glasir.db:1.1.4-SNAPSHOT")
     }
