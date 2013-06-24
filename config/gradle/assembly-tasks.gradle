@@ -158,6 +158,10 @@ task cleanAll(
 
 task createEndecaCrsApp {
   description = "Run Endeca's deploy script to create an Endeca application using default settings for glasir.demo." 
+
+  outputs.upToDateWhen {
+    file("$rootDir/endeca/CRS").exists()
+  }
 }
 
 createEndecaCrsApp << {
