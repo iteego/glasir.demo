@@ -156,30 +156,65 @@ task cleanAll(
 
 
 
-task createEndecaCrsApp( 
-  description:"Run Endeca's deploy script to create an Endeca application using default settings for glasir.demo." ) <<
-{
-  String executableName = "createDefaultCrsApp.sh"
-  if( onWindows ) {
-    executableName = "createDefaultCrsApp.bat"
-  }   
+task createEndecaCrsApp {
+  description = "Run Endeca's deploy script to create an Endeca application using default settings for glasir.demo." 
+}
 
-  File workDir = new File( rootDir, "servers/DevStore/endeca" )
+createEndecaCrsApp << {
+  // We want to run this file with certain arguments in a certain environment:
+  //$ENDECA_ROOT/../../ToolsAndFrameworks/3.1.2/deployment_template/bin/deploy.sh
+  String executableName = "deploy.sh"
+
   File endecaRoot = new File( endecaDir, "endeca/PlatformServices/6.1.3" )
   File endecaConf = new File( endecaDir, "endeca/PlatformServices/workspace" )
-  File appRoot = new File( endecaDir, "apps" )
+  File toolsDir = new File( endecaDir, "endeca/ToolsAndFrameworks/3.1.2" )
+  File toolsBinDir = new File( toolsDir, "deployment_template/bin" )
+  File appRoot = new File( rootDir, "endeca" )
   ant.mkdir( dir:appRoot )
 
-  //File silentInput = new File( workDir, "defaultCrsAppSettings.txt" )
+
+  // Create the input file, defining the Endeca application.
   File silentInput = File.createTempFile("temp","crs")
   def s = System.properties["line.separator"]
-  silentInput.write "y${s}CRS${s}${appRoot}${s}8888${s}8006${s}15000${s}15002${s}15010${s}"
+  def appName = "CRS"
+  silentInput.write "y${s}${appName}${s}${appRoot}${s}8888${s}8006${s}15000${s}15002${s}15010${s}"
+
+
+  // Log some values to help with problems.
   println "silent input name: $silentInput"
   println "silent input text: ${silentInput.text}"
+  println "toolsBinDir      : $toolsBinDir"
+  println "executable       : $executableName"
+  println "endecaRoot       : $endecaRoot"
+  println "endecaConf       : $endecaConf"
 
-  ant.exec( executable:executableName, dir:workDir, input:silentInput, resolveexecutable:true ) {
+
+  // Set up the environment
+  def environment = System.getenv()
+  def ENDECA_ROOT = endecaRoot
+
+  def PERLLIB = environment['PERLLIB']
+  PERLLIB = "$ENDECA_ROOT/lib/perl:$ENDECA_ROOT/lib/perl/Control:$ENDECA_ROOT/perl/lib:$ENDECA_ROOT/perl/lib/site_perl:$PERLLIB"
+
+  def PERL5LIB = environment['PERL5LIB']
+  PERL5LIB = "$ENDECA_ROOT/lib/perl:$ENDECA_ROOT/lib/perl/Control:$ENDECA_ROOT/perl/lib:$ENDECA_ROOT/perl/lib/site_perl"
+  if(environment['PERL5LIB']) { PERL5LIB += ":" + environment['PERL5LIB'] }
+
+  def PATH = environment['PATH']
+  PATH="$ENDECA_ROOT/bin:$ENDECA_ROOT/perl/bin:$ENDECA_ROOT/utilities:$PATH"
+
+  println "perllib  : $PERLLIB"
+  println "perl5lib : $PERL5LIB"
+  println "path : $PATH"
+
+
+  // Run the deployment script.
+  ant.exec( executable:executableName, dir:toolsBinDir, input:silentInput, resolveexecutable:true ) {
     env( key:"ENDECA_ROOT", file:endecaRoot )
     env( key:"ENDECA_CONF", file:endecaConf )
+    env( key:"PERLLIB", value:PERLLIB )
+    env( key:"PERL5LIB", value:PERL5LIB )
+    env( key:"PATH", value:PATH )
   }
 }
 
