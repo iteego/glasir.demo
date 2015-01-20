@@ -53,6 +53,43 @@ task startDevStore(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
     }
 }
 
+task startDevStoreAsync(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
+    jBossHome     jBossRoot
+    serverName    storeServerName
+    modules       moduleWithFlavors("env.Main.store.dev")
+    glasirDevMode true
+    async         true
+
+    doFirst {
+        println "Starting dev store node with modules: ${modules}"
+    }
+}
+
+
+task ensureJBossStarted(type: Tail, dependsOn: startDevStoreAsync) {   
+  doFirst { 
+    println "JBoss spawned in a separate process, tailing log..."
+    println ""
+  }
+  
+  file "$jBossRoot/server/$storeServerName/log/server.log"
+  timeoutMillis     120000
+  failOn            regex: ".*writing desk.*", postFireTailPeriod: '1000 milliseconds'
+  succeedOn         regex: 'JBoss.*Started in .*'
+  tailFromFileStart false
+
+  doLast { 
+    println ""
+    println "JBoss tailer stopped, continuing..."
+  }  
+}
+
+task cycleJBoss(type: StopJBossInstance, dependsOn: [ensureJBossStarted]) {
+  jBossHome  jBossRoot
+  serverName storeServerName
+  hostName   "localhost"
+}
+
 task startDevStoreTarget(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
     jBossHome     jBossRoot
     serverName    storeServerName
