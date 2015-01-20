@@ -1,4 +1,11 @@
 import com.iteego.glasir.build.api.tasks.*
+import com.iteego.glasir.util.Chronograph
+
+buildscript { 
+  repositories             RepositoryConfigurator
+  dependencies             DependencyConfigurator
+  configurations.classpath ResolutionConfigurator
+}
 
 /*
 Starts a h2 instance in the gradle java process. It starts the instance 
@@ -14,9 +21,6 @@ as in:
 
 jdbc:h2:tcp://localhost/glasir_pub
 */
-import com.iteego.glasir.util.Chronograph
-
-
 task startDatabase(type: H2) {
   baseDir databaseDir
   tcpAllowOthers true

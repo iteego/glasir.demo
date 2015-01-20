@@ -1,21 +1,19 @@
 import com.iteego.glasir.build.tasks.*
 import com.iteego.glasir.build.api.tasks.*
 
-repositories {
-  maven {
-    credentials.username artifactoryReader
-    credentials.password artifactoryReaderPwd
-    url "$artifactoryReaderUrl/glasir"
-  }
+buildscript { 
+  repositories             RepositoryConfigurator
+  dependencies             DependencyConfigurator
+  configurations.classpath ResolutionConfigurator
 }
 
-configurations.add('entityresolver') 
+configurations.create('entityresolver') 
 dependencies { 
   entityresolver 'com.iteego.glasir:glasir.entityresolver:1.0'
 }
 
 String getAllEnvironmentModules() {
-  glasir.modules.collect { it.name }.findAll { it.startsWith('env.') || it == 'env' }.sort().join(" ")
+  glasir.model.modules.collect { it.name }.findAll { it.startsWith('env.') || it == 'env' }.sort().join(" ")
 }
 
 task atgCoreSqlInstallationOrder << {
@@ -27,7 +25,7 @@ task assembleReleaseEar(type: AtgAssemblerTask, description: "Runs a build and a
   dependsOn "build", "syncAtgServers"
   //dependsOn "build"
 
-  modules = allEnvironmentModules
+  modules = getAllEnvironmentModules()
   outputFile = bigEar
   standalone = true
   liveConfig = true
@@ -160,6 +158,41 @@ task devDeploy {
   description = "Compile, test, assemble, and deploys the dev ear to jboss"  
   dependsOn = [assembleDevEar, syncStore, syncAdmin, syncAtgServers]
   //dependsOn = [assembleDevEar, syncStore, syncAdmin, syncAtgServers]
+
+  doLast { 
+    if (!onWindows) {
+      def mainAppDir = new File("${rootDir}/glasir-app")
+
+      // Link all top-level application modules from source tree
+      def destinationDir = "$jBossRoot/server/${storeServerName}/deploy/${bigEarName}/atg_bootstrap.war/WEB-INF/ATG-INF"
+      glasir.model.topModules.each {
+        println "TOP!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+        def linkName = "${destinationDir}/${it.name}"
+        glasir.deleteDir(linkName)
+        ant.symlink( link: linkName, resource: it.dir, overwrite: true)
+      }
+
+      // Link all war webapp folders from source tree
+      destinationDir = "$jBossRoot/server/${storeServerName}/deploy/${bigEarName}"
+      glasir.model.webModules.findAll { !it.isAtgCore }.each { m ->        
+        def linkName = "$destinationDir/${m.dir.name}"
+        glasir.deleteDir(linkName)
+        println "Creating link ${rootProject.relativePath(linkName)} -> ${rootProject.relativePath(m.dir)}"
+        ant.symlink( link: linkName, resource: m.dir, overwrite: true)
+      }
+
+      // Copy all atg server directories from source tree
+      // note that we cannot use symbolic linking for the atg servers
+      // because when the nodes start up, they clobber those directories with ample run-time data
+      // meaning we would get lots of runtime files into the source tree if we were to symlink instead of copy
+      copy {
+        from file("${rootDir}/config/atg")
+        into file("$jBossRoot/ATG-Data/servers")
+      }
+    }
+
+  }
+
 }
 
 def atgServers() {
@@ -170,40 +203,6 @@ def atgServers() {
   servers
 }
 
-devDeploy << {
-
-  if (!onWindows) {
-    def mainAppDir = new File("${rootDir}/glasir-app")
-
-    // Link all top-level application modules from source tree
-    def destinationDir = "$jBossRoot/server/${storeServerName}/deploy/${bigEarName}/atg_bootstrap.war/WEB-INF/ATG-INF"
-    glasir.topModules.each {
-      def linkName = "${destinationDir}/${it.name}"
-      glasir.deleteDir(linkName)
-      ant.symlink( link: linkName, resource: it.dir, overwrite: true)
-    }
-
-    // Link all war webapp folders from source tree
-    destinationDir = "$jBossRoot/server/${storeServerName}/deploy/${bigEarName}"
-    glasir.webModules.each { m ->
-      m.manifest.atgWebModuleAsList.each {
-        File moduleDir = file("${m.dir}/${it}")
-        def linkName="$destinationDir/${moduleDir.name}"
-        glasir.deleteDir(linkName)
-        ant.symlink( link: linkName, resource: moduleDir, overwrite: true)
-      }
-    }
-
-    // Copy all atg server directories from source tree
-    // note that we cannot use symbolic linking for the atg servers
-    // because when the nodes start up, they clobber those directories with ample run-time data
-    // meaning we would get lots of runtime files into the source tree if we were to symlink instead of copy
-    copy {
-      from file("${rootDir}/config/atg")
-      into file("$jBossRoot/ATG-Data/servers")
-    }
-  }
-}
 
 task cleanLocalDatabase(dependsOn: ['clean']) << {
   description = "Cleans out the local database, if any"
