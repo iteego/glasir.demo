@@ -79,7 +79,7 @@ allprojects {
       systemProperty "geb.env", driver
       
       //TODO: Externalize the below host/port configuration somehow
-      //systemProperty "geb.build.baseUrl", 'http://localhost:10080'
+      systemProperty "geb.build.baseUrl", 'http://localhost:10080'
       
       ext.reportLocationLogged = false
       afterTest { 
