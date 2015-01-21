@@ -63,11 +63,6 @@ glasir.model.topModules.each {
   println "top :> $it"
 }
 
-glasir.model.webModules.each { 
-  println "web :> $it"
-}
-
-
 apply from: "config/gradle/include/sub-projects.gradle"
 apply from: "config/gradle/include/assembly-tasks.gradle"
 apply from: "config/gradle/include/jboss-tasks.gradle"
