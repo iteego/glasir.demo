@@ -66,7 +66,7 @@ task startDevStoreAsync(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {
 }
 
 
-task ensureJBossStarted(type: Tail, dependsOn: startDevStoreAsync) {   
+task ensureStoreJBossStarted(type: Tail, dependsOn: startDevStoreAsync) {   
   doFirst { 
     println "JBoss spawned in a separate process, tailing log..."
     println ""
@@ -75,19 +75,46 @@ task ensureJBossStarted(type: Tail, dependsOn: startDevStoreAsync) {
   file "$jBossRoot/server/$storeServerName/log/server.log"
   timeoutMillis     120000
   failOn            regex: ".*writing desk.*", postFireTailPeriod: '1000 milliseconds'
-  succeedOn         regex: 'JBoss.*Started in .*'
+  succeedOn         regex: 'JBoss.*Started in .*', postFireTailPeriod: '300 milliseconds'
   tailFromFileStart false
 
   doLast { 
     println ""
-    println "JBoss tailer stopped, continuing..."
   }  
 }
 
-task cycleJBoss(type: StopJBossInstance, dependsOn: [ensureJBossStarted]) {
-  jBossHome  jBossRoot
-  serverName storeServerName
-  hostName   "localhost"
+project(":Main:Storefront").htmlunitTest.mustRunAfter ensureStoreJBossStarted
+
+project(":Main:Storefront").htmlunitTest.doFirst { 
+  println ""
+  println "> Executing functional geb tests"
+}
+
+project(":Main:Storefront").htmlunitTest.doLast { 
+  println "> Functional test execution completed"
+  println ""
+}
+
+task signalStoreJBossToStop(type: StopJBossInstance, dependsOn: [ensureStoreJBossStarted, project(":Main:Storefront").htmlunitTest]) {
+  doFirst { println "" }
+  
+  jBossHome jBossRoot
+  hostName  "0.0.0.0"
+  jnpPort   3099
+  username  "admin"
+  password  "admin"
+
+  doLast { println "" }
+}
+
+task ensureStoreJBossStopped(type: Tail, dependsOn: signalStoreJBossToStop) {     
+  file "$jBossRoot/server/$storeServerName/log/server.log"
+  timeoutMillis     30000
+  succeedOn         regex: '.*Shutdown complete', postFireTailPeriod: '300 milliseconds'
+  tailFromFileStart false
+}
+
+task executeFunctionalTests(dependsOn: [ensureStoreJBossStopped]) {
 }
 
 task startDevStoreTarget(type: RunAtgOnJBoss, dependsOn: [startDatabase]) {

@@ -1,6 +1,3 @@
-import com.iteego.glasir.build.api.internal.*
-import com.iteego.glasir.build.api.*
-
 buildscript {
   ext.SettingsRepositoryConfigurator = {
     maven {
@@ -52,5 +49,5 @@ gradle.rootProject {
 }
 
 gradle.allprojects {
-  repositories RepositoryConfigurator
+  repositories SettingsRepositoryConfigurator
 }
