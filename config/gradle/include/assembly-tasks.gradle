@@ -166,7 +166,6 @@ task devDeploy {
       // Link all top-level application modules from source tree
       def destinationDir = "$jBossRoot/server/${storeServerName}/deploy/${bigEarName}/atg_bootstrap.war/WEB-INF/ATG-INF"
       glasir.model.topModules.each {
-        println "TOP!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
         def linkName = "${destinationDir}/${it.name}"
         glasir.deleteDir(linkName)
         ant.symlink( link: linkName, resource: it.dir, overwrite: true)
