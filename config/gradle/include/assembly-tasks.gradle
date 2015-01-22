@@ -188,6 +188,12 @@ task devDeploy {
         from file("${rootDir}/config/atg")
         into file("$jBossRoot/ATG-Data/servers")
       }
+
+      def dynamoEnv = file("${bigEar}/atg_bootstrap.war/WEB-INF/ATG-INF/dynamo.env")
+      dynamoEnv.text = dynamoEnv.text.readLines().collect { line ->
+        line.startsWith('atg.dynamo.server.home') ? "atg.dynamo.server.home=${atgRoot}/home"
+                                                  : line
+      }.join("\n")
     }
 
   }
