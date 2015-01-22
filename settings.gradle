@@ -62,3 +62,4 @@ new glasir.Build(this).with {
                   excludes: ["**/*.war/", "Main/Data/db/", "Main/Data/import/", "**/build/", "**/config/", "**/src/", "**/lib/"]
   }
 }
+
