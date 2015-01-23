@@ -18,10 +18,4 @@ class CartGebSpec extends GebReportingSpec {
     then: "the correct product should be displayed in the cart widget"
   }  
   
-  @Ignore
-  def "should do something we haven't implemented yet"() {
-  	when: "using a page that doesn't exist yet"
-  	
-  	then: "some condition should be met"
-  }
 }

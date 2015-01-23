@@ -62,7 +62,6 @@ apply plugin: 'glasir.build'
 apply from: "config/gradle/include/sub-projects.gradle"
 apply from: "config/gradle/include/assembly-tasks.gradle"
 apply from: "config/gradle/include/jboss-tasks.gradle"
-apply from: "config/gradle/include/rules.gradle"
 
 //if we are running in the ci server, include some ci tasks
 if (System.env['BUILD_NUMBER']) {

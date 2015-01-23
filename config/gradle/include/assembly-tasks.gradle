@@ -176,7 +176,6 @@ task devDeploy {
       glasir.model.webModules.findAll { !it.isAtgCore }.each { m ->        
         def linkName = "$destinationDir/${m.dir.name}"
         glasir.deleteDir(linkName)
-        println "Creating link ${rootProject.relativePath(linkName)} -> ${rootProject.relativePath(m.dir)}"
         ant.symlink( link: linkName, resource: m.dir, overwrite: true)
       }
 
@@ -188,6 +187,15 @@ task devDeploy {
         from file("${rootDir}/config/atg")
         into file("$jBossRoot/ATG-Data/servers")
       }
+
+      
+      def dynamoEnv = file("${bigEar}/atg_bootstrap.war/WEB-INF/ATG-INF/dynamo.env")
+      dynamoEnv.text = dynamoEnv.text.readLines().collect { line ->
+        line.startsWith('atg.dynamo.server.home') ? "atg.dynamo.server.home=${atgRoot}/home"
+                                                  : line
+      }.join("\n")
+
+      mkdir("${atgRoot}/home/servers/dev-store/localconfig")
     }
 
   }
