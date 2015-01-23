@@ -28,8 +28,8 @@ glasir.settings {
   cachePackagesFor 24, "hours"
 
   dependencies {
-    glasirpackage "com.iteego.glasir.pkg:atg-10.0.2:+"
-    glasirpackage "com.iteego.glasir.pkg:atg-initializer-10.0.2:+"
+    glasirpackage "com.iteego.glasir.pkg:atg-10.0.3:+"
+    glasirpackage "com.iteego.glasir.pkg:atg-initializer-10.0.3:+"
     glasirpackage "com.iteego.glasir.pkg:jboss-eap-5.1.0:1.1.2"
     glasirpackage "com.iteego.glasir.pkg:glasir.db:1.1.4-SNAPSHOT"
   }
