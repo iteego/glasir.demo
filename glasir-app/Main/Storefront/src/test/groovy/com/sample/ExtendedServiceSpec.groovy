@@ -69,8 +69,8 @@ class ExtendedServiceSpec extends Specification {
 
   //Unroll makes it so that every row in the data grid below results in a separate junit test in the resulting
   //report
-  @Unroll("check that firstName=#firstName, lastName=#lastName, zip=#zip, and baseProperty=#baseProperty results in validCustomer=#expectedValidation")
-  def "check firstName, lastName, zip combinations"() {
+  @Unroll
+  def "check that firstName=#firstName, lastName=#lastName, zip=#zip, and baseProperty=#baseProperty results in validCustomer=#expectedValidation"() {
     setup:
       def shopper = new ExtendedService(firstName: firstName, lastName: lastName, zip: zip, baseProperty: baseProperty)
 
