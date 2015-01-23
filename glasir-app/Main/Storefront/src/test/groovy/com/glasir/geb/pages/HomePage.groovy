@@ -8,5 +8,6 @@ class HomePage extends Page {
 
 	static content = {
 	  welcomeMessage { $("li", class: "atg_store_welcomeMessage").text().trim() }
+ 	  loginLink      { $("a",     id: "home_page_login_link") }
 	}
 }

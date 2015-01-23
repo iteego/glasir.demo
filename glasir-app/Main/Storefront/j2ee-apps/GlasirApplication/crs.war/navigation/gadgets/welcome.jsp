@@ -101,7 +101,7 @@
             <span class="atg_store_welcome"><fmt:message key="navigation.welcome"/></span>
           </li>
           <li>
-            <dsp:a page="/myaccount/login.jsp" title="${logoutTitle}">
+            <dsp:a id="home_page_login_link" page="/myaccount/login.jsp" title="${logoutTitle}">
               <fmt:message key="checkout_checkoutProgress.login"/>
               <dsp:param name="loginFromHeader" value="yes"/>
             </dsp:a>
