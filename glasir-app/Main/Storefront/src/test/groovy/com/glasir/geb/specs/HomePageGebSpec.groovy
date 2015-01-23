@@ -9,7 +9,6 @@ import com.glasir.geb.pages.HomePage
 //for a description of BDD, see http://en.wikipedia.org/wiki/Behavior_Driven_Development
 class HomePageGebSpec extends GebReportingSpec {
 
-  @Ignore("NotImplementedYet: business requirement GD-9 - 'Log in' home page link should say 'Sign In'")
   def "should display 'Sign In' for the home page log in link instead of 'Login'"() {
     when:
     to HomePage
