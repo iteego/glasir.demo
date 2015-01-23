@@ -102,8 +102,8 @@
           </li>
           <li>
             <dsp:a id="home_page_login_link" page="/myaccount/login.jsp" title="${logoutTitle}">
-              <fmt:message key="checkout_checkoutProgress.login"/>
-              <dsp:param name="loginFromHeader" value="yes"/>
+                   Sign In
+                   <dsp:param name="loginFromHeader" value="yes"/>
             </dsp:a>
           </li>
           <c:choose>
