@@ -104,7 +104,7 @@
             <dsp:a id="home_page_login_link" page="/myaccount/login.jsp" title="${logoutTitle}">
                    Sign In
                    <dsp:param name="loginFromHeader" value="yes"/>
-            </dsp:a>
+            </dsp:a> 
           </li>
           <c:choose>
             <c:when test="${activeTab == 'customerService'}">
