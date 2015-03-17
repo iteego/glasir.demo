@@ -100,9 +100,9 @@
           <li class="first">
             <span class="atg_store_welcome"><fmt:message key="navigation.welcome"/></span>
           </li>
-          <li>
+          <li> 
             <dsp:a id="home_page_login_link" page="/myaccount/login.jsp" title="${logoutTitle}">
-                   Sign In
+                   Sign InX
                    <dsp:param name="loginFromHeader" value="yes"/>
             </dsp:a> 
           </li>
