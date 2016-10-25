@@ -9,4 +9,4 @@ pipelines:
   default:
     - step:
         script: # Modify the commands below to build your repository.
-          - ./gradlew cleanAll devDeploy
+          - ./gradlew build
